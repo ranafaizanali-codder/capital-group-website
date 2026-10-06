@@ -1,0 +1,627 @@
+{% extends "base.html" %}
+
+{% block title %}
+Additive Manufacturing Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL ENGINEERING — 3D PAINTING / ADDITIVE MANUFACTURING
+   ========================================================= */
+
+.am-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.am-hero {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.96) 0%,
+            rgba(6, 29, 45, 0.88) 42%,
+            rgba(6, 29, 45, 0.48) 72%,
+            rgba(6, 29, 45, 0.28) 100%
+        ),
+       url("https://images.pexels.com/photos/12268465/pexels-photo-12268465.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center / cover no-repeat;
+}
+
+.am-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 78% 45%,
+            rgba(198, 155, 50, 0.15),
+            transparent 30%
+        );
+
+    pointer-events: none;
+}
+
+.am-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1200px, 92%);
+    margin: 0 auto;
+
+    padding: 80px 0;
+}
+
+.am-division {
+    margin: 0 0 18px;
+
+    color: #d2a43b;
+
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.am-hero h1 {
+    max-width: 900px;
+
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.am-hero h1 span {
+    display: block;
+    color: #d2a43b;
+}
+
+.am-hero-description {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 1.08rem;
+    line-height: 1.85;
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.am-content {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+
+    padding: 70px 0 90px;
+}
+
+.am-intro {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.am-intro h2 {
+    margin: 0 0 16px;
+
+    color: #12384f;
+
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2;
+}
+
+.am-intro h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 3px;
+
+    margin: 18px auto 0;
+
+    background: #c69b32;
+}
+
+.am-intro p {
+    margin: 20px 0 0;
+
+    color: #526875;
+
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   TWO PRINTING CARDS
+   ========================================================= */
+
+.am-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+.am-card-link {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+
+    height: 100%;
+}
+
+.am-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 34px 32px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(18, 56, 79, 0.10);
+    border-top: 4px solid #c69b32;
+
+    box-shadow: 0 15px 40px rgba(6, 29, 45, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.am-card-link:hover .am-card,
+.am-card-link:focus-visible .am-card {
+    transform: translateY(-7px);
+
+    box-shadow: 0 22px 50px rgba(6, 29, 45, 0.15);
+
+    border-color: rgba(198, 155, 50, 0.55);
+}
+
+.am-card:focus-within {
+    outline: 3px solid rgba(198, 155, 50, 0.35);
+    outline-offset: 4px;
+}
+
+.am-card-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 18px;
+
+    background: #061d2d;
+    color: #d2a43b;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.am-card h3 {
+    margin: 0 0 25px;
+
+    color: #12384f;
+
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    line-height: 1.25;
+}
+
+.am-card-list {
+    margin: 0;
+    padding-left: 22px;
+
+    color: #425967;
+}
+
+.am-card-list li {
+    margin-bottom: 15px;
+
+    padding-left: 5px;
+
+    font-size: 0.96rem;
+    line-height: 1.65;
+}
+
+.am-card-list li::marker {
+    color: #c69b32;
+    font-weight: 700;
+}
+
+.am-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 28px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(18, 56, 79, 0.10);
+
+    color: #12384f;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.am-card-arrow {
+    color: #c69b32;
+    font-size: 1.3rem;
+}
+
+/* =========================================================
+   BOTTOM CTA
+   ========================================================= */
+
+.am-cta {
+    margin-top: 60px;
+    padding: 42px 45px;
+
+    background: #061d2d;
+
+    text-align: center;
+}
+
+.am-cta h2 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.am-cta p {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    line-height: 1.7;
+}
+
+.am-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 25px;
+    padding: 13px 25px;
+
+    background: #c69b32;
+    color: #061d2d;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.am-cta-button:hover,
+.am-cta-button:focus-visible {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .am-hero {
+        min-height: 460px;
+    }
+
+    .am-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .am-card {
+        padding: 30px 26px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .am-hero-content {
+        padding: 65px 0;
+    }
+
+    .am-hero-description {
+        font-size: 0.98rem;
+    }
+
+    .am-content {
+        padding: 55px 0 70px;
+    }
+
+    .am-cta {
+        padding: 32px 22px;
+    }
+
+}
+</style>
+
+
+<div class="am-page">
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="am-hero">
+
+        <div class="am-hero-content">
+
+            <p class="am-division">
+                Additive Manufacturing Division
+            </p>
+
+            <h1>
+                Precision Manufacturing Solutions
+                <span>par Excellence</span>
+            </h1>
+
+            <p class="am-hero-description">
+                CECs additive manufacturing division offers a complete
+                range of 3D metal and plastic printing for normal
+                commercial/industrial applications to agriculture,
+                environment, sports and other industries.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRINTING TECHNOLOGIES
+         ===================================================== -->
+
+    <main class="am-content">
+
+        <div class="am-intro">
+
+            <h2>
+                Our state of the art printers, fleet is comprising of:
+            </h2>
+
+            <p>
+                Advanced additive manufacturing technologies for
+                diverse industrial, commercial and specialized
+                applications.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             TWO FUTURE-LINK CARDS
+             ================================================= -->
+
+        <div class="am-cards">
+
+
+            <!-- =================================================
+                 PLASTIC & RESIN
+                 ================================================= -->
+
+            <a
+               href="/companies/engineering/mechanical/3d-printing/plastic-resin"
+                class="am-card-link"
+                aria-label="Plastic and Resin Based Printing"
+            >
+
+                <article class="am-card">
+
+                    <div class="am-card-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Plastic and Resin Based Printing
+                    </h3>
+
+                    <ul class="am-card-list">
+
+                        <li>
+                            FDM printers with ABS, PLA, Nylon, PEEK
+                            materials to make products of build size
+                            from one cubic inch to one meter.
+                        </li>
+
+                        <li>
+                            SLA printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            SLS printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            MJF/PolyJet printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            LOM printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            Ceramic printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            Wax printing with metal powder as above.
+                        </li>
+
+                        <li>
+                            Bioprinting with metal powder as above.
+                        </li>
+
+                        <li>
+                            Glass printing with metal powder as above.
+                        </li>
+
+                        <li>
+                            VPP printer with metal powder as above.
+                        </li>
+
+                    </ul>
+
+                    <div class="am-card-footer">
+                        <span>Explore Technology</span>
+                        <span class="am-card-arrow" aria-hidden="true">
+                            →
+                        </span>
+                    </div>
+
+                </article>
+
+            </a>
+
+
+            <!-- =================================================
+                 METAL
+                 ================================================= -->
+
+            <a
+                href="/companies/engineering/mechanical/3d-printing/metal"
+                class="am-card-link"
+                aria-label="Metal Based Printing"
+            >
+
+                <article class="am-card">
+
+                    <div class="am-card-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Metal Based Printing
+                    </h3>
+
+                    <ul class="am-card-list">
+
+                        <li>
+                            SLM printing with steel, Aluminium,
+                            titanium and super alloys.
+                        </li>
+
+                        <li>
+                            SLS printer with metal printer as above.
+                        </li>
+
+                        <li>
+                            WAAM printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            Binder Jetting printer with metal powder
+                            as above.
+                        </li>
+
+                        <li>
+                            DMLS printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            EBM printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            DED printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            UAM printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            MEM printer with metal powder as above.
+                        </li>
+
+                        <li>
+                            MEX — build sizes from one inch to one meter
+                            for plastic and metal printers.
+                        </li>
+
+                    </ul>
+
+                    <div class="am-card-footer">
+                        <span>Explore Technology</span>
+                        <span class="am-card-arrow" aria-hidden="true">
+                            →
+                        </span>
+                    </div>
+
+                </article>
+
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             CTA
+             ================================================= -->
+
+        <section class="am-cta">
+
+            <h2>
+                Advanced Additive Manufacturing
+            </h2>
+
+            <p>
+                Explore advanced manufacturing solutions designed
+                for demanding industrial and specialized applications.
+            </p>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="am-cta-button"
+            >
+                Request a Requirement
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+{% endblock %}

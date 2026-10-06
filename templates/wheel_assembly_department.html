@@ -1,0 +1,497 @@
+{% extends "base.html" %}
+
+{% block title %}CC Wheel Assembly Division | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .wheel-page {
+        background: #f5f7f8;
+        color: #12384f;
+        overflow: hidden;
+    }
+
+    /* ================= HERO ================= */
+
+    .wheel-hero {
+        position: relative;
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: #061d2d;
+    }
+
+    .wheel-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,0.94) 0%,
+                rgba(6,29,45,0.78) 42%,
+                rgba(6,29,45,0.30) 100%
+            ),
+            url("https://fleetfactors.marketing/fleetfactors.co.uk/static/img/cv-brake-disc-01.jpg");
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.02);
+    }
+
+    .wheel-hero-content {
+        position: relative;
+        z-index: 2;
+        width: min(1180px, 88%);
+        margin: 0 auto;
+        padding: 100px 0;
+    }
+
+    .wheel-label {
+        display: inline-block;
+        margin-bottom: 18px;
+        padding: 9px 18px;
+        border-left: 4px solid #c69b32;
+        background: rgba(6,29,45,0.72);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+    }
+
+    .wheel-hero h1 {
+        max-width: 850px;
+        margin: 0 0 22px;
+        color: #ffffff;
+        font-size: clamp(38px, 5vw, 64px);
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
+
+    .wheel-hero-description {
+        max-width: 820px;
+        margin: 0;
+        color: rgba(255,255,255,0.90);
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    /* ================= CONTENT ================= */
+
+    .wheel-content {
+        width: min(1200px, 88%);
+        margin: 0 auto;
+        padding: 90px 0 70px;
+    }
+
+    .wheel-intro {
+        max-width: 850px;
+        margin-bottom: 75px;
+    }
+
+    .wheel-intro h2 {
+        margin: 0 0 14px;
+        color: #061d2d;
+        font-size: 34px;
+        font-weight: 800;
+    }
+
+    .wheel-intro p {
+        margin: 0;
+        color: #5b6d77;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    /* ================= FEATURE ROWS ================= */
+
+    .wheel-feature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 65px;
+        margin-bottom: 95px;
+    }
+
+    .wheel-feature.reverse {
+        direction: rtl;
+    }
+
+    .wheel-feature.reverse .wheel-text {
+        direction: ltr;
+    }
+
+    .wheel-image {
+        position: relative;
+        height: 390px;
+        overflow: hidden;
+        border-radius: 4px;
+        box-shadow: 0 18px 45px rgba(6,29,45,0.14);
+        background: #dfe5e8;
+    }
+
+    .wheel-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(198,155,50,0.30);
+        pointer-events: none;
+    }
+
+    .wheel-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .wheel-image:hover img {
+        transform: scale(1.04);
+    }
+
+    .wheel-text {
+        padding: 10px 0;
+    }
+
+    .wheel-number {
+        display: block;
+        margin-bottom: 10px;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+
+    .wheel-text h3 {
+        margin: 0 0 15px;
+        color: #061d2d;
+        font-size: 32px;
+        font-weight: 800;
+    }
+
+    .wheel-text p {
+        max-width: 570px;
+        margin: 0;
+        color: #526873;
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    /* ================= BOTTOM ================= */
+
+    .wheel-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        padding: 25px 0 20px;
+        border-top: 1px solid rgba(18,56,79,0.12);
+    }
+
+    .wheel-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 190px;
+        padding: 14px 24px;
+        border: 1px solid #12384f;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        transition: all 0.25s ease;
+    }
+
+    .wheel-back {
+        background: transparent;
+        color: #12384f;
+    }
+
+    .wheel-back:hover {
+        background: #12384f;
+        color: #ffffff;
+    }
+
+    .wheel-request {
+        background: #12384f;
+        color: #ffffff;
+    }
+
+    .wheel-request:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+        color: #ffffff;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 850px) {
+
+        .wheel-hero {
+            min-height: 500px;
+        }
+
+        .wheel-hero-content {
+            padding: 80px 0;
+        }
+
+        .wheel-feature,
+        .wheel-feature.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            gap: 35px;
+            margin-bottom: 70px;
+        }
+
+        .wheel-feature.reverse .wheel-text {
+            direction: ltr;
+        }
+
+        .wheel-image {
+            height: 320px;
+        }
+
+        .wheel-text h3 {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 550px) {
+
+        .wheel-content {
+            width: 90%;
+            padding-top: 65px;
+        }
+
+        .wheel-image {
+            height: 260px;
+        }
+
+        .wheel-hero-description {
+            font-size: 15px;
+        }
+
+        .wheel-button {
+            width: 100%;
+        }
+    }
+</style>
+
+
+<div class="wheel-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="wheel-hero">
+
+        <div class="wheel-hero-bg"></div>
+
+        <div class="wheel-hero-content">
+
+            <div class="wheel-label">
+                {{ _("WHEEL ASSEMBLY DIVISION") }}
+            </div>
+
+            <h1>
+                {{ _("Precision Manufacturing Solutions par Excellence") }}
+            </h1>
+
+            <p class="wheel-hero-description">
+                {{ _("CECs Wheel Assembly Division specializes in precision-engineered wheel-end components and assemblies for automotive applications. Our capabilities focus on accurate fit, reliable rotation, braking performance and durable interfaces across critical wheel systems.") }}
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="wheel-content">
+
+        <div class="wheel-intro">
+            <h2>{{ _("Wheel Assembly Capabilities") }}</h2>
+
+            <p>
+                {{ _("Precision manufacturing and assembly solutions for automotive wheel-end systems and critical components.") }}
+            </p>
+        </div>
+
+
+        <!-- ================= 01 WHEEL COMPONENTS ================= -->
+
+        <div class="wheel-feature">
+
+            <div class="wheel-text">
+
+                <span class="wheel-number">01</span>
+
+                <h3>
+                    {{ _("Wheel Components") }}
+                </h3>
+
+                <p>
+                    {{ _("CECs Wheel Assembly Division manufactures precision wheel-end components designed for accurate mounting, dimensional consistency and dependable operation. Each component is engineered for demanding automotive applications.") }}
+                </p>
+
+            </div>
+
+            <div class="wheel-image">
+
+                <img
+                   src="https://www.schaeffler.com/remotemedien/media/_shared_media/05_products_services/automotive_1/chassis_3/wheel_bearings_1/134402_aaa_rgb.jpg"
+                    alt="Automotive wheel hub bearing component"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 02 HUBS ================= -->
+
+        <div class="wheel-feature reverse">
+
+            <div class="wheel-text">
+
+                <span class="wheel-number">02</span>
+
+                <h3>
+                    {{ _("Hubs") }}
+                </h3>
+
+                <p>
+                    {{ _("Precision wheel hubs provide secure wheel mounting and controlled rotational support. Our focus includes accurate machining, bearing integration and reliable interfaces for modern automotive wheel systems.") }}
+                </p>
+
+            </div>
+
+            <div class="wheel-image">
+
+                <img
+                    src="https://irp.cdn-website.com/49a304fb/dms3rep/multi/transmission_service.png"
+                    alt="Precision automotive hub and mechanical assembly"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 03 BRAKING ================= -->
+
+        <div class="wheel-feature">
+
+            <div class="wheel-text">
+
+                <span class="wheel-number">03</span>
+
+                <h3>
+                    {{ _("Braking") }}
+                </h3>
+
+                <p>
+                    {{ _("Our wheel-end solutions support precision braking components including discs, hubs and related interfaces. Manufacturing accuracy helps maintain proper alignment, consistent contact and dependable braking performance.") }}
+                </p>
+
+            </div>
+
+            <div class="wheel-image">
+
+                <img
+                    src="https://www.carkeys.co.uk/media/1494/brakes_disc_drum_guide_3.jpg"
+                    alt="Automotive disc brake and wheel hub assembly"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 04 INTERFACES ================= -->
+
+        <div class="wheel-feature reverse">
+
+            <div class="wheel-text">
+
+                <span class="wheel-number">04</span>
+
+                <h3>
+                    {{ _("Interfaces") }}
+                </h3>
+
+                <p>
+                    {{ _("Wheel-end interfaces connect hubs, drive shafts, steering and suspension components with controlled geometry and fit. Our engineering approach supports accurate connections and reliable movement throughout the assembly.") }}
+                </p>
+
+            </div>
+
+            <div class="wheel-image">
+
+                <img
+                    src="https://cdn02.plentymarkets.com/eqb020jpkda1/item/images/237421/full/237421-P1470080-Achsschenkel-vorn-rechts-VW-Golf-VIII-Typ-CD--2019--.jpg"
+                    alt="Automotive CV axle and wheel interface"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 05 ASSEMBLIES ================= -->
+
+        <div class="wheel-feature">
+
+            <div class="wheel-text">
+
+                <span class="wheel-number">05</span>
+
+                <h3>
+                    {{ _("Assemblies") }}
+                </h3>
+
+                <p>
+                    {{ _("Our precision assembly capabilities integrate hubs, bearings, braking components and related parts into reliable wheel-end systems. Controlled assembly processes help achieve consistent fit, alignment and manufacturing quality.") }}
+                </p>
+
+            </div>
+
+            <div class="wheel-image">
+
+                <img
+                    src="https://static.wixstatic.com/media/9988e4_4da7e13db8c94b43a362540c6550502e~mv2.jpg/v1/fill/w_1000%2Ch_664%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/9988e4_4da7e13db8c94b43a362540c6550502e~mv2.jpg"
+                    alt="Automotive wheel assembly and suspension components"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= BUTTONS ================= -->
+
+        <div class="wheel-actions">
+
+            <a
+                href="{{ url_for('automobile') }}"
+                class="wheel-button wheel-back"
+            >
+                {{ _("Go Back") }}
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="wheel-button wheel-request"
+            >
+                {{ _("Request for Requirement") }}
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

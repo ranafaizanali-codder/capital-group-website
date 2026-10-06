@@ -1,0 +1,445 @@
+{% extends "base.html" %}
+
+{% block title %}Sausage Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.sausage-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.sausage-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.78),rgba(6,29,45,.78)),
+        url("https://images.pexels.com/photos/5627474/pexels-photo-5627474.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.sausage-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.sausage-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.sausage-hero h1{
+    max-width:900px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.sausage-description{
+    max-width:760px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.sausage-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.sausage-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.sausage-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.sausage-sections{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 100px;
+}
+
+.sausage-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:460px;
+    align-items:center;
+    gap:70px;
+    margin-bottom:90px;
+}
+
+.sausage-section:nth-child(even){
+    direction:rtl;
+}
+
+.sausage-section:nth-child(even) .sausage-content{
+    direction:ltr;
+}
+
+.sausage-image{
+    min-height:430px;
+    border-radius:4px;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.sausage-image-1{
+    background-image:url("https://images.pexels.com/photos/5627474/pexels-photo-5627474.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.sausage-image-2{
+    background-image:url("https://images.pexels.com/photos/5627443/pexels-photo-5627443.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.sausage-image-3{
+    background-image:url("https://images.pexels.com/photos/8480760/pexels-photo-8480760.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.sausage-image-4{
+    background-image:url("https://images.pexels.com/photos/7175710/pexels-photo-7175710.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.sausage-image-5{
+    background-image:url("https://images.pexels.com/photos/14457754/pexels-photo-14457754.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.sausage-image-6{
+    background-image:url("https://images.pexels.com/photos/34003523/pexels-photo-34003523.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.sausage-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.sausage-content h3{
+    color:#12384f;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 20px;
+}
+
+.sausage-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    max-width:500px;
+}
+
+.sausage-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.sausage-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.sausage-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.sausage-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.sausage-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.sausage-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.sausage-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+
+    .sausage-hero{
+        min-height:620px;
+    }
+
+    .sausage-section{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .sausage-section:nth-child(even){
+        direction:ltr;
+    }
+
+    .sausage-image{
+        min-height:330px;
+    }
+
+    .sausage-content h3{
+        font-size:30px;
+    }
+}
+</style>
+
+<div class="sausage-page">
+
+    <section class="sausage-hero">
+        <div class="sausage-hero-inner">
+
+            <div class="sausage-label">
+                Sausage Division
+            </div>
+
+            <h1>
+                 EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="sausage-description">
+                CTC’s Sausage Division provides professionally sourced
+                sausage products for retail, foodservice and commercial
+                markets, supporting dependable quality, product
+                specifications, quantity planning and international
+                food trade requirements.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section class="sausage-intro">
+
+        <h2>
+            Premium Sausage Food Solutions
+        </h2>
+
+        <p>
+            CTC supports sausage sourcing through dependable supplier
+            coordination, product specifications, packaging requirements,
+            quantity planning and organized supply solutions for domestic
+            and international food markets.
+        </p>
+
+    </section>
+
+
+    <section class="sausage-sections">
+
+        <div class="sausage-section">
+
+            <div class="sausage-image sausage-image-1"></div>
+
+            <div class="sausage-content">
+                <div class="sausage-number">01</div>
+
+                <h3>
+                    Premium Sausage Products
+                </h3>
+
+                <p>
+                    Professionally sourced sausage products for
+                    convenient food markets, retail channels,
+                    foodservice businesses and commercial distribution
+                    requirements.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="sausage-section">
+
+            <div class="sausage-image sausage-image-2"></div>
+
+            <div class="sausage-content">
+                <div class="sausage-number">02</div>
+
+                <h3>
+                    Quality & Product Selection
+                </h3>
+
+                <p>
+                    CTC coordinates product specifications, quality
+                    requirements and supplier selection to support
+                    consistent sausage products across different
+                    commercial market needs.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="sausage-section">
+
+            <div class="sausage-image sausage-image-3"></div>
+
+            <div class="sausage-content">
+                <div class="sausage-number">03</div>
+
+                <h3>
+                    Foodservice Sausage Supply
+                </h3>
+
+                <p>
+                    Reliable sourcing solutions for restaurants,
+                    catering businesses, foodservice operators and
+                    commercial kitchens requiring consistent
+                    sausage supply.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="sausage-section">
+
+            <div class="sausage-image sausage-image-4"></div>
+
+            <div class="sausage-content">
+                <div class="sausage-number">04</div>
+
+                <h3>
+                    Retail-Ready Sausage Solutions
+                </h3>
+
+                <p>
+                    CTC supports retail-focused sourcing with
+                    coordinated product specifications, packaging
+                    requirements and supply planning for modern
+                    chilled and frozen food markets.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="sausage-section">
+
+            <div class="sausage-image sausage-image-5"></div>
+
+            <div class="sausage-content">
+                <div class="sausage-number">05</div>
+
+                <h3>
+                    Quantity & Supply Planning
+                </h3>
+
+                <p>
+                    Organized procurement and quantity planning help
+                    businesses manage recurring requirements while
+                    supporting dependable supply and coordinated
+                    commercial distribution.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="sausage-section">
+
+            <div class="sausage-image sausage-image-6"></div>
+
+            <div class="sausage-content">
+                <div class="sausage-number">06</div>
+
+                <h3>
+                    International Sausage Markets
+                </h3>
+
+                <p>
+                    CTC connects reliable food suppliers with
+                    international buyers through professional sourcing,
+                    supply coordination and global market access for
+                    sausage products.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="sausage-cta">
+
+        <h2>
+            Looking for Sausage Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional sausage sourcing,
+            supply coordination and international food market solutions.
+        </p>
+
+        <div class="sausage-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="sausage-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="sausage-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="sausage-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="sausage-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

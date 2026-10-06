@@ -1,0 +1,439 @@
+{% extends "base.html" %}
+
+{% block title %}Bedwear / Upholstery Department | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .bedwear-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .bedwear-hero {
+        min-height: 570px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.92),
+                rgba(6, 29, 45, 0.68),
+                rgba(6, 29, 45, 0.35)
+            ),
+            url("https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+            center / cover no-repeat;
+    }
+
+    .bedwear-hero-content {
+        max-width: 850px;
+        padding: 80px 7%;
+        color: white;
+    }
+
+    .bedwear-label {
+        font-size: 13px;
+        letter-spacing: 3px;
+        color: #d2a43b;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-transform: uppercase;
+    }
+
+    .bedwear-hero h1 {
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.08;
+        margin: 0 0 22px;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+
+    .bedwear-hero p {
+        max-width: 760px;
+        font-size: 17px;
+        line-height: 1.75;
+        color: #e7edf1;
+        margin: 0;
+    }
+
+    /* INTRO */
+    .bedwear-intro {
+        max-width: 1050px;
+        margin: auto;
+        padding: 90px 7% 55px;
+        text-align: center;
+    }
+
+    .bedwear-intro span {
+        display: block;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+        text-transform: uppercase;
+    }
+
+    .bedwear-intro h2 {
+        font-size: 36px;
+        color: #061d2d;
+        margin: 0 0 18px;
+    }
+
+    .bedwear-intro p {
+        max-width: 850px;
+        margin: auto;
+        color: #526674;
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    /* PRODUCTS */
+    .bedwear-products {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 7% 95px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .bedwear-card {
+        display: flex;
+        align-items: center;
+        min-height: 82px;
+        padding: 18px 20px;
+
+        background: #ffffff;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+
+        text-decoration: none;
+        color: #12384f;
+
+        transition: all 0.25s ease;
+    }
+
+    .bedwear-card:hover {
+        transform: translateY(-3px);
+        border-color: #c69b32;
+        box-shadow: 0 10px 25px rgba(6, 29, 45, 0.09);
+    }
+
+    .bedwear-number {
+        min-width: 32px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #c69b32;
+        letter-spacing: 1px;
+    }
+
+    .bedwear-card-content {
+        padding-left: 12px;
+    }
+
+    .bedwear-card h3 {
+        margin: 0 0 5px;
+        font-size: 17px;
+        color: #061d2d;
+        font-weight: 700;
+    }
+
+    .bedwear-card p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.45;
+        color: #667781;
+    }
+
+    /* CTA */
+    .bedwear-cta {
+        background: #061d2d;
+        color: white;
+        text-align: center;
+        padding: 85px 7%;
+    }
+
+    .bedwear-cta h2 {
+        margin: 0 0 16px;
+        font-size: 34px;
+    }
+
+    .bedwear-cta p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: #cbd6dc;
+        line-height: 1.7;
+    }
+
+    .bedwear-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .bedwear-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 150px;
+        padding: 11px 20px;
+
+        border: 1px solid #c69b32;
+        border-radius: 3px;
+
+        color: white;
+        background: transparent;
+
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+
+        transition: all 0.25s ease;
+    }
+
+    .bedwear-btn:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .bedwear-email {
+        color: #c69b32;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    /* TABLET */
+    @media (max-width: 900px) {
+        .bedwear-products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+        .bedwear-hero {
+            min-height: 500px;
+        }
+
+        .bedwear-hero-content {
+            padding: 65px 7%;
+        }
+
+        .bedwear-hero h1 {
+            font-size: 36px;
+        }
+
+        .bedwear-intro {
+            padding-top: 65px;
+        }
+
+        .bedwear-intro h2 {
+            font-size: 29px;
+        }
+
+        .bedwear-products {
+            grid-template-columns: 1fr;
+            padding-bottom: 65px;
+        }
+
+        .bedwear-card {
+            min-height: 76px;
+        }
+
+        .bedwear-cta {
+            padding: 65px 7%;
+        }
+
+        .bedwear-cta h2 {
+            font-size: 28px;
+        }
+
+        .bedwear-btn {
+            width: 100%;
+            max-width: 240px;
+        }
+    }
+</style>
+
+
+<div class="bedwear-page">
+
+    <!-- HERO -->
+    <section class="bedwear-hero">
+        <div class="bedwear-hero-content">
+
+            <div class="bedwear-label">
+                Bedwear / Upholstery Department
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CTC’s Bedwear / Upholstery Department provides professionally
+                sourced bedding and upholstery textile products for hospitality,
+                residential, retail and commercial markets, supporting dependable
+                quality, product specifications, quantity planning and international
+                textile trade requirements.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="bedwear-intro">
+
+        <span>Bedwear & Upholstery Textile Solutions</span>
+
+        <h2>
+            Premium Bedwear & Upholstery Solutions
+        </h2>
+
+        <p>
+            CTC supports bedwear and upholstery sourcing through reliable supplier
+            coordination, fabric specifications, product requirements, quality
+            standards, quantity planning and organized supply solutions for
+            domestic and international textile markets.
+        </p>
+
+    </section>
+
+
+    <!-- SIX NORMAL BUTTONS / CARDS -->
+    <section class="bedwear-products">
+
+        <a href="{{ url_for('bed_sheets') }}" class="bedwear-card">
+
+            <span class="bedwear-number">01</span>
+
+            <div class="bedwear-card-content">
+                <h3>Bed Sheets</h3>
+                <p>
+                    Flat, fitted and premium bedding sheet solutions.
+                </p>
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('duvet_covers') }}" class="bedwear-card">
+
+            <span class="bedwear-number">02</span>
+
+            <div class="bedwear-card-content">
+                <h3>Duvet Covers</h3>
+                <p>
+                    Professional duvet cover solutions for hospitality and retail.
+                </p>
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('pillow_covers') }}" class="bedwear-card">
+
+            <span class="bedwear-number">03</span>
+
+            <div class="bedwear-card-content">
+                <h3>Pillow Covers</h3>
+                <p>
+                    Quality pillow cover solutions for bedroom textile requirements.
+                </p>
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('sofa_chair_covers') }}" class="bedwear-card">
+
+            <span class="bedwear-number">04</span>
+
+            <div class="bedwear-card-content">
+                <h3>Sofa & Chair Covers</h3>
+                <p>
+                    Functional furnishing covers for residential and commercial use.
+                </p>
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('cushion_covers')}}" class="bedwear-card">
+
+            <span class="bedwear-number">05</span>
+
+            <div class="bedwear-card-content">
+                <h3>Cushion Covers</h3>
+                <p>
+                    Decorative and functional cushion textile solutions.
+                </p>
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('upholstery_fabrics')}}" class="bedwear-card">
+
+            <span class="bedwear-number">06</span>
+
+            <div class="bedwear-card-content">
+                <h3>Upholstery Fabrics</h3>
+                <p>
+                    Durable furnishing fabrics for sofas, chairs and interiors.
+                </p>
+            </div>
+
+        </a>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="bedwear-cta">
+
+        <h2>
+            Looking for Bedwear & Upholstery Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional bedwear and upholstery sourcing,
+            supply coordination and international textile market solutions.
+        </p>
+
+        <div class="bedwear-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="bedwear-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="bedwear-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="bedwear-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <a href="mailto:ceo@capitalgroup.pk" class="bedwear-email">
+            ceo@capitalgroup.pk
+        </a>
+
+    </section>
+
+</div>
+
+{% endblock %}

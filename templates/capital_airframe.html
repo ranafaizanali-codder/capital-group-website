@@ -1,0 +1,564 @@
+{% extends "base.html" %}
+
+{% block title %}
+Air Frame Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - AIR FRAME DIVISION
+   ========================================================= */
+
+.airframe-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.airframe-hero {
+    position: relative;
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.70),
+            rgba(6, 29, 45, 0.90)
+        ),
+        url("https://images.pexels.com/photos/38038481/pexels-photo-38038481.jpeg?auto=compress&cs=tinysrgb&w=2200")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+    box-sizing: border-box;
+}
+
+.airframe-hero-content {
+    max-width: 900px;
+    margin: 0;
+    text-align: left;
+}
+
+.airframe-eyebrow {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.airframe-hero h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 0 0 24px;
+    font-weight: 800;
+}
+
+.airframe-hero p {
+    color: #eef3f5;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.airframe-intro {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 65px 25px 35px;
+    text-align: center;
+}
+
+.airframe-intro h2 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.airframe-intro p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= SECTIONS ================= */
+
+.airframe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px 75px;
+}
+
+.airframe-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 55px;
+    align-items: center;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #dfe5e8;
+}
+
+.airframe-section.reverse {
+    direction: rtl;
+}
+
+.airframe-section.reverse > * {
+    direction: ltr;
+}
+
+.airframe-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9eef1;
+    box-shadow: 0 14px 35px rgba(6, 29, 45, 0.12);
+}
+
+.airframe-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.airframe-image-wrap:hover .airframe-image {
+    transform: scale(1.025);
+}
+
+.airframe-copy {
+    max-width: 540px;
+}
+
+.airframe-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.airframe-copy h2 {
+    color: #061d2d;
+    font-size: 31px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.airframe-copy p {
+    color: #12384f;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ================= CTA ================= */
+
+.airframe-cta {
+    background: #061d2d;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.airframe-cta h2 {
+    color: white;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.airframe-cta p {
+    color: #dce5e9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.airframe-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.airframe-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 25px;
+
+    border-radius: 5px;
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.airframe-quote-btn {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.airframe-home-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.airframe-btn:hover,
+.airframe-btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.airframe-quote-btn:hover,
+.airframe-quote-btn:focus-visible {
+    background: #e0b64e;
+}
+
+.airframe-home-btn:hover,
+.airframe-home-btn:focus-visible {
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .airframe-section,
+    .airframe-section.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 30px;
+    }
+
+    .airframe-copy {
+        max-width: none;
+    }
+
+    .airframe-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .airframe-hero {
+        min-height: 450px;
+        padding: 50px 22px;
+    }
+
+    .airframe-hero h1 {
+        font-size: 32px;
+    }
+
+    .airframe-hero p {
+        font-size: 16px;
+    }
+
+    .airframe-intro {
+        padding: 50px 18px 25px;
+    }
+
+    .airframe-intro h2 {
+        font-size: 27px;
+    }
+
+    .airframe-container {
+        padding: 10px 18px 55px;
+    }
+
+    .airframe-section {
+        padding: 40px 0;
+    }
+
+    .airframe-copy h2 {
+        font-size: 27px;
+    }
+
+    .airframe-image {
+        height: 260px;
+    }
+
+    .airframe-cta {
+        padding: 50px 20px;
+    }
+
+    .airframe-cta h2 {
+        font-size: 27px;
+    }
+}
+
+</style>
+
+
+<div class="airframe-page">
+
+    <!-- =====================================================
+         AIR FRAME HERO
+         ===================================================== -->
+
+    <section
+        class="airframe-hero"
+        aria-labelledby="airframe-title"
+    >
+
+        <div class="airframe-hero-content">
+
+            <div class="airframe-eyebrow">
+                AIR FRAME DIVISION
+            </div>
+
+            <h1 id="airframe-title">
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Air Frame Division provides precision engineering
+                and manufacturing solutions for aircraft structural
+                components, fuselage assemblies, panels and advanced
+                airframe applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+         ===================================================== -->
+
+    <section class="airframe-intro">
+
+        <h2>
+            Advanced Airframe Engineering
+        </h2>
+
+        <p>
+            Our capabilities support the development and manufacture
+            of precision airframe structures, panels, assemblies and
+            application-specific aerospace components. Such as nose brackets, 
+            arc brackets, T-brackets, load-bearing members,
+             and extrusion parts using 7075-T6 and related alloys.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         AIR FRAME CAPABILITIES
+         ===================================================== -->
+
+    <main class="airframe-container">
+
+
+        <!-- 1. FUSELAGE STRUCTURES -->
+
+        <section class="airframe-section">
+
+            <div class="airframe-image-wrap">
+
+                <img
+                    class="airframe-image"
+                    src="https://images.pexels.com/photos/38038481/pexels-photo-38038481.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                    alt="Aircraft fuselage structural detail"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="airframe-copy">
+
+                <div class="airframe-number">
+                    01 · FUSELAGE STRUCTURES
+                </div>
+
+                <h2>
+                    Fuselage Structures
+                </h2>
+
+                <p>
+                    Precision structural components support fuselage
+                    integrity, dimensional control and integration
+                    across demanding aerospace applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. STRUCTURAL FRAMES & PANELS -->
+
+        <section class="airframe-section reverse">
+
+            <div class="airframe-image-wrap">
+
+                <img
+                    class="airframe-image"
+                   src="https://www.ncse.org/images/contents/aviation-aerospace-slide-1.jpg"
+                    alt="Aircraft structural frame and panel engineering"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="airframe-copy">
+
+                <div class="airframe-number">
+                    02 · STRUCTURAL FRAMES & PANELS
+                </div>
+
+                <h2>
+                    Structural Frames & Panels
+                </h2>
+
+                <p>
+                    Engineered frames and panels are manufactured for
+                    accurate fit, controlled geometry and reliable
+                    structural integration within aerospace assemblies.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. PRECISION FABRICATION -->
+
+        <section class="airframe-section">
+
+            <div class="airframe-image-wrap">
+
+                <img
+                    class="airframe-image"
+                    src="https://images.pexels.com/photos/27102103/pexels-photo-27102103.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                    alt="Precision fabrication for aerospace structural components"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="airframe-copy">
+
+                <div class="airframe-number">
+                    03 · PRECISION FABRICATION
+                </div>
+
+                <h2>
+                    Precision Fabrication
+                </h2>
+
+                <p>
+                    Precision fabrication supports the production of
+                    aerospace structural components through controlled
+                    cutting, forming, welding and specialized assembly processes.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. PRECISION AIRFRAME COMPONENTS -->
+
+        <section class="airframe-section reverse">
+
+            <div class="airframe-image-wrap">
+
+                <img
+                    class="airframe-image"
+                    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=85"
+                    alt="Precision aerospace manufacturing component"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="airframe-copy">
+
+                <div class="airframe-number">
+                    04 · PRECISION AIRFRAME COMPONENTS
+                </div>
+
+                <h2>
+                    Precision Airframe Components
+                </h2>
+
+                <p>
+                    Application-specific components are developed with
+                    attention to dimensional accuracy, manufacturability,
+                    assembly requirements and aerospace quality expectations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="airframe-cta">
+
+        <h2>
+            Have an Air Frame Engineering Requirement?
+        </h2>
+
+        <p>
+            Share your airframe engineering requirements with
+            Capital Engineering Corporation and our team can review
+            your application and technical needs.
+        </p>
+
+
+        <div class="airframe-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="airframe-btn airframe-quote-btn"
+            >
+                SEND QUOTE
+                <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('home') }}"
+                class="airframe-btn airframe-home-btn"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

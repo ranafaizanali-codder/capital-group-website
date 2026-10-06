@@ -1,0 +1,375 @@
+{% extends "base.html" %}
+
+{% block title %}
+Send Requirement | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+.engineering-form-page {
+    min-height: 100vh;
+    background: #f5f7f8;
+    color: #12384f;
+    font-family:
+        "IBM Plex Sans",
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    padding: 70px 20px 90px;
+}
+
+.engineering-form-container {
+    width: min(850px, 94%);
+    margin: 0 auto;
+}
+
+.engineering-form-header {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.engineering-form-label {
+    display: block;
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.engineering-form-title {
+    margin: 0 0 15px;
+    color: #061d2d;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.engineering-form-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #526572;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.engineering-form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8ec;
+    border-top: 4px solid #c69b32;
+    padding: 42px;
+    box-shadow: 0 15px 40px rgba(6, 29, 45, 0.08);
+}
+
+.engineering-company {
+    margin-bottom: 30px;
+    padding: 15px 18px;
+    background: #f5f7f8;
+    border-left: 3px solid #c69b32;
+}
+
+.engineering-company span {
+    display: block;
+    margin-bottom: 5px;
+    color: #71818a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.engineering-company strong {
+    color: #12384f;
+    font-size: 16px;
+}
+
+.engineering-field {
+    margin-bottom: 25px;
+}
+
+.engineering-field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #12384f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.engineering-field label span {
+    color: #b04a3a;
+}
+
+.engineering-field input,
+.engineering-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccd6dc;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #12384f;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 14px 15px;
+    outline: none;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.engineering-field input {
+    height: 50px;
+}
+
+.engineering-field textarea {
+    min-height: 175px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.engineering-field input:focus,
+.engineering-field textarea:focus {
+    border-color: #c69b32;
+    box-shadow: 0 0 0 3px rgba(198, 155, 50, 0.15);
+}
+
+.engineering-field input::placeholder,
+.engineering-field textarea::placeholder {
+    color: #8a989f;
+}
+
+.engineering-captcha {
+    margin: 5px 0 30px;
+    padding: 18px;
+    background: #f5f7f8;
+    border: 1px solid #e2e8ec;
+}
+
+.engineering-captcha-title {
+    margin: 0 0 6px;
+    color: #12384f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.engineering-captcha-text {
+    margin: 0;
+    color: #71818a;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.engineering-submit {
+    width: 100%;
+    min-height: 52px;
+    border: none;
+    border-radius: 3px;
+    background: #061d2d;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.engineering-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(6, 29, 45, 0.20);
+}
+
+.engineering-email {
+    text-align: right;
+    margin-top: 25px;
+    color: #6b7b84;
+    font-size: 14px;
+}
+
+.engineering-email strong {
+    color: #12384f;
+}
+
+@media (max-width: 650px) {
+
+    .engineering-form-page {
+        padding: 45px 15px 60px;
+    }
+
+    .engineering-form-card {
+        padding: 25px 20px;
+    }
+
+    .engineering-email {
+        text-align: center;
+    }
+}
+</style>
+
+
+<section class="engineering-form-page">
+
+    <div class="engineering-form-container">
+
+        <header class="engineering-form-header">
+
+            <span class="engineering-form-label">
+                CAPITAL ENGINEERING CORPORATION
+            </span>
+
+            <h1 class="engineering-form-title">
+                Send Your Requirement
+            </h1>
+
+            <p class="engineering-form-subtitle">
+                Please provide your contact details and engineering
+                requirements. Our technical team will review your request
+                and contact you regarding the required solution.
+            </p>
+
+        </header>
+
+
+        <div class="engineering-form-card">
+
+            <div class="engineering-company">
+
+                <span>
+                    Company
+                </span>
+
+                <strong>
+                    {{ company }}
+                </strong>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('engineering_quote') }}"
+            >
+
+                <div class="engineering-field">
+
+                    <label for="name">
+                        Full Name <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="engineering-field">
+
+                    <label for="email">
+                        Business Email <span>*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="name@company.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="engineering-field">
+
+                    <label for="phone">
+                        Phone / WhatsApp <span>*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+92 3XX XXXXXXX"
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="engineering-field">
+
+                    <label for="requirements">
+                        Requirement Details <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="requirements"
+                        name="requirements"
+                        placeholder="Please describe the product, engineering service, quantity, specifications, drawings, technical requirements or any other details..."
+                        required
+                    ></textarea>
+
+                </div>
+                <div class="engineering-field">
+
+    <label for="attachment">
+        Attach a PDF/File
+    </label>
+
+    <input
+        type="file"
+        id="attachment"
+        name="attachment"
+        accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg"
+    >
+
+</div>
+
+                <div class="engineering-captcha">
+
+                    <p class="engineering-captcha-title">
+                        Security Verification
+                    </p>
+
+                    <p class="engineering-captcha-text">
+                        CAPTCHA will be added here before the form goes live.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="engineering-submit"
+                >
+                    SEND REQUIREMENT
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="engineering-email">
+
+            Email:
+            <strong>ceo@capitalgroup.pk</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

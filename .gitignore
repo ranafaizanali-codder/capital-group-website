@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+instance/
+cloudflared.exe
+templates.zip
+app copy.py
+
+from app import app; print('APP IMPORT OK'); print(app.config.get('TEMPLATES_AUTO_RELOAD'))

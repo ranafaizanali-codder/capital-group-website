@@ -1,0 +1,615 @@
+{% extends "base.html" %}
+
+{% block title %}
+ENT (Ear, Nose, Throat) Instruments Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .ent-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+
+    .ent-hero {
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,.94) 0%,
+                rgba(6,29,45,.80) 45%,
+                rgba(6,29,45,.25) 100%
+            ),
+            url("https://images.pexels.com/photos/3845126/pexels-photo-3845126.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75")
+            center / cover no-repeat;
+    }
+
+    .ent-hero-inner {
+        width: 100%;
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 100px 7%;
+    }
+
+    .ent-label {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+    }
+
+    .ent-hero h1 {
+        max-width: 900px;
+        margin: 0 0 25px;
+        color: #fff;
+        font-size: clamp(42px, 6vw, 78px);
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+    }
+
+    .ent-description {
+        max-width: 700px;
+        margin: 0;
+        color: rgba(255,255,255,.88);
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* INTRO */
+
+    .ent-intro {
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 100px 7% 70px;
+        text-align: center;
+    }
+
+    .ent-intro h2 {
+        margin: 0 0 20px;
+        color: #12384f;
+        font-size: clamp(32px, 4vw, 50px);
+        line-height: 1.15;
+    }
+
+    .ent-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #596b77;
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+
+    /* SECTIONS */
+
+    .ent-sections {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 20px 7% 100px;
+    }
+
+    .ent-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+        padding: 70px 0;
+        border-top: 1px solid rgba(18,56,79,.12);
+    }
+
+    .ent-section:nth-child(even) .ent-image {
+        order: 2;
+    }
+
+    .ent-section:nth-child(even) .ent-content {
+        order: 1;
+    }
+
+    .ent-image {
+        min-height: 390px;
+        border-radius: 5px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 18px 45px rgba(6,29,45,.13);
+        transition: transform .4s ease;
+    }
+
+    .ent-image:hover {
+        transform: translateY(-4px);
+    }
+
+    .ent-image-1 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ent-image-2 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/7659568/pexels-photo-7659568.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ent-image-3 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/3845126/pexels-photo-3845126.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ent-image-4 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ent-image-5 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ent-image-6 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/4557263/pexels-photo-4557263.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+}
+    
+
+    .ent-content {
+        max-width: 530px;
+    }
+
+    .ent-number {
+        margin-bottom: 16px;
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .ent-content h3 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 31px;
+        line-height: 1.2;
+    }
+
+    .ent-content p {
+        margin: 0;
+        color: #596b77;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* CTA */
+
+    .ent-cta {
+        padding: 90px 7%;
+        background: #08283b;
+        color: #fff;
+        text-align: center;
+    }
+
+    .ent-cta h2 {
+        margin: 0 0 20px;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .ent-cta p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: rgba(255,255,255,.78);
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .ent-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .ent-btn {
+        display: inline-block;
+        padding: 14px 25px;
+        border: 1px solid #c69b32;
+        border-radius: 30px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .7px;
+        transition: .3s ease;
+    }
+
+    .ent-primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .ent-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .ent-email {
+        margin-top: 25px;
+        color: rgba(255,255,255,.65);
+        font-size: 14px;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+
+        .ent-hero {
+            min-height: 600px;
+        }
+
+        .ent-hero-inner {
+            padding: 80px 7%;
+        }
+
+        .ent-section {
+            grid-template-columns: 1fr;
+            gap: 35px;
+            padding: 55px 0;
+        }
+
+        .ent-section:nth-child(even) .ent-image,
+        .ent-section:nth-child(even) .ent-content {
+            order: initial;
+        }
+
+        .ent-image {
+            min-height: 320px;
+        }
+    }
+
+
+    @media (max-width: 520px) {
+
+        .ent-hero h1 {
+            font-size: 40px;
+        }
+
+        .ent-description {
+            font-size: 15px;
+        }
+
+        .ent-intro {
+            padding-top: 70px;
+        }
+
+        .ent-image {
+            min-height: 270px;
+        }
+
+        .ent-content h3 {
+            font-size: 27px;
+        }
+    }
+</style>
+
+
+<main class="ent-page">
+
+
+    <!-- HERO -->
+
+    <section class="ent-hero">
+
+        <div class="ent-hero-inner">
+
+            <div class="ent-label">
+                ENT (Ear, Nose, Throat) Instruments Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="ent-description">
+                CTC’s ENT (Ear, Nose, Throat) Instruments Division provides
+                professional healthcare sourcing and coordinated solutions
+                for hospitals, clinics, distributors and international
+                medical markets, with a focus on dependable quality,
+                consistent availability and long-term healthcare
+                partnerships.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="ent-intro">
+
+        <h2>
+            ENT Healthcare Solutions
+        </h2>
+
+        <p>
+            CTC supports healthcare organizations and distribution networks
+            with professionally coordinated ENT healthcare solutions,
+            connecting reliable sourcing, modern medical environments and
+            international business opportunities.
+        </p>
+
+    </section>
+
+
+    <!-- SIX DETAIL SECTIONS -->
+
+    <section class="ent-sections">
+
+
+        <!-- 01 -->
+
+        <article class="ent-section">
+
+            <div
+                class="ent-image ent-image-1"
+                role="img"
+                aria-label="Professional ENT healthcare environment">
+            </div>
+
+            <div class="ent-content">
+
+                <div class="ent-number">
+                    01 — ENT HEALTHCARE
+                </div>
+
+                <h3>
+                    ENT Clinical Solutions
+                </h3>
+
+                <p>
+                    CTC provides professional healthcare solutions for
+                    hospitals, clinics and ENT-focused medical environments,
+                    supporting dependable sourcing and coordinated service.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="ent-section">
+
+            <div
+                class="ent-image ent-image-2"
+                role="img"
+                aria-label="Modern medical facility and ENT healthcare environment">
+            </div>
+
+            <div class="ent-content">
+
+                <div class="ent-number">
+                    02 — PROFESSIONAL CARE
+                </div>
+
+                <h3>
+                    ENT Practice Support
+                </h3>
+
+                <p>
+                    Supporting professional healthcare institutions with
+                    organized sourcing and dependable solutions aligned with
+                    modern ENT clinical environments.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="ent-section">
+
+            <div
+                class="ent-image ent-image-3"
+                role="img"
+                aria-label="Modern healthcare technology environment">
+            </div>
+
+            <div class="ent-content">
+
+                <div class="ent-number">
+                    03 — MEDICAL TECHNOLOGY
+                </div>
+
+                <h3>
+                    ENT Medical Technology
+                </h3>
+
+                <p>
+                    CTC supports access to modern healthcare technology and
+                    equipment solutions for organizations seeking dependable
+                    and professionally coordinated medical support.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="ent-section">
+
+            <div
+                class="ent-image ent-image-4"
+                role="img"
+                aria-label="Healthcare professionals in a modern clinical environment">
+            </div>
+
+            <div class="ent-content">
+
+                <div class="ent-number">
+                    04 — HEALTHCARE PARTNERSHIP
+                </div>
+
+                <h3>
+                    ENT Healthcare Partnerships
+                </h3>
+
+                <p>
+                    We support healthcare businesses and distribution networks
+                    through professional communication, organized sourcing
+                    and long-term business relationships across domestic and
+                    international markets.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="ent-section">
+
+            <div
+                class="ent-image ent-image-5"
+                role="img"
+                aria-label="Modern hospital and healthcare coordination environment">
+            </div>
+
+            <div class="ent-content">
+
+                <div class="ent-number">
+                    05 — SUPPLY COORDINATION
+                </div>
+
+                <h3>
+                    ENT Supply Coordination
+                </h3>
+
+                <p>
+                    Our approach focuses on organized sourcing, dependable
+                    coordination and professional service for healthcare
+                    institutions and ENT distribution requirements.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="ent-section">
+
+            <div
+                class="ent-image ent-image-6"
+                role="img"
+                aria-label="International healthcare and medical business environment">
+            </div>
+
+            <div class="ent-content">
+
+                <div class="ent-number">
+                    06 — GLOBAL SOURCING
+                </div>
+
+                <h3>
+                    International ENT Supply
+                </h3>
+
+                <p>
+                    CTC supports domestic and international healthcare markets
+                    through professional sourcing, supply coordination and
+                    business-to-business services designed for reliable
+                    long-term collaboration.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="ent-cta">
+
+        <h2>
+            Looking for ENT Healthcare Solutions?
+        </h2>
+
+        <p>
+            Connect with CTC for professional ENT healthcare sourcing,
+            supply coordination and international market solutions.
+        </p>
+
+        <div class="ent-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="ent-btn ent-primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="ent-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="ent-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="ent-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</main>
+
+{% endblock %}

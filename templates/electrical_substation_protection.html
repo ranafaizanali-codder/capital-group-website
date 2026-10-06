@@ -1,0 +1,613 @@
+{% extends "base.html" %}
+
+{% block title %}
+LONG 506 - Electrical Substation Design and Electrical Protection System | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(8, 40, 59, 0.82)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+
+    .electrical-course-hero-content {
+        max-width: 950px;
+    }
+
+    .electrical-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .electrical-course-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #e8eef2;
+    }
+
+    .electrical-course-section {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px 6%;
+    }
+
+    .electrical-course-section h2 {
+        font-size: 34px;
+        margin: 0 0 22px;
+        color: #12384f;
+    }
+
+    .electrical-course-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #506574;
+        margin-bottom: 20px;
+    }
+
+    .course-note {
+        background: #fff8e8;
+        border-left: 4px solid #c69b32;
+        padding: 16px 20px;
+        margin: 25px 0 35px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .course-block {
+        margin-top: 55px;
+    }
+
+    .course-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .course-list {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .course-list li {
+        margin-bottom: 12px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .day-block {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.05);
+    }
+
+    .day-block h4 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .syllabus-topic {
+        color: #12384f;
+        font-weight: 700;
+        margin: 18px 0 8px;
+    }
+
+    .day-block ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-block li {
+        margin-bottom: 9px;
+        color: #506574;
+        line-height: 1.6;
+    }
+
+    .electrical-course-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 75px 6%;
+    }
+
+    .electrical-course-cta h2 {
+        font-size: 34px;
+        margin: 0 0 18px;
+    }
+
+    .electrical-course-cta p {
+        max-width: 760px;
+        margin: 0 auto 30px;
+        color: #dbe5ea;
+        line-height: 1.7;
+    }
+
+    .electrical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-course-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .electrical-course-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .electrical-course-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .course-footer {
+        background: #061d2d;
+        text-align: center;
+        padding: 22px;
+        color: #bfcdd5;
+        font-size: 14px;
+    }
+
+    .course-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+
+        .electrical-course-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .electrical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .electrical-course-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-course-section {
+            padding: 60px 7%;
+        }
+
+        .electrical-course-section h2 {
+            font-size: 28px;
+        }
+
+        .day-block {
+            padding: 20px;
+        }
+    }
+</style>
+
+
+<div class="electrical-course-page">
+
+    <!-- HERO -->
+    <section class="electrical-course-hero">
+
+        <div class="electrical-course-hero-content">
+
+            <span class="electrical-course-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional substation design and electrical protection
+                training develops practical expertise in power substations,
+                switchgear, circuit breakers, grounding and protection systems.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="electrical-course-section">
+
+        <h2>
+            LONG 506 - Electrical Substation Design and Electrical Protection System (5 Days)
+        </h2>
+
+        <p>
+            This program is designed to provide an introductory for the
+            fundamentals of the electrical, civil, structural design issues
+            of electric power substations. The program also it will address
+            a complete variety of substation design subjects. It will also
+            discuss application, installation, maintenance and testing issues
+            related to low, medium and high-voltage switchgear and electrical
+            circuit breaker equipment. Additionally the course will provide
+            fundamentals on protection, relay design and protection schemes
+            for transmission lines and transformers.
+        </p>
+
+
+        <div class="course-note">
+            <strong>Note:</strong>
+            The minimum number of participants to conduct this course is 3 person.
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="course-block">
+
+            <h3>Course Objectives</h3>
+
+            <ul class="course-list">
+
+                <li>
+                    Understanding of substation technology and modern
+                    substation design practices
+                </li>
+
+                <li>
+                    Understanding the importance of preventive maintenance
+                    check and servicing of the various types of circuit breakers
+                </li>
+
+                <li>
+                    Implementing safe electrical systems of work and operations
+                </li>
+
+                <li>
+                    Understanding the fundamentals of electrical power
+                    protection and applications
+                </li>
+
+                <li>
+                    Recognizing the different fault types
+                </li>
+
+                <li>
+                    Performing simple fault and design calculations
+                </li>
+
+                <li>
+                    Understanding protection system components
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="course-block">
+
+            <h3>Who Should Attend?</h3>
+
+            <ul class="course-list">
+
+                <li>Electrical engineers</li>
+                <li>Power system engineers</li>
+                <li>Design engineers</li>
+                <li>Protection and control engineers</li>
+                <li>Project engineers</li>
+                <li>Electrical technicians</li>
+                <li>Professionals involved in substation design and operation</li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="course-block">
+
+            <h3>5-Day Course Syllabus</h3>
+
+
+            <!-- DAY 1 -->
+            <div class="day-block">
+
+                <h4>Day 1 — Electrical Substations, Power Systems and Project Development</h4>
+
+                <div class="syllabus-topic">
+                    Electrical Substations, Power Systems, and Deregulation
+                </div>
+
+                <ul>
+                    <li>Structure of the electric power system overview</li>
+                    <li>Systems for distribution of power</li>
+                    <li>Classifications</li>
+                    <li>Equipment definitions</li>
+                    <li>Design principles</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Substation Project Chronology
+                </div>
+
+                <ul>
+                    <li>Workflow and project sequence</li>
+                    <li>Site identification and acquisition</li>
+                    <li>Engineering design, drawings and documentation</li>
+                    <li>Construction, testing and commissioning</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Developing the Scope / Identifying the Constraints
+                </div>
+
+                <ul>
+                    <li>Safety</li>
+                    <li>Power requirements</li>
+                    <li>Site constraints</li>
+                    <li>Atmospheric</li>
+                    <li>Environmental, community and societal influences</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Costs and Schedules
+                </div>
+
+                <ul>
+                    <li>Costs and financial analysis</li>
+                    <li>Schedules and impacts</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+            <div class="day-block">
+
+                <h4>Day 2 — Site, Civil and Structural Substation Design</h4>
+
+                <div class="syllabus-topic">
+                    Site Grading Design
+                </div>
+
+                <ul>
+                    <li>Substation grade types</li>
+                    <li>Drainage and erosion protection</li>
+                    <li>Oil spill containment</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Foundations
+                </div>
+
+                <ul>
+                    <li>Slab on grade and others</li>
+                    <li>Design techniques</li>
+                    <li>Open air</li>
+                    <li>Metal clad switchgear</li>
+                    <li>Gas insulated subs / SF6</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Structures
+                </div>
+
+                <ul>
+                    <li>Materials</li>
+                    <li>Design options and considerations</li>
+                    <li>Finishes</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+            <div class="day-block">
+
+                <h4>Day 3 — Bus Configurations, Conductors, Insulation and Grounding</h4>
+
+                <div class="syllabus-topic">
+                    Bus Configurations & Conductor
+                </div>
+
+                <ul>
+                    <li>Types of common configurations</li>
+                    <li>Reliability criteria</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Insulation
+                </div>
+
+                <ul>
+                    <li>Insulation protection and shielding</li>
+                    <li>Clearance</li>
+                    <li>Surge arresters</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Grounding
+                </div>
+
+                <ul>
+                    <li>Need for grounding</li>
+                    <li>Personnel safety</li>
+                    <li>Hazardous potentials during faults</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+            <div class="day-block">
+
+                <h4>Day 4 — Substation Equipment and Switching Systems</h4>
+
+                <div class="syllabus-topic">
+                    Principle Equipment
+                </div>
+
+                <ul>
+                    <li>General specifications and ratings</li>
+                    <li>Transformers</li>
+                    <li>Core, winding configuration</li>
+                    <li>Tap changers</li>
+                    <li>Specifications</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Circuit Breakers / Switches
+                </div>
+
+                <ul>
+                    <li>Design and purpose</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Ancillary Equipment
+                </div>
+
+                <ul>
+                    <li>Potential transformers</li>
+                    <li>Current transformers</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+            <div class="day-block">
+
+                <h4>Day 5 — Auxiliary Systems and Substation Protection Fundamentals</h4>
+
+                <div class="syllabus-topic">
+                    Substation Auxiliary Systems
+                </div>
+
+                <ul>
+                    <li>Necessity</li>
+                    <li>AC station power</li>
+                    <li>DC and battery power</li>
+                </ul>
+
+
+                <div class="syllabus-topic">
+                    Integrated Substation Design and Protection Review
+                </div>
+
+                <ul>
+                    <li>Integration of electrical, civil and structural design considerations</li>
+                    <li>Application and installation considerations</li>
+                    <li>Maintenance and testing considerations</li>
+                    <li>Low, medium and high-voltage switchgear considerations</li>
+                    <li>Electrical circuit breaker equipment considerations</li>
+                    <li>Fundamentals of electrical power protection</li>
+                    <li>Protection applications</li>
+                    <li>Recognition of different fault types</li>
+                    <li>Simple fault and design calculations</li>
+                    <li>Protection system components</li>
+                    <li>Relay design fundamentals</li>
+                    <li>Protection schemes for transmission lines and transformers</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-course-cta">
+
+        <h2>
+            Develop Your Substation Design and Protection Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional electrical
+            engineering training and practical substation design, protection
+            and power system development.
+        </p>
+
+        <div class="electrical-course-buttons">
+
+            <a href="{{ url_for('electrical_substation_protection_registration') }}"
+               class="electrical-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="electrical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="course-footer">
+
+        For registration assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,582 @@
+{% extends "base.html" %}
+
+{% block title %}
+LONG 221B - Electrical & Automation Engineering | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(8, 40, 59, 0.82)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+
+    .electrical-course-hero-content {
+        max-width: 950px;
+    }
+
+    .electrical-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .electrical-course-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #e8eef2;
+    }
+
+    .electrical-course-section {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px 6%;
+    }
+
+    .electrical-course-section h2 {
+        font-size: 34px;
+        margin: 0 0 22px;
+        color: #12384f;
+    }
+
+    .electrical-course-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #506574;
+        margin-bottom: 20px;
+    }
+
+    .course-note {
+        background: #fff8e8;
+        border-left: 4px solid #c69b32;
+        padding: 16px 20px;
+        margin: 25px 0 35px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .course-block {
+        margin-top: 55px;
+    }
+
+    .course-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .course-list {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .course-list li {
+        margin-bottom: 12px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .day-block {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.05);
+    }
+
+    .day-block h4 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .day-block ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-block li {
+        margin-bottom: 9px;
+        color: #506574;
+        line-height: 1.6;
+    }
+
+    .electrical-course-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 75px 6%;
+    }
+
+    .electrical-course-cta h2 {
+        font-size: 34px;
+        margin: 0 0 18px;
+    }
+
+    .electrical-course-cta p {
+        max-width: 760px;
+        margin: 0 auto 30px;
+        color: #dbe5ea;
+        line-height: 1.7;
+    }
+
+    .electrical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-course-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .electrical-course-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .electrical-course-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .course-footer {
+        background: #061d2d;
+        text-align: center;
+        padding: 22px;
+        color: #bfcdd5;
+        font-size: 14px;
+    }
+
+    .course-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+
+        .electrical-course-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .electrical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .electrical-course-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-course-section {
+            padding: 60px 7%;
+        }
+
+        .electrical-course-section h2 {
+            font-size: 28px;
+        }
+
+        .day-block {
+            padding: 20px;
+        }
+    }
+</style>
+
+
+<div class="electrical-course-page">
+
+    <!-- HERO -->
+    <section class="electrical-course-hero">
+
+        <div class="electrical-course-hero-content">
+
+            <span class="electrical-course-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional electrical and automation engineering
+                training develops practical expertise in PLC systems,
+                automation, process control, programming and troubleshooting.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="electrical-course-section">
+
+        <h2>
+            LONG 221B - Electrical & Automation Engineering (5 Days)
+        </h2>
+
+        <p>
+            This course is aimed at benefiting those engineers and technicians
+            who need to design, commission and maintain automation and process
+            control systems using Programmable Logic Controllers (PLC's).
+        </p>
+
+        <p>
+            The objective of the course is to provide the practicing engineer
+            and technician with the necessary tools to design, specify,
+            configure, install and commission a complete PLC system. The main
+            challenge today is for engineers and technicians to make optimum
+            use of their plant and equipment through automation and process
+            control techniques.
+        </p>
+
+        <p>
+            The result of effective automation and process control are
+            products, which cost less and have more controllable quality
+            levels.
+        </p>
+
+        <p>
+            The PLC is one of the key components in achieving this productivity
+            improvement. PLCs in the past have differed widely in their
+            programming and hardware structure. However there has been a rapid
+            convergence today between different systems from the different
+            manufacturers.
+        </p>
+
+
+        <div class="course-note">
+            <strong>Note:</strong>
+            Fee applies to 5+ participants attending the same course.
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="course-block">
+
+            <h3>Course Objectives</h3>
+
+            <ul class="course-list">
+
+                <li>
+                    Understanding the fundamental operating principles behind
+                    using a PLC.
+                </li>
+
+                <li>
+                    Discussing good installation practice.
+                </li>
+
+                <li>
+                    Discussing PLC programming.
+                </li>
+
+                <li>
+                    Exploring the PLC as part of a complete Local Area Network,
+                    including the PLC and the operator interface.
+                </li>
+
+                <li>
+                    Learning about high security PLC systems.
+                </li>
+
+                <li>
+                    Being aware of the guidelines to troubleshooting of PLCs.
+                </li>
+
+                <li>
+                    Understanding PLC project specification.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="course-block">
+
+            <h3>Who Should Attend?</h3>
+
+            <ul class="course-list">
+
+                <li>
+                    Electrical and Instrument Engineers and Supervisors.
+                </li>
+
+                <li>
+                    Operation Engineers and Operation Supervisors.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="course-block">
+
+            <h3>5-Day Course Syllabus</h3>
+
+
+            <!-- DAY 1 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 1 — Programmable Controllers and Number Systems
+                </h4>
+
+                <ul>
+
+                    <li>Introduction to Programmable Controllers</li>
+
+                    <li>Principles of Operation</li>
+
+                    <li>PLCs Versus Other Types of Controls</li>
+
+                    <li>PLC Product Application Ranges</li>
+
+                    <li>Ladder Diagrams and the PLC</li>
+
+                    <li>Advantages of PLCs</li>
+
+                    <li>Number Systems and Codes</li>
+
+                    <li>Number Systems</li>
+
+                    <li>Number Conversions</li>
+
+                    <li>One’s and Two’s Complement</li>
+
+                    <li>Binary Codes</li>
+
+                    <li>Register Word Formats</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 2 — Logic Concepts and PLC Programming
+                </h4>
+
+                <ul>
+
+                    <li>Logic Concepts</li>
+
+                    <li>The Binary Concept</li>
+
+                    <li>Logic Functions</li>
+
+                    <li>Principles of Boolean Algebra and Logic</li>
+
+                    <li>PLC Circuits and Logic Contact Symbology</li>
+
+                    <li>PLC programming fundamentals</li>
+
+                    <li>Ladder logic programming concepts</li>
+
+                    <li>PLC project specification fundamentals</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 3 — PLC Installation, Networks and Operator Interface
+                </h4>
+
+                <ul>
+
+                    <li>Good PLC installation practice</li>
+
+                    <li>PLC system configuration</li>
+
+                    <li>PLC as part of a complete Local Area Network</li>
+
+                    <li>PLC communication concepts</li>
+
+                    <li>The PLC and the operator interface</li>
+
+                    <li>High Security PLC systems</li>
+
+                    <li>PLC project implementation considerations</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 4 — Discrete Input / Output Systems
+                </h4>
+
+                <ul>
+
+                    <li>The Discrete Input/Output System</li>
+
+                    <li>Introduction to Discrete I/O Systems</li>
+
+                    <li>I/O Rack Enclosures and Table Mapping</li>
+
+                    <li>Remote I/O Systems</li>
+
+                    <li>PLC Instructions for Discrete Inputs</li>
+
+                    <li>Types of Discrete Inputs</li>
+
+                    <li>PLC Instructions for Discrete Outputs</li>
+
+                    <li>Discrete Outputs</li>
+
+                    <li>Discrete Bypass/Control Stations</li>
+
+                    <li>Interpreting I/O Specifications</li>
+
+                    <li>Summary of Discrete I/O</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 5 — Analog Input / Output Systems and Troubleshooting
+                </h4>
+
+                <ul>
+
+                    <li>The Analog Input/Output System</li>
+
+                    <li>Overview of Analog Input Signals</li>
+
+                    <li>Instructions for Analog Input Modules</li>
+
+                    <li>Analog Input Data Representation</li>
+
+                    <li>Analog Input Data Handling</li>
+
+                    <li>Analog Input Connections</li>
+
+                    <li>Overview of Analog Output Signals</li>
+
+                    <li>Instructions for Analog Output Modules</li>
+
+                    <li>Analog Output Data Representation</li>
+
+                    <li>Analog Output Data Handling</li>
+
+                    <li>Analog Output Connections</li>
+
+                    <li>Analog Output Bypass/Control Stations</li>
+
+                    <li>PLC troubleshooting guidelines</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-course-cta">
+
+        <h2>
+            Develop Your Electrical & Automation Engineering Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional automation
+            engineering training and practical PLC, process control and
+            troubleshooting development.
+        </p>
+
+        <div class="electrical-course-buttons">
+
+            <a href="{{ url_for('electrical_automation_engineering_registration') }}"
+               class="electrical-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="electrical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="course-footer">
+
+        For registration assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

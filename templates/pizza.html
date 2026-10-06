@@ -1,0 +1,478 @@
+{% extends "base.html" %}
+
+{% block title %}Pizza Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.pizza-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.pizza-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,.90), rgba(6,29,45,.42)),
+        url("https://images.pexels.com/photos/8487848/pexels-photo-8487848.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.pizza-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.pizza-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.pizza-hero h1 {
+    max-width: 900px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.pizza-description {
+    max-width: 760px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e7edf1;
+}
+
+/* INTRO */
+.pizza-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+    padding: 90px 0 55px;
+    text-align: center;
+}
+
+.pizza-intro h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 18px;
+    color: #12384f;
+}
+
+.pizza-intro p {
+    max-width: 820px;
+    margin: auto;
+    color: #526673;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* SECTIONS */
+.pizza-sections {
+    width: min(1150px, 92%);
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.pizza-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    padding: 65px 0;
+    border-top: 1px solid #d9e0e4;
+}
+
+.pizza-section:nth-child(even) .pizza-image {
+    order: 2;
+}
+
+.pizza-section:nth-child(even) .pizza-content {
+    order: 1;
+}
+
+.pizza-image {
+    height: 410px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #e8edef;
+}
+
+.pizza-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pizza-number {
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.pizza-content h3 {
+    font-size: 31px;
+    color: #12384f;
+    margin: 0 0 17px;
+}
+
+.pizza-content p {
+    color: #596d79;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* CTA */
+.pizza-cta {
+    background: #08283b;
+    color: #fff;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.pizza-cta h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 0 0 18px;
+}
+
+.pizza-cta p {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: #dce6eb;
+    line-height: 1.7;
+}
+
+.pizza-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.pizza-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 1px solid #c69b32;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.pizza-btn:hover {
+    background: #c69b32;
+    color: #08283b;
+}
+
+.pizza-email {
+    margin-top: 28px;
+    color: #cfdce2;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+
+    .pizza-hero {
+        min-height: 570px;
+    }
+
+    .pizza-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 0;
+    }
+
+    .pizza-section:nth-child(even) .pizza-image,
+    .pizza-section:nth-child(even) .pizza-content {
+        order: initial;
+    }
+
+    .pizza-image {
+        height: 320px;
+    }
+
+    .pizza-content h3 {
+        font-size: 27px;
+    }
+}
+</style>
+
+
+<div class="pizza-page">
+
+    <!-- HERO -->
+    <section class="pizza-hero">
+
+        <div class="pizza-hero-inner">
+
+            <div class="pizza-label">
+                Pizza Division
+            </div>
+
+            <h1>
+                PREMIUM PIZZA SOLUTIONS FOR MODERN FOOD MARKETS.
+            </h1>
+
+            <p class="pizza-description">
+                CTC’s Pizza Division provides professionally sourced ready-to-cook
+                pizza solutions for retail, foodservice and commercial markets,
+                supporting dependable quality, product specifications, quantity
+                planning and international food trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="pizza-intro">
+
+        <h2>Ready-to-Cook Pizza Solutions</h2>
+
+        <p>
+            CTC supports pizza sourcing through dependable supplier coordination,
+            product specifications, packaging requirements, quantity planning and
+            organized supply solutions for domestic and international food markets.
+        </p>
+
+    </section>
+
+
+    <!-- CONTENT -->
+    <section class="pizza-sections">
+
+
+        <!-- 01 -->
+        <div class="pizza-section">
+
+            <div class="pizza-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8487848/pexels-photo-8487848.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium pizza with fresh toppings"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pizza-content">
+
+                <div class="pizza-number">01</div>
+
+                <h3>Premium Pizza Products</h3>
+
+                <p>
+                    CTC connects buyers with professionally sourced pizza products
+                    selected according to commercial specifications, consistent
+                    quality and dependable supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="pizza-section">
+
+            <div class="pizza-image">
+
+                <img
+                    src="https://images.pexels.com/photos/19260834/pexels-photo-19260834.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Freshly prepared pizza with toppings"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pizza-content">
+
+                <div class="pizza-number">02</div>
+
+                <h3>Quality & Product Selection</h3>
+
+                <p>
+                    Pizza sourcing can be coordinated around product format,
+                    ingredient specifications, packaging expectations and the
+                    requirements of retail and foodservice buyers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="pizza-section">
+
+            <div class="pizza-image">
+
+                <img
+                    src="https://images.pexels.com/photos/2762942/pexels-photo-2762942.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Cheese pizza product"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pizza-content">
+
+                <div class="pizza-number">03</div>
+
+                <h3>Foodservice Pizza Supply</h3>
+
+                <p>
+                    CTC supports food businesses and foodservice buyers with
+                    organized pizza sourcing, quantity coordination and dependable
+                    commercial supply planning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="pizza-section">
+
+            <div class="pizza-image">
+
+                <img
+                    src="https://images.pexels.com/photos/6488932/pexels-photo-6488932.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium pizza with assorted toppings"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pizza-content">
+
+                <div class="pizza-number">04</div>
+
+                <h3>Retail-Ready Pizza Solutions</h3>
+
+                <p>
+                    Our sourcing approach supports retail requirements through
+                    coordinated product specifications, packaging needs, quantity
+                    planning and professional supply communication.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="pizza-section">
+
+            <div class="pizza-image">
+
+                <img
+                    src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Pizza product prepared for food markets"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pizza-content">
+
+                <div class="pizza-number">05</div>
+
+                <h3>Quantity & Supply Planning</h3>
+
+                <p>
+                    CTC coordinates required quantities, product specifications,
+                    packaging expectations and delivery schedules for recurring
+                    pizza supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="pizza-section">
+
+            <div class="pizza-image">
+
+                <img
+                    src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium pizza prepared for international food markets"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pizza-content">
+
+                <div class="pizza-number">06</div>
+
+                <h3>International Pizza Markets</h3>
+
+                <p>
+                    CTC supports international buyers through organized pizza
+                    sourcing, export coordination and professional supply-chain
+                    communication for global food markets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="pizza-cta">
+
+        <h2>Looking for Pizza Products?</h2>
+
+        <p>
+            Connect with CTC for professional pizza sourcing, quantity planning,
+            supply coordination and international food market solutions.
+        </p>
+
+        <div class="pizza-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="pizza-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="pizza-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="pizza-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="pizza-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

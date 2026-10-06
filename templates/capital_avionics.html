@@ -1,0 +1,641 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Avionics Department | Capital Engineering Corporation
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - AVIONICS DEPARTMENT
+   ========================================================= */
+
+.avionics-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+
+/* ================= HERO ================= */
+
+.avionics-hero {
+    position: relative;
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.78),
+            rgba(6, 29, 45, 0.88)
+        ),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=75")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    padding: 70px 7%;
+    box-sizing: border-box;
+}
+
+
+/* ================= HERO CONTENT ================= */
+
+.avionics-hero-content {
+    max-width: 850px;
+    margin: 0;
+    text-align: left;
+}
+
+.avionics-hero-content .department-name {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.avionics-hero-content h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 0 0 24px;
+    font-weight: 800;
+}
+
+.avionics-hero-content p {
+    color: #eef3f5;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 780px;
+    margin: 0;
+}
+
+
+/* ================= MODULE SECTION ================= */
+
+.avionics-modules-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 65px 25px 75px;
+}
+
+.avionics-modules-title {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.avionics-modules-title span {
+    display: block;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.avionics-modules-title h2 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0;
+}
+
+
+/* ================= SIX MODULE LINKS ================= */
+
+.avionics-modules {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 18px;
+}
+
+
+/* ================= MODULE ITEM ================= */
+
+.avionics-module-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+
+/* ================= MODULE BUTTON ================= */
+
+.avionics-module-button {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+    padding: 18px 22px;
+    box-sizing: border-box;
+
+    background: white;
+
+    border: 1px solid #dfe5e8;
+    border-left: 4px solid #c69b32;
+    border-radius: 7px;
+
+    color: #061d2d;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 20px rgba(6, 29, 45, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.avionics-module-button:hover,
+.avionics-module-button:focus-visible {
+    transform: translateY(-4px);
+
+    background: #fbfcfc;
+
+    box-shadow:
+        0 12px 28px rgba(6, 29, 45, 0.13);
+
+    outline: none;
+}
+
+.avionics-module-arrow {
+    color: #c69b32;
+    font-size: 21px;
+    flex-shrink: 0;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.avionics-module-button:hover
+.avionics-module-arrow,
+
+.avionics-module-button:focus-visible
+.avionics-module-arrow {
+    transform: translateX(5px);
+}
+
+
+/* ================= MODULE DESCRIPTION ================= */
+
+.avionics-module-description {
+    margin: 10px 4px 0;
+
+    color: #536773;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ================= CTA ================= */
+
+.avionics-cta {
+    background: #061d2d;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.avionics-cta h2 {
+    color: white;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.avionics-cta p {
+    color: #dce5e9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.avionics-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.avionics-quote-button,
+.avionics-home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 25px;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.avionics-quote-button {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.avionics-home-button {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.avionics-quote-button:hover,
+.avionics-home-button:hover,
+.avionics-quote-button:focus-visible,
+.avionics-home-button:focus-visible {
+    transform: translateY(-2px);
+}
+
+.avionics-quote-button:hover,
+.avionics-quote-button:focus-visible {
+    background: #e0b64e;
+}
+
+.avionics-home-button:hover,
+.avionics-home-button:focus-visible {
+    background: rgba(255,255,255,0.08);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .avionics-hero {
+        padding: 60px 30px;
+    }
+
+    .avionics-modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .avionics-module-description {
+        white-space: normal;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .avionics-hero {
+        min-height: 450px;
+        padding: 50px 22px;
+    }
+
+    .avionics-hero-content h1 {
+        font-size: 32px;
+    }
+
+    .avionics-hero-content p {
+        font-size: 16px;
+    }
+
+    .avionics-modules-section {
+        padding: 50px 18px 60px;
+    }
+
+    .avionics-modules-title h2 {
+        font-size: 27px;
+    }
+
+    .avionics-modules {
+        grid-template-columns: 1fr;
+    }
+
+    .avionics-module-description {
+        white-space: normal;
+    }
+
+    .avionics-cta {
+        padding: 50px 20px;
+    }
+
+    .avionics-cta h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+
+
+<div class="avionics-page">
+
+
+    <!-- =====================================================
+         AVIONICS HERO
+         ===================================================== -->
+
+    <section
+        class="avionics-hero"
+        aria-labelledby="avionics-title"
+    >
+
+        <div class="avionics-hero-content">
+
+            <div class="department-name">
+                AVIONICS DEPARTMENT
+            </div>
+
+            <h1 id="avionics-title">
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Avionics Engineering Department focuses on advanced electronic
+                systems used in aerospace applications, integrating
+                flight control, navigation, communication, surveillance,
+                electronic warfare and specialized testing technologies
+                for reliable and mission-focused aerospace systems.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SIX AVIONICS MODULE LINKS
+         ===================================================== -->
+
+    <section
+        class="avionics-modules-section"
+        aria-labelledby="avionics-modules-title"
+    >
+
+        <div class="avionics-modules-title">
+
+            <span>
+                Avionics Engineering
+            </span>
+
+            <h2 id="avionics-modules-title">
+                Our Avionics Capabilities
+            </h2>
+
+        </div>
+
+
+        <div class="avionics-modules">
+
+
+            <!-- 1. FLIGHT CONTROL SYSTEMS -->
+
+            <div class="avionics-module-item">
+
+                <a
+                  href="{{ url_for('flight_control_system_division') }}"
+                    class="avionics-module-button"
+                    aria-label="Flight Control Systems"
+                >
+
+                    <span>
+                        FLIGHT CONTROL SYSTEMS
+                    </span>
+
+                    <span
+                        class="avionics-module-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+                <p class="avionics-module-description">
+                    Aircraft control and stability solutions for reliable flight operations.
+                </p>
+
+            </div>
+
+
+            <!-- 2. NAVIGATION SYSTEMS -->
+
+            <div class="avionics-module-item">
+
+                <a
+                  href="{{ url_for('navigation_systems_division') }}"
+                    class="avionics-module-button"
+                    aria-label="Navigation Systems"
+                >
+
+                    <span>
+                        NAVIGATION SYSTEMS
+                    </span>
+
+                    <span
+                        class="avionics-module-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+                <p class="avionics-module-description">
+                    Accurate navigation and flight guidance solutions for aerospace platforms.
+                </p>
+
+            </div>
+
+
+            <!-- 3. COMMUNICATION SYSTEMS -->
+
+            <div class="avionics-module-item">
+
+                <a
+                    href="{{ url_for('communication_system_division') }}"
+                    class="avionics-module-button"
+                    aria-label="Communication Systems"
+                >
+
+                    <span>
+                        COMMUNICATION SYSTEMS
+                    </span>
+
+                    <span
+                        class="avionics-module-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+                <p class="avionics-module-description">
+                    Reliable voice, data and communication solutions for aircraft systems.
+                </p>
+
+            </div>
+
+
+            <!-- 4. RADAR & SURVEILLANCE -->
+
+            <div class="avionics-module-item">
+
+                <a
+                   href="{{ url_for('radar_surveillance_division') }}"
+                    class="avionics-module-button"
+                    aria-label="Radar and Surveillance"
+                >
+
+                    <span>
+                        RADAR &amp; SURVEILLANCE
+                    </span>
+
+                    <span
+                        class="avionics-module-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+                <p class="avionics-module-description">
+                    Detection, tracking and surveillance technologies for aerospace applications.
+                </p>
+
+            </div>
+
+
+            <!-- 5. ELECTRONIC WARFARE -->
+
+            <div class="avionics-module-item">
+
+                <a
+                    href="{{ url_for('electronic_warfare_division') }}"
+                    class="avionics-module-button"
+                    aria-label="Electronic Warfare"
+                >
+
+                    <span>
+                        ELECTRONIC WARFARE
+                    </span>
+
+                    <span
+                        class="avionics-module-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+                <p class="avionics-module-description">
+                    Advanced electronic protection and electromagnetic threat management solutions.
+                </p>
+
+            </div>
+
+
+            <!-- 6. AVIONICS TESTING & INTEGRATION -->
+
+            <div class="avionics-module-item">
+
+                <a
+                   href="{{ url_for('avionics_testing_integration') }}"
+                    class="avionics-module-button"
+                    aria-label="Avionics Testing and Integration"
+                >
+
+                    <span>
+                        AVIONICS TESTING &amp; INTEGRATION
+                    </span>
+
+                    <span
+                        class="avionics-module-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+                <p class="avionics-module-description">
+                    Testing and integration support for reliable avionics system performance.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REQUIREMENTS / HOME
+         ===================================================== -->
+
+    <section class="avionics-cta">
+
+        <h2>
+            Have an Avionics Engineering Requirement?
+        </h2>
+
+        <p>
+            Share your avionics engineering requirements with
+            Capital Engineering Corporation and our team can review
+            your application and technical needs.
+        </p>
+
+        <div class="avionics-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="avionics-quote-button"
+            >
+
+                REQUEST FOR QUOTATION
+
+                <span aria-hidden="true">
+                    &nbsp;→
+                </span>
+
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="avionics-home-button"
+            >
+
+                BACK TO HOME
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

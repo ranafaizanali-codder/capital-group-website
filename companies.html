@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="{{ current_language }}"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Capital Group | Companies</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    .company-grid .company-card p {
+        white-space: nowrap !important;
+        color: red !important;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+    <header>
+
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='capital_group_logo.png') }}"
+                 alt="Capital Group Logo">
+        </a>
+
+        <nav>
+
+            <a href="{{ url_for('home') }}">HOME</a>
+
+            <a href="{{ url_for('about') }}">ABOUT US</a>
+
+            <div class="dropdown">
+                <a href="#">JOIN US ▾</a>
+
+                <div class="dropdown-content">
+                    <a href="{{ url_for('companies') }}">COMPANIES</a>
+                    <a href="#">CAREERS</a>
+                </div>
+            </div>
+
+            <a href="{{ url_for('contact') }}">CONTACT US</a>
+
+            <div class="dropdown">
+                <a href="#">FOLLOW US ▾</a>
+
+                <div class="dropdown-content">
+                    <a href="#">TikTok</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Instagram</a>
+                    <a href="https://www.linkedin.com/company/capital-engineering-corporation/"
+                       target="_blank">
+                        LinkedIn
+                    </a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Pinterest</a>
+                    <a href="#">Video</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         COMPANIES SECTION
+         ========================= -->
+    <main class="companies">
+
+        <div class="section-title">
+            <h2>Our <span>Companies</span></h2>
+        </div>
+
+
+        <div class="company-grid">
+
+
+            <!-- CAPITAL ENGINEERING -->
+            <a href="{{ url_for('engineering') }}" class="company-card">
+
+                <h2>Capital Engineering Corporation</h2>
+
+                <p>
+                    Manufacturing of precision, aerospace, mechanical,
+                    electronics and avionics modules.
+                </p>
+
+                <span>Explore Company →</span>
+
+            </a>
+
+
+            <!-- CAPITAL CONSULTANTS -->
+            <a href="{{ url_for('consultants') }}" class="company-card">
+
+                <h2>Capital Consultants</h2>
+
+                <p>
+                    Management, HR, IT, marketing, supply chain and
+                    strategic consulting solutions.
+                </p>
+
+                <span>Explore Company →</span>
+
+            </a>
+
+
+            <!-- CAPITAL TRADING -->
+            <a href="{{ url_for('trading') }}" class="company-card">
+
+                <h2>Capital Trading Corporation</h2>
+
+                <p>
+                    Import, export, supply chain management, market
+                    intelligence and global trade solutions.
+                </p>
+
+                <span>Explore Company →</span>
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer>
+
+        <div class="footer-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

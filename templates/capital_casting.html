@@ -1,0 +1,547 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL ENGINEERING — CASTING DIVISION
+   Lightweight / Responsive / SEO-Friendly
+   ========================================================= */
+
+.casting-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* ---------- HERO ---------- */
+
+.casting-hero {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,0.92), rgba(6,29,45,0.58)),
+       url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2200&q=85")
+        center / cover no-repeat;
+}
+
+.casting-hero-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 90px 0;
+}
+
+.casting-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #d2a43b;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.casting-hero h1 {
+    max-width: 850px;
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.casting-hero h1 span {
+    color: #ffffff;
+}
+
+.casting-hero p {
+    max-width: 820px;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* ---------- COMMON SECTIONS ---------- */
+
+.casting-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+.casting-section {
+    padding: 85px 0;
+}
+
+.casting-section:nth-of-type(even) {
+    background: #ffffff;
+}
+
+.casting-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.casting-split.reverse .casting-image-wrap {
+    order: 2;
+}
+
+.casting-copy {
+    max-width: 560px;
+}
+
+.casting-copy .casting-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #c69b32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.casting-copy h2 {
+    margin: 0 0 18px;
+    color: #12384f;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.casting-copy p {
+    margin: 0;
+    color: #536674;
+    font-size: 0.98rem;
+    line-height: 1.75;
+}
+
+.casting-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9eef1;
+    box-shadow: 0 14px 40px rgba(6,29,45,0.10);
+}
+
+.casting-image {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+}
+
+/* ---------- INTRO ---------- */
+
+.casting-intro {
+    padding: 75px 0 35px;
+    text-align: center;
+    background: #f5f7f8;
+}
+
+.casting-intro-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.casting-intro h2 {
+    margin: 0 0 20px;
+    color: #12384f;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.casting-intro p {
+    margin: 0 auto 10px;
+    color: #536674;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+/* ---------- CTA ---------- */
+
+.casting-cta {
+    padding: 85px 0;
+    background: #061d2d;
+    color: #ffffff;
+}
+
+.casting-cta-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.casting-cta h2 {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+
+.casting-cta p {
+    margin: 0 0 25px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.75;
+}
+
+.casting-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    border: 1px solid #d2a43b;
+    border-radius: 4px;
+    background: #d2a43b;
+    color: #061d2d;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.casting-btn:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+.casting-cta-image {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.casting-cta-image img {
+    display: block;
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 850px) {
+
+    .casting-hero {
+        min-height: 480px;
+    }
+
+    .casting-split,
+    .casting-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .casting-split.reverse .casting-image-wrap {
+        order: initial;
+    }
+
+    .casting-image {
+        height: 300px;
+    }
+
+    .casting-section {
+        padding: 65px 0;
+    }
+
+    .casting-cta-image img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .casting-hero-content {
+        padding: 70px 0;
+    }
+
+    .casting-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .casting-hero p {
+        font-size: 0.95rem;
+    }
+
+    .casting-section {
+        padding: 50px 0;
+    }
+
+    .casting-image {
+        height: 240px;
+    }
+}
+</style>
+
+
+<div class="casting-page">
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="casting-hero">
+
+        <div class="casting-hero-content">
+
+            <span class="casting-eyebrow">
+                Casting Division
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions
+                <span>par Excellence</span>
+            </h1>
+
+            <p>
+                CECs Casting Division offers multi-casting facilities
+                according to industry and custom-designed product
+                requirements. We have the following casting facilities
+                ready to provide solutions for standard and special
+                casting requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SAND CASTING
+         ===================================================== -->
+
+    <section class="casting-section">
+
+        <div class="casting-container">
+
+            <div class="casting-split">
+
+                <div class="casting-copy">
+
+                    <span class="casting-label">
+                        Casting Capability
+                    </span>
+
+                    <h2>
+                        Sand Casting
+                    </h2>
+
+                    <p>
+                        We offer ferrous and non-ferrous castings from
+                        small and medium to large-size components for
+                        standard and specialized applications. Our 3D
+                        sand-casting pattern-making capability reduces
+                        development time while improving production
+                        economy and flexibility.
+                    </p>
+
+                </div>
+
+                <div class="casting-image-wrap">
+
+                    <img
+                        class="casting-image"
+                        src="https://schapenberg.de/wp-content/uploads/2017/10/spb_77362520_produkt_gussteile-1.jpg"
+                        alt="Sand cast industrial metal components"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRESSURE DIE CASTING
+         ===================================================== -->
+
+    <section class="casting-section">
+
+        <div class="casting-container">
+
+            <div class="casting-split reverse">
+
+                <div class="casting-copy">
+
+                    <span class="casting-label">
+                        High-Pressure Casting
+                    </span>
+
+                    <h2>
+                        Pressure Die Casting
+                    </h2>
+
+                    <p>
+                        Pressure die casting delivers repeatable,
+                        high-volume production of complex non-ferrous
+                        components with controlled dimensional accuracy,
+                        surface quality and cycle efficiency.
+                    </p>
+
+                </div>
+
+                <div class="casting-image-wrap">
+
+                    <img
+                        class="casting-image"
+                        src="https://image.made-in-china.com/2f0j00MgPculikbbzK/Lk-Aluminum-Die-Casting-Machine-Dcc200-Plus-with-200-Ton-Clamping-Force.jpg"
+                        alt="Industrial pressure die casting machine"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CENTRIFUGAL CASTING
+         ===================================================== -->
+
+    <section class="casting-section">
+
+        <div class="casting-container">
+
+            <div class="casting-split">
+
+                <div class="casting-copy">
+
+                    <span class="casting-label">
+                        Rotational Casting
+                    </span>
+
+                    <h2>
+                        Centrifugal Casting
+                    </h2>
+
+                    <p>
+                        Centrifugal casting supports the production of
+                        cylindrical and rotational components by using
+                        controlled centrifugal force to achieve dense,
+                        consistent metal structures and reliable geometry.
+                    </p>
+
+                </div>
+
+                <div class="casting-image-wrap">
+
+                    <img
+                        class="casting-image"
+                        src="https://s.alicdn.com/%40sc04/kf/H6c7784ff29194cd399c8116638e58cdfk/Automatic-Horizontal-Centrifugal-Casting-Machine-Suitable-for-Ductile-Iron-Pipe-and-Cast-Iron-Pipe-Production.jpg"
+                        alt="Industrial centrifugal casting machine"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INVESTMENT CASTING
+         ===================================================== -->
+
+    <section class="casting-section">
+
+        <div class="casting-container">
+
+            <div class="casting-split reverse">
+
+                <div class="casting-copy">
+
+                    <span class="casting-label">
+                        Precision Casting
+                    </span>
+
+                    <h2>
+                        Investment Casting
+                    </h2>
+
+                    <p>
+                        Investment casting enables complex, thin-walled
+                        and precision components through advanced wax
+                        pattern and ceramic-shell processes, minimizing
+                        machining requirements and supporting demanding
+                        engineering applications.
+                    </p>
+
+                </div>
+
+                <div class="casting-image-wrap">
+
+                    <img
+                        class="casting-image"
+                        src="https://www.steel-foundry.com/uploads/Wax-pattern-for-open-impeller.jpg"
+                        alt="Investment casting wax pattern"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="casting-cta">
+
+        <div class="casting-container">
+
+            <div class="casting-cta-inner">
+
+                <div>
+
+                    <span class="casting-label">
+                        Capital Engineering Corporation
+                    </span>
+
+                    <h2>
+                        Engineered Casting Solutions
+                    </h2>
+
+                    <p>
+                        From standard production requirements to
+                        specialized cast components, our casting
+                        capabilities are aligned with engineering,
+                        material and application requirements.
+                    </p>
+
+                    <a
+                        href="{{ url_for('engineering_quote') }}"
+                        class="casting-btn">
+                        Request Engineering Support
+                    </a>
+
+                </div>
+
+                <div class="casting-cta-image">
+
+                    <img
+                        src="https://www.steel-foundry.com/uploads/Wax-pattern-for-open-impeller.jpg"
+                        alt="Precision investment casting component"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

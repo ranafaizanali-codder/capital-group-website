@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}
+Capital Group | Indigenous Innovation
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section
+    class="hero"
+    aria-labelledby="hero-title"
+>
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <!-- SMALL TITLE -->
+
+        <div class="gold-text">
+            CAPITAL GROUP
+        </div>
+
+
+        <!-- HOME SLOGAN -->
+
+        <h1 id="hero-title">
+            {{ _("Developing Businesses, Creating Solutions") }}
+        </h1>
+
+
+        <!-- DESCRIPTION -->
+
+        <p>
+            {{ _("With three decades of continuous support to our valued customers and clients, Capital Group provides indigenous, innovative and technological solutions through engineering, consulting, technology and trade.") }}
+        </p>
+
+
+        <!-- ================= COMPANY BUTTONS ================= -->
+
+        <div class="buttons">
+
+
+            <!-- CAPITAL ENGINEERING -->
+
+            <a
+                href="{{ url_for('engineering') }}"
+                class="main-btn"
+            >
+
+                <strong>
+                    CAPITAL ENGINEERING CORPORATION
+                </strong>
+
+                <small>
+                    {{ _("Manufacturers of precision, aerospace, mechanical, electronics and avionics modules") }}
+                </small>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- CAPITAL CONSULTANTS -->
+
+            <a
+                href="{{ url_for('consultants') }}"
+                class="main-btn"
+            >
+
+                <strong>
+                    CAPITAL CONSULTANTS
+                </strong>
+
+                <small>
+                    {{ _("Engineering design services, professional training, business consultancy") }}
+                </small>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- CAPITAL TRADING -->
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="main-btn"
+            >
+
+                <strong>
+                    CAPITAL TRADING CORPORATION
+                </strong>
+
+                <small>
+                    {{ _("Exporters of textile, food products, minerals, software and precision engineering modules") }}
+                </small>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- ================= SEND REQUEST ================= -->
+
+        <div class="quote-cta">
+
+            <a
+                href="{{ url_for('capital_request') }}"
+                class="quote-btn"
+                aria-label="Send a request to Capital Group"
+            >
+
+                <strong>
+                    {{ _("SEND REQUEST") }}
+                </strong>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

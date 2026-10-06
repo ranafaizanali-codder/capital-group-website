@@ -1,0 +1,507 @@
+{% extends "base.html" %}
+
+{% block title %}
+Electrical Design Services | Capital Group
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   ELECTRICAL DESIGN SERVICES
+   ========================================================= */
+
+.electrical-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.electrical-hero {
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.78) 48%,
+            rgba(6, 29, 45, 0.35) 100%
+        ),
+        url("{{ url_for('static', filename='electrical_design_hero.jpg') }}")
+        center center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+}
+
+.electrical-hero-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.electrical-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.electrical-hero h1 {
+    max-width: 850px;
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.electrical-hero-description {
+    max-width: 820px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* ================= CONTENT ================= */
+
+.electrical-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+
+    padding: 75px 0 85px;
+}
+
+
+/* ================= INTRO ================= */
+
+.electrical-intro {
+    max-width: 850px;
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.electrical-intro h2 {
+    margin: 0 0 18px;
+
+    color: #12384f;
+
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+.electrical-intro p {
+    margin: 0;
+
+    color: #667780;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ================= SERVICE ROWS ================= */
+
+.electrical-service-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    margin-bottom: 70px;
+}
+
+.electrical-service-row.reverse {
+    direction: rtl;
+}
+
+.electrical-service-row.reverse > * {
+    direction: ltr;
+}
+
+.electrical-service-image {
+    width: 100%;
+    height: 310px;
+
+    object-fit: cover;
+
+    display: block;
+
+    box-shadow: 0 12px 30px rgba(6, 29, 45, 0.12);
+}
+
+.electrical-service-text h2 {
+    max-width: 520px;
+
+    margin: 0 0 18px;
+
+    color: #12384f;
+
+    font-size: 29px;
+    line-height: 1.25;
+}
+
+.electrical-service-text p {
+    max-width: 540px;
+
+    margin: 0;
+
+    color: #657780;
+
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+
+/* ================= CTA ================= */
+
+.electrical-cta {
+    margin-top: 20px;
+
+    padding: 55px 30px;
+
+    background: #061d2d;
+
+    text-align: center;
+}
+
+.electrical-cta h2 {
+    margin: 0 0 28px;
+
+    color: #ffffff;
+
+    font-size: 30px;
+}
+
+.electrical-cta-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+.electrical-cta-button {
+    display: inline-block;
+
+    padding: 13px 26px;
+
+    background: #d2a43b;
+
+    color: #061d2d;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    transition: all 0.25s ease;
+}
+
+.electrical-cta-button:hover {
+    background: #ffffff;
+
+    color: #061d2d;
+}
+
+.electrical-email {
+    margin-top: 25px;
+
+    color: #d2a43b;
+
+    font-size: 14px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .electrical-service-row,
+    .electrical-service-row.reverse {
+        grid-template-columns: 1fr;
+
+        direction: ltr;
+
+        gap: 28px;
+    }
+
+    .electrical-service-image {
+        height: 280px;
+    }
+
+    .electrical-hero {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .electrical-hero {
+        min-height: 500px;
+    }
+
+    .electrical-hero-content {
+        padding: 60px 0;
+    }
+
+    .electrical-hero h1 {
+        font-size: 38px;
+    }
+
+    .electrical-hero-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .electrical-content {
+        padding-top: 55px;
+    }
+
+    .electrical-intro h2 {
+        font-size: 27px;
+    }
+
+    .electrical-service-text h2 {
+        font-size: 26px;
+    }
+
+    .electrical-service-image {
+        height: 240px;
+    }
+}
+
+</style>
+
+
+<div class="electrical-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="electrical-hero">
+
+        <div class="electrical-hero-content">
+
+            <div class="electrical-label">
+                Electrical Design Services Division
+            </div>
+
+            <h1>
+                Professional Electrical Design Solutions for Modern Infrastructure
+            </h1>
+
+            <p class="electrical-hero-description">
+                Capital Consultants provides professional electrical engineering
+                and design services covering power systems, industrial facilities,
+                control systems, lighting and integrated electrical infrastructure
+                for reliable and efficient project delivery.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="electrical-content">
+
+
+        <div class="electrical-intro">
+
+            <h2>
+                Engineering Electrical Systems for Performance and Reliability
+            </h2>
+
+            <p>
+                Our electrical design approach combines technical engineering,
+                practical system planning and project requirements to develop
+                safe, efficient and dependable electrical solutions for
+                industrial, commercial and infrastructure projects.
+            </p>
+
+        </div>
+
+
+        <!-- ================= SERVICE 1 ================= -->
+
+        <div class="electrical-service-row">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='electrical_power_systems.jpg') }}"
+                    alt="Electrical power systems engineering"
+                    class="electrical-service-image"
+                >
+
+            </div>
+
+            <div class="electrical-service-text">
+
+                <h2>
+                    Electrical Power Systems Design
+                </h2>
+
+                <p>
+                    Development of electrical power distribution systems,
+                    load assessment, single-line diagrams and system layouts
+                    designed to support dependable power delivery and
+                    efficient project operation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SERVICE 2 ================= -->
+
+        <div class="electrical-service-row reverse">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='industrial_electrical_design.jpg') }}"
+                    alt="Industrial electrical engineering design"
+                    class="electrical-service-image"
+                >
+
+            </div>
+
+            <div class="electrical-service-text">
+
+                <h2>
+                    Industrial Electrical Engineering
+                </h2>
+
+                <p>
+                    Engineering solutions for industrial facilities including
+                    electrical layouts, equipment connections, distribution
+                    planning and coordinated infrastructure for demanding
+                    operating environments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SERVICE 3 ================= -->
+
+        <div class="electrical-service-row">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='electrical_control_systems.jpg') }}"
+                    alt="Electrical control systems engineering"
+                    class="electrical-service-image"
+                >
+
+            </div>
+
+            <div class="electrical-service-text">
+
+                <h2>
+                    Control and Automation Systems
+                </h2>
+
+                <p>
+                    Electrical control and automation design focused on
+                    system integration, equipment control, instrumentation
+                    interfaces and reliable operation of modern industrial
+                    processes.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SERVICE 4 ================= -->
+
+        <div class="electrical-service-row reverse">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='electrical_lighting_design.jpg') }}"
+                    alt="Electrical lighting design"
+                    class="electrical-service-image"
+                >
+
+            </div>
+
+            <div class="electrical-service-text">
+
+                <h2>
+                    Lighting and Electrical Infrastructure
+                </h2>
+
+                <p>
+                    Professional lighting and electrical infrastructure
+                    planning for commercial, industrial and development
+                    projects, with attention to functionality, efficiency,
+                    safety and maintainability.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CTA ================= -->
+
+        <div class="electrical-cta">
+
+            
+
+            <div class="electrical-cta-buttons">
+
+                <a href="{{ url_for('trading_quote') }}"
+                   class="electrical-cta-button">
+                    SEND REQUIREMENT
+                </a>
+
+                <a href="/"
+                   class="electrical-cta-button">
+                    BACK TO HOME
+                </a>
+
+            </div>
+
+            <div class="electrical-email">
+                ceo@capitalgroup.pk
+            </div>
+
+        </div>
+
+
+    </section>
+
+</div>
+
+{% endblock %}

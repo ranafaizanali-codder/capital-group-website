@@ -1,0 +1,440 @@
+
+{% extends "base.html" %}
+
+{% block title %}Chilled & Frozen Meat Department | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.meat-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+.meat-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.88),
+            rgba(6,29,45,.45)
+        ),
+        url("https://images.pexels.com/photos/13279400/pexels-photo-13279400.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75")
+        center / cover no-repeat;
+}
+
+.meat-hero-inner {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto;
+    padding: 90px 28px;
+    color: #fff;
+}
+
+.meat-label {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.meat-hero h1 {
+    max-width: 900px;
+    margin: 0 0 24px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -.8px;
+}
+
+.meat-description {
+    max-width: 780px;
+    margin: 0;
+    color: #e8eef2;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+.meat-intro {
+    max-width: 1050px;
+    margin: auto;
+    padding: 90px 28px 65px;
+    text-align: center;
+}
+
+.meat-intro h2 {
+    margin: 0 0 18px;
+    color: #12384f;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.meat-intro p {
+    max-width: 820px;
+    margin: auto;
+    color: #526674;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   SIX PREMIUM BUTTONS
+========================= */
+.meat-products {
+    max-width: 1050px;
+    margin: auto;
+    padding: 10px 28px 90px;
+}
+
+.meat-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.meat-card {
+    min-height: 135px;
+    padding: 28px 24px;
+    background: #ffffff;
+    border: 1px solid #d7e0e5;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: 0 8px 25px rgba(6,29,45,.05);
+    transition: .25s ease;
+}
+
+.meat-card:hover {
+    transform: translateY(-4px);
+    border-color: #c69b32;
+    box-shadow: 0 14px 30px rgba(6,29,45,.10);
+}
+
+.meat-card span {
+    color: #12384f;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.meat-card small {
+    margin-top: 9px;
+    color: #71818c;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   COLD CHAIN SECTION
+========================= */
+.meat-business {
+    background: #ffffff;
+    border-top: 1px solid #dbe2e6;
+    border-bottom: 1px solid #dbe2e6;
+}
+
+.meat-business-inner {
+    max-width: 1180px;
+    margin: auto;
+    padding: 85px 28px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.meat-business-image {
+    min-height: 410px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.10),
+            rgba(6,29,45,.02)
+        ),
+        url("https://images.pexels.com/photos/5774360/pexels-photo-5774360.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75")
+        center / cover no-repeat;
+
+    box-shadow: 0 18px 45px rgba(6,29,45,.12);
+}
+
+.meat-number {
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.meat-business-content h2 {
+    margin: 0 0 20px;
+    color: #12384f;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.meat-business-content p {
+    max-width: 500px;
+    color: #526674;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CTA
+========================= */
+.meat-cta {
+    padding: 90px 28px;
+    background: #061d2d;
+    color: #ffffff;
+    text-align: center;
+}
+
+.meat-cta h2 {
+    margin: 0 0 16px;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.meat-cta p {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: #dce6eb;
+    line-height: 1.7;
+}
+
+.meat-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.meat-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 1px solid #c69b32;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .25s ease;
+}
+
+.meat-btn:hover {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.meat-email {
+    margin-top: 28px;
+    color: #d2a43b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 850px) {
+
+    .meat-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .meat-business-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .meat-business-image {
+        min-height: 330px;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .meat-products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meat-hero {
+        min-height: 570px;
+    }
+
+    .meat-hero-inner {
+        padding: 70px 22px;
+    }
+
+    .meat-intro,
+    .meat-products,
+    .meat-business-inner {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .meat-intro h2,
+    .meat-business-content h2,
+    .meat-cta h2 {
+        font-size: 30px;
+    }
+}
+</style>
+
+
+<main class="meat-page">
+
+    <!-- HERO -->
+    <section class="meat-hero">
+
+        <div class="meat-hero-inner">
+
+            <div class="meat-label">
+                Chilled & Frozen Meat Department
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="meat-description">
+                CTC’s Chilled & Frozen Meat Department provides professional
+                sourcing and international trade solutions for chilled and
+                frozen food products, connecting reliable suppliers with
+                distributors, food businesses and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="meat-intro">
+
+        <h2>
+            Chilled & Frozen Food Solutions
+        </h2>
+
+        <p>
+            CTC’s Chilled & Frozen Meat Department supports international
+            buyers and distribution networks through organized sourcing,
+            export coordination, product documentation and temperature-
+            controlled logistics for professionally managed food trade.
+        </p>
+
+    </section>
+
+
+    <!-- SIX BUTTONS -->
+    <section class="meat-products">
+
+        <div class="meat-products-grid">
+
+            <a href="{{ url_for('fish') }}" class="meat-card">
+                <span>Fish</span>
+                <small>
+                    Chilled & Frozen Fish Products
+                </small>
+            </a>
+
+               <a href="{{ url_for('mutton')}}" class="meat-card">
+                <span>Mutton</span>
+                <small>
+                    Chilled & Frozen Mutton Products
+                </small>
+            </a>
+
+            <a href="{{ url_for('beef')}}" class="meat-card">
+                <span>Beef</span>
+                <small>
+                    Chilled & Frozen Beef Products
+                </small>
+            </a>
+
+            <a href="{{ url_for('camel_meat') }}" class="meat-card">
+                <span>Camel Meat</span>
+                <small>
+                    Specialty Camel Meat Products
+                </small>
+            </a>
+
+            <a href="{{ url_for('chicken') }}" class="meat-card">
+                <span>Chicken</span>
+                <small>
+                    Chilled & Frozen Poultry Products
+                </small>
+            </a>
+
+        <a href="{{ url_for('seafood')}}" class="meat-card">
+                <span>Seafood</span>
+                <small>
+                    Chilled & Frozen Seafood Products
+                </small>
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- CTA -->
+    <section class="meat-cta">
+
+        <h2>
+            Looking for Chilled & Frozen Meat Solutions?
+        </h2>
+
+        <p>
+            Connect with CTC for professional food sourcing, export
+            coordination and international market solutions.
+        </p>
+
+        <div class="meat-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="meat-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="meat-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="meat-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="meat-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

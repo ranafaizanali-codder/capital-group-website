@@ -1,0 +1,605 @@
+{% extends "base.html" %}
+
+{% block title %}
+Communication System Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - COMMUNICATION SYSTEM DIVISION
+   ========================================================= */
+
+.communication-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.communication-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #061d2d;
+}
+
+.communication-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.82;
+}
+
+.communication-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.98) 0%,
+            rgba(6, 29, 45, 0.90) 35%,
+            rgba(6, 29, 45, 0.48) 68%,
+            rgba(6, 29, 45, 0.18) 100%
+        );
+}
+
+.communication-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, 88%);
+    margin: auto;
+    color: white;
+}
+
+.communication-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.communication-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.communication-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.communication-content {
+    width: min(1200px, 88%);
+    margin: auto;
+    padding: 90px 0 70px;
+}
+
+.communication-heading {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+.communication-heading span {
+    display: block;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.communication-heading h2 {
+    margin: 0 0 15px;
+    color: #061d2d;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.communication-heading p {
+    max-width: 760px;
+    margin: auto;
+    color: #526675;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ================= FEATURE ROWS ================= */
+
+.communication-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    margin-bottom: 95px;
+}
+
+.communication-feature.reverse {
+    direction: rtl;
+}
+
+.communication-feature.reverse .communication-text {
+    direction: ltr;
+}
+
+.communication-image {
+    overflow: hidden;
+    border: 1px solid rgba(198,155,50,0.45);
+    box-shadow: 0 18px 45px rgba(6,29,45,0.13);
+    background: white;
+}
+
+.communication-image img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.communication-image:hover img {
+    transform: scale(1.035);
+}
+
+.communication-number {
+    color: #c69b32;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.communication-text h3 {
+    color: #061d2d;
+    font-size: 30px;
+    margin: 0 0 17px;
+}
+
+.communication-text p {
+    color: #526675;
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+    max-width: 520px;
+}
+
+/* ================= BOTTOM ACTIONS ================= */
+
+.communication-actions {
+    border-top: 1px solid #d9e0e4;
+    padding-top: 45px;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.communication-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0 30px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition: all 0.3s ease;
+}
+
+.communication-btn.back {
+    color: #061d2d;
+    border: 1px solid #061d2d;
+    background: transparent;
+}
+
+.communication-btn.back:hover {
+    background: #061d2d;
+    color: white;
+}
+
+.communication-btn.request {
+    color: white;
+    background: #c69b32;
+    border: 1px solid #c69b32;
+}
+
+.communication-btn.request:hover {
+    background: #a98124;
+    border-color: #a98124;
+}
+
+.communication-email {
+    text-align: right;
+    margin-top: 28px;
+    color: #526675;
+    font-size: 14px;
+}
+
+.communication-email strong {
+    color: #061d2d;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .communication-hero {
+        min-height: 500px;
+    }
+
+    .communication-feature,
+    .communication-feature.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 35px;
+        margin-bottom: 70px;
+    }
+
+    .communication-image img {
+        height: 330px;
+    }
+
+    .communication-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .communication-btn {
+        width: 100%;
+    }
+
+    .communication-email {
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .communication-content {
+        padding: 65px 0 50px;
+    }
+
+    .communication-hero h1 {
+        font-size: 38px;
+    }
+
+    .communication-hero p {
+        font-size: 15px;
+    }
+
+    .communication-image img {
+        height: 270px;
+    }
+
+    .communication-text h3 {
+        font-size: 25px;
+    }
+}
+
+</style>
+
+
+<div class="communication-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="communication-hero">
+
+        <img
+            class="communication-hero-image"
+            src="https://www.skyart.com/cdn/Delivery/Public/Image/Download/zh_asp-503.jpg"
+            alt="Aircraft communication audio control panel"
+            loading="eager"
+        >
+
+        <div class="communication-hero-overlay"></div>
+
+        <div class="communication-hero-content">
+
+            <span class="communication-label">
+                COMMUNICATION SYSTEM DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Communication System Division specializes in
+                precision-engineered aviation communication hardware,
+                radio systems and integrated communication equipment
+                for reliable airborne voice and data connectivity.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="communication-content">
+
+        <div class="communication-heading">
+
+            <span>OUR CAPABILITIES</span>
+
+            <h2>
+                Aerospace Communication Systems
+            </h2>
+
+            <p>
+                CECs provides precision-engineered communication
+                solutions for aircraft voice, data, radio,
+                audio management and airborne connectivity systems.
+            </p>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <section class="communication-feature">
+
+            <div class="communication-text">
+
+                <div class="communication-number">
+                    01
+                </div>
+
+                <h3>
+                    VHF Communication Systems
+                </h3>
+
+                <p>
+                    Aircraft VHF communication transceivers and
+                    control systems designed for reliable
+                    pilot-to-ground and aircraft communication
+                    across demanding aviation environments.
+                </p>
+
+            </div>
+
+            <div class="communication-image">
+
+                <img
+                    src="https://www.seaerospace.com/product_images/1341/572/large/1.jpg"
+                    alt="Aircraft VHF communications transceiver"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+
+        <section class="communication-feature reverse">
+
+            <div class="communication-text">
+
+                <div class="communication-number">
+                    02
+                </div>
+
+                <h3>
+                    HF Communication Systems
+                </h3>
+
+                <p>
+                    High-frequency communication equipment for
+                    long-range airborne voice and data communication,
+                    including transceiver and antenna-coupling
+                    technologies.
+                </p>
+
+            </div>
+
+            <div class="communication-image">
+
+                <img
+                    src="https://www.seaerospace.com/product_images/35/40340/medium/2.jpg"
+                    alt="Aircraft Honeywell VHF communication radio module"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+
+        <section class="communication-feature">
+
+            <div class="communication-text">
+
+                <div class="communication-number">
+                    03
+                </div>
+
+                <h3>
+                    Communication Management Units
+                </h3>
+
+                <p>
+                    Integrated communication management hardware
+                    for routing aircraft data and coordinating
+                    communication channels between airborne systems
+                    and ground networks.
+                </p>
+
+            </div>
+
+            <div class="communication-image">
+
+                <img
+                    src="https://www.eirtechaviation.ie/files/4115/3795/7079/HON_CMU_B737.PNG"
+                    alt="Aircraft Communications Management Unit"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+
+        <section class="communication-feature reverse">
+
+            <div class="communication-text">
+
+                <div class="communication-number">
+                    04
+                </div>
+
+                <h3>
+                    Audio Control Systems
+                </h3>
+
+                <p>
+                    Aircraft audio control and selector hardware
+                    for managing VHF, HF, intercom, navigation
+                    and crew communication audio channels.
+                </p>
+
+            </div>
+
+            <div class="communication-image">
+
+                <img
+                    src="https://www.skyart.com/cdn/Delivery/Public/Image/Download/zh_asp-503.jpg"
+                    alt="Aircraft audio selector and communication control panel"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+
+        <section class="communication-feature">
+
+            <div class="communication-text">
+
+                <div class="communication-number">
+                    05
+                </div>
+
+                <h3>
+                    SATCOM &amp; Data Links
+                </h3>
+
+                <p>
+                    Airborne satellite communication and digital
+                    data-link equipment supporting reliable
+                    connectivity between aircraft systems and
+                    external communication networks.
+                </p>
+
+            </div>
+
+            <div class="communication-image">
+
+                <img
+                    src="https://s3.amazonaws.com/marquee-test-akiaisur2rgicbmpehea/4snyoQFZRH6gKHYDOpip_IFC%20Image%20Opener.jpg"
+                    alt="Aircraft satellite communication antenna assembly"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 06 -->
+
+        <section class="communication-feature reverse">
+
+            <div class="communication-text">
+
+                <div class="communication-number">
+                    06
+                </div>
+
+                <h3>
+                    Communication Antennas
+                </h3>
+
+                <p>
+                    Precision aviation communication antennas
+                    engineered for reliable RF transmission and
+                    reception across aircraft communication
+                    frequencies and installation environments.
+                </p>
+
+            </div>
+
+            <div class="communication-image">
+
+                <img
+                    src="https://www.l3harris.com/sites/default/files/styles/625_x_570/public/2020-09/sas-ma-product-C63-series-antenna-hero-1250x1140.png?itok=AoxB4ff0"
+                    alt="Aircraft VHF communication antenna"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTIONS ================= -->
+
+        <div class="communication-actions">
+
+            <a
+                href="/companies/engineering/avionics"
+                class="communication-btn back"
+            >
+                GO BACK TO AVIONICS
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="communication-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+        <div class="communication-email">
+            <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

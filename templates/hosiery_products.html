@@ -1,0 +1,473 @@
+{% extends "base.html" %}
+
+{% block title %}Hosiery Products Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.hosiery-products-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.hosiery-products-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.76),rgba(6,29,45,.76)),
+        url("https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.hosiery-products-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.hosiery-products-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.hosiery-products-hero h1{
+    max-width:1000px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.hosiery-products-description{
+    max-width:780px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.hosiery-products-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.hosiery-products-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.hosiery-products-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.hosiery-products-sections{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 100px;
+}
+
+.hosiery-products-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:460px;
+    align-items:center;
+    gap:70px;
+    margin-bottom:90px;
+}
+
+.hosiery-products-section:nth-child(even){
+    direction:rtl;
+}
+
+.hosiery-products-section:nth-child(even) .hosiery-products-content{
+    direction:ltr;
+}
+
+.hosiery-products-image{
+    min-height:430px;
+    border-radius:4px;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.hosiery-products-image-1{
+    background-image:url("https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.hosiery-products-image-2{
+    background-image:url("https://images.pexels.com/photos/5746051/pexels-photo-5746051.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.hosiery-products-image-3{
+    background-image:url("https://images.pexels.com/photos/5746037/pexels-photo-5746037.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.hosiery-products-image-4{
+    background-image:url("https://images.pexels.com/photos/6347544/pexels-photo-6347544.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.hosiery-products-image-5{
+    background-image:url("https://images.pexels.com/photos/5591672/pexels-photo-5591672.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.hosiery-products-image-6{
+    background-image:url("https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.hosiery-products-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.hosiery-products-content h3{
+    color:#12384f;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 20px;
+}
+
+.hosiery-products-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    max-width:500px;
+}
+
+.hosiery-products-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.hosiery-products-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.hosiery-products-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.hosiery-products-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.hosiery-products-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.hosiery-products-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.hosiery-products-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+
+    .hosiery-products-hero{
+        min-height:620px;
+    }
+
+    .hosiery-products-section{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .hosiery-products-section:nth-child(even){
+        direction:ltr;
+    }
+
+    .hosiery-products-image{
+        min-height:330px;
+    }
+
+    .hosiery-products-content h3{
+        font-size:30px;
+    }
+}
+</style>
+
+
+<div class="hosiery-products-page">
+
+
+    <section class="hosiery-products-hero">
+
+        <div class="hosiery-products-hero-inner">
+
+            <div class="hosiery-products-label">
+                Hosiery Products Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="hosiery-products-description">
+                CTC’s Hosiery Products Division provides professionally sourced
+                hosiery products for retail, apparel, institutional and commercial
+                markets, supporting dependable quality, product specifications,
+                quantity planning and international textile trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="hosiery-products-intro">
+
+        <h2>
+            Premium Hosiery Product Solutions
+        </h2>
+
+        <p>
+            CTC supports hosiery sourcing through reliable supplier coordination,
+            product specifications, material requirements, quality standards,
+            quantity planning and organized supply solutions for domestic and
+            international textile markets.
+        </p>
+
+    </section>
+
+
+    <section class="hosiery-products-sections">
+
+
+        <div class="hosiery-products-section">
+
+            <div class="hosiery-products-image hosiery-products-image-1"></div>
+
+            <div class="hosiery-products-content">
+
+                <div class="hosiery-products-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Hosiery Products
+                </h3>
+
+                <p>
+                    Professionally sourced hosiery products for retail and
+                    commercial markets, supporting consistent quality, comfortable
+                    materials and dependable textile supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hosiery-products-section">
+
+            <div class="hosiery-products-image hosiery-products-image-2"></div>
+
+            <div class="hosiery-products-content">
+
+                <div class="hosiery-products-number">
+                    02
+                </div>
+
+                <h3>
+                    Everyday Socks & Essentials
+                </h3>
+
+                <p>
+                    Quality-focused everyday hosiery solutions including practical
+                    sock ranges designed for retail, institutional and commercial
+                    textile supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hosiery-products-section">
+
+            <div class="hosiery-products-image hosiery-products-image-3"></div>
+
+            <div class="hosiery-products-content">
+
+                <div class="hosiery-products-number">
+                    03
+                </div>
+
+                <h3>
+                    Performance Hosiery Solutions
+                </h3>
+
+                <p>
+                    Functional hosiery sourcing for active and performance-focused
+                    markets, with attention to material selection, comfort,
+                    durability and product specifications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hosiery-products-section">
+
+            <div class="hosiery-products-image hosiery-products-image-4"></div>
+
+            <div class="hosiery-products-content">
+
+                <div class="hosiery-products-number">
+                    04
+                </div>
+
+                <h3>
+                    Retail-Ready Hosiery Supply
+                </h3>
+
+                <p>
+                    Coordinated hosiery products for retail channels, supporting
+                    product presentation, packaging requirements, specifications
+                    and organized commercial supply.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hosiery-products-section">
+
+            <div class="hosiery-products-image hosiery-products-image-5"></div>
+
+            <div class="hosiery-products-content">
+
+                <div class="hosiery-products-number">
+                    05
+                </div>
+
+                <h3>
+                    Quality & Supply Planning
+                </h3>
+
+                <p>
+                    Organized supplier coordination, product specifications,
+                    quantity planning and shipment support for recurring hosiery
+                    requirements and larger commercial orders.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hosiery-products-section">
+
+            <div class="hosiery-products-image hosiery-products-image-6"></div>
+
+            <div class="hosiery-products-content">
+
+                <div class="hosiery-products-number">
+                    06
+                </div>
+
+                <h3>
+                    International Hosiery Markets
+                </h3>
+
+                <p>
+                    CTC connects reliable textile suppliers with international
+                    buyers through professional sourcing, supply coordination,
+                    quantity planning and global hosiery market solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="hosiery-products-cta">
+
+        <h2>
+            Looking for Hosiery Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional hosiery sourcing,
+            supply coordination and international textile market
+            solutions.
+        </p>
+
+        <div class="hosiery-products-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="hosiery-products-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="hosiery-products-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="hosiery-products-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="hosiery-products-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,712 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced Aerospace Design & Systems Engineering | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+.aerospace-course-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.aerospace-course-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.78),
+            rgba(6, 29, 45, 0.78)
+        ),
+        url("https://www.ornl.gov/sites/default/files/styles/large/public/2025-08/jet-engine-turbine-blades-of-airplane-2024-11-25-11-30-47-utc.jpg?itok=xvOpXNd_")
+        center center / cover no-repeat;
+}
+
+.aerospace-course-hero-content {
+    max-width: 900px;
+    color: white;
+}
+
+.aerospace-course-label {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.aerospace-course-hero h1 {
+    margin: 0 0 25px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.aerospace-course-hero p {
+    max-width: 780px;
+    margin: 0;
+    color: #e7eef2;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   COURSE INTRO
+========================= */
+
+.aerospace-course-intro {
+    max-width: 1100px;
+    margin: auto;
+    padding: 85px 8% 55px;
+}
+
+.aerospace-course-intro h2 {
+    margin: 0 0 20px;
+    color: #12384f;
+    font-size: 36px;
+}
+
+.aerospace-course-intro p {
+    margin: 0;
+    color: #65747c;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   COURSE DETAILS
+========================= */
+
+.aerospace-course-details {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 8% 75px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.aerospace-detail-box {
+    background: white;
+    border: 1px solid #e0e6e9;
+    border-top: 3px solid #c69b32;
+    padding: 28px 24px;
+}
+
+.aerospace-detail-box span {
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.aerospace-detail-box h3 {
+    margin: 12px 0 0;
+    color: #12384f;
+    font-size: 19px;
+}
+
+
+/* =========================
+   CONTENT SECTIONS
+========================= */
+
+.aerospace-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 10px 8% 80px;
+}
+
+.aerospace-section {
+    margin-bottom: 55px;
+}
+
+.aerospace-section h2 {
+    margin: 0 0 20px;
+    color: #12384f;
+    font-size: 31px;
+}
+
+.aerospace-section p {
+    margin: 0;
+    color: #65747c;
+    line-height: 1.8;
+}
+
+.aerospace-section ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.aerospace-section li {
+    margin-bottom: 11px;
+    color: #65747c;
+    line-height: 1.65;
+}
+
+
+/* =========================
+   TOPICS
+========================= */
+
+.aerospace-topics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.aerospace-topic {
+    background: white;
+    border: 1px solid #e0e6e9;
+    padding: 22px 24px;
+}
+
+.aerospace-topic strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #12384f;
+}
+
+.aerospace-topic p {
+    color: #6b7980;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HIGHLIGHT
+========================= */
+
+.aerospace-highlight {
+    margin-top: 25px;
+    padding: 32px;
+    background: #08283b;
+    color: white;
+}
+
+.aerospace-highlight h3 {
+    margin: 0 0 12px;
+    color: #d2a43b;
+    font-size: 22px;
+}
+
+.aerospace-highlight p {
+    margin: 0;
+    color: #d9e3e8;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.aerospace-course-cta {
+    padding: 90px 8%;
+    text-align: center;
+    background: #f5f7f8;
+}
+
+.aerospace-course-cta h2 {
+    margin: 0 0 15px;
+    color: #12384f;
+    font-size: 38px;
+}
+
+.aerospace-course-cta p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: #65747c;
+    line-height: 1.7;
+}
+
+.aerospace-course-email {
+    margin-bottom: 30px;
+    color: #12384f;
+    font-weight: 700;
+}
+
+.aerospace-course-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.aerospace-course-btn {
+    display: inline-block;
+    padding: 14px 30px;
+
+    border: 1px solid #12384f;
+    color: #12384f;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.aerospace-course-btn.primary {
+    background: #12384f;
+    color: white;
+}
+
+.aerospace-course-btn:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+    color: white;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .aerospace-course-details {
+        grid-template-columns: 1fr;
+    }
+
+    .aerospace-topics {
+        grid-template-columns: 1fr;
+    }
+
+    .aerospace-course-hero {
+        min-height: 560px;
+        padding: 80px 7%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .aerospace-course-hero h1 {
+        font-size: 38px;
+    }
+
+    .aerospace-course-intro h2,
+    .aerospace-section h2,
+    .aerospace-course-cta h2 {
+        font-size: 30px;
+    }
+
+    .aerospace-highlight {
+        padding: 25px;
+    }
+}
+</style>
+
+
+<div class="aerospace-course-page">
+
+
+    <!-- HERO -->
+
+    <section class="aerospace-course-hero">
+
+        <div class="aerospace-course-hero-content">
+
+            <span class="aerospace-course-label">
+                Advanced Aerospace Engineering Department
+            </span>
+
+            <h1>
+                Advanced Aerospace Design & Systems Engineering
+            </h1>
+
+            <p>
+                Develop advanced understanding of aerospace design,
+                systems engineering, aircraft configuration, computational
+                analysis and integrated engineering decision-making.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="aerospace-course-intro">
+
+        <h2>
+            Advanced Aerospace Design & Systems Engineering
+        </h2>
+
+        <p>
+            This professional programme introduces the complete aerospace
+            design process, from engineering requirements and conceptual
+            development to aircraft configuration, systems integration,
+            computational analysis and design evaluation.
+        </p>
+
+    </section>
+
+
+    <!-- COURSE DETAILS -->
+
+    <section class="aerospace-course-details">
+
+        <div class="aerospace-detail-box">
+
+            <span>Focus</span>
+
+            <h3>
+                Aerospace Design
+            </h3>
+
+        </div>
+
+
+        <div class="aerospace-detail-box">
+
+            <span>Level</span>
+
+            <h3>
+                Advanced Professional
+            </h3>
+
+        </div>
+
+
+        <div class="aerospace-detail-box">
+
+            <span>Approach</span>
+
+            <h3>
+                Design & Systems Engineering
+            </h3>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+
+    <section class="aerospace-content">
+
+
+        <!-- OVERVIEW -->
+
+        <div class="aerospace-section">
+
+            <h2>
+                Course Overview
+            </h2>
+
+            <p>
+                The programme develops a systems-level understanding of
+                aerospace design. It connects aircraft configuration,
+                performance, aerodynamics, structures, propulsion and
+                engineering requirements into an integrated design process.
+                Computational methods and design evaluation are introduced
+                to support informed engineering decisions.
+            </p>
+
+        </div>
+
+
+        <!-- OBJECTIVES -->
+
+        <div class="aerospace-section">
+
+            <h2>
+                Professional Learning Objectives
+            </h2>
+
+            <ul>
+
+                <li>
+                    Understand the major stages of the aerospace design process.
+                </li>
+
+                <li>
+                    Analyse engineering requirements and translate them into
+                    practical design objectives.
+                </li>
+
+                <li>
+                    Develop conceptual aircraft configurations and evaluate
+                    their engineering characteristics.
+                </li>
+
+                <li>
+                    Apply systems engineering principles to aerospace design.
+                </li>
+
+                <li>
+                    Understand the role of computational analysis in modern
+                    aircraft development.
+                </li>
+
+                <li>
+                    Evaluate design alternatives using performance,
+                    technical and operational considerations.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- KEY TOPICS -->
+
+        <div class="aerospace-section">
+
+            <h2>
+                Key Training Areas
+            </h2>
+
+
+            <div class="aerospace-topics">
+
+
+                <div class="aerospace-topic">
+
+                    <strong>
+                        Aerospace Design Process
+                    </strong>
+
+                    <p>
+                        Requirements, concept generation, design decisions
+                        and development stages.
+                    </p>
+
+                </div>
+
+
+                <div class="aerospace-topic">
+
+                    <strong>
+                        Systems Engineering
+                    </strong>
+
+                    <p>
+                        Requirements analysis, system architecture and
+                        integrated aerospace engineering solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="aerospace-topic">
+
+                    <strong>
+                        Aircraft Conceptual Design
+                    </strong>
+
+                    <p>
+                        Aircraft configuration, preliminary sizing and
+                        performance-driven design decisions.
+                    </p>
+
+                </div>
+
+
+                <div class="aerospace-topic">
+
+                    <strong>
+                        Computational Aerospace Analysis
+                    </strong>
+
+                    <p>
+                        Computational methods for aircraft modelling,
+                        analysis and design evaluation.
+                    </p>
+
+                </div>
+
+
+                <div class="aerospace-topic">
+
+                    <strong>
+                        Aircraft Configuration
+                    </strong>
+
+                    <p>
+                        Fuselage, wing, propulsion, empennage and landing
+                        gear configuration considerations.
+                    </p>
+
+                </div>
+
+
+                <div class="aerospace-topic">
+
+                    <strong>
+                        Design Optimisation
+                    </strong>
+
+                    <p>
+                        Engineering optimisation approaches for improving
+                        aerospace design performance.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- DESIGN APPLICATION -->
+
+        <div class="aerospace-section">
+
+            <h2>
+                Aerospace Design Applications
+            </h2>
+
+            <p>
+                The programme applies aerospace engineering principles to
+                conceptual aircraft development, system-level design,
+                configuration analysis and computational engineering.
+                Participants develop a structured approach to solving
+                multidisciplinary aerospace design problems.
+            </p>
+
+
+            <div class="aerospace-highlight">
+
+                <h3>
+                    Integrated Aerospace Design
+                </h3>
+
+                <p>
+                    Modern aerospace design requires different engineering
+                    disciplines to work together. This programme brings
+                    design, systems engineering, computational analysis,
+                    aircraft configuration and performance evaluation into
+                    one integrated engineering approach.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFESSIONAL OUTCOMES -->
+
+        <div class="aerospace-section">
+
+            <h2>
+                Professional Outcomes
+            </h2>
+
+            <ul>
+
+                <li>
+                    Develop a structured approach to aerospace design problems.
+                </li>
+
+                <li>
+                    Understand how aircraft subsystems contribute to the
+                    overall vehicle design.
+                </li>
+
+                <li>
+                    Interpret engineering requirements within a systems-level
+                    design process.
+                </li>
+
+                <li>
+                    Apply computational and analytical methods to aerospace
+                    design tasks.
+                </li>
+
+                <li>
+                    Evaluate alternative aircraft configurations and
+                    engineering solutions.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- SOURCE NOTE -->
+
+        <div class="aerospace-section">
+
+            <h2>
+                Programme Development
+            </h2>
+
+            <p>
+                The technical structure of this programme is informed by
+                aerospace design and systems-engineering topics taught in
+                leading university aerospace programmes, including aircraft
+                conceptual design, systems engineering, computational
+                aerospace methods and integrated design practice.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="aerospace-course-cta">
+
+        <h2>
+            Advance Your Aerospace Design Expertise
+        </h2>
+
+        <p>
+            Register your interest in Advanced Aerospace Design & Systems
+            Engineering and connect with Capital Consultants.
+        </p>
+
+        <div class="aerospace-course-email">
+            ceo@capitalgroup.pk
+        </div>
+
+
+        <div class="aerospace-course-buttons">
+
+            <a
+                href="{{ url_for('advanced_aerospace_design_systems_engineering_registration') }}"
+                class="aerospace-course-btn primary"
+            >
+                REGISTER
+            </a>
+
+
+            <a
+                href="{{ url_for('engines') }}"
+                class="aerospace-course-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dryers Division | Capital Engineering Corporation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #12384f;
+        }
+
+        /* ================= HERO ================= */
+
+        .dryer-hero {
+            position: relative;
+            min-height: 560px;
+            background: #061d2d;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .dryer-hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .dryer-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 29, 45, 0.97) 0%,
+                    rgba(6, 29, 45, 0.88) 35%,
+                    rgba(6, 29, 45, 0.48) 65%,
+                    rgba(6, 29, 45, 0.18) 100%
+                );
+        }
+
+        .dryer-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, 88%);
+            margin: auto;
+            padding: 90px 0;
+        }
+
+        .dryer-label {
+            display: inline-block;
+            color: #d2a43b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            margin-bottom: 18px;
+        }
+
+        .dryer-hero h1 {
+            margin: 0 0 24px;
+            max-width: 760px;
+            color: #ffffff;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.05;
+            font-weight: 700;
+        }
+
+        .dryer-hero p {
+            max-width: 720px;
+            margin: 0;
+            color: #eef3f6;
+            font-size: 18px;
+            line-height: 1.75;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .dryer-content {
+            width: min(1200px, 88%);
+            margin: auto;
+            padding: 90px 0 70px;
+        }
+
+        .dryer-capabilities {
+            margin-bottom: 75px;
+        }
+
+        .dryer-capabilities-label {
+            display: block;
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        .dryer-capabilities h2 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.15;
+        }
+
+        .dryer-capabilities p {
+            max-width: 850px;
+            margin: 0;
+            color: #526773;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================= FEATURE ROWS ================= */
+
+        .dryer-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+            margin-bottom: 95px;
+        }
+
+        .dryer-feature.reverse {
+            direction: rtl;
+        }
+
+        .dryer-feature.reverse .dryer-feature-text {
+            direction: ltr;
+        }
+
+        .dryer-feature-image {
+            overflow: hidden;
+            border: 1px solid rgba(198, 155, 50, 0.35);
+            box-shadow: 0 18px 45px rgba(6, 29, 45, 0.12);
+        }
+
+        .dryer-feature-image img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .dryer-feature-image:hover img {
+            transform: scale(1.035);
+        }
+
+        .dryer-number {
+            display: block;
+            color: #c69b32;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .dryer-feature-text h3 {
+            margin: 0 0 15px;
+            color: #061d2d;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .dryer-feature-text p {
+            margin: 0;
+            color: #526773;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        /* ================= BOTTOM BUTTONS ================= */
+
+        .dryer-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 35px;
+            border-top: 1px solid #d8e0e4;
+        }
+
+        .dryer-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 28px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            transition: 0.25s ease;
+        }
+
+        .dryer-btn.back {
+            color: #061d2d;
+            border: 1px solid #061d2d;
+            background: transparent;
+        }
+
+        .dryer-btn.back:hover {
+            color: #ffffff;
+            background: #061d2d;
+        }
+
+        .dryer-btn.request {
+            color: #ffffff;
+            background: #c69b32;
+            border: 1px solid #c69b32;
+        }
+
+        .dryer-btn.request:hover {
+            background: #a98225;
+            border-color: #a98225;
+        }
+
+        /* ================= EMAIL ================= */
+
+        .dryer-email {
+            width: min(1200px, 88%);
+            margin: 0 auto;
+            padding: 0 0 28px;
+            text-align: right;
+        }
+
+        .dryer-email a {
+            color: #12384f;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dryer-email a:hover {
+            color: #c69b32;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .dryer-hero {
+                min-height: 500px;
+            }
+
+            .dryer-feature,
+            .dryer-feature.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 30px;
+                margin-bottom: 65px;
+            }
+
+            .dryer-feature.reverse .dryer-feature-text {
+                direction: ltr;
+            }
+
+            .dryer-feature-image img {
+                height: 280px;
+            }
+
+            .dryer-actions {
+                flex-direction: column;
+            }
+
+            .dryer-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .dryer-hero-content {
+                padding: 70px 0;
+            }
+
+            .dryer-hero p {
+                font-size: 16px;
+            }
+
+            .dryer-content {
+                padding-top: 65px;
+            }
+
+            .dryer-feature-image img {
+                height: 240px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="dryer-hero">
+
+        <img
+            class="dryer-hero-image"
+            src="https://eu-images.contentstack.com/v3/assets/blt08823f5db61ded5d/blt3090bf4ac87b2241/654beaea2d7fc5040aed0336/Modula_Dryer_by_Piovan.jpg"
+            alt="Industrial drying system"
+        >
+
+        <div class="dryer-hero-content">
+
+            <span class="dryer-label">
+                DRYERS DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CCs Dryers Division specializes in the engineering,
+                fabrication and integration of industrial drying systems
+                for controlled moisture removal, efficient thermal
+                processing and reliable material handling across
+                demanding industrial applications.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dryer-content">
+
+        <section class="dryer-capabilities">
+
+            <span class="dryer-capabilities-label">
+                OUR CAPABILITIES
+            </span>
+
+            <h2>
+                Industrial Drying Systems
+            </h2>
+
+            <p>
+                CECs provides precision-engineered drying and process
+                equipment solutions designed for efficient moisture
+                control, consistent processing and dependable industrial
+                operation.
+            </p>
+
+        </section>
+
+
+        <!-- 01 -->
+
+        <section class="dryer-feature">
+
+            <div class="dryer-feature-text">
+
+                <span class="dryer-number">
+                    01
+                </span>
+
+                <h3>
+                    Industrial Drying Systems
+                </h3>
+
+                <p>
+                    Engineered drying systems for controlled moisture
+                    removal from solids, powders and process materials,
+                    with configurations tailored to production
+                    requirements and operating conditions.
+                </p>
+
+            </div>
+
+            <div class="dryer-feature-image">
+
+                <img
+                    src="https://www.ftm-china.com/storage/upload/1704355972-46492.jpg?ver=1704355972"
+                    alt="Industrial rotary dryer system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+
+        <section class="dryer-feature reverse">
+
+            <div class="dryer-feature-text">
+
+                <span class="dryer-number">
+                    02
+                </span>
+
+                <h3>
+                    Process Equipment
+                </h3>
+
+                <p>
+                    Integrated process equipment supporting heating,
+                    drying, separation and controlled material treatment
+                    for continuous and batch industrial operations.
+                </p>
+
+            </div>
+
+            <div class="dryer-feature-image">
+
+                <img
+                    src="https://eu-images.contentstack.com/v3/assets/blt08823f5db61ded5d/blt3090bf4ac87b2241/654beaea2d7fc5040aed0336/Modula_Dryer_by_Piovan.jpg"
+                    alt="Industrial process drying equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+
+        <section class="dryer-feature">
+
+            <div class="dryer-feature-text">
+
+                <span class="dryer-number">
+                    03
+                </span>
+
+                <h3>
+                    Material Handling
+                </h3>
+
+                <p>
+                    Engineered feeding, conveying and discharge interfaces
+                    help maintain controlled material flow, consistent
+                    dryer loading and reliable integration with upstream
+                    and downstream process equipment.
+                </p>
+
+            </div>
+
+            <div class="dryer-feature-image">
+
+                <img
+                    src="https://image.made-in-china.com/2f0j00SjElqiktHKru/Automatic-Tunnel-Dryer-Industrial-Continuous-Nuts-Grain-Dryer.webp"
+                    alt="Industrial dryer with material handling conveyors"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+
+        <section class="dryer-feature reverse">
+
+            <div class="dryer-feature-text">
+
+                <span class="dryer-number">
+                    04
+                </span>
+
+                <h3>
+                    Drying & Moisture Control
+                </h3>
+
+                <p>
+                    Controlled heat transfer, airflow and residence time
+                    support uniform drying performance while maintaining
+                    the required final moisture level and product quality.
+                </p>
+
+            </div>
+
+            <div class="dryer-feature-image">
+
+                <img
+                     src="https://www.pleva.org/fileadmin/pleva/Public/Content/Images/Galerie/Produkte/FS_Bild_2_neu.png"
+                    alt="Industrial rotary drying equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+
+        <section class="dryer-feature">
+
+            <div class="dryer-feature-text">
+
+                <span class="dryer-number">
+                    05
+                </span>
+
+                <h3>
+                    Feed & Discharge Systems
+                </h3>
+
+                <p>
+                    Precision feed and discharge arrangements are designed
+                    for stable throughput, dependable material flow and
+                    smooth connection with complete industrial processing
+                    lines.
+                </p>
+
+            </div>
+
+            <div class="dryer-feature-image">
+
+                <img
+                    src="https://image.made-in-china.com/368f3j00kTHENLYtjbzQ/Loongyi-Industrial-Food-High-Frequency-Ginseng-Fruit-Residue-Soap-Vacuum-Dryer-for-Sausages.webp"
+                    alt="Industrial dryer feed and discharge system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTIONS ================= -->
+
+        <div class="dryer-actions">
+
+            <a
+                href="/companies/engineering/process-industry"
+                class="dryer-btn back"
+            >
+                GO BACK TO PROCESS INDUSTRY
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="dryer-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= EMAIL ================= -->
+
+    <div class="dryer-email">
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+    </div>
+
+</body>
+</html>

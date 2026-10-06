@@ -1,0 +1,628 @@
+{% extends "base.html" %}
+
+{% block title %}
+MUN 507 Registration | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .registration-page {
+        background: #f5f7f8;
+        min-height: 100vh;
+        padding: 70px 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #12384f;
+    }
+
+    .registration-container {
+        max-width: 1050px;
+        margin: 0 auto;
+    }
+
+    .registration-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .registration-label {
+        color: #c69b32;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    .registration-header h1 {
+        color: #12384f;
+        font-size: 42px;
+        margin-bottom: 12px;
+    }
+
+    .registration-header p {
+        color: #60717b;
+        font-size: 17px;
+    }
+
+    .course-summary {
+        background: #08283b;
+        color: white;
+        padding: 28px 30px;
+        border-radius: 6px;
+        margin-bottom: 35px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .summary-item span {
+        display: block;
+        color: #c9d4da;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+    }
+
+    .summary-item strong {
+        color: white;
+        font-size: 15px;
+    }
+
+    .registration-form {
+        background: white;
+        border: 1px solid #dbe3e7;
+        border-radius: 7px;
+        padding: 40px;
+    }
+
+    .form-section {
+        margin-bottom: 42px;
+    }
+
+    .form-section h2 {
+        color: #12384f;
+        font-size: 23px;
+        border-bottom: 2px solid #c69b32;
+        padding-bottom: 12px;
+        margin-bottom: 25px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        color: #12384f;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 13px;
+        border: 1px solid #cfd9de;
+        border-radius: 4px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #12384f;
+        background: #fff;
+        outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #c69b32;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .required {
+        color: #b33a3a;
+    }
+
+    .error-message {
+        background: #fff0f0;
+        border: 1px solid #e1b5b5;
+        color: #9a3030;
+        padding: 14px 18px;
+        border-radius: 4px;
+        margin-bottom: 25px;
+    }
+
+    .submit-area {
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    .submit-btn {
+        border: none;
+        background: #c69b32;
+        color: #061d2d;
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .5px;
+        cursor: pointer;
+        transition: .25s ease;
+    }
+
+    .submit-btn:hover {
+        background: #d2a43b;
+    }
+
+    .registration-footer {
+        text-align: center;
+        color: #6b7b84;
+        font-size: 14px;
+        margin-top: 30px;
+    }
+
+    .registration-footer strong {
+        color: #12384f;
+    }
+
+    @media (max-width: 800px) {
+        .course-summary {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .registration-form {
+            padding: 28px;
+        }
+
+        .registration-header h1 {
+            font-size: 34px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .registration-page {
+            padding: 50px 15px;
+        }
+
+        .course-summary {
+            grid-template-columns: 1fr;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+            grid-column: auto;
+        }
+
+        .registration-form {
+            padding: 22px;
+        }
+
+        .registration-header h1 {
+            font-size: 29px;
+        }
+    }
+</style>
+
+
+<div class="registration-page">
+
+    <div class="registration-container">
+
+        <div class="registration-header">
+
+            <div class="registration-label">
+                Professional Technical Engineering Training
+            </div>
+
+            <h1>
+                MUN 507 Registration
+            </h1>
+
+            <p>
+                Environmental Monitoring and Modelling
+            </p>
+
+        </div>
+
+
+        <div class="course-summary">
+
+            <div class="summary-item">
+                <span>Course Code</span>
+                <strong>MUN 507</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Course Date</span>
+                <strong>can be offered upon a sepcific date request</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="{{ url_for('environmental_monitoring_modeling_registration') }}"
+            class="registration-form"
+        >
+
+            {% if error %}
+                <div class="error-message">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+
+            <!-- A -->
+            <section class="form-section">
+
+                <h2>A. Course Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Course</label>
+
+                        <input
+                            type="text"
+                            value="MUN 507 - Environmental Monitoring and Modelling"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Duration</label>
+
+                        <input
+                            type="text"
+                            value="5 Days"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Preferred Language
+                            <span class="required">*</span>
+                        </label>
+
+                        <select name="language" required>
+
+                            <option value="">Select Language</option>
+                            <option value="English">English</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Persian">Persian</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Turkish">Turkish</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Country
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="country"
+                            placeholder="Enter country"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- B -->
+            <section class="form-section">
+
+                <h2>B. Company Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Company Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="company_name"
+                            placeholder="Company name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Website</label>
+
+                        <input
+                            type="text"
+                            name="website"
+                            placeholder="Company website"
+                        >
+
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label>
+                            Nature of Business
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nature_of_business"
+                            placeholder="Nature of business"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label>
+                            Postal Address
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            name="postal_address"
+                            placeholder="Company postal address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- C -->
+            <section class="form-section">
+
+                <h2>C. Contact Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Salutation
+                            <span class="required">*</span>
+                        </label>
+
+                        <select name="salutation" required>
+
+                            <option value="">Select</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Prof.">Prof.</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Full name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Job Title
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="job_title"
+                            placeholder="Job title"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email address"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone number"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Mobile
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="mobile"
+                            placeholder="Mobile number"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- D -->
+            <section class="form-section">
+
+                <h2>D. Participant Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Number of Participants
+                            <span class="required">*</span>
+                        </label>
+
+                        <select name="participants" required>
+
+                            <option value="">Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10+</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            How did you hear about us?
+                            <span class="required">*</span>
+                        </label>
+
+                        <select name="source" required>
+
+                            <option value="">Select</option>
+                            <option value="Website">Website</option>
+                            <option value="Search Engine">Search Engine</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Email">Email</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="registration-footer">
+
+            For registration assistance:
+            <strong>ceo@capitalgroup.pk</strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

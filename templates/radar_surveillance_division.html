@@ -1,0 +1,620 @@
+{% extends "base.html" %}
+
+{% block title %}
+Radar & Surveillance Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - RADAR & SURVEILLANCE DIVISION
+   SAME CORPORATE PATTERN
+   ========================================================= */
+
+.radar-surveillance-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.radar-surveillance-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #061d2d;
+}
+
+.radar-surveillance-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.radar-surveillance-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.97) 0%,
+            rgba(6, 29, 45, 0.88) 34%,
+            rgba(6, 29, 45, 0.45) 68%,
+            rgba(6, 29, 45, 0.15) 100%
+        );
+}
+
+.radar-surveillance-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, 88%);
+    margin: auto;
+    padding: 90px 0;
+}
+
+.radar-surveillance-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.radar-surveillance-hero h1 {
+    max-width: 850px;
+    margin: 0 0 25px;
+    color: #ffffff;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+.radar-surveillance-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ================= MAIN ================= */
+
+.radar-surveillance-content {
+    width: min(1200px, 88%);
+    margin: auto;
+    padding: 90px 0 70px;
+}
+
+.radar-surveillance-intro {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 75px;
+}
+
+.radar-surveillance-intro h2 {
+    margin: 0 0 16px;
+    color: #061d2d;
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.radar-surveillance-intro h3 {
+    margin: 0 0 18px;
+    color: #12384f;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.radar-surveillance-intro p {
+    margin: 0;
+    color: #5b6870;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ================= FEATURE ROW ================= */
+
+.radar-surveillance-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    margin-bottom: 95px;
+}
+
+.radar-surveillance-feature.reverse {
+    direction: rtl;
+}
+
+.radar-surveillance-feature.reverse > * {
+    direction: ltr;
+}
+
+.radar-surveillance-text {
+    direction: ltr;
+}
+
+.radar-surveillance-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #c69b32;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.radar-surveillance-text h3 {
+    margin: 0 0 16px;
+    color: #061d2d;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.radar-surveillance-text p {
+    margin: 0;
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= IMAGE ================= */
+
+.radar-surveillance-image {
+    overflow: hidden;
+    border: 1px solid rgba(198,155,50,0.35);
+    box-shadow: 0 18px 45px rgba(6,29,45,0.12);
+    background: #ffffff;
+}
+
+.radar-surveillance-image img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.radar-surveillance-image:hover img {
+    transform: scale(1.035);
+}
+
+/* ================= ACTIONS ================= */
+
+.radar-surveillance-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 45px;
+    border-top: 1px solid rgba(18,56,79,0.15);
+}
+
+.radar-surveillance-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 30px;
+    border: 1px solid #12384f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.radar-surveillance-btn.back {
+    color: #12384f;
+    background: transparent;
+}
+
+.radar-surveillance-btn.back:hover {
+    color: #ffffff;
+    background: #12384f;
+}
+
+.radar-surveillance-btn.request {
+    color: #ffffff;
+    background: #c69b32;
+    border-color: #c69b32;
+}
+
+.radar-surveillance-btn.request:hover {
+    background: #a77f25;
+    border-color: #a77f25;
+}
+
+/* ================= EMAIL ================= */
+
+.radar-surveillance-email {
+    text-align: right;
+    margin-top: 35px;
+    color: #5b6870;
+    font-size: 14px;
+}
+
+.radar-surveillance-email a {
+    color: #12384f;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.radar-surveillance-email a:hover {
+    color: #c69b32;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .radar-surveillance-hero {
+        min-height: 520px;
+    }
+
+    .radar-surveillance-hero-content {
+        padding: 70px 0;
+    }
+
+    .radar-surveillance-feature,
+    .radar-surveillance-feature.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 30px;
+        margin-bottom: 70px;
+    }
+
+    .radar-surveillance-feature.reverse > * {
+        direction: ltr;
+    }
+
+    .radar-surveillance-image img {
+        height: 340px;
+    }
+
+    .radar-surveillance-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .radar-surveillance-btn {
+        width: 100%;
+    }
+
+    .radar-surveillance-email {
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .radar-surveillance-content {
+        padding: 65px 0 50px;
+    }
+
+    .radar-surveillance-hero h1 {
+        font-size: 38px;
+    }
+
+    .radar-surveillance-hero p {
+        font-size: 16px;
+    }
+
+    .radar-surveillance-intro h2 {
+        font-size: 31px;
+    }
+
+    .radar-surveillance-intro h3 {
+        font-size: 22px;
+    }
+
+    .radar-surveillance-image img {
+        height: 280px;
+    }
+
+    .radar-surveillance-text h3 {
+        font-size: 26px;
+    }
+}
+
+</style>
+
+
+<div class="radar-surveillance-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="radar-surveillance-hero">
+
+        <img
+            class="radar-surveillance-hero-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7e/ASR-9_Radar_Antenna.jpg"
+            alt="Airport surveillance radar antenna system"
+            loading="eager"
+        >
+
+        <div class="radar-surveillance-hero-content">
+
+            <span class="radar-surveillance-label">
+                RADAR &amp; SURVEILLANCE DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CCs Radar &amp; Surveillance Division specializes in
+                precision-engineered radar, surveillance and detection
+                hardware for aerospace and aviation applications,
+                supporting reliable target detection, identification
+                and situational awareness.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="radar-surveillance-content">
+
+
+        <div class="radar-surveillance-intro">
+
+            <h2>
+                OUR CAPABILITIES
+            </h2>
+
+            <h3>
+                Aerospace Radar &amp; Surveillance Systems
+            </h3>
+
+            <p>
+                CCs provides engineered radar and surveillance
+                technologies integrating antennas, radar electronics,
+                transponders, detection hardware and surveillance
+                interfaces for demanding aerospace applications.
+            </p>
+
+        </div>
+
+
+        <!-- ================= 01 ================= -->
+
+        <section class="radar-surveillance-feature">
+
+            <div class="radar-surveillance-text">
+
+                <span class="radar-surveillance-number">
+                    01
+                </span>
+
+                <h3>
+                    Radar Antenna Systems
+                </h3>
+
+                <p>
+                    Precision antenna assemblies support reliable
+                    transmission and reception of radar signals for
+                    aircraft detection, tracking and surveillance
+                    operations.
+                </p>
+
+            </div>
+
+
+            <div class="radar-surveillance-image">
+
+                <img
+                    src="https://cdn11.bigcommerce.com/s-lh7wonygtd/images/stencil/1280x1280/products/114977/1367826/antenna-3__47204.1742494814.jpg?c=1"
+                    alt="ASR-9 airport surveillance radar antenna"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 02 ================= -->
+
+        <section class="radar-surveillance-feature reverse">
+
+            <div class="radar-surveillance-text">
+
+                <span class="radar-surveillance-number">
+                    02
+                </span>
+
+                <h3>
+                    Radar Receiver &amp; Processing Units
+                </h3>
+
+                <p>
+                    High-performance receiver and processing hardware
+                    converts radar returns into usable surveillance
+                    information for tracking, identification and
+                    integrated avionics applications.
+                </p>
+
+            </div>
+
+
+            <div class="radar-surveillance-image">
+
+                <img
+                    src="https://www.ftav.com/products/files/id_74714/img3.jpg"
+                    alt="Aircraft radar receiver and processing equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 03 ================= -->
+
+        <section class="radar-surveillance-feature">
+
+            <div class="radar-surveillance-text">
+
+                <span class="radar-surveillance-number">
+                    03
+                </span>
+
+                <h3>
+                    Surveillance Transponders
+                </h3>
+
+                <p>
+                    Compact transponder hardware enables aircraft
+                    identification and altitude reporting while
+                    supporting dependable secondary surveillance
+                    communication.
+                </p>
+
+            </div>
+
+
+            <div class="radar-surveillance-image">
+
+                <img
+                     src="https://euram.at/shop/7406-large_default/collins-tdr-950-transponder-622-2092-001-tdr-950-622-2092-transponder.jpg"
+                    alt="Secondary surveillance radar aircraft antenna"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 04 ================= -->
+
+        <section class="radar-surveillance-feature reverse">
+
+            <div class="radar-surveillance-text">
+
+                <span class="radar-surveillance-number">
+                    04
+                </span>
+
+                <h3>
+                    Detection &amp; Tracking Electronics
+                </h3>
+
+                <p>
+                    Advanced detection electronics process incoming
+                    signals and support accurate target tracking,
+                    classification and continuous surveillance
+                    information.
+                </p>
+
+            </div>
+
+
+            <div class="radar-surveillance-image">
+
+                <img
+                   src="https://www.nexairaeroparts.com/cdn/shop/files/8_f44ab8fb-a082-4362-95db-269ee46dd872_1445x.jpg?v=1775057376"
+                    alt="Aircraft radar detection system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 05 ================= -->
+
+        <section class="radar-surveillance-feature">
+
+            <div class="radar-surveillance-text">
+
+                <span class="radar-surveillance-number">
+                    05
+                </span>
+
+                <h3>
+                    Surveillance Displays &amp; Interfaces
+                </h3>
+
+                <p>
+                    Integrated surveillance interfaces present
+                    detected targets and operational information
+                    through clear electronic displays for efficient
+                    monitoring and decision support.
+                </p>
+
+            </div>
+
+
+            <div class="radar-surveillance-image">
+
+                <img
+                  src="https://www.seaerospace.com/product_images/35/656/medium/3.jpg"
+                    alt="Radar surveillance display interface"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="radar-surveillance-actions">
+
+            <a
+                href="/companies/engineering/avionics"
+                class="radar-surveillance-btn back"
+            >
+                GO BACK TO AVIONICS
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="radar-surveillance-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="radar-surveillance-email">
+
+            For requirements and technical inquiries:
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

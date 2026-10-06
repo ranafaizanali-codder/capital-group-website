@@ -1,0 +1,473 @@
+{% extends "base.html" %}
+
+{% block title %}Hospitality Towels Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.hospitality-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.hospitality-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.76),rgba(6,29,45,.76)),
+        url("https://images.pexels.com/photos/18071807/pexels-photo-18071807.jpeg?auto=compress&cs=tinysrgb&w=1800&q=75")
+        center/cover no-repeat;
+}
+
+.hospitality-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.hospitality-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.hospitality-hero h1{
+    max-width:1000px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.hospitality-description{
+    max-width:780px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.hospitality-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.hospitality-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.hospitality-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.hospitality-sections{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 100px;
+}
+
+.hospitality-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:460px;
+    align-items:center;
+    gap:70px;
+    margin-bottom:90px;
+}
+
+.hospitality-section:nth-child(even){
+    direction:rtl;
+}
+
+.hospitality-section:nth-child(even) .hospitality-content{
+    direction:ltr;
+}
+
+.hospitality-image{
+    min-height:430px;
+    border-radius:4px;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.hospitality-image-1{
+    background-image:url("https://images.pexels.com/photos/18071807/pexels-photo-18071807.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.hospitality-image-2{
+    background-image:url("https://images.pexels.com/photos/7746042/pexels-photo-7746042.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.hospitality-image-3{
+    background-image:url("https://images.pexels.com/photos/6466227/pexels-photo-6466227.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.hospitality-image-4{
+    background-image:url("https://images.pexels.com/photos/6466225/pexels-photo-6466225.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.hospitality-image-5{
+    background-image:url("https://images.pexels.com/photos/6466226/pexels-photo-6466226.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.hospitality-image-6{
+    background-image:url("https://images.pexels.com/photos/32895225/pexels-photo-32895225.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.hospitality-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.hospitality-content h3{
+    color:#12384f;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 20px;
+}
+
+.hospitality-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    max-width:500px;
+}
+
+.hospitality-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.hospitality-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.hospitality-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.hospitality-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.hospitality-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.hospitality-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.hospitality-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+
+    .hospitality-hero{
+        min-height:620px;
+    }
+
+    .hospitality-section{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .hospitality-section:nth-child(even){
+        direction:ltr;
+    }
+
+    .hospitality-image{
+        min-height:330px;
+    }
+
+    .hospitality-content h3{
+        font-size:30px;
+    }
+}
+</style>
+
+
+<div class="hospitality-page">
+
+
+    <section class="hospitality-hero">
+
+        <div class="hospitality-hero-inner">
+
+            <div class="hospitality-label">
+                Hospitality Towels Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="hospitality-description">
+                CTC’s Hospitality Towels Division provides professionally sourced
+                towel products for hotels, resorts, guest facilities and hospitality
+                service environments, supporting dependable quality, product
+                specifications, quantity planning and international textile trade
+                requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="hospitality-intro">
+
+        <h2>
+            Premium Hospitality Towel Solutions
+        </h2>
+
+        <p>
+            CTC supports hospitality towel sourcing through reliable supplier
+            coordination, product specifications, fabric requirements, quality
+            standards, quantity planning and organized supply solutions for hotels,
+            resorts and international hospitality markets.
+        </p>
+
+    </section>
+
+
+    <section class="hospitality-sections">
+
+
+        <div class="hospitality-section">
+
+            <div class="hospitality-image hospitality-image-1"></div>
+
+            <div class="hospitality-content">
+
+                <div class="hospitality-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Hospitality Towels
+                </h3>
+
+                <p>
+                    Professionally sourced towel products selected for softness,
+                    absorbency, durability and consistent presentation across
+                    professional hospitality environments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hospitality-section">
+
+            <div class="hospitality-image hospitality-image-2"></div>
+
+            <div class="hospitality-content">
+
+                <div class="hospitality-number">
+                    02
+                </div>
+
+                <h3>
+                    Hotel & Resort Towel Supply
+                </h3>
+
+                <p>
+                    Quality-focused towel sourcing for hotels, resorts and
+                    accommodation facilities requiring dependable recurring
+                    textile supply and organized procurement.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hospitality-section">
+
+            <div class="hospitality-image hospitality-image-3"></div>
+
+            <div class="hospitality-content">
+
+                <div class="hospitality-number">
+                    03
+                </div>
+
+                <h3>
+                    Guest Room Textile Solutions
+                </h3>
+
+                <p>
+                    Coordinated towel products supporting guest-room presentation,
+                    cleanliness standards and consistent hospitality service
+                    requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hospitality-section">
+
+            <div class="hospitality-image hospitality-image-4"></div>
+
+            <div class="hospitality-content">
+
+                <div class="hospitality-number">
+                    04
+                </div>
+
+                <h3>
+                    Housekeeping Towel Support
+                </h3>
+
+                <p>
+                    Practical towel sourcing solutions for housekeeping operations,
+                    room preparation and organized linen management across
+                    hospitality facilities.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hospitality-section">
+
+            <div class="hospitality-image hospitality-image-5"></div>
+
+            <div class="hospitality-content">
+
+                <div class="hospitality-number">
+                    05
+                </div>
+
+                <h3>
+                    Quantity & Supply Planning
+                </h3>
+
+                <p>
+                    Organized quantity planning, supplier coordination and shipment
+                    support for recurring hospitality towel requirements and
+                    larger commercial orders.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hospitality-section">
+
+            <div class="hospitality-image hospitality-image-6"></div>
+
+            <div class="hospitality-content">
+
+                <div class="hospitality-number">
+                    06
+                </div>
+
+                <h3>
+                    International Hospitality Markets
+                </h3>
+
+                <p>
+                    CTC connects reliable towel suppliers with international
+                    hospitality buyers through professional sourcing, supply
+                    coordination and global textile market solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="hospitality-cta">
+
+        <h2>
+            Looking for Hospitality Towel Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional hospitality towel sourcing,
+            supply coordination and international textile market solutions.
+        </p>
+
+        <div class="hospitality-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="hospitality-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="hospitality-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="hospitality-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="hospitality-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

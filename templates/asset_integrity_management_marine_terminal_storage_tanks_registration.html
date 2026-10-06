@@ -1,0 +1,490 @@
+{% extends "base.html" %}
+
+{% block title %}
+Asset Integrity Management Registration | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+.registration-page {
+    max-width: 1050px;
+    margin: 60px auto;
+    padding: 0 25px 70px;
+    color: #12384f;
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.registration-header .label {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.registration-header h1 {
+    margin: 12px 0;
+    font-size: 34px;
+    color: #08283b;
+}
+
+.registration-header p {
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: #52636d;
+}
+
+.registration-section {
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.registration-section h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #08283b;
+    border-left: 4px solid #c69b32;
+    padding-left: 12px;
+}
+
+.registration-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.registration-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-field.full {
+    grid-column: 1 / -1;
+}
+
+.registration-field label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #12384f;
+}
+
+.registration-field input,
+.registration-field select,
+.registration-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cfd8dd;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #12384f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.registration-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.registration-field input:focus,
+.registration-field select:focus,
+.registration-field textarea:focus {
+    outline: none;
+    border-color: #c69b32;
+}
+
+.course-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.course-summary-box {
+    background: #f5f7f8;
+    border: 1px solid #e0e6e9;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.course-summary-box span {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #71808a;
+    margin-bottom: 7px;
+}
+
+.course-summary-box strong {
+    font-size: 14px;
+    color: #08283b;
+}
+
+.error-message {
+    background: #fff3f3;
+    border: 1px solid #e1bcbc;
+    color: #9b3333;
+    padding: 14px 18px;
+    border-radius: 7px;
+    margin-bottom: 25px;
+}
+
+.registration-submit {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.registration-submit button {
+    border: none;
+    background: #123f58;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.registration-submit button:hover {
+    background: #c69b32;
+}
+
+.registration-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #52636d;
+    font-size: 14px;
+}
+
+.registration-footer strong {
+    color: #12384f;
+}
+
+@media (max-width: 800px) {
+    .registration-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .course-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-section {
+        padding: 22px;
+    }
+
+    .registration-header h1 {
+        font-size: 27px;
+    }
+}
+</style>
+
+<div class="registration-page">
+
+    <div class="registration-header">
+        <div class="label">Advanced Marine Engineering Department</div>
+
+        <h1>
+            Asset Integrity Management for Marine Terminal Storage Tanks
+        </h1>
+
+        <p>
+            Professional registration for the OG-S 110A Asset Integrity Management
+            training program.
+        </p>
+    </div>
+
+    <div class="course-summary">
+
+        <div class="course-summary-box">
+            <span>Course Reference</span>
+            <strong>OG-S 110A</strong>
+        </div>
+
+        <div class="course-summary-box">
+            <span>Duration</span>
+            <strong>5 Days</strong>
+        </div>
+
+        <div class="course-summary-box">
+            <span>Course Date</span>
+            <strong>Can be offered against a specific date request</strong>
+        </div>
+
+        <div class="course-summary-box">
+            <span>Venue</span>
+            <strong>Marriott Islamabad</strong>
+        </div>
+
+    </div>
+
+    {% if error %}
+    <div class="error-message">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+
+        <div class="registration-section">
+
+            <h2>A. Course Details</h2>
+
+            <div class="registration-grid">
+
+                <div class="registration-field">
+                    <label>Course Reference</label>
+                    <input type="text" value="OG-S 110A" readonly>
+                </div>
+
+                <div class="registration-field">
+                    <label>Course Duration</label>
+                    <input type="text" value="5 Days" readonly>
+                </div>
+
+                <div class="registration-field">
+                    <label>Course Date</label>
+                    <input
+                        type="text"
+                        value="Can be offered upon a specific date request"
+                        readonly
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Venue</label>
+                    <input type="text" value="Marriott Islamabad" readonly>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="registration-section">
+
+            <h2>B. Company Details</h2>
+
+            <div class="registration-grid">
+
+                <div class="registration-field">
+                    <label>Language *</label>
+                    <select name="language" required>
+                        <option value="">Select Language</option>
+                        <option>English</option>
+                        <option>Arabic</option>
+                        <option>Chinese</option>
+                        <option>French</option>
+                        <option>German</option>
+                        <option>Italian</option>
+                        <option>Japanese</option>
+                        <option>Korean</option>
+                        <option>Persian</option>
+                        <option>Portuguese</option>
+                        <option>Russian</option>
+                        <option>Spanish</option>
+                        <option>Turkish</option>
+                    </select>
+                </div>
+
+                <div class="registration-field">
+                    <label>Country *</label>
+                    <input
+                        type="text"
+                        name="country"
+                        placeholder="Country"
+                        required
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Company Name *</label>
+                    <input
+                        type="text"
+                        name="company_name"
+                        placeholder="Company name"
+                        required
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Website</label>
+                    <input
+                        type="text"
+                        name="website"
+                        placeholder="Company website"
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Nature of Business *</label>
+                    <input
+                        type="text"
+                        name="nature_of_business"
+                        placeholder="Nature of business"
+                        required
+                    >
+                </div>
+
+                <div class="registration-field full">
+                    <label>Postal Address *</label>
+                    <textarea
+                        name="postal_address"
+                        placeholder="Company postal address"
+                        required
+                    ></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="registration-section">
+
+            <h2>C. Contact Details</h2>
+
+            <div class="registration-grid">
+
+                <div class="registration-field">
+                    <label>Salutation *</label>
+                    <select name="salutation" required>
+                        <option value="">Select</option>
+                        <option>Mr.</option>
+                        <option>Ms.</option>
+                        <option>Mrs.</option>
+                        <option>Dr.</option>
+                        <option>Prof.</option>
+                    </select>
+                </div>
+
+                <div class="registration-field">
+                    <label>Participant Name *</label>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Full name"
+                        required
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Job Title *</label>
+                    <input
+                        type="text"
+                        name="job_title"
+                        placeholder="Job title"
+                        required
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Email *</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email address"
+                        required
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Phone</label>
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone number"
+                    >
+                </div>
+
+                <div class="registration-field">
+                    <label>Mobile *</label>
+                    <input
+                        type="text"
+                        name="mobile"
+                        placeholder="Mobile number"
+                        required
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="registration-section">
+
+            <h2>D. Participant Details</h2>
+
+            <div class="registration-grid">
+
+                <div class="registration-field">
+                    <label>Number of Participants *</label>
+                    <select name="participants" required>
+                        <option value="">Select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10+</option>
+                    </select>
+                </div>
+
+                <div class="registration-field">
+                    <label>How did you hear about us? *</label>
+                    <select name="source" required>
+                        <option value="">Select</option>
+                        <option>Website</option>
+                        <option>Search Engine</option>
+                        <option>Social Media</option>
+                        <option>Email</option>
+                        <option>Referral</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="registration-submit">
+
+            <button type="submit">
+                SUBMIT REGISTRATION
+            </button>
+
+        </div>
+
+    </form>
+
+    <div class="registration-footer">
+        For registration assistance:
+        <strong>ceo@capitalgroup.pk</strong>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Testing Division | Capital Engineering Corporation</title>
+
+    <style>
+        .testing-page {
+            margin: 0;
+            padding: 0;
+            background: #f5f7f8;
+            color: #12384f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .testing-hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(90deg, rgba(6,29,45,.95) 0%, rgba(6,29,45,.80) 48%, rgba(6,29,45,.35) 100%),
+                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=88")
+                center/cover no-repeat;
+        }
+
+        .testing-hero-content {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+            padding: 90px 0;
+            color: white;
+        }
+
+        .testing-eyebrow {
+            font-size: 15px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #d2a43b;
+            margin-bottom: 20px;
+        }
+
+        .testing-hero h1 {
+            margin: 0 0 18px;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .testing-hero h2 {
+            margin: 0 0 24px;
+            color: #d2a43b;
+            font-size: clamp(24px, 3vw, 40px);
+            line-height: 1.15;
+            font-weight: 700;
+        }
+
+        .testing-hero p {
+            max-width: 760px;
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #edf3f6;
+        }
+
+        .testing-intro {
+            width: min(1050px, 90%);
+            margin: 0 auto;
+            padding: 75px 0 55px;
+            text-align: center;
+        }
+
+        .testing-intro h2 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: 38px;
+        }
+
+        .testing-intro p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #536773;
+        }
+
+        .testing-container {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+        }
+
+        .testing-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+            padding: 65px 0;
+            border-top: 1px solid #dbe2e6;
+        }
+
+        .testing-section.reverse .testing-image-wrap {
+            order: 2;
+        }
+
+        .testing-section.reverse .testing-copy {
+            order: 1;
+        }
+
+        .testing-image-wrap {
+            overflow: hidden;
+            min-height: 330px;
+            background: #e7ecef;
+            border-radius: 4px;
+        }
+
+        .testing-image {
+            width: 100%;
+            height: 360px;
+            display: block;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .testing-image-wrap:hover .testing-image {
+            transform: scale(1.035);
+        }
+
+        .testing-copy {
+            padding: 10px 0;
+        }
+
+        .testing-number {
+            margin-bottom: 13px;
+            color: #c69b32;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .testing-copy h2 {
+            margin: 0 0 17px;
+            color: #061d2d;
+            font-size: 31px;
+            line-height: 1.2;
+        }
+
+        .testing-copy p {
+            margin: 0;
+            color: #526671;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .testing-cta {
+            margin-top: 25px;
+            padding: 75px 20px;
+            text-align: center;
+            background: #061d2d;
+            color: white;
+        }
+
+        .testing-cta h2 {
+            margin: 0 0 14px;
+            font-size: 36px;
+        }
+
+        .testing-cta p {
+            max-width: 680px;
+            margin: 0 auto 28px;
+            color: #dce6eb;
+            line-height: 1.7;
+        }
+
+        .testing-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .testing-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border: 1px solid #d2a43b;
+            background: #d2a43b;
+            color: #061d2d;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            transition: .25s ease;
+        }
+
+        .testing-btn:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .testing-btn.secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .testing-btn.secondary:hover {
+            background: #d2a43b;
+            color: #061d2d;
+        }
+
+        @media (max-width: 800px) {
+            .testing-hero {
+                min-height: 560px;
+            }
+
+            .testing-section,
+            .testing-section.reverse {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testing-section.reverse .testing-image-wrap,
+            .testing-section.reverse .testing-copy {
+                order: initial;
+            }
+
+            .testing-image {
+                height: 300px;
+            }
+
+            .testing-intro {
+                padding-top: 55px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .testing-hero-content {
+                padding: 65px 0;
+            }
+
+            .testing-hero h1 {
+                font-size: 43px;
+            }
+
+            .testing-hero h2 {
+                font-size: 25px;
+            }
+
+            .testing-hero p {
+                font-size: 16px;
+            }
+
+            .testing-copy h2 {
+                font-size: 27px;
+            }
+
+            .testing-cta h2 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="testing-page">
+
+    <!-- HERO -->
+    <section class="testing-hero">
+
+        <div class="testing-hero-content">
+
+            <div class="testing-eyebrow">
+                TESTING DIVISION
+            </div>
+
+            <h1>
+                Advanced Testing & Validation
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CECs Testing Division provides precision inspection, testing
+                and validation solutions for PCBs, electronic assemblies,
+                industrial control systems and specialized electronic products.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="testing-intro">
+
+        <h2>
+            Engineering Testing & Quality Assurance
+        </h2>
+
+        <p>
+            Our testing capabilities support product verification, functional
+            validation, inspection and reliability assessment throughout the
+            electronic manufacturing and assembly process.
+        </p>
+
+    </section>
+
+
+    <div class="testing-container">
+
+
+        <!-- 01 -->
+        <section class="testing-section">
+
+            <div class="testing-image-wrap">
+                <img
+                    class="testing-image"
+                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic testing and engineering equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="testing-copy">
+
+                <div class="testing-number">
+                    01 · PCB TESTING
+                </div>
+
+                <h2>
+                    PCB Inspection & Testing
+                </h2>
+
+                <p>
+                    Comprehensive PCB inspection and electrical testing
+                    supports manufacturing quality, connection integrity
+                    and reliable electronic performance.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+        <section class="testing-section reverse">
+
+            <div class="testing-image-wrap">
+                <img
+                    class="testing-image"
+                    src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic laboratory testing equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="testing-copy">
+
+                <div class="testing-number">
+                    02 · FUNCTIONAL TESTING
+                </div>
+
+                <h2>
+                    Functional Testing
+                </h2>
+
+                <p>
+                    Functional testing verifies that electronic assemblies,
+                    control boards and integrated systems operate according
+                    to defined technical and application requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+        <section class="testing-section">
+
+            <div class="testing-image-wrap">
+                <img
+                    class="testing-image"
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=88"
+                    alt="Automated electronic testing and data analysis"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="testing-copy">
+
+                <div class="testing-number">
+                    03 · AUTOMATED TESTING
+                </div>
+
+                <h2>
+                    Automated Test Systems
+                </h2>
+
+                <p>
+                    Automated test processes improve repeatability and
+                    measurement consistency while supporting efficient
+                    verification of electronic assemblies and production units.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+        <section class="testing-section reverse">
+
+            <div class="testing-image-wrap">
+                <img
+                    class="testing-image"
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=88"
+                    alt="Precision electronic inspection and quality control"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="testing-copy">
+
+                <div class="testing-number">
+                    04 · INSPECTION
+                </div>
+
+                <h2>
+                    Inspection & Quality Control
+                </h2>
+
+                <p>
+                    Detailed inspection and quality-control procedures help
+                    identify manufacturing defects, assembly issues and
+                    dimensional or workmanship deviations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+        <section class="testing-section">
+
+            <div class="testing-image-wrap">
+                <img
+                    class="testing-image"
+                    src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1800&q=88"
+                    alt="Environmental and reliability testing equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="testing-copy">
+
+                <div class="testing-number">
+                    05 · RELIABILITY
+                </div>
+
+                <h2>
+                    Environmental & Reliability Testing
+                </h2>
+
+                <p>
+                    Application-focused testing can evaluate electronic
+                    products under controlled environmental and operational
+                    conditions to support reliability objectives.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 06 -->
+        <section class="testing-section reverse">
+
+            <div class="testing-image-wrap">
+                <img
+                    class="testing-image"
+                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic measurement and engineering test instruments"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="testing-copy">
+
+                <div class="testing-number">
+                    06 · TEST & MEASUREMENT
+                </div>
+
+                <h2>
+                    Test & Measurement Systems
+                </h2>
+
+                <p>
+                    Precision measurement equipment supports electrical,
+                    electronic and engineering verification across development,
+                    production and troubleshooting activities.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="testing-cta">
+
+        <h2>
+            Discuss Your Testing Requirement
+        </h2>
+
+        <p>
+            Share your product, PCB or system testing requirements with
+            our engineering team for an application-focused solution.
+        </p>
+
+        <div class="testing-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="testing-btn"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/"
+                class="testing-btn secondary"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

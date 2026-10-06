@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="{{ data.name }} - Capital Engineering Corporation">
+
+    <title>{{ data.name }} | Capital Engineering Corporation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+
+<a href="#main-content" class="skip-link">
+    Skip to main content
+</a>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <a href="/"
+       class="logo"
+       aria-label="Capital Group Home">
+
+        <img src="{{ url_for('static',
+                  filename='capital_group_logo.png') }}"
+             alt="Capital Group Logo">
+
+    </a>
+
+
+    <nav aria-label="Main navigation">
+
+        <a href="/">HOME</a>
+
+        <a href="/about">ABOUT US</a>
+
+        <a href="/products">PRODUCTS</a>
+
+        <a href="/services">SERVICES</a>
+
+        <a href="/follow">FOLLOW US</a>
+
+        <a href="/contact">CONTACT US</a>
+
+    </nav>
+
+
+    <a href="/contact"
+       class="talk">
+
+        LET'S TALK ↗
+
+    </a>
+
+</header>
+
+
+
+<main id="main-content">
+
+
+<!-- =====================================================
+     INDUSTRY HERO
+===================================================== -->
+
+<section class="industry-hero"
+         style="
+         background-image:
+         url('{{ data.hero_image }}');
+         ">
+
+    <div class="industry-hero-content">
+
+
+        <div class="industry-label">
+            CAPITAL ENGINEERING CORPORATION
+        </div>
+
+
+        <div class="industry-number">
+            ENGINEERING / {{ data.short_name }}
+        </div>
+
+
+        <h1>
+            {{ data.slogan }}
+        </h1>
+
+
+        <p>
+            {{ data.description }}
+        </p>
+
+
+        <div class="industry-buttons">
+
+            <a href="/companies/engineering"
+               class="industry-primary-btn">
+
+                ALL ENGINEERING AREAS
+
+            </a>
+
+
+            <a href="/contact"
+               class="industry-secondary-btn">
+
+                CONTACT US
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section class="industry-intro">
+
+    <div class="industry-intro-label">
+        {{ data.short_name }}
+    </div>
+
+
+    <h2>
+        {{ data.name }}
+        <span>Capabilities</span>
+    </h2>
+
+
+    <p>
+        {{ data.description }}
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SIX GRAPHICAL CAPABILITY CARDS
+===================================================== -->
+
+<section class="industry-capabilities">
+
+
+    <div class="industry-heading">
+
+        <div class="industry-intro-label">
+            OUR CAPABILITIES
+        </div>
+
+
+        <h2>
+            Engineering
+            <span>Solutions</span>
+        </h2>
+
+
+        <p>
+            Explore key capabilities and applications
+            relevant to {{ data.name|lower }}.
+        </p>
+
+    </div>
+
+
+
+    <div class="industry-card-grid">
+
+
+        {% for title, description in data.cards %}
+
+        <article class="industry-card">
+
+
+            <!-- GRAPHIC AREA -->
+
+            <div class="industry-graphic graphic-{{ loop.index }}"
+                 aria-hidden="true">
+
+                <div class="graphic-grid"></div>
+
+                {% if loop.index == 1 %}
+
+                    <!-- Mechanical graphic -->
+
+                    <div class="mechanical-gear gear-one"></div>
+                    <div class="mechanical-gear gear-two"></div>
+                    <div class="mechanical-center"></div>
+
+                {% elif loop.index == 2 %}
+
+                    <!-- Aerospace graphic -->
+
+                    <div class="aircraft-body"></div>
+                    <div class="aircraft-wing wing-one"></div>
+                    <div class="aircraft-wing wing-two"></div>
+                    <div class="aircraft-tail"></div>
+
+                {% elif loop.index == 3 %}
+
+                    <!-- Electronics / Avionics graphic -->
+
+                    <div class="avionics-screen"></div>
+                    <div class="avionics-line line-a"></div>
+                    <div class="avionics-line line-b"></div>
+                    <div class="avionics-dot dot-a"></div>
+                    <div class="avionics-dot dot-b"></div>
+                    <div class="avionics-dot dot-c"></div>
+
+                {% elif loop.index == 4 %}
+
+                    <!-- PCB graphic -->
+
+                    <div class="pcb-chip"></div>
+                    <div class="pcb-track pcb-one"></div>
+                    <div class="pcb-track pcb-two"></div>
+                    <div class="pcb-track pcb-three"></div>
+                    <div class="pcb-node pcb-node-one"></div>
+                    <div class="pcb-node pcb-node-two"></div>
+                    <div class="pcb-node pcb-node-three"></div>
+
+                {% elif loop.index == 5 %}
+
+                    <!-- Automobile graphic -->
+
+                    <div class="car-body"></div>
+                    <div class="car-window"></div>
+                    <div class="car-wheel wheel-one"></div>
+                    <div class="car-wheel wheel-two"></div>
+
+                {% else %}
+
+                    <!-- Process industry graphic -->
+
+                    <div class="process-tank"></div>
+                    <div class="process-pipe pipe-one"></div>
+                    <div class="process-pipe pipe-two"></div>
+                    <div class="process-valve"></div>
+                    <div class="process-light"></div>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- CARD TOP -->
+
+            <div class="industry-card-top">
+
+                <span class="industry-card-number">
+
+                    {{ "%02d"|format(loop.index) }}
+
+                </span>
+
+
+                <span class="industry-card-symbol"
+                      aria-hidden="true">
+
+                    {% if loop.index == 1 %}
+                        ⚙
+                    {% elif loop.index == 2 %}
+                        ✈
+                    {% elif loop.index == 3 %}
+                        ◉
+                    {% elif loop.index == 4 %}
+                        ◈
+                    {% elif loop.index == 5 %}
+                        ◇
+                    {% else %}
+                        ⬡
+                    {% endif %}
+
+                </span>
+
+            </div>
+
+
+
+            <!-- CARD CONTENT -->
+
+            <h3>
+                {{ title }}
+            </h3>
+
+
+            <p>
+                {{ description }}
+            </p>
+
+
+            <div class="industry-card-line"></div>
+
+
+            <span class="industry-card-more">
+
+                CAPITAL ENGINEERING CORPORATION
+
+            </span>
+
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENGINEERING APPROACH
+===================================================== -->
+
+<section class="industry-approach">
+
+
+    <div class="industry-approach-content">
+
+        <div class="industry-intro-label">
+            ENGINEERING APPROACH
+        </div>
+
+
+        <h2>
+            Precision, Technology
+            <span>& Reliability</span>
+        </h2>
+
+
+        <p>
+            Capital Engineering Corporation focuses on
+            application-driven engineering, precision
+            manufacturing and technology integration
+            for specialized industrial requirements.
+        </p>
+
+    </div>
+
+
+
+    <div class="industry-approach-grid">
+
+
+        <div class="approach-item">
+
+            <span>01</span>
+
+            <h3>
+                Design
+            </h3>
+
+            <p>
+                Engineering concepts shaped around
+                the technical requirements of each
+                application.
+            </p>
+
+        </div>
+
+
+
+        <div class="approach-item">
+
+            <span>02</span>
+
+            <h3>
+                Development
+            </h3>
+
+            <p>
+                Development and refinement of
+                components, systems and
+                manufacturing solutions.
+            </p>
+
+        </div>
+
+
+
+        <div class="approach-item">
+
+            <span>03</span>
+
+            <h3>
+                Manufacturing
+            </h3>
+
+            <p>
+                Precision-focused manufacturing
+                for specialized engineering
+                applications.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OTHER ENGINEERING AREAS
+===================================================== -->
+
+<section class="other-engineering">
+
+
+    <div class="industry-heading">
+
+        <div class="industry-intro-label">
+            EXPLORE ENGINEERING
+        </div>
+
+
+        <h2>
+            Other
+            <span>Areas</span>
+        </h2>
+
+
+        <p>
+            Explore other engineering capabilities
+            of Capital Engineering Corporation.
+        </p>
+
+    </div>
+
+
+
+    <div class="other-engineering-grid">
+
+
+        {% for key, item in [
+            ('mechanical', 'Mechanical'),
+            ('aerospace', 'Aerospace'),
+            ('avionics', 'Avionics'),
+            ('electronics', 'Electronics'),
+            ('automobile', 'Automobile'),
+            ('process-industry', 'Process Industry')
+        ] %}
+
+
+        {% if key != area %}
+
+        <a href="{{ url_for('engineering_area',
+                             area=key) }}"
+           class="other-area-link">
+
+            <span>
+                {{ item }}
+            </span>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+        {% endif %}
+
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="industry-cta">
+
+
+    <div>
+
+        <h2>
+            Let's Create
+            Better Solutions.
+        </h2>
+
+
+        <p>
+            Talk to Capital Engineering Corporation
+            about your technical requirement.
+        </p>
+
+    </div>
+
+
+    <a href="/contact">
+
+        CONTACT US ↗
+
+    </a>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+
+        <strong>
+            CAPITAL GROUP
+        </strong>
+
+        <p>
+            Indigenous Innovations • Global Vision
+        </p>
+
+    </div>
+
+
+    <a href="mailto:ceo@capitalgroup.pk"
+       class="footer-email">
+
+        ceo@capitalgroup.pk
+
+    </a>
+
+</footer>
+
+
+</body>
+
+</html>

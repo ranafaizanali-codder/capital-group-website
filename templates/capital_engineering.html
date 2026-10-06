@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="{{ current_language }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Capital Engineering Corporation - Precision manufacturing, engineering and technology solutions."
+    >
+
+    <title>
+        {{ _("Capital Engineering Corporation | Capital Group") }}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<!-- ================= ACCESSIBILITY ================= -->
+
+<a href="#main-content" class="skip-link">
+    {{ _("Skip to main content") }}
+</a>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <!-- LOGO -->
+
+    <a
+        href="{{ url_for('home') }}"
+        class="logo"
+        aria-label="{{ _('Capital Group Home') }}"
+    >
+
+        <img
+            src="{{ url_for('static', filename='capital_group_logo.png') }}"
+            alt="{{ _('Capital Group Logo') }}"
+        >
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <nav aria-label="{{ _('Main navigation') }}">
+
+        <a href="{{ url_for('home') }}">
+            {{ _("HOME") }}
+        </a>
+
+
+        <a href="{{ url_for('about') }}">
+            {{ _("ABOUT US") }}
+        </a>
+
+
+        <!-- FOLLOW US -->
+
+        <div class="dropdown">
+
+            <a href="{{ url_for('follow') }}">
+                {{ _("FOLLOW US") }} ▾
+            </a>
+
+            <div class="dropdown-content">
+
+                <a href="{{ url_for('follow') }}">
+                    TikTok
+                </a>
+
+                <a href="{{ url_for('follow') }}">
+                    YouTube
+                </a>
+
+                <a href="{{ url_for('follow') }}">
+                    Instagram
+                </a>
+
+                <a href="{{ url_for('follow') }}">
+                    LinkedIn
+                </a>
+
+                <a href="{{ url_for('follow') }}">
+                    Facebook
+                </a>
+
+                <a href="{{ url_for('follow') }}">
+                    Pinterest
+                </a>
+
+                <a href="{{ url_for('follow') }}">
+                    {{ _("Video") }}
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <a href="{{ url_for('contact') }}">
+            {{ _("CONTACT US") }}
+        </a>
+
+
+        <!-- LANGUAGE FLAGS -->
+
+        <div class="language-switcher">
+
+            <a
+                href="{{ url_for('set_language', language='ar') }}"
+                class="language-item"
+                title="العربية"
+            >
+                <img
+                    src="{{ url_for('static', filename='arabic.png') }}"
+                    alt="العربية"
+                >
+                <span>العربية</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='zh') }}"
+                class="language-item"
+                title="中文"
+            >
+                <img
+                    src="{{ url_for('static', filename='chinese.png') }}"
+                    alt="中文"
+                >
+                <span>中文</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='es') }}"
+                class="language-item"
+                title="Español"
+            >
+                <img
+                    src="{{ url_for('static', filename='spanish.png') }}"
+                    alt="Español"
+                >
+                <span>Español</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='fr') }}"
+                class="language-item"
+                title="Français"
+            >
+                <img
+                    src="{{ url_for('static', filename='french.png') }}"
+                    alt="Français"
+                >
+                <span>Français</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='ru') }}"
+                class="language-item"
+                title="Русский"
+            >
+                <img
+                    src="{{ url_for('static', filename='russian.png') }}"
+                    alt="Русский"
+                >
+                <span>Русский</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='de') }}"
+                class="language-item"
+                title="Deutsch"
+            >
+                <img
+                    src="{{ url_for('static', filename='german.png') }}"
+                    alt="Deutsch"
+                >
+                <span>Deutsch</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='pt') }}"
+                class="language-item"
+                title="Português"
+            >
+                <img
+                    src="{{ url_for('static', filename='portuguese.png') }}"
+                    alt="Português"
+                >
+                <span>Português</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('set_language', language='tr') }}"
+                class="language-item"
+                title="Türkçe"
+            >
+                <img
+                    src="{{ url_for('static', filename='turkish.png') }}"
+                    alt="Türkçe"
+                >
+                <span>Türkçe</span>
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main id="main-content">
+
+
+<!-- ================= ENGINEERING HERO ================= -->
+
+<section class="engineering-main-hero">
+
+    <div
+        class="engineering-circuit-background"
+        style="
+           background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=85');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        "
+    >
+
+        <div class="circuit-line line-one"></div>
+        <div class="circuit-line line-two"></div>
+        <div class="circuit-line line-three"></div>
+        <div class="circuit-line line-four"></div>
+
+        <div class="circuit-node node-one"></div>
+        <div class="circuit-node node-two"></div>
+        <div class="circuit-node node-three"></div>
+        <div class="circuit-node node-four"></div>
+
+        <div class="chip chip-one">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="chip chip-two">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="electron electron-one"></div>
+        <div class="electron electron-two"></div>
+        <div class="electron electron-three"></div>
+        <div class="electron electron-four"></div>
+
+    </div>
+
+
+    <div class="engineering-hero-overlay"></div>
+
+
+    <div class="engineering-hero-content">
+
+        <div class="engineering-label">
+            {{ _("CAPITAL ENGINEERING CORPORATION") }}
+        </div>
+
+
+        <h1>
+            {{ _("Precision Manufacturing Solutions par Excellence") }}
+        </h1>
+
+
+        <p class="engineering-description">
+            {{ _("Capital Engineering Corporation provides advanced manufacturing solutions.") }}
+        </p>
+
+
+        <!-- ================= SIX ENGINEERING AREAS ================= -->
+
+        <div
+            class="engineering-links"
+            aria-label="{{ _('Engineering areas') }}"
+        >
+
+
+            <!-- ================= MECHANICAL ================= -->
+
+            <a
+                href="{{ url_for('mechanical') }}"
+                class="engineering-link"
+            >
+
+                <span class="engineering-number">
+                    01
+                </span>
+
+                <span class="engineering-link-content">
+
+                    <strong>
+                        {{ _("Mechanical") }}
+                    </strong>
+
+                    <small>
+                        {{ _("Modules for 3D Printing – Machining – Casting – Forging – Fabrication – Assemblies") }}
+                    </small>
+
+                </span>
+
+                <span class="engineering-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= AEROSPACE ================= -->
+
+            <a
+                href="{{ url_for('aerospace') }}"
+                class="engineering-link"
+            >
+
+                <span class="engineering-number">
+                    02
+                </span>
+
+                <span class="engineering-link-content">
+
+                    <strong>
+                        {{ _("Aerospace") }}
+                    </strong>
+
+                    <small>
+                        {{ _("Modules for Engines – Cockpit – Air Frame – Wing – Landing Gear – AGEs") }}
+                    </small>
+
+                </span>
+
+                <span class="engineering-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= AVIONICS ================= -->
+
+            <a
+               href="{{ url_for('avionics') }}"
+                class="engineering-link"
+            >
+
+                <span class="engineering-number">
+                    03
+                </span>
+
+                <span class="engineering-link-content">
+
+                    <strong>
+                        {{ _("Avionics") }}
+                    </strong>
+
+                    <small>
+                        {{ _("Modules for PDU/HEU – FC – Sensors – Power Supplies – GPUs – Assemblies") }}
+                    </small>
+
+                </span>
+
+                <span class="engineering-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= ELECTRONICS ================= -->
+
+            <a
+                href="{{ url_for('electronics') }}"
+                class="engineering-link"
+            >
+
+                <span class="engineering-number">
+                    04
+                </span>
+
+                <span class="engineering-link-content">
+
+                    <strong>
+                        {{ _("Electronics") }}
+                    </strong>
+
+                    <small>
+                        {{ _("PCBs – Components – Stuffing – Enclosures – Testing – Assemblies") }}
+                    </small>
+
+                </span>
+
+                <span class="engineering-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= AUTOMOBILE ================= -->
+
+            <a
+                href="{{ url_for('automobile') }}"
+                class="engineering-link"
+            >
+
+                <span class="engineering-number">
+                    05
+                </span>
+
+                <span class="engineering-link-content">
+
+                    <strong>
+                        {{ _("Automobile") }}
+                    </strong>
+
+                    <small>
+                        {{ _("Modules for Engines – Transmission – Wheel Assembly – Body – Electronics – Interiors") }}
+                    </small>
+
+                </span>
+
+                <span class="engineering-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= PROCESS INDUSTRY ================= -->
+
+            <a
+                href="{{ url_for('process_industry') }}"
+                class="engineering-link"
+            >
+
+                <span class="engineering-number">
+                    06
+                </span>
+
+                <span class="engineering-link-content">
+
+                    <strong>
+                        {{ _("Process Industry") }}
+                    </strong>
+
+                    <small>
+                        {{ _("Modules for Vessels – Reactors – HX Changers – Condensers – Dryers – Piping") }}
+                    </small>
+
+                </span>
+
+                <span class="engineering-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRODUCTION ================= -->
+
+<section class="engineering-intro">
+
+    <div class="engineering-intro-label">
+        {{ _("ENGINEERING CAPABILITIES") }}
+    </div>
+
+
+    <h2>
+        {{ _("Engineering, Technology & Precision") }}
+    </h2>
+
+
+    <p>
+        {{ _("Capital Engineering Corporation brings together engineering, manufacturing and technology capabilities to develop practical solutions for specialized industrial and technical applications.") }}
+    </p>
+
+</section>
+
+
+<!-- ================= TECHNOLOGY ================= -->
+
+<section class="engineering-tech-section">
+
+    <div class="tech-content">
+
+        <div class="engineering-intro-label">
+            {{ _("ADVANCED TECHNOLOGY") }}
+        </div>
+
+
+        <h2>
+            {{ _("From Engineering Ideas to Precision Solutions") }}
+        </h2>
+
+
+        <p>
+            {{ _("Our engineering approach combines precision manufacturing, advanced technologies and application-focused development to support demanding technical requirements.") }}
+        </p>
+
+    </div>
+
+
+    <!-- ================= ENGINEERING TECHNOLOGY IMAGE ================= -->
+
+    <div
+        class="tech-visual"
+        aria-hidden="true"
+        style="
+            overflow: hidden;
+            border-radius: 14px;
+        "
+    >
+
+        <img
+            src="{{ url_for('static', filename='engineering_technology.png') }}"
+            alt=""
+            style="
+                width: 100%;
+                height: 100%;
+                min-height: 360px;
+                object-fit: cover;
+                display: block;
+            "
+        >
+
+    </div>
+
+</section>
+
+
+<!-- ================= OUR APPROACH ================= -->
+
+<section class="engineering-approach">
+
+    <div class="engineering-approach-title">
+
+        <div class="engineering-intro-label">
+            {{ _("OUR APPROACH") }}
+        </div>
+
+
+        <h2>
+            {{ _("Built Around Precision") }}
+        </h2>
+
+    </div>
+
+
+    <div class="approach-grid">
+
+
+        <article class="approach-card">
+
+            <div class="approach-icon">
+                01
+            </div>
+
+            <h3>
+                {{ _("Engineering") }}
+            </h3>
+
+            <p>
+                {{ _("Application-focused engineering for specialized technical requirements.") }}
+            </p>
+
+        </article>
+
+
+        <article class="approach-card">
+
+            <div class="approach-icon">
+                02
+            </div>
+
+            <h3>
+                {{ _("Manufacturing") }}
+            </h3>
+
+            <p>
+                {{ _("Precision manufacturing supporting complex components and systems.") }}
+            </p>
+
+        </article>
+
+
+        <article class="approach-card">
+
+            <div class="approach-icon">
+                03
+            </div>
+
+            <h3>
+                {{ _("Technology") }}
+            </h3>
+
+            <p>
+                {{ _("Modern technology integrated into practical engineering solutions.") }}
+            </p>
+
+        </article>
+
+
+        <article class="approach-card">
+
+            <div class="approach-icon">
+                04
+            </div>
+
+            <h3>
+                {{ _("Quality") }}
+            </h3>
+
+            <p>
+                {{ _("Focus on precision, reliability and consistent engineering performance.") }}
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="engineering-contact">
+
+    <div>
+
+        <div class="engineering-intro-label">
+            {{ _("CAPITAL ENGINEERING CORPORATION") }}
+        </div>
+
+
+        <h2>
+            {{ _("Engineering the Future.") }}
+        </h2>
+
+
+        <p>
+            {{ _("Discuss your engineering, manufacturing or technology requirement with Capital Engineering Corporation.") }}
+        </p>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('engineering_quote') }}"
+        class="engineering-contact-link"
+    >
+
+        {{ _("REQUEST FOR QUOTATION") }}
+
+        <span>
+            ↗
+        </span>
+
+    </a>
+
+</section>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+
+        <strong>
+            CAPITAL GROUP
+        </strong>
+
+
+        <p>
+            {{ _("Indigenous Innovations • Global Vision") }}
+        </p>
+
+    </div>
+
+
+    <a
+        href="mailto:ceo@capitalgroup.pk"
+        class="footer-email"
+    >
+        ceo@capitalgroup.pk
+    </a>
+
+</footer>
+
+
+</body>
+
+</html>

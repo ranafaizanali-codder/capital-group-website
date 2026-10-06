@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Software Development Department | Capital Trading Corporation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #12384f;
+            line-height: 1.6;
+        }
+
+        .software-page {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .software-hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 25px;
+
+            background:
+                linear-gradient(
+                    rgba(6, 29, 45, 0.80),
+                    rgba(6, 29, 45, 0.80)
+                ),
+                url("https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1800");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .software-hero-content {
+            max-width: 950px;
+            color: white;
+        }
+
+        .software-hero-label {
+            color: #d2a43b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .software-hero h1 {
+            font-size: clamp(38px, 5vw, 68px);
+            line-height: 1.08;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .software-hero p {
+            max-width: 850px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e7edf1;
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .software-intro {
+            max-width: 1100px;
+            margin: auto;
+            padding: 85px 25px 65px;
+            text-align: center;
+        }
+
+        .software-intro-label {
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .software-intro h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            color: #08283b;
+            margin-bottom: 20px;
+        }
+
+        .software-intro p {
+            max-width: 800px;
+            margin: auto;
+            color: #5d6d77;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           SERVICE SECTIONS
+        ========================= */
+
+        .software-services {
+            width: 100%;
+        }
+
+        .software-product-section {
+            width: 100%;
+            min-height: 520px;
+            display: flex;
+            background: #ffffff;
+            border-top: 1px solid #e4e9ec;
+        }
+
+        .software-product-section:nth-child(even) {
+            background: #f5f7f8;
+        }
+
+        .software-product-image {
+            width: 50%;
+            min-height: 520px;
+            overflow: hidden;
+        }
+
+        .software-product-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .software-product-section:hover .software-product-image img {
+            transform: scale(1.035);
+        }
+
+        .software-product-content {
+            width: 50%;
+            padding: 75px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .software-product-number {
+            color: #c69b32;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .software-product-subtitle {
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .software-product-content h3 {
+            color: #08283b;
+            font-size: 38px;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .software-product-content p {
+            color: #5d6d77;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 580px;
+            margin-bottom: 25px;
+        }
+
+        .software-product-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .software-product-features li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 9px;
+            color: #334f60;
+            font-size: 15px;
+        }
+
+        .software-product-features li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: #c69b32;
+            border-radius: 50%;
+        }
+
+        /* Alternate image position */
+
+        .software-product-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .software-cta {
+            background:
+                linear-gradient(
+                    rgba(6, 29, 45, 0.96),
+                    rgba(6, 29, 45, 0.96)
+                );
+
+            color: white;
+            text-align: center;
+            padding: 90px 25px;
+        }
+
+        .software-cta h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .software-cta p {
+            color: #d8e1e6;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .software-cta-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .software-cta-buttons a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .software-btn-primary {
+            background: #c69b32;
+            color: #08283b;
+        }
+
+        .software-btn-primary:hover {
+            background: #d8b04e;
+            transform: translateY(-2px);
+        }
+
+        .software-btn-secondary {
+            border: 1px solid #d2a43b;
+            color: white;
+        }
+
+        .software-btn-secondary:hover {
+            background: #c69b32;
+            color: #08283b;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .software-contact {
+            background: #061d2d;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .software-contact a {
+            color: #d2a43b;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .software-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .software-product-section,
+            .software-product-section.reverse {
+                flex-direction: column;
+            }
+
+            .software-product-image,
+            .software-product-content {
+                width: 100%;
+            }
+
+            .software-product-image,
+            .software-product-image img {
+                min-height: 400px;
+                height: 400px;
+            }
+
+            .software-product-content {
+                padding: 55px 35px;
+            }
+
+            .software-product-content h3 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .software-hero {
+                min-height: 520px;
+                padding: 70px 20px;
+            }
+
+            .software-hero h1 {
+                font-size: 38px;
+            }
+
+            .software-hero p {
+                font-size: 16px;
+            }
+
+            .software-intro {
+                padding: 65px 20px 50px;
+            }
+
+            .software-intro h2 {
+                font-size: 30px;
+            }
+
+            .software-product-image,
+            .software-product-image img {
+                min-height: 300px;
+                height: 300px;
+            }
+
+            .software-product-content {
+                padding: 45px 25px;
+            }
+
+            .software-product-content h3 {
+                font-size: 29px;
+            }
+
+            .software-product-content p {
+                font-size: 15px;
+            }
+
+            .software-cta {
+                padding: 70px 20px;
+            }
+
+            .software-cta h2 {
+                font-size: 30px;
+            }
+
+            .software-cta-buttons {
+                flex-direction: column;
+            }
+
+            .software-cta-buttons a {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="software-page">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="software-hero">
+
+        <div class="software-hero-content">
+
+            <div class="software-hero-label">
+                Software Development Department
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CC’s Software Development Department provides professional
+                software development and digital technology solutions,
+                connecting businesses with scalable, secure and modern
+                applications for domestic and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="software-intro">
+
+        <div class="software-intro-label">
+            Digital Technology Solutions
+        </div>
+
+        <h2>
+            Building Digital Solutions for Modern Businesses
+        </h2>
+
+        <p>
+            We provide technology solutions designed to improve business
+            operations, digital experiences and enterprise efficiency through
+            modern software development, cloud technology, artificial
+            intelligence and secure digital platforms.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         SIX SERVICES
+    ========================== -->
+
+    <section class="software-services">
+
+        <!-- 01 WEB DEVELOPMENT -->
+
+        <div class="software-product-section">
+
+            <div class="software-product-image">
+                <img
+                    src="{{ url_for('static', filename='web_development.jpg') }}"
+                    alt="Web Development and Digital Platforms">
+            </div>
+
+            <div class="software-product-content">
+
+                <div class="software-product-number">
+                    01
+                </div>
+
+                <div class="software-product-subtitle">
+                    Digital Platforms
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Professional web solutions for businesses seeking modern,
+                    responsive and scalable digital platforms that support
+                    customers, operations and global business communication.
+                </p>
+
+                <ul class="software-product-features">
+                    <li>Corporate and business websites</li>
+                    <li>Responsive web applications</li>
+                    <li>E-commerce platforms</li>
+                    <li>Custom business portals</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 MOBILE APP -->
+
+        <div class="software-product-section reverse">
+
+            <div class="software-product-image">
+                <img
+                    src="{{ url_for('static', filename='mobile_app_development.jpg') }}"
+                    alt="Mobile App Development">
+            </div>
+
+            <div class="software-product-content">
+
+                <div class="software-product-number">
+                    02
+                </div>
+
+                <div class="software-product-subtitle">
+                    Mobile Solutions
+                </div>
+
+                <h3>
+                    Mobile App Development
+                </h3>
+
+                <p>
+                    Custom mobile applications designed to provide convenient,
+                    reliable and engaging digital experiences across modern
+                    mobile platforms.
+                </p>
+
+                <ul class="software-product-features">
+                    <li>Business mobile applications</li>
+                    <li>Customer-facing applications</li>
+                    <li>Cross-platform solutions</li>
+                    <li>Mobile business tools</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 ERP -->
+
+        <div class="software-product-section">
+
+            <div class="software-product-image">
+                <img
+                    src="{{ url_for('static', filename='erp_business_software.jpg') }}"
+                    alt="ERP and Business Software">
+            </div>
+
+            <div class="software-product-content">
+
+                <div class="software-product-number">
+                    03
+                </div>
+
+                <div class="software-product-subtitle">
+                    Enterprise Solutions
+                </div>
+
+                <h3>
+                    ERP &amp; Business Software
+                </h3>
+
+                <p>
+                    Integrated software solutions that help organizations
+                    manage business processes, information and operational
+                    workflows through centralized digital systems.
+                </p>
+
+                <ul class="software-product-features">
+                    <li>Business management systems</li>
+                    <li>Enterprise resource planning</li>
+                    <li>Inventory and operations management</li>
+                    <li>Data and workflow integration</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 CLOUD -->
+
+        <div class="software-product-section reverse">
+
+            <div class="software-product-image">
+                <img
+                    src="{{ url_for('static', filename='cloud_solutions.jpg') }}"
+                    alt="Cloud Technology and Cloud Solutions">
+            </div>
+
+            <div class="software-product-content">
+
+                <div class="software-product-number">
+                    04
+                </div>
+
+                <div class="software-product-subtitle">
+                    Cloud Technology
+                </div>
+
+                <h3>
+                    Cloud Solutions
+                </h3>
+
+                <p>
+                    Flexible cloud-based technology solutions that support
+                    secure data access, digital collaboration, application
+                    deployment and scalable business operations.
+                </p>
+
+                <ul class="software-product-features">
+                    <li>Cloud application deployment</li>
+                    <li>Cloud-based business systems</li>
+                    <li>Data storage solutions</li>
+                    <li>Scalable digital infrastructure</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 AI -->
+
+        <div class="software-product-section">
+
+            <div class="software-product-image">
+                <img
+                    src="{{ url_for('static', filename='artificial_intelligence.jpg') }}"
+                    alt="Artificial Intelligence and Intelligent Systems">
+            </div>
+
+            <div class="software-product-content">
+
+                <div class="software-product-number">
+                    05
+                </div>
+
+                <div class="software-product-subtitle">
+                    Intelligent Systems
+                </div>
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
+
+                <p>
+                    AI-driven solutions that help businesses explore
+                    automation, intelligent data processing and modern
+                    technology applications for improved digital operations.
+                </p>
+
+                <ul class="software-product-features">
+                    <li>AI-powered business solutions</li>
+                    <li>Intelligent automation</li>
+                    <li>Data analysis and processing</li>
+                    <li>AI-enabled digital applications</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 CYBERSECURITY -->
+
+        <div class="software-product-section reverse">
+
+            <div class="software-product-image">
+                <img
+                    src="{{ url_for('static', filename='cybersecurity_testing.jpg') }}"
+                    alt="Cybersecurity and Software Testing">
+            </div>
+
+            <div class="software-product-content">
+
+                <div class="software-product-number">
+                    06
+                </div>
+
+                <div class="software-product-subtitle">
+                    Secure Software
+                </div>
+
+                <h3>
+                    Cybersecurity &amp; Software Testing
+                </h3>
+
+                <p>
+                    Security-focused software services designed to improve
+                    application reliability, quality and protection throughout
+                    the software development lifecycle.
+                </p>
+
+                <ul class="software-product-features">
+                    <li>Application security assessment</li>
+                    <li>Software quality testing</li>
+                    <li>Performance testing</li>
+                    <li>Secure development practices</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="software-cta">
+
+        <h2>
+            Looking for Software Development Solutions?
+        </h2>
+
+        <p>
+            Connect with our team for professional digital technology
+            and software development requirements.
+        </p>
+
+        <div class="software-cta-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="software-btn-primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="software-btn-secondary">
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="software-btn-secondary">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <div class="software-contact">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

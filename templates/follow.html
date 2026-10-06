@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Follow Us | Capital Group</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #12354b;
+            background: #ffffff;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 92px;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 190px;
+            height: auto;
+            max-height: 72px;
+            object-fit: contain;
+        }
+
+        nav {
+            margin-left: auto;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #12354b;
+            font-size: 15px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c99d32;
+        }
+
+        .talk {
+            margin-left: 25px;
+            background: #123f58;
+            color: white;
+            text-decoration: none;
+            padding: 17px 27px;
+            border-radius: 35px;
+            font-weight: 700;
+        }
+
+        .talk:hover {
+            background: #c99d32;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 29, 45, 0.92),
+                    rgba(3, 29, 45, 0.65),
+                    rgba(3, 29, 45, 0.30)
+                ),
+                url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2200&q=90")
+                center / cover no-repeat;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small {
+            color: #e0b13e;
+            letter-spacing: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 6vw, 78px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #e0b13e;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 750px;
+        }
+
+        /* ================= SOCIAL SECTION ================= */
+
+        .social-section {
+            padding: 85px 8%;
+            background: #f4f7f9;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title small {
+            color: #c99d32;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin: 12px 0 18px;
+            color: #12354b;
+        }
+
+        .section-title p {
+            color: #60717a;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* ================= SIX LINKS ================= */
+
+        .social-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .social-card {
+            background: white;
+            border: 1px solid #dfe6ea;
+            border-radius: 14px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            text-decoration: none;
+            color: #12354b;
+            transition: 0.3s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+            border-color: #c99d32;
+        }
+
+        .social-icon {
+            width: 58px;
+            height: 58px;
+            min-width: 58px;
+
+            background: #123f58;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .social-card h3 {
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .social-card p {
+            color: #71808a;
+            font-size: 14px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background: #123f58;
+            color: white;
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #dbe5ea;
+            margin-bottom: 28px;
+            font-size: 17px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: white;
+            color: #123f58;
+            text-decoration: none;
+            padding: 17px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .cta a:hover {
+            background: #e0b13e;
+            color: white;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #082b40;
+            color: white;
+            padding: 27px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer span:last-child {
+            color: #e0b13e;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 450px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <a href="/">
+        <img
+            src="{{ url_for('static', filename='capital_group_logo.png') }}"
+            class="logo"
+            alt="Capital Group Logo">
+    </a>
+
+    <nav>
+
+        <a href="/">HOME</a>
+
+        <a href="/about">ABOUT US</a>
+
+        <a href="/products">PRODUCTS</a>
+
+        <a href="/services">SERVICES</a>
+
+        <a href="/follow">FOLLOW US</a>
+
+        <a href="/contact">CONTACT US</a>
+
+    </nav>
+
+    <a href="/contact" class="talk">
+        LET'S TALK ↗
+    </a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small">
+            CONNECT WITH CAPITAL GROUP
+        </div>
+
+        <h1>
+            Follow <span>Our Journey.</span>
+        </h1>
+
+        <p>
+            Stay connected with Capital Group and discover our latest
+            updates, activities, opportunities and developments across
+            our businesses.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SOCIAL LINKS ================= -->
+
+<section class="social-section">
+
+    <div class="section-title">
+
+        <small>FOLLOW US</small>
+
+        <h2>
+            Connect With Us Online
+        </h2>
+
+        <p>
+            Follow Capital Group across our social platforms for
+            updates, news and professional content.
+        </p>
+
+    </div>
+
+
+    <div class="social-grid">
+
+
+        <!-- 1. LINKEDIN -->
+
+        <a
+            href="https://www.linkedin.com/company/capital-engineering-corporation/"
+            target="_blank"
+            class="social-card">
+
+            <div class="social-icon">
+                in
+            </div>
+
+            <div>
+                <h3>LinkedIn</h3>
+                <p>Connect with Capital Group professionally</p>
+            </div>
+
+        </a>
+
+
+        <!-- 2. FACEBOOK -->
+
+        <a
+            href="#"
+            target="_blank"
+            class="social-card">
+
+            <div class="social-icon">
+                f
+            </div>
+
+            <div>
+                <h3>Facebook</h3>
+                <p>Follow our latest updates</p>
+            </div>
+
+        </a>
+
+
+        <!-- 3. INSTAGRAM -->
+
+        <a
+            href="#"
+            target="_blank"
+            class="social-card">
+
+            <div class="social-icon">
+                ◎
+            </div>
+
+            <div>
+                <h3>Instagram</h3>
+                <p>Explore our visual updates</p>
+            </div>
+
+        </a>
+
+
+        <!-- 4. YOUTUBE -->
+
+        <a
+            href="#"
+            target="_blank"
+            class="social-card">
+
+            <div class="social-icon">
+                ▶
+            </div>
+
+            <div>
+                <h3>YouTube</h3>
+                <p>Watch our videos and updates</p>
+            </div>
+
+        </a>
+
+
+        <!-- 5. PINTEREST -->
+
+        <a
+            href="#"
+            target="_blank"
+            class="social-card">
+
+            <div class="social-icon">
+                P
+            </div>
+
+            <div>
+                <h3>Pinterest</h3>
+                <p>Explore our visual inspiration</p>
+            </div>
+
+        </a>
+
+
+        <!-- 6. TIKTOK -->
+
+        <a
+            href="#"
+            target="_blank"
+            class="social-card">
+
+            <div class="social-icon">
+                ♪
+            </div>
+
+            <div>
+                <h3>TikTok</h3>
+                <p>Follow our latest short videos</p>
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <h2>
+        Let's Stay Connected.
+    </h2>
+
+    <p>
+        Have a question or business opportunity? Get in touch with us.
+    </p>
+
+    <a href="/contact">
+        CONTACT US →
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <span>
+        © 2026 Capital Group. All Rights Reserved.
+    </span>
+
+    <span>
+        ceo@capitalgroup.pk
+    </span>
+
+</footer>
+
+</body>
+</html>

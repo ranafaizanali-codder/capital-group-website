@@ -1,0 +1,689 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 165 - Industrial Electronics Maintenance Skills | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .industrial-maintenance-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .industrial-maintenance-hero {
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.96),
+                rgba(6, 29, 45, 0.78),
+                rgba(6, 29, 45, 0.45)
+            ),
+            url("https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1800")
+            center / cover no-repeat;
+    }
+
+    .industrial-maintenance-hero-content {
+        width: min(1100px, 90%);
+        margin: auto;
+        color: #ffffff;
+    }
+
+    .industrial-maintenance-label {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .industrial-maintenance-hero h1 {
+        max-width: 850px;
+        margin: 0 0 18px;
+        font-size: 48px;
+        line-height: 1.15;
+    }
+
+    .industrial-maintenance-hero p {
+        max-width: 760px;
+        margin: 0;
+        color: #dce6eb;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .industrial-maintenance-section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 75px 25px;
+    }
+
+    .industrial-maintenance-intro {
+        text-align: center;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .industrial-maintenance-small-title {
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .industrial-maintenance-intro h2 {
+        margin: 10px 0 18px;
+        color: #12384f;
+        font-size: 36px;
+    }
+
+    .industrial-maintenance-intro p {
+        color: #68757d;
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .industrial-maintenance-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-top: 55px;
+    }
+
+    .industrial-maintenance-card {
+        background: #ffffff;
+        border: 1px solid rgba(18, 56, 79, 0.10);
+        padding: 30px;
+    }
+
+    .industrial-maintenance-card h3 {
+        margin: 0 0 20px;
+        color: #12384f;
+        font-size: 22px;
+    }
+
+    .industrial-maintenance-card ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .industrial-maintenance-card li {
+        margin-bottom: 11px;
+        color: #68757d;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .industrial-maintenance-syllabus {
+        margin-top: 60px;
+    }
+
+    .industrial-maintenance-syllabus > h2 {
+        margin-bottom: 30px;
+        color: #12384f;
+        font-size: 34px;
+    }
+
+    .industrial-maintenance-day {
+        background: #ffffff;
+        border: 1px solid rgba(18, 56, 79, 0.10);
+        margin-bottom: 18px;
+        padding: 28px 30px;
+    }
+
+    .industrial-maintenance-day h3 {
+        margin: 0 0 18px;
+        color: #c69b32;
+        font-size: 20px;
+    }
+
+    .industrial-maintenance-day ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .industrial-maintenance-day li {
+        margin-bottom: 10px;
+        color: #68757d;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .industrial-maintenance-cta {
+        background: #061d2d;
+        color: #ffffff;
+        text-align: center;
+        padding: 70px 25px;
+    }
+
+    .industrial-maintenance-cta h2 {
+        margin: 0 0 15px;
+        font-size: 34px;
+    }
+
+    .industrial-maintenance-cta p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: #dce6eb;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .industrial-maintenance-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 180px;
+        margin: 6px;
+        padding: 14px 24px;
+        border: 1px solid #c69b32;
+        background: #c69b32;
+        color: #061d2d;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        transition: 0.25s ease;
+    }
+
+    .industrial-maintenance-btn:hover {
+        background: #d2a43b;
+    }
+
+    .industrial-maintenance-btn.secondary {
+        background: transparent;
+        color: #ffffff;
+    }
+
+    .industrial-maintenance-btn.secondary:hover {
+        background: #ffffff;
+        color: #061d2d;
+    }
+
+    .industrial-maintenance-email {
+        margin-top: 22px;
+        color: #cfdce2;
+        font-size: 14px;
+    }
+
+    .industrial-maintenance-email strong {
+        color: #ffffff;
+    }
+
+    @media (max-width: 800px) {
+
+        .industrial-maintenance-hero {
+            min-height: 480px;
+        }
+
+        .industrial-maintenance-hero h1 {
+            font-size: 38px;
+        }
+
+        .industrial-maintenance-info {
+            grid-template-columns: 1fr;
+        }
+
+        .industrial-maintenance-section {
+            padding: 55px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .industrial-maintenance-hero h1 {
+            font-size: 31px;
+        }
+
+        .industrial-maintenance-hero p {
+            font-size: 14px;
+        }
+
+        .industrial-maintenance-intro h2,
+        .industrial-maintenance-syllabus > h2,
+        .industrial-maintenance-cta h2 {
+            font-size: 28px;
+        }
+
+        .industrial-maintenance-day,
+        .industrial-maintenance-card {
+            padding: 23px 20px;
+        }
+
+        .industrial-maintenance-btn {
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+</style>
+
+
+<div class="industrial-maintenance-page">
+
+
+    <!-- HERO -->
+
+    <section class="industrial-maintenance-hero">
+
+        <div class="industrial-maintenance-hero-content">
+
+            <span class="industrial-maintenance-label">
+                Advanced Electronics Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional industrial electronics maintenance training
+                develops practical skills in electrical systems, electronic
+                measurements, maintenance tools, controls and troubleshooting.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="industrial-maintenance-section">
+
+        <div class="industrial-maintenance-intro">
+
+            <span class="industrial-maintenance-small-title">
+                Professional Training Program
+            </span>
+
+            <h2>
+                Industrial Electronics Maintenance Skills
+            </h2>
+
+            <p>
+                A structured five-day training program covering industrial
+                electronics, electrical maintenance, measurements, controls,
+                maintenance practices and technical troubleshooting.
+            </p>
+
+        </div>
+
+
+        <!-- DESCRIPTION / OBJECTIVES -->
+
+        <div class="industrial-maintenance-info">
+
+            <div class="industrial-maintenance-card">
+
+                <h3>
+                    Course Description
+                </h3>
+
+                <p>
+                    This training course takes participants step-by-step through
+                    the knowledge and skills required to begin a career in
+                    Industrial Electronics and Electrical Maintenance Technology.
+                    Participants learn electrical fundamentals, measurements,
+                    instruments, electronics, circuits and controls.
+                </p>
+
+            </div>
+
+
+            <div class="industrial-maintenance-card">
+
+                <h3>
+                    Course Objectives
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Understanding fundamentals of industrial electronics
+                        and electrical maintenance.
+                    </li>
+
+                    <li>
+                        Practicing safe working methods on electrical systems.
+                    </li>
+
+                    <li>
+                        Using electrical test equipment effectively.
+                    </li>
+
+                    <li>
+                        Selecting appropriate tools for electrical maintenance.
+                    </li>
+
+                    <li>
+                        Using circuit diagrams as an aid to maintenance.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="industrial-maintenance-card">
+
+                <h3>
+                    Who Should Attend?
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Maintenance supervisors
+                    </li>
+
+                    <li>
+                        Electrical engineers
+                    </li>
+
+                    <li>
+                        Energy auditors
+                    </li>
+
+                    <li>
+                        Those who currently fulfil a maintenance role
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+
+        <div class="industrial-maintenance-syllabus">
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+
+            <!-- DAY 1 -->
+
+            <div class="industrial-maintenance-day">
+
+                <h3>
+                    Day 1
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Measuring voltage, current, power (wattage), power
+                        factors, and resistance in AC and DC circuits
+                    </li>
+
+                    <li>
+                        Testing solid state components
+                    </li>
+
+                    <li>
+                        Resetting circuit breaker after overload
+                    </li>
+
+                    <li>
+                        Testing and replacing faulty electrical control components
+                    </li>
+
+                    <li>
+                        Installing electric motors
+                    </li>
+
+                    <li>
+                        Defining theory of Ohm’s law
+                    </li>
+
+                    <li>
+                        Wiring low voltage (less than 110 volts) control circuit
+                    </li>
+
+                    <li>
+                        Installing raceways and wiring on equipment
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+
+            <div class="industrial-maintenance-day">
+
+                <h3>
+                    Day 2
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Installing PLC
+                    </li>
+
+                    <li>
+                        Installing motor control circuitry on equipment
+                    </li>
+
+                    <li>
+                        Installing variable speed AC/DC drive on equipment
+                    </li>
+
+                    <li>
+                        Maintaining proper ground requirements
+                    </li>
+
+                    <li>
+                        Determining appropriate types of motors for a given
+                        mechanical load and determine the over-current protection
+                    </li>
+
+                    <li>
+                        Interfacing a robot to external peripheral equipment
+                    </li>
+
+                    <li>
+                        Electrical Electronic Mechanic
+                    </li>
+
+                    <li>
+                        Measuring synchronous data communication equipment
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+
+            <div class="industrial-maintenance-day">
+
+                <h3>
+                    Day 3
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Installing pre-manufactured fiber optics lines
+                    </li>
+
+                    <li>
+                        Ordering materials needed for a job
+                    </li>
+
+                    <li>
+                        Recording preventive maintenance activities
+                    </li>
+
+                    <li>
+                        Observing corrective maintenance/repair on machinery
+                    </li>
+
+                    <li>
+                        Interpreting charts, table, and graphs
+                    </li>
+
+                    <li>
+                        Understanding the principles of quality assurance
+                    </li>
+
+                    <li>
+                        Participating in the implementation of quality
+                        assurance programs
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+
+            <div class="industrial-maintenance-day">
+
+                <h3>
+                    Day 4
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Identifying the effects of continuous quality improvement
+                    </li>
+
+                    <li>
+                        Utilizing problem solving and critical thinking
+                        techniques to identify and solve problems
+                    </li>
+
+                    <li>
+                        Discussing data collection techniques for the quality
+                        assurance and problem solving process
+                    </li>
+
+                    <li>
+                        Identifying opportunities for applying problem solving
+                        skills
+                    </li>
+
+                    <li>
+                        Discussing different types of drawings
+                    </li>
+
+                    <li>
+                        Interpreting drawings
+                    </li>
+
+                    <li>
+                        Interpreting symbols
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+
+            <div class="industrial-maintenance-day">
+
+                <h3>
+                    Day 5
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Identifying types of measuring instruments
+                    </li>
+
+                    <li>
+                        Using appropriate measurement instrument for a
+                        measurement task
+                    </li>
+
+                    <li>
+                        Reading measuring instruments
+                    </li>
+
+                    <li>
+                        Identifying the appropriate formula and units for
+                        a measurement task
+                    </li>
+
+                    <li>
+                        Differentiating between English and Metric measurement
+                        systems, when necessary
+                    </li>
+
+                    <li>
+                        Communicating measurements using proper symbols or words
+                    </li>
+
+                    <li>
+                        The importance of calibration
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="industrial-maintenance-cta">
+
+        <h2>
+            Develop Your Industrial Electronics Maintenance Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional industrial
+            electronics maintenance training, technical guidance and
+            practical engineering development.
+        </p>
+
+        <a
+            href="{{ url_for('industrial_electronics_maintenance_registration') }}"
+            class="industrial-maintenance-btn"
+        >
+            REGISTER FOR COURSE
+        </a>
+
+        <a
+            href="{{ url_for('home') }}"
+            class="industrial-maintenance-btn secondary"
+        >
+            GO HOME
+        </a>
+
+        <div class="industrial-maintenance-email">
+            Registration support:
+            <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

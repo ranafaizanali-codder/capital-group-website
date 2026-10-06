@@ -1,0 +1,961 @@
+{% extends "base.html" %}
+
+{% block title %}Capital Consultants | Engineering, Training & Consultancy{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL CONSULTANTS PAGE
+   ========================================================= */
+
+.consultants-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+
+/* =========================================================
+   FULL SCREEN HERO
+   ========================================================= */
+
+.consultants-hero {
+    min-height: 720px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.94) 0%,
+            rgba(6,29,45,.82) 42%,
+            rgba(6,29,45,.58) 68%,
+            rgba(6,29,45,.30) 100%
+        ),
+        url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=85")
+        center center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Subtle professional overlay */
+
+.consultants-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(198,155,50,.05),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Hero Content */
+
+.consultants-hero-inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, 92%);
+    margin: auto;
+
+    padding: 90px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.consultants-hero-content {
+    max-width: 760px;
+}
+
+
+/* Small Label */
+
+.consultants-label {
+    display: inline-block;
+
+    color: #d2a43b;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Main Heading */
+
+.consultants-hero h1 {
+    margin: 0 0 25px;
+
+    color: #ffffff;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1.08;
+
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
+
+    max-width: 800px;
+}
+
+
+/* Description */
+
+.consultants-hero-description {
+    margin: 0;
+
+    max-width: 700px;
+
+    color: rgba(255,255,255,.84);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* Small gold line */
+
+.consultants-hero-line {
+    width: 70px;
+    height: 3px;
+
+    background: #d2a43b;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   SERVICES SECTION
+   ========================================================= */
+
+.consultants-services {
+    width: min(1180px, 92%);
+
+    margin: 80px auto 90px;
+}
+
+
+/* Section Heading */
+
+.consultants-section-heading {
+    text-align: center;
+
+    max-width: 760px;
+
+    margin: 0 auto 45px;
+}
+
+
+.consultants-section-heading span {
+    display: block;
+
+    color: #c69b32;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 12px;
+}
+
+
+.consultants-section-heading h2 {
+    margin: 0 0 15px;
+
+    color: #061d2d;
+
+    font-size: 35px;
+
+    line-height: 1.2;
+}
+
+
+.consultants-section-heading p {
+    margin: 0;
+
+    color: #687982;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SERVICE CARDS
+   ========================================================= */
+
+.consultants-service-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.consultants-service-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 330px;
+
+    padding: 32px 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce4e8;
+
+    color: #12384f;
+
+    text-decoration: none;
+
+    box-shadow: 0 8px 25px rgba(6,29,45,.055);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+
+.consultants-service-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #c69b32;
+
+    box-shadow: 0 18px 40px rgba(6,29,45,.11);
+}
+
+
+/* Card Number */
+
+.service-number {
+    display: block;
+
+    color: #c69b32;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Card Heading */
+
+.consultants-service-card h3 {
+    margin: 0 0 14px;
+
+    color: #061d2d;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+}
+
+
+/* Card Description */
+
+.consultants-service-card p {
+    margin: 0 0 20px;
+
+    color: #687982;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* Points */
+
+.service-points {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.service-points li {
+    position: relative;
+
+    padding-left: 18px;
+
+    margin-bottom: 9px;
+
+    color: #425964;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+
+.service-points li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 7px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #c69b32;
+}
+
+
+/* Card Link */
+
+.service-link {
+    margin-top: auto;
+
+    padding-top: 22px;
+
+    color: #123f58;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   WHY CAPITAL CONSULTANTS
+   ========================================================= */
+
+.consultants-why {
+    background: #061d2d;
+
+    padding: 80px 0;
+}
+
+
+.consultants-why-inner {
+    width: min(1180px, 92%);
+
+    margin: auto;
+}
+
+
+.consultants-why-heading {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+
+.consultants-why-heading span {
+    color: #d2a43b;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+}
+
+
+.consultants-why-heading h2 {
+    margin: 12px 0 0;
+
+    color: #ffffff;
+
+    font-size: 35px;
+
+    line-height: 1.2;
+}
+
+
+.consultants-why-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.why-card {
+    min-height: 185px;
+
+    padding: 28px 22px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+
+.why-card strong {
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+
+.why-card p {
+    margin: 0;
+
+    color: #b9c6cc;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.consultants-cta {
+    text-align: center;
+
+    padding: 75px 20px;
+
+    background: #f5f7f8;
+}
+
+
+.consultants-cta h2 {
+    margin: 0 0 27px;
+
+    color: #061d2d;
+
+    font-size: 30px;
+}
+
+
+.consultants-cta-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.consultants-cta-button {
+    display: inline-block;
+
+    padding: 14px 24px;
+
+    background: #123f58;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .7px;
+
+    transition: .2s ease;
+}
+
+
+.consultants-cta-button:hover {
+    background: #c69b32;
+
+    color: #061d2d;
+}
+
+
+.consultants-email {
+    margin-top: 24px;
+
+    color: #687982;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:950px) {
+
+    .consultants-hero {
+        min-height: 650px;
+    }
+
+    .consultants-hero-inner {
+        padding: 75px 0;
+    }
+
+    .consultants-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .consultants-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media(max-width:600px) {
+
+    .consultants-hero {
+        min-height: 650px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,.94),
+                rgba(6,29,45,.72)
+            ),
+            url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85")
+            center / cover no-repeat;
+    }
+
+    .consultants-hero-inner {
+        width: 90%;
+
+        padding: 65px 0;
+    }
+
+    .consultants-label {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    .consultants-hero h1 {
+        font-size: 38px;
+
+        letter-spacing: -.7px;
+    }
+
+    .consultants-hero-description {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    .consultants-services {
+        margin-top: 60px;
+
+        margin-bottom: 65px;
+    }
+
+    .consultants-section-heading h2 {
+        font-size: 28px;
+    }
+
+    .consultants-why {
+        padding: 65px 0;
+    }
+
+    .consultants-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .consultants-why-heading h2 {
+        font-size: 28px;
+    }
+
+    .consultants-cta {
+        padding: 60px 20px;
+    }
+
+    .consultants-cta h2 {
+        font-size: 26px;
+    }
+
+}
+
+</style>
+
+
+<div class="consultants-page">
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="consultants-hero">
+
+    <div class="consultants-hero-inner">
+
+        <div class="consultants-hero-content">
+
+            <span class="consultants-label">
+                CAPITAL CONSULTANTS
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p class="consultants-hero-description">
+                Capital Consultants vision is to offer state-of-the-art
+                engineering design, learning/professional training and
+                Consultancy services in the field of engineering technology
+                &amp; business.
+            </p>
+
+            <div class="consultants-hero-line"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+     ========================================================= -->
+
+<section class="consultants-services">
+
+
+    <div class="consultants-section-heading">
+
+        <span>
+            OUR SERVICES
+        </span>
+
+        <h2>
+            Professional Solutions for Your Organization
+        </h2>
+
+        <p>
+            Explore our engineering, professional training and consultancy
+            services designed to support technical capability and business growth.
+        </p>
+
+    </div>
+
+
+
+    <div class="consultants-service-grid">
+
+
+        <!-- =================================================
+             SERVICE 01
+             ================================================= -->
+
+        <a
+            href="{{ url_for('design_engineering_services')}}"
+            class="consultants-service-card">
+
+            <span class="service-number">
+                01 / DESIGN
+            </span>
+
+            <h3>
+                Design &amp; Engineering Services
+            </h3>
+
+            <p>
+                Professional engineering design and technical solutions
+                supporting modern industrial and technology-driven projects.
+            </p>
+
+            <ul class="service-points">
+
+                <li>
+                    Engineering Design Solutions
+                </li>
+
+                <li>
+                    Technical Development
+                </li>
+
+                <li>
+                    Engineering Technology Support
+                </li>
+
+            </ul>
+
+            <span class="service-link">
+                EXPLORE SERVICE →
+            </span>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SERVICE 02
+             ================================================= -->
+
+        <a
+            href="{{ url_for('professional_training') }}"
+            class="consultants-service-card">
+
+            <span class="service-number">
+                02 / TRAINING
+            </span>
+
+            <h3>
+                Professional Technical &amp; Engineering Training
+            </h3>
+
+            <p>
+                Practical professional education designed to develop
+                technical knowledge, workplace skills and industry expertise.
+            </p>
+
+            <ul class="service-points">
+
+                <li>
+                    Professional Technical Courses
+                </li>
+
+                <li>
+                    Engineering Training Programs
+                </li>
+
+                <li>
+                    Industry-Focused Learning
+                </li>
+
+            </ul>
+
+            <span class="service-link">
+                EXPLORE TRAINING →
+            </span>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SERVICE 03
+             ================================================= -->
+
+        <a
+            href="#"
+            class="consultants-service-card">
+
+            <span class="service-number">
+                03 / CONSULTANCY
+            </span>
+
+            <h3>
+                Consultancy
+            </h3>
+
+            <p>
+                Strategic technical and business consultancy to support
+                informed decisions, improved performance and sustainable growth.
+            </p>
+
+            <ul class="service-points">
+
+                <li>
+                    Technical Consultancy
+                </li>
+
+                <li>
+                    Business Advisory
+                </li>
+
+                <li>
+                    Strategic Solutions
+                </li>
+
+            </ul>
+
+            <span class="service-link">
+                EXPLORE CONSULTANCY →
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY CAPITAL CONSULTANTS
+     ========================================================= -->
+
+<section class="consultants-why">
+
+    <div class="consultants-why-inner">
+
+
+        <div class="consultants-why-heading">
+
+            <span>
+                WHY CAPITAL CONSULTANTS
+            </span>
+
+            <h2>
+                Expertise Built Around Your Needs
+            </h2>
+
+        </div>
+
+
+
+        <div class="consultants-why-grid">
+
+
+            <div class="why-card">
+
+                <strong>
+                    Engineering Expertise
+                </strong>
+
+                <p>
+                    Technical knowledge focused on practical engineering
+                    and technology-driven requirements.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <strong>
+                    Professional Learning
+                </strong>
+
+                <p>
+                    Training programs designed around practical skills,
+                    professional development and industry needs.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <strong>
+                    Business Insight
+                </strong>
+
+                <p>
+                    Consultancy support that connects technical knowledge
+                    with practical business requirements.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <strong>
+                    Practical Solutions
+                </strong>
+
+                <p>
+                    A solution-oriented approach focused on useful,
+                    sustainable and professional outcomes.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     END CTA
+     ========================================================= -->
+
+<section class="consultants-cta">
+
+    <h2>
+        Let’s Build the Right Solution Together
+    </h2>
+
+
+    <div class="consultants-cta-buttons">
+
+
+        <a
+            href="{{ url_for('professional_training') }}"
+            class="consultants-cta-button">
+            PROFESSIONAL TRAINING
+        </a>
+
+
+        <a
+            href="#"
+            class="consultants-cta-button">
+            SEND REQUIREMENT
+        </a>
+
+
+        <a
+            href="/"
+            class="consultants-cta-button">
+            GO BACK TO HOME (ENG)
+        </a>
+
+
+    </div>
+
+
+    <div class="consultants-email">
+        ceo@capitalgroup.pk
+    </div>
+
+</section>
+
+
+</div>
+
+{% endblock %}

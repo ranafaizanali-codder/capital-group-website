@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+
+{% block title %}Stuffing Division | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .stuffing-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .stuffing-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(90deg, rgba(6, 29, 45, 0.94), rgba(6, 29, 45, 0.48)),
+            url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=88")
+            center / cover no-repeat;
+    }
+
+    .stuffing-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 95px 0;
+        color: #ffffff;
+    }
+
+    .stuffing-eyebrow {
+        margin-bottom: 18px;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    .stuffing-hero h1 {
+        max-width: 900px;
+        margin: 0 0 28px;
+        color: #ffffff;
+        font-size: clamp(42px, 6vw, 76px);
+        line-height: 1.04;
+        font-weight: 700;
+    }
+
+    .stuffing-hero h2 {
+        max-width: 950px;
+        margin: 0 0 25px;
+        color: #ffffff;
+        font-size: clamp(28px, 4vw, 52px);
+        line-height: 1.12;
+        font-weight: 600;
+    }
+
+    .stuffing-hero p {
+        max-width: 830px;
+        margin: 0;
+        color: #e8eef2;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    /* INTRO */
+    .stuffing-intro {
+        width: min(1000px, 90%);
+        margin: 0 auto;
+        padding: 78px 0 45px;
+        text-align: center;
+    }
+
+    .stuffing-intro h2 {
+        margin: 0 0 18px;
+        color: #061d2d;
+        font-size: clamp(30px, 4vw, 46px);
+    }
+
+    .stuffing-intro p {
+        max-width: 850px;
+        margin: auto;
+        color: #526674;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    /* SECTIONS */
+    .stuffing-container {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding-bottom: 75px;
+    }
+
+    .stuffing-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 55px;
+        align-items: center;
+        padding: 55px 0;
+        border-top: 1px solid rgba(18, 56, 79, 0.12);
+    }
+
+    .stuffing-section.reverse .stuffing-image-wrap {
+        order: 2;
+    }
+
+    .stuffing-section.reverse .stuffing-copy {
+        order: 1;
+    }
+
+    .stuffing-image-wrap {
+        min-height: 330px;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #dfe5e8;
+    }
+
+    .stuffing-image {
+        width: 100%;
+        height: 330px;
+        display: block;
+        object-fit: cover;
+    }
+
+    .stuffing-copy {
+        padding: 10px 0;
+    }
+
+    .stuffing-number {
+        margin-bottom: 13px;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .stuffing-copy h2 {
+        margin: 0 0 16px;
+        color: #061d2d;
+        font-size: clamp(26px, 3vw, 38px);
+        line-height: 1.15;
+    }
+
+    .stuffing-copy p {
+        max-width: 520px;
+        margin: 0;
+        color: #526674;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* CTA */
+    .stuffing-cta {
+        padding: 75px 20px;
+        background: #061d2d;
+        text-align: center;
+    }
+
+    .stuffing-cta h2 {
+        margin: 0 0 13px;
+        color: #ffffff;
+        font-size: clamp(29px, 4vw, 44px);
+    }
+
+    .stuffing-cta p {
+        max-width: 720px;
+        margin: 0 auto 30px;
+        color: #dbe4e9;
+        line-height: 1.7;
+    }
+
+    .stuffing-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .stuffing-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        border: 1px solid #c69b32;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .stuffing-btn-primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .stuffing-btn-secondary {
+        background: transparent;
+        color: #ffffff;
+    }
+
+    .stuffing-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 800px) {
+
+        .stuffing-section,
+        .stuffing-section.reverse {
+            grid-template-columns: 1fr;
+        }
+
+        .stuffing-section.reverse .stuffing-image-wrap,
+        .stuffing-section.reverse .stuffing-copy {
+            order: initial;
+        }
+
+        .stuffing-image-wrap,
+        .stuffing-image {
+            height: 280px;
+            min-height: 280px;
+        }
+    }
+</style>
+
+
+<div class="stuffing-page">
+
+    <!-- HERO -->
+    <section class="stuffing-hero">
+
+        <div class="stuffing-hero-content">
+
+            <div class="stuffing-eyebrow">
+                STUFFING DIVISION
+            </div>
+
+            <h1>
+                Electronics Assembly & Stuffing
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CECs Stuffing Division provides precision electronic component
+                placement and PCB assembly solutions for industrial, control,
+                communication and specialized electronic applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="stuffing-intro">
+
+        <h2>
+            Advanced PCB Stuffing & Assembly
+        </h2>
+
+        <p>
+            Our capabilities support accurate component placement, soldering,
+            inspection and assembly processes for reliable electronic
+            products and application-specific circuit boards.
+        </p>
+
+    </section>
+
+
+    <div class="stuffing-container">
+
+        <!-- 01 -->
+        <section class="stuffing-section">
+
+            <div class="stuffing-image-wrap">
+
+                <img
+                    class="stuffing-image"
+                 src="https://telcontrol.net/assets/img/sklap4.jpg"
+                    alt="Automated electronics component placement"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="stuffing-copy">
+
+                <div class="stuffing-number">
+                    01 · SMT COMPONENT PLACEMENT
+                </div>
+
+                <h2>
+                    SMT Component Placement
+                </h2>
+
+                <p>
+                    Surface-mount component placement supports compact,
+                    high-density electronic assemblies with controlled
+                    positioning and repeatable manufacturing quality.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+        <section class="stuffing-section reverse">
+
+            <div class="stuffing-image-wrap">
+
+                <img
+                    class="stuffing-image"
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic PCB assembly and through-hole components"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="stuffing-copy">
+
+                <div class="stuffing-number">
+                    02 · THROUGH-HOLE ASSEMBLY
+                </div>
+
+                <h2>
+                    Through-Hole Assembly
+                </h2>
+
+                <p>
+                    Through-hole component assembly supports applications
+                    requiring mechanically robust connections and dependable
+                    integration of electronic components.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+        <section class="stuffing-section">
+
+            <div class="stuffing-image-wrap">
+
+                <img
+                    class="stuffing-image"
+                    src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=1800&q=88"
+                    alt="Automated electronic assembly production"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="stuffing-copy">
+
+                <div class="stuffing-number">
+                    03 · AUTOMATED COMPONENT STUFFING
+                </div>
+
+                <h2>
+                    Automated Component Stuffing
+                </h2>
+
+                <p>
+                    Automated placement processes improve repeatability,
+                    production efficiency and component positioning across
+                    consistent electronic assembly requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+        <section class="stuffing-section reverse">
+
+            <div class="stuffing-image-wrap">
+
+                <img
+                    class="stuffing-image"
+                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronics inspection and quality control"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="stuffing-copy">
+
+                <div class="stuffing-number">
+                    04 · INSPECTION & QUALITY CONTROL
+                </div>
+
+                <h2>
+                    Inspection & Quality Control
+                </h2>
+
+                <p>
+                    Inspection and testing processes help verify component
+                    placement, solder quality and assembly integrity before
+                    electronic products move to final integration.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="stuffing-cta">
+
+        <h2>
+            Discuss Your Assembly Requirement
+        </h2>
+
+        <p>
+            Share your PCB stuffing, component placement or electronic
+            assembly requirement with Capital Engineering Corporation.
+        </p>
+
+        <div class="stuffing-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="stuffing-btn stuffing-btn-primary"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/"
+                class="stuffing-btn stuffing-btn-secondary"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

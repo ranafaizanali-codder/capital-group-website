@@ -1,0 +1,612 @@
+{% extends "base.html" %}
+
+{% block title %}
+MMS 116 - Advanced Topics in Mechanical Failures and System Analysis | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .mechanical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* HERO */
+    .mechanical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(8, 40, 59, 0.82)),
+            url("https://www.klingele-technik.de/media/yootheme/cache/a7/3d-konstuktion-detail_roboter-a7ec906e.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+
+    .mechanical-course-hero-content {
+        max-width: 950px;
+    }
+
+    .mechanical-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .mechanical-course-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .mechanical-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #e8eef2;
+    }
+
+    /* MAIN CONTENT */
+    .mechanical-course-section {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px 6%;
+    }
+
+    .mechanical-course-section h2 {
+        font-size: 34px;
+        margin: 0 0 22px;
+        color: #12384f;
+    }
+
+    .mechanical-course-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #506574;
+        margin-bottom: 20px;
+    }
+
+    .course-note {
+        background: #fff8e8;
+        border-left: 4px solid #c69b32;
+        padding: 16px 20px;
+        margin: 25px 0 40px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .course-block {
+        margin-top: 55px;
+    }
+
+    .course-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .course-list {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .course-list li {
+        margin-bottom: 12px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    /* SYLLABUS */
+    .day-block {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.05);
+    }
+
+    .day-block h4 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .day-block ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-block li {
+        margin-bottom: 9px;
+        color: #506574;
+        line-height: 1.6;
+    }
+
+    /* CTA */
+    .mechanical-course-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 75px 6%;
+    }
+
+    .mechanical-course-cta h2 {
+        font-size: 34px;
+        margin: 0 0 18px;
+    }
+
+    .mechanical-course-cta p {
+        max-width: 760px;
+        margin: 0 auto 30px;
+        color: #dbe5ea;
+        line-height: 1.7;
+    }
+
+    .mechanical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .mechanical-course-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .mechanical-course-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .mechanical-course-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    /* FOOTER */
+    .mechanical-course-footer {
+        background: #061d2d;
+        text-align: center;
+        padding: 22px;
+        color: #bfcdd5;
+        font-size: 14px;
+    }
+
+    .mechanical-course-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+
+        .mechanical-course-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .mechanical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .mechanical-course-hero p {
+            font-size: 16px;
+        }
+
+        .mechanical-course-section {
+            padding: 60px 7%;
+        }
+
+        .mechanical-course-section h2 {
+            font-size: 28px;
+        }
+
+        .day-block {
+            padding: 20px;
+        }
+    }
+</style>
+
+
+<div class="mechanical-course-page">
+
+    <!-- HERO -->
+    <section class="mechanical-course-hero">
+
+        <div class="mechanical-course-hero-content">
+
+            <span class="mechanical-course-label">
+                Advanced Mechanical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional mechanical failure analysis training
+                develops practical expertise in mechanical systems,
+                reliability, failure modes, structural integrity and
+                industrial equipment analysis.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="mechanical-course-section">
+
+        <h2>
+            MMS 116 - Advanced Topics in Mechanical Failures and System Analysis
+        </h2>
+
+        <p>
+            Mechanical failures are the cause of the production stops and
+            should be eliminated with correct maintenance and understanding
+            of failures. Mechanical failure analysis provides the causes of
+            the failures, which ought to be corrected for efficient production.
+        </p>
+
+        <p>
+            This course discusses schematic design, system analysis,
+            construction documentation and design visualization as well as
+            learning the causes of mechanical fail and the methods for
+            analysing and predicting the structural integrity of a mechanical
+            machines which is extremely important in industry.
+        </p>
+
+
+        <div class="course-note">
+
+            <strong>Course Duration:</strong> 5 Days
+            <br>
+
+            <strong>Course Date:</strong>
+            Can be offered upon a specific date request
+            <br>
+
+            <strong>Venue:</strong>
+            Marriott Islamabad
+
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="course-block">
+
+            <h3>Course Objectives</h3>
+
+            <ul class="course-list">
+
+                <li>
+                    Understanding mechanical systems
+                </li>
+
+                <li>
+                    Familiarizing with mechanical failure analysis
+                </li>
+
+                <li>
+                    Being prepared to address reliability related to
+                    mechanical equipment
+                </li>
+
+                <li>
+                    Learning failure modes and designing fail-safe systems
+                </li>
+
+                <li>
+                    Understanding the service and maintenance requirements
+                    for machine failures
+                </li>
+
+                <li>
+                    Providing competency in the predominant tools of
+                    mechanical system
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="course-block">
+
+            <h3>Who Should Attend?</h3>
+
+            <ul class="course-list">
+
+                <li>
+                    Those who are beginning their reliability career
+                </li>
+
+                <li>
+                    Reliability specialists
+                </li>
+
+                <li>
+                    Designers
+                </li>
+
+                <li>
+                    Engineers
+                </li>
+
+                <li>
+                    Managers
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="course-block">
+
+            <h3>5-Day Course Syllabus</h3>
+
+
+            <!-- DAY 1 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 1 — Mechanical Systems and Failure Fundamentals
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Overview of mechanical systems
+                    </li>
+
+                    <li>
+                        Schematic design
+                    </li>
+
+                    <li>
+                        System analysis
+                    </li>
+
+                    <li>
+                        What is mechanical failure
+                    </li>
+
+                    <li>
+                        Failure Modes
+                    </li>
+
+                    <li>
+                        Cause of failures in production
+                    </li>
+
+                    <li>
+                        Effective ways to prevent failure or live with
+                        the failures
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 2 — Static Failure Modes and Strength
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Static failure modes
+                    </li>
+
+                    <li>
+                        Fracture
+                    </li>
+
+                    <li>
+                        Buckling
+                    </li>
+
+                    <li>
+                        Impact
+                    </li>
+
+                    <li>
+                        Strength calculations
+                    </li>
+
+                    <li>
+                        Material and dimension selection
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 3 — Dynamic Failure Modes
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Dynamic failure modes
+                    </li>
+
+                    <li>
+                        Fatigue
+                    </li>
+
+                    <li>
+                        Creep
+                    </li>
+
+                    <li>
+                        Wear
+                    </li>
+
+                    <li>
+                        Corrosion
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 4 — Crack Growth and Failure Testing
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Crack growth
+                    </li>
+
+                    <li>
+                        Failure rate
+                    </li>
+
+                    <li>
+                        Hazard analysis
+                    </li>
+
+                    <li>
+                        Impact testing
+                    </li>
+
+                    <li>
+                        Fatigue testing
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+            <div class="day-block">
+
+                <h4>
+                    Day 5 — Failure Improvement and Engineering Applications
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Failure testing
+                    </li>
+
+                    <li>
+                        Improving fatigue life
+                    </li>
+
+                    <li>
+                        Improving creep life
+                    </li>
+
+                    <li>
+                        Structural examples
+                    </li>
+
+                    <li>
+                        Bearing example
+                    </li>
+
+                    <li>
+                        Construction documentation
+                    </li>
+
+                    <li>
+                        Design visualization
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="mechanical-course-cta">
+
+        <h2>
+            Develop Your Mechanical Failure Analysis Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional mechanical
+            engineering training and practical failure analysis,
+            reliability and system analysis development.
+        </p>
+
+        <div class="mechanical-course-buttons">
+
+            <a href="{{ url_for('advanced_mechanical_failure_analysis_registration') }}"
+               class="mechanical-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="mechanical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="mechanical-course-footer">
+
+        For registration assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

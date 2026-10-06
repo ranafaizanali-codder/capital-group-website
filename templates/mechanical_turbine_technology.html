@@ -1,0 +1,643 @@
+{% extends "base.html" %}
+
+{% block title %}
+LONG 257 - Mechanical Technology (Turbine) | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .turbine-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .turbine-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+            url("https://www.klingele-technik.de/media/yootheme/cache/a7/3d-konstuktion-detail_roboter-a7ec906e.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+
+    .turbine-hero-content {
+        max-width: 900px;
+    }
+
+    .turbine-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .turbine-hero h1 {
+        font-size: 52px;
+        line-height: 1.12;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .turbine-hero p {
+        max-width: 850px;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e8eef1;
+        margin: 0;
+    }
+
+    .turbine-intro {
+        padding: 80px 8% 55px;
+        max-width: 1150px;
+        margin: auto;
+    }
+
+    .section-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+    }
+
+    .turbine-intro h2 {
+        font-size: 38px;
+        margin: 12px 0 18px;
+        color: #12384f;
+    }
+
+    .turbine-intro p {
+        max-width: 950px;
+        color: #5d6c74;
+        line-height: 1.75;
+        font-size: 16px;
+    }
+
+    .participant-note {
+        margin-top: 20px;
+        padding: 16px 20px;
+        border-left: 3px solid #c69b32;
+        background: #ffffff;
+        color: #12384f;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .feature-section {
+        padding: 20px 8% 70px;
+    }
+
+    .feature-grid {
+        max-width: 1150px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .feature-card {
+        background: #ffffff;
+        border: 1px solid #dce3e7;
+        padding: 28px;
+        border-top: 3px solid #c69b32;
+    }
+
+    .feature-card h3 {
+        margin: 0 0 10px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .feature-card p {
+        margin: 0;
+        color: #687780;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    .course-section {
+        padding: 70px 8%;
+        background: #ffffff;
+    }
+
+    .course-container {
+        max-width: 1150px;
+        margin: auto;
+    }
+
+    .course-container h2 {
+        font-size: 34px;
+        color: #12384f;
+        margin: 0 0 22px;
+    }
+
+    .course-description {
+        max-width: 1000px;
+        color: #5d6c74;
+        line-height: 1.75;
+        font-size: 16px;
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 35px 0 60px;
+    }
+
+    .detail-box {
+        background: #f5f7f8;
+        border: 1px solid #dce3e7;
+        padding: 20px;
+    }
+
+    .detail-box strong {
+        display: block;
+        color: #12384f;
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+    .detail-box span {
+        color: #687780;
+        font-size: 14px;
+    }
+
+    .content-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        margin-bottom: 55px;
+    }
+
+    .content-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .content-block ul {
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .content-block li {
+        color: #5d6c74;
+        line-height: 1.65;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .syllabus-section {
+        margin-top: 25px;
+    }
+
+    .syllabus-section h3 {
+        color: #12384f;
+        font-size: 27px;
+        margin-bottom: 25px;
+    }
+
+    .day-card {
+        border: 1px solid #dce3e7;
+        background: #f8fafb;
+        margin-bottom: 18px;
+        padding: 25px 28px;
+        border-left: 4px solid #c69b32;
+    }
+
+    .day-card h4 {
+        margin: 0 0 15px;
+        color: #12384f;
+        font-size: 19px;
+    }
+
+    .day-card ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-card li {
+        color: #5d6c74;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+
+    .turbine-cta {
+        padding: 75px 8%;
+        background: #08283b;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .turbine-cta h2 {
+        margin: 0 0 15px;
+        font-size: 34px;
+    }
+
+    .turbine-cta p {
+        max-width: 750px;
+        margin: 0 auto 28px;
+        color: #dce7ec;
+        line-height: 1.7;
+    }
+
+    .turbine-btn {
+        display: inline-block;
+        padding: 13px 28px;
+        margin: 5px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .turbine-btn.primary {
+        background: #c69b32;
+        border-color: #c69b32;
+    }
+
+    .turbine-btn:hover {
+        background: #ffffff;
+        color: #12384f;
+        border-color: #ffffff;
+    }
+
+    .turbine-footer {
+        margin-top: 28px;
+        color: #b8c8d0;
+        font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+        .feature-grid,
+        .details-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .content-columns {
+            grid-template-columns: 1fr;
+        }
+
+        .turbine-hero h1 {
+            font-size: 42px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .feature-grid,
+        .details-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .turbine-hero {
+            min-height: 500px;
+            padding: 80px 6%;
+        }
+
+        .turbine-hero h1 {
+            font-size: 34px;
+        }
+
+        .turbine-intro,
+        .feature-section,
+        .course-section {
+            padding-left: 6%;
+            padding-right: 6%;
+        }
+    }
+</style>
+
+<div class="turbine-page">
+
+    <!-- HERO -->
+
+    <section class="turbine-hero">
+        <div class="turbine-hero-content">
+
+            <span class="turbine-label">
+                Advanced Mechanical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional turbine technology training develops
+                practical expertise in gas and wind turbines, mechanical
+                systems, turbine controls, troubleshooting, maintenance
+                and power plant technologies.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- INTRO -->
+
+    <section class="turbine-intro">
+
+        <span class="section-label">
+            Professional Training Program
+        </span>
+
+        <h2>
+              Mechanical Technology (Turbine)
+        </h2>
+
+        <p>
+            Advanced Mechanical Engineering with Power Plant Technologies
+            provides an in-depth technical understanding of mechanical
+            engineering systems used in power generation, with practical
+            exposure to gas and wind turbine technologies, control systems,
+            maintenance and troubleshooting.
+        </p>
+
+        <div class="participant-note">
+            Minimum number of participants to conduct this course:
+            3 persons.
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="feature-section">
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Turbine Technology</h3>
+                <p>
+                    Understand gas and wind turbine components,
+                    mechanical systems and operating principles.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Power Plant Systems</h3>
+                <p>
+                    Develop practical knowledge of power generation,
+                    auxiliary systems and turbine equipment.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Maintenance & Troubleshooting</h3>
+                <p>
+                    Build skills for maintenance, fault diagnosis,
+                    repair and safe turbine system operation.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- COURSE -->
+
+    <section class="course-section">
+
+        <div class="course-container">
+
+            <h2>Course Description</h2>
+
+            <div class="course-description">
+
+                <p>
+                    Advanced Mechanical Engineering with Power Plant
+                    Technologies provides mechanical engineers with an
+                    in-depth technical understanding of advanced mechanical
+                    engineering topics relevant to the power generation
+                    industry.
+                </p>
+
+                <p>
+                    Participants develop practical understanding of
+                    state-of-the-art techniques used in gas and wind turbine
+                    control systems and learn the principles required to make
+                    sound engineering judgements during system design,
+                    deployment, operation and maintenance.
+                </p>
+
+            </div>
+
+            <!-- COURSE DETAILS -->
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+                    <strong>Course Code</strong>
+                    <span>LONG 5</span>
+                </div>
+
+                <div class="detail-box">
+                    <strong>Duration</strong>
+                    <span>5 Days</span>
+                </div>
+
+                <div class="detail-box">
+                    <strong>Course Date</strong>
+                    <span>Specific date request</span>
+                </div>
+
+                <div class="detail-box">
+                    <strong>Venue</strong>
+                    <span>Marriott Islamabad</span>
+                </div>
+
+            </div>
+
+            <!-- OBJECTIVES + ATTENDEES -->
+
+            <div class="content-columns">
+
+                <div class="content-block">
+
+                    <h3>Course Objectives</h3>
+
+                    <ul>
+                        <li>
+                            Explain the main components, mechanical systems
+                            and basic operation of wind and gas turbines.
+                        </li>
+
+                        <li>
+                            Test electrical components, mechanical and
+                            hydraulic systems to troubleshoot malfunctions.
+                        </li>
+
+                        <li>
+                            Maintain and repair central systems and
+                            components.
+                        </li>
+
+                        <li>
+                            Replace worn or malfunctioning components,
+                            monitor stock and order spare parts.
+                        </li>
+
+                        <li>
+                            Explain risks and hazards associated with
+                            hydraulic work.
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="content-block">
+
+                    <h3>Who Should Attend?</h3>
+
+                    <ul>
+                        <li>Technicians</li>
+                        <li>Maintenance Staff</li>
+                        <li>Lead Engineer</li>
+                        <li>Assistant Manager</li>
+                        <li>Mechanical Engineers</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- SYLLABUS -->
+
+            <div class="syllabus-section">
+
+                <h3>5-Day Course Syllabus</h3>
+
+                <div class="day-card">
+
+                    <h4>Day 1 — Advanced Mechanical Engineering Foundations</h4>
+
+                    <ul>
+                        <li>Manufacturing Engineering</li>
+                        <li>Fluid Mechanics</li>
+                        <li>Gas Dynamics</li>
+                        <li>System Dynamics</li>
+                        <li>Dynamics of Machinery</li>
+                        <li>Tool Design</li>
+                        <li>Fluid Machinery</li>
+                        <li>Gas & Steam Turbines</li>
+                        <li>Electrical Power Systems</li>
+                    </ul>
+
+                </div>
+
+                <div class="day-card">
+
+                    <h4>Day 2 — Power Plant and Gas Turbine Technologies</h4>
+
+                    <ul>
+                        <li>Advanced Boiler Technologies</li>
+                        <li>General Overview of Gas Turbines</li>
+                        <li>Jet Propulsion</li>
+                        <li>Fundamental Gas Turbine Cycle Thermodynamics</li>
+                        <li>Gas Turbine Components</li>
+                        <li>Materials of Construction</li>
+                    </ul>
+
+                </div>
+
+                <div class="day-card">
+
+                    <h4>Day 3 — Turbine Mechanical Systems and Maintenance</h4>
+
+                    <ul>
+                        <li>Bearings and Seals</li>
+                        <li>Lubrication Systems in Gas Turbines</li>
+                        <li>Fuels and Fuel Supply Systems</li>
+                        <li>Auxiliary Systems</li>
+                        <li>Performance and Mechanical Equipment Standards</li>
+                        <li>Installation Requirements</li>
+                        <li>Operation and Maintenance</li>
+                    </ul>
+
+                </div>
+
+                <div class="day-card">
+
+                    <h4>Day 4 — Turbine Control and Instrumentation</h4>
+
+                    <ul>
+                        <li>Control Systems and Instrumentation</li>
+                        <li>Gas Turbine Control Systems</li>
+                        <li>Mechanical and Hydraulic System Testing</li>
+                        <li>Turbine Troubleshooting</li>
+                        <li>Fault Diagnosis and Corrective Maintenance</li>
+                        <li>Component Replacement and Spare Parts Management</li>
+                    </ul>
+
+                </div>
+
+                <div class="day-card">
+
+                    <h4>Day 5 — Wind Turbine Technology, Safety and Applications</h4>
+
+                    <ul>
+                        <li>Introduction to Wind Energy Turbine Technology</li>
+                        <li>Wind Turbine Mechanical Systems</li>
+                        <li>Wind Turbine Motor Control</li>
+                        <li>Wind Turbine Troubleshooting</li>
+                        <li>Hydraulic Work Risks and Hazards</li>
+                        <li>Occupational Safety</li>
+                        <li>Integrated Turbine Maintenance Practices</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="turbine-cta">
+
+        <h2>
+            Develop Your Turbine Technology Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional mechanical
+            engineering training focused on turbine technology, power plant
+            systems, maintenance, troubleshooting and safe operation.
+        </p>
+
+        <a
+            href="{{ url_for('mechanical_turbine_technology_registration') }}"
+            class="turbine-btn primary">
+            REGISTER
+        </a>
+
+        <a
+            href="{{ url_for('engines') }}"
+            class="turbine-btn">
+            GO HOME
+        </a>
+
+        <div class="turbine-footer">
+            For training and registration assistance:
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

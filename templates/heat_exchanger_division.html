@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heat Exchanger Division | Capital Engineering Corporation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7f8;
+            color: #12384f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ================= HERO ================= */
+
+        .hx-hero {
+            position: relative;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #061d2d;
+        }
+
+        .hx-hero > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.75;
+        }
+
+        .hx-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 29, 45, 0.98) 0%,
+                    rgba(6, 29, 45, 0.88) 34%,
+                    rgba(6, 29, 45, 0.48) 68%,
+                    rgba(6, 29, 45, 0.18) 100%
+                );
+        }
+
+        .hx-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, 88%);
+            margin: auto;
+            color: white;
+        }
+
+        .hx-label {
+            display: inline-block;
+            color: #d2a43b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 3px solid #d2a43b;
+        }
+
+        .hx-hero h1 {
+            margin: 0 0 22px;
+            max-width: 900px;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hx-hero p {
+            max-width: 830px;
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e8eef2;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .hx-content {
+            width: min(1200px, 88%);
+            margin: auto;
+            padding: 90px 0 55px;
+        }
+
+        /* ================= CAPABILITIES ================= */
+
+        .hx-capabilities {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 80px;
+        }
+
+        .hx-capabilities-label {
+            display: block;
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .hx-capabilities h2 {
+            margin: 0 0 15px;
+            color: #061d2d;
+            font-size: 36px;
+            line-height: 1.2;
+        }
+
+        .hx-capabilities p {
+            margin: 0;
+            color: #526775;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================= FEATURE ROWS ================= */
+
+        .hx-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+            margin-bottom: 95px;
+        }
+
+        .hx-feature.reverse {
+            direction: rtl;
+        }
+
+        .hx-feature.reverse .hx-text {
+            direction: ltr;
+        }
+
+        .hx-text {
+            direction: ltr;
+        }
+
+        .hx-number {
+            display: block;
+            color: #c69b32;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hx-text h3 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .hx-text p {
+            margin: 0;
+            color: #526775;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hx-image {
+            overflow: hidden;
+            background: white;
+            border: 1px solid rgba(198, 155, 50, 0.35);
+            box-shadow: 0 16px 35px rgba(6, 29, 45, 0.12);
+        }
+
+        .hx-image img {
+            display: block;
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hx-image:hover img {
+            transform: scale(1.035);
+        }
+
+        /* ================= ACTIONS ================= */
+
+        .hx-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-top: 1px solid #d8e0e5;
+            padding-top: 35px;
+            margin-top: 10px;
+        }
+
+        .hx-btn {
+            display: inline-block;
+            padding: 14px 26px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .hx-btn.back {
+            color: #061d2d;
+            background: transparent;
+            border: 1px solid #061d2d;
+        }
+
+        .hx-btn.back:hover {
+            color: white;
+            background: #061d2d;
+        }
+
+        .hx-btn.request {
+            color: white;
+            background: #c69b32;
+            border: 1px solid #c69b32;
+        }
+
+        .hx-btn.request:hover {
+            background: #061d2d;
+            border-color: #061d2d;
+        }
+
+        /* ================= EMAIL ================= */
+
+        .hx-email {
+            text-align: right;
+            margin-top: 28px;
+            padding-bottom: 10px;
+        }
+
+        .hx-email a {
+            color: #12384f;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hx-email a:hover {
+            color: #c69b32;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .hx-hero {
+                min-height: 520px;
+            }
+
+            .hx-feature,
+            .hx-feature.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 35px;
+                margin-bottom: 70px;
+            }
+
+            .hx-text {
+                order: 1;
+            }
+
+            .hx-image {
+                order: 2;
+            }
+
+            .hx-image img {
+                height: 330px;
+            }
+
+            .hx-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hx-btn {
+                text-align: center;
+            }
+
+            .hx-email {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .hx-hero {
+                min-height: 500px;
+            }
+
+            .hx-hero p {
+                font-size: 16px;
+            }
+
+            .hx-content {
+                padding-top: 65px;
+            }
+
+            .hx-capabilities h2 {
+                font-size: 30px;
+            }
+
+            .hx-text h3 {
+                font-size: 26px;
+            }
+
+            .hx-image img {
+                height: 270px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hx-hero">
+
+        <img
+            src="https://s3.us-east-1.amazonaws.com/contents.newzenler.com/86/library/ourse-image62bc7a9988005_lg.JPG"
+            alt="Industrial shell and tube heat exchanger"
+        >
+
+        <div class="hx-hero-content">
+
+            <span class="hx-label">
+                HEAT EXCHANGER DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CCs Heat Exchanger Division specializes in the engineering,
+                fabrication and integration of high-performance heat exchange
+                equipment for demanding industrial and process applications,
+                with a focus on thermal efficiency, precision and reliable
+                long-term operation.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="hx-content">
+
+
+        <!-- ================= OUR CAPABILITIES ================= -->
+
+        <section class="hx-capabilities">
+
+            <span class="hx-capabilities-label">
+                OUR CAPABILITIES
+            </span>
+
+            <h2>
+                Thermal & Heat Transfer Solutions
+            </h2>
+
+            <p>
+                CCs delivers precision-engineered heat transfer equipment and
+                integrated thermal systems for efficient heating, cooling,
+                condensation and process temperature control.
+            </p>
+
+        </section>
+
+
+        <!-- ================= 01 ================= -->
+
+        <section class="hx-feature">
+
+            <div class="hx-text">
+
+                <span class="hx-number">
+                    01
+                </span>
+
+                <h3>
+                    Heat Exchanger
+                </h3>
+
+                <p>
+                    CECs Heat Exchanger capability covers shell-and-tube and
+                    plate-type equipment engineered for efficient heat transfer,
+                    controlled thermal duty and reliable operation across
+                    industrial process applications.
+                </p>
+
+            </div>
+
+            <div class="hx-image">
+
+                <img
+                    src="https://image.made-in-china.com/2f0j00uELkWCgaRzrq/Stainless-Steel-Titanium-Nickel-and-Hastelloy-Chemical-Heat-Exchange-Equipment.jpg"
+                    alt="Industrial shell and tube heat exchangers"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 02 ================= -->
+
+        <section class="hx-feature reverse">
+
+            <div class="hx-text">
+
+                <span class="hx-number">
+                    02
+                </span>
+
+                <h3>
+                    Thermal Systems
+                </h3>
+
+                <p>
+                    Our Thermal Systems integrate heat exchangers, circulation
+                    equipment, piping, valves and controls to provide precise
+                    heating and cooling for demanding process conditions.
+                </p>
+
+            </div>
+
+            <div class="hx-image">
+
+                <img
+                    src="https://image.made-in-china.com/2f0j00skMiyYaWbfCP/Factory-Supply-Water-Cooling-System-Water-Cooling-Block-Board-Plate-Heat-Exchanger.webp"
+                    alt="Industrial thermal system with plate heat exchangers"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 03 ================= -->
+
+        <section class="hx-feature">
+
+            <div class="hx-text">
+
+                <span class="hx-number">
+                    03
+                </span>
+
+                <h3>
+                    Process Integration
+                </h3>
+
+                <p>
+                    CECs Process Integration solutions connect thermal equipment
+                    with process piping, pumps, instrumentation and control
+                    systems for coordinated and reliable plant operation.
+                </p>
+
+            </div>
+
+            <div class="hx-image">
+
+                <img
+                   src="https://www.skidsolutions.com/wp-content/uploads/Heat-Exchanger-2-600x400.jpg"
+                    alt="Integrated industrial heat exchanger system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 04 ================= -->
+
+        <section class="hx-feature reverse">
+
+            <div class="hx-text">
+
+                <span class="hx-number">
+                    04
+                </span>
+
+                <h3>
+                    Thermal Recovery & Condensation
+                </h3>
+
+                <p>
+                    Our thermal recovery capability supports condensers,
+                    cooling arrangements and energy-recovery systems designed
+                    to improve heat utilization and maintain stable process
+                    temperatures.
+                </p>
+
+            </div>
+
+            <div class="hx-image">
+
+                <img
+                     src="https://image.fnnews.com/resource/media/image/2022/07/18/202207180610507721_e.jpg"
+                    alt="Industrial heat exchanger package and thermal equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BUTTONS ================= -->
+
+        <div class="hx-actions">
+
+            <a
+                href="/companies/engineering/process-industry"
+                class="hx-btn back"
+            >
+                GO BACK TO PROCESS INDUSTRY
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="hx-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="hx-email">
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

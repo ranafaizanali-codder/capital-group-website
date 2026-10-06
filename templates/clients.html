@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}
+Our Clients | Capital Group
+{% endblock %}
+
+{% block content %}
+
+<section class="clients-hero">
+
+    <div class="clients-hero-overlay"></div>
+
+    <div class="clients-hero-content">
+
+        <div class="gold-text">
+            OUR CLIENTS
+        </div>
+
+        <h1>
+            Trusted by Leading Organizations
+        </h1>
+
+        <p>
+            Capital Group provides engineering, technology, consulting
+            and technical solutions to leading organizations.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="clients-section">
+
+    <div class="clients-heading">
+
+        <span>SELECTED CLIENTS</span>
+
+        <h2>
+            Organizations We Serve
+        </h2>
+
+        <p>
+            Our client relationships reflect our commitment to
+            technical capability, professional service and dependable solutions.
+        </p>
+
+    </div>
+
+
+    <div class="clients-grid">
+
+        <div class="client-card">
+
+            <span>01</span>
+
+            <h3>
+                Pakistan Aeronautical Complex
+            </h3>
+
+            <p>
+                Aerospace and aviation sector
+            </p>
+
+        </div>
+
+
+        <div class="client-card">
+
+            <span>02</span>
+
+            <h3>
+                Pakistan Navy
+            </h3>
+
+            <p>
+                Defence and maritime sector
+            </p>
+
+        </div>
+
+
+        <div class="client-card">
+
+            <span>03</span>
+
+            <h3>
+                Oil &amp; Gas Development Company Limited
+            </h3>
+
+            <p>
+                Energy and industrial sector
+            </p>
+
+        </div>
+
+
+        <div class="client-card">
+
+            <span>04</span>
+
+            <h3>
+                Rousch Power (Pakistan) Limited
+            </h3>
+
+            <p>
+                Power and energy sector
+            </p>
+
+        </div>
+
+
+        <div class="client-card">
+
+            <span>05</span>
+
+            <h3>
+                Heavy Industries Taxila
+            </h3>
+
+            <p>
+                Engineering and defence sector
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="clients-cta">
+
+    <div>
+
+        <span>
+            PARTNER WITH CAPITAL GROUP
+        </span>
+
+        <h2>
+            Looking for a Reliable Technical Partner?
+        </h2>
+
+    </div>
+
+
+    <a href="{{ url_for('contact') }}">
+        SEND REQUEST
+        <span>→</span>
+    </a>
+
+</section>
+
+{% endblock %}

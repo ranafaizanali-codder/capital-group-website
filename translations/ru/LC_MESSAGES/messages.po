@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "HOME"
+msgstr "ГЛАВНАЯ"
+
+msgid "ABOUT US"
+msgstr "О НАС"
+
+msgid "FOLLOW US"
+msgstr "ПОДПИСЫВАЙТЕСЬ НА НАС"
+
+msgid "CONTACT US"
+msgstr "СВЯЗАТЬСЯ С НАМИ"
+
+msgid "LET'S TALK"
+msgstr "ДАВАЙТЕ ПОГОВОРИМ"
+
+msgid "Developing Business, Creating Solutions"
+msgstr "Развиваем бизнес, создаём решения"

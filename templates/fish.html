@@ -1,0 +1,724 @@
+{% extends "base.html" %}
+
+{% block title %}Fish Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.fish-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.fish-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.78) 45%,
+            rgba(6, 29, 45, 0.25) 100%
+        ),
+        url("https://images.pexels.com/photos/14062107/pexels-photo-14062107.jpeg?auto=compress&cs=tinysrgb&w=1800&q=85")
+        center center / cover no-repeat;
+}
+
+.fish-hero-inner {
+    width: min(1180px, 90%);
+    margin: auto;
+    padding: 100px 0;
+}
+
+.fish-label {
+    display: inline-block;
+    margin-bottom: 22px;
+
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.fish-hero h1 {
+    max-width: 850px;
+    margin: 0 0 25px;
+
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.fish-description {
+    max-width: 720px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.fish-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+
+    padding: 90px 0 65px;
+    text-align: center;
+}
+
+.fish-intro h2 {
+    margin: 0 0 18px;
+
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.fish-intro p {
+    max-width: 850px;
+    margin: auto;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   FISH SECTIONS
+========================= */
+
+.fish-sections {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+.fish-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+
+    padding: 75px 0;
+
+    border-top: 1px solid #dce2e5;
+}
+
+.fish-section:last-child {
+    border-bottom: 1px solid #dce2e5;
+}
+
+
+/* IMAGE */
+
+.fish-image {
+    width: 100%;
+    height: 420px;
+
+    overflow: hidden;
+    border-radius: 4px;
+
+    background: #e9edef;
+}
+
+.fish-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.fish-image:hover img {
+    transform: scale(1.035);
+}
+
+
+/* CONTENT */
+
+.fish-content {
+    position: relative;
+}
+
+.fish-number {
+    margin-bottom: 17px;
+
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.fish-content h3 {
+    margin: 0 0 8px;
+
+    color: #12384f;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.fish-scientific {
+    margin-bottom: 20px;
+
+    color: #c69b32;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.fish-content p {
+    margin: 0;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.fish-cta {
+    width: min(1050px, 90%);
+    margin: auto;
+
+    padding: 100px 0;
+
+    text-align: center;
+}
+
+.fish-cta h2 {
+    margin: 0 0 16px;
+
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.fish-cta p {
+    max-width: 760px;
+    margin: 0 auto 35px;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.fish-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.fish-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 185px;
+    padding: 14px 24px;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+    transition: all 0.25s ease;
+}
+
+.fish-btn-primary {
+    background: #123f58;
+    color: #ffffff;
+}
+
+.fish-btn-primary:hover {
+    background: #0b2c40;
+    transform: translateY(-2px);
+}
+
+.fish-btn-secondary {
+    background: transparent;
+    color: #12384f;
+    border: 1px solid #c69b32;
+}
+
+.fish-btn-secondary:hover {
+    background: #c69b32;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.fish-email {
+    margin-top: 28px;
+
+    color: #6b7479;
+    font-size: 14px;
+}
+
+.fish-email a {
+    color: #12384f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .fish-hero {
+        min-height: 570px;
+    }
+
+    .fish-hero-inner {
+        padding: 80px 0;
+    }
+
+    .fish-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 60px 0;
+    }
+
+    .fish-image {
+        height: 360px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .fish-hero {
+        min-height: 540px;
+    }
+
+    .fish-hero-inner {
+        width: 88%;
+        padding: 70px 0;
+    }
+
+    .fish-hero h1 {
+        font-size: 34px;
+    }
+
+    .fish-description {
+        font-size: 15px;
+    }
+
+    .fish-intro {
+        padding: 70px 0 45px;
+    }
+
+    .fish-image {
+        height: 280px;
+    }
+
+    .fish-content h3 {
+        font-size: 29px;
+    }
+
+    .fish-cta {
+        padding: 75px 0;
+    }
+
+    .fish-buttons {
+        flex-direction: column;
+    }
+
+    .fish-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+</style>
+
+
+<div class="fish-page">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="fish-hero">
+
+        <div class="fish-hero-inner">
+
+            <span class="fish-label">
+                Fish Division
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="fish-description">
+                CTC’s Fish Division provides professional sourcing and
+                international trade solutions for chilled and frozen fish
+                products, connecting reliable fisheries, processors and
+                suppliers with distributors, food businesses and global markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="fish-intro">
+
+        <h2>
+            Pakistan’s Leading Fish Species
+        </h2>
+
+        <p>
+            CTC’s Fish Division focuses on professionally sourced Pakistani
+            freshwater and marine fish products, supporting buyers through
+            organized procurement, quality-focused handling, quantity planning,
+            chilled and frozen logistics, export coordination and international
+            market access.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         FISH SPECIES
+    ========================== -->
+
+    <section class="fish-sections">
+
+
+        <!-- 01 ROHU -->
+
+        <div class="fish-section">
+
+            <div class="fish-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8112421/pexels-photo-8112421.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                    alt="Fresh raw fish fillet"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fish-content">
+
+                <div class="fish-number">
+                    01
+                </div>
+
+                <h3>
+                    Rohu
+                </h3>
+
+                <div class="fish-scientific">
+                    Labeo rohita
+                </div>
+
+                <p>
+                    Rohu is one of Pakistan’s major freshwater fish products.
+                    CTC supports professionally sourced Rohu requirements
+                    through organized procurement, quality-focused handling,
+                    quantity planning and chilled or frozen supply coordination
+                    for commercial buyers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 INDIAN OIL SARDINE -->
+
+        <div class="fish-section">
+
+            <div class="fish-content">
+
+                <div class="fish-number">
+                    02
+                </div>
+
+                <h3>
+                    Indian Oil Sardine
+                </h3>
+
+                <div class="fish-scientific">
+                    Sardinella longiceps
+                </div>
+
+                <p>
+                    Indian Oil Sardine is an important marine fish associated
+                    with Pakistan’s seafood sector. CTC supports commercial
+                    sourcing through coordinated procurement, quantity planning,
+                    quality-focused handling and international supply
+                    arrangements.
+                </p>
+
+            </div>
+
+            <div class="fish-image">
+
+                <img
+                    src="https://images.pexels.com/photos/14062115/pexels-photo-14062115.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                    alt="Frozen fish fillet on ice"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 INDIAN MACKEREL -->
+
+        <div class="fish-section">
+
+            <div class="fish-image">
+
+                <img
+                    src="https://images.pexels.com/photos/14062147/pexels-photo-14062147.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                    alt="Fresh fish fillets on ice"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fish-content">
+
+                <div class="fish-number">
+                    03
+                </div>
+
+                <h3>
+                    Indian Mackerel
+                </h3>
+
+                <div class="fish-scientific">
+                    Rastrelliger kanagurta
+                </div>
+
+                <p>
+                    Indian Mackerel is a commercially important marine fish
+                    traded across regional and international seafood markets.
+                    CTC supports sourcing, quantity coordination, chilled and
+                    frozen requirements and professional export supply
+                    arrangements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 MRIGAL -->
+
+        <div class="fish-section">
+
+            <div class="fish-content">
+
+                <div class="fish-number">
+                    04
+                </div>
+
+                <h3>
+                    Mrigal Carp
+                </h3>
+
+                <div class="fish-scientific">
+                    Cirrhinus mrigala
+                </div>
+
+                <p>
+                    Mrigal is a recognized freshwater carp species within
+                    Pakistan’s aquaculture sector. CTC supports commercial
+                    sourcing with attention to product quality, planned
+                    quantities, cold-chain requirements and dependable supply.
+                </p>
+
+            </div>
+
+            <div class="fish-image">
+
+                <img
+                    src="https://images.pexels.com/photos/14062109/pexels-photo-14062109.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                    alt="Raw fish fillet displayed on ice"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 GRASS CARP -->
+
+        <div class="fish-section">
+
+            <div class="fish-image">
+
+                <img
+                    src="https://images.pexels.com/photos/7244376/pexels-photo-7244376.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                    alt="Raw fish fillet product"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fish-content">
+
+                <div class="fish-number">
+                    05
+                </div>
+
+                <h3>
+                    Grass Carp
+                </h3>
+
+                <div class="fish-scientific">
+                    Ctenopharyngodon idella
+                </div>
+
+                <p>
+                    Grass Carp is an established freshwater aquaculture
+                    species in Pakistan. CTC supports commercial sourcing and
+                    supply coordination with a focus on consistent quality,
+                    planned quantities, chilled or frozen handling and reliable
+                    market distribution.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 SILVER CARP -->
+
+        <div class="fish-section">
+
+            <div class="fish-content">
+
+                <div class="fish-number">
+                    06
+                </div>
+
+                <h3>
+                    Silver Carp
+                </h3>
+
+                <div class="fish-scientific">
+                    Hypophthalmichthys molitrix
+                </div>
+
+                <p>
+                    Silver Carp is an important freshwater species within
+                    Pakistan’s fish production sector. CTC supports coordinated
+                    sourcing and international trade requirements through
+                    dependable quantities, quality-focused handling and
+                    organized chilled or frozen supply.
+                </p>
+
+            </div>
+
+            <div class="fish-image">
+
+                <img
+                    src="https://images.pexels.com/photos/16176316/pexels-photo-16176316.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                    alt="Fresh raw fish fillets"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="fish-cta">
+
+        <h2>
+            Looking for Pakistani Fish Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional fish sourcing, quantity
+            coordination, chilled and frozen supply solutions and international
+            seafood market support.
+        </p>
+
+        <div class="fish-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="fish-btn fish-btn-primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="fish-btn fish-btn-secondary"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="fish-btn fish-btn-secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="fish-email">
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+

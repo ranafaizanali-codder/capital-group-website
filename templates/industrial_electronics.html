@@ -1,0 +1,563 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 118 - Industrial Electronics and Applications | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .industrial-course {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    .industrial-hero {
+        background: #061d2d;
+        color: white;
+        padding: 90px 8% 75px;
+    }
+
+    .industrial-hero-content {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .industrial-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .industrial-hero h1 {
+        margin: 0 0 18px;
+        font-size: 44px;
+        line-height: 1.15;
+        color: white;
+    }
+
+    .industrial-hero p {
+        max-width: 900px;
+        margin: 0;
+        color: #e5edf1;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .industrial-container {
+        max-width: 1150px;
+        margin: auto;
+        padding: 65px 25px;
+    }
+
+    .industrial-section {
+        margin-bottom: 55px;
+    }
+
+    .industrial-section-label {
+        display: block;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .industrial-section h2 {
+        margin: 0 0 18px;
+        color: #08283b;
+        font-size: 30px;
+        line-height: 1.25;
+    }
+
+    .industrial-section p {
+        margin: 0;
+        max-width: 1050px;
+        color: #526773;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .industrial-list {
+        margin: 0;
+        padding-left: 22px;
+        color: #526773;
+    }
+
+    .industrial-list li {
+        margin-bottom: 9px;
+        line-height: 1.55;
+    }
+
+    .industrial-day {
+        background: white;
+        border: 1px solid #dce3e7;
+        border-left: 4px solid #c69b32;
+        padding: 27px 30px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 18px rgba(6, 29, 45, 0.05);
+    }
+
+    .industrial-day h3 {
+        margin: 0 0 15px;
+        color: #08283b;
+        font-size: 22px;
+    }
+
+    .industrial-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 55px 25px;
+    }
+
+    .industrial-cta h2 {
+        margin: 0 0 12px;
+        color: white;
+        font-size: 30px;
+    }
+
+    .industrial-cta p {
+        max-width: 760px;
+        margin: 0 auto 25px;
+        color: #dce7ec;
+    }
+
+    .industrial-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .industrial-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border: 1px solid #c69b32;
+        background: transparent;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        transition: 0.2s ease;
+    }
+
+    .industrial-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .industrial-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .industrial-email {
+        margin-top: 20px;
+        color: #cbd9df;
+        font-size: 14px;
+    }
+
+    .industrial-email strong {
+        color: #d2a43b;
+    }
+
+    @media (max-width: 700px) {
+
+        .industrial-hero {
+            padding: 65px 25px 55px;
+        }
+
+        .industrial-hero h1 {
+            font-size: 33px;
+        }
+
+        .industrial-container {
+            padding: 50px 20px;
+        }
+
+        .industrial-section h2 {
+            font-size: 26px;
+        }
+
+        .industrial-day {
+            padding: 23px 20px;
+        }
+    }
+</style>
+
+
+<div class="industrial-course">
+
+    <!-- HERO / STARTING PATTERN -->
+
+    <section class="industrial-hero">
+
+        <div class="industrial-hero-content">
+
+            <span class="industrial-label">
+                Advanced Electronics Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional industrial electronics training develops
+                practical expertise in electronic components, industrial
+                systems, troubleshooting, testing and electronic applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE DESCRIPTION -->
+
+    <main class="industrial-container">
+
+        <section class="industrial-section">
+
+            <span class="industrial-section-label">
+                Professional Training Program
+            </span>
+
+            <h2>
+                EEE 118 - Industrial Electronics and Applications
+            </h2>
+
+            <p>
+                The explosive advancement and proliferation of technology
+                innovation in the science of electronics is changing the ways
+                we live our lives and there is a growing need for well trained
+                tech support and service personnel. In this course, participants
+                will gain an understanding of common industrial electronics
+                concepts, components, and application as well as a broad range
+                of electronic devices and components, how they operate, how
+                they are typically used, and how to effectively troubleshoot them.
+            </p>
+
+        </section>
+
+
+        <!-- COURSE OBJECTIVES -->
+
+        <section class="industrial-section">
+
+            <span class="industrial-section-label">
+                Course Objectives
+            </span>
+
+            <h2>
+                Course Objectives
+            </h2>
+
+            <ul class="industrial-list">
+
+                <li>
+                    Understanding how to use electrical laws and concepts
+                    to troubleshoot electronic systems
+                </li>
+
+                <li>
+                    Improving logical troubleshooting abilities
+                </li>
+
+                <li>
+                    Learning how to test industrial electronic components
+                </li>
+
+                <li>
+                    Being familiar with hazards and dangers involved with
+                    industrial electronics systems
+                </li>
+
+                <li>
+                    Learning how to utilize industrial electronics test equipment
+                </li>
+
+                <li>
+                    Understanding terms, components, and common circuits
+                    used in industrial electronics field
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- WHO SHOULD ATTEND -->
+
+        <section class="industrial-section">
+
+            <span class="industrial-section-label">
+                Participants
+            </span>
+
+            <h2>
+                Who Should Attend?
+            </h2>
+
+            <ul class="industrial-list">
+
+                <li>Technicians</li>
+                <li>Maintenance personnel</li>
+                <li>Electricians</li>
+                <li>Electrical supervisors</li>
+                <li>Project engineers</li>
+                <li>Plant Engineers</li>
+                <li>Engineers of all disciplines</li>
+                <li>Other technical individuals</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- COURSE SYLLABUS -->
+
+        <section class="industrial-section">
+
+            <span class="industrial-section-label">
+                Course Content
+            </span>
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+
+            <!-- DAY 1 -->
+
+            <div class="industrial-day">
+
+                <h3>Day 1</h3>
+
+                <ul class="industrial-list">
+
+                    <li>Basic formula and usage of Ohms law</li>
+
+                    <li>Typical electrical signal systems</li>
+
+                    <li>Electrical relays &amp; time delay circuits</li>
+
+                    <li>
+                        Practical: solving &amp; checking ohms law problems
+                    </li>
+
+                    <li>
+                        Practical: using ohms law to troubleshoot basic circuits
+                    </li>
+
+                    <li>
+                        Practical: experimenting with low voltage signal systems
+                    </li>
+
+                    <li>
+                        Practical: constructing a time-delay relay circuit
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+
+            <div class="industrial-day">
+
+                <h3>Day 2</h3>
+
+                <ul class="industrial-list">
+
+                    <li>Typical motor control circuits</li>
+
+                    <li>Capacitive and inductive filters</li>
+
+                    <li>Phase shift and power factor</li>
+
+                    <li>Oscilloscope basics</li>
+
+                    <li>
+                        Practical: motor control circuit labs
+                    </li>
+
+                    <li>
+                        Practical: capacitive and inductive filter experiments
+                    </li>
+
+                    <li>
+                        Practical: Oscilloscope labs / demonstrations
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+
+            <div class="industrial-day">
+
+                <h3>Day 3</h3>
+
+                <ul class="industrial-list">
+
+                    <li>Diodes and transistors</li>
+
+                    <li>
+                        Basic transistor switch and amplifier circuits
+                    </li>
+
+                    <li>
+                        Field effect transistors &amp; MOSFET's
+                    </li>
+
+                    <li>
+                        Photo-transistors &amp; light emitting diodes (LED's)
+                    </li>
+
+                    <li>Fiber-optic basics</li>
+
+                    <li>Basic oscillators</li>
+
+                    <li>
+                        Practical: experiment with, troubleshoot, and test
+                        diode and transistor circuits
+                    </li>
+
+                    <li>
+                        Practical: experiment with basic optical and
+                        fiber-optic systems
+                    </li>
+
+                    <li>
+                        Practical: experiment with basic oscillators
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+
+            <div class="industrial-day">
+
+                <h3>Day 4</h3>
+
+                <ul class="industrial-list">
+
+                    <li>
+                        Silicon controlled rectifiers (SCR's)
+                    </li>
+
+                    <li>Triacs</li>
+
+                    <li>
+                        Typical SCR &amp; Triac circuits
+                    </li>
+
+                    <li>
+                        Integrated circuits (IC's / Chips)
+                    </li>
+
+                    <li>
+                        Operational amplifier basics
+                    </li>
+
+                    <li>
+                        Basic operational amplifier circuits
+                    </li>
+
+                    <li>
+                        Practical: Construct, experiment with, and troubleshoot
+                        basic SCR and TRIAC circuits
+                    </li>
+
+                    <li>
+                        Practical: experiment with basic Op-Amp circuits
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+
+            <div class="industrial-day">
+
+                <h3>Day 5</h3>
+
+                <ul class="industrial-list">
+
+                    <li>Digital basics</li>
+
+                    <li>Basic logic gates</li>
+
+                    <li>Basic digital circuits</li>
+
+                    <li>
+                        Practical: experiment with, and troubleshoot
+                        basic digital logic gates and circuits
+                    </li>
+
+                    <li>
+                        Electronic troubleshooting methods, tips, and tricks
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CTA -->
+
+    <section class="industrial-cta">
+
+        <h2>
+            Develop Your Industrial Electronics Expertise
+        </h2>
+
+        <p>
+            Register for EEE 118 and develop practical knowledge of
+            industrial electronics, troubleshooting, testing and
+            electronic systems.
+        </p>
+
+        <div class="industrial-buttons">
+
+            <a href="{{ url_for('industrial_electronics_registration') }}"
+               class="industrial-btn primary">
+                REGISTER FOR COURSE
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="industrial-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+        <div class="industrial-email">
+            Contact: <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

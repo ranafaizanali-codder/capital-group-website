@@ -1,0 +1,537 @@
+{% extends "base.html" %}
+
+{% block title %}EEE 103 - Electrical Faults and Troubleshooting | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        position: relative;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg")
+            center/cover no-repeat;
+    }
+
+    .electrical-course-hero-content {
+        max-width: 850px;
+        color: #fff;
+    }
+
+    .electrical-course-label {
+        display: block;
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .electrical-course-hero h1 {
+        font-size: 52px;
+        line-height: 1.12;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-course-hero p {
+        max-width: 760px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #edf3f6;
+        margin: 0;
+    }
+
+    .electrical-course-section {
+        max-width: 1050px;
+        margin: auto;
+        padding: 75px 25px;
+    }
+
+    .electrical-course-section h2 {
+        font-size: 34px;
+        color: #12384f;
+        margin-bottom: 20px;
+    }
+
+    .electrical-course-section p {
+        color: #52636d;
+        font-size: 17px;
+        line-height: 1.8;
+        max-width: 900px;
+    }
+
+    .electrical-course-list {
+        margin: 25px 0 0;
+        padding-left: 22px;
+    }
+
+    .electrical-course-list li {
+        color: #52636d;
+        line-height: 1.8;
+        margin-bottom: 10px;
+    }
+
+    .electrical-syllabus {
+        max-width: 1050px;
+        margin: auto;
+        padding: 10px 25px 75px;
+    }
+
+    .electrical-day {
+        background: #fff;
+        border: 1px solid #e1e7ea;
+        border-top: 3px solid #c69b32;
+        padding: 28px 30px;
+        margin-bottom: 22px;
+    }
+
+    .electrical-day h3 {
+        color: #12384f;
+        font-size: 23px;
+        margin: 0 0 18px;
+    }
+
+    .electrical-day ul {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .electrical-day li {
+        color: #52636d;
+        line-height: 1.7;
+        margin-bottom: 8px;
+    }
+
+    .electrical-course-cta {
+        text-align: center;
+        padding: 80px 25px;
+        background: #f5f7f8;
+    }
+
+    .electrical-course-cta h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 15px;
+    }
+
+    .electrical-course-cta p {
+        color: #60717b;
+        margin-bottom: 30px;
+    }
+
+    .electrical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-course-btn {
+        display: inline-block;
+        padding: 14px 27px;
+        border: 1px solid #12384f;
+        color: #12384f;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: .5px;
+        transition: .25s ease;
+    }
+
+    .electrical-course-btn.primary {
+        background: #12384f;
+        color: #fff;
+        border-color: #12384f;
+    }
+
+    .electrical-course-btn:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+        color: #fff;
+    }
+
+    .electrical-course-email {
+        margin-top: 25px;
+        color: #12384f;
+        font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+        .electrical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .electrical-course-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-course-section h2,
+        .electrical-course-cta h2 {
+            font-size: 30px;
+        }
+
+        .electrical-day {
+            padding: 24px 20px;
+        }
+    }
+</style>
+
+<div class="electrical-course-page">
+
+    <!-- HERO -->
+    <section class="electrical-course-hero">
+
+        <div class="electrical-course-hero-content">
+
+            <span class="electrical-course-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional electrical faults and troubleshooting training
+                develops practical expertise in electrical safety, fault diagnosis,
+                control systems, protection systems and hands-on troubleshooting.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE DESCRIPTION -->
+    <section class="electrical-course-section">
+
+        <h2>
+            EEE 103 - Electrical Faults and Troubleshooting
+        </h2>
+
+        <p>
+            The primary goal of this course is to teach participants how to
+            protect themselves and others from injuries coming, directly or
+            indirectly, from electricity. Learning common-sense electrical
+            troubleshooting techniques will help them to achieve this goal
+            as well as keeping facilities and equipment up and running.
+            This course covers the basic electrical and electronics including
+            fundamentals of electrical principles and electrical practices
+            and electricity problems.
+        </p>
+
+    </section>
+
+
+    <!-- OBJECTIVES -->
+    <section class="electrical-course-section">
+
+        <h2>
+            Course Objectives
+        </h2>
+
+        <ul class="electrical-course-list">
+
+            <li>
+                Learning how to use electrical installation tools
+            </li>
+
+            <li>
+                Being able to read control system schematics
+            </li>
+
+            <li>
+                Learning how to recognize the elements and operations of circuits
+            </li>
+
+            <li>
+                Being familiar with the types of faults
+            </li>
+
+            <li>
+                Understanding the types of controls and their operation
+            </li>
+
+            <li>
+                Practicing hands-on troubleshooting
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- WHO SHOULD ATTEND -->
+    <section class="electrical-course-section">
+
+        <h2>
+            Who Should Attend?
+        </h2>
+
+        <ul class="electrical-course-list">
+
+            <li>Engineers</li>
+            <li>Electricians</li>
+            <li>Technicians</li>
+            <li>Contractors</li>
+            <li>Anyone aspire to increase his capabilities in this area</li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- SYLLABUS -->
+    <section class="electrical-syllabus">
+
+        <h2 style="font-size: 34px; color: #12384f; margin-bottom: 30px;">
+            Course Syllabus
+        </h2>
+
+
+        <!-- DAY 1 -->
+        <div class="electrical-day">
+
+            <h3>Day 1</h3>
+
+            <ul>
+
+                <li>
+                    The importance of electrical safety and safe electrical practices
+                </li>
+
+                <li>
+                    Electrical references and tools needed for electric troubleshooting
+                </li>
+
+                <li>
+                    Source of fault current in an electrical installation
+                </li>
+
+                <li>
+                    Common fault statistics of electrical equipment
+                </li>
+
+                <li>
+                    Short-circuit rating of equipment
+                </li>
+
+                <li>
+                    Basic troubleshooting principles
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- DAY 2 -->
+        <div class="electrical-day">
+
+            <h3>Day 2</h3>
+
+            <ul>
+
+                <li>
+                    Power system faults
+                </li>
+
+                <li>
+                    Faults calculation and using software for verification
+                </li>
+
+                <li>
+                    Partial discharge analysis
+                </li>
+
+                <li>
+                    Cables subjected to short-circuit currents
+                </li>
+
+                <li>
+                    Surge and lighting faults
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- DAY 3 -->
+        <div class="electrical-day">
+
+            <h3>Day 3</h3>
+
+            <ul>
+
+                <li>
+                    Introduction to numerical relays
+                </li>
+
+                <li>
+                    ANSI code for numerical relays
+                </li>
+
+                <li>
+                    Motors faults represented by numerical relays
+                </li>
+
+                <li>
+                    Generator faults represented by numerical relays
+                </li>
+
+                <li>
+                    Fault current limiter
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- DAY 4 -->
+        <div class="electrical-day">
+
+            <h3>Day 4</h3>
+
+            <ul>
+
+                <li>
+                    Power system faults
+                </li>
+
+                <li>
+                    Faults calculation and using software for verification
+                </li>
+
+                <li>
+                    Partial discharge analysis
+                </li>
+
+                <li>
+                    Cables subjected to short-circuit currents
+                </li>
+
+                <li>
+                    Surge and lighting faults
+                </li>
+
+                <li>
+                    Grounding system to increase power system reliabilities
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- DAY 5 -->
+        <div class="electrical-day">
+
+            <h3>Day 5</h3>
+
+            <ul>
+
+                <li>
+                    Electrical requirements for control, protection, monitoring,
+                    and improper phase sequencing
+                </li>
+
+                <li>
+                    Troubleshooting AC motors and starters
+                </li>
+
+                <li>
+                    Fundamentals of three-phase AC motors
+                </li>
+
+                <li>
+                    Fundamental of single-phase AC motors
+                </li>
+
+                <li>
+                    Motor enclosures
+                </li>
+
+                <li>
+                    Motor terminal identification and connection diagram
+                </li>
+
+                <li>
+                    Motor rating and insulation types
+                </li>
+
+                <li>
+                    Operating a motor for forward and reverse operation
+                </li>
+
+                <li>
+                    Motor braking methods
+                </li>
+
+                <li>
+                    Motor testing
+                </li>
+
+                <li>
+                    Measurements used for a motor
+                </li>
+
+                <li>
+                    Motor failures and methods to extend its life
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-course-cta">
+
+        <h2>
+            Develop Your Electrical Troubleshooting Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional electrical
+            engineering training and practical troubleshooting development.
+        </p>
+
+        <div class="electrical-course-buttons">
+
+            <a href="{{ url_for('electrical_faults_troubleshooting_registration') }}"
+               class="electrical-course-btn primary">
+                REGISTER FOR COURSE
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="electrical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+        <div class="electrical-course-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

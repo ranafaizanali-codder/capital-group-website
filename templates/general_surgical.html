@@ -1,0 +1,552 @@
+{% extends "base.html" %}
+
+{% block title %}
+General Surgical Instruments Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+.general-surgical-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* HERO */
+.general-surgical-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.95) 0%,
+            rgba(6,29,45,.82) 48%,
+            rgba(6,29,45,.30) 100%
+        ),
+        url("https://images.pexels.com/photos/36101264/pexels-photo-36101264.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.general-surgical-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.general-surgical-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.general-surgical-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    color: #fff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.general-surgical-description {
+    max-width: 780px;
+    margin: 0;
+    color: rgba(255,255,255,.88);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* INTRO */
+.general-surgical-intro {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 75px 0 35px;
+}
+
+.general-surgical-intro h2 {
+    margin: 0 0 15px;
+    color: #12384f;
+    font-size: 35px;
+}
+
+.general-surgical-intro p {
+    max-width: 800px;
+    margin: 0;
+    color: #64747d;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* DETAIL SECTIONS */
+.general-surgical-sections {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 25px 0 80px;
+}
+
+.general-surgical-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 330px;
+    margin-bottom: 28px;
+    background: #fff;
+    border: 1px solid #e1e7ea;
+    box-shadow: 0 7px 22px rgba(6,29,45,.06);
+    overflow: hidden;
+}
+
+.general-surgical-section:nth-child(even) .general-surgical-image {
+    order: 2;
+}
+
+.general-surgical-section:nth-child(even) .general-surgical-content {
+    order: 1;
+}
+
+.general-surgical-image {
+    min-height: 330px;
+    background-size: cover;
+    background-position: center;
+}
+
+.general-surgical-content {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.general-surgical-number {
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.general-surgical-content h3 {
+    margin: 0 0 14px;
+    color: #12384f;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.general-surgical-content p {
+    margin: 0;
+    color: #64747d;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* DIRECT IMAGE URLS */
+.general-image-1 {
+    background-image:
+        url("https://images.pexels.com/photos/36101264/pexels-photo-36101264.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.general-image-2 {
+    background-image:
+        url("https://images.pexels.com/photos/7108114/pexels-photo-7108114.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.general-image-3 {
+    background-image:
+        url("https://images.pexels.com/photos/18112241/pexels-photo-18112241.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.general-image-4 {
+    background-image:
+        url("https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.general-image-5 {
+    background-image:
+        url("https://images.pexels.com/photos/4586987/pexels-photo-4586987.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.general-image-6 {
+    background-image:
+        url("https://images.pexels.com/photos/7108118/pexels-photo-7108118.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+
+/* CTA */
+.general-surgical-cta {
+    padding: 70px 20px;
+    background: #061d2d;
+    text-align: center;
+}
+
+.general-surgical-cta h2 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: 32px;
+}
+
+.general-surgical-cta p {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.7;
+}
+
+.general-surgical-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.general-surgical-btn {
+    display: inline-block;
+    padding: 13px 24px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .7px;
+    border-radius: 3px;
+    transition: .25s ease;
+}
+
+.general-surgical-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.general-surgical-primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.general-surgical-secondary {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.35);
+}
+
+.general-surgical-secondary:hover {
+    color: #d2a43b;
+    border-color: #d2a43b;
+}
+
+.general-surgical-email {
+    margin-top: 25px;
+    color: rgba(255,255,255,.62);
+    font-size: 14px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+
+    .general-surgical-section {
+        grid-template-columns: 1fr;
+    }
+
+    .general-surgical-section:nth-child(even) .general-surgical-image,
+    .general-surgical-section:nth-child(even) .general-surgical-content {
+        order: initial;
+    }
+
+    .general-surgical-image {
+        min-height: 260px;
+    }
+
+    .general-surgical-content {
+        padding: 35px 28px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .general-surgical-hero {
+        min-height: 520px;
+    }
+
+    .general-surgical-hero-inner {
+        padding: 60px 0;
+    }
+
+    .general-surgical-hero h1 {
+        font-size: 38px;
+    }
+
+    .general-surgical-description {
+        font-size: 15px;
+    }
+
+    .general-surgical-intro {
+        padding-top: 55px;
+    }
+
+    .general-surgical-intro h2 {
+        font-size: 29px;
+    }
+
+    .general-surgical-content h3 {
+        font-size: 24px;
+    }
+}
+</style>
+
+<div class="general-surgical-page">
+
+```
+<!-- HERO -->
+<section class="general-surgical-hero">
+
+    <div class="general-surgical-hero-inner">
+
+        <div class="general-surgical-label">
+            General Surgical Instruments Division
+        </div>
+
+        <h1>
+            EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+        </h1>
+
+        <p class="general-surgical-description">
+            CTC’s General Surgical Instruments Division provides professional
+            sourcing and supply solutions for healthcare institutions,
+            hospitals, distributors and international medical markets,
+            with a focus on reliable quality, consistent supply and
+            professional healthcare support.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+<section class="general-surgical-intro">
+
+    <h2>
+        General Surgical Solutions
+    </h2>
+
+    <p>
+        CTC supports healthcare and medical supply requirements through
+        organized sourcing, international supply coordination and
+        dependable healthcare solutions for professional institutions
+        and distribution networks.
+    </p>
+
+</section>
+
+
+<!-- DETAILS -->
+<section class="general-surgical-sections">
+
+
+    <!-- 01 -->
+    <article class="general-surgical-section">
+
+        <div class="general-surgical-image general-image-1"></div>
+
+        <div class="general-surgical-content">
+
+            <div class="general-surgical-number">
+                01 — HEALTHCARE SOLUTIONS
+            </div>
+
+            <h3>
+                Clinical &amp; Hospital Requirements
+            </h3>
+
+            <p>
+                Professional healthcare supply solutions designed to
+                support hospitals, clinics and medical institutions
+                with dependable sourcing and organized supply coordination.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 02 -->
+    <article class="general-surgical-section">
+
+        <div class="general-surgical-image general-image-2"></div>
+
+        <div class="general-surgical-content">
+
+            <div class="general-surgical-number">
+                02 — MEDICAL ENVIRONMENT
+            </div>
+
+            <h3>
+                Operating Room Support
+            </h3>
+
+            <p>
+                Solutions focused on supporting professional medical
+                environments through reliable healthcare products,
+                supply coordination and international sourcing capabilities.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 03 -->
+    <article class="general-surgical-section">
+
+        <div class="general-surgical-image general-image-3"></div>
+
+        <div class="general-surgical-content">
+
+            <div class="general-surgical-number">
+                03 — MODERN HEALTHCARE
+            </div>
+
+            <h3>
+                Medical Technology &amp; Equipment
+            </h3>
+
+            <p>
+                CTC connects healthcare organizations with modern medical
+                technology and equipment solutions suited to professional
+                institutional requirements.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 04 -->
+    <article class="general-surgical-section">
+
+        <div class="general-surgical-image general-image-4"></div>
+
+        <div class="general-surgical-content">
+
+            <div class="general-surgical-number">
+                04 — PROFESSIONAL SUPPLY
+            </div>
+
+            <h3>
+                Healthcare Supply Coordination
+            </h3>
+
+            <p>
+                Organized sourcing and supply coordination help healthcare
+                organizations maintain dependable access to required
+                medical and clinical support solutions.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 05 -->
+    <article class="general-surgical-section">
+
+        <div class="general-surgical-image general-image-5"></div>
+
+        <div class="general-surgical-content">
+
+            <div class="general-surgical-number">
+                05 — INSTITUTIONAL SUPPORT
+            </div>
+
+            <h3>
+                Medical Facility Solutions
+            </h3>
+
+            <p>
+                Professional solutions for hospitals, clinics and
+                healthcare facilities requiring dependable medical
+                supply and sourcing support.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 06 -->
+    <article class="general-surgical-section">
+
+        <div class="general-surgical-image general-image-6"></div>
+
+        <div class="general-surgical-content">
+
+            <div class="general-surgical-number">
+                06 — GLOBAL SOURCING
+            </div>
+
+            <h3>
+                International Healthcare Supply
+            </h3>
+
+            <p>
+                CTC supports domestic and international healthcare markets
+                through professional sourcing, supply coordination and
+                dependable business-to-business service.
+            </p>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- CTA -->
+<section class="general-surgical-cta">
+
+    <h2>
+        Looking for General Surgical Solutions?
+    </h2>
+
+    <p>
+        Connect with CTC for professional healthcare sourcing,
+        supply coordination and international market solutions.
+    </p>
+
+    <div class="general-surgical-buttons">
+
+        <a href="{{ url_for('trading_quote') }}"
+           class="general-surgical-btn general-surgical-primary">
+            SEND REQUIREMENT
+        </a>
+
+        <a href="{{ url_for('trading') }}"
+           class="general-surgical-btn general-surgical-secondary">
+            BACK TO TRADING
+        </a>
+
+        <a href="/"
+           class="general-surgical-btn general-surgical-secondary">
+            BACK TO HOME
+        </a>
+
+    </div>
+
+    <div class="general-surgical-email">
+        ceo@capitalgroup.pk
+    </div>
+
+</section>
+```
+
+</div>
+
+{% endblock %}

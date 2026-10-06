@@ -1,0 +1,561 @@
+{% extends "base.html" %}
+
+{% block title %}
+LONG 257 Registration | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .registration-page {
+        background: #f5f7f8;
+        color: #12384f;
+        padding: 70px 8% 90px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .registration-header {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 45px;
+    }
+
+    .registration-header span {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+    }
+
+    .registration-header h1 {
+        margin: 12px 0 10px;
+        font-size: 42px;
+        color: #12384f;
+    }
+
+    .registration-header p {
+        margin: 0;
+        color: #5c6b73;
+        font-size: 17px;
+    }
+
+    .registration-box {
+        max-width: 1000px;
+        margin: auto;
+        background: #ffffff;
+        border: 1px solid #dce3e7;
+        border-top: 4px solid #c69b32;
+        padding: 38px;
+        box-shadow: 0 12px 35px rgba(18, 56, 79, 0.08);
+    }
+
+    .course-summary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 35px;
+    }
+
+    .summary-item {
+        background: #f5f7f8;
+        border: 1px solid #e1e6e9;
+        padding: 18px;
+    }
+
+    .summary-item strong {
+        display: block;
+        color: #12384f;
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .summary-item span {
+        color: #687780;
+        font-size: 14px;
+    }
+
+    .minimum-note {
+        margin: 0 0 30px;
+        padding: 14px 18px;
+        background: #fffaf0;
+        border-left: 3px solid #c69b32;
+        color: #12384f;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .form-section {
+        margin-top: 32px;
+    }
+
+    .form-section h2 {
+        font-size: 21px;
+        color: #12384f;
+        border-bottom: 1px solid #dce3e7;
+        padding-bottom: 10px;
+        margin-bottom: 22px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #12384f;
+        margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 14px;
+        border: 1px solid #ccd6db;
+        background: #ffffff;
+        color: #12384f;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: #c69b32;
+    }
+
+    .error-message {
+        background: #fff1f1;
+        border: 1px solid #e2bcbc;
+        color: #9a3030;
+        padding: 13px 15px;
+        margin-bottom: 22px;
+        font-size: 14px;
+    }
+
+    .submit-area {
+        text-align: center;
+        margin-top: 38px;
+    }
+
+    .submit-btn {
+        display: inline-block;
+        border: none;
+        background: #12384f;
+        color: #ffffff;
+        padding: 14px 32px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background: #c69b32;
+        color: #ffffff;
+    }
+
+    .registration-footer {
+        text-align: center;
+        margin-top: 35px;
+        color: #687780;
+        font-size: 14px;
+    }
+
+    .registration-footer strong {
+        color: #12384f;
+    }
+
+    @media (max-width: 800px) {
+        .course-summary {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full {
+            grid-column: auto;
+        }
+
+        .registration-box {
+            padding: 25px;
+        }
+
+        .registration-header h1 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .course-summary {
+            grid-template-columns: 1fr;
+        }
+
+        .registration-page {
+            padding: 50px 5% 70px;
+        }
+    }
+</style>
+
+<section class="registration-page">
+
+    <div class="registration-header">
+
+        <span>
+            Professional Technical Engineering Training
+        </span>
+
+        <h1>
+            LONG 5 Registration
+        </h1>
+
+        <p>
+            Mechanical Technology (Turbine)
+        </p>
+
+    </div>
+
+    <div class="registration-box">
+
+        <div class="course-summary">
+
+            <div class="summary-item">
+                <strong>Course Code</strong>
+                <span>LONG 5</span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Duration</strong>
+                <span>5 Days</span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Course Date</strong>
+                <span>Can be offeres upon a specific date request</span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Venue</strong>
+                <span>Marriott Islamabad</span>
+            </div>
+
+        </div>
+
+        <div class="minimum-note">
+            Minimum number of participants to conduct this course:
+            3 persons.
+        </div>
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <!-- COURSE INFORMATION -->
+
+            <div class="form-section">
+
+                <h2>A. Course Information</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Language *</label>
+
+                        <select name="language" required>
+
+                            <option value="">
+                                Select Language
+                            </option>
+
+                            <option>English</option>
+                            <option>Arabic</option>
+                            <option>Chinese</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Italian</option>
+                            <option>Japanese</option>
+                            <option>Korean</option>
+                            <option>Persian</option>
+                            <option>Portuguese</option>
+                            <option>Russian</option>
+                            <option>Spanish</option>
+                            <option>Turkish</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Country *</label>
+
+                        <input
+                            type="text"
+                            name="country"
+                            placeholder="Enter country"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COMPANY DETAILS -->
+
+            <div class="form-section">
+
+                <h2>B. Company Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Company Name *</label>
+
+                        <input
+                            type="text"
+                            name="company_name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Website</label>
+
+                        <input
+                            type="text"
+                            name="website"
+                            placeholder="https://"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Nature of Business *</label>
+
+                        <input
+                            type="text"
+                            name="nature_of_business"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Postal Address *</label>
+
+                        <input
+                            type="text"
+                            name="postal_address"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT DETAILS -->
+
+            <div class="form-section">
+
+                <h2>C. Contact Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Salutation *</label>
+
+                        <select name="salutation" required>
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option>Mr.</option>
+                            <option>Ms.</option>
+                            <option>Mrs.</option>
+                            <option>Dr.</option>
+                            <option>Prof.</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Full Name *</label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Job Title *</label>
+
+                        <input
+                            type="text"
+                            name="job_title"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Email *</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Phone *</label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Mobile *</label>
+
+                        <input
+                            type="text"
+                            name="mobile"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PARTICIPANT DETAILS -->
+
+            <div class="form-section">
+
+                <h2>D. Participant Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Number of Participants *</label>
+
+                        <select name="participants" required>
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>10+</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            How did you hear about us? *
+                        </label>
+
+                        <select name="source" required>
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option>Website</option>
+                            <option>Search Engine</option>
+                            <option>Social Media</option>
+                            <option>Email</option>
+                            <option>Referral</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+        <div class="registration-footer">
+
+            <strong>
+                For registration assistance:
+            </strong>
+
+            ceo@capitalgroup.pk
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

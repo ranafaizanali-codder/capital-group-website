@@ -1,0 +1,823 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced Software Development | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .software-page {
+        background: #f5f7f8;
+        color: #12384f;
+        overflow: hidden;
+    }
+
+    /* ================= HERO ================= */
+
+    .software-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        position: relative;
+
+        background:
+            linear-gradient(
+                rgba(6, 29, 45, 0.80),
+                rgba(6, 29, 45, 0.80)
+            ),
+            url("https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80")
+            center / cover no-repeat;
+    }
+
+    .software-hero-content {
+        max-width: 850px;
+    }
+
+    .software-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .software-hero h1 {
+        color: #ffffff;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 700;
+        margin-bottom: 25px;
+        max-width: 900px;
+    }
+
+    .software-hero p {
+        color: #e8eef1;
+        font-size: 17px;
+        line-height: 1.7;
+        max-width: 760px;
+    }
+
+
+    /* ================= INTRO ================= */
+
+    .software-intro {
+        padding: 90px 8% 60px;
+        text-align: center;
+    }
+
+    .software-intro h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 18px;
+    }
+
+    .software-intro > p {
+        max-width: 850px;
+        margin: auto;
+        color: #52636d;
+        font-size: 16px;
+    }
+
+
+    /* ================= FEATURE CARDS ================= */
+
+    .software-features {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 8% 80px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .software-feature {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 30px 26px;
+        min-height: 190px;
+    }
+
+    .software-feature span {
+        display: block;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    .software-feature h3 {
+        color: #12384f;
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+    .software-feature p {
+        color: #61717a;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= MODULES ================= */
+
+    .software-modules {
+        padding: 80px 8%;
+        background: #ffffff;
+    }
+
+    .software-modules-title {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .software-modules-title h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 12px;
+    }
+
+    .software-modules-title p {
+        color: #65757e;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .software-module {
+        max-width: 1180px;
+        margin: 0 auto 75px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .software-module.reverse {
+        direction: rtl;
+    }
+
+    .software-module.reverse > * {
+        direction: ltr;
+    }
+
+    .software-module-image {
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        background: #edf1f3;
+    }
+
+    .software-module-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .software-module-content span {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .software-module-content h3 {
+        color: #12384f;
+        font-size: 31px;
+        line-height: 1.2;
+        margin: 12px 0 16px;
+    }
+
+    .software-module-content p {
+        color: #596b74;
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 520px;
+    }
+
+
+    /* ================= OUTCOMES ================= */
+
+    .software-outcomes {
+        padding: 90px 8%;
+        background: #f5f7f8;
+        text-align: center;
+    }
+
+    .software-outcomes h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 45px;
+    }
+
+    .software-outcome-grid {
+        max-width: 1100px;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .software-outcome {
+        background: #ffffff;
+        padding: 25px 20px;
+        border: 1px solid #dce4e8;
+    }
+
+    .software-outcome h3 {
+        color: #12384f;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .software-outcome p {
+        color: #687780;
+        font-size: 14px;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .software-cta {
+        padding: 90px 8%;
+        background: #08283b;
+        text-align: center;
+    }
+
+    .software-cta h2 {
+        color: #ffffff;
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .software-cta p {
+        color: #d8e2e7;
+        max-width: 700px;
+        margin: 0 auto 25px;
+    }
+
+    .software-email {
+        display: block;
+        color: #d2a43b;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .software-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .software-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+    }
+
+    .software-btn.primary {
+        background: #c69b32;
+        color: #08283b;
+    }
+
+    .software-btn:hover {
+        background: #d2a43b;
+        color: #08283b;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+        .software-features {
+            grid-template-columns: 1fr;
+        }
+
+        .software-module,
+        .software-module.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            gap: 30px;
+        }
+
+        .software-outcome-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .software-module-image {
+            height: 300px;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+
+        .software-hero {
+            min-height: 560px;
+            padding: 80px 7%;
+        }
+
+        .software-hero h1 {
+            font-size: 38px;
+        }
+
+        .software-intro,
+        .software-modules,
+        .software-outcomes,
+        .software-cta {
+            padding-left: 7%;
+            padding-right: 7%;
+        }
+
+        .software-module-image {
+            height: 250px;
+        }
+
+        .software-module-content h3 {
+            font-size: 27px;
+        }
+    }
+
+</style>
+
+
+<div class="software-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="software-hero">
+
+        <div class="software-hero-content">
+
+            <span class="software-label">
+                Advanced Software Development Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional software development training develops
+                practical expertise in programming, software architecture,
+                web applications, databases, testing and modern software
+                development workflows.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="software-intro">
+
+        <h2>
+            Professional Software Development Program
+        </h2>
+
+        <p>
+            A structured professional program covering programming,
+            software architecture, web development, database systems,
+            software testing, version control and modern software
+            delivery practices.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE CARDS ================= -->
+
+    <section class="software-features">
+
+        <div class="software-feature">
+
+            <span>01</span>
+
+            <h3>
+                Software Engineering
+            </h3>
+
+            <p>
+                Professional approaches to software design,
+                development, maintenance and project workflows.
+            </p>
+
+        </div>
+
+
+        <div class="software-feature">
+
+            <span>02</span>
+
+            <h3>
+                Full-Stack Development
+            </h3>
+
+            <p>
+                Practical understanding of front-end, back-end,
+                APIs and database-driven applications.
+            </p>
+
+        </div>
+
+
+        <div class="software-feature">
+
+            <span>03</span>
+
+            <h3>
+                Modern Development Workflow
+            </h3>
+
+            <p>
+                Testing, version control, collaboration, deployment
+                and modern software delivery practices.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MODULES ================= -->
+
+    <section class="software-modules">
+
+        <div class="software-modules-title">
+
+            <h2>
+                Software Development Modules
+            </h2>
+
+            <p>
+                Professional modules covering the core stages of
+                modern software development.
+            </p>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <div class="software-module">
+
+            <div class="software-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Programming and software development"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="software-module-content">
+
+                <span>01</span>
+
+                <h3>
+                    Programming & Software Foundations
+                </h3>
+
+                <p>
+                    Programming logic, data structures, object-oriented
+                    concepts and practical coding techniques for
+                    modern software applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="software-module reverse">
+
+            <div class="software-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Software architecture and system development"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="software-module-content">
+
+                <span>02</span>
+
+                <h3>
+                    Software Architecture & System Design
+                </h3>
+
+                <p>
+                    Application architecture, modular design,
+                    system components, scalability and structured
+                    software engineering practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="software-module">
+
+            <div class="software-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Database and software development"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="software-module-content">
+
+                <span>03</span>
+
+                <h3>
+                    Databases, APIs & Backend Development
+                </h3>
+
+                <p>
+                    Database-driven applications, APIs, server-side
+                    development and reliable communication between
+                    application services and data systems.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="software-module reverse">
+
+            <div class="software-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Software testing and quality assurance"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="software-module-content">
+
+                <span>04</span>
+
+                <h3>
+                    Software Testing & Quality Assurance
+                </h3>
+
+                <p>
+                    Software testing, debugging, quality control and
+                    systematic practices for improving application
+                    reliability and maintainability.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="software-module">
+
+            <div class="software-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Version control and collaborative software development"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="software-module-content">
+
+                <span>05</span>
+
+                <h3>
+                    Version Control & Collaborative Development
+                </h3>
+
+                <p>
+                    Git-based version control, branching, collaboration,
+                    code management and professional development workflows
+                    for software teams.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="software-module reverse">
+
+            <div class="software-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Software deployment and DevOps"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="software-module-content">
+
+                <span>06</span>
+
+                <h3>
+                    Web Development, Deployment & DevOps
+                </h3>
+
+                <p>
+                    Modern web applications, deployment workflows,
+                    continuous integration, continuous delivery and
+                    DevOps practices for software delivery.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LEARNING OUTCOMES ================= -->
+
+    <section class="software-outcomes">
+
+        <h2>
+            Professional Learning Outcomes
+        </h2>
+
+
+        <div class="software-outcome-grid">
+
+
+            <div class="software-outcome">
+
+                <h3>
+                    Application Development
+                </h3>
+
+                <p>
+                    Build structured and maintainable software applications.
+                </p>
+
+            </div>
+
+
+            <div class="software-outcome">
+
+                <h3>
+                    System Design
+                </h3>
+
+                <p>
+                    Understand architecture and development of scalable systems.
+                </p>
+
+            </div>
+
+
+            <div class="software-outcome">
+
+                <h3>
+                    Web & API Development
+                </h3>
+
+                <p>
+                    Develop modern web applications and service interfaces.
+                </p>
+
+            </div>
+
+
+            <div class="software-outcome">
+
+                <h3>
+                    Database Integration
+                </h3>
+
+                <p>
+                    Connect applications with structured data systems.
+                </p>
+
+            </div>
+
+
+            <div class="software-outcome">
+
+                <h3>
+                    Quality & Testing
+                </h3>
+
+                <p>
+                    Apply testing and debugging practices to software projects.
+                </p>
+
+            </div>
+
+
+            <div class="software-outcome">
+
+                <h3>
+                    Modern Software Delivery
+                </h3>
+
+                <p>
+                    Understand version control, CI/CD and modern deployment workflows.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="software-cta">
+
+        <h2>
+            Advance Your Software Development Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional training
+            and advanced software development opportunities.
+        </p>
+
+        <span class="software-email">
+            ceo@capitalgroup.pk
+        </span>
+
+
+        <div class="software-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="software-btn primary"
+            >
+                SEND REQUEST
+            </a>
+
+
+            <a
+                href="{{ url_for('engines') }}"
+                class="software-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

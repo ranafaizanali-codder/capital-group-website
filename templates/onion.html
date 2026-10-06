@@ -1,0 +1,741 @@
+{% extends "base.html" %}
+
+{% block title %}
+Onion Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING - ONION DIVISION
+   ========================================================= */
+
+.onion-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.onion-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.95) 0%,
+            rgba(6,29,45,.80) 45%,
+            rgba(6,29,45,.28) 100%
+        ),
+        url("https://www.fao.org/media/images/foodsafetyqualitylibraries/banner-and-images-selected/uf14fdh-00274411.jpg?sfvrsn=a2e0405f_10");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.onion-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.onion-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.onion-hero h1 {
+    max-width: 800px;
+    margin: 0 0 24px;
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.onion-description {
+    max-width: 760px;
+    color: rgba(255,255,255,.88);
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.onion-intro {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 85px 0 35px;
+    text-align: center;
+}
+
+.onion-intro h2 {
+    margin: 0 0 18px;
+    color: #061d2d;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.onion-intro p {
+    max-width: 760px;
+    margin: auto;
+    color: #5c6d77;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= VARIETIES ================= */
+
+.onion-varieties {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 35px 0 80px;
+}
+
+.onion-variety {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding: 55px 0;
+    border-bottom: 1px solid rgba(18,56,79,.12);
+}
+
+.onion-variety:nth-child(even) .onion-image {
+    order: 2;
+}
+
+.onion-variety:nth-child(even) .onion-info {
+    order: 1;
+}
+
+.onion-image {
+    height: 330px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e9eef0;
+}
+
+.onion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+
+.onion-image:hover img {
+    transform: scale(1.04);
+}
+
+.onion-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.onion-info h3 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 18px;
+}
+
+.onion-info p {
+    color: #5c6d77;
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 0 0 20px;
+}
+
+.onion-specs {
+    display: grid;
+    gap: 10px;
+}
+
+.onion-spec {
+    padding: 13px 16px;
+    background: #ffffff;
+    border-left: 3px solid #c69b32;
+}
+
+.onion-spec strong {
+    display: inline-block;
+    min-width: 105px;
+    color: #061d2d;
+    font-size: 14px;
+}
+
+.onion-spec span {
+    color: #5c6d77;
+    font-size: 14px;
+}
+
+/* ================= CTA ================= */
+
+.onion-cta {
+    background: #061d2d;
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.onion-cta h2 {
+    color: #ffffff;
+    font-size: 38px;
+    margin: 0 0 15px;
+}
+
+.onion-cta p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.8;
+}
+
+.onion-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.onion-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.onion-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.onion-btn.primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.onion-btn.secondary {
+    border: 1px solid rgba(255,255,255,.5);
+    color: #ffffff;
+}
+
+.onion-btn.secondary:hover {
+    background: #ffffff;
+    color: #061d2d;
+}
+
+.onion-email {
+    margin-top: 25px;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .onion-hero {
+        min-height: 520px;
+    }
+
+    .onion-variety {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .onion-variety:nth-child(even) .onion-image {
+        order: 1;
+    }
+
+    .onion-variety:nth-child(even) .onion-info {
+        order: 2;
+    }
+
+    .onion-image {
+        height: 280px;
+    }
+
+    .onion-info h3 {
+        font-size: 28px;
+    }
+}
+
+</style>
+
+
+<div class="onion-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="onion-hero">
+
+        <div class="onion-hero-inner">
+
+            <div class="onion-label">
+                Onion Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="onion-description">
+                CTC’s Onion Division specializes in sourcing, grading,
+                curing, packing and supplying quality onions for domestic
+                and international markets, with a focus on freshness,
+                consistent grading, dependable availability and efficient
+                export logistics.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="onion-intro">
+
+        <h2>
+            Selected Onion Varieties
+        </h2>
+
+        <p>
+            Our onion supply program covers selected fresh onion varieties
+            for food service, wholesale, retail and international trade,
+            with quality control, suitable grading and flexible bulk supply.
+        </p>
+
+    </section>
+
+
+    <!-- ================= VARIETIES ================= -->
+
+    <section class="onion-varieties">
+
+
+        <!-- RED ONION -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='red_onion.jpg') }}"
+                    alt="Red Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    01 / ONION VARIETY
+                </div>
+
+                <h3>
+                    Red Onion
+                </h3>
+
+                <p>
+                    Firm, fresh bulbs with strong colour and good keeping
+                    characteristics, suitable for domestic and export trade.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Firm, clean, well-cured and uniform</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal supply with storage options</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Bulk and export consignments</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- YELLOW / BROWN ONION -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='yellow_brown_onion.jpg') }}"
+                    alt="Yellow Brown Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    02 / ONION VARIETY
+                </div>
+
+                <h3>
+                    Yellow / Brown Onion
+                </h3>
+
+                <p>
+                    Versatile cooking onion with firm bulbs and balanced
+                    flavour, suitable for wholesale and food-processing use.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Firm bulbs, clean skin and good storage quality</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and programmed supply</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Bulk commercial supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- WHITE ONION -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='white_onion.jpg') }}"
+                    alt="White Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    03 / ONION VARIETY
+                </div>
+
+                <h3>
+                    White Onion
+                </h3>
+
+                <p>
+                    Clean, crisp and mild-profile onions selected for fresh
+                    consumption, food service and commercial supply.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Clean, firm and evenly graded bulbs</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and storage-based availability</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Wholesale and export quantities</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SWEET ONION -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='sweet_onion.jpg') }}"
+                    alt="Sweet Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    04 / ONION VARIETY
+                </div>
+
+                <h3>
+                    Sweet Onion
+                </h3>
+
+                <p>
+                    Mild-flavoured onion selected for fresh culinary use,
+                    salads, retail markets and specialised requirements.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Mild flavour, fresh and firm bulbs</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and on-request supply</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Retail, wholesale and bulk supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SHALLOT -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='shallot_onion.jpg') }}"
+                    alt="Shallot Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    05 / ONION VARIETY
+                </div>
+
+                <h3>
+                    Shallot Onion
+                </h3>
+
+                <p>
+                    Small-bulb onion with a distinctive flavour, suitable for
+                    culinary applications, specialty markets and food service.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Clean, firm and carefully graded</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal / specialty supply</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and bulk orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SPRING ONION -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='spring_onion.jpg') }}"
+                    alt="Spring Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    06 / ONION VARIETY
+                </div>
+
+                <h3>
+                    Spring Onion
+                </h3>
+
+                <p>
+                    Fresh green onion with tender stems and young bulbs,
+                    supplied for fresh markets, food service and culinary use.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, crisp and clean green stems</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal fresh supply</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Fresh-market and commercial orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PEARL ONION -->
+
+        <article class="onion-variety">
+
+            <div class="onion-image">
+                <img
+                    src="{{ url_for('static', filename='pearl_onion.jpg') }}"
+                    alt="Pearl Onion"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="onion-info">
+
+                <div class="onion-number">
+                    07 / ONION VARIETY
+                </div>
+
+                <h3>
+                    Pearl Onion
+                </h3>
+
+                <p>
+                    Small, compact onions suited to specialty culinary
+                    applications, pickling, retail and selected food-service
+                    requirements.
+                </p>
+
+                <div class="onion-specs">
+
+                    <div class="onion-spec">
+                        <strong>Quality</strong>
+                        <span>Small, firm, clean and uniform bulbs</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Availability</strong>
+                        <span>Specialty supply on request</span>
+                    </div>
+
+                    <div class="onion-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and bulk requirements</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="onion-cta">
+
+        <h2>
+            Global Onion Supply
+        </h2>
+
+        <p>
+            Tell us your required variety, grade, quantity, packaging and
+            destination. Our team can coordinate sourcing and supply
+            requirements for domestic and international markets.
+        </p>
+
+        <div class="onion-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="onion-btn primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="onion-btn secondary"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="onion-btn secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="onion-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

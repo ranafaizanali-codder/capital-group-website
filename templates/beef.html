@@ -1,0 +1,717 @@
+{% extends "base.html" %}
+
+{% block title %}Beef Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.beef-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.beef-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.76) 45%,
+            rgba(6, 29, 45, 0.25) 100%
+        ),
+        url("https://images.pexels.com/photos/28881689/pexels-photo-28881689.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center center / cover no-repeat;
+}
+
+.beef-hero-inner {
+    width: min(1180px, 90%);
+    margin: auto;
+    padding: 100px 0;
+}
+
+.beef-label {
+    display: inline-block;
+    margin-bottom: 22px;
+
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.beef-hero h1 {
+    max-width: 850px;
+    margin: 0 0 25px;
+
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.beef-description {
+    max-width: 720px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.beef-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+
+    padding: 90px 0 65px;
+    text-align: center;
+}
+
+.beef-intro h2 {
+    margin: 0 0 18px;
+
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.beef-intro p {
+    max-width: 850px;
+    margin: auto;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   BEEF SECTIONS
+========================= */
+
+.beef-sections {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+.beef-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+
+    padding: 75px 0;
+
+    border-top: 1px solid #dce2e5;
+}
+
+.beef-section:last-child {
+    border-bottom: 1px solid #dce2e5;
+}
+
+
+/* IMAGE */
+
+.beef-image {
+    width: 100%;
+    height: 420px;
+
+    overflow: hidden;
+    border-radius: 4px;
+
+    background: #e9edef;
+}
+
+.beef-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.beef-image:hover img {
+    transform: scale(1.035);
+}
+
+
+/* CONTENT */
+
+.beef-content {
+    position: relative;
+}
+
+.beef-number {
+    margin-bottom: 17px;
+
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.beef-content h3 {
+    margin: 0 0 8px;
+
+    color: #12384f;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.beef-subtitle {
+    margin-bottom: 20px;
+
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.beef-content p {
+    margin: 0;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.beef-cta {
+    width: min(1050px, 90%);
+    margin: auto;
+
+    padding: 100px 0;
+
+    text-align: center;
+}
+
+.beef-cta h2 {
+    margin: 0 0 16px;
+
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.beef-cta p {
+    max-width: 760px;
+    margin: 0 auto 35px;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.beef-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.beef-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 185px;
+    padding: 14px 24px;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+    transition: all 0.25s ease;
+}
+
+.beef-btn-primary {
+    background: #123f58;
+    color: #ffffff;
+}
+
+.beef-btn-primary:hover {
+    background: #0b2c40;
+    transform: translateY(-2px);
+}
+
+.beef-btn-secondary {
+    background: transparent;
+    color: #12384f;
+    border: 1px solid #c69b32;
+}
+
+.beef-btn-secondary:hover {
+    background: #c69b32;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.beef-email {
+    margin-top: 28px;
+
+    color: #6b7479;
+    font-size: 14px;
+}
+
+.beef-email a {
+    color: #12384f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .beef-hero {
+        min-height: 570px;
+    }
+
+    .beef-hero-inner {
+        padding: 80px 0;
+    }
+
+    .beef-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 60px 0;
+    }
+
+    .beef-image {
+        height: 360px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .beef-hero {
+        min-height: 540px;
+    }
+
+    .beef-hero-inner {
+        width: 88%;
+        padding: 70px 0;
+    }
+
+    .beef-hero h1 {
+        font-size: 34px;
+    }
+
+    .beef-description {
+        font-size: 15px;
+    }
+
+    .beef-intro {
+        padding: 70px 0 45px;
+    }
+
+    .beef-image {
+        height: 280px;
+    }
+
+    .beef-content h3 {
+        font-size: 29px;
+    }
+
+    .beef-cta {
+        padding: 75px 0;
+    }
+
+    .beef-buttons {
+        flex-direction: column;
+    }
+
+    .beef-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+</style>
+
+
+<div class="beef-page">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="beef-hero">
+
+        <div class="beef-hero-inner">
+
+            <span class="beef-label">
+                Beef Division
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="beef-description">
+                CTC’s Beef Division provides professional sourcing and
+                international trade solutions for chilled and frozen beef
+                products, connecting reliable suppliers and processors with
+                distributors, food businesses and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="beef-intro">
+
+        <h2>
+            Pakistan’s Beef Supply Solutions
+        </h2>
+
+        <p>
+            CTC’s Beef Division supports commercial buyers with professionally
+            sourced beef products, organized procurement, quality-focused
+            handling, quantity planning, chilled and frozen logistics, export
+            coordination and international market access.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         BEEF SECTIONS
+    ========================== -->
+
+    <section class="beef-sections">
+
+
+        <!-- 01 -->
+
+        <div class="beef-section">
+
+            <div class="beef-image">
+
+                <img
+                    src="https://images.pexels.com/photos/28881689/pexels-photo-28881689.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium fresh beef cuts"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="beef-content">
+
+                <div class="beef-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Beef Products
+                </h3>
+
+                <div class="beef-subtitle">
+                    Quality-focused beef sourcing
+                </div>
+
+                <p>
+                    CTC supports professionally sourced beef products for
+                    commercial food businesses, distributors and international
+                    buyers, with attention to product specifications, consistent
+                    quality and dependable supply.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="beef-section">
+
+            <div class="beef-content">
+
+                <div class="beef-number">
+                    02
+                </div>
+
+                <h3>
+                    Chilled Beef Supply
+                </h3>
+
+                <div class="beef-subtitle">
+                    Fresh chilled market requirements
+                </div>
+
+                <p>
+                    CTC coordinates chilled beef sourcing for buyers requiring
+                    professionally handled products, planned quantities and
+                    dependable supply arrangements for foodservice and
+                    distribution markets.
+                </p>
+
+            </div>
+
+            <div class="beef-image">
+
+                <img
+                    src="https://images.pexels.com/photos/35834167/pexels-photo-35834167.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh sliced beef on ice"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="beef-section">
+
+            <div class="beef-image">
+
+                <img
+                    src="https://images.pexels.com/photos/12884547/pexels-photo-12884547.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium beef cuts displayed for market supply"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="beef-content">
+
+                <div class="beef-number">
+                    03
+                </div>
+
+                <h3>
+                    Frozen Beef Supply
+                </h3>
+
+                <div class="beef-subtitle">
+                    International frozen meat requirements
+                </div>
+
+                <p>
+                    Frozen beef solutions are coordinated for buyers seeking
+                    dependable quantities, organized cold-chain logistics and
+                    international supply arrangements for distribution and
+                    commercial food markets.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="beef-section">
+
+            <div class="beef-content">
+
+                <div class="beef-number">
+                    04
+                </div>
+
+                <h3>
+                    Export-Ready Beef Solutions
+                </h3>
+
+                <div class="beef-subtitle">
+                    Professional international supply
+                </div>
+
+                <p>
+                    CTC supports export-oriented beef requirements through
+                    coordinated sourcing, product specifications, quantity
+                    planning, packaging coordination and international market
+                    supply arrangements.
+                </p>
+
+            </div>
+
+            <div class="beef-image">
+
+                <img
+                    src="https://images.pexels.com/photos/18882519/pexels-photo-18882519.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh beef cuts at a meat market"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="beef-section">
+
+            <div class="beef-image">
+
+                <img
+                    src="https://images.pexels.com/photos/7163994/pexels-photo-7163994.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh sliced beef product"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="beef-content">
+
+                <div class="beef-number">
+                    05
+                </div>
+
+                <h3>
+                    Quantity & Supply Planning
+                </h3>
+
+                <div class="beef-subtitle">
+                    Consistent commercial supply
+                </div>
+
+                <p>
+                    CTC works with buyers to coordinate product requirements,
+                    planned quantities and supply schedules, helping support
+                    consistent procurement for distributors and international
+                    food businesses.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="beef-section">
+
+            <div class="beef-content">
+
+                <div class="beef-number">
+                    06
+                </div>
+
+                <h3>
+                    International Beef Markets
+                </h3>
+
+                <div class="beef-subtitle">
+                    Global sourcing and trade coordination
+                </div>
+
+                <p>
+                    CTC connects beef sourcing requirements with international
+                    trade networks, supporting buyers through professional
+                    coordination, supply planning and market-focused export
+                    solutions.
+                </p>
+
+            </div>
+
+            <div class="beef-image">
+
+                <img
+                    src="https://images.pexels.com/photos/4765653/pexels-photo-4765653.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh premium beef cuts"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="beef-cta">
+
+        <h2>
+            Looking for Pakistani Beef Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional beef sourcing, quantity
+            coordination, chilled and frozen supply solutions and international
+            meat market support.
+        </p>
+
+        <div class="beef-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="beef-btn beef-btn-primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="beef-btn beef-btn-secondary"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="beef-btn beef-btn-secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="beef-email">
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

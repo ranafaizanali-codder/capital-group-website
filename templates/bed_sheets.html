@@ -1,0 +1,551 @@
+{% extends "base.html" %}
+
+{% block title %}Bed Sheets Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .bedsheet-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .bedsheet-hero {
+        min-height: 570px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.92),
+                rgba(6, 29, 45, 0.68),
+                rgba(6, 29, 45, 0.35)
+            ),
+            url("https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+            center / cover no-repeat;
+    }
+
+    .bedsheet-hero-content {
+        max-width: 850px;
+        padding: 80px 7%;
+        color: white;
+    }
+
+    .bedsheet-label {
+        font-size: 13px;
+        letter-spacing: 3px;
+        color: #d2a43b;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-transform: uppercase;
+    }
+
+    .bedsheet-hero h1 {
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.08;
+        margin: 0 0 22px;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+
+    .bedsheet-hero p {
+        max-width: 760px;
+        font-size: 17px;
+        line-height: 1.75;
+        color: #e7edf1;
+        margin: 0;
+    }
+
+    /* INTRO */
+    .bedsheet-intro {
+        max-width: 1050px;
+        margin: auto;
+        padding: 90px 7% 55px;
+        text-align: center;
+    }
+
+    .bedsheet-intro span {
+        display: block;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+        text-transform: uppercase;
+    }
+
+    .bedsheet-intro h2 {
+        font-size: 36px;
+        color: #061d2d;
+        margin: 0 0 18px;
+    }
+
+    .bedsheet-intro p {
+        max-width: 850px;
+        margin: auto;
+        color: #526674;
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    /* PRODUCT SECTIONS */
+    .bedsheet-products {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 25px 7% 100px;
+    }
+
+    .bedsheet-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 55px;
+        align-items: center;
+        margin-bottom: 75px;
+    }
+
+    .bedsheet-item:nth-child(even) .bedsheet-image {
+        order: 2;
+    }
+
+    .bedsheet-item:nth-child(even) .bedsheet-content {
+        order: 1;
+    }
+
+    .bedsheet-image {
+        height: 330px;
+        border-radius: 4px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 14px 35px rgba(6, 29, 45, 0.12);
+    }
+
+    .bedsheet-image-1 {
+        background-image:
+            url("https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+    }
+
+    .bedsheet-image-2 {
+        background-image:
+            url("https://images.pexels.com/photos/6585757/pexels-photo-6585757.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+    }
+
+    .bedsheet-image-3 {
+        background-image:
+            url("https://images.pexels.com/photos/5137980/pexels-photo-5137980.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+    }
+
+    .bedsheet-image-4 {
+        background-image:
+            url("https://images.pexels.com/photos/6969945/pexels-photo-6969945.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+    }
+
+    .bedsheet-image-5 {
+        background-image:
+            url("https://images.pexels.com/photos/11621057/pexels-photo-11621057.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+    }
+
+    .bedsheet-image-6 {
+        background-image:
+            url("https://images.pexels.com/photos/6010874/pexels-photo-6010874.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+    }
+
+    .bedsheet-number {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .bedsheet-content h3 {
+        font-size: 32px;
+        color: #061d2d;
+        margin: 0 0 16px;
+        line-height: 1.2;
+    }
+
+    .bedsheet-content p {
+        color: #526674;
+        font-size: 15px;
+        line-height: 1.75;
+        margin: 0;
+        max-width: 480px;
+    }
+
+    /* CTA */
+    .bedsheet-cta {
+        background: #061d2d;
+        color: white;
+        text-align: center;
+        padding: 85px 7%;
+    }
+
+    .bedsheet-cta h2 {
+        margin: 0 0 16px;
+        font-size: 34px;
+    }
+
+    .bedsheet-cta p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: #cbd6dc;
+        line-height: 1.7;
+    }
+
+    .bedsheet-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .bedsheet-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 150px;
+        padding: 11px 20px;
+        border: 1px solid #c69b32;
+        border-radius: 3px;
+        color: white;
+        background: transparent;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        transition: all 0.25s ease;
+    }
+
+    .bedsheet-btn:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .bedsheet-email {
+        color: #c69b32;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    /* TABLET */
+    @media (max-width: 850px) {
+        .bedsheet-item {
+            grid-template-columns: 1fr;
+            gap: 28px;
+            margin-bottom: 60px;
+        }
+
+        .bedsheet-item:nth-child(even) .bedsheet-image,
+        .bedsheet-item:nth-child(even) .bedsheet-content {
+            order: initial;
+        }
+
+        .bedsheet-image {
+            height: 300px;
+        }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+        .bedsheet-hero {
+            min-height: 500px;
+        }
+
+        .bedsheet-hero-content {
+            padding: 65px 7%;
+        }
+
+        .bedsheet-hero h1 {
+            font-size: 36px;
+        }
+
+        .bedsheet-intro {
+            padding-top: 65px;
+        }
+
+        .bedsheet-intro h2 {
+            font-size: 29px;
+        }
+
+        .bedsheet-products {
+            padding-bottom: 65px;
+        }
+
+        .bedsheet-image {
+            height: 260px;
+        }
+
+        .bedsheet-content h3 {
+            font-size: 27px;
+        }
+
+        .bedsheet-cta {
+            padding: 65px 7%;
+        }
+
+        .bedsheet-cta h2 {
+            font-size: 28px;
+        }
+
+        .bedsheet-btn {
+            width: 100%;
+            max-width: 240px;
+        }
+    }
+</style>
+
+
+<div class="bedsheet-page">
+
+    <!-- HERO -->
+    <section class="bedsheet-hero">
+
+        <div class="bedsheet-hero-content">
+
+            <div class="bedsheet-label">
+                Bed Sheet Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CTC’s Bed Sheet Division provides professionally sourced
+                bed sheet solutions for hospitality, residential, retail
+                and institutional markets, supporting dependable quality,
+                fabric specifications, sizing requirements, quantity planning
+                and international textile trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="bedsheet-intro">
+
+        <span>
+            Professional Bedding Solutions
+        </span>
+
+        <h2>
+            Premium Bed Sheet Supply
+        </h2>
+
+        <p>
+            CTC supports bed sheet sourcing through reliable supplier
+            coordination, fabric selection, sizing specifications, quality
+            standards, quantity planning and organized supply solutions
+            for domestic and international textile markets.
+        </p>
+
+    </section>
+
+
+    <!-- SIX GRAPHIC SECTIONS -->
+    <section class="bedsheet-products">
+
+
+        <!-- 01 -->
+        <div class="bedsheet-item">
+
+            <div class="bedsheet-image bedsheet-image-1"></div>
+
+            <div class="bedsheet-content">
+
+                <div class="bedsheet-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Bed Sheets
+                </h3>
+
+                <p>
+                    CTC provides professionally sourced bed sheets with
+                    attention to fabric quality, finishing, sizing and
+                    presentation for residential, retail and hospitality
+                    requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="bedsheet-item">
+
+            <div class="bedsheet-image bedsheet-image-2"></div>
+
+            <div class="bedsheet-content">
+
+                <div class="bedsheet-number">
+                    02
+                </div>
+
+                <h3>
+                    Flat & Fitted Sheets
+                </h3>
+
+                <p>
+                    CTC supports flat and fitted sheet requirements with
+                    practical sizing, fabric specifications and dependable
+                    supply planning for different market applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="bedsheet-item">
+
+            <div class="bedsheet-image bedsheet-image-3"></div>
+
+            <div class="bedsheet-content">
+
+                <div class="bedsheet-number">
+                    03
+                </div>
+
+                <h3>
+                    Hotel Bed Linen
+                </h3>
+
+                <p>
+                    Professional bed linen sourcing for hotels, resorts
+                    and hospitality environments, with emphasis on quality,
+                    durability and consistent supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="bedsheet-item">
+
+            <div class="bedsheet-image bedsheet-image-4"></div>
+
+            <div class="bedsheet-content">
+
+                <div class="bedsheet-number">
+                    04
+                </div>
+
+                <h3>
+                    Cotton Bed Sheets
+                </h3>
+
+                <p>
+                    Cotton bedding solutions selected according to required
+                    fabric specifications, comfort expectations, finishing
+                    standards and intended market use.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="bedsheet-item">
+
+            <div class="bedsheet-image bedsheet-image-5"></div>
+
+            <div class="bedsheet-content">
+
+                <div class="bedsheet-number">
+                    05
+                </div>
+
+                <h3>
+                    Printed & Dyed Sheets
+                </h3>
+
+                <p>
+                    Professionally sourced printed and dyed bed sheets for
+                    retail and residential markets, supporting design,
+                    fabric and quantity requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="bedsheet-item">
+
+            <div class="bedsheet-image bedsheet-image-6"></div>
+
+            <div class="bedsheet-content">
+
+                <div class="bedsheet-number">
+                    06
+                </div>
+
+                <h3>
+                    Institutional Bed Linen
+                </h3>
+
+                <p>
+                    Reliable bed sheet solutions for institutional,
+                    healthcare and large-scale accommodation requirements,
+                    supported by organized supply planning.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="bedsheet-cta">
+
+        <h2>
+            Looking for Bed Sheet Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional bed sheet sourcing,
+            supply coordination and international textile market solutions.
+        </p>
+
+        <div class="bedsheet-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="bedsheet-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="bedsheet-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="bedsheet-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <a href="mailto:ceo@capitalgroup.pk" class="bedsheet-email">
+            ceo@capitalgroup.pk
+        </a>
+
+    </section>
+
+</div>
+
+{% endblock %}

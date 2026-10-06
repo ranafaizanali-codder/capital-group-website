@@ -1,0 +1,522 @@
+{% extends "base.html" %}
+
+{% block title %}
+Casual Wear Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING - CASUAL WEAR
+   ========================================================= */
+
+.casual-wear-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.casual-wear-hero {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,0.94) 0%,
+            rgba(6,29,45,0.80) 45%,
+            rgba(6,29,45,0.25) 100%
+        ),
+        url("https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center / cover no-repeat;
+}
+
+.casual-wear-hero-content {
+    max-width: 760px;
+    padding: 70px 7%;
+    color: white;
+}
+
+.casual-wear-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.casual-wear-hero h1 {
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.casual-wear-hero h1 span {
+    color: #d2a43b;
+}
+
+.casual-wear-hero p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f1f4f6;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.casual-wear-intro {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 30px 45px;
+    text-align: center;
+}
+
+.casual-wear-intro h2 {
+    font-size: 36px;
+    color: #12384f;
+    margin-bottom: 20px;
+}
+
+.casual-wear-intro p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #526575;
+}
+
+/* ================= FEATURE ROWS ================= */
+
+.casual-wear-feature {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 30px;
+}
+
+.casual-wear-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 350px;
+    background: white;
+    margin-bottom: 35px;
+    box-shadow: 0 12px 35px rgba(6,29,45,0.08);
+    overflow: hidden;
+}
+
+.casual-wear-feature-row.reverse .casual-wear-text {
+    order: 2;
+}
+
+.casual-wear-feature-row.reverse .casual-wear-image {
+    order: 1;
+}
+
+.casual-wear-text {
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.casual-wear-text small {
+    color: #c69b32;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.casual-wear-text h3 {
+    font-size: 30px;
+    margin: 0 0 15px;
+    color: #12384f;
+}
+
+.casual-wear-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5c6d79;
+    margin: 0;
+}
+
+.casual-wear-image {
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ================= CATEGORIES ================= */
+
+.casual-wear-categories {
+    max-width: 1100px;
+    margin: 80px auto 30px;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.casual-wear-categories h2 {
+    font-size: 34px;
+    color: #12384f;
+    margin-bottom: 35px;
+}
+
+.casual-wear-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.casual-wear-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 82px;
+    padding: 18px;
+    background: #061d2d;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 3px solid #c69b32;
+    transition: all 0.3s ease;
+}
+
+.casual-wear-product:hover {
+    background: #12384f;
+    transform: translateY(-4px);
+}
+
+/* ================= CTA ================= */
+
+.casual-wear-cta {
+    margin-top: 80px;
+    padding: 70px 30px;
+    background: #061d2d;
+    text-align: center;
+    color: white;
+}
+
+.casual-wear-cta h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.casual-wear-cta p {
+    color: #d8e0e5;
+    margin-bottom: 30px;
+}
+
+.casual-wear-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.casual-wear-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #d2a43b;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.casual-wear-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.casual-wear-btn:hover {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.casual-wear-email {
+    margin-top: 30px;
+    color: #d2a43b;
+    font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .casual-wear-feature-row {
+        grid-template-columns: 1fr;
+    }
+
+    .casual-wear-feature-row.reverse .casual-wear-text,
+    .casual-wear-feature-row.reverse .casual-wear-image {
+        order: initial;
+    }
+
+    .casual-wear-image {
+        min-height: 300px;
+    }
+
+    .casual-wear-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .casual-wear-hero {
+        min-height: 520px;
+    }
+
+    .casual-wear-hero-content {
+        padding: 50px 25px;
+    }
+
+    .casual-wear-hero p {
+        font-size: 16px;
+    }
+
+    .casual-wear-text {
+        padding: 35px 25px;
+    }
+
+    .casual-wear-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<div class="casual-wear-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="casual-wear-hero">
+
+        <div class="casual-wear-hero-content">
+
+            <div class="casual-wear-label">
+                Casual Wear Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL
+                <span>SOURCING / SUPPLY CHAIN SOLUTIONS.</span>
+            </h1>
+
+            <p>
+                CTC’s Casual Wear Division provides  solutions
+                for contemporary men's casual clothing, connecting quality
+                manufacturers with domestic and international apparel markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="casual-wear-intro">
+
+        <h2>Casual Wear</h2>
+
+        <p>
+            Our casual wear collection combines contemporary styling,
+            practical fabrics and comfortable silhouettes for everyday use.
+            We support sourcing requirements across versatile men's casual
+            apparel categories for modern retail and international markets.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE 1 ================= -->
+
+    <section class="casual-wear-feature">
+
+        <div class="casual-wear-feature-row">
+
+            <div class="casual-wear-text">
+
+                <small>01 / Everyday Collection</small>
+
+                <h3>Modern Casual Styles</h3>
+
+                <p>
+                    Contemporary cuts and versatile designs provide comfortable
+                    everyday clothing suitable for relaxed professional settings,
+                    travel and casual occasions.
+                </p>
+
+            </div>
+
+            <div
+                class="casual-wear-image"
+                style="
+                    background-image:
+                    url('https://www.ralphlauren.com/on/demandware.static/-/Library-Sites-RalphLauren_NA_Library/en_US/v1774605426742/img/202502/20250225-men-clothing-button-down-shirts-plp/0225_m_main_aisle_casual_shirts_c02b_img.jpg');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 2 ================= -->
+
+    <section class="casual-wear-feature">
+
+        <div class="casual-wear-feature-row reverse">
+
+            <div class="casual-wear-text">
+
+                <small>02 / Contemporary Apparel</small>
+
+                <h3>Casual Shirts &amp; Tops</h3>
+
+                <p>
+                    Polo shirts, casual button-downs and everyday tops offer
+                    adaptable options designed around comfort, modern styling
+                    and practical wear.
+                </p>
+
+            </div>
+
+            <div
+                class="casual-wear-image"
+                style="
+                    background-image:
+                    url('https://asset1.cxnmarksandspencer.com/is/image/mands/SD_10_T08_4235_F0_X_EC_0?qlt=80&wid=1024');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 3 ================= -->
+
+    <section class="casual-wear-feature">
+
+        <div class="casual-wear-feature-row">
+
+            <div class="casual-wear-text">
+
+                <small>03 / Flexible Sourcing</small>
+
+                <h3>Quality Casual Collections</h3>
+
+                <p>
+                    From lightweight everyday fabrics to structured casual
+                    garments, our sourcing approach supports flexible collections
+                    for different markets and customer requirements.
+                </p>
+
+            </div>
+
+            <div
+                class="casual-wear-image"
+                style="
+                    background-image:
+                    url('https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1800');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="casual-wear-categories">
+
+        <h2>Casual Wear Collections</h2>
+
+        <div class="casual-wear-grid">
+
+            <a href="#" class="casual-wear-product">
+                Polo Shirts
+            </a>
+
+            <a href="#" class="casual-wear-product">
+                Casual Shirts
+            </a>
+
+            <a href="#" class="casual-wear-product">
+                T-Shirts
+            </a>
+
+            <a href="#" class="casual-wear-product">
+                Sweatshirts
+            </a>
+
+            <a href="#" class="casual-wear-product">
+                Casual Tops
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="casual-wear-cta">
+
+        <h2>Looking for Casual Wear?</h2>
+
+        <p>
+            Share your product requirements with Capital Trading Corporation
+            for sourcing, supply and apparel solutions.
+        </p>
+
+        <div class="casual-wear-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="casual-wear-btn primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('garments_apparel') }}"
+                class="casual-wear-btn">
+                BACK TO GARMENTS
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="casual-wear-btn">
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="casual-wear-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="casual-wear-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

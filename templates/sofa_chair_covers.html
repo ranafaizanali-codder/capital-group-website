@@ -1,0 +1,648 @@
+{% extends "base.html" %}
+
+{% block title %}Sofa & Chair Covers Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .sofa-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .sofa-hero {
+        min-height: 570px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.93),
+                rgba(6, 29, 45, 0.70),
+                rgba(6, 29, 45, 0.30)
+            ),
+            url("https://images.pexels.com/photos/30324266/pexels-photo-30324266.jpeg?auto=compress&cs=tinysrgb&w=1800&q=75")
+            center/cover no-repeat;
+    }
+
+    .sofa-hero-content {
+        width: min(1180px, 90%);
+        margin: auto;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .sofa-label {
+        display: block;
+        margin-bottom: 22px;
+
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    .sofa-hero h1 {
+        max-width: 950px;
+        margin: 0 0 24px;
+
+        color: #ffffff;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+
+    .sofa-slogan {
+        max-width: 900px;
+        margin: 0 0 24px;
+
+        color: #d2a43b;
+        font-size: 15px;
+        line-height: 1.7;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    .sofa-hero-description {
+        max-width: 800px;
+        margin: 0;
+
+        color: #edf2f5;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .sofa-intro {
+        width: min(1080px, 90%);
+        margin: auto;
+        padding: 95px 0 65px;
+        text-align: center;
+    }
+
+    .sofa-intro span {
+        display: block;
+        margin-bottom: 16px;
+
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+    }
+
+    .sofa-intro h2 {
+        margin: 0 0 20px;
+
+        color: #061d2d;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .sofa-intro p {
+        max-width: 850px;
+        margin: auto;
+
+        color: #526674;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       CONTENT SECTIONS
+    ========================= */
+
+    .sofa-sections {
+        width: min(1180px, 90%);
+        margin: auto;
+        padding: 25px 0 80px;
+    }
+
+    .sofa-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+
+        padding: 70px 0;
+
+        border-top: 1px solid rgba(18, 56, 79, 0.12);
+    }
+
+    .sofa-section:nth-child(even) .sofa-image {
+        order: -1;
+    }
+
+    .sofa-number {
+        display: block;
+        margin-bottom: 14px;
+
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .sofa-section h3 {
+        margin: 0 0 18px;
+
+        color: #061d2d;
+        font-size: clamp(27px, 3vw, 40px);
+        line-height: 1.15;
+    }
+
+    .sofa-section p {
+        max-width: 520px;
+        margin: 0;
+
+        color: #526674;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .sofa-image {
+        height: 390px;
+
+        border-radius: 3px;
+
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        box-shadow: 0 18px 45px rgba(6, 29, 45, 0.12);
+    }
+
+
+    /* =========================
+       IMAGE 01
+    ========================= */
+
+    .sofa-image-1 {
+        background-image:
+            url("https://images.pexels.com/photos/30324266/pexels-photo-30324266.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 02
+    ========================= */
+
+    .sofa-image-2 {
+        background-image:
+            url("https://images.pexels.com/photos/11558114/pexels-photo-11558114.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 03
+    ========================= */
+
+    .sofa-image-3 {
+        background-image:
+            url("https://images.pexels.com/photos/8266858/pexels-photo-8266858.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 04
+    ========================= */
+
+    .sofa-image-4 {
+        background-image:
+            url("https://images.pexels.com/photos/30363090/pexels-photo-30363090.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 05
+    ========================= */
+
+    .sofa-image-5 {
+        background-image:
+            url("https://images.pexels.com/photos/30380604/pexels-photo-30380604.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 06
+    ========================= */
+
+    .sofa-image-6 {
+        background-image:
+            url("https://images.pexels.com/photos/31034512/pexels-photo-31034512.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .sofa-cta {
+        background: #061d2d;
+        color: #ffffff;
+        text-align: center;
+
+        padding: 90px 20px;
+    }
+
+    .sofa-cta h2 {
+        margin: 0 0 18px;
+
+        color: #ffffff;
+        font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .sofa-cta p {
+        max-width: 720px;
+        margin: 0 auto 32px;
+
+        color: #dbe5ea;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .sofa-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .sofa-buttons a {
+        display: inline-block;
+
+        padding: 13px 24px;
+
+        border: 1px solid #c69b32;
+
+        color: #ffffff;
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+
+        transition: 0.25s ease;
+    }
+
+    .sofa-buttons a:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .sofa-email {
+        margin-top: 28px;
+
+        color: #d2a43b;
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+        .sofa-hero {
+            min-height: 520px;
+        }
+
+        .sofa-section {
+            grid-template-columns: 1fr;
+            gap: 35px;
+
+            padding: 55px 0;
+        }
+
+        .sofa-section:nth-child(even) .sofa-image {
+            order: 0;
+        }
+
+        .sofa-image {
+            height: 320px;
+        }
+    }
+
+
+    @media (max-width: 550px) {
+
+        .sofa-hero-content {
+            padding: 70px 0;
+        }
+
+        .sofa-hero h1 {
+            font-size: 38px;
+        }
+
+        .sofa-slogan {
+            font-size: 13px;
+        }
+
+        .sofa-hero-description {
+            font-size: 14px;
+        }
+
+        .sofa-intro {
+            padding: 70px 0 45px;
+        }
+
+        .sofa-image {
+            height: 260px;
+        }
+
+        .sofa-buttons {
+            flex-direction: column;
+        }
+
+        .sofa-buttons a {
+            width: 220px;
+        }
+    }
+</style>
+
+
+<div class="sofa-page">
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="sofa-hero">
+
+        <div class="sofa-hero-content">
+
+            <span class="sofa-label">
+                Sofa & Chair Covers Division
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="sofa-hero-description">
+                CTC’s Sofa & Chair Covers Division provides professionally
+                sourced furniture cover solutions for residential, hospitality,
+                retail and commercial markets, supporting dependable quality,
+                fabric specifications, sizing requirements, quantity planning
+                and international textile trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="sofa-intro">
+
+        <span>
+            Professional Upholstery Solutions
+        </span>
+
+        <h2>
+            Premium Sofa & Chair Cover Supply
+        </h2>
+
+        <p>
+            CTC supports sofa and chair cover sourcing through reliable
+            supplier coordination, fabric selection, sizing specifications,
+            quality standards, quantity planning and organized supply
+            solutions for domestic and international markets.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         SIX SECTIONS
+    ========================= -->
+
+    <section class="sofa-sections">
+
+
+        <!-- 01 -->
+
+        <div class="sofa-section">
+
+            <div>
+
+                <span class="sofa-number">
+                    01
+                </span>
+
+                <h3>
+                    Premium Sofa Covers
+                </h3>
+
+                <p>
+                    CTC provides professionally sourced sofa covers with
+                    attention to fabric quality, fit, finishing and overall
+                    presentation for residential and commercial interiors.
+                </p>
+
+            </div>
+
+            <div class="sofa-image sofa-image-1"></div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="sofa-section">
+
+            <div>
+
+                <span class="sofa-number">
+                    02
+                </span>
+
+                <h3>
+                    Chair & Armchair Covers
+                </h3>
+
+                <p>
+                    Cover solutions for chairs and armchairs are coordinated
+                    according to dimensions, fabric requirements, comfort,
+                    durability and intended interior application.
+                </p>
+
+            </div>
+
+            <div class="sofa-image sofa-image-2"></div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="sofa-section">
+
+            <div>
+
+                <span class="sofa-number">
+                    03
+                </span>
+
+                <h3>
+                    Cotton & Textile Cover Options
+                </h3>
+
+                <p>
+                    CTC coordinates suitable cotton and textile materials
+                    according to buyer specifications, design requirements,
+                    durability expectations and market positioning.
+                </p>
+
+            </div>
+
+            <div class="sofa-image sofa-image-3"></div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="sofa-section">
+
+            <div>
+
+                <span class="sofa-number">
+                    04
+                </span>
+
+                <h3>
+                    Decorative & Custom Cover Designs
+                </h3>
+
+                <p>
+                    Our sourcing approach supports decorative and customized
+                    cover designs, helping buyers develop coordinated
+                    furniture textile collections for different interiors.
+                </p>
+
+            </div>
+
+            <div class="sofa-image sofa-image-4"></div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="sofa-section">
+
+            <div>
+
+                <span class="sofa-number">
+                    05
+                </span>
+
+                <h3>
+                    Upholstery Fabric & Finishing
+                </h3>
+
+                <p>
+                    CTC coordinates fabric selection, finishing requirements,
+                    dimensions and quality expectations to support consistent
+                    upholstery cover production and supply.
+                </p>
+
+            </div>
+
+            <div class="sofa-image sofa-image-5"></div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="sofa-section">
+
+            <div>
+
+                <span class="sofa-number">
+                    06
+                </span>
+
+                <h3>
+                    International Furniture Textile Markets
+                </h3>
+
+                <p>
+                    CTC supports organized sourcing and supply coordination
+                    for international buyers seeking dependable furniture
+                    cover products and textile trade solutions.
+                </p>
+
+            </div>
+
+            <div class="sofa-image sofa-image-6"></div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="sofa-cta">
+
+        <h2>
+            Looking for Sofa & Chair Cover Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional sofa and chair cover sourcing,
+            supply coordination and international textile market solutions.
+        </p>
+
+        <div class="sofa-buttons">
+
+            <a href="{{ url_for('trading_quote') }}">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}">
+                BACK TO TRADING
+            </a>
+
+            <a href="/">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="sofa-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

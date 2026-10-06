@@ -1,0 +1,1319 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.mp-page{
+    background:#f5f7f8;
+    color:#12384f;
+    overflow:hidden;
+}
+
+.mp-container{
+    width:min(1180px,92%);
+    margin:0 auto;
+}
+
+/* HERO */
+.mp-hero{
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(6,29,45,.94),rgba(6,29,45,.68),rgba(6,29,45,.30)),
+        url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=2400&q=95")
+        center/cover no-repeat;
+}
+
+.mp-hero-content{
+    width:min(850px,92%);
+    margin-left:max(4%,calc((100vw - 1180px)/2));
+    padding:80px 0;
+    color:white;
+}
+
+.mp-eyebrow,
+.mp-kicker{
+    color:#c69b32;
+    font-size:.76rem;
+    font-weight:700;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+}
+
+.mp-eyebrow{
+    margin-bottom:18px;
+}
+
+.mp-hero h1{
+    margin:0 0 22px;
+    font-size:clamp(2.5rem,5vw,4.8rem);
+    line-height:1.03;
+    letter-spacing:-1.5px;
+}
+
+.mp-hero h1 span{
+    color:#fff;
+}
+
+.mp-hero p{
+    max-width:720px;
+    margin:0 0 30px;
+    color:rgba(255,255,255,.88);
+    font-size:1.05rem;
+    line-height:1.7;
+}
+
+.mp-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.mp-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
+    padding:0 24px;
+    border-radius:3px;
+    text-decoration:none;
+    font-size:.84rem;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+.mp-btn-primary{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.mp-btn-primary:hover{
+    background:#d2a43b;
+    transform:translateY(-2px);
+}
+
+.mp-btn-secondary{
+    border:1px solid rgba(255,255,255,.6);
+    color:white;
+}
+
+.mp-btn-secondary:hover{
+    background:white;
+    color:#061d2d;
+}
+
+/* SECTIONS */
+.mp-section{
+    padding:78px 0;
+}
+
+.mp-section.alt{
+    background:white;
+}
+
+.mp-section.dark{
+    background:#061d2d;
+    color:white;
+}
+
+.mp-section h2{
+    margin:9px 0 20px;
+    color:#12384f;
+    font-size:clamp(2rem,3.4vw,3rem);
+    line-height:1.12;
+}
+
+.mp-section.dark h2{
+    color:white;
+}
+
+.mp-section p{
+    color:#526672;
+    font-size:.95rem;
+    line-height:1.65;
+    margin:0 0 14px;
+}
+
+.mp-section.dark p{
+    color:rgba(255,255,255,.76);
+}
+
+/* SPLIT */
+.mp-split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.mp-split.reverse .mp-image{
+    order:2;
+}
+
+.mp-copy{
+    max-width:580px;
+}
+
+.mp-image{
+    height:390px;
+    overflow:hidden;
+    border-radius:4px;
+    box-shadow:0 18px 45px rgba(6,29,45,.14);
+}
+
+.mp-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s ease;
+}
+
+.mp-image:hover img{
+    transform:scale(1.035);
+}
+
+/* TECHNOLOGY */
+.mp-tech-top{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.mp-tech-image{
+    height:300px;
+    overflow:hidden;
+    border-radius:4px;
+}
+
+.mp-tech-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.mp-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.mp-card{
+    padding:24px 20px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:4px;
+}
+
+.mp-card-number{
+    color:#c69b32;
+    font-size:.74rem;
+    font-weight:700;
+    margin-bottom:13px;
+}
+
+.mp-card h3{
+    color:white;
+    font-size:.98rem;
+    margin:0 0 9px;
+}
+
+.mp-card p{
+    font-size:.81rem;
+    margin:0;
+}
+
+/* SMALL CARDS */
+.mp-light-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.mp-light-card{
+    padding:21px;
+    background:#fff;
+    border:1px solid #e0e7eb;
+    border-top:3px solid #c69b32;
+}
+
+.mp-light-card h3{
+    margin:0 0 8px;
+    color:#12384f;
+    font-size:.96rem;
+}
+
+.mp-light-card p{
+    margin:0;
+    font-size:.81rem;
+}
+
+/* LIST */
+.mp-list{
+    list-style:none;
+    padding:0;
+    margin:22px 0 0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 22px;
+}
+
+.mp-list li{
+    position:relative;
+    padding-left:19px;
+    color:#526672;
+    font-size:.86rem;
+    line-height:1.5;
+}
+
+.mp-list li:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.55em;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#c69b32;
+}
+
+/* APPLICATIONS */
+.mp-app-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:28px;
+}
+
+.mp-app-card{
+    padding:21px;
+    background:white;
+    border:1px solid #e0e7eb;
+    border-radius:3px;
+}
+
+.mp-app-card h3{
+    color:#12384f;
+    margin:0 0 8px;
+    font-size:.96rem;
+}
+
+.mp-app-card p{
+    margin:0;
+    font-size:.81rem;
+}
+
+/* ADVANTAGES */
+.mp-advantage-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:25px;
+}
+
+.mp-advantage{
+    padding:20px;
+    background:white;
+    border:1px solid #e0e7eb;
+}
+
+.mp-advantage h3{
+    color:#12384f;
+    margin:0 0 8px;
+    font-size:.95rem;
+}
+
+.mp-advantage p{
+    margin:0;
+    font-size:.81rem;
+}
+
+/* VALIDATION */
+.mp-validation-points{
+    display:grid;
+    gap:12px;
+    margin-top:22px;
+}
+
+.mp-validation-point{
+    padding:15px 18px;
+    border-left:3px solid #c69b32;
+    background:#fff;
+    border:1px solid #e1e7ea;
+}
+
+.mp-validation-point h3{
+    margin:0 0 5px;
+    color:#12384f;
+    font-size:.93rem;
+}
+
+.mp-validation-point p{
+    margin:0;
+    font-size:.81rem;
+}
+
+/* WHY CAPITAL */
+.mp-why{
+    background:#061d2d;
+    padding:80px 0;
+    color:white;
+}
+
+.mp-why-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+/* IMPORTANT:
+   REAL IMAGE ELEMENT - NOT BACKGROUND IMAGE */
+.mp-why-image{
+    height:390px;
+    overflow:hidden;
+    border-radius:4px;
+    margin-top:25px;
+}
+
+.mp-why-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.mp-why h2{
+    color:white;
+    margin:9px 0 20px;
+}
+
+.mp-why-intro{
+    color:rgba(255,255,255,.76);
+    line-height:1.65;
+    font-size:.94rem;
+}
+
+.mp-why-points{
+    display:grid;
+    gap:13px;
+}
+
+.mp-why-point{
+    display:grid;
+    grid-template-columns:40px 1fr;
+    gap:12px;
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,.13);
+}
+
+.mp-why-number{
+    color:#c69b32;
+    font-weight:700;
+    font-size:.78rem;
+}
+
+.mp-why-point h3{
+    color:white;
+    font-size:.92rem;
+    margin:0 0 5px;
+}
+
+.mp-why-point p{
+    color:rgba(255,255,255,.67);
+    font-size:.79rem;
+    margin:0;
+}
+
+/* CTA */
+.mp-cta{
+    padding:70px 0;
+    background:white;
+    text-align:center;
+}
+
+.mp-cta h2{
+    color:#12384f;
+    margin:8px 0 14px;
+}
+
+.mp-cta p{
+    max-width:680px;
+    margin:0 auto 25px;
+    color:#526672;
+    line-height:1.65;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .mp-split,
+    .mp-split.reverse,
+    .mp-tech-top,
+    .mp-why-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .mp-split.reverse .mp-image{
+        order:initial;
+    }
+
+    .mp-cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mp-light-cards,
+    .mp-app-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mp-image,
+    .mp-why-image{
+        height:330px;
+    }
+}
+
+@media(max-width:600px){
+
+    .mp-hero{
+        min-height:520px;
+    }
+
+    .mp-section{
+        padding:58px 0;
+    }
+
+    .mp-cards,
+    .mp-light-cards,
+    .mp-app-grid,
+    .mp-advantage-grid,
+    .mp-list{
+        grid-template-columns:1fr;
+    }
+
+    .mp-image,
+    .mp-why-image{
+        height:260px;
+    }
+
+    .mp-actions{
+        flex-direction:column;
+    }
+
+    .mp-btn{
+        width:100%;
+    }
+}
+</style>
+
+
+<div class="mp-page">
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="mp-hero">
+
+    <div class="mp-hero-content">
+
+        <div class="mp-eyebrow">
+            Additive Manufacturing Division
+        </div>
+
+        <h1>
+            Metal Based <span>3D Printing</span>
+        </h1>
+
+        <p>
+            Advanced metal additive manufacturing for complex engineering
+            components, functional prototypes and application-focused parts
+            where geometry, material performance and engineering requirements
+            are critical.
+        </p>
+
+        <div class="mp-actions">
+
+            <a href="{{ url_for('three_d_printing') }}"
+               class="mp-btn mp-btn-secondary">
+                Back to Additive Manufacturing
+            </a>
+
+            <a href="{{ url_for('engineering_quote') }}"
+               class="mp-btn mp-btn-primary">
+                Request Engineering Support
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     INTRODUCTION
+====================================================== -->
+
+<section class="mp-section alt">
+
+<div class="mp-container">
+
+<div class="mp-split">
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Metal Additive Manufacturing
+        </div>
+
+        <h2>
+            Complex Metal Components from Digital Designs
+        </h2>
+
+        <p>
+            Metal additive manufacturing produces precision components
+            directly from digital engineering models, reducing dependence
+            on conventional tooling.
+        </p>
+
+        <p>
+            The process supports prototypes, development parts, tooling
+            and selected low-volume production applications.
+        </p>
+
+        <p>
+            Process, material and post-processing requirements are considered
+            according to the intended component application.
+        </p>
+
+    </div>
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1565439373907-3b5b2b7f6c1c?auto=format&fit=crop&w=2200&q=95"
+            alt="Metal additive manufacturing equipment">
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     SLM
+====================================================== -->
+
+<section class="mp-section">
+
+<div class="mp-container">
+
+<div class="mp-split reverse">
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2200&q=95"
+            alt="Advanced precision industrial manufacturing">
+    </div>
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Metal Printing Technology
+        </div>
+
+        <h2>
+            Selective Laser Melting
+        </h2>
+
+        <p>
+            Selective Laser Melting builds metal components layer by layer
+            by selectively melting metal powder using focused laser energy.
+        </p>
+
+        <p>
+            The process enables complex geometries, fine features and
+            consolidated component designs.
+        </p>
+
+        <p>
+            Build parameters and material selection are matched to
+            component requirements and engineering objectives.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     TECHNOLOGY
+====================================================== -->
+
+<section class="mp-section dark">
+
+<div class="mp-container">
+
+<div class="mp-tech-top">
+
+    <div>
+
+        <div class="mp-kicker">
+            Manufacturing Process
+        </div>
+
+        <h2>
+            From Powder to Precision Component
+        </h2>
+
+        <p>
+            Metal additive manufacturing combines digital preparation,
+            controlled powder processing, precision layer building and
+            post-processing into an integrated manufacturing workflow.
+        </p>
+
+    </div>
+
+    <div class="mp-tech-image">
+        <img
+            src="https://images.unsplash.com/photo-1581093458791-9d42e3c9b1c4?auto=format&fit=crop&w=2200&q=95"
+            alt="Precision industrial manufacturing machinery">
+    </div>
+
+</div>
+
+
+<div class="mp-cards">
+
+    <div class="mp-card">
+        <div class="mp-card-number">01</div>
+        <h3>Digital Component Preparation</h3>
+        <p>
+            Engineering models are prepared for build orientation,
+            support strategy and process requirements.
+        </p>
+    </div>
+
+    <div class="mp-card">
+        <div class="mp-card-number">02</div>
+        <h3>Metal Powder Processing</h3>
+        <p>
+            Suitable powder systems are selected according to component
+            and application requirements.
+        </p>
+    </div>
+
+    <div class="mp-card">
+        <div class="mp-card-number">03</div>
+        <h3>Layer-by-Layer Building</h3>
+        <p>
+            Controlled energy input creates component geometry through
+            successive powder layers.
+        </p>
+    </div>
+
+    <div class="mp-card">
+        <div class="mp-card-number">04</div>
+        <h3>Post-Processing & Inspection</h3>
+        <p>
+            Components may require heat treatment, machining,
+            finishing and dimensional inspection.
+        </p>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     MATERIALS
+====================================================== -->
+
+<section class="mp-section alt">
+
+<div class="mp-container">
+
+<div class="mp-split">
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Material Considerations
+        </div>
+
+        <h2>
+            Metal Materials Selected for the Application
+        </h2>
+
+        <p>
+            Metal additive manufacturing can support different powder-based
+            material systems for engineering applications.
+        </p>
+
+        <p>
+            Material selection considers mechanical performance, thermal
+            behaviour, environment, geometry and finishing requirements.
+        </p>
+
+        <div class="mp-light-cards">
+
+            <div class="mp-light-card">
+                <h3>Metal Powder Systems</h3>
+                <p>
+                    Material systems are selected according to component
+                    and process requirements.
+                </p>
+            </div>
+
+            <div class="mp-light-card">
+                <h3>Engineering Performance</h3>
+                <p>
+                    Strength, temperature resistance and durability are
+                    considered during selection.
+                </p>
+            </div>
+
+            <div class="mp-light-card">
+                <h3>Application Requirements</h3>
+                <p>
+                    Final selection is aligned with the intended operating
+                    environment and component function.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=2200&q=95"
+            alt="Metal material engineering and manufacturing">
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     COMPLEX GEOMETRIES
+====================================================== -->
+
+<section class="mp-section">
+
+<div class="mp-container">
+
+<div class="mp-split reverse">
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=95"
+            alt="Advanced engineering component development">
+    </div>
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Design Freedom
+        </div>
+
+        <h2>
+            Manufacturing Complex Geometries
+        </h2>
+
+        <p>
+            Metal additive manufacturing enables component concepts with
+            internal features, lightweight structures and integrated
+            functional geometries.
+        </p>
+
+        <p>
+            Design freedom can reduce part count and support
+            application-specific component development.
+        </p>
+
+        <h3 style="margin:25px 0 0;color:#12384f;font-size:1.03rem;">
+            Engineering Design Opportunities
+        </h3>
+
+        <ul class="mp-list">
+            <li>Complex internal features</li>
+            <li>Topology-optimized structures</li>
+            <li>Lightweight component concepts</li>
+            <li>Integrated component geometries</li>
+            <li>Application-specific designs</li>
+            <li>Part consolidation concepts</li>
+        </ul>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     APPLICATIONS
+====================================================== -->
+
+<section class="mp-section alt">
+
+<div class="mp-container">
+
+<div class="mp-split">
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Industrial Applications
+        </div>
+
+        <h2>
+            Metal Additive Manufacturing Applications
+        </h2>
+
+        <p>
+            Metal additive manufacturing supports component development
+            where complex geometry, rapid iteration, part consolidation
+            or tooling reduction can provide engineering value.
+        </p>
+
+        <p>
+            Applications are evaluated according to material, geometry,
+            production volume and performance requirements.
+        </p>
+
+    </div>
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=2200&q=95"
+            alt="Industrial machinery applications">
+    </div>
+
+</div>
+
+
+<div class="mp-app-grid">
+
+    <div class="mp-app-card">
+        <h3>Aerospace Engineering</h3>
+        <p>
+            Complex components and lightweight structures for demanding
+            aerospace development applications.
+        </p>
+    </div>
+
+    <div class="mp-app-card">
+        <h3>Defence Applications</h3>
+        <p>
+            Application-focused components requiring controlled geometry
+            and engineering performance.
+        </p>
+    </div>
+
+    <div class="mp-app-card">
+        <h3>Industrial Machinery</h3>
+        <p>
+            Specialized machine components, brackets, tooling and
+            functional development parts.
+        </p>
+    </div>
+
+    <div class="mp-app-card">
+        <h3>Energy Systems</h3>
+        <p>
+            Components where thermal, flow and structural requirements
+            influence geometry.
+        </p>
+    </div>
+
+    <div class="mp-app-card">
+        <h3>Tooling & Fixtures</h3>
+        <p>
+            Application-specific tooling and fixtures developed without
+            conventional tooling constraints.
+        </p>
+    </div>
+
+    <div class="mp-app-card">
+        <h3>Research & Development</h3>
+        <p>
+            Rapid development of advanced component concepts for
+            engineering validation and testing.
+        </p>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     COMPONENT TYPES
+====================================================== -->
+
+<section class="mp-section">
+
+<div class="mp-container">
+
+<div class="mp-split reverse">
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=2200&q=95"
+            alt="Precision engineered industrial components">
+    </div>
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Component Development
+        </div>
+
+        <h2>
+            Typical Metal Component Concepts
+        </h2>
+
+        <p>
+            Metal additive manufacturing is suited to specialized component
+            concepts where geometry and functional requirements justify
+            an additive approach.
+        </p>
+
+        <ul class="mp-list">
+            <li>Complex brackets and supports</li>
+            <li>Lightweight structural components</li>
+            <li>Specialized tooling components</li>
+            <li>Heat-management structures</li>
+            <li>Complex flow-channel components</li>
+            <li>Prototype engineering components</li>
+            <li>Integrated multi-feature parts</li>
+            <li>Application-specific components</li>
+        </ul>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     ADVANTAGES
+====================================================== -->
+
+<section class="mp-section alt">
+
+<div class="mp-container">
+
+<div class="mp-split">
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Key Advantages
+        </div>
+
+        <h2>
+            Why Metal Additive Manufacturing?
+        </h2>
+
+        <p>
+            The technology provides design flexibility and manufacturing
+            options for components that may be difficult or costly to
+            produce conventionally.
+        </p>
+
+        <div class="mp-advantage-grid">
+
+            <div class="mp-advantage">
+                <h3>Complex Geometry</h3>
+                <p>
+                    Enables intricate internal and external component features.
+                </p>
+            </div>
+
+            <div class="mp-advantage">
+                <h3>Design Freedom</h3>
+                <p>
+                    Supports optimized and application-specific component concepts.
+                </p>
+            </div>
+
+            <div class="mp-advantage">
+                <h3>Rapid Development</h3>
+                <p>
+                    Reduces development cycles for suitable prototypes and components.
+                </p>
+            </div>
+
+            <div class="mp-advantage">
+                <h3>Part Consolidation</h3>
+                <p>
+                    Multiple features can potentially be integrated into one component.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=2200&q=95"
+            alt="Advanced industrial manufacturing technology">
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     ENGINEERING VALIDATION
+====================================================== -->
+
+<section class="mp-section">
+
+<div class="mp-container">
+
+<div class="mp-split reverse">
+
+    <div class="mp-image">
+        <img
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2200&q=95"
+            alt="Industrial engineering inspection and validation">
+    </div>
+
+    <div class="mp-copy">
+
+        <div class="mp-kicker">
+            Engineering Validation
+        </div>
+
+        <h2>
+            Performance Starts with the Application
+        </h2>
+
+        <p>
+            Successful metal additive manufacturing begins with understanding
+            the component function, operating environment and performance
+            requirements.
+        </p>
+
+        <p>
+            Geometry, material, build parameters and post-processing are
+            considered together during component development.
+        </p>
+
+        <div class="mp-validation-points">
+
+            <div class="mp-validation-point">
+                <h3>Component Requirements</h3>
+                <p>
+                    Functional and dimensional requirements are defined
+                    before manufacturing.
+                </p>
+            </div>
+
+            <div class="mp-validation-point">
+                <h3>Process Considerations</h3>
+                <p>
+                    Build strategy and post-processing are matched to
+                    component requirements.
+                </p>
+            </div>
+
+            <div class="mp-validation-point">
+                <h3>Inspection & Validation</h3>
+                <p>
+                    Inspection requirements can be established according
+                    to the intended engineering application.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     WHY CAPITAL ENGINEERING
+====================================================== -->
+
+<section class="mp-why">
+
+<div class="mp-container">
+
+<div class="mp-why-grid">
+
+    <div>
+
+        <div class="mp-kicker">
+            Capital Engineering Corporation
+        </div>
+
+        <h2>
+            Engineering-Led Additive Manufacturing
+        </h2>
+
+        <p class="mp-why-intro">
+            Our approach connects metal additive manufacturing with
+            engineering requirements, component function and
+            application-specific manufacturing considerations.
+        </p>
+
+        <p class="mp-why-intro">
+            Material, process, geometry, post-processing and manufacturing
+            requirements are evaluated as one integrated solution.
+        </p>
+
+        <!-- REAL IMAGE INSIDE THIS BLOCK -->
+        <div class="mp-why-image">
+            <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=95"
+                alt="Capital Engineering advanced manufacturing solution">
+        </div>
+
+    </div>
+
+
+    <div class="mp-why-points">
+
+        <div class="mp-why-point">
+            <div class="mp-why-number">01</div>
+            <div>
+                <h3>
+                    Engineering-Focused Metal Additive Manufacturing
+                </h3>
+                <p>
+                    Manufacturing solutions aligned with component
+                    and application requirements.
+                </p>
+            </div>
+        </div>
+
+        <div class="mp-why-point">
+            <div class="mp-why-number">02</div>
+            <div>
+                <h3>
+                    Complex Component Development
+                </h3>
+                <p>
+                    Support for specialized and geometry-intensive
+                    engineering components.
+                </p>
+            </div>
+        </div>
+
+        <div class="mp-why-point">
+            <div class="mp-why-number">03</div>
+            <div>
+                <h3>
+                    Application-Oriented Material Considerations
+                </h3>
+                <p>
+                    Material selection based on component function
+                    and operating requirements.
+                </p>
+            </div>
+        </div>
+
+        <div class="mp-why-point">
+            <div class="mp-why-number">04</div>
+            <div>
+                <h3>
+                    Integration with Broader Manufacturing Solutions
+                </h3>
+                <p>
+                    Additive manufacturing connected with wider
+                    engineering and production capabilities.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CTA
+====================================================== -->
+
+<section class="mp-cta">
+
+<div class="mp-container">
+
+    <div class="mp-kicker">
+        Metal Additive Manufacturing
+    </div>
+
+    <h2>
+        Develop Your Next Metal Component
+    </h2>
+
+    <p>
+        Discuss your component, material or additive manufacturing
+        requirement with Capital Engineering Corporation.
+    </p>
+
+    <div class="mp-actions" style="justify-content:center;">
+
+        <a href="{{ url_for('engineering_quote') }}"
+           class="mp-btn mp-btn-primary">
+            Request a Quote
+        </a>
+
+        <a href="{{ url_for('three_d_printing') }}"
+           class="mp-btn"
+           style="background:#061d2d;color:white;">
+            Explore Additive Manufacturing
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+msgid ""
+msgstr "Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "HOME"
+msgstr "الرئيسية"
+
+msgid "ABOUT US"
+msgstr "معلومات عنا"
+
+msgid "FOLLOW US"
+msgstr "تابعنا"
+
+msgid "CONTACT US"
+msgstr "اتصل بنا"
+
+msgid "LET'S TALK"
+msgstr "لنتحدث"
+
+msgid "Developing Businesses Creating Solutions"
+msgstr "تطوير الأعمال وإنشاء الحلول"

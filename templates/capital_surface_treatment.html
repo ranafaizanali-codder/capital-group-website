@@ -1,0 +1,452 @@
+{% extends "base.html" %}
+
+{% block title %}
+Surface Treatment Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .surface-page {
+        min-height: 100vh;
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .surface-hero {
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,.94),
+                rgba(6,29,45,.72),
+                rgba(6,29,45,.42)
+            ),
+            url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=90")
+            center/cover no-repeat;
+    }
+
+    .surface-hero-content {
+        width: min(1180px, 92%);
+        margin: auto;
+        padding: 80px 0;
+        color: white;
+    }
+
+    .surface-eyebrow {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #d2a43b;
+        margin-bottom: 18px;
+    }
+
+    .surface-hero h1 {
+        margin: 0 0 18px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.05;
+        font-weight: 800;
+    }
+
+    .surface-hero h2 {
+        margin: 0 0 25px;
+        font-size: clamp(25px, 3vw, 42px);
+        line-height: 1.15;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .surface-hero p {
+        max-width: 850px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.8;
+        color: rgba(255,255,255,.92);
+    }
+
+
+    /* =========================
+       INTRO
+       ========================= */
+
+    .surface-intro {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+        padding: 70px 0 35px;
+        text-align: center;
+    }
+
+    .surface-intro h2 {
+        margin: 0 0 16px;
+        font-size: 34px;
+        color: #061d2d;
+    }
+
+    .surface-intro p {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 17px;
+        line-height: 1.8;
+        color: #536875;
+    }
+
+
+    /* =========================
+       TWO MAIN LINKS
+       ========================= */
+
+    .surface-capabilities {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+        padding: 25px 0 75px;
+    }
+
+    .surface-capability-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+    }
+
+    .surface-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .surface-link {
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 28px 30px;
+
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-left: 5px solid #c69b32;
+        border-radius: 8px;
+
+        color: #12384f;
+        text-decoration: none;
+
+        box-shadow: 0 5px 18px rgba(6,29,45,.07);
+        transition: all .22s ease;
+    }
+
+    .surface-link:hover {
+        transform: translateY(-3px);
+        border-color: #c69b32;
+        box-shadow: 0 10px 25px rgba(6,29,45,.12);
+        background: #fbfcfc;
+    }
+
+    .surface-number {
+        margin-bottom: 10px;
+
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .surface-link-text {
+        margin-bottom: 12px;
+
+        color: #061d2d;
+        font-size: 23px;
+        font-weight: 800;
+    }
+
+    .surface-link-description {
+        color: #536875;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .surface-link-description span {
+        display: block;
+    }
+
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .surface-cta {
+        background: #061d2d;
+        color: white;
+        text-align: center;
+        padding: 65px 20px;
+    }
+
+    .surface-cta h2 {
+        margin: 0 0 12px;
+        font-size: 32px;
+    }
+
+    .surface-cta p {
+        margin: 0 auto 25px;
+        max-width: 700px;
+        color: rgba(255,255,255,.78);
+        line-height: 1.7;
+    }
+
+    .surface-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .surface-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: .2s ease;
+    }
+
+    .surface-btn-primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .surface-btn-secondary {
+        border: 1px solid rgba(255,255,255,.45);
+        color: white;
+    }
+
+    .surface-btn:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 760px) {
+
+        .surface-hero {
+            min-height: 500px;
+        }
+
+        .surface-hero-content {
+            padding: 65px 0;
+        }
+
+        .surface-capability-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .surface-intro {
+            padding-top: 55px;
+        }
+
+        .surface-link {
+            min-height: 140px;
+            padding: 25px 22px;
+        }
+
+        .surface-link-text {
+            font-size: 21px;
+        }
+    }
+</style>
+
+
+<div class="surface-page">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="surface-hero">
+
+        <div class="surface-hero-content">
+
+            <div class="surface-eyebrow">
+                SURFACE TREATMENT DIVISION
+            </div>
+
+            <h1>
+                Surface Treatment
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CECs uses a diverse range of surface treatment on various
+                types of components made through ferrous/non-ferrous alloys
+                and plastics. Some of the surface treatment techniques are
+                given below.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="surface-intro">
+
+        <h2>
+            Surface Treatment Capabilities
+        </h2>
+
+        <p>
+            Our surface treatment capabilities support component durability,
+            corrosion resistance, wear protection, surface preparation,
+            functional performance and specialized engineering requirements.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         TWO MAIN LINKS
+         ===================================================== -->
+
+    <section class="surface-capabilities">
+
+        <div class="surface-capability-grid">
+
+
+            <!-- =========================
+                 FIRST 12
+                 ========================= -->
+
+            <div class="surface-column">
+
+                <a
+                    href="{{ url_for('surface_treatment_group_1') }}"
+                    class="surface-link"
+                >
+
+                    <div class="surface-number">
+                        01 — 12
+                    </div>
+
+                    <div class="surface-link-text">
+                        Surface Treatment Techniques
+                    </div>
+
+                    <div class="surface-link-description">
+
+                        <span>• Sand Blasting</span>
+                        <span>• Shot Peening</span>
+                        <span>• Electroless Polishing</span>
+                        <span>• Ultrasonic Cleaning</span>
+                        <span>• Conventional &amp; Vacuum Gold Plating</span>
+                        <span>• Nickel Cadmium Plating</span>
+                        <span>• Nickel Plating</span>
+                        <span>• Chrome Plating</span>
+                        <span>• Tin Plating</span>
+                        <span>• Silver Coating</span>
+                        <span>• Anodizing &amp; Red Anodizing</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 SECOND 12
+                 ========================= -->
+
+            <div class="surface-column">
+
+                <a
+                    href="{{ url_for('surface_treatment_group_2') }}"
+                    class="surface-link"
+                >
+
+                    <div class="surface-number">
+                        13 — 24
+                    </div>
+
+                    <div class="surface-link-text">
+                        Surface Treatment Techniques
+                    </div>
+
+                    <div class="surface-link-description">
+
+                        <span>• Blackening</span>
+                        <span>• Galvanizing</span>
+                        <span>• CVD — Chemical Vapour Deposition</span>
+                        <span>• PVD — Physical Vapour Deposition</span>
+                        <span>• Plastic Powder Coating</span>
+                        <span>• Thermal Barrier Coating (TBC)</span>
+                        <span>• Open Furnace Heat Treatment</span>
+                        <span>• Vacuum Furnace Heat Treatment</span>
+                        <span>• Case Hardening</span>
+                        <span>• Annealing</span>
+                        <span>• Nitriding</span>
+                        <span>• Passivation</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="surface-cta">
+
+        <h2>
+            Discuss Your Surface Treatment Requirement
+        </h2>
+
+        <p>
+            Contact Capital Engineering Corporation for specialized
+            surface treatment and finishing requirements.
+        </p>
+
+        <div class="surface-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="surface-btn surface-btn-primary"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/"
+                class="surface-btn surface-btn-secondary"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

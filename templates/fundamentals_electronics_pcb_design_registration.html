@@ -1,0 +1,592 @@
+{% extends "base.html" %}
+
+{% block title %}EEE 143 - Fundamentals of Electronics and PCB Design Registration | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+.registration-page {
+    background: #f5f7f8;
+    padding: 70px 20px;
+    color: #12384f;
+}
+
+.registration-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.registration-header span {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.registration-header h1 {
+    margin: 12px 0;
+    font-size: 38px;
+    color: #061d2d;
+}
+
+.registration-header p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #5d6b73;
+    line-height: 1.7;
+}
+
+.registration-form {
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(6, 29, 45, 0.08);
+}
+
+.form-section {
+    margin-bottom: 38px;
+}
+
+.section-heading {
+    font-size: 20px;
+    color: #12384f;
+    border-bottom: 2px solid #c69b32;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.course-summary {
+    background: #f5f7f8;
+    border-left: 4px solid #c69b32;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.course-summary p {
+    margin: 8px 0;
+    color: #40535e;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #12384f;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #ccd6db;
+    background: #ffffff;
+    color: #12384f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #c69b32;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #123f58;
+    color: #ffffff;
+    border: 1px solid #123f58;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+}
+
+.registration-footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #5d6b73;
+    font-size: 14px;
+}
+
+.registration-footer strong {
+    color: #12384f;
+}
+
+@media (max-width: 768px) {
+
+    .registration-page {
+        padding: 50px 15px;
+    }
+
+    .registration-form {
+        padding: 25px;
+    }
+
+    .registration-header h1 {
+        font-size: 30px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+}
+</style>
+
+
+<section class="registration-page">
+
+    <div class="registration-container">
+
+        <div class="registration-header">
+
+            <span>
+                Advanced Electronics Engineering Department
+            </span>
+
+            <h1>
+                Fundamentals of Electronics and PCB Design
+            </h1>
+
+            <p>
+                Complete the registration form below to register for
+                EEE 143 through Capital Consultants.
+            </p>
+
+        </div>
+
+
+        <form
+            class="registration-form"
+            method="POST"
+            action="{{ url_for('fundamentals_electronics_pcb_design_registration') }}"
+        >
+
+            <!-- COURSE DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-heading">
+                    Course Details
+                </h2>
+
+                <div class="course-summary">
+
+                    <p>
+                        <strong>Course Code:</strong>
+                        EEE 143
+                    </p>
+
+                    <p>
+                        <strong>Course Title:</strong>
+                        Fundamentals of Electronics and PCB Design:
+                        From Basics to Lab Practice (10 Days)
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong>
+                        can be offered upon a sepcific date request
+                    </p>
+
+                    <p>
+                        <strong>Venue:</strong>
+                        Marriott Islamabad
+                    </p>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="language">
+                            Language *
+                        </label>
+
+                        <select
+                            id="language"
+                            name="language"
+                            required
+                        >
+
+                            <option value="">
+                                Select Language
+                            </option>
+
+                            <option value="English">English</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Persian">Persian</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Turkish">Turkish</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSTITUTION / COMPANY DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-heading">
+                    Institution / Company Details
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="country">
+                            Country *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="company_name">
+                            Company Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company_name"
+                            name="company_name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="website">
+                            Website *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="website"
+                            name="website"
+                            placeholder="https://"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="nature_of_business">
+                            Nature of Business
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nature_of_business"
+                            name="nature_of_business"
+                        >
+
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label for="postal_address">
+                            Postal Address *
+                        </label>
+
+                        <textarea
+                            id="postal_address"
+                            name="postal_address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT PERSON DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-heading">
+                    Contact Person Details
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="salutation">
+                            Salutation *
+                        </label>
+
+                        <select
+                            id="salutation"
+                            name="salutation"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Prof.">Prof.</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="job_title">
+                            Job Title / Position *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="job_title"
+                            name="job_title"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Telephone *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            placeholder="+Code"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="+Code"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARTICIPANT DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-heading">
+                    Participant(s) Details
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="participants">
+                            Number of Participants *
+                        </label>
+
+                        <select
+                            id="participants"
+                            name="participants"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10+">10+</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="source">
+                            How did you hear about us? *
+                        </label>
+
+                        <select
+                            id="source"
+                            name="source"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Website">Website</option>
+                            <option value="Search Engine">Search Engine</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Email">Email</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="registration-footer">
+
+            For registration assistance:
+            <strong>ceo@capitalgroup.pk</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

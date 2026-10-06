@@ -1,0 +1,434 @@
+{% extends "base.html" %}
+
+{% block title %}
+Send Requirement | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+.trading-form-page {
+    min-height: 100vh;
+    background: #f5f7f8;
+    color: #12384f;
+    font-family:
+        "IBM Plex Sans",
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    padding: 70px 20px 90px;
+}
+
+.trading-form-container {
+    width: min(850px, 94%);
+    margin: 0 auto;
+}
+
+.trading-form-header {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.trading-form-label {
+    display: block;
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.trading-form-title {
+    margin: 0 0 15px;
+    color: #061d2d;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.trading-form-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #526572;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.trading-form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8ec;
+    border-top: 4px solid #c69b32;
+    padding: 42px;
+    box-shadow: 0 15px 40px rgba(6, 29, 45, 0.08);
+}
+
+.trading-field {
+    margin-bottom: 25px;
+}
+
+.trading-field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #12384f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.trading-field label span {
+    color: #b04a3a;
+}
+
+.trading-field input,
+.trading-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccd6dc;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #12384f;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 14px 15px;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.trading-field input {
+    height: 50px;
+}
+
+.trading-field textarea {
+    min-height: 170px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.trading-field input:focus,
+.trading-field textarea:focus {
+    border-color: #c69b32;
+    box-shadow: 0 0 0 3px rgba(198, 155, 50, 0.15);
+}
+
+.trading-field input::placeholder,
+.trading-field textarea::placeholder {
+    color: #8a989f;
+}
+
+/* ================= CAPTCHA ================= */
+
+.trading-captcha {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f5f7f8;
+    border: 1px solid #d9e1e5;
+    border-left: 3px solid #c69b32;
+}
+
+.trading-captcha-title {
+    display: block;
+    margin-bottom: 8px;
+    color: #061d2d;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.trading-captcha-question {
+    margin-bottom: 12px;
+    color: #12384f;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.trading-captcha input {
+    width: 180px;
+    height: 46px;
+    box-sizing: border-box;
+    border: 1px solid #ccd6dc;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #12384f;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px 12px;
+    outline: none;
+}
+
+.trading-captcha input:focus {
+    border-color: #c69b32;
+    box-shadow: 0 0 0 3px rgba(198, 155, 50, 0.15);
+}
+
+.trading-captcha-error {
+    display: none;
+    margin-top: 8px;
+    color: #b04a3a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.trading-form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.trading-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 3px;
+    text-decoration: none;
+    border: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.trading-form-btn:hover {
+    transform: translateY(-2px);
+}
+
+.trading-form-btn.back {
+    background: #e8edf0;
+    color: #12384f;
+}
+
+.trading-form-btn.submit {
+    background: #061d2d;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(6, 29, 45, 0.18);
+}
+
+.trading-form-btn.submit:hover {
+    box-shadow: 0 12px 25px rgba(6, 29, 45, 0.25);
+}
+
+.trading-form-email {
+    text-align: right;
+    margin-top: 25px;
+    color: #6b7b84;
+    font-size: 14px;
+}
+
+.trading-form-email strong {
+    color: #12384f;
+}
+
+@media (max-width: 650px) {
+
+    .trading-form-page {
+        padding: 45px 15px 60px;
+    }
+
+    .trading-form-card {
+        padding: 25px 20px;
+    }
+
+    .trading-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .trading-form-btn {
+        width: 100%;
+    }
+
+    .trading-form-email {
+        text-align: center;
+    }
+
+    .trading-captcha input {
+        width: 100%;
+    }
+}
+</style>
+
+<section class="trading-form-page">
+
+    <div class="trading-form-container">
+
+        <header class="trading-form-header">
+
+            <span class="trading-form-label">
+                CAPITAL TRADING CORPORATION
+            </span>
+
+            <h1 class="trading-form-title">
+                Send Your Requirement
+            </h1>
+
+            <p class="trading-form-subtitle">
+                Please provide your contact details and requirement.
+                Our team will review your request and contact you
+                regarding the required sourcing, export, import or
+                supply chain solution.
+            </p>
+
+        </header>
+
+        <div class="trading-form-card">
+
+            <form
+                method="POST"
+                action="{{ url_for('trading_quote') }}"
+                id="tradingRequirementForm"
+            >
+
+                <div class="trading-field">
+
+                    <label for="name">
+                        Full Name <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+                <div class="trading-field">
+
+                    <label for="email">
+                        Business Email <span>*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="name@company.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <div class="trading-field">
+
+                    <label for="phone">
+                        Phone / WhatsApp <span>*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+92 3XX XXXXXXX"
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+                <div class="trading-field">
+
+                    <label for="requirements">
+                        Requirement Details <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="requirements"
+                        name="requirements"
+                        placeholder="Please describe the products, quantity, specifications, destination, sourcing requirement or any other details..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <!-- CAPTCHA -->
+
+                <div class="trading-captcha">
+
+                    <span class="trading-captcha-title">
+                        Security Verification
+                    </span>
+
+                    <div class="trading-captcha-question">
+                        What is <strong>7 + 4</strong>?
+                    </div>
+
+                    <input
+                        type="number"
+                        id="captcha"
+                        name="captcha"
+                        placeholder="Enter answer"
+                        required
+                    >
+
+                    <div
+                        class="trading-captcha-error"
+                        id="captchaError"
+                    >
+                        Incorrect answer. Please try again.
+                    </div>
+
+                </div>
+
+                <div class="trading-form-actions">
+
+                    <a
+                        href="{{ url_for('trading') }}"
+                        class="trading-form-btn back"
+                    >
+                        BACK TO TRADING
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="trading-form-btn submit"
+                    >
+                        SEND REQUIREMENT
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="trading-form-email">
+            Email:
+            <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+document
+    .getElementById("tradingRequirementForm")
+    .addEventListener("submit", function(event) {
+
+        const captcha = document.getElementById("captcha");
+        const captchaError = document.getElementById("captchaError");
+
+        if (captcha.value !== "11") {
+
+            event.preventDefault();
+
+            captchaError.style.display = "block";
+            captcha.focus();
+
+            return;
+        }
+
+        captchaError.style.display = "none";
+    });
+</script>
+
+{% endblock %}

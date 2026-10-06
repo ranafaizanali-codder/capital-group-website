@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ladies Pants Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.ladies-pants-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.ladies-pants-hero {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,0.94) 0%,
+            rgba(6,29,45,0.80) 45%,
+            rgba(6,29,45,0.20) 100%
+        ),
+        url("https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center / cover no-repeat;
+}
+
+.ladies-pants-hero-content {
+    max-width: 760px;
+    padding: 70px 7%;
+    color: white;
+}
+
+.ladies-pants-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.ladies-pants-hero h1 {
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.ladies-pants-hero h1 span {
+    color: #d2a43b;
+}
+
+.ladies-pants-hero p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f1f4f6;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.ladies-pants-intro {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 30px 45px;
+    text-align: center;
+}
+
+.ladies-pants-intro h2 {
+    font-size: 36px;
+    color: #12384f;
+    margin-bottom: 20px;
+}
+
+.ladies-pants-intro p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #526575;
+}
+
+/* ================= FEATURES ================= */
+
+.ladies-pants-feature {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 30px;
+}
+
+.ladies-pants-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 350px;
+    background: white;
+    margin-bottom: 35px;
+    box-shadow: 0 12px 35px rgba(6,29,45,0.08);
+    overflow: hidden;
+}
+
+.ladies-pants-feature-row.reverse .ladies-pants-text {
+    order: 2;
+}
+
+.ladies-pants-feature-row.reverse .ladies-pants-image {
+    order: 1;
+}
+
+.ladies-pants-text {
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ladies-pants-text small {
+    color: #c69b32;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.ladies-pants-text h3 {
+    font-size: 30px;
+    margin: 0 0 15px;
+    color: #12384f;
+}
+
+.ladies-pants-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5c6d79;
+    margin: 0;
+}
+
+.ladies-pants-image {
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ================= COLLECTIONS ================= */
+
+.ladies-pants-categories {
+    max-width: 1100px;
+    margin: 80px auto 30px;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.ladies-pants-categories h2 {
+    font-size: 34px;
+    color: #12384f;
+    margin-bottom: 35px;
+}
+
+.ladies-pants-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.ladies-pants-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 82px;
+    padding: 18px;
+    background: #061d2d;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 3px solid #c69b32;
+    transition: all 0.3s ease;
+}
+
+.ladies-pants-product:hover {
+    background: #12384f;
+    transform: translateY(-4px);
+}
+
+/* ================= CTA ================= */
+
+.ladies-pants-cta {
+    margin-top: 80px;
+    padding: 70px 30px;
+    background: #061d2d;
+    text-align: center;
+    color: white;
+}
+
+.ladies-pants-cta h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.ladies-pants-cta p {
+    color: #d8e0e5;
+    margin-bottom: 30px;
+}
+
+.ladies-pants-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ladies-pants-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #d2a43b;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.ladies-pants-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.ladies-pants-btn:hover {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.ladies-pants-email {
+    margin-top: 30px;
+    color: #d2a43b;
+    font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .ladies-pants-feature-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ladies-pants-feature-row.reverse .ladies-pants-text,
+    .ladies-pants-feature-row.reverse .ladies-pants-image {
+        order: initial;
+    }
+
+    .ladies-pants-image {
+        min-height: 300px;
+    }
+
+    .ladies-pants-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .ladies-pants-hero {
+        min-height: 520px;
+    }
+
+    .ladies-pants-hero-content {
+        padding: 50px 25px;
+    }
+
+    .ladies-pants-hero p {
+        font-size: 16px;
+    }
+
+    .ladies-pants-text {
+        padding: 35px 25px;
+    }
+
+    .ladies-pants-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<div class="ladies-pants-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="ladies-pants-hero">
+
+        <div class="ladies-pants-hero-content">
+
+            <div class="ladies-pants-label">
+                Ladies Pants Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL
+                <span>SOURCING / SUPPLY CHAIN SOLUTIONS.</span>
+            </h1>
+
+            <p>
+                CTC’s Ladies Pants Division provides
+                solutions for contemporary women's trousers, pants and
+                everyday bottoms, connecting quality manufacturers with
+                domestic and international apparel markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="ladies-pants-intro">
+
+        <h2>Ladies Pants</h2>
+
+        <p>
+            Our ladies pants collection combines contemporary silhouettes,
+            comfortable fabrics and practical styling for modern wardrobes.
+            We support sourcing requirements across casual, formal and
+            fashion-oriented women's trouser collections.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE 1 ================= -->
+
+    <section class="ladies-pants-feature">
+
+        <div class="ladies-pants-feature-row">
+
+            <div class="ladies-pants-text">
+
+                <small>01 / Contemporary Collection</small>
+
+                <h3>Modern Women's Trousers</h3>
+
+                <p>
+                    Contemporary cuts, clean tailoring and versatile
+                    silhouettes provide refined trouser options for modern
+                    women's apparel collections.
+                </p>
+
+            </div>
+
+            <div
+                class="ladies-pants-image"
+                style="
+                    background-image:
+                    url('https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1800');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 2 ================= -->
+
+    <section class="ladies-pants-feature">
+
+        <div class="ladies-pants-feature-row reverse">
+
+            <div class="ladies-pants-text">
+
+                <small>02 / Everyday Style</small>
+
+                <h3>Casual Ladies Pants</h3>
+
+                <p>
+                    Comfortable fabrics and relaxed silhouettes create
+                    versatile pants designed for everyday wear, travel and
+                    contemporary casual collections.
+                </p>
+
+            </div>
+
+            <div
+                class="ladies-pants-image"
+                style="
+                    background-image:
+                   url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1800&q=85');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 3 ================= -->
+
+    <section class="ladies-pants-feature">
+
+        <div class="ladies-pants-feature-row">
+
+            <div class="ladies-pants-text">
+
+                <small>03 / Refined Apparel</small>
+
+                <h3>Elegant &amp; Formal Pants</h3>
+
+                <p>
+                    Refined fabrics, polished silhouettes and careful
+                    construction support elegant trouser collections for
+                    professional and formal wardrobes.
+                </p>
+
+            </div>
+
+            <div
+                class="ladies-pants-image"
+                style="
+                    background-image:
+                    url('https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1800');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COLLECTIONS ================= -->
+
+    <section class="ladies-pants-categories">
+
+        <h2>Ladies Pants Collections</h2>
+
+        <div class="ladies-pants-grid">
+
+            <a href="#" class="ladies-pants-product">
+                Formal Trousers
+            </a>
+
+            <a href="#" class="ladies-pants-product">
+                Casual Pants
+            </a>
+
+            <a href="#" class="ladies-pants-product">
+                Wide Leg Pants
+            </a>
+
+            <a href="#" class="ladies-pants-product">
+                Straight Leg Pants
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="ladies-pants-cta">
+
+        <h2>Looking for Ladies Pants?</h2>
+
+        <p>
+            Share your product requirements with Capital Trading Corporation
+            for sourcing, supply and apparel solutions.
+        </p>
+
+        <div class="ladies-pants-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="ladies-pants-btn primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('garments_apparel') }}"
+                class="ladies-pants-btn">
+                BACK TO GARMENTS
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="ladies-pants-btn">
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="ladies-pants-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="ladies-pants-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

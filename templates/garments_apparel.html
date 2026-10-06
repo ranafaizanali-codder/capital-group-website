@@ -1,0 +1,604 @@
+{% extends "base.html" %}
+
+{% block title %}
+Garments & Apparel Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING — GARMENTS / APPAREL
+   ========================================================= */
+
+.garments-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.garments-hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.92) 0%,
+            rgba(6, 29, 45, 0.76) 48%,
+            rgba(6, 29, 45, 0.35) 100%
+        ),
+        url("https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center center / cover no-repeat;
+}
+
+.garments-hero-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 90px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.garments-label {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.garments-hero h1 {
+    max-width: 850px;
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.garments-hero-description {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255,255,255,0.90);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.garments-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 75px 0 90px;
+}
+
+.garments-intro {
+    max-width: 850px;
+    margin-bottom: 55px;
+}
+
+.garments-intro h2 {
+    margin: 0 0 15px;
+    color: #061d2d;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.garments-intro p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #4b6170;
+}
+
+/* ================= GRAPHIC STRIPS ================= */
+
+.garment-strip {
+    min-height: 300px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 6px;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.garment-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.78),
+            rgba(6, 29, 45, 0.48),
+            rgba(6, 29, 45, 0.72)
+        );
+}
+
+.garment-strip-content {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 90%);
+}
+
+.garment-strip h3 {
+    margin: 0 0 25px;
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ================= STRIP IMAGES ================= */
+
+.pants-strip {
+    background-image:
+        url("https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1600");
+}
+
+.shirts-strip {
+    background-image:
+        url("https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1800");
+}
+
+.ladies-strip {
+    background-image:
+        url("https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1800");
+}
+
+/* ================= PRODUCT BUTTONS ================= */
+
+.garment-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.garment-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 11px 22px;
+
+    background: rgba(255,255,255,0.96);
+    color: #061d2d;
+
+    border: 1px solid rgba(255,255,255,0.95);
+    border-radius: 4px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.garment-button:hover {
+    background: #d2a43b;
+    border-color: #d2a43b;
+    color: #061d2d;
+    transform: translateY(-2px);
+}
+
+.garment-button:focus-visible {
+    outline: 3px solid #d2a43b;
+    outline-offset: 4px;
+}
+
+/* ================= CTA ================= */
+
+.garments-cta {
+    margin-top: 70px;
+    padding: 55px 30px;
+    text-align: center;
+    background: #061d2d;
+    border-radius: 6px;
+}
+
+.garments-cta h2 {
+    margin: 0 0 25px;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.garments-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+.garments-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    padding: 12px 25px;
+
+    border-radius: 4px;
+    border: 1px solid #d2a43b;
+
+    background: #d2a43b;
+    color: #061d2d;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.garments-cta-button:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.garments-cta-button.secondary {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.55);
+}
+
+.garments-cta-button.secondary:hover {
+    background: #ffffff;
+    color: #061d2d;
+    border-color: #ffffff;
+}
+
+.garments-cta-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* ================= FOOTER EMAIL ================= */
+
+.garments-email {
+    margin-top: 35px;
+    text-align: right;
+}
+
+.garments-email a {
+    color: #12384f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.garments-email a:hover {
+    color: #c69b32;
+    text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .garments-hero {
+        min-height: 500px;
+    }
+
+    .garments-hero-content {
+        padding: 70px 0;
+    }
+
+    .garments-hero h1 {
+        font-size: 40px;
+    }
+
+    .garments-hero-description {
+        font-size: 16px;
+    }
+
+    .garments-content {
+        padding: 55px 0 70px;
+    }
+
+    .garments-intro h2 {
+        font-size: 29px;
+    }
+
+    .garment-strip {
+        min-height: 330px;
+    }
+
+    .garment-strip h3 {
+        font-size: 31px;
+    }
+
+    .garment-button {
+        width: 100%;
+    }
+
+    .garments-cta {
+        padding: 45px 20px;
+    }
+
+    .garments-cta h2 {
+        font-size: 27px;
+    }
+
+    .garments-cta-button {
+        width: 100%;
+    }
+
+    .garments-email {
+        text-align: center;
+    }
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .garment-button,
+    .garments-cta-button {
+        transition: none;
+    }
+
+    .garment-button:hover,
+    .garments-cta-button:hover {
+        transform: none;
+    }
+}
+</style>
+
+
+<div class="garments-page">
+
+    <!-- ================= HERO ================= -->
+
+    <header class="garments-hero">
+
+        <div class="garments-hero-content">
+
+            <div class="garments-label">
+                Garments / Apparel Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="garments-hero-description">
+               Being a major cotton-producing country, Pakistan is renowned for 
+               producing high-quality 100% cotton and blended garments and apparel.
+
+               CTC’s Garments/Apparel Division offers domestic, commercial, official 
+               and industrial garment and apparel solutions to valued clients across 
+               the globe. We are focused on providing tailored solutions that meet the 
+               specific garment and apparel requirements of our clients, rather than simply 
+               promoting products we already have.
+
+                Among our extensive range of garment and apparel products, we have listed below 
+                some representative product categories and varieties. However, we are always willing 
+                to accommodate challenging and customized requirements related to garments and apparel.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="garments-content">
+
+        <section
+            class="garments-intro"
+            aria-labelledby="garments-intro-heading"
+        >
+
+            <h2 id="garments-intro-heading">
+                Garments &amp; Apparel Solutions
+            </h2>
+
+            <p>
+                Our garments and apparel sourcing portfolio covers everyday, formal and contemporary 
+                clothing categories for different markets and customer requirements.
+
+
+            </p>
+
+        </section>
+
+
+        <!-- ================= PANTS ================= -->
+
+        <section
+            class="garment-strip pants-strip"
+            aria-labelledby="pants-heading"
+        >
+
+            <div class="garment-strip-content">
+
+                <h3 id="pants-heading">
+                    Pants
+                </h3>
+
+                <nav
+                    class="garment-buttons"
+                    aria-label="Pants products"
+                >
+
+                    <a href="{{ url_for('dress_pants') }}" class="garment-button">
+                        Dress Pants
+                    </a>
+
+                    <a href="{{ url_for('formal_dress_pants') }}" class="garment-button">
+                        Formal Dress Pants
+                    </a>
+
+                    <a href="{{ url_for('casual_pants') }}" class="garment-button">
+                        Casual Pants
+                    </a>
+
+                    <a href="{{ url_for('jeans_trousers') }}" class="garment-button">
+                        Jeans &amp; Trousers
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SHIRTS ================= -->
+
+        <section
+            class="garment-strip shirts-strip"
+            aria-labelledby="shirts-heading"
+        >
+
+            <div class="garment-strip-content">
+
+                <h3 id="shirts-heading">
+                    Shirts
+                </h3>
+
+                <nav
+                    class="garment-buttons"
+                    aria-label="Shirts products"
+                >
+
+                    <a href="{{ url_for('formal_shirts') }}" class="garment-button">
+                        Formal Shirts
+                    </a>
+
+                    <a href="{{ url_for('casual_wear') }}" class="garment-button">
+                        Casual Wear
+                    </a>
+
+                    <a href="{{ url_for('t_shirts')}}" class="garment-button">
+                        T-Shirts
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LADIES & CHILDREN ================= -->
+
+        <section
+            class="garment-strip ladies-strip"
+            aria-labelledby="ladies-heading"
+        >
+
+            <div class="garment-strip-content">
+
+                <h3 id="ladies-heading">
+                    Ladies &amp; Children’s Apparel
+                </h3>
+
+                <nav
+                    class="garment-buttons"
+                    aria-label="Ladies and children's apparel products"
+                >
+
+                    <a href="{{ url_for('ladies_shirts')}}" class="garment-button">
+                        Ladies Shirts
+                    </a>
+
+                    <a href="{{ url_for('ladies_pants')}}" class="garment-button">
+                        Ladies Pants
+                    </a>
+
+                    <a href="{{ url_for('childrens_shirts')}}" class="garment-button">
+                        Children’s Shirts
+                    </a>
+
+                    <a href="{{ url_for('childrens_pants')}}" class="garment-button">
+                        Children’s Pants
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section
+            class="garments-cta"
+            aria-labelledby="garments-cta-heading"
+        >
+
+            <h2 id="garments-cta-heading">
+                Looking for Garments &amp; Apparel Products?
+            </h2>
+
+            <div class="garments-cta-buttons">
+
+                <a
+                    href="{{ url_for('trading_quote') }}"
+                    class="garments-cta-button"
+                >
+                    SEND REQUIREMENT
+                </a>
+
+                <a
+                    href="{{ url_for('trading') }}"
+                    class="garments-cta-button secondary"
+                >
+                    BACK TO TRADING
+                </a>
+
+                <a
+                    href="/"
+                    class="garments-cta-button secondary"
+                >
+                    BACK TO HOME
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <div class="garments-email">
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

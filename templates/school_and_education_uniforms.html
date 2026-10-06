@@ -1,0 +1,410 @@
+{% extends "base.html" %}
+
+{% block title %}School & Education Uniforms Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .school-uniforms-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    .school-uniforms-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 25px;
+        background:
+            linear-gradient(rgba(6,29,45,.78), rgba(6,29,45,.78)),
+            url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Schoolgirls_in_Shalwar_Kameez%2C_Abbotabad_Pakistan_-_UK_International_Development.jpg?utm_campaign=index&utm_content=thumbnail_unscaled&utm_source=commons.wikimedia.org")
+            center/cover no-repeat;
+    }
+
+    .school-uniforms-hero-content {
+        max-width: 900px;
+        color: white;
+    }
+
+    .school-uniforms-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+        text-transform: uppercase;
+    }
+
+    .school-uniforms-hero h1 {
+        font-size: 48px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .school-uniforms-slogan {
+        font-size: 17px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .school-uniforms-hero p {
+        max-width: 760px;
+        margin: auto;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e7eef2;
+    }
+
+    .school-uniforms-intro {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 90px 25px 55px;
+    }
+
+    .school-uniforms-intro h2 {
+        font-size: 34px;
+        margin-bottom: 18px;
+        color: #12384f;
+    }
+
+    .school-uniforms-intro p {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #526570;
+    }
+
+    .school-uniforms-sections {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px 25px 80px;
+    }
+
+    .school-uniform-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+        margin-bottom: 90px;
+    }
+
+    .school-uniform-section.reverse {
+        direction: rtl;
+    }
+
+    .school-uniform-section.reverse > * {
+        direction: ltr;
+    }
+
+    .school-uniform-number {
+        font-size: 14px;
+        color: #c69b32;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+
+    .school-uniform-section h3 {
+        font-size: 30px;
+        line-height: 1.2;
+        color: #12384f;
+        margin-bottom: 15px;
+    }
+
+    .school-uniform-section p {
+        font-size: 16px;
+        line-height: 1.65;
+        color: #526570;
+        margin: 0;
+    }
+
+    .school-uniform-image {
+        width: 100%;
+        height: 390px;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 18px 45px rgba(6,29,45,.13);
+    }
+
+    .school-uniforms-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 80px 25px;
+    }
+
+    .school-uniforms-cta h2 {
+        font-size: 34px;
+        margin-bottom: 25px;
+    }
+
+    .school-uniforms-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .school-uniforms-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: .3s ease;
+    }
+
+    .school-uniforms-btn:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .school-uniforms-email {
+        margin-top: 22px;
+        color: #d2a43b;
+        font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+        .school-uniforms-hero h1 {
+            font-size: 36px;
+        }
+
+        .school-uniform-section,
+        .school-uniform-section.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            gap: 30px;
+            margin-bottom: 65px;
+        }
+
+        .school-uniform-image {
+            height: 300px;
+        }
+
+        .school-uniform-section h3 {
+            font-size: 26px;
+        }
+    }
+</style>
+
+<div class="school-uniforms-page">
+
+    <!-- HERO -->
+    <section class="school-uniforms-hero">
+        <div class="school-uniforms-hero-content">
+
+            <div class="school-uniforms-label">
+                School & Education Uniforms Division
+            </div>
+
+            <h1>School & Education Uniform Solutions</h1>
+
+            <div class="school-uniforms-slogan">
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </div>
+
+            <p>
+                CTC’s School & Education Uniforms Division provides professionally
+                sourced uniform solutions for schools, colleges, universities and
+                educational institutions with consistent quality and supply support.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="school-uniforms-intro">
+
+        <h2>School & Education Uniform Supply Solutions</h2>
+
+        <p>
+            From student uniforms and sportswear to customized institutional
+            apparel, CTC supports educational organizations with reliable,
+            professionally managed uniform sourcing solutions.
+        </p>
+
+    </section>
+
+
+    <!-- SECTIONS -->
+    <section class="school-uniforms-sections">
+
+        <!-- 01 -->
+        <div class="school-uniform-section">
+
+            <div>
+                <div class="school-uniform-number">01</div>
+
+                <h3>School Student Uniforms</h3>
+
+                <p>
+                    Professionally sourced school uniforms designed for daily
+                    student use, institutional identity and consistent presentation.
+                </p>
+            </div>
+
+            <img
+                class="school-uniform-image"
+             src="https://www.schoolsearch.co.uk/listings/schoolsearch/6414p1Y.jpg"
+                alt="Students wearing school uniforms"
+            >
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="school-uniform-section reverse">
+
+            <div>
+                <div class="school-uniform-number">02</div>
+
+                <h3>College & University Apparel</h3>
+
+                <p>
+                    Structured apparel solutions for colleges and universities,
+                    supporting professional identity across academic environments.
+                </p>
+            </div>
+
+            <img
+                class="school-uniform-image"
+                src="https://www.schoolsearch.co.uk/listings/schoolsearch/6414p1Y.jpg"
+                alt="Students in formal school uniforms in classroom"
+            >
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="school-uniform-section">
+
+            <div>
+                <div class="school-uniform-number">03</div>
+
+                <h3>Sports & Physical Education Uniforms</h3>
+
+                <p>
+                    Purpose-focused sports uniforms and activewear for physical
+                    education, school teams, training and institutional activities.
+                </p>
+            </div>
+
+            <img
+                class="school-uniform-image"
+                src="https://d3dy70zhjs5mi1.cloudfront.net/s3fs-public/styles/large/public/2023-03/orl_PDP_ois_ogc_gallery_SHS01638_545x450px_290323.jpeg?itok=ps9DhMPP"
+                alt="Students wearing school sports uniforms"
+            >
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="school-uniform-section reverse">
+
+            <div>
+                <div class="school-uniform-number">04</div>
+
+                <h3>School Branding & Customization</h3>
+
+                <p>
+                    Customized uniforms with institutional colors, embroidery,
+                    badges, logos and other branding requirements.
+                </p>
+            </div>
+
+            <img
+                class="school-uniform-image"
+                src="https://img.yfisher.com/m5782/1747972120878-1-1.jpg"
+                alt="School uniform customization and production"
+            >
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="school-uniform-section">
+
+            <div>
+                <div class="school-uniform-number">05</div>
+
+                <h3>Fabric Quality & Size Planning</h3>
+
+                <p>
+                    Carefully selected fabrics, accurate sizing and production
+                    planning help maintain comfort, durability and consistent quality.
+                </p>
+            </div>
+
+            <img
+                class="school-uniform-image"
+              src="https://view.livresq.com/view/6835875acc30eb000a3e0f53/data/static/media/4bb740cb-dc0d-4788-af77-2809d92687ed.jpg"
+                alt="School uniform fabric tailoring and stitching"
+            >
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="school-uniform-section reverse">
+
+            <div>
+                <div class="school-uniform-number">06</div>
+
+                <h3>International Education Supply</h3>
+
+                <p>
+                    Global sourcing and supply coordination for educational
+                    institutions requiring dependable uniform procurement support.
+                </p>
+            </div>
+
+            <img
+                class="school-uniform-image"
+                src="https://upload.wikimedia.org/wikipedia/commons/7/71/Primary_Student_of_Pakistan.JPG?utm_campaign=index&utm_content=thumbnail_unscaled&utm_source=commons.wikimedia.org"
+                alt="Student wearing a formal school uniform"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="school-uniforms-cta">
+
+        <h2>Looking for School & Education Uniform Products?</h2>
+
+        <div class="school-uniforms-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="school-uniforms-btn">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="school-uniforms-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="{{ url_for('engines') }}" class="school-uniforms-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="school-uniforms-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

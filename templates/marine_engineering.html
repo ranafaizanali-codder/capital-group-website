@@ -1,0 +1,318 @@
+{% extends "base.html" %}
+
+{% block title %}Marine Engineering | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .marine-page {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #12384f;
+        background: #f5f7f8;
+    }
+
+    .marine-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.72), rgba(6, 29, 45, 0.86)),
+            url("https://images.pexels.com/photos/12464244/pexels-photo-12464244.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center/cover no-repeat;
+    }
+
+    .marine-hero-content {
+        max-width: 1150px;
+        width: 100%;
+        margin: auto;
+        padding: 80px 30px;
+        color: white;
+    }
+
+    .marine-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .marine-hero h1 {
+        max-width: 900px;
+        margin: 0 0 22px;
+        font-size: 54px;
+        line-height: 1.1;
+    }
+
+    .marine-hero p {
+        max-width: 850px;
+        margin: 0;
+        color: #e7eef2;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .marine-section {
+        max-width: 1150px;
+        margin: auto;
+        padding: 75px 30px;
+    }
+
+    .marine-section h2 {
+        color: #12384f;
+        font-size: 34px;
+        margin-bottom: 18px;
+    }
+
+    .marine-intro {
+        max-width: 900px;
+        color: #52636d;
+        line-height: 1.7;
+    }
+
+    .marine-training-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-top: 42px;
+    }
+
+    .marine-training-card {
+        display: block;
+        text-decoration: none;
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 30px;
+        min-height: 145px;
+        box-sizing: border-box;
+        transition: .25s ease;
+    }
+
+    .marine-training-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(6, 29, 45, 0.09);
+        border-left-color: #12384f;
+    }
+
+    .marine-training-card h3 {
+        margin: 0 0 13px;
+        color: #12384f;
+        font-size: 21px;
+        line-height: 1.35;
+    }
+
+    .marine-training-card p {
+        margin: 0;
+        color: #5a6b74;
+        line-height: 1.55;
+        font-size: 14px;
+    }
+
+    .marine-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 45px;
+    }
+
+    .marine-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border: 1px solid #c69b32;
+        background: white;
+        color: #12384f;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: .7px;
+        transition: .25s ease;
+    }
+
+    .marine-btn:hover {
+        background: #12384f;
+        color: white;
+    }
+
+    .marine-btn.primary {
+        background: #12384f;
+        color: white;
+    }
+
+    .marine-btn.primary:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+    }
+
+    @media (max-width: 850px) {
+        .marine-training-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .marine-hero h1 {
+            font-size: 42px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .marine-section {
+            padding: 55px 20px;
+        }
+
+        .marine-hero h1 {
+            font-size: 34px;
+        }
+
+        .marine-actions {
+            flex-direction: column;
+        }
+
+        .marine-btn {
+            text-align: center;
+        }
+    }
+</style>
+
+
+<div class="marine-page">
+
+    <!-- HERO -->
+    <section class="marine-hero">
+
+        <div class="marine-hero-content">
+
+            <div class="marine-label">
+                Advanced Marine Engineering Department
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Marine Operations
+            </h1>
+
+            <p>
+                CC’s professional marine engineering training develops practical
+                expertise in marine environmental protection, pollution management,
+                maritime communication, project management and asset integrity.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAINING -->
+    <section class="marine-section">
+
+        <h2>
+            Professional Marine Engineering Training
+        </h2>
+
+        <p class="marine-intro">
+            CC’s professional marine engineering programmes provide structured
+            technical and management knowledge for modern maritime operations,
+            marine infrastructure and sustainable offshore development.
+        </p>
+
+
+        <div class="marine-training-grid">
+
+
+            <!-- 1 -->
+            <a href="{{ url_for('marine_environment_protection')}}" class="marine-training-card">
+
+                <h3>
+                    Marine Environment Protection
+                </h3>
+
+                <p>
+                    Professional training focused on marine environmental protection,
+                    sustainable maritime operations and environmental management.
+                </p>
+
+            </a>
+
+
+            <!-- 2 -->
+            <a href="{{ url_for('marine_pollution_management')}}" class="marine-training-card">
+
+                <h3>
+                    Marine Pollution &amp; Management
+                </h3>
+
+                <p>
+                    Professional training covering marine pollution prevention,
+                    monitoring, response strategies and effective pollution management.
+                </p>
+
+            </a>
+
+
+            <!-- 3 -->
+            <a href="{{ url_for('satellite_communication_marine_vsat')}}" class="marine-training-card">
+
+                <h3>
+                    Introduction to Satellite Communication &amp; Marine VSAT
+                </h3>
+
+                <p>
+                    Professional introduction to satellite communication systems,
+                    maritime connectivity and VSAT applications for marine operations.
+                </p>
+
+            </a>
+
+
+            <!-- 4 -->
+            <a href="{{ url_for('project_contract_management_marine_construction')}}" class="marine-training-card">
+
+                <h3>
+                    Project &amp; Contract Management for Marine Construction
+                </h3>
+
+                <p>
+                    Professional training in marine construction projects, contract
+                    administration, planning, risk and project delivery.
+                </p>
+
+            </a>
+
+
+            <!-- 5 -->
+            <a href="{{ url_for('asset_integrity_management_marine_terminal_storage_tanks') }}" class="marine-training-card">
+
+                <h3>
+                    Asset Integrity Management for Marine Terminal Storage Tanks
+                </h3>
+
+                <p>
+                    Professional training focused on asset integrity, inspection,
+                    reliability and lifecycle management of marine terminal storage tanks.
+                </p>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- ACTION BUTTONS -->
+        <div class="marine-actions">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="marine-btn primary">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('consultants') }}"
+               class="marine-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

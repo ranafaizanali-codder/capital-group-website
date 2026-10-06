@@ -1,0 +1,21 @@
+msgid ""
+msgstr "Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "HOME"
+msgstr "STARTSEITE"
+
+msgid "ABOUT US"
+msgstr "ÜBER UNS"
+
+msgid "FOLLOW US"
+msgstr "FOLGEN SIE UNS"
+
+msgid "CONTACT US"
+msgstr "KONTAKT"
+
+msgid "LET'S TALK"
+msgstr "LASSEN SIE UNS SPRECHEN"
+
+msgid "Developing Businesses Creating Solutions"
+msgstr "Geschäfte entwickeln Lösungen schaffen"

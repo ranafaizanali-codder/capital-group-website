@@ -1,0 +1,626 @@
+{% extends "base.html" %}
+
+{% block title %}EEE 143 - Fundamentals of Electronics and PCB Design | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+.pcb-training-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+.pcb-training-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.82)),
+        url("https://toslanka.com/articles/prototyping_electronics.webp")
+        center/cover no-repeat;
+}
+
+.pcb-training-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 25px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.pcb-training-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.pcb-training-hero h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 0 0 22px;
+}
+
+.pcb-training-hero p {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e7edf0;
+}
+
+.pcb-training-section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 75px 25px;
+}
+
+.pcb-training-intro {
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto 60px;
+}
+
+.pcb-training-small-title {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.pcb-training-intro h2 {
+    color: #061d2d;
+    font-size: 36px;
+    margin: 12px 0 20px;
+}
+
+.pcb-training-intro p {
+    color: #5d6b73;
+    line-height: 1.8;
+}
+
+.pcb-training-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: start;
+    margin-bottom: 70px;
+}
+
+.pcb-training-content h2 {
+    color: #12384f;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.pcb-training-content p {
+    color: #5d6b73;
+    line-height: 1.8;
+}
+
+.pcb-training-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.pcb-training-list li {
+    margin-bottom: 12px;
+    color: #53656f;
+    line-height: 1.6;
+}
+
+.pcb-training-syllabus {
+    margin-top: 30px;
+}
+
+.pcb-training-day {
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    border-left: 4px solid #c69b32;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+}
+
+.pcb-training-day h3 {
+    color: #12384f;
+    margin: 0 0 18px;
+    font-size: 21px;
+}
+
+.pcb-training-day ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.pcb-training-day li {
+    color: #5d6b73;
+    line-height: 1.6;
+    margin-bottom: 9px;
+}
+
+.pcb-training-cta {
+    background: #061d2d;
+    color: #ffffff;
+    text-align: center;
+    padding: 75px 25px;
+}
+
+.pcb-training-cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pcb-training-cta h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.pcb-training-cta p {
+    color: #dce5e9;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.pcb-training-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    margin: 5px;
+    border: 1px solid #c69b32;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.pcb-training-btn:hover {
+    background: #c69b32;
+    color: #ffffff;
+}
+
+@media (max-width: 800px) {
+
+    .pcb-training-hero {
+        min-height: 520px;
+    }
+
+    .pcb-training-hero h1 {
+        font-size: 36px;
+    }
+
+    .pcb-training-block {
+        grid-template-columns: 1fr;
+    }
+
+    .pcb-training-section {
+        padding: 55px 20px;
+    }
+}
+</style>
+
+
+<div class="pcb-training-page">
+
+    <!-- HERO -->
+
+    <section class="pcb-training-hero">
+
+        <div class="pcb-training-hero-content">
+
+            <span class="pcb-training-label">
+                Advanced Electronics Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                Professional electronics and PCB design training covering
+                measurement principles, electronic circuits, digital systems,
+                PCB development, laboratory practice and troubleshooting.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+
+    <section class="pcb-training-section">
+
+        <!-- COURSE DESCRIPTION -->
+
+        <div class="pcb-training-intro">
+
+            <span class="pcb-training-small-title">
+                Professional Training Program
+            </span>
+
+            <h2>
+                EEE 143 - Fundamentals of Electronics and PCB Design:
+                From Basics to Lab Practice (10 Days)
+            </h2>
+
+            <p>
+                This intensive 10-day training program offers a comprehensive
+                foundation in electrical and electronic engineering concepts,
+                starting from measurement principles and electronic theory
+                through to practical applications in PCB design and
+                troubleshooting.
+            </p>
+
+            <p>
+                Participants will gain hands-on experience in using
+                professional design tools, performing lab diagnostics,
+                and applying safe maintenance techniques on real-world
+                circuit boards. Ideal for beginners or early-career
+                professionals, the course bridges theory and practice
+                to build strong technical competence in modern electronics.
+            </p>
+
+        </div>
+
+
+        <!-- OBJECTIVES + WHO SHOULD ATTEND -->
+
+        <div class="pcb-training-block">
+
+            <div class="pcb-training-content">
+
+                <span class="pcb-training-small-title">
+                    Learning Outcomes
+                </span>
+
+                <h2>
+                    Course Objectives
+                </h2>
+
+                <ul class="pcb-training-list">
+
+                    <li>
+                        Understand and apply fundamental measurement
+                        principles and SI units.
+                    </li>
+
+                    <li>
+                        Identify and describe passive and active electronic
+                        components and their functions.
+                    </li>
+
+                    <li>
+                        Analyze and build both analog and digital circuits
+                        using standard laws and methods.
+                    </li>
+
+                    <li>
+                        Interpret and create circuit diagrams, including
+                        DC and AC configurations.
+                    </li>
+
+                    <li>
+                        Work with binary logic, ASCII codes, and
+                        microcontrollers for digital circuit design.
+                    </li>
+
+                    <li>
+                        Use professional schematic and PCB design tools
+                        to develop electronic projects.
+                    </li>
+
+                    <li>
+                        Implement best practices in soldering, testing,
+                        and troubleshooting of electronic components.
+                    </li>
+
+                    <li>
+                        Safely operate lab equipment including multimeters,
+                        oscilloscopes, and rework stations.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="pcb-training-content">
+
+                <span class="pcb-training-small-title">
+                    Target Participants
+                </span>
+
+                <h2>
+                    Who Should Attend?
+                </h2>
+
+                <ul class="pcb-training-list">
+
+                    <li>
+                        Technicians
+                    </li>
+
+                    <li>
+                        Engineers
+                    </li>
+
+                    <li>
+                        Staff in defense, telecom, automotive, or industrial
+                        sectors requiring basic electronics knowledge.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+
+        <div class="pcb-training-intro">
+
+            <span class="pcb-training-small-title">
+                Ten-Day Professional Program
+            </span>
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+        </div>
+
+
+        <div class="pcb-training-syllabus">
+
+            <!-- DAY 1 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 1</h3>
+
+                <ul>
+
+                    <li>Basics of measurements</li>
+                    <li>Measurement systematics</li>
+                    <li>Definition of the basic units of measurement</li>
+                    <li>Description of the SI system</li>
+                    <li>Expression of numbers in scientific notation</li>
+                    <li>Representation of numbers to the power of 10</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 2</h3>
+
+                <ul>
+
+                    <li>Basics of electronics</li>
+                    <li>Electronic components (active and passive)</li>
+                    <li>Kirchhoff’s Law</li>
+                    <li>Ohm's Law</li>
+                    <li>Electro motor force</li>
+                    <li>Transformers</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 3</h3>
+
+                <ul>
+
+                    <li>Circuit diagrams</li>
+                    <li>DC Circuits</li>
+                    <li>AC Circuits</li>
+                    <li>Integrated circuits</li>
+                    <li>Power</li>
+                    <li>Energy</li>
+                    <li>Dissipation</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 4</h3>
+
+                <ul>
+
+                    <li>Analog circuits</li>
+                    <li>Digital Circuits</li>
+                    <li>Mixed Circuits</li>
+                    <li>Equivalent circuits</li>
+                    <li>Resonance concept in AC Circuits</li>
+                    <li>Analog filters</li>
+                    <li>Harmonic analysis</li>
+                    <li>Frequently used circuits</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 5</h3>
+
+                <ul>
+
+                    <li>Digital electronic circuits</li>
+                    <li>Binary logic</li>
+                    <li>ASCII codes</li>
+                    <li>Truth tables</li>
+                    <li>Realization of truth tables</li>
+                    <li>Logic circuit</li>
+                    <li>Microcontrollers and microprocessors</li>
+                    <li>Programming of digital microcontrollers</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 6 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 6</h3>
+
+                <ul>
+
+                    <li>Design, schematics and PCBs</li>
+                    <li>Design considerations</li>
+                    <li>Catalog reading</li>
+                    <li>Importance of quality of components</li>
+                    <li>Procurement methods of components</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 7 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 7</h3>
+
+                <ul>
+
+                    <li>Use of the design tools</li>
+                    <li>Use of schematic and PCB design programs</li>
+                    <li>Grounding issue in electrical circuits</li>
+                    <li>Sample projects</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 8 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 8</h3>
+
+                <ul>
+
+                    <li>Laboratory considerations</li>
+                    <li>Safety precautions</li>
+                    <li>Soldering and desoldering techniques</li>
+                    <li>Testing of electronic components</li>
+                    <li>
+                        Troubleshooting of circuits
+                        (Fault tracking techniques)
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 9 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 9</h3>
+
+                <ul>
+
+                    <li>Use of multimeters during troubleshooting</li>
+                    <li>Use of heat for troubleshooting</li>
+                    <li>Advanced use of oscilloscopes</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 10 -->
+
+            <div class="pcb-training-day">
+
+                <h3>Day 10</h3>
+
+                <ul>
+
+                    <li>Use of rework station</li>
+                    <li>Selection of equivalent component during repair</li>
+                    <li>
+                        Protection of PCBs from natural disrupting factors
+                    </li>
+                    <li>
+                        Protection of PCBs from natural effects
+                    </li>
+                    <li>Maintenance of PCB’s</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="pcb-training-cta">
+
+        <div class="pcb-training-cta-inner">
+
+            <h2>
+                Develop Your Electronics &amp; PCB Design Expertise
+            </h2>
+
+            <p>
+                Connect with Capital Consultants for professional electronics
+                training, PCB design guidance and practical laboratory
+                development.
+            </p>
+
+            <a
+                href="{{ url_for('fundamentals_electronics_pcb_design_registration') }}"
+                class="pcb-training-btn"
+            >
+                REGISTER FOR COURSE
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="pcb-training-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

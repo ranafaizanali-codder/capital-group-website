@@ -1,0 +1,388 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 130 - Instrumentation, Controls and Electrical Systems for Facilities Engineers | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(8, 40, 59, 0.82)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+
+    .electrical-course-hero-content {
+        max-width: 900px;
+    }
+
+    .electrical-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .electrical-course-hero h1 {
+        font-size: 48px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #e8eef2;
+    }
+
+    .electrical-course-section {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px 6%;
+    }
+
+    .electrical-course-section h2 {
+        font-size: 34px;
+        margin: 0 0 22px;
+        color: #12384f;
+    }
+
+    .electrical-course-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #506574;
+        margin-bottom: 28px;
+    }
+
+    .course-block {
+        margin-top: 55px;
+    }
+
+    .course-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .course-list {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .course-list li {
+        margin-bottom: 12px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .day-block {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.05);
+    }
+
+    .day-block h4 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .day-block ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-block li {
+        margin-bottom: 9px;
+        color: #506574;
+        line-height: 1.6;
+    }
+
+    .electrical-course-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 75px 6%;
+    }
+
+    .electrical-course-cta h2 {
+        font-size: 34px;
+        margin: 0 0 18px;
+    }
+
+    .electrical-course-cta p {
+        max-width: 760px;
+        margin: 0 auto 30px;
+        color: #dbe5ea;
+        line-height: 1.7;
+    }
+
+    .electrical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-course-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .electrical-course-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .electrical-course-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .course-footer {
+        background: #061d2d;
+        text-align: center;
+        padding: 22px;
+        color: #bfcdd5;
+        font-size: 14px;
+    }
+
+    .course-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        .electrical-course-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .electrical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .electrical-course-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-course-section {
+            padding: 60px 7%;
+        }
+
+        .electrical-course-section h2 {
+            font-size: 28px;
+        }
+
+        .day-block {
+            padding: 20px;
+        }
+    }
+</style>
+
+<div class="electrical-course-page">
+
+    <!-- HERO -->
+    <section class="electrical-course-hero">
+        <div class="electrical-course-hero-content">
+
+            <span class="electrical-course-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional instrumentation, controls and electrical
+                systems training develops practical expertise in electrical
+                power, process instrumentation, control systems and facility
+                operations.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- COURSE DESCRIPTION -->
+    <section class="electrical-course-section">
+
+        <h2>
+            EEE 130 - Instrumentation, Controls and Electrical Systems for Facilities Engineers
+        </h2>
+
+        <p>
+            This course provides an overview of electrical power generation and
+            distribution, process and safety systems instrumentation, and
+            control strategies and configurations. The focus is on application
+            and integration into the process and control of upstream and
+            midstream oil and gas facilities.
+        </p>
+
+
+        <!-- OBJECTIVES -->
+        <div class="course-block">
+
+            <h3>Course Objectives</h3>
+
+            <ul class="course-list">
+                <li>Defining fundamentals parameters for electrical power usage and generation such as voltage levels</li>
+                <li>Using safe practices such as hazardous area definition and circuit protection</li>
+                <li>Defining what to measure, why measure a parameter and how to measure</li>
+                <li>Determining and using the many control strategies and equipment</li>
+                <li>Identifying equipment and instrument characteristics</li>
+                <li>Defining and integrating components into systems</li>
+                <li>Developing electrical power demand (load) lists, one-line diagrams, and the selecting and integrating power distribution systems</li>
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="course-block">
+
+            <h3>Who Should Attend?</h3>
+
+            <ul class="course-list">
+                <li>Engineers</li>
+                <li>Technicians</li>
+                <li>System operators</li>
+                <li>Anyone who aspires to increase his capabilities in instrumentation, control, and electrical systems in oil and gas facilities</li>
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="course-block">
+
+            <h3>Course Syllabus</h3>
+
+
+            <div class="day-block">
+                <h4>Day 1</h4>
+                <ul>
+                    <li>Key electrical power considerations and fundamentals</li>
+                    <li>Voltage levels and power type selection and application</li>
+                    <li>Purchased power considerations including generation efficiency, redundant sources, transmission grid parameters, and cost considerations</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 2</h4>
+                <ul>
+                    <li>Electric power distribution, systems loads</li>
+                    <li>Internal grid layout, major distribution equipment and cabling</li>
+                    <li>Power users definition and integration into the power distribution system</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 3</h4>
+                <ul>
+                    <li>Electrical system safety</li>
+                    <li>Process systems operations and the key characteristics</li>
+                    <li>Measurement needs, as well as techniques to measure and control</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 4</h4>
+                <ul>
+                    <li>Control modes and their applications, communications requirements, and the operator</li>
+                    <li>Interrelationships between process, equipment, instruments and controls</li>
+                    <li>Field (facility) control and monitoring systems such as pressure and level indicators and controllers</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 5</h4>
+                <ul>
+                    <li>Field (facility) safety monitoring and response systems</li>
+                    <li>System-wide considerations including communications, local control, remote control, and data management and use</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-course-cta">
+
+        <h2>
+            Develop Your Instrumentation and Controls Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional electrical
+            engineering training and practical instrumentation, controls and
+            electrical systems development.
+        </p>
+
+        <div class="electrical-course-buttons">
+
+            <a href="{{ url_for('instrumentation_controls_facilities_registration') }}"
+               class="electrical-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="electrical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="course-footer">
+        For registration assistance:
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

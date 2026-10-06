@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Condenser Division | Capital Engineering Corporation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7f8;
+            color: #12384f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ================= HERO ================= */
+
+        .condenser-hero {
+            position: relative;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #061d2d;
+        }
+
+        .condenser-hero > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.76;
+        }
+
+        .condenser-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 29, 45, 0.98) 0%,
+                    rgba(6, 29, 45, 0.88) 34%,
+                    rgba(6, 29, 45, 0.48) 68%,
+                    rgba(6, 29, 45, 0.18) 100%
+                );
+        }
+
+        .condenser-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, 88%);
+            margin: auto;
+            color: white;
+        }
+
+        .condenser-label {
+            display: inline-block;
+            color: #d2a43b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 3px solid #d2a43b;
+        }
+
+        .condenser-hero h1 {
+            margin: 0 0 22px;
+            max-width: 900px;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .condenser-hero p {
+            max-width: 830px;
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e8eef2;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .condenser-content {
+            width: min(1200px, 88%);
+            margin: auto;
+            padding: 90px 0 55px;
+        }
+
+        /* ================= OUR CAPABILITIES ================= */
+
+        .condenser-capabilities {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 80px;
+        }
+
+        .condenser-capabilities-label {
+            display: block;
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .condenser-capabilities h2 {
+            margin: 0 0 15px;
+            color: #061d2d;
+            font-size: 36px;
+            line-height: 1.2;
+        }
+
+        .condenser-capabilities p {
+            margin: 0;
+            color: #526775;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================= FEATURE ROWS ================= */
+
+        .condenser-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+            margin-bottom: 95px;
+        }
+
+        .condenser-feature.reverse {
+            direction: rtl;
+        }
+
+        .condenser-feature.reverse .condenser-text {
+            direction: ltr;
+        }
+
+        .condenser-text {
+            direction: ltr;
+        }
+
+        .condenser-number {
+            display: block;
+            color: #c69b32;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .condenser-text h3 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .condenser-text p {
+            margin: 0;
+            color: #526775;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .condenser-image {
+            overflow: hidden;
+            background: white;
+            border: 1px solid rgba(198, 155, 50, 0.35);
+            box-shadow: 0 16px 35px rgba(6, 29, 45, 0.12);
+        }
+
+        .condenser-image img {
+            display: block;
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .condenser-image:hover img {
+            transform: scale(1.035);
+        }
+
+        /* ================= ACTIONS ================= */
+
+        .condenser-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-top: 1px solid #d8e0e5;
+            padding-top: 35px;
+            margin-top: 10px;
+        }
+
+        .condenser-btn {
+            display: inline-block;
+            padding: 14px 26px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .condenser-btn.back {
+            color: #061d2d;
+            background: transparent;
+            border: 1px solid #061d2d;
+        }
+
+        .condenser-btn.back:hover {
+            color: white;
+            background: #061d2d;
+        }
+
+        .condenser-btn.request {
+            color: white;
+            background: #c69b32;
+            border: 1px solid #c69b32;
+        }
+
+        .condenser-btn.request:hover {
+            background: #061d2d;
+            border-color: #061d2d;
+        }
+
+        /* ================= EMAIL ================= */
+
+        .condenser-email {
+            text-align: right;
+            margin-top: 28px;
+            padding-bottom: 10px;
+        }
+
+        .condenser-email a {
+            color: #12384f;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .condenser-email a:hover {
+            color: #c69b32;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .condenser-hero {
+                min-height: 520px;
+            }
+
+            .condenser-feature,
+            .condenser-feature.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 35px;
+                margin-bottom: 70px;
+            }
+
+            .condenser-text {
+                order: 1;
+            }
+
+            .condenser-image {
+                order: 2;
+            }
+
+            .condenser-image img {
+                height: 330px;
+            }
+
+            .condenser-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .condenser-btn {
+                text-align: center;
+            }
+
+            .condenser-email {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .condenser-hero {
+                min-height: 500px;
+            }
+
+            .condenser-hero p {
+                font-size: 16px;
+            }
+
+            .condenser-content {
+                padding-top: 65px;
+            }
+
+            .condenser-capabilities h2 {
+                font-size: 30px;
+            }
+
+            .condenser-text h3 {
+                font-size: 26px;
+            }
+
+            .condenser-image img {
+                height: 270px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="condenser-hero">
+
+        <img
+            src="https://img.directindustry.it/images_di/photo-mg/224329-19521087.jpg"
+            alt="Industrial evaporative condenser installation"
+        >
+
+        <div class="condenser-hero-content">
+
+            <span class="condenser-label">
+                CONDENSER DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Condenser Division specializes in the engineering,
+                fabrication and integration of high-performance condensation
+                and heat-rejection equipment for demanding industrial and
+                process applications, with emphasis on thermal efficiency,
+                reliability and controlled process operation.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="condenser-content">
+
+
+        <!-- ================= OUR CAPABILITIES ================= -->
+
+        <section class="condenser-capabilities">
+
+            <span class="condenser-capabilities-label">
+                OUR CAPABILITIES
+            </span>
+
+            <h2>
+                Condensation & Thermal Management Solutions
+            </h2>
+
+            <p>
+                CCs provides precision-engineered condensation, cooling and
+                thermal management solutions for efficient heat rejection and
+                reliable process temperature control.
+            </p>
+
+        </section>
+
+
+        <!-- ================= 01 ================= -->
+
+        <section class="condenser-feature">
+
+            <div class="condenser-text">
+
+                <span class="condenser-number">
+                    01
+                </span>
+
+                <h3>
+                    Condensation System
+                </h3>
+
+                <p>
+                    CECs Condensation Systems are engineered to convert process
+                    vapors into liquid through controlled heat removal, using
+                    shell-and-tube and other suitable condenser configurations
+                    for industrial process requirements.
+                </p>
+
+            </div>
+
+            <div class="condenser-image">
+
+                <img
+                     src="https://ecdn6.globalso.com/upload/m/image_other/2026-04/2646/image-18.png"
+                    alt="Industrial shell and tube condenser"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 02 ================= -->
+
+        <section class="condenser-feature reverse">
+
+            <div class="condenser-text">
+
+                <span class="condenser-number">
+                    02
+                </span>
+
+                <h3>
+                    Cooling Tower
+                </h3>
+
+                <p>
+                    Our Cooling Tower solutions support efficient heat rejection
+                    from circulating water systems, helping maintain stable
+                    condenser operating conditions and controlled process
+                    temperatures.
+                </p>
+
+            </div>
+
+            <div class="condenser-image">
+
+                <img
+                   src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Industrial_Water_Cooling_Tower_System.png"
+                    alt="Industrial cooling tower system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 03 ================= -->
+
+        <section class="condenser-feature">
+
+            <div class="condenser-text">
+
+                <span class="condenser-number">
+                    03
+                </span>
+
+                <h3>
+                    Thermal Management
+                </h3>
+
+                <p>
+                    CECs Thermal Management capability integrates condensers,
+                    cooling equipment, circulation systems and controls to
+                    maintain efficient and reliable thermal conditions across
+                    industrial processes.
+                </p>
+
+            </div>
+
+            <div class="condenser-image">
+
+                <img
+                    src="https://media.licdn.com/dms/image/v2/D4E10AQGiLwgOvCciPw/image-shrink_1280/image-shrink_1280/0/1680181277547?e=2147483647&t=zQk7L2sFMnGL49nUbfp0qTh6Bwzd0oV-u8396QchI2s&v=beta"
+                    alt="Industrial adiabatic condenser thermal management system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 04 ================= -->
+
+        <section class="condenser-feature reverse">
+
+            <div class="condenser-text">
+
+                <span class="condenser-number">
+                    04
+                </span>
+
+                <h3>
+                    Heat Recovery & Condensate Handling
+                </h3>
+
+                <p>
+                    Our heat recovery capability supports the recovery and
+                    controlled handling of condensate streams, helping improve
+                    thermal utilization and maintain efficient process cycles.
+                </p>
+
+            </div>
+
+            <div class="condenser-image">
+
+                <img
+                    src="https://image.made-in-china.com/2f0j00ChWcuIkPbgqe/Closed-Loop-Steel-Water-Chiller-Evaporative-Condenser-Power-Station-Cooling-Towers.jpg"
+                    alt="Integrated condenser and closed-loop cooling system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 05 ================= -->
+
+        <section class="condenser-feature">
+
+            <div class="condenser-text">
+
+                <span class="condenser-number">
+                    05
+                </span>
+
+                <h3>
+                    Process Cooling Integration
+                </h3>
+
+                <p>
+                    CECs Process Cooling Integration connects condenser systems
+                    with pumps, piping, heat exchangers and instrumentation to
+                    provide coordinated and dependable thermal performance.
+                </p>
+
+            </div>
+
+            <div class="condenser-image">
+
+                <img
+                    src="https://img.directindustry.it/images_di/photo-mg/224329-19521087.jpg"
+                    alt="Integrated industrial condenser cooling equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="condenser-actions">
+
+            <a
+                href="/companies/engineering/process-industry"
+                class="condenser-btn back"
+            >
+                GO BACK TO PROCESS INDUSTRY
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="condenser-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="condenser-email">
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.fabrication-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.fabrication-hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,0.94),
+            rgba(6,29,45,0.58)
+        ),
+        url("https://images.pexels.com/photos/27102103/pexels-photo-27102103.jpeg?cs=srgb&dl=pexels-felipe-silva-1458994757-27102103.jpg&fm=jpg")
+        center / cover no-repeat;
+}
+
+.fabrication-hero-content {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto;
+    padding: 90px 6%;
+    color: #fff;
+}
+
+.fabrication-eyebrow {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d2a43b;
+    margin-bottom: 14px;
+}
+
+.fabrication-hero h1 {
+    margin: 0 0 18px;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.fabrication-hero p {
+    max-width: 780px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.92);
+}
+
+/* CONTENT */
+.fabrication-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+.fabrication-intro {
+    max-width: 850px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.fabrication-intro h2 {
+    margin: 0 0 14px;
+    font-size: 30px;
+    color: #061d2d;
+}
+
+.fabrication-intro p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #526575;
+}
+
+/* SECTIONS */
+.fabrication-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    margin-bottom: 75px;
+}
+
+.fabrication-section.reverse .fabrication-image-wrap {
+    order: 2;
+}
+
+.fabrication-section.reverse .fabrication-copy {
+    order: 1;
+}
+
+.fabrication-image-wrap {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #e9eef1;
+    box-shadow: 0 15px 35px rgba(6,29,45,0.10);
+}
+
+.fabrication-image {
+    width: 100%;
+    height: 390px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fabrication-image-wrap:hover .fabrication-image {
+    transform: scale(1.025);
+}
+
+.fabrication-copy {
+    padding: 10px 5px;
+}
+
+.fabrication-number {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.fabrication-copy h2 {
+    margin: 0 0 15px;
+    font-size: 32px;
+    color: #061d2d;
+}
+
+.fabrication-copy p {
+    margin: 0;
+    max-width: 540px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #526575;
+}
+
+/* CTA */
+.fabrication-cta {
+    padding: 65px 6%;
+    text-align: center;
+    background: #061d2d;
+    color: #fff;
+}
+
+.fabrication-cta h2 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.fabrication-cta p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.82);
+}
+
+.fabrication-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.fabrication-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    transition: 0.25s ease;
+}
+
+.fabrication-btn.primary {
+    background: #c69b32;
+    color: #fff;
+}
+
+.fabrication-btn.primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.fabrication-btn.secondary {
+    border: 1px solid rgba(255,255,255,0.45);
+    color: #fff;
+}
+
+.fabrication-btn.secondary:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+
+    .fabrication-hero {
+        min-height: 470px;
+    }
+
+    .fabrication-hero-content {
+        padding: 75px 7%;
+    }
+
+    .fabrication-hero p {
+        font-size: 16px;
+    }
+
+    .fabrication-container {
+        padding: 50px 0;
+    }
+
+    .fabrication-section,
+    .fabrication-section.reverse {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 55px;
+    }
+
+    .fabrication-section.reverse .fabrication-image-wrap,
+    .fabrication-section.reverse .fabrication-copy {
+        order: initial;
+    }
+
+    .fabrication-image {
+        height: 300px;
+    }
+
+    .fabrication-copy h2 {
+        font-size: 28px;
+    }
+}
+</style>
+
+
+<div class="fabrication-page">
+
+    <!-- HERO -->
+    <section class="fabrication-hero">
+
+        <div class="fabrication-hero-content">
+
+            <div class="fabrication-eyebrow">
+                Fabrication Division
+            </div>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CCs Fabrication Division is versatile in providing flexible fabrication services from medium to large-scale industrial, commercial and specialized requirements, structures and vessels.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="fabrication-container">
+
+        <section class="fabrication-intro">
+
+            <h2>
+                Advanced Fabrication Capabilities
+            </h2>
+
+            <p>
+                Our fabrication capabilities combine precision cutting, welding and forming processes to support engineered structures, components and industrial assemblies.
+            </p>
+
+        </section>
+
+
+        <!-- LASER CUTTING -->
+        <section class="fabrication-section">
+
+            <div class="fabrication-image-wrap">
+
+                <img
+                    class="fabrication-image"
+                    src="https://images.pexels.com/photos/36522023/pexels-photo-36522023.jpeg?cs=srgb&dl=pexels-peter-xie-371876898-36522023.jpg&fm=jpg"
+                    alt="Modern industrial laser cutting machine for precision metal fabrication"
+                    loading="lazy">
+
+            </div>
+
+            <div class="fabrication-copy">
+
+                <span class="fabrication-number">
+                    01 · FABRICATION PROCESS
+                </span>
+
+                <h2>
+                    Laser Cutting
+                </h2>
+
+                <p>
+                    Precision laser cutting produces accurate profiles and complex geometries from sheet and plate materials. It supports clean edges, repeatable dimensions and efficient preparation of fabricated components.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- WELDING -->
+        <section class="fabrication-section reverse">
+
+            <div class="fabrication-image-wrap">
+
+                <img
+                    class="fabrication-image"
+                    src="https://images.pexels.com/photos/36522030/pexels-photo-36522030.jpeg?cs=srgb&dl=pexels-peter-xie-371876898-36522030.jpg&fm=jpg"
+                    alt="Modern robotic welding station for industrial metal fabrication"
+                    loading="lazy">
+
+            </div>
+
+            <div class="fabrication-copy">
+
+                <span class="fabrication-number">
+                    02 · FABRICATION PROCESS
+                </span>
+
+                <h2>
+                    Welding
+                </h2>
+
+                <p>
+                    Welding joins fabricated metal components into durable structures, assemblies and engineered products. Process selection is matched to material, geometry, joint requirements and application conditions.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BENDING -->
+        <section class="fabrication-section">
+
+            <div class="fabrication-image-wrap">
+
+                <img
+                    class="fabrication-image"
+                    src="https://www.decetec.com/wp-content/uploads/2025/10/Custom-Shapes.webp"
+                    alt="CNC press brake forming custom sheet metal shapes"
+                    loading="lazy">
+
+            </div>
+
+            <div class="fabrication-copy">
+
+                <span class="fabrication-number">
+                    03 · FABRICATION PROCESS
+                </span>
+
+                <h2>
+                    Bending
+                </h2>
+
+                <p>
+                    CNC bending forms sheet and plate materials into accurate angles and profiles. Controlled tooling and programmed forming sequences support repeatable dimensions for industrial components and structures.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOLDING -->
+        <section class="fabrication-section reverse">
+
+            <div class="fabrication-image-wrap">
+
+                <img
+                    class="fabrication-image"
+                  src="https://img.directindustry.com/images_di/photo-mg/146253-17042969.jpg"
+                    alt="Modern CNC folding and sheet metal forming equipment"
+                    loading="lazy">
+
+            </div>
+
+            <div class="fabrication-copy">
+
+                <span class="fabrication-number">
+                    04 · FABRICATION PROCESS
+                </span>
+
+                <h2>
+                    Folding
+                </h2>
+
+                <p>
+                    Folding provides controlled forming of sheet metal into precise channels, panels, covers and structural profiles. It supports consistent geometry and efficient production of fabricated assemblies.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CTA -->
+    <section class="fabrication-cta">
+
+        <h2>
+            Fabrication Requirements
+        </h2>
+
+        <p>
+            Share your drawing, material specification or fabrication requirement with Capital Engineering Corporation.
+        </p>
+
+        <div class="fabrication-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="fabrication-btn primary">
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="fabrication-btn secondary">
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

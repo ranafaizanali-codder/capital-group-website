@@ -1,0 +1,21 @@
+msgid ""
+msgstr "Language: zh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "HOME"
+msgstr "首页"
+
+msgid "ABOUT US"
+msgstr "关于我们"
+
+msgid "FOLLOW US"
+msgstr "关注我们"
+
+msgid "CONTACT US"
+msgstr "联系我们"
+
+msgid "LET'S TALK"
+msgstr "联系我们"
+
+msgid "Developing Businesses Creating Solutions"
+msgstr "发展业务 创造解决方案"

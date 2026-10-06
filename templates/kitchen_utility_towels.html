@@ -1,0 +1,474 @@
+{% extends "base.html" %}
+
+{% block title %}Kitchen & Utility Towels Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.kitchen-utility-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.kitchen-utility-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.76),rgba(6,29,45,.76)),
+        url("https://images.pexels.com/photos/4805238/pexels-photo-4805238.jpeg?auto=compress&cs=tinysrgb&w=1800&q=75")
+        center/cover no-repeat;
+}
+
+.kitchen-utility-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.kitchen-utility-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.kitchen-utility-hero h1{
+    max-width:1000px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.kitchen-utility-description{
+    max-width:780px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.kitchen-utility-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.kitchen-utility-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.kitchen-utility-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.kitchen-utility-sections{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 100px;
+}
+
+.kitchen-utility-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:460px;
+    align-items:center;
+    gap:70px;
+    margin-bottom:90px;
+}
+
+.kitchen-utility-section:nth-child(even){
+    direction:rtl;
+}
+
+.kitchen-utility-section:nth-child(even) .kitchen-utility-content{
+    direction:ltr;
+}
+
+.kitchen-utility-image{
+    min-height:430px;
+    border-radius:4px;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.kitchen-utility-image-1{
+    background-image:url("https://images.pexels.com/photos/4805238/pexels-photo-4805238.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.kitchen-utility-image-2{
+    background-image:url("https://images.pexels.com/photos/4794895/pexels-photo-4794895.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.kitchen-utility-image-3{
+    background-image:url("https://images.pexels.com/photos/4794851/pexels-photo-4794851.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.kitchen-utility-image-4{
+    background-image:url("https://images.pexels.com/photos/4794870/pexels-photo-4794870.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.kitchen-utility-image-5{
+    background-image:url("https://images.pexels.com/photos/4794874/pexels-photo-4794874.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.kitchen-utility-image-6{
+    background-image:url("https://images.pexels.com/photos/4805220/pexels-photo-4805220.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.kitchen-utility-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.kitchen-utility-content h3{
+    color:#12384f;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 20px;
+}
+
+.kitchen-utility-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    max-width:500px;
+}
+
+.kitchen-utility-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.kitchen-utility-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.kitchen-utility-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.kitchen-utility-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.kitchen-utility-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.kitchen-utility-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.kitchen-utility-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+
+    .kitchen-utility-hero{
+        min-height:620px;
+    }
+
+    .kitchen-utility-section{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .kitchen-utility-section:nth-child(even){
+        direction:ltr;
+    }
+
+    .kitchen-utility-image{
+        min-height:330px;
+    }
+
+    .kitchen-utility-content h3{
+        font-size:30px;
+    }
+}
+</style>
+
+
+<div class="kitchen-utility-page">
+
+
+    <section class="kitchen-utility-hero">
+
+        <div class="kitchen-utility-hero-inner">
+
+            <div class="kitchen-utility-label">
+                Kitchen & Utility Towels Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="kitchen-utility-description">
+                CTC’s Kitchen & Utility Towels Division provides professionally
+                sourced towel products for household, hospitality, foodservice,
+                retail and commercial utility markets, supporting dependable
+                quality, product specifications, quantity planning and
+                international textile trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="kitchen-utility-intro">
+
+        <h2>
+            Professional Kitchen & Utility Textile Solutions
+        </h2>
+
+        <p>
+            CTC supports kitchen and utility towel sourcing through reliable
+            supplier coordination, product specifications, fabric requirements,
+            packaging needs, quantity planning and organized supply solutions
+            for domestic and international markets.
+        </p>
+
+    </section>
+
+
+    <section class="kitchen-utility-sections">
+
+
+        <div class="kitchen-utility-section">
+
+            <div class="kitchen-utility-image kitchen-utility-image-1"></div>
+
+            <div class="kitchen-utility-content">
+
+                <div class="kitchen-utility-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Kitchen Towels
+                </h3>
+
+                <p>
+                    Professionally sourced kitchen towels designed for practical
+                    daily use, dependable absorbency, easy handling and consistent
+                    textile quality across retail and commercial markets.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="kitchen-utility-section">
+
+            <div class="kitchen-utility-image kitchen-utility-image-2"></div>
+
+            <div class="kitchen-utility-content">
+
+                <div class="kitchen-utility-number">
+                    02
+                </div>
+
+                <h3>
+                    Foodservice Textile Supply
+                </h3>
+
+                <p>
+                    Coordinated towel solutions for restaurants, catering
+                    operations, professional kitchens and foodservice businesses
+                    requiring practical and reliable textile supply.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="kitchen-utility-section">
+
+            <div class="kitchen-utility-image kitchen-utility-image-3"></div>
+
+            <div class="kitchen-utility-content">
+
+                <div class="kitchen-utility-number">
+                    03
+                </div>
+
+                <h3>
+                    Household Utility Towels
+                </h3>
+
+                <p>
+                    Functional towel products for household cleaning, drying,
+                    kitchen support and everyday utility requirements with
+                    organized sourcing and supply coordination.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="kitchen-utility-section">
+
+            <div class="kitchen-utility-image kitchen-utility-image-4"></div>
+
+            <div class="kitchen-utility-content">
+
+                <div class="kitchen-utility-number">
+                    04
+                </div>
+
+                <h3>
+                    Commercial Utility Solutions
+                </h3>
+
+                <p>
+                    Practical textile solutions for commercial kitchens,
+                    hospitality facilities and service environments requiring
+                    durable utility towels and recurring supply.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="kitchen-utility-section">
+
+            <div class="kitchen-utility-image kitchen-utility-image-5"></div>
+
+            <div class="kitchen-utility-content">
+
+                <div class="kitchen-utility-number">
+                    05
+                </div>
+
+                <h3>
+                    Quality & Supply Planning
+                </h3>
+
+                <p>
+                    Organized product specifications, supplier coordination,
+                    quantity planning and shipment support for recurring towel
+                    requirements and larger commercial orders.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="kitchen-utility-section">
+
+            <div class="kitchen-utility-image kitchen-utility-image-6"></div>
+
+            <div class="kitchen-utility-content">
+
+                <div class="kitchen-utility-number">
+                    06
+                </div>
+
+                <h3>
+                    International Kitchen Textile Markets
+                </h3>
+
+                <p>
+                    CTC connects reliable textile suppliers with international
+                    buyers through professional sourcing, supply coordination,
+                    quantity planning and global kitchen textile market solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="kitchen-utility-cta">
+
+        <h2>
+            Looking for Kitchen & Utility Towels?
+        </h2>
+
+        <p>
+            Connect with CTC for professional kitchen towel sourcing,
+            utility textile supply coordination and international
+            textile market solutions.
+        </p>
+
+        <div class="kitchen-utility-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="kitchen-utility-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="kitchen-utility-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="kitchen-utility-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="kitchen-utility-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

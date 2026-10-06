@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced Aerospace Guidance, Navigation & Control | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+.gnc-course-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+.gnc-course-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94),
+            rgba(8, 40, 59, 0.72),
+            rgba(8, 40, 59, 0.35)
+        ),
+        url("https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center center / cover no-repeat;
+}
+
+.gnc-course-hero-content {
+    max-width: 850px;
+    padding: 90px 7%;
+}
+
+.gnc-course-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.gnc-course-hero h1 {
+    color: #ffffff;
+    font-size: 46px;
+    line-height: 1.15;
+    margin: 0 0 22px;
+}
+
+.gnc-course-hero p {
+    color: #e7eef2;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 780px;
+    margin: 0;
+}
+
+.gnc-course-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 25px;
+}
+
+.gnc-course-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 45px;
+}
+
+.gnc-info-box {
+    background: #ffffff;
+    border: 1px solid #d8e0e4;
+    border-top: 3px solid #c69b32;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+.gnc-info-box span {
+    display: block;
+    font-size: 11px;
+    color: #71808a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.gnc-info-box strong {
+    color: #08283b;
+    font-size: 14px;
+}
+
+.gnc-section {
+    margin-bottom: 42px;
+}
+
+.gnc-section h2 {
+    color: #08283b;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.gnc-section p {
+    color: #52636d;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.gnc-section ul {
+    padding-left: 20px;
+    color: #52636d;
+    line-height: 1.8;
+}
+
+.gnc-day {
+    background: #ffffff;
+    border: 1px solid #d8e0e4;
+    border-left: 4px solid #c69b32;
+    border-radius: 7px;
+    padding: 22px;
+    margin-bottom: 15px;
+}
+
+.gnc-day h3 {
+    color: #08283b;
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.gnc-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 0 50px;
+}
+
+.gnc-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid #123f58;
+    border-radius: 5px;
+    color: #123f58;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.gnc-btn.primary {
+    background: #123f58;
+    color: #ffffff;
+}
+
+.gnc-btn:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+    color: #ffffff;
+}
+
+@media (max-width: 800px) {
+    .gnc-course-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gnc-course-hero h1 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 500px) {
+    .gnc-course-info {
+        grid-template-columns: 1fr;
+    }
+
+    .gnc-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+
+<div class="gnc-course-page">
+
+    <section class="gnc-course-hero">
+
+        <div class="gnc-course-hero-content">
+
+            <div class="gnc-course-label">
+                Advanced Avionics Engineering
+            </div>
+
+            <h1>
+                Advanced Aerospace Guidance, Navigation & Control (GNC)
+            </h1>
+
+            <p>
+                CC’s professional aerospace engineering training develops
+                practical expertise in aircraft and spacecraft guidance,
+                navigation, dynamics, control systems and modern aerospace
+                control architectures.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="gnc-course-content">
+
+        <div class="gnc-course-info">
+
+            <div class="gnc-info-box">
+                <span>Course Reference</span>
+                <strong>93853</strong>
+            </div>
+
+            <div class="gnc-info-box">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="gnc-info-box">
+                <span>Course Date</span>
+                <strong>Can be offered upon a specific date request</strong>
+            </div>
+
+            <div class="gnc-info-box">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <div class="gnc-section">
+
+            <h2>Course Description</h2>
+
+            <p>
+                This professional training focuses on the principles and
+                practical application of guidance and control for aircraft
+                and spacecraft, including aerospace vehicle dynamics,
+                control architectures, autopilot systems and modern
+                guidance and navigation techniques.
+            </p>
+
+        </div>
+
+
+        <div class="gnc-section">
+
+            <h2>Course Objectives</h2>
+
+            <ul>
+                <li>Understand aerospace vehicle dynamics and control principles.</li>
+                <li>Develop knowledge of aircraft and spacecraft guidance systems.</li>
+                <li>Understand navigation and flight-control architectures.</li>
+                <li>Apply control techniques to aerospace vehicle systems.</li>
+                <li>Develop practical understanding of autopilot applications.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="gnc-section">
+
+            <h2>Who Should Attend</h2>
+
+            <ul>
+                <li>Aerospace engineers</li>
+                <li>Avionics engineers</li>
+                <li>Flight-control engineers</li>
+                <li>Systems engineers</li>
+                <li>Aircraft and spacecraft engineering professionals</li>
+            </ul>
+
+        </div>
+
+
+        <div class="gnc-section">
+
+            <h2>Five-Day Training Programme</h2>
+
+            <div class="gnc-day">
+                <h3>Day 1 — Aerospace Dynamics & Control Fundamentals</h3>
+                <ul>
+                    <li>Aircraft and spacecraft dynamics</li>
+                    <li>Equations of motion</li>
+                    <li>Control-system fundamentals</li>
+                    <li>Aerospace control architectures</li>
+                </ul>
+            </div>
+
+            <div class="gnc-day">
+                <h3>Day 2 — Guidance & Navigation</h3>
+                <ul>
+                    <li>Guidance principles</li>
+                    <li>Navigation systems</li>
+                    <li>Trajectory and path guidance</li>
+                    <li>Integrated guidance and navigation concepts</li>
+                </ul>
+            </div>
+
+            <div class="gnc-day">
+                <h3>Day 3 — Aerospace Control Systems</h3>
+                <ul>
+                    <li>Feedback control</li>
+                    <li>State-space control</li>
+                    <li>Aircraft flight-control systems</li>
+                    <li>Spacecraft attitude control</li>
+                </ul>
+            </div>
+
+            <div class="gnc-day">
+                <h3>Day 4 — Advanced Control Applications</h3>
+                <ul>
+                    <li>Robust control concepts</li>
+                    <li>Adaptive control concepts</li>
+                    <li>Autopilot systems</li>
+                    <li>Modern aerospace control applications</li>
+                </ul>
+            </div>
+
+            <div class="gnc-day">
+                <h3>Day 5 — Integrated GNC Systems</h3>
+                <ul>
+                    <li>Integrated guidance, navigation and control</li>
+                    <li>Aircraft and spacecraft applications</li>
+                    <li>Control-system performance assessment</li>
+                    <li>Practical aerospace system case studies</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="gnc-actions">
+
+            <a
+                href="{{ url_for('aerospace_guidance_navigation_control_registration') }}"
+                class="gnc-btn primary"
+            >
+                REGISTER
+            </a>
+
+            <a
+                href="{{ url_for('avionics_section') }}"
+                class="gnc-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

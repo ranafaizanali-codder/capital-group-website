@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 106 - Electrical Grounding, Bonding and Lightning Protection | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(8, 40, 59, 0.82)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+
+    .electrical-course-hero-content {
+        max-width: 950px;
+    }
+
+    .electrical-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .electrical-course-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #e8eef2;
+    }
+
+    .electrical-course-section {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px 6%;
+    }
+
+    .electrical-course-section h2 {
+        font-size: 34px;
+        margin: 0 0 22px;
+        color: #12384f;
+    }
+
+    .electrical-course-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #506574;
+        margin-bottom: 20px;
+    }
+
+    .course-block {
+        margin-top: 55px;
+    }
+
+    .course-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .course-list {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .course-list li {
+        margin-bottom: 12px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .day-block {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.05);
+    }
+
+    .day-block h4 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .day-block ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-block li {
+        margin-bottom: 9px;
+        color: #506574;
+        line-height: 1.6;
+    }
+
+    .electrical-course-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 75px 6%;
+    }
+
+    .electrical-course-cta h2 {
+        font-size: 34px;
+        margin: 0 0 18px;
+    }
+
+    .electrical-course-cta p {
+        max-width: 760px;
+        margin: 0 auto 30px;
+        color: #dbe5ea;
+        line-height: 1.7;
+    }
+
+    .electrical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-course-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .electrical-course-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .electrical-course-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .course-footer {
+        background: #061d2d;
+        text-align: center;
+        padding: 22px;
+        color: #bfcdd5;
+        font-size: 14px;
+    }
+
+    .course-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        .electrical-course-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .electrical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .electrical-course-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-course-section {
+            padding: 60px 7%;
+        }
+
+        .electrical-course-section h2 {
+            font-size: 28px;
+        }
+
+        .day-block {
+            padding: 20px;
+        }
+    }
+</style>
+
+
+<div class="electrical-course-page">
+
+    <!-- HERO -->
+    <section class="electrical-course-hero">
+
+        <div class="electrical-course-hero-content">
+
+            <span class="electrical-course-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional electrical grounding and lightning protection
+                training develops practical expertise in earthing, bonding,
+                grounding systems, surge protection and electrical safety.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="electrical-course-section">
+
+        <h2>
+            EEE 106 - Electrical Grounding, Bonding and Lightning Protection
+        </h2>
+
+        <p>
+            Poor grounding practice can be the cause of continual and
+            intermittent difficult-to-diagnose problems in a facility. The aim
+            of this course is to increase awareness of and importance of
+            correct earthing practices to ensure safety of personnel plant and
+            equipment and at the same time to understand the codes that govern
+            the designs and installations.
+        </p>
+
+
+        <!-- OBJECTIVES -->
+        <div class="course-block">
+
+            <h3>Course Objectives</h3>
+
+            <ul class="course-list">
+                <li>Identifying safety hazards created by ineffective grounding systems</li>
+                <li>Understanding the effect of connecting grounded and bonded systems</li>
+                <li>Being familiar with the different earthing systems, principal design considerations and methods of lightning protection systems</li>
+                <li>Understanding how to protect personnel, plant and equipment during an earth fault or lightning strike</li>
+                <li>Being familiar with the requirements to design, install, test, and maintain correct earthing and lightning protection systems</li>
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="course-block">
+
+            <h3>Who Should Attend?</h3>
+
+            <ul class="course-list">
+                <li>Building service designers</li>
+                <li>Design engineers</li>
+                <li>Field technicians</li>
+                <li>Electricians</li>
+                <li>Plant engineers</li>
+                <li>Power system protection and control engineers</li>
+                <li>Project engineers</li>
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="course-block">
+
+            <h3>5-Day Course Syllabus</h3>
+
+
+            <!-- DAY 1 -->
+            <div class="day-block">
+
+                <h4>Day 1 — Grounding and Bonding Fundamentals</h4>
+
+                <ul>
+                    <li>What are Grounding and Bonding?</li>
+                    <li>Ungrounded system</li>
+                    <li>The solidly (or directly) earthed neutral</li>
+                    <li>The unearthed neutral, or high impedance-earthed neutral</li>
+                    <li>Resistance earthing</li>
+                    <li>Reactance earthing</li>
+                    <li>Petersen coil earthing</li>
+                    <li>Unearthed or impedance-earthed neutral (IT system)</li>
+                    <li>Directly earthed neutral (TT system)</li>
+                    <li>Connecting the exposed conductive parts to the neutral (TNC – TNS systems)</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+            <div class="day-block">
+
+                <h4>Day 2 — Equipment Grounding and Safety</h4>
+
+                <ul>
+                    <li>Equipment grounding</li>
+                    <li>Shock hazard</li>
+                    <li>Grounding of equipment</li>
+                    <li>Operation of protective devices</li>
+                    <li>Thermal capability</li>
+                    <li>Touch potential during ground faults</li>
+                    <li>Induced voltage problem</li>
+                    <li>Sensing of ground faults</li>
+                    <li>Equipotential bonding</li>
+                    <li>Multiple earthing connections</li>
+                    <li>Surge protection earthing</li>
+                    <li>Practical: safe touch voltage and sizing of earthing conductors</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+            <div class="day-block">
+
+                <h4>Day 3 — Lightning and Surge Protection</h4>
+
+                <ul>
+                    <li>Lightning and surge protection</li>
+                    <li>The incidence and probability of a lightning strike</li>
+                    <li>Methods of lightning protection</li>
+                    <li>What is static electricity?</li>
+                    <li>Generation of charge</li>
+                    <li>Dangers of static build up</li>
+                    <li>Assessment of risks and planning</li>
+                    <li>Bonding of different ground systems as a means of surge proofing</li>
+                    <li>Surges and surge protection</li>
+                    <li>Surge protection of electronic equipment</li>
+                    <li>Achieving graded surge protection</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+            <div class="day-block">
+
+                <h4>Day 4 — Grounding Electrodes and Maintenance</h4>
+
+                <ul>
+                    <li>Grounding electrodes</li>
+                    <li>Soil resistance</li>
+                    <li>Measurement of soil resistivity</li>
+                    <li>Resistance of a single rod electrode</li>
+                    <li>Current-carrying capacity of an electrode</li>
+                    <li>Use of multiple ground rods in parallel</li>
+                    <li>Measurement of ground resistance of an electrode</li>
+                    <li>Concrete-encased electrodes</li>
+                    <li>Corrosion problems in electrical grounding systems</li>
+                    <li>Maintenance of grounding system</li>
+                    <li>Chemical electrodes</li>
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+            <div class="day-block">
+
+                <h4>Day 5 — Electrical Noise, Earthing Practices and UPS</h4>
+
+                <ul>
+                    <li>Definition of electric noise</li>
+                    <li>Earth loops as a cause of noise</li>
+                    <li>Electrostatic coupling and electromagnetic coupling</li>
+                    <li>Shielded isolation transformer</li>
+                    <li>Earthing practices</li>
+                    <li>Avoidance of earth loop</li>
+                    <li>Use of insulated ground (IG) receptacle</li>
+                    <li>Harmonics in electrical systems</li>
+                    <li>Grounding issues in static UPS configurations</li>
+                    <li>UPS configurations and recommended grounding practices</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-course-cta">
+
+        <h2>
+            Develop Your Electrical Grounding Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional electrical
+            engineering training and practical grounding, bonding and
+            lightning protection development.
+        </p>
+
+        <div class="electrical-course-buttons">
+
+            <a href="{{ url_for('electrical_grounding_bonding_registration') }}"
+               class="electrical-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="electrical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="course-footer">
+
+        For registration assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,662 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registration | Aerospace Structures, Methods & Composite Design
+{% endblock %}
+
+{% block content %}
+
+<style>
+.aerospace-registration-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+    padding: 80px 8%;
+}
+
+.aerospace-registration-container {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.aerospace-registration-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.aerospace-registration-label {
+    display: block;
+    margin-bottom: 15px;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.aerospace-registration-header h1 {
+    margin: 0 0 18px;
+    font-size: 42px;
+    line-height: 1.2;
+    color: #12384f;
+}
+
+.aerospace-registration-header p {
+    max-width: 760px;
+    margin: auto;
+    color: #65747c;
+    line-height: 1.7;
+}
+
+.aerospace-registration-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.aerospace-summary-box {
+    background: white;
+    border: 1px solid #dfe5e8;
+    padding: 20px;
+    text-align: center;
+}
+
+.aerospace-summary-box strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #c69b32;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.aerospace-summary-box span {
+    color: #12384f;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.aerospace-registration-form {
+    background: white;
+    border: 1px solid #dfe5e8;
+    padding: 40px;
+}
+
+.aerospace-registration-section {
+    margin-bottom: 38px;
+}
+
+.aerospace-registration-section h2 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e7e9;
+    color: #12384f;
+    font-size: 23px;
+}
+
+.aerospace-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.aerospace-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.aerospace-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.aerospace-form-group label {
+    margin-bottom: 7px;
+    color: #12384f;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.aerospace-form-group input,
+.aerospace-form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #ccd6db;
+    background: #fafcfd;
+    color: #12384f;
+    font-size: 14px;
+    outline: none;
+}
+
+.aerospace-form-group input:focus,
+.aerospace-form-group select:focus {
+    border-color: #c69b32;
+}
+
+.aerospace-submit {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.aerospace-submit button {
+    padding: 15px 32px;
+    border: 1px solid #12384f;
+    background: #12384f;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.aerospace-submit button:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+}
+
+.aerospace-registration-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #65747c;
+    font-size: 13px;
+}
+
+.aerospace-registration-footer strong {
+    color: #12384f;
+}
+
+@media (max-width: 850px) {
+
+    .aerospace-registration-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .aerospace-registration-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .aerospace-registration-summary,
+    .aerospace-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aerospace-registration-page {
+        padding: 60px 6%;
+    }
+
+    .aerospace-registration-header h1 {
+        font-size: 32px;
+    }
+
+    .aerospace-registration-form {
+        padding: 22px;
+    }
+}
+</style>
+
+
+<div class="aerospace-registration-page">
+
+    <div class="aerospace-registration-container">
+
+        <div class="aerospace-registration-header">
+
+            <span class="aerospace-registration-label">
+                Advanced Aerospace Engineering Department
+            </span>
+
+            <h1>
+                Aerospace Structures, Methods & Composite Design
+            </h1>
+
+            <p>
+                Complete the registration form for professional aerospace
+                structures, materials and composite design training.
+            </p>
+
+        </div>
+
+
+        <div class="aerospace-registration-summary">
+
+            <div class="aerospace-summary-box">
+                <strong>Course Reference</strong>
+                <span>16.001</span>
+            </div>
+
+            <div class="aerospace-summary-box">
+                <strong>Duration</strong>
+                <span>5 Days</span>
+            </div>
+
+            <div class="aerospace-summary-box">
+                <strong>Course Date</strong>
+                <span>Can be offered upon a specific date request</span>
+            </div>
+
+            <div class="aerospace-summary-box">
+                <strong>Venue</strong>
+                <span>Marriott Islamabad</span>
+            </div>
+
+        </div>
+
+
+        <form
+            method="POST"
+            class="aerospace-registration-form"
+        >
+
+            <!-- A. COURSE DETAILS -->
+            <div class="aerospace-registration-section">
+
+                <h2>
+                    A. Course Details
+                </h2>
+
+                <div class="aerospace-form-grid">
+
+                    <div class="aerospace-form-group">
+                        <label>Course Reference</label>
+                        <input
+                            type="text"
+                            value="16.001"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="aerospace-form-group">
+                        <label>Course Duration</label>
+                        <input
+                            type="text"
+                            value="5 Days"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="aerospace-form-group">
+                        <label>Course Date</label>
+                        <input
+                            type="text"
+                            value="Can be offered against a specific date request"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="aerospace-form-group">
+                        <label>Venue</label>
+                        <input
+                            type="text"
+                            value="Marriott Islamabad"
+                            readonly
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- B. COMPANY DETAILS -->
+            <div class="aerospace-registration-section">
+
+                <h2>
+                    B. Company Details
+                </h2>
+
+                <div class="aerospace-form-grid">
+
+                    <div class="aerospace-form-group">
+                        <label for="company">
+                            Company Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="aerospace-form-group">
+                        <label for="country">
+                            Country
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- C. CONTACT DETAILS -->
+            <div class="aerospace-registration-section">
+
+                <h2>
+                    C. Contact Details
+                </h2>
+
+                <div class="aerospace-form-grid">
+
+                    <div class="aerospace-form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="aerospace-form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="aerospace-form-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mobile"
+                            name="mobile"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="aerospace-form-group">
+
+                        <label for="salutation">
+                            Salutation
+                        </label>
+
+                        <select
+                            id="salutation"
+                            name="salutation"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Mr.">
+                                Mr.
+                            </option>
+
+                            <option value="Ms.">
+                                Ms.
+                            </option>
+
+                            <option value="Mrs.">
+                                Mrs.
+                            </option>
+
+                            <option value="Dr.">
+                                Dr.
+                            </option>
+
+                            <option value="Prof.">
+                                Prof.
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- D. PARTICIPANT DETAILS -->
+            <div class="aerospace-registration-section">
+
+                <h2>
+                    D. Participant Details
+                </h2>
+
+                <div class="aerospace-form-grid">
+
+                    <div class="aerospace-form-group">
+
+                        <label for="participants">
+                            Number of Participants
+                        </label>
+
+                        <select
+                            id="participants"
+                            name="participants"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="1">
+                                1
+                            </option>
+
+                            <option value="2">
+                                2
+                            </option>
+
+                            <option value="3">
+                                3
+                            </option>
+
+                            <option value="4">
+                                4
+                            </option>
+
+                            <option value="5">
+                                5
+                            </option>
+
+                            <option value="6">
+                                6
+                            </option>
+
+                            <option value="7">
+                                7
+                            </option>
+
+                            <option value="8">
+                                8
+                            </option>
+
+                            <option value="9">
+                                9
+                            </option>
+
+                            <option value="10+">
+                                10+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="aerospace-form-group">
+
+                        <label for="language">
+                            Preferred Language
+                        </label>
+
+                        <select
+                            id="language"
+                            name="language"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="English">
+                                English
+                            </option>
+
+                            <option value="Arabic">
+                                Arabic
+                            </option>
+
+                            <option value="Chinese">
+                                Chinese
+                            </option>
+
+                            <option value="French">
+                                French
+                            </option>
+
+                            <option value="German">
+                                German
+                            </option>
+
+                            <option value="Italian">
+                                Italian
+                            </option>
+
+                            <option value="Japanese">
+                                Japanese
+                            </option>
+
+                            <option value="Korean">
+                                Korean
+                            </option>
+
+                            <option value="Persian">
+                                Persian
+                            </option>
+
+                            <option value="Portuguese">
+                                Portuguese
+                            </option>
+
+                            <option value="Russian">
+                                Russian
+                            </option>
+
+                            <option value="Spanish">
+                                Spanish
+                            </option>
+
+                            <option value="Turkish">
+                                Turkish
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="aerospace-form-group full">
+
+                        <label for="source">
+                            How did you hear about us?
+                        </label>
+
+                        <select
+                            id="source"
+                            name="source"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Website">
+                                Website
+                            </option>
+
+                            <option value="Search Engine">
+                                Search Engine
+                            </option>
+
+                            <option value="Social Media">
+                                Social Media
+                            </option>
+
+                            <option value="Email">
+                                Email
+                            </option>
+
+                            <option value="Referral">
+                                Referral
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="aerospace-submit">
+
+                <button type="submit">
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="aerospace-registration-footer">
+
+            For registration assistance:
+            <strong>ceo@capitalgroup.pk</strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

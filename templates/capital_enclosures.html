@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Enclosures Division | Capital Engineering Corporation</title>
+
+    <style>
+        .enclosures-page {
+            margin: 0;
+            padding: 0;
+            background: #f5f7f8;
+            color: #12384f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .enclosures-hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(90deg, rgba(6,29,45,.94) 0%, rgba(6,29,45,.78) 48%, rgba(6,29,45,.35) 100%),
+                url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=2200&q=88")
+                center/cover no-repeat;
+        }
+
+        .enclosures-hero-content {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+            padding: 90px 0;
+            color: white;
+        }
+
+        .enclosures-eyebrow {
+            font-size: 15px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #d2a43b;
+            margin-bottom: 20px;
+        }
+
+        .enclosures-hero h1 {
+            margin: 0 0 18px;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .enclosures-hero h2 {
+            margin: 0 0 24px;
+            color: #d2a43b;
+            font-size: clamp(24px, 3vw, 40px);
+            line-height: 1.15;
+            font-weight: 700;
+        }
+
+        .enclosures-hero p {
+            max-width: 760px;
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #edf3f6;
+        }
+
+        .enclosures-intro {
+            width: min(1050px, 90%);
+            margin: 0 auto;
+            padding: 75px 0 55px;
+            text-align: center;
+        }
+
+        .enclosures-intro h2 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: 38px;
+        }
+
+        .enclosures-intro p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #536773;
+        }
+
+        .enclosures-container {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+        }
+
+        .enclosures-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+            padding: 65px 0;
+            border-top: 1px solid #dbe2e6;
+        }
+
+        .enclosures-section.reverse .enclosures-image-wrap {
+            order: 2;
+        }
+
+        .enclosures-section.reverse .enclosures-copy {
+            order: 1;
+        }
+
+        .enclosures-image-wrap {
+            overflow: hidden;
+            min-height: 330px;
+            background: #e7ecef;
+            border-radius: 4px;
+        }
+
+        .enclosures-image {
+            width: 100%;
+            height: 360px;
+            display: block;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .enclosures-image-wrap:hover .enclosures-image {
+            transform: scale(1.035);
+        }
+
+        .enclosures-copy {
+            padding: 10px 0;
+        }
+
+        .enclosures-number {
+            margin-bottom: 13px;
+            color: #c69b32;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .enclosures-copy h2 {
+            margin: 0 0 17px;
+            color: #061d2d;
+            font-size: 31px;
+            line-height: 1.2;
+        }
+
+        .enclosures-copy p {
+            margin: 0;
+            color: #526671;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .enclosures-cta {
+            margin-top: 25px;
+            padding: 75px 20px;
+            text-align: center;
+            background: #061d2d;
+            color: white;
+        }
+
+        .enclosures-cta h2 {
+            margin: 0 0 14px;
+            font-size: 36px;
+        }
+
+        .enclosures-cta p {
+            max-width: 680px;
+            margin: 0 auto 28px;
+            color: #dce6eb;
+            line-height: 1.7;
+        }
+
+        .enclosures-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .enclosures-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border: 1px solid #d2a43b;
+            background: #d2a43b;
+            color: #061d2d;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            transition: .25s ease;
+        }
+
+        .enclosures-btn:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .enclosures-btn.secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .enclosures-btn.secondary:hover {
+            background: #d2a43b;
+            color: #061d2d;
+        }
+
+        @media (max-width: 800px) {
+            .enclosures-hero {
+                min-height: 560px;
+            }
+
+            .enclosures-section,
+            .enclosures-section.reverse {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .enclosures-section.reverse .enclosures-image-wrap,
+            .enclosures-section.reverse .enclosures-copy {
+                order: initial;
+            }
+
+            .enclosures-image {
+                height: 300px;
+            }
+
+            .enclosures-intro {
+                padding-top: 55px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .enclosures-hero-content {
+                padding: 65px 0;
+            }
+
+            .enclosures-hero h1 {
+                font-size: 43px;
+            }
+
+            .enclosures-hero h2 {
+                font-size: 25px;
+            }
+
+            .enclosures-hero p {
+                font-size: 16px;
+            }
+
+            .enclosures-copy h2 {
+                font-size: 27px;
+            }
+
+            .enclosures-cta h2 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="enclosures-page">
+
+    <!-- HERO -->
+    <section class="enclosures-hero">
+
+        <div class="enclosures-hero-content">
+
+            <div class="enclosures-eyebrow">
+                ENCLOSURES DIVISION
+            </div>
+
+            <h1>
+                Advanced Industrial Enclosures
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CECs Enclosures Division provides precision engineering and
+                manufacturing solutions for electrical, electronic and industrial
+                enclosures, control cabinets, junction boxes and specialized
+                equipment housings.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="enclosures-intro">
+
+        <h2>
+            Engineered Enclosure Solutions
+        </h2>
+
+        <p>
+            Our enclosure capabilities support industrial automation, electrical
+            distribution, electronic systems and specialized equipment through
+            precision fabrication, controlled assembly and application-focused
+            protection.
+        </p>
+
+    </section>
+
+
+    <div class="enclosures-container">
+
+
+        <!-- 01 -->
+        <section class="enclosures-section">
+
+            <div class="enclosures-image-wrap">
+                <img
+                    class="enclosures-image"
+                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1800&q=88"
+                    alt="Industrial electronic control equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="enclosures-copy">
+
+                <div class="enclosures-number">
+                    01 · INDUSTRIAL CONTROL
+                </div>
+
+                <h2>
+                    Industrial Control Enclosures
+                </h2>
+
+                <p>
+                    Custom-built enclosures for PLCs, automation systems,
+                    control panels and industrial electrical equipment,
+                    supporting reliable system integration and protection.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+        <section class="enclosures-section reverse">
+
+            <div class="enclosures-image-wrap">
+                <img
+                    class="enclosures-image"
+                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electrical power distribution equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="enclosures-copy">
+
+                <div class="enclosures-number">
+                    02 · ELECTRICAL SYSTEMS
+                </div>
+
+                <h2>
+                    Electrical & Distribution Cabinets
+                </h2>
+
+                <p>
+                    Precision-fabricated cabinets for power distribution,
+                    switching, protection and electrical system integration
+                    across demanding industrial applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+        <section class="enclosures-section">
+
+            <div class="enclosures-image-wrap">
+                <img
+                    class="enclosures-image"
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic circuit board equipment housing"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="enclosures-copy">
+
+                <div class="enclosures-number">
+                    03 · ELECTRONIC SYSTEMS
+                </div>
+
+                <h2>
+                    Electronic Equipment Housings
+                </h2>
+
+                <p>
+                    Engineered housings for PCBs, electronic assemblies,
+                    communication equipment and specialized control systems,
+                    designed around component and application requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+        <section class="enclosures-section reverse">
+
+            <div class="enclosures-image-wrap">
+                <img
+                    class="enclosures-image"
+                    src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electrical junction and connection equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="enclosures-copy">
+
+                <div class="enclosures-number">
+                    04 · CONNECTION SYSTEMS
+                </div>
+
+                <h2>
+                    Junction Boxes & Terminal Enclosures
+                </h2>
+
+                <p>
+                    Compact and robust enclosures designed to protect
+                    connections, terminals, wiring and electrical interfaces
+                    in industrial and specialized environments.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+        <section class="enclosures-section">
+
+            <div class="enclosures-image-wrap">
+                <img
+                    class="enclosures-image"
+                    src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1800&q=88"
+                    alt="Industrial sheet metal fabrication equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="enclosures-copy">
+
+                <div class="enclosures-number">
+                    05 · CUSTOM FABRICATION
+                </div>
+
+                <h2>
+                    Custom Sheet Metal Enclosures
+                </h2>
+
+                <p>
+                    Enclosures manufactured according to customer drawings
+                    through precision cutting, bending, welding, finishing
+                    and assembly processes.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 06 -->
+        <section class="enclosures-section reverse">
+
+            <div class="enclosures-image-wrap">
+                <img
+                    class="enclosures-image"
+                    src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=88"
+                    alt="Industrial metal finishing and manufacturing"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="enclosures-copy">
+
+                <div class="enclosures-number">
+                    06 · FINISHING & PROTECTION
+                </div>
+
+                <h2>
+                    Precision Finishing & Protection
+                </h2>
+
+                <p>
+                    Surface finishing and protective treatments selected
+                    according to application, environmental conditions and
+                    enclosure performance requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="enclosures-cta">
+
+        <h2>
+            Discuss Your Enclosure Requirement
+        </h2>
+
+        <p>
+            Share your technical requirements with our engineering team
+            for application-focused enclosure development and manufacturing.
+        </p>
+
+        <div class="enclosures-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="enclosures-btn"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/"
+                class="enclosures-btn secondary"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

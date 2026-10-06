@@ -1,0 +1,845 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL ENGINEERING — MACHINING / SUBTRACTIVE MANUFACTURING
+   ========================================================= */
+
+.machining-page {
+    background: #f5f7f8;
+    color: #12384f;
+    overflow: hidden;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.machining-hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.95),
+            rgba(6,29,45,.76),
+            rgba(6,29,45,.35)
+        ),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2400&q=95")
+        center/cover no-repeat;
+}
+
+.machining-hero-content {
+    width: min(850px, 90%);
+    margin-left: 7%;
+    color: #fff;
+}
+
+.machining-eyebrow {
+    color: #d2a43b;
+    text-transform: uppercase;
+    letter-spacing: .20em;
+    font-size: .76rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.machining-hero h1 {
+    margin: 0 0 24px;
+    font-size: clamp(2.6rem, 5.5vw, 5rem);
+    line-height: 1.04;
+    letter-spacing: -.035em;
+    font-weight: 800;
+}
+
+.machining-hero h1 span {
+    color: #d2a43b;
+}
+
+.machining-hero p {
+    max-width: 780px;
+    margin: 0;
+    color: rgba(255,255,255,.86);
+    font-size: 1.04rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   CONTAINER / SECTIONS
+   ========================================================= */
+
+.machining-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+.machining-section {
+    padding: 82px 0;
+}
+
+.machining-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.machining-split.reverse .machining-image-wrap {
+    order: 2;
+}
+
+.machining-copy {
+    max-width: 570px;
+}
+
+.machining-kicker {
+    color: #c69b32;
+    text-transform: uppercase;
+    letter-spacing: .17em;
+    font-size: .70rem;
+    font-weight: 800;
+    margin-bottom: 13px;
+}
+
+.machining-copy h2 {
+    margin: 0 0 20px;
+    color: #12384f;
+    font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+    line-height: 1.10;
+    letter-spacing: -.025em;
+}
+
+.machining-copy p {
+    margin: 0 0 11px;
+    color: #596c76;
+    font-size: .93rem;
+    line-height: 1.75;
+}
+
+.machining-image-wrap {
+    width: 100%;
+}
+
+.machining-image {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 20px 50px rgba(6,29,45,.13);
+}
+
+/* =========================================================
+   SURFACE TREATMENT BUTTON
+   ========================================================= */
+
+.surface-treatment-block {
+    margin-top: 45px;
+    padding: 35px;
+    background: #061d2d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.surface-treatment-block::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    right: -150px;
+    top: -150px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,164,59,.18);
+}
+
+.surface-treatment-text {
+    position: relative;
+    z-index: 2;
+}
+
+.surface-treatment-text h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 1.35rem;
+}
+
+.surface-treatment-text p {
+    margin: 0;
+    color: rgba(255,255,255,.67);
+    font-size: .84rem;
+    line-height: 1.6;
+}
+
+.surface-treatment-button {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    min-height: 46px;
+    background: #d2a43b;
+    color: #061d2d;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .72rem;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.surface-treatment-button:hover {
+    background: #fff;
+}
+
+/* =========================================================
+   BOTTOM CTA
+   ========================================================= */
+
+.machining-cta {
+    padding: 75px 0;
+    background: #eef2f4;
+}
+
+.machining-cta-layout {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.machining-cta h2 {
+    margin: 0 0 17px;
+    color: #12384f;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+}
+
+.machining-cta p {
+    max-width: 620px;
+    color: #61727b;
+    font-size: .93rem;
+    line-height: 1.75;
+    margin-bottom: 25px;
+}
+
+.machining-cta-image {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    display: block;
+}
+
+.machining-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    background: #061d2d;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .72rem;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.machining-cta-button:hover {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .machining-split,
+    .machining-cta-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .machining-split.reverse .machining-image-wrap {
+        order: initial;
+    }
+
+    .machining-copy {
+        max-width: none;
+    }
+
+    .machining-image {
+        height: 330px;
+    }
+
+    .surface-treatment-block {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .machining-hero {
+        min-height: 540px;
+    }
+
+    .machining-hero-content {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .machining-section {
+        padding: 60px 0;
+    }
+
+    .machining-image {
+        height: 270px;
+    }
+
+    .surface-treatment-block {
+        padding: 27px;
+    }
+
+    .machining-cta-image {
+        height: 250px;
+    }
+}
+</style>
+
+
+<div class="machining-page">
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="machining-hero">
+
+        <div class="machining-hero-content">
+
+            <div class="machining-eyebrow">
+                Subtractive Manufacturing Division
+            </div>
+
+            <h1>
+                Precision Manufacturing Solutions
+                <span>par Excellence</span>
+            </h1>
+
+            <p>
+                CECs Machining Division is among the strongest subtractive
+                manufacturing facilities, with a diverse range of subtractive
+                machine tools with the undermentioned capabilities.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CNC LATHE MACHINES
+         TEXT LEFT — IMAGE RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        CNC Turning
+                    </div>
+
+                    <h2>
+                        CNC Lathe Machines
+                    </h2>
+
+                    <p>
+                        CNC turning is carried out using state-of-the-art CNC
+                        lathe machines from high-quality brands including
+                        Hitachi-Seiki, Maho-Dacle and Bridgeport.
+                    </p>
+
+                    <p>
+                        We can perform horizontal turning from 10 mm diameter
+                        with lengths up to 10 m, while vertical turning supports
+                        diameters up to 15 m.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                       src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=2400&q=95"
+                        alt="CNC lathe machining machine tool">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MILLING MACHINES
+         IMAGE LEFT — TEXT RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split reverse">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Precision Milling
+                    </div>
+
+                    <h2>
+                        Milling Machines and Machining Centers
+                    </h2>
+
+                    <p>
+                        Milling is performed on ferrous and non-ferrous alloys
+                        using advanced milling machines and machining centers
+                        from 3-axis to 5-axis configurations.
+                    </p>
+
+                    <p>
+                        CNC rotary tables provide increased capability for
+                        complex parts, with moving-column milling capacity
+                        for components up to 14 m in length.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                         src="https://s.alicdn.com/%40sc04/kf/Hff89f50f11684779ae8419c5ab5ab4d5z/China-s-Best-selling-CNC-Milling-Machine-the-VMC850-Vertical-Machining-Center-Is-Exported-to-India-Thailand-Malaysia.jpg"
+                        alt="CNC milling machining center">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HOBBING MACHINES
+         TEXT LEFT — IMAGE RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Gear Manufacturing
+                    </div>
+
+                    <h2>
+                        Hobbing Machines
+                    </h2>
+
+                    <p>
+                        Gear hobbing provides precision tooth generation for
+                        cylindrical gears and other engineered gear components.
+                    </p>
+
+                    <p>
+                        The process supports accurate gear profiles for
+                        industrial machinery, transmission and power-transfer applications.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                      src="https://www.hartech.com.tw/upload/edit/H400.png"
+                      alt="Industrial gear hobbing machine"
+
+>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PLANER MACHINES
+         IMAGE LEFT — TEXT RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split reverse">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Heavy-Duty Machining
+                    </div>
+
+                    <h2>
+                        Planer Machines
+                    </h2>
+
+                    <p>
+                        Planer machining provides controlled material removal
+                        across large workpieces requiring accurate flat and
+                        linear surfaces.
+                    </p>
+
+                    <p>
+                        It is suitable for heavy industrial components,
+                        machine structures and large engineered parts.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                       src="https://assets.st-note.com/img/1733627508-f7dSV2oInlB1xpkjKJqscC6G.jpg"
+                        alt="Heavy industrial machining equipment">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SHAPER MACHINES
+         TEXT LEFT — IMAGE RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Precision Shaping
+                    </div>
+
+                    <h2>
+                        Shaper Machines
+                    </h2>
+
+                    <p>
+                        Shaper machines provide controlled reciprocating cutting
+                        for slots, profiles, flat surfaces and specialized
+                        component features.
+                    </p>
+
+                    <p>
+                        The process supports precision work across a range of
+                        industrial engineering components.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                        src="https://antishilathe.com/wp-content/uploads/2025/08/3Types-of-Shaper-Machines.png"
+                     
+    
+   
+    
+                    alt="Precision industrial machine tool">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NIBBLING MACHINES
+         IMAGE LEFT — TEXT RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split reverse">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Sheet Metal Processing
+                    </div>
+
+                    <h2>
+                        Nibbling Machines
+                    </h2>
+
+                    <p>
+                        CNC nibbling enables controlled cutting of sheet-metal
+                        profiles, openings and complex contours with repeatable accuracy.
+                    </p>
+
+                    <p>
+                        It supports efficient production of fabricated panels,
+                        enclosures and application-specific sheet-metal components.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                      src="https://static.wixstatic.com/media/581a6d_2ca53ccf1b6a4e6898495fa8cb7513de~mv2.jpg/v1/fill/w_980%2Ch_1307%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/581a6d_2ca53ccf1b6a4e6898495fa8cb7513de~mv2.jpg"
+                       alt="Industrial sheet metal nibbling machine">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HONING MACHINES
+         TEXT LEFT — IMAGE RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Precision Finishing
+                    </div>
+
+                    <h2>
+                        Honing Machines
+                    </h2>
+
+                    <p>
+                        Precision honing improves bore geometry, surface finish
+                        and dimensional accuracy for critical cylindrical components.
+                    </p>
+
+                    <p>
+                        The process is suitable for demanding components where
+                        controlled internal surface quality is required.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-imagsrc="
+                        src="https://sunnen.com/cdn/shop/files/sh5000_c.jpg?v=1759344169"
+                        alt="Precision inspection and finishing process">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GOUGING & MULTIFUNCTIONAL GRINDING
+         IMAGE LEFT — TEXT RIGHT
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="machining-split reverse">
+
+                <div class="machining-copy">
+
+                    <div class="machining-kicker">
+                        Advanced Surface Processing
+                    </div>
+
+                    <h2>
+                        Gouging and Multifunctional Grinding Machines
+                    </h2>
+
+                    <p>
+                        Advanced grinding and gouging capabilities support
+                        precision material removal, surface correction and
+                        controlled finishing of engineered components.
+                    </p>
+
+                    <p>
+                        These processes provide enhanced dimensional control
+                        and surface quality for demanding manufacturing applications.
+                    </p>
+
+                </div>
+
+                <div class="machining-image-wrap">
+
+                    <img
+                        class="machining-image"
+                       src="https://images.pexels.com/photos/33748032/pexels-photo-33748032.jpeg"
+                        alt="Industrial grinding and precision machining">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SURFACE TREATMENT
+         BUTTON FOR FUTURE PAGE
+         ===================================================== -->
+
+    <section class="machining-section">
+
+        <div class="machining-container">
+
+            <div class="surface-treatment-block">
+
+                <div class="surface-treatment-text">
+
+                    <h2>
+                        Comprehensive Surface Treatment Range
+                    </h2>
+
+                    <p>
+                        Application-focused surface treatment and finishing
+                        solutions for engineered components.
+                    </p>
+
+                </div>
+
+                <a href="{{ url_for('surface_treatment') }}"
+                   class="surface-treatment-button">
+                    Click Here for Details
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL CTA
+         IMAGE RIGHT
+         ===================================================== -->
+
+    <section class="machining-cta">
+
+        <div class="machining-container">
+
+            <div class="machining-cta-layout">
+
+                <div>
+
+                    <div class="machining-kicker">
+                        Capital Engineering Corporation
+                    </div>
+
+                    <h2>
+                        Precision Machining for Complex Components
+                    </h2>
+
+                    <p>
+                        Our subtractive manufacturing capabilities support
+                        precision components, large-scale machining and
+                        application-specific engineering requirements.
+                    </p>
+
+                    <a href="{{ url_for('engineering_quote') }}"
+                       class="machining-cta-button">
+                        Request Engineering Support
+                    </a>
+
+                </div>
+
+                <div>
+
+                    <img
+                        class="machining-cta-image"
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2400&q=95"
+                        alt="Precision CNC machining component">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

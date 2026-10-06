@@ -1,0 +1,685 @@
+{% extends "base.html" %}
+
+{% block title %}
+Orthopedic Instruments Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<meta name="description"
+   content="CTC’s Orthopedic Instruments Division provides professional orthopedic healthcare sourcing and supply solutions for hospitals, clinics, distributors and international healthcare markets.">
+
+<meta name="keywords"
+   content="Orthopedic Instruments, Orthopedic Healthcare Solutions, Orthopedic Medical Supply, Orthopedic Equipment, Orthopedic Instruments Pakistan, Capital Trading Corporation">
+
+<meta name="robots" content="index, follow">
+
+<style>
+
+.orthopedic-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.orthopedic-hero {
+    position: relative;
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.96) 0%,
+            rgba(6,29,45,.83) 48%,
+            rgba(6,29,45,.30) 100%
+        ),
+        url("https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.orthopedic-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.orthopedic-label {
+    color: #d2a43b;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.orthopedic-hero h1 {
+    max-width: 900px;
+
+    margin: 0 0 24px;
+
+    color: #ffffff;
+
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.orthopedic-description {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,.88);
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.orthopedic-intro {
+    width: min(1180px, 92%);
+    margin: auto;
+
+    padding: 75px 0 40px;
+}
+
+.orthopedic-intro h2 {
+    margin: 0 0 15px;
+
+    color: #12384f;
+
+    font-size: 35px;
+    line-height: 1.2;
+}
+
+.orthopedic-intro p {
+    max-width: 830px;
+
+    margin: 0;
+
+    color: #64747d;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   DETAIL SECTIONS
+========================= */
+
+.orthopedic-sections {
+    width: min(1180px, 92%);
+    margin: auto;
+
+    padding: 25px 0 80px;
+}
+
+.orthopedic-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 330px;
+
+    margin-bottom: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e6e9;
+
+    box-shadow: 0 7px 22px rgba(6,29,45,.06);
+
+    overflow: hidden;
+}
+
+.orthopedic-section:nth-child(even) .orthopedic-image {
+    order: 2;
+}
+
+.orthopedic-section:nth-child(even) .orthopedic-content {
+    order: 1;
+}
+
+
+/* =========================
+   DIRECT MEDICAL GRAPHICS
+========================= */
+
+.orthopedic-image {
+    min-height: 330px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.orthopedic-image-1 {
+    background-image:
+        url("https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.orthopedic-image-2 {
+    background-image:
+        url("https://images.pexels.com/photos/7659568/pexels-photo-7659568.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.orthopedic-image-3 {
+    background-image:
+        url("https://images.pexels.com/photos/7659565/pexels-photo-7659565.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.orthopedic-image-4 {
+    background-image:
+        url("https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.orthopedic-image-5 {
+    background-image:
+        url("https://images.pexels.com/photos/4226256/pexels-photo-4226256.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+.orthopedic-image-6 {
+    background-image:
+        url("https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1000&q=75");
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.orthopedic-content {
+    padding: 48px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.orthopedic-number {
+    margin-bottom: 12px;
+
+    color: #c69b32;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.orthopedic-content h3 {
+    margin: 0 0 14px;
+
+    color: #12384f;
+
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.orthopedic-content p {
+    max-width: 510px;
+
+    margin: 0;
+
+    color: #64747d;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.orthopedic-cta {
+    padding: 70px 20px;
+
+    background: #061d2d;
+
+    text-align: center;
+}
+
+.orthopedic-cta h2 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 32px;
+}
+
+.orthopedic-cta p {
+    max-width: 680px;
+
+    margin: 0 auto 28px;
+
+    color: rgba(255,255,255,.78);
+
+    line-height: 1.7;
+}
+
+.orthopedic-buttons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.orthopedic-btn {
+    display: inline-block;
+
+    padding: 13px 24px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: .7px;
+
+    border-radius: 3px;
+
+    transition: .25s ease;
+}
+
+.orthopedic-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.orthopedic-primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.orthopedic-secondary {
+    color: #ffffff;
+
+    border: 1px solid rgba(255,255,255,.35);
+}
+
+.orthopedic-secondary:hover {
+    color: #d2a43b;
+
+    border-color: #d2a43b;
+}
+
+.orthopedic-email {
+    margin-top: 25px;
+
+    color: rgba(255,255,255,.62);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .orthopedic-section {
+        grid-template-columns: 1fr;
+    }
+
+    .orthopedic-section:nth-child(even) .orthopedic-image,
+    .orthopedic-section:nth-child(even) .orthopedic-content {
+        order: initial;
+    }
+
+    .orthopedic-image {
+        min-height: 270px;
+    }
+
+    .orthopedic-content {
+        padding: 36px 28px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .orthopedic-hero {
+        min-height: 520px;
+    }
+
+    .orthopedic-hero-inner {
+        padding: 60px 0;
+    }
+
+    .orthopedic-hero h1 {
+        font-size: 38px;
+    }
+
+    .orthopedic-description {
+        font-size: 15px;
+    }
+
+    .orthopedic-intro {
+        padding-top: 55px;
+    }
+
+    .orthopedic-intro h2 {
+        font-size: 29px;
+    }
+
+    .orthopedic-content h3 {
+        font-size: 24px;
+    }
+}
+
+</style>
+
+<div class="orthopedic-page">
+
+```
+<!-- HERO -->
+
+<section class="orthopedic-hero">
+
+    <div class="orthopedic-hero-inner">
+
+        <div class="orthopedic-label">
+            Orthopedic Instruments Division
+        </div>
+
+        <h1>
+            EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+        </h1>
+
+        <p class="orthopedic-description">
+            CTC’s Orthopedic Instruments Division provides professional
+            healthcare  solutions for hospitals,
+            clinics, distributors and international medical markets,
+            with a focus on dependable quality, consistent supply and
+            long-term healthcare partnerships.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="orthopedic-intro">
+
+    <h2>
+        Orthopedic Healthcare Solutions
+    </h2>
+
+    <p>
+        CTC connects healthcare organizations and distribution networks
+        with professionally sourced orthopedic healthcare solutions,
+        supporting modern medical environments through reliable sourcing,
+        coordinated supply and international market access.
+    </p>
+
+</section>
+
+
+<!-- SIX DETAIL SECTIONS -->
+
+<section class="orthopedic-sections">
+
+
+    <!-- 01 -->
+
+    <article class="orthopedic-section">
+
+        <div
+            class="orthopedic-image orthopedic-image-1"
+            role="img"
+            aria-label="Professional orthopedic healthcare environment">
+        </div>
+
+        <div class="orthopedic-content">
+
+            <div class="orthopedic-number">
+                01 — ORTHOPEDIC HEALTHCARE
+            </div>
+
+            <h3>
+                Orthopedic Clinical Solutions
+            </h3>
+
+            <p>
+                Professional healthcare provides solutions supporting
+                hospitals, clinics and orthopedic care environments
+                through dependable sourcing and coordinated supply
+                services.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 02 -->
+
+    <article class="orthopedic-section">
+
+        <div
+            class="orthopedic-image orthopedic-image-2"
+            role="img"
+            aria-label="Modern healthcare facility and orthopedic care environment">
+        </div>
+
+        <div class="orthopedic-content">
+
+            <div class="orthopedic-number">
+                02 — PROFESSIONAL CARE
+            </div>
+
+            <h3>
+                Orthopedic Practice Support
+            </h3>
+
+            <p>
+                Supporting professional medical environments with
+                organized healthcare sourcing and supply solutions
+                aligned with the needs of orthopedic clinics and
+                healthcare institutions.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 03 -->
+
+    <article class="orthopedic-section">
+
+        <div
+            class="orthopedic-image orthopedic-image-3"
+            role="img"
+            aria-label="Modern medical technology and healthcare environment">
+        </div>
+
+        <div class="orthopedic-content">
+
+            <div class="orthopedic-number">
+                03 — MODERN HEALTHCARE
+            </div>
+
+            <h3>
+                Orthopedic Medical Technology
+            </h3>
+
+            <p>
+                CTC supports access to modern healthcare technology
+                and equipment solutions for organizations seeking
+                dependable and professionally coordinated medical
+                supply services.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 04 -->
+
+    <article class="orthopedic-section">
+
+        <div
+            class="orthopedic-image orthopedic-image-4"
+            role="img"
+            aria-label="Healthcare professionals in a modern medical environment">
+        </div>
+
+        <div class="orthopedic-content">
+
+            <div class="orthopedic-number">
+                04 — HEALTHCARE PARTNERSHIP
+            </div>
+
+            <h3>
+                Orthopedic Healthcare Partnerships
+            </h3>
+
+            <p>
+                We support healthcare businesses and distribution
+                networks through professional communication,
+                organized sourcing and long-term supply relationships
+                across domestic and international markets.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 05 -->
+
+    <article class="orthopedic-section">
+
+        <div
+            class="orthopedic-image orthopedic-image-5"
+            role="img"
+            aria-label="Modern hospital healthcare environment">
+        </div>
+
+        <div class="orthopedic-content">
+
+            <div class="orthopedic-number">
+                05 — SUPPLY SOLUTIONS
+            </div>
+
+            <h3>
+                Orthopedic Supply Coordination
+            </h3>
+
+            <p>
+                Our supply approach focuses on organized sourcing,
+                dependable coordination and professional service
+                for healthcare institutions and orthopedic
+                distribution requirements.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- 06 -->
+
+    <article class="orthopedic-section">
+
+        <div
+            class="orthopedic-image orthopedic-image-6"
+            role="img"
+            aria-label="International healthcare and medical supply environment">
+        </div>
+
+        <div class="orthopedic-content">
+
+            <div class="orthopedic-number">
+                06 — GLOBAL SOURCING
+            </div>
+
+            <h3>
+                International Orthopedic Supply
+            </h3>
+
+            <p>
+                CTC supports domestic and international healthcare
+                markets through professional sourcing, supply
+                coordination and business-to-business service
+                designed for reliable long-term collaboration.
+            </p>
+
+        </div>
+
+    </article>
+
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="orthopedic-cta">
+
+    <h2>
+        Looking for Orthopedic Healthcare Solutions?
+    </h2>
+
+    <p>
+        Connect with CTC for professional orthopedic healthcare
+        sourcing, supply coordination and international market
+        solutions.
+    </p>
+
+    <div class="orthopedic-buttons">
+
+        <a href="{{ url_for('trading_quote') }}"
+           class="orthopedic-btn orthopedic-primary">
+            SEND REQUIREMENT
+        </a>
+
+        <a href="{{ url_for('trading') }}"
+           class="orthopedic-btn orthopedic-secondary">
+            BACK TO TRADING
+        </a>
+
+        <a href="/"
+           class="orthopedic-btn orthopedic-secondary">
+            BACK TO HOME
+        </a>
+
+    </div>
+
+    <div class="orthopedic-email">
+        ceo@capitalgroup.pk
+    </div>
+
+</section>
+```
+
+</div>
+
+{% endblock %}

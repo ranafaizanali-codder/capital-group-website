@@ -1,0 +1,445 @@
+{% extends "base.html" %}
+
+{% block title %}Burger Patties Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.burger-patties-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.burger-patties-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.78),rgba(6,29,45,.78)),
+        url("https://images.pexels.com/photos/8477222/pexels-photo-8477222.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.burger-patties-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.burger-patties-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.burger-patties-hero h1{
+    max-width:900px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.burger-patties-description{
+    max-width:760px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.burger-patties-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.burger-patties-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.burger-patties-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.burger-patties-sections{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 100px;
+}
+
+.burger-patties-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:460px;
+    align-items:center;
+    gap:70px;
+    margin-bottom:90px;
+}
+
+.burger-patties-section:nth-child(even){
+    direction:rtl;
+}
+
+.burger-patties-section:nth-child(even) .burger-patties-content{
+    direction:ltr;
+}
+
+.burger-patties-image{
+    min-height:430px;
+    border-radius:4px;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.burger-patties-image-1{
+    background-image:url("https://images.pexels.com/photos/8477222/pexels-photo-8477222.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.burger-patties-image-2{
+    background-image:url("https://images.pexels.com/photos/3877668/pexels-photo-3877668.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.burger-patties-image-3{
+    background-image:url("https://images.pexels.com/photos/8880741/pexels-photo-8880741.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.burger-patties-image-4{
+    background-image:url("https://images.pexels.com/photos/7497237/pexels-photo-7497237.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.burger-patties-image-5{
+    background-image:url("https://images.pexels.com/photos/36007383/pexels-photo-36007383.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.burger-patties-image-6{
+    background-image:url("https://images.pexels.com/photos/9956672/pexels-photo-9956672.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80");
+}
+
+.burger-patties-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.burger-patties-content h3{
+    color:#12384f;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 20px;
+}
+
+.burger-patties-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    max-width:500px;
+}
+
+.burger-patties-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.burger-patties-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.burger-patties-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.burger-patties-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.burger-patties-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.burger-patties-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.burger-patties-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+
+    .burger-patties-hero{
+        min-height:620px;
+    }
+
+    .burger-patties-section{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .burger-patties-section:nth-child(even){
+        direction:ltr;
+    }
+
+    .burger-patties-image{
+        min-height:330px;
+    }
+
+    .burger-patties-content h3{
+        font-size:30px;
+    }
+}
+</style>
+
+<div class="burger-patties-page">
+
+    <section class="burger-patties-hero">
+        <div class="burger-patties-hero-inner">
+
+            <div class="burger-patties-label">
+                Burger Patties Division
+            </div>
+
+            <h1>
+                 EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="burger-patties-description">
+                CTC’s Burger Patties Division provides professionally
+                sourced burger patty products for retail, foodservice
+                and commercial markets, supporting dependable quality,
+                product specifications, quantity planning and
+                international food trade requirements.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section class="burger-patties-intro">
+
+        <h2>
+            Premium Burger Patty Food Solutions
+        </h2>
+
+        <p>
+            CTC supports burger patty sourcing through dependable
+            supplier coordination, product specifications, packaging
+            requirements, quantity planning and organized supply
+            solutions for domestic and international food markets.
+        </p>
+
+    </section>
+
+
+    <section class="burger-patties-sections">
+
+        <div class="burger-patties-section">
+
+            <div class="burger-patties-image burger-patties-image-1"></div>
+
+            <div class="burger-patties-content">
+                <div class="burger-patties-number">01</div>
+
+                <h3>
+                    Premium Burger Patties
+                </h3>
+
+                <p>
+                    Professionally sourced burger patties for
+                    convenient food markets, retail channels,
+                    foodservice businesses and commercial
+                    distribution requirements.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="burger-patties-section">
+
+            <div class="burger-patties-image burger-patties-image-2"></div>
+
+            <div class="burger-patties-content">
+                <div class="burger-patties-number">02</div>
+
+                <h3>
+                    Quality & Product Selection
+                </h3>
+
+                <p>
+                    CTC coordinates product specifications, quality
+                    requirements and supplier selection to support
+                    consistent burger patty products across different
+                    commercial market needs.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="burger-patties-section">
+
+            <div class="burger-patties-image burger-patties-image-3"></div>
+
+            <div class="burger-patties-content">
+                <div class="burger-patties-number">03</div>
+
+                <h3>
+                    Foodservice Patty Supply
+                </h3>
+
+                <p>
+                    Reliable sourcing solutions for restaurants,
+                    catering businesses, foodservice operators and
+                    commercial kitchens requiring consistent
+                    burger patty supply.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="burger-patties-section">
+
+            <div class="burger-patties-image burger-patties-image-4"></div>
+
+            <div class="burger-patties-content">
+                <div class="burger-patties-number">04</div>
+
+                <h3>
+                    Retail-Ready Patty Solutions
+                </h3>
+
+                <p>
+                    CTC supports retail-focused sourcing with
+                    coordinated product specifications, packaging
+                    requirements and supply planning for modern
+                    chilled and frozen food markets.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="burger-patties-section">
+
+            <div class="burger-patties-image burger-patties-image-5"></div>
+
+            <div class="burger-patties-content">
+                <div class="burger-patties-number">05</div>
+
+                <h3>
+                    Quantity & Supply Planning
+                </h3>
+
+                <p>
+                    Organized procurement and quantity planning help
+                    businesses manage recurring requirements while
+                    supporting dependable supply and coordinated
+                    commercial distribution.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="burger-patties-section">
+
+            <div class="burger-patties-image burger-patties-image-6"></div>
+
+            <div class="burger-patties-content">
+                <div class="burger-patties-number">06</div>
+
+                <h3>
+                    International Burger Markets
+                </h3>
+
+                <p>
+                    CTC connects reliable food suppliers with
+                    international buyers through professional sourcing,
+                    supply coordination and global market access for
+                    burger patty products.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="burger-patties-cta">
+
+        <h2>
+            Looking for Burger Patties?
+        </h2>
+
+        <p>
+            Connect with CTC for professional burger patty sourcing,
+            supply coordination and international food market solutions.
+        </p>
+
+        <div class="burger-patties-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="burger-patties-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="burger-patties-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="burger-patties-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="burger-patties-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

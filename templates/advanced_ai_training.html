@@ -1,0 +1,829 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced AI Training | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .ai-training-page {
+        background: #f5f7f8;
+        color: #12384f;
+        overflow: hidden;
+    }
+
+    /* ================= HERO ================= */
+
+    .ai-training-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        position: relative;
+
+        background:
+            linear-gradient(
+                rgba(6, 29, 45, 0.80),
+                rgba(6, 29, 45, 0.80)
+            ),
+            url("https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80")
+            center / cover no-repeat;
+    }
+
+    .ai-training-hero-content {
+        max-width: 850px;
+    }
+
+    .ai-training-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .ai-training-hero h1 {
+        color: #ffffff;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 700;
+        margin-bottom: 25px;
+        max-width: 900px;
+    }
+
+    .ai-training-hero p {
+        color: #e8eef1;
+        font-size: 17px;
+        line-height: 1.7;
+        max-width: 760px;
+    }
+
+
+    /* ================= INTRO ================= */
+
+    .ai-training-intro {
+        padding: 90px 8% 60px;
+        text-align: center;
+    }
+
+    .ai-training-intro h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 18px;
+    }
+
+    .ai-training-intro > p {
+        max-width: 850px;
+        margin: auto;
+        color: #52636d;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+
+    /* ================= FEATURE CARDS ================= */
+
+    .ai-training-features {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 8% 80px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .ai-training-feature {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 30px 26px;
+        min-height: 190px;
+    }
+
+    .ai-training-feature span {
+        display: block;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    .ai-training-feature h3 {
+        color: #12384f;
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+    .ai-training-feature p {
+        color: #61717a;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= MODULES ================= */
+
+    .ai-training-modules {
+        padding: 80px 8%;
+        background: #ffffff;
+    }
+
+    .ai-training-modules-title {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .ai-training-modules-title h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 12px;
+    }
+
+    .ai-training-modules-title p {
+        color: #65757e;
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+    .ai-training-module {
+        max-width: 1180px;
+        margin: 0 auto 75px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .ai-training-module.reverse {
+        direction: rtl;
+    }
+
+    .ai-training-module.reverse > * {
+        direction: ltr;
+    }
+
+    .ai-training-module-image {
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        background: #edf1f3;
+    }
+
+    .ai-training-module-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .ai-training-module-content span {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .ai-training-module-content h3 {
+        color: #12384f;
+        font-size: 31px;
+        line-height: 1.2;
+        margin: 12px 0 16px;
+    }
+
+    .ai-training-module-content p {
+        color: #596b74;
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 520px;
+    }
+
+
+    /* ================= OUTCOMES ================= */
+
+    .ai-training-outcomes {
+        padding: 90px 8%;
+        background: #f5f7f8;
+        text-align: center;
+    }
+
+    .ai-training-outcomes h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 45px;
+    }
+
+    .ai-training-outcome-grid {
+        max-width: 1100px;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .ai-training-outcome {
+        background: #ffffff;
+        padding: 25px 20px;
+        border: 1px solid #dce4e8;
+    }
+
+    .ai-training-outcome h3 {
+        color: #12384f;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .ai-training-outcome p {
+        color: #687780;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .ai-training-cta {
+        padding: 90px 8%;
+        background: #08283b;
+        text-align: center;
+    }
+
+    .ai-training-cta h2 {
+        color: #ffffff;
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .ai-training-cta p {
+        color: #d8e2e7;
+        max-width: 700px;
+        margin: 0 auto 25px;
+        line-height: 1.7;
+    }
+
+    .ai-training-email {
+        display: block;
+        color: #d2a43b;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .ai-training-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .ai-training-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+    }
+
+    .ai-training-btn.primary {
+        background: #c69b32;
+        color: #08283b;
+    }
+
+    .ai-training-btn:hover {
+        background: #d2a43b;
+        color: #08283b;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+        .ai-training-features {
+            grid-template-columns: 1fr;
+        }
+
+        .ai-training-module,
+        .ai-training-module.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            gap: 30px;
+        }
+
+        .ai-training-outcome-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .ai-training-module-image {
+            height: 300px;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+
+        .ai-training-hero {
+            min-height: 560px;
+            padding: 80px 7%;
+        }
+
+        .ai-training-hero h1 {
+            font-size: 38px;
+        }
+
+        .ai-training-intro,
+        .ai-training-modules,
+        .ai-training-outcomes,
+        .ai-training-cta {
+            padding-left: 7%;
+            padding-right: 7%;
+        }
+
+        .ai-training-module-image {
+            height: 250px;
+        }
+
+        .ai-training-module-content h3 {
+            font-size: 27px;
+        }
+    }
+
+</style>
+
+
+<div class="ai-training-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="ai-training-hero">
+
+        <div class="ai-training-hero-content">
+
+            <span class="ai-training-label">
+                Advanced AI Training Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional AI training develops practical expertise
+                in artificial intelligence, machine learning, deep learning,
+                neural networks, generative AI and intelligent applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="ai-training-intro">
+
+        <h2>
+            Professional Artificial Intelligence Program
+        </h2>
+
+        <p>
+            A structured professional program covering AI foundations,
+            machine learning, deep learning, neural networks, computer
+            vision, natural language processing and generative AI.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE CARDS ================= -->
+
+    <section class="ai-training-features">
+
+
+        <div class="ai-training-feature">
+
+            <span>01</span>
+
+            <h3>
+                AI & Machine Learning
+            </h3>
+
+            <p>
+                Core concepts of artificial intelligence, machine learning,
+                algorithms, model training and practical AI applications.
+            </p>
+
+        </div>
+
+
+        <div class="ai-training-feature">
+
+            <span>02</span>
+
+            <h3>
+                Deep Learning & Neural Networks
+            </h3>
+
+            <p>
+                Neural networks, deep learning architectures and
+                data-driven intelligent systems.
+            </p>
+
+        </div>
+
+
+        <div class="ai-training-feature">
+
+            <span>03</span>
+
+            <h3>
+                Generative & Applied AI
+            </h3>
+
+            <p>
+                Modern generative AI, language models, intelligent
+                applications and responsible AI practices.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= MODULES ================= -->
+
+    <section class="ai-training-modules">
+
+
+        <div class="ai-training-modules-title">
+
+            <h2>
+                Advanced AI Training Modules
+            </h2>
+
+            <p>
+                Professional modules covering the essential areas
+                of modern artificial intelligence.
+            </p>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <div class="ai-training-module">
+
+            <div class="ai-training-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Artificial intelligence technology"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ai-training-module-content">
+
+                <span>01</span>
+
+                <h3>
+                    Artificial Intelligence Foundations
+                </h3>
+
+                <p>
+                    Fundamental AI concepts, intelligent systems,
+                    problem solving, search methods and practical
+                    applications of artificial intelligence.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="ai-training-module reverse">
+
+            <div class="ai-training-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Machine learning and data analysis"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ai-training-module-content">
+
+                <span>02</span>
+
+                <h3>
+                    Machine Learning & Predictive Models
+                </h3>
+
+                <p>
+                    Supervised and unsupervised learning, model training,
+                    feature engineering, prediction and evaluation of
+                    machine learning systems.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="ai-training-module">
+
+            <div class="ai-training-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Deep learning and neural networks"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ai-training-module-content">
+
+                <span>03</span>
+
+                <h3>
+                    Deep Learning & Neural Networks
+                </h3>
+
+                <p>
+                    Neural network architectures, deep learning concepts,
+                    model training and intelligent systems for complex
+                    data-driven applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="ai-training-module reverse">
+
+            <div class="ai-training-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Natural language processing and AI computing"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ai-training-module-content">
+
+                <span>04</span>
+
+                <h3>
+                    Natural Language Processing & Language Models
+                </h3>
+
+                <p>
+                    Natural language processing, text analysis,
+                    language models and practical intelligent
+                    language applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="ai-training-module">
+
+            <div class="ai-training-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/7567563/pexels-photo-7567563.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Computer vision artificial intelligence"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ai-training-module-content">
+
+                <span>05</span>
+
+                <h3>
+                    Computer Vision & Intelligent Applications
+                </h3>
+
+                <p>
+                    Image classification, object detection, visual
+                    data analysis and practical computer vision
+                    applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="ai-training-module reverse">
+
+            <div class="ai-training-module-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Generative artificial intelligence"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ai-training-module-content">
+
+                <span>06</span>
+
+                <h3>
+                    Generative AI & Responsible AI
+                </h3>
+
+                <p>
+                    Generative AI systems, large language models,
+                    intelligent assistants, responsible AI principles
+                    and practical AI deployment considerations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= LEARNING OUTCOMES ================= -->
+
+    <section class="ai-training-outcomes">
+
+        <h2>
+            Professional Learning Outcomes
+        </h2>
+
+
+        <div class="ai-training-outcome-grid">
+
+
+            <div class="ai-training-outcome">
+
+                <h3>
+                    AI Foundations
+                </h3>
+
+                <p>
+                    Understand core concepts and applications of artificial intelligence.
+                </p>
+
+            </div>
+
+
+            <div class="ai-training-outcome">
+
+                <h3>
+                    Machine Learning
+                </h3>
+
+                <p>
+                    Understand model training, prediction and machine learning workflows.
+                </p>
+
+            </div>
+
+
+            <div class="ai-training-outcome">
+
+                <h3>
+                    Deep Learning
+                </h3>
+
+                <p>
+                    Develop foundational knowledge of neural networks and deep learning.
+                </p>
+
+            </div>
+
+
+            <div class="ai-training-outcome">
+
+                <h3>
+                    NLP & Language AI
+                </h3>
+
+                <p>
+                    Understand language processing and modern language-model applications.
+                </p>
+
+            </div>
+
+
+            <div class="ai-training-outcome">
+
+                <h3>
+                    Computer Vision
+                </h3>
+
+                <p>
+                    Understand AI techniques for image and visual-data applications.
+                </p>
+
+            </div>
+
+
+            <div class="ai-training-outcome">
+
+                <h3>
+                    Responsible AI
+                </h3>
+
+                <p>
+                    Apply responsible and ethical principles when developing AI solutions.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="ai-training-cta">
+
+        <h2>
+            Advance Your AI Training Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional training
+            and advanced artificial intelligence development opportunities.
+        </p>
+
+        <span class="ai-training-email">
+            ceo@capitalgroup.pk
+        </span>
+
+
+        <div class="ai-training-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="ai-training-btn primary"
+            >
+                SEND REQUEST
+            </a>
+
+
+            <a
+                href="{{ url_for('engines') }}"
+                class="ai-training-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

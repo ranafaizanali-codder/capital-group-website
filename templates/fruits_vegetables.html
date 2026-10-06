@@ -1,0 +1,790 @@
+{% extends "base.html" %}
+
+{% block title %}
+Fruits & Vegetables Department | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING CORPORATION
+   FRUITS & VEGETABLES DEPARTMENT
+   ========================================================= */
+
+.fv-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+/* ================= SEO / ACCESSIBILITY ================= */
+
+.fv-page h1,
+.fv-page h2,
+.fv-page h3 {
+    margin: 0;
+}
+
+.fv-page a {
+    text-decoration: none;
+}
+
+/* ================= HERO ================= */
+
+.fv-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.96) 0%,
+            rgba(6, 29, 45, 0.82) 42%,
+            rgba(6, 29, 45, 0.30) 75%,
+            rgba(6, 29, 45, 0.10) 100%
+        ),
+        url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2400&q=90")
+        center center / cover no-repeat;
+}
+
+.fv-hero-inner {
+    width: min(1180px, 88%);
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    padding: 90px 0;
+}
+
+.fv-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.fv-hero h1 {
+    max-width: 850px;
+    color: #ffffff;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 25px;
+}
+
+.fv-slogan {
+    max-width: 900px;
+    color: #d2a43b;
+    font-size: clamp(18px, 2vw, 25px);
+    line-height: 1.45;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.fv-description {
+    max-width: 850px;
+    color: rgba(255,255,255,0.90);
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.fv-intro {
+    width: min(1100px, 88%);
+    margin: auto;
+    text-align: center;
+    padding: 65px 0 35px;
+}
+
+.fv-intro h2 {
+    color: #12384f;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.fv-intro-line {
+    width: 90px;
+    height: 3px;
+    background: #c69b32;
+    margin: 0 auto 22px;
+}
+
+.fv-intro p {
+    max-width: 850px;
+    margin: auto;
+    color: #526575;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= SECTION ================= */
+
+.fv-section {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 55px 0;
+}
+
+.fv-section-title {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 34px;
+}
+
+.fv-section-title::before,
+.fv-section-title::after {
+    content: "";
+    height: 1px;
+    background: #c69b32;
+    flex: 1;
+}
+
+.fv-section-title h2 {
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.fv-leaf {
+    color: #2e7d5b;
+    font-size: 30px;
+}
+
+/* ================= PRODUCT BUTTONS ================= */
+
+.fv-product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.fv-product {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 10px;
+
+    background: #ffffff;
+    color: #12384f;
+
+    border: 1px solid rgba(18,56,79,0.12);
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    box-shadow: 0 5px 18px rgba(6,29,45,0.06);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.fv-product:hover,
+.fv-product:focus-visible {
+    background: #12384f;
+    color: #ffffff;
+    border-color: #12384f;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+/* ================= GRAPHIC STRIPS ================= */
+
+.fv-strip {
+    width: 100%;
+    height: 190px;
+    margin: 20px 0 35px;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(6,29,45,0.35),
+            rgba(6,29,45,0.35)
+        ),
+        url("https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1600&q=72")
+        center / cover no-repeat;
+}
+/* ================= FRESH FRUITS GRAPHIC ================= */
+
+.fv-fruits-strip {
+
+    background:
+        linear-gradient(
+            rgba(6,29,45,0.35),
+            rgba(6,29,45,0.35)
+        ),
+        url("https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=1800&q=85")
+        center / cover no-repeat;
+
+}
+/* ================= DRY FRUITS GRAPHIC ================= */
+.fv-dry-fruits-strip {
+    background:
+        linear-gradient(
+            rgba(6,29,45,0.25),
+            rgba(6,29,45,0.25)
+        ),
+          url("https://upload.wikimedia.org/wikipedia/commons/4/45/Nuts_for_Snacking_%28Unsplash%29.jpg")
+        center / cover no-repeat !important;
+}
+
+/* ================= FRESH VEGETABLES GRAPHIC ================= */
+
+.fv-vegetables-strip {
+    background:
+        linear-gradient(
+            rgba(6,29,45,0.35),
+            rgba(6,29,45,0.35)
+        ),
+        url("https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1800&q=78")
+        center / cover no-repeat;
+}
+
+.fv-strip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(6,29,45,0.20),
+        rgba(6,29,45,0.05),
+        rgba(6,29,45,0.20)
+    );
+}
+
+.fv-strip h2 {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+}
+
+/* ================= SECTION BACKGROUNDS ================= */
+
+.fv-fresh {
+    background: #ffffff;
+}
+
+.fv-dry {
+    background: #f8f4ea;
+}
+
+.fv-vegetables {
+    background: #f4f8f5;
+}
+
+/* ================= DRIED VEGETABLES FEATURE ================= */
+
+.fv-dried-feature {
+    width: 100%;
+    min-height: 380px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,0.92) 0%,
+            rgba(6,29,45,0.78) 45%,
+            rgba(6,29,45,0.30) 100%
+        ),
+        url("https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1800&q=75")
+        center / cover no-repeat;
+
+    margin-top: 20px;
+}
+
+.fv-dried-inner {
+    width: min(1180px, 88%);
+    margin: auto;
+    padding: 70px 0;
+}
+
+.fv-dried-inner h2 {
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+.fv-dried-line {
+    width: 100px;
+    height: 4px;
+    background: #d2a43b;
+    margin-bottom: 22px;
+}
+
+.fv-dried-inner p {
+    max-width: 720px;
+    color: rgba(255,255,255,0.90);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.fv-dried-caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.fv-dried-caption span {
+    padding: 11px 17px;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ================= BOTTOM BUTTONS ================= */
+
+.fv-bottom {
+    width: min(1100px, 88%);
+    margin: auto;
+    padding: 55px 0 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.fv-back,
+.fv-request {
+    min-width: 210px;
+    padding: 14px 25px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    border-radius: 4px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.fv-back {
+    color: #12384f;
+    background: #ffffff;
+    border: 1px solid #12384f;
+}
+
+.fv-request {
+    color: #ffffff;
+    background: #12384f;
+    border: 1px solid #12384f;
+}
+
+.fv-back:hover,
+.fv-request:hover {
+    transform: translateY(-2px);
+}
+
+.fv-request:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+}
+
+/* ================= EMAIL ================= */
+
+.fv-email {
+    text-align: right;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding-bottom: 25px;
+    color: #12384f;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fv-email a {
+    color: #12384f;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .fv-product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fv-hero {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .fv-hero {
+        min-height: 560px;
+        background-position: 65% center;
+    }
+
+    .fv-hero-inner {
+        padding: 70px 0;
+    }
+
+    .fv-hero h1 {
+        font-size: 42px;
+    }
+
+    .fv-slogan {
+        font-size: 17px;
+    }
+
+    .fv-description {
+        font-size: 15px;
+    }
+
+    .fv-section {
+        width: 92%;
+        padding: 40px 0;
+    }
+
+    .fv-section-title {
+        gap: 10px;
+    }
+
+    .fv-section-title::before,
+    .fv-section-title::after {
+        display: none;
+    }
+
+    .fv-section-title h2 {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .fv-product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .fv-product {
+        min-height: 46px;
+        font-size: 13px;
+    }
+
+    .fv-strip {
+        height: 150px;
+    }
+
+    .fv-dried-feature {
+        min-height: 420px;
+        background-position: 65% center;
+    }
+
+    .fv-dried-inner {
+        padding: 55px 0;
+    }
+
+    .fv-dried-inner h2 {
+        font-size: 40px;
+    }
+
+    .fv-bottom {
+        padding-bottom: 50px;
+    }
+
+    .fv-back,
+    .fv-request {
+        width: 100%;
+    }
+
+    .fv-email {
+        text-align: center;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .fv-product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fv-hero h1 {
+        font-size: 36px;
+    }
+
+    .fv-strip h2 {
+        font-size: 32px;
+    }
+}
+</style>
+
+<div class="fv-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="fv-hero"
+             aria-labelledby="fv-title">
+
+        <div class="fv-hero-inner">
+
+            <div class="fv-label">
+                Capital Trading Corporation
+            </div>
+
+            <h1 id="fv-title">
+                Fruits &amp; Vegetables Department
+            </h1>
+
+            <div class="fv-slogan">
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </div>
+
+            <p class="fv-description">
+                Capital Trading Corporation provides reliable global sourcing,
+                export, import and supply chain solutions for fresh produce,
+                dried fruits and vegetables. We connect quality agricultural
+                products with international markets through dependable
+                sourcing, careful handling and efficient logistics.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="fv-intro">
+
+        <h2>
+            Fresh Agricultural Products
+        </h2>
+
+        <div class="fv-intro-line"></div>
+
+        <p>
+            From premium fresh fruits and vegetables to carefully processed
+            dried products, Capital Trading Corporation supports international
+            buyers with quality-focused sourcing and global supply solutions.
+        </p>
+
+    </section>
+
+    <!-- ================= FRESH FRUITS GRAPHIC ================= -->
+
+    <div class="fv-strip fv-fruits-strip"
+         role="img"
+         aria-label="Fresh Fruits">
+
+        <h2>
+            Fresh Fruits
+        </h2>
+
+    </div>
+
+    <!-- ================= FRESH FRUITS BUTTONS ================= -->
+
+    <section class="fv-section fv-fresh"
+             aria-label="Fresh Fruits Products">
+
+        <div class="fv-product-grid">
+
+            <a href="{{ url_for('fresh_mango') }}" class="fv-product">Fresh Mango</a>
+            <a href="#" class="fv-product">Mango Pulp</a>
+            <a href="#" class="fv-product">Mango Juice</a>
+            <a href="#" class="fv-product">Dry Mango</a>
+            <a href="#" class="fv-product">Mango Powder</a>
+
+            <a  href="{{ url_for('mandarin') }}" class="fv-product">Mandarin</a>
+            <a href="#" class="fv-product">Banana</a>
+            <a href="#" class="fv-product">Apple</a>
+            <a href="#" class="fv-product">Apricot</a>
+            <a href="#" class="fv-product">Pomegranate</a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= DRY FRUITS GRAPHIC ================= -->
+
+    <div class="fv-strip fv-dry-fruits-strip"
+         role="img"
+         aria-label="Dry fruits">
+
+        <h2>
+            Dry Fruits
+        </h2>
+
+    </div>
+
+    <!-- ================= DRY FRUITS BUTTONS ================= -->
+
+    <section class="fv-section fv-dry"
+             aria-label="Dry Fruits Products">
+
+        <div class="fv-product-grid">
+
+            <a href="#" class="fv-product">Shelled Walnut</a>
+            <a href="#" class="fv-product">Deshelled Walnut</a>
+            <a href="#" class="fv-product">Pine Nuts</a>
+            <a href="#" class="fv-product">Dry Cherry</a>
+            <a href="#" class="fv-product">Dry Mulberry</a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FRESH VEGETABLES GRAPHIC ================= -->
+
+    <div class="fv-strip fv-vegetables-strip"
+         role="img"
+         aria-label="Fresh Vegetables">
+
+        <h2>
+            Fresh Vegetables
+        </h2>
+
+    </div>
+
+    <!-- ================= FRESH VEGETABLES BUTTONS ================= -->
+
+    <section class="fv-section fv-vegetables"
+             aria-label="Fresh Vegetables Products">
+
+        <!-- ROW 1 -->
+
+        <div class="fv-product-grid">
+
+            <a href="{{ url_for('potato') }}" class="fv-product">Potato</a>
+            <a href="#" class="fv-product">Bitter Gourd</a>
+            <a href="#" class="fv-product">Ladyfinger</a>
+            <a href="#" class="fv-product">Carrot</a>
+            <a href="#" class="fv-product">Brinjal</a>
+
+        </div>
+
+        <br>
+
+        <!-- ROW 2 -->
+
+        <div class="fv-product-grid">
+
+            <a href="{{ url_for('onion') }}" class="fv-product">Onion</a>
+            <a href="#" class="fv-product">lemon</a>
+            <a href="#" class="fv-product">Iceberg</a>
+            <a href="#" class="fv-product">Cucumber</a>
+            <a href="#" class="fv-product">Broccoli</a>
+
+        </div>
+
+        <br>
+
+        <!-- ROW 3 -->
+
+        <div class="fv-product-grid">
+
+            <a href="{{ url_for('green_chilli') }}" class="fv-product">Green Chili</a>
+            <a href="#" class="fv-product">Chinese Cabbage</a>
+            <a href="#" class="fv-product">Cabbage</a>
+            <a href="#" class="fv-product">Fresh Mint</a>
+            <a href="#" class="fv-product">Beetroot</a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= DRIED VEGETABLES ================= -->
+
+    <a href="{{ url_for('dried_vegetables') }}"
+       class="fv-dried-feature"
+       aria-label="Dried Vegetables">
+
+        <div class="fv-dried-inner">
+
+            <h2 id="dried-vegetables-title">
+                Dried Vegetables
+            </h2>
+
+            <div class="fv-dried-line"></div>
+
+            <p>
+                Carefully processed dried vegetables offering natural taste,
+                convenient storage and extended shelf life for international
+                food, industrial and commercial applications.
+            </p>
+
+            <div class="fv-dried-caption">
+
+                <span>Natural Goodness</span>
+                <span>Longer Shelf Life</span>
+                <span>Hygienically Processed</span>
+                <span>Global Supply</span>
+
+            </div>
+
+        </div>
+
+    </a>
+
+    <!-- ================= BOTTOM BUTTONS ================= -->
+
+    <div class="fv-bottom">
+
+        <a href="{{ url_for('trading') }}"
+           class="fv-back">
+            BACK TO TRADING
+        </a>
+
+        <a href="{{ url_for('trading_quote') }}"
+           class="fv-request">
+            SEND REQUIREMENT
+        </a>
+
+    </div>
+
+    <!-- ================= EMAIL ================= -->
+
+    <div class="fv-email">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

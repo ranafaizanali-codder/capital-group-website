@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "HOME"
+msgstr "ANA SAYFA"
+
+msgid "ABOUT US"
+msgstr "HAKKIMIZDA"
+
+msgid "FOLLOW US"
+msgstr "BİZİ TAKİP EDİN"
+
+msgid "CONTACT US"
+msgstr "İLETİŞİM"
+
+msgid "LET'S TALK"
+msgstr "KONUŞALIM"
+
+msgid "Developing Business, Creating Solutions"
+msgstr "İş Geliştirmek, Çözümler Üretmek"

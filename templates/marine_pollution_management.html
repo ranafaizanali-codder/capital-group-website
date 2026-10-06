@@ -1,0 +1,403 @@
+{% extends "base.html" %}
+
+{% block title %}Marine Pollution and Management | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .marine-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* HERO — SAME PATTERN */
+    .marine-course-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.72), rgba(6, 29, 45, 0.82)),
+            url("https://images.pexels.com/photos/12464244/pexels-photo-12464244.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center/cover no-repeat;
+    }
+
+    .marine-course-hero-content {
+        max-width: 1150px;
+        width: 90%;
+        margin: auto;
+        color: white;
+        padding: 80px 0;
+    }
+
+    .marine-course-label {
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .marine-course-hero h1 {
+        font-size: 56px;
+        line-height: 1.12;
+        max-width: 900px;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .marine-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #edf4f7;
+    }
+
+    /* COURSE CONTENT */
+    .marine-course-content {
+        max-width: 1150px;
+        width: 90%;
+        margin: auto;
+        padding: 75px 0;
+    }
+
+    .marine-course-heading {
+        font-size: 34px;
+        color: #12384f;
+        margin-bottom: 18px;
+    }
+
+    .marine-course-content h2 {
+        font-size: 30px;
+        color: #12384f;
+        margin-top: 55px;
+        margin-bottom: 18px;
+        border-left: 4px solid #c69b32;
+        padding-left: 15px;
+    }
+
+    .marine-course-content h3 {
+        font-size: 22px;
+        color: #12384f;
+        margin-top: 30px;
+        margin-bottom: 14px;
+    }
+
+    .marine-course-content p {
+        font-size: 16px;
+        line-height: 1.75;
+        color: #4b5d66;
+    }
+
+    .marine-course-content ul {
+        padding-left: 22px;
+        margin-bottom: 25px;
+    }
+
+    .marine-course-content li {
+        margin-bottom: 10px;
+        line-height: 1.65;
+        color: #4b5d66;
+    }
+
+    /* COURSE INFO */
+    .marine-course-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin: 35px 0 55px;
+    }
+
+    .marine-info-box {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-top: 3px solid #c69b32;
+        padding: 22px;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.06);
+    }
+
+    .marine-info-box span {
+        display: block;
+        font-size: 13px;
+        color: #7a8a92;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .marine-info-box strong {
+        color: #12384f;
+        font-size: 16px;
+    }
+
+    /* END BUTTONS */
+    .marine-course-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 60px;
+        padding-top: 35px;
+        border-top: 1px solid #d9e0e3;
+    }
+
+    .marine-course-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border: 1px solid #12384f;
+        color: #12384f;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .marine-course-btn:hover {
+        background: #12384f;
+        color: white;
+    }
+
+    .marine-course-btn.primary {
+        background: #c69b32;
+        border-color: #c69b32;
+        color: white;
+    }
+
+    .marine-course-btn.primary:hover {
+        background: #a98224;
+        border-color: #a98224;
+    }
+
+    @media (max-width: 800px) {
+        .marine-course-hero h1 {
+            font-size: 40px;
+        }
+
+        .marine-course-info {
+            grid-template-columns: 1fr;
+        }
+
+        .marine-course-actions {
+            flex-direction: column;
+        }
+
+        .marine-course-btn {
+            text-align: center;
+        }
+    }
+</style>
+
+
+<div class="marine-course-page">
+
+    <!-- HERO -->
+    <section class="marine-course-hero">
+        <div class="marine-course-hero-content">
+
+            <div class="marine-course-label">
+                Advanced Marine Engineering Department
+            </div>
+
+            <h1>
+                Marine Pollution and Management
+            </h1>
+
+            <p>
+                CC’s professional marine engineering training develops practical expertise
+                in marine pollution prevention, environmental risk, pollution response and
+                effective maritime pollution management.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="marine-course-content">
+
+        <h2 class="marine-course-heading">
+            MISC 247 - Marine Pollution and Management
+        </h2>
+
+
+        <!-- COURSE INFORMATION -->
+        <div class="marine-course-info">
+
+            <div class="marine-info-box">
+                <span>Course Reference</span>
+                <strong>MISC 247</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <!-- COURSE DESCRIPTION -->
+        <h2>Course Description</h2>
+
+        <p>
+            The course provides the insight into the sources of marine pollution and
+            handling of control and management. The sections are described to acquaint
+            knowledge and understanding of basic categories of pollutants, their fate/behavior
+            is the marine environment, the technologies used for restoration, as well as the
+            methodologies for the evaluation/estimation of pollution, combining the theory
+            with problems/applications. The participants improve their abilities how to solve
+            problems by applying case studies. In order to improve and manage marine pollution,
+            knowledge in several areas is necessary including the fate of organic pollutants,
+            chemical conversions, and their effects on water environment and welfare, measurement
+            of pollutant levels as well as using learning techniques to predict the costs of
+            marine quality improvement policies. As a result, gradually new knowledge is obtained,
+            related to analysis and synthesis of data is relevant fields of pollution, useful
+            for the future professional activities.
+        </p>
+
+
+        <!-- COURSE OBJECTIVES -->
+        <h2>Course Objectives</h2>
+
+        <ul>
+            <li>
+                Understanding marine pollution sources such as land-based sources, vessels
+                waste, Offshore activity generates minor pollution primarily through the use
+                of oily drilling muds and by production blow outs.
+            </li>
+
+            <li>
+                Introduce to the international legal framework on marine pollution, which
+                covers global and regional legally binding and non-legally binding agreements
+                addressing different sources of pollution.
+            </li>
+
+            <li>
+                Define and distinguish different sources of marine pollution especially
+                land based sources.
+            </li>
+
+            <li>
+                Identify global and regional agreements and initiatives addressing marine pollution.
+            </li>
+
+            <li>
+                The major common marine pollutants and the marine pollution management approaches.
+            </li>
+
+            <li>
+                Identifying and evaluating control strategies for mitigating coastline marine
+                pollution problems.
+            </li>
+
+            <li>
+                Understanding a systems approach to apply scientific and technical information
+                to inform policy decisions affecting management of marine water quality.
+            </li>
+        </ul>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <h2>Who should Attend?</h2>
+
+        <ul>
+            <li>Quality (assurance) department personal</li>
+            <li>Environmental Engineer</li>
+            <li>Municipal Specialist</li>
+            <li>Project Planner and Managers</li>
+            <li>Decision makers</li>
+        </ul>
+
+
+        <!-- COURSE SYLLABUS -->
+        <h2>Course Syllabus</h2>
+
+
+        <!-- DAY 1 -->
+        <h3>Day 1</h3>
+
+        <ul>
+            <li>Maritime Zones</li>
+            <li>Basic Concepts Marine Pollution</li>
+            <li>Categories of Pollutants</li>
+            <li>Contaminant Classifications</li>
+            <li>Fate and Behavior in The Marine Environment</li>
+        </ul>
+
+
+        <!-- DAY 2 -->
+        <h3>Day 2</h3>
+
+        <ul>
+            <li>The Law of the Sea Process</li>
+            <li>The Law of the Sea and Marine Pollution</li>
+            <li>Priority Substance and Legislation</li>
+            <li>The Convention on the Prevention of Marine</li>
+            <li>Risk Assessment</li>
+        </ul>
+
+
+        <!-- DAY 3 -->
+        <h3>Day 3</h3>
+
+        <ul>
+            <li>Wastewater and its effects on the marine environment</li>
+            <li>Technologies for wastewater treatment</li>
+            <li>Oil pollution</li>
+            <li>Fate and behavior of oil spill in the marine</li>
+            <li>Management of oil waste and environmental effects</li>
+            <li>Offshore Hydrocarbon and Mineral Recovery</li>
+        </ul>
+
+
+        <!-- DAY 4 -->
+        <h3>Day 4</h3>
+
+        <ul>
+            <li>Solid Waste and Marine Litter</li>
+            <li>Land-based Pollutant Sources</li>
+            <li>Protection of from Land-based Activities</li>
+            <li>Coastline and Beach Cleaning Operations</li>
+            <li>Marine Pollutant Characterization</li>
+        </ul>
+
+
+        <!-- DAY 5 -->
+        <h3>Day 5</h3>
+
+        <ul>
+            <li>Pollution from vessels</li>
+            <li>Regional Approach</li>
+            <li>Sources Reduction</li>
+            <li>Enforcement</li>
+            <li>Liability</li>
+        </ul>
+
+
+        <!-- END BUTTONS -->
+        <div class="marine-course-actions">
+
+            <a href="{{ url_for('marine_pollution_management_registration') }}"
+               class="marine-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('marine_engineering') }}"
+               class="marine-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

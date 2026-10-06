@@ -1,0 +1,1411 @@
+{% extends "base.html" %}
+
+{% block title %}
+Fresh Mango Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING CORPORATION
+   FRESH MANGO DIVISION
+   PREMIUM EXPORT PAGE
+   ========================================================= */
+
+.fresh-mango-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.fm-hero {
+    position: relative;
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 18, 28, 0.95) 0%,
+            rgba(3, 18, 28, 0.82) 42%,
+            rgba(3, 18, 28, 0.30) 100%
+        ),
+        url("https://www.thewarsifarm.com/cdn/shop/articles/Gemini_Generated_Image_5ycw4v5ycw4v5ycw.png?v=1781012976")
+        center center / cover no-repeat;
+}
+
+.fm-hero-inner {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+.fm-hero-content {
+    max-width: 760px;
+}
+
+.fm-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 22px;
+    padding-left: 16px;
+
+    border-left: 4px solid #c69b32;
+
+    color: #d9b45a;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+}
+
+.fm-hero h1 {
+    margin: 0 0 24px;
+
+    color: #ffffff;
+
+    font-size: clamp(44px, 7vw, 82px);
+    line-height: 1;
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+.fm-slogan {
+    margin: 0 0 28px;
+
+    color: #e1bd60;
+
+    font-size: clamp(16px, 2vw, 23px);
+    line-height: 1.45;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.fm-hero-description {
+    max-width: 680px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.93);
+
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.fm-intro {
+    width: min(1000px, 90%);
+
+    margin: 0 auto;
+
+    padding: 90px 0 75px;
+
+    text-align: center;
+}
+
+.fm-label {
+    margin-bottom: 13px;
+
+    color: #c69b32;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2.8px;
+
+    text-transform: uppercase;
+}
+
+.fm-intro h2 {
+    margin: 0 0 22px;
+
+    color: #061d2d;
+
+    font-size: clamp(32px, 4vw, 52px);
+
+    line-height: 1.1;
+}
+
+.fm-intro p {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    color: #637783;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   VARIETY AREA
+   ========================================================= */
+
+.fm-varieties {
+    width: min(1220px, 94%);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   VARIETY CARD
+   ========================================================= */
+
+.fm-variety {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 570px;
+
+    margin-bottom: 75px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(18,56,79,0.08);
+
+    box-shadow:
+        0 22px 60px rgba(6,29,45,0.10);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ALTERNATING DESIGN
+   ========================================================= */
+
+.fm-variety:nth-child(even) .fm-image-box {
+    order: 2;
+}
+
+.fm-variety:nth-child(even) .fm-info {
+    order: 1;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.fm-image-box {
+    position: relative;
+
+    min-height: 570px;
+
+    overflow: hidden;
+
+    background: #dfe6e9;
+}
+
+.fm-image-box img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 570px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+.fm-image-box::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6,29,45,0.02),
+            rgba(6,29,45,0.25)
+        );
+
+    pointer-events: none;
+}
+
+.fm-variety:hover .fm-image-box img {
+    transform: scale(1.045);
+
+    filter: saturate(1.05);
+}
+
+
+/* =========================================================
+   INFORMATION
+   ========================================================= */
+
+.fm-info {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 60px 65px;
+}
+
+.fm-number {
+    margin-bottom: 11px;
+
+    color: #c69b32;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+}
+
+.fm-info h3 {
+    margin: 0 0 18px;
+
+    color: #061d2d;
+
+    font-size: clamp(32px, 3.3vw, 48px);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.8px;
+}
+
+.fm-description {
+    max-width: 520px;
+
+    margin: 0 0 28px;
+
+    color: #637783;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.fm-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.fm-detail {
+    padding: 16px 17px;
+
+    background: #f5f7f8;
+
+    border-left: 3px solid #c69b32;
+}
+
+.fm-detail span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #7d8c94;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+.fm-detail strong {
+    display: block;
+
+    color: #12384f;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   GROWING REGION
+   ========================================================= */
+
+.fm-region {
+    margin: 0;
+
+    padding-top: 19px;
+
+    border-top: 1px solid #e2e7e9;
+
+    color: #637783;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.fm-region strong {
+    color: #061d2d;
+}
+
+
+/* =========================================================
+   PREMIUM PHOTO STRIP
+   ========================================================= */
+
+.fm-photo-strip {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 360px;
+
+    margin: 10px 0 80px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,0.86),
+            rgba(6,29,45,0.20)
+        ),
+         url("https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&w=1920&q=85")
+        center center / cover no-repeat;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.fm-photo-strip-inner {
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+}
+
+.fm-photo-strip h2 {
+    max-width: 700px;
+
+    margin: 0 0 15px;
+
+    color: #ffffff;
+
+    font-size: clamp(32px, 5vw, 58px);
+
+    line-height: 1.05;
+}
+
+.fm-photo-strip p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.86);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SUPPLY SECTION
+   ========================================================= */
+
+.fm-supply {
+    padding: 90px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #061d2d,
+            #12384f
+        );
+
+    text-align: center;
+}
+
+.fm-supply-inner {
+    width: min(850px, 92%);
+
+    margin: 0 auto;
+}
+
+.fm-supply .fm-label {
+    color: #d2a43b;
+}
+
+.fm-supply h2 {
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-size: clamp(32px, 4vw, 52px);
+
+    line-height: 1.1;
+}
+
+.fm-supply p {
+    margin: 0 auto;
+
+    color: rgba(255,255,255,0.82);
+
+    font-size: 16px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.fm-actions {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+    padding: 70px 20px 25px;
+}
+
+.fm-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 220px;
+
+    padding: 16px 27px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+
+    text-transform: uppercase;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.fm-button-dark {
+    color: #ffffff;
+
+    background: #061d2d;
+}
+
+.fm-button-dark:hover,
+.fm-button-dark:focus {
+    color: #ffffff;
+
+    background: #12384f;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(6,29,45,0.20);
+}
+
+.fm-button-gold {
+    color: #061d2d;
+
+    background: #c69b32;
+}
+
+.fm-button-gold:hover,
+.fm-button-gold:focus {
+    color: #061d2d;
+
+    background: #d2a43b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(198,155,50,0.25);
+}
+
+
+/* =========================================================
+   EMAIL
+   ========================================================= */
+
+.fm-email {
+    padding: 0 20px 70px;
+
+    text-align: center;
+}
+
+.fm-email a {
+    color: #12384f;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.fm-email a:hover {
+    color: #c69b32;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .fm-variety {
+        grid-template-columns: 1fr;
+    }
+
+    .fm-variety:nth-child(even) .fm-image-box,
+    .fm-variety:nth-child(even) .fm-info {
+        order: initial;
+    }
+
+    .fm-image-box {
+        min-height: 430px;
+    }
+
+    .fm-image-box img {
+        min-height: 430px;
+    }
+
+    .fm-info {
+        padding: 45px 35px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+    .fm-hero {
+        min-height: 620px;
+    }
+
+    .fm-hero-inner {
+        width: 88%;
+    }
+
+    .fm-hero h1 {
+        font-size: 45px;
+    }
+
+    .fm-hero-description {
+        font-size: 15px;
+    }
+
+    .fm-intro {
+        padding: 65px 0 55px;
+    }
+
+    .fm-details {
+        grid-template-columns: 1fr;
+    }
+
+    .fm-image-box {
+        min-height: 320px;
+    }
+
+    .fm-image-box img {
+        min-height: 320px;
+    }
+
+    .fm-info {
+        padding: 38px 24px;
+    }
+
+    .fm-photo-strip {
+        min-height: 430px;
+    }
+
+    .fm-button {
+        width: 100%;
+    }
+}
+
+</style>
+
+
+<div class="fresh-mango-page">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="fm-hero">
+
+        <div class="fm-hero-inner">
+
+            <div class="fm-hero-content">
+
+                <div class="fm-eyebrow">
+                    Fresh Mango Division
+                </div>
+
+                <h1>
+                    Fresh Mango
+                </h1>
+
+                <p class="fm-slogan">
+                    EXPORT, IMPORT AND GLOBAL SOURCING /
+                    SUPPLY CHAIN SOLUTIONS.
+                </p>
+
+                <p class="fm-hero-description">
+                    CTCs Fresh Mango Division provides premium
+                    Pakistani mangoes sourced from established
+                    growing regions, with careful attention to
+                    quality, grading, seasonal availability,
+                    handling and reliable domestic and
+                    international supply.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="fm-intro">
+
+        <div class="fm-label">
+            Pakistan Mango Collection
+        </div>
+
+        <h2>
+            Premium Mango Varieties
+        </h2>
+
+        <p>
+            From the orchards of Sindh and Punjab to international
+            markets, our mango portfolio covers established
+            Pakistani varieties selected for flavour, appearance,
+            quality and commercial supply requirements.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         01 SINDHRI
+         ===================================================== -->
+
+    <section class="fm-varieties">
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                  src="{{ url_for('static', filename='sindhri_mango.jpg') }}"
+                    alt="Premium Sindhri mangoes in a Pakistani orchard"
+                    loading="eager"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 01
+                </div>
+
+                <h3>
+                    Sindhri Mango
+                </h3>
+
+                <p class="fm-description">
+                    A large golden-yellow Pakistani mango known
+                    for its sweet aromatic flesh, attractive
+                    appearance and strong commercial importance.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Large fruit with sweet,
+                            aromatic flesh
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Yield</span>
+                        <strong>
+                            Approx. 11 tons/acre
+                            potential
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Mainly June to
+                            early July
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Best maintained through
+                            suitable cold-chain handling
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Growing region:</strong>
+                    Mirpur Khas, Tando Allahyar and surrounding
+                    mango-producing areas of Sindh.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             02 CHAUNSA
+             ================================================= -->
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                    src="https://freshmangoes.us/cdn/shop/files/Chaunsa_Mangoes_Copy.jpg?v=1741589397"
+                    alt="Premium Chaunsa mangoes"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 02
+                </div>
+
+                <h3>
+                    Chaunsa Mango
+                </h3>
+
+                <p class="fm-description">
+                    A celebrated Pakistani mango valued for
+                    intense sweetness, rich aroma, juicy flesh
+                    and strong demand in fresh markets.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Richly sweet, aromatic
+                            and smooth flesh
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Yield</span>
+                        <strong>
+                            Approx. 13 tons/acre
+                            potential
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Mainly July to
+                            early August
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Controlled temperature
+                            supports storage quality
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Growing region:</strong>
+                    Multan, South Punjab, Rahim Yar Khan
+                    and adjoining mango-producing areas.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             03 ANWAR RATOL
+             ================================================= -->
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                  src="{{ url_for('static', filename='anwar_ratol.jpg') }}"
+                    alt="Pakistani mango orchard and premium mango harvest"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 03
+                </div>
+
+                <h3>
+                    Anwar Ratol
+                </h3>
+
+                <p class="fm-description">
+                    A smaller premium mango recognised for
+                    powerful aroma, intense sweetness and
+                    distinctive delicate flavour.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Highly aromatic with
+                            sweet delicate flesh
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Yield</span>
+                        <strong>
+                            Approx. 9 tons/acre
+                            potential
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Mainly July to
+                            August
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Careful handling required
+                            after harvest
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Growing region:</strong>
+                    Punjab, particularly established
+                    mango-growing areas around Multan.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             04 DUSSEHRI
+             ================================================= -->
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                  src="{{ url_for('static', filename='dussehri.jpg') }}"
+                    alt="Premium Pakistani mango collection"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 04
+                </div>
+
+                <h3>
+                    Dussehri Mango
+                </h3>
+
+                <p class="fm-description">
+                    An elongated mango appreciated for its
+                    fragrant sweet flesh, smooth texture and
+                    established place in Pakistan's mango belt.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Sweet, aromatic and
+                            smooth-textured flesh
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Yield</span>
+                        <strong>
+                            Approx. 12.8 tons/acre
+                            potential
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Mainly June to
+                            early July
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Suitable postharvest
+                            handling recommended
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Growing region:</strong>
+                    Major mango-producing districts
+                    of Punjab.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             05 LANGRA
+             ================================================= -->
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                      src="{{ url_for('static', filename='mango.jpg') }}"
+                    alt="Fresh Pakistani mango harvest in orchard"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 05
+                </div>
+
+                <h3>
+                    Langra Mango
+                </h3>
+
+                <p class="fm-description">
+                    A distinctive green-skinned mango with
+                    aromatic sweet-tangy flesh and recognised
+                    commercial importance.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Aromatic, smooth and
+                            fibre-free yellow flesh
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Yield</span>
+                        <strong>
+                            Approx. 10 tons/acre
+                            potential
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Mainly late June to
+                            early July
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Controlled handling helps
+                            preserve quality
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Growing region:</strong>
+                    Major mango-producing districts of Punjab,
+                    including the Multan region.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             06 NAWABPURI
+             ================================================= -->
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                    src="https://mmangoes.com/shopify-cdn/shop/files/nawabpuri-white-chaunsa-mango-multan.jpg"
+                    alt="Premium Nawabpuri and late Chaunsa mango"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 06
+                </div>
+
+                <h3>
+                    Nawabpuri Mango
+                </h3>
+
+                <p class="fm-description">
+                    A late-season Chaunsa type associated with
+                    the premium White Chaunsa/Nawabpuri category
+                    in Pakistan's mango trade.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Sweet, aromatic and
+                            premium smooth flesh
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Market</span>
+                        <strong>
+                            Premium fresh-fruit
+                            and export segment
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Late season,
+                            mainly July–August
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Requires careful grading,
+                            packing and temperature control
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Growing region:</strong>
+                    Major mango-producing areas of Punjab,
+                    particularly the Multan belt.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             07 CHUNAB GOLD
+             ================================================= -->
+
+        <article class="fm-variety">
+
+            <div class="fm-image-box">
+
+                <img
+                    src="{{ url_for('static', filename='chunab_gold_mango.jpg') }}"
+                    alt="Premium golden Pakistani mangoes"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="fm-info">
+
+                <div class="fm-number">
+                    Variety 07
+                </div>
+
+                <h3>
+                    Chunab Gold Mango
+                </h3>
+
+                <p class="fm-description">
+                    A premium golden mango presentation selected
+                    for attractive appearance, sweetness and
+                    high-value fresh-fruit positioning.
+                </p>
+
+                <div class="fm-details">
+
+                    <div class="fm-detail">
+                        <span>Quality</span>
+                        <strong>
+                            Golden appearance with
+                            sweet aromatic profile
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Market</span>
+                        <strong>
+                            Premium domestic and
+                            fresh-fruit markets
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Availability</span>
+                        <strong>
+                            Seasonal availability
+                            varies by orchard
+                        </strong>
+                    </div>
+
+                    <div class="fm-detail">
+                        <span>Freshness</span>
+                        <strong>
+                            Careful grading and
+                            temperature management
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="fm-region">
+                    <strong>Supply approach:</strong>
+                    Availability and commercial specifications
+                    are confirmed according to seasonal orchard
+                    production and buyer requirements.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- =====================================================
+         PREMIUM PHOTO STRIP
+         ===================================================== -->
+
+    <section class="fm-photo-strip">
+
+        <div class="fm-photo-strip-inner">
+
+            <div class="fm-label">
+                Orchard To Market
+            </div>
+
+            <h2>
+                Carefully Selected.
+                Carefully Handled.
+            </h2>
+
+            <p>
+                Our fresh mango supply focuses on orchard
+                selection, grading, careful packing and
+                efficient logistics to maintain fruit quality
+                from harvest through delivery.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SUPPLY SECTION
+         ===================================================== -->
+
+    <section class="fm-supply">
+
+        <div class="fm-supply-inner">
+
+            <div class="fm-label">
+                Fresh Produce Supply
+            </div>
+
+            <h2>
+                From Orchard to Market
+            </h2>
+
+            <p>
+                CTCs Fresh Mango Division supports seasonal
+                sourcing requirements for domestic and
+                international buyers with attention to
+                product quality, quantity, grading, packing
+                and supply-chain coordination.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BUTTONS
+         ===================================================== -->
+
+    <div class="fm-actions">
+
+        <a
+            href="{{ url_for('trading') }}"
+            class="fm-button fm-button-dark"
+        >
+            Back to Trading
+        </a>
+
+        <a
+            href="{{ url_for('trading_quote') }}"
+            class="fm-button fm-button-gold"
+        >
+            Send Requirement
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         EMAIL
+         ===================================================== -->
+
+    <div class="fm-email">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

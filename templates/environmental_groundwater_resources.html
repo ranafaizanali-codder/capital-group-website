@@ -1,0 +1,546 @@
+{% extends "base.html" %}
+
+{% block title %}
+LONG 539 - Environmental Monitoring and Management of Groundwater Resources and Problems | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+.environmental-course-page {
+    background: #f5f7f8;
+    color: #12384f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.environmental-course-hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+        url("https://canada.newsroom.ibm.com/image/Water_Purification_Plant_Banner.jpg")
+        center/cover no-repeat;
+}
+
+.environmental-course-hero-content {
+    width: min(1100px, 90%);
+    margin: auto;
+    padding: 80px 0;
+    color: white;
+}
+
+.environmental-course-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.environmental-course-hero h1 {
+    max-width: 1000px;
+    margin: 0 0 20px;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.environmental-course-hero p {
+    max-width: 900px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e7eef2;
+}
+
+.environmental-course-container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.environmental-course-section {
+    padding: 70px 0;
+}
+
+.environmental-course-section h2 {
+    color: #12384f;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.environmental-course-section p {
+    color: #425765;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.environmental-course-intro {
+    max-width: 950px;
+}
+
+.environmental-course-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.environmental-detail-card {
+    background: white;
+    border: 1px solid #dce4e8;
+    border-top: 3px solid #c69b32;
+    padding: 25px;
+    min-height: 120px;
+}
+
+.environmental-detail-card span {
+    display: block;
+    color: #7b8991;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.environmental-detail-card strong {
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.environmental-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.environmental-list {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.environmental-list li {
+    color: #425765;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.environmental-syllabus {
+    background: #ffffff;
+    border: 1px solid #dce4e8;
+    padding: 35px;
+    margin-bottom: 20px;
+}
+
+.environmental-syllabus h3 {
+    color: #12384f;
+    margin-top: 0;
+    margin-bottom: 22px;
+    font-size: 23px;
+}
+
+.environmental-syllabus ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.environmental-syllabus li {
+    color: #425765;
+    margin-bottom: 10px;
+    line-height: 1.65;
+}
+
+.environmental-cta {
+    background: #08283b;
+    padding: 65px 0;
+    text-align: center;
+}
+
+.environmental-cta h2 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+.environmental-cta p {
+    color: #dce7ec;
+    margin-bottom: 30px;
+}
+
+.environmental-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.environmental-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #c69b32;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .2s ease;
+}
+
+.environmental-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.environmental-btn:hover {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.environmental-footer {
+    background: #061d2d;
+    color: #b9c8d0;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+
+.environmental-footer a {
+    color: #d2a43b;
+    text-decoration: none;
+}
+
+@media (max-width: 850px) {
+
+    .environmental-course-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .environmental-two-column {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .environmental-course-details {
+        grid-template-columns: 1fr;
+    }
+
+    .environmental-course-hero {
+        min-height: 500px;
+    }
+
+    .environmental-course-section {
+        padding: 50px 0;
+    }
+
+    .environmental-syllabus {
+        padding: 25px;
+    }
+}
+</style>
+
+
+<div class="environmental-course-page">
+
+    <!-- HERO -->
+    <section class="environmental-course-hero">
+
+        <div class="environmental-course-hero-content">
+
+            <div class="environmental-course-label">
+                Advanced Environmental Engineering Department
+            </div>
+
+            <h1>
+                LONG 539 - Environmental Monitoring and Management of Groundwater Resources and Problems
+            </h1>
+
+            <p>
+                A comprehensive programme covering groundwater resources,
+                water management, monitoring, modelling and sustainable
+                development of water projects.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE DESCRIPTION -->
+    <section class="environmental-course-section">
+
+        <div class="environmental-course-container">
+
+            <h2>Course Description</h2>
+
+            <div class="environmental-course-intro">
+
+                <p>
+                    The pressure on the world's freshwater resources is always increasing,
+                    with population growth, rising per-capita water consumption, pollution,
+                    and environmental degradation all contributing to ever-greater problems
+                    of availability and distribution. On the other hand, rising groundwater
+                    levels are causing nuisance in major cities around the world. Solutions
+                    to such problems will be discussed in this course.
+                </p>
+
+                <p>
+                    Competition for scarce water resources leads to transboundary disputes
+                    on a range of scales. The key to sustainable development of water resources
+                    lies in developing a thorough understanding of their variability and
+                    availability, taking an integrated approach to their development and
+                    management, and ensuring the participation of stakeholders at all stages
+                    of the project.
+                </p>
+
+                <p>
+                    This course covers all aspects of the evaluation, development, and
+                    management of Ground and Underground water resources. As part of the
+                    project, comprehensive coverage of principles of project management
+                    and the skills necessary to professionally manage, monitor and evaluate
+                    water projects are dealt with.
+                </p>
+
+            </div>
+
+
+            <div class="environmental-course-details">
+
+                <div class="environmental-detail-card">
+                    <span>Course Code</span>
+                    <strong>LONG 539</strong>
+                </div>
+
+                <div class="environmental-detail-card">
+                    <span>Duration</span>
+                    <strong>5 Days</strong>
+                </div>
+
+                <div class="environmental-detail-card">
+                    <span>Course Date</span>
+                    <strong>can be offered upon a specific date request</strong>
+                </div>
+
+                <div class="environmental-detail-card">
+                    <span>Venue</span>
+                    <strong>Marriott Islamabad</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OBJECTIVES + ATTENDEES -->
+    <section class="environmental-course-section">
+
+        <div class="environmental-course-container">
+
+            <div class="environmental-two-column">
+
+                <div>
+
+                    <h2>Course Objectives</h2>
+
+                    <ul class="environmental-list">
+
+                        <li>Understanding the basic science and technology involved in water resources management</li>
+
+                        <li>Learning how to produce high quality water suitable for use in different fields</li>
+
+                        <li>Being able to identify potential risks in groundwater resources</li>
+
+                        <li>Providing knowledge for increasing the performance and cost-effectiveness of water resources management</li>
+
+                        <li>Understanding techniques of evaluating the quality of water resources</li>
+
+                        <li>Monitoring techniques of the groundwater levels, quality, and its movement using modeling techniques</li>
+
+                        <li>Learning the fundamentals of project management and the project management cycle</li>
+
+                        <li>Knowing how to manage underground water resources</li>
+
+                        <li>Understanding water projects management (monitoring and evaluating)</li>
+
+                        <li>Examples of rising groundwater problems in cities around the world</li>
+
+                        <li>Discussion of solutions introduced, and the effectiveness of solutions implemented</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Who Should Attend?</h2>
+
+                    <ul class="environmental-list">
+
+                        <li>Managers</li>
+
+                        <li>Engineers</li>
+
+                        <li>Professionals in groundwater resources</li>
+
+                        <li>Municipality officers</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SYLLABUS -->
+    <section class="environmental-course-section">
+
+        <div class="environmental-course-container">
+
+            <h2>Course Syllabus</h2>
+
+
+            <!-- DAY 1 -->
+            <div class="environmental-syllabus">
+
+                <h3>Day 1</h3>
+
+                <ul>
+
+                    <li>Water Management globally and in the MENA region</li>
+                    <li>Droughts and water management</li>
+                    <li>Hydrology, Rainfall, Runoff</li>
+                    <li>Infiltration, Water budget</li>
+                    <li>General geology, Alluvial fans, Sand dunes</li>
+                    <li>Sabkhah (playa), Harrats (Basalts)</li>
+                    <li>Sandstone, Limestone, Other sedimentary units</li>
+                    <li>Hydrogeology, Permeable formations</li>
+                    <li>Impermeable formations, Semi-permeable formations</li>
+                    <li>Aquifers and types</li>
+                    <li>Groundwater and its importance</li>
+                    <li>Subsurface flow hydraulics</li>
+                    <li>Hydraulic head</li>
+                    <li>Hydraulic gradient, Hydraulic parameters</li>
+                    <li>Storativity, Transmissivity, Leakage coefficient</li>
+                    <li>Delayed yield, Depression cone, Well hydraulics</li>
+                    <li>Main wells, Observation wells, Collector wells</li>
+                    <li>Aquifer test, Recovery test</li>
+                    <li>Groundwater Modeling and use</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+            <div class="environmental-syllabus">
+
+                <h3>Day 2</h3>
+
+                <ul>
+
+                    <li>Defining water cycle</li>
+                    <li>Larger cities’ and water resources</li>
+                    <li>Securing water sheds</li>
+                    <li>Community water projects vs. municipal water projects</li>
+                    <li>Water management models, centralized and decentralized</li>
+                    <li>Operational problems faced by managers of water authorities</li>
+                    <li>Water loss in network</li>
+                    <li>Controlling water losses with operational approaches</li>
+                    <li>Public relationship and water authority</li>
+                    <li>Water project management</li>
+                    <li>Project planning</li>
+                    <li>Process and workflow</li>
+                    <li>Project execution</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+            <div class="environmental-syllabus">
+
+                <h3>Day 3</h3>
+
+                <ul>
+
+                    <li>Rising groundwater in major cities (with examples around the world)</li>
+                    <li>Nuisance groundwater as a resource</li>
+                    <li>Sources causing rising groundwater levels for different communities</li>
+                    <li>Monitoring of groundwater levels and quality</li>
+                    <li>Studying problems associated with rising groundwater in major cities</li>
+                    <li>Solutions introduced for different conditions</li>
+                    <li>Discussion of effectiveness of solutions introduced</li>
+                    <li>Group work &amp; discussion</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="environmental-cta">
+
+        <div class="environmental-course-container">
+
+            <h2>
+                Advance Your Groundwater Management Expertise
+            </h2>
+
+            <p>
+                Register for LONG 539 - Environmental Monitoring and Management
+                of Groundwater Resources and Problems.
+            </p>
+
+            <div class="environmental-buttons">
+
+                <a
+                    href="{{ url_for('environmental_groundwater_resources_registration') }}"
+                    class="environmental-btn primary"
+                >
+                    REGISTER
+                </a>
+
+                <a
+                    href="{{ url_for('engines') }}"
+                    class="environmental-btn"
+                >
+                    GO HOME
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="environmental-footer">
+
+        For registration assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </footer>
+
+</div>
+
+{% endblock %}

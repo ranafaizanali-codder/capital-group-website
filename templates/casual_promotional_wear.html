@@ -1,0 +1,421 @@
+{% extends "base.html" %}
+
+{% block title %}Casual & Promotional Wear Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .casual-wear-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    .casual-wear-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 80px 8%;
+        background:
+            linear-gradient(90deg, rgba(6,29,45,.88), rgba(6,29,45,.48), rgba(6,29,45,.18)),
+            url("https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1800&q=85")
+            center/cover no-repeat;
+    }
+
+    .casual-wear-hero-content {
+        max-width: 800px;
+        color: white;
+    }
+
+    /* SMALL TOP LABEL */
+    .casual-wear-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+        text-transform: uppercase;
+    }
+
+    /* LARGE SLOGAN */
+    .casual-wear-hero h1 {
+        font-size: 44px;
+        line-height: 1.2;
+        margin: 0 0 24px;
+        font-weight: 700;
+        max-width: 800px;
+    }
+
+    /* DESCRIPTION */
+    .casual-wear-hero p {
+        max-width: 700px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e7eef2;
+    }
+
+    .casual-wear-intro {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 90px 25px 55px;
+    }
+
+    .casual-wear-intro h2 {
+        font-size: 34px;
+        margin-bottom: 18px;
+        color: #12384f;
+    }
+
+    .casual-wear-intro p {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #526570;
+    }
+
+    .casual-wear-sections {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px 25px 80px;
+    }
+
+    .casual-wear-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+        margin-bottom: 90px;
+    }
+
+    .casual-wear-section.reverse {
+        direction: rtl;
+    }
+
+    .casual-wear-section.reverse > * {
+        direction: ltr;
+    }
+
+    .casual-wear-number {
+        font-size: 14px;
+        color: #c69b32;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+
+    .casual-wear-section h3 {
+        font-size: 30px;
+        line-height: 1.2;
+        color: #12384f;
+        margin-bottom: 15px;
+    }
+
+    .casual-wear-section p {
+        font-size: 16px;
+        line-height: 1.65;
+        color: #526570;
+        margin: 0;
+    }
+
+    .casual-wear-image {
+        width: 100%;
+        height: 390px;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 18px 45px rgba(6,29,45,.13);
+    }
+
+    .casual-wear-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 80px 25px;
+    }
+
+    .casual-wear-cta h2 {
+        font-size: 34px;
+        margin-bottom: 25px;
+    }
+
+    .casual-wear-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .casual-wear-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: .3s ease;
+    }
+
+    .casual-wear-btn:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .casual-wear-email {
+        margin-top: 22px;
+        color: #d2a43b;
+        font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+
+        .casual-wear-hero {
+            padding: 70px 25px;
+        }
+
+        .casual-wear-hero h1 {
+            font-size: 32px;
+        }
+
+        .casual-wear-section,
+        .casual-wear-section.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            gap: 30px;
+            margin-bottom: 65px;
+        }
+
+        .casual-wear-image {
+            height: 300px;
+        }
+
+        .casual-wear-section h3 {
+            font-size: 26px;
+        }
+    }
+</style>
+
+
+<div class="casual-wear-page">
+
+    <!-- HERO -->
+    <section class="casual-wear-hero">
+
+        <div class="casual-wear-hero-content">
+
+            <!-- SMALL LABEL -->
+            <div class="casual-wear-label">
+                Casual & Promotional Wear Division
+            </div>
+
+            <!-- LARGE SLOGAN -->
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <!-- DESCRIPTION -->
+            <p>
+                CTC’s Casual & Promotional Wear Division provides professionally
+                sourced apparel solutions for corporate campaigns, promotional
+                activities, casual programs and branded events.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="casual-wear-intro">
+
+        <h2>Casual & Promotional Apparel Supply Solutions</h2>
+
+        <p>
+            From everyday casual clothing to customized promotional apparel,
+            CTC supports organizations with reliable sourcing, branding and
+            supply solutions for diverse commercial requirements.
+        </p>
+
+    </section>
+
+
+    <!-- SECTIONS -->
+    <section class="casual-wear-sections">
+
+        <!-- 01 -->
+        <div class="casual-wear-section">
+
+            <div>
+                <div class="casual-wear-number">01</div>
+
+                <h3>Corporate Casual Apparel</h3>
+
+                <p>
+                    Professionally sourced casual shirts, polos and apparel
+                    designed for corporate teams, company activities and
+                    everyday professional environments.
+                </p>
+            </div>
+
+            <img
+                class="casual-wear-image"
+                src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                alt="Corporate casual apparel"
+            >
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="casual-wear-section reverse">
+
+            <div>
+                <div class="casual-wear-number">02</div>
+
+                <h3>Promotional T-Shirts & Polos</h3>
+
+                <p>
+                    Customizable T-shirts and polo shirts developed for
+                    promotional campaigns, exhibitions, launches and brand
+                    awareness activities.
+                </p>
+            </div>
+
+            <img
+                class="casual-wear-image"
+                src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                alt="Promotional polo shirts"
+            >
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="casual-wear-section">
+
+            <div>
+                <div class="casual-wear-number">03</div>
+
+                <h3>Custom Branding & Printing</h3>
+
+                <p>
+                    Branded apparel with company logos, graphics, embroidery
+                    and professional printing for promotional and corporate
+                    communication requirements.
+                </p>
+            </div>
+
+            <img
+                class="casual-wear-image"
+                src="https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                alt="Custom branded clothing printing"
+            >
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="casual-wear-section reverse">
+
+            <div>
+                <div class="casual-wear-number">04</div>
+
+                <h3>Event & Campaign Apparel</h3>
+
+                <p>
+                    Coordinated apparel solutions for conferences, exhibitions,
+                    marketing campaigns, corporate events and promotional teams.
+                </p>
+            </div>
+
+            <img
+                class="casual-wear-image"
+                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                alt="Corporate event apparel"
+            >
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="casual-wear-section">
+
+            <div>
+                <div class="casual-wear-number">05</div>
+
+                <h3>Quality Fabric & Production</h3>
+
+                <p>
+                    Carefully selected fabrics, consistent sizing and controlled
+                    production processes ensure comfortable and dependable
+                    promotional apparel.
+                </p>
+            </div>
+
+            <img
+                class="casual-wear-image"
+                src="https://images.pexels.com/photos/3738086/pexels-photo-3738086.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                alt="Garment fabric and production"
+            >
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="casual-wear-section reverse">
+
+            <div>
+                <div class="casual-wear-number">06</div>
+
+                <h3>Global Promotional Supply</h3>
+
+                <p>
+                    International sourcing and supply coordination for businesses
+                    requiring dependable branded casual and promotional apparel.
+                </p>
+            </div>
+
+            <img
+                class="casual-wear-image"
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85"
+                alt="Global corporate apparel supply"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="casual-wear-cta">
+
+        <h2>Looking for Casual & Promotional Wear Products?</h2>
+
+        <div class="casual-wear-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="casual-wear-btn">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="casual-wear-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="{{ url_for('engines') }}" class="casual-wear-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="casual-wear-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

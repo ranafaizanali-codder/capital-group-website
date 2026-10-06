@@ -1,0 +1,706 @@
+{% extends "base.html" %}
+
+{% block title %}
+LONG 154 - Planning and Programming of Mechanical Maintenance | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .planning-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .planning-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 90px 8%;
+        box-sizing: border-box;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+            url("https://www.klingele-technik.de/media/yootheme/cache/a7/3d-konstuktion-detail_roboter-a7ec906e.jpg")
+            center/cover no-repeat;
+    }
+
+    .planning-hero-content {
+        max-width: 850px;
+        color: #ffffff;
+    }
+
+    .planning-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+    }
+
+    .planning-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 18px 0;
+    }
+
+    .planning-hero p {
+        max-width: 760px;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e5edf1;
+        margin: 0;
+    }
+
+    .planning-container {
+        max-width: 1150px;
+        margin: auto;
+        padding: 75px 7%;
+    }
+
+    .planning-section-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .planning-section-title {
+        font-size: 34px;
+        color: #12384f;
+        margin: 12px 0 18px;
+    }
+
+    .planning-description {
+        color: #5d707d;
+        line-height: 1.8;
+        max-width: 900px;
+    }
+
+    .planning-note {
+        margin-top: 22px;
+        padding: 16px 20px;
+        background: #fffaf0;
+        border-left: 4px solid #c69b32;
+        color: #5d707d;
+        line-height: 1.6;
+    }
+
+    .planning-features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-top: 40px;
+    }
+
+    .planning-feature {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 27px;
+    }
+
+    .planning-feature h3 {
+        color: #12384f;
+        margin: 0 0 10px;
+        font-size: 20px;
+    }
+
+    .planning-feature p {
+        color: #667985;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .planning-content-section {
+        margin-top: 65px;
+    }
+
+    .planning-content-section h2 {
+        font-size: 29px;
+        color: #12384f;
+        margin-bottom: 20px;
+    }
+
+    .planning-content-section p {
+        color: #5d707d;
+        line-height: 1.8;
+        margin-bottom: 18px;
+    }
+
+    .planning-list {
+        padding-left: 20px;
+        color: #5d707d;
+    }
+
+    .planning-list li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .planning-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    .planning-detail {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        padding: 22px;
+    }
+
+    .planning-detail strong {
+        display: block;
+        color: #12384f;
+        margin-bottom: 7px;
+    }
+
+    .planning-detail span {
+        color: #667985;
+    }
+
+    .planning-syllabus {
+        margin-top: 35px;
+    }
+
+    .planning-day {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+    }
+
+    .planning-day h3 {
+        color: #12384f;
+        margin: 0 0 15px;
+        font-size: 21px;
+    }
+
+    .planning-day ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .planning-day li {
+        color: #5d707d;
+        margin-bottom: 8px;
+        line-height: 1.55;
+    }
+
+    .planning-cta {
+        background: #08283b;
+        color: #ffffff;
+        text-align: center;
+        padding: 65px 8%;
+    }
+
+    .planning-cta h2 {
+        font-size: 32px;
+        margin: 0 0 15px;
+    }
+
+    .planning-cta p {
+        max-width: 760px;
+        margin: 0 auto 28px;
+        color: #dce7ec;
+        line-height: 1.7;
+    }
+
+    .planning-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        margin: 5px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .planning-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .planning-footer {
+        text-align: center;
+        padding: 22px;
+        background: #061d2d;
+        color: #aebfc8;
+        font-size: 14px;
+    }
+
+    .planning-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    @media (max-width: 800px) {
+
+        .planning-hero h1 {
+            font-size: 36px;
+        }
+
+        .planning-features,
+        .planning-details {
+            grid-template-columns: 1fr;
+        }
+
+        .planning-container {
+            padding: 55px 6%;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        .planning-hero {
+            min-height: 500px;
+            padding: 70px 7%;
+        }
+
+        .planning-hero h1 {
+            font-size: 30px;
+        }
+    }
+</style>
+
+
+<div class="planning-page">
+
+    <!-- HERO -->
+    <section class="planning-hero">
+
+        <div class="planning-hero-content">
+
+            <span class="planning-label">
+                Advanced Mechanical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional mechanical maintenance training develops
+                practical expertise in maintenance planning, reliability,
+                equipment management and effective maintenance programming.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section class="planning-container">
+
+        <span class="planning-section-label">
+            Professional Training Program
+        </span>
+
+        <h2 class="planning-section-title">
+             Planning and Programming of Mechanical Maintenance
+        </h2>
+
+        <p class="planning-description">
+            A professional maintenance training program focused on maintenance
+            planning, reliability, equipment replacement, inspection intervals,
+            plant shutdowns, turnaround planning and computerized maintenance
+            management systems.
+        </p>
+
+        <div class="planning-note">
+            <strong>Important Note:</strong>
+            The minimum number of participants to conduct this course is 3 persons.
+        </div>
+
+
+        <div class="planning-features">
+
+            <div class="planning-feature">
+                <h3>Maintenance Planning</h3>
+                <p>
+                    Develop structured maintenance planning methods and
+                    integrated organizational approaches.
+                </p>
+            </div>
+
+            <div class="planning-feature">
+                <h3>Reliability & Optimization</h3>
+                <p>
+                    Understand reliability, dependability, maintenance
+                    modeling and optimization techniques.
+                </p>
+            </div>
+
+            <div class="planning-feature">
+                <h3>Maintenance Programming</h3>
+                <p>
+                    Improve shutdown planning, equipment replacement,
+                    inspection intervals and maintenance reporting.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- COURSE DESCRIPTION -->
+        <div class="planning-content-section">
+
+            <h2>
+                Course Description
+            </h2>
+
+            <p>
+                Make safety a number one priority when establishing maintenance
+                procedures. Managers should ensure that employees always have
+                proper equipment, ventilation and lighting, and that all
+                equipment is code compliant.
+            </p>
+
+            <p>
+                Having an effective mechanical maintenance program in place
+                will assist in making the workplace safe and assure staff of
+                steady, uninterrupted employment.
+            </p>
+
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="planning-content-section">
+
+            <h2>
+                Course Objectives
+            </h2>
+
+            <ul class="planning-list">
+
+                <li>
+                    Creating awareness of planning methods and an integrated
+                    organizational approach.
+                </li>
+
+                <li>
+                    Learning the theories, methods and tools for better
+                    understanding of reliability and dependability.
+                </li>
+
+                <li>
+                    Understanding maintenance modeling and optimization.
+                </li>
+
+                <li>
+                    Understanding replacement decisions.
+                </li>
+
+                <li>
+                    Learning how to develop optimum inspection intervals
+                    for individual equipment.
+                </li>
+
+                <li>
+                    Ensuring a team approach in the planning and execution
+                    of plant shutdowns and turnarounds.
+                </li>
+
+                <li>
+                    Making technological design of facilities for maintenance.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="planning-content-section">
+
+            <h2>
+                Who Should Attend?
+            </h2>
+
+            <ul class="planning-list">
+
+                <li>Operations supervisors</li>
+
+                <li>
+                    Maintenance, engineering and technical support staff
+                </li>
+
+                <li>
+                    Leadership and management, planners, maintenance
+                    supervisors and engineers
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- COURSE DETAILS -->
+        <div class="planning-content-section">
+
+            <h2>
+                Course Details
+            </h2>
+
+            <div class="planning-details">
+
+                <div class="planning-detail">
+                    <strong>Course Code</strong>
+                    <span>LONG 5</span>
+                </div>
+
+                <div class="planning-detail">
+                    <strong>Course Duration</strong>
+                    <span>5 Days</span>
+                </div>
+
+                <div class="planning-detail">
+                    <strong>Course Date</strong>
+                    <span>
+                        Can be offered against a specific date request
+                    </span>
+                </div>
+
+                <div class="planning-detail">
+                    <strong>Venue</strong>
+                    <span>Marriott Islamabad</span>
+                </div>
+
+                <div class="planning-detail">
+                    <strong>Minimum Participants</strong>
+                    <span>3 Persons</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="planning-content-section">
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+            <div class="planning-syllabus">
+
+                <div class="planning-day">
+
+                    <h3>
+                        Day 1 — Maintenance Planning and Reliability Management
+                    </h3>
+
+                    <ul>
+
+                        <li>Introduction to maintenance planning</li>
+                        <li>Types of maintenance</li>
+                        <li>Corrective maintenance</li>
+                        <li>Preventive maintenance</li>
+                        <li>Predictive maintenance</li>
+                        <li>Zero hours maintenance (overhaul)</li>
+                        <li>Periodic maintenance</li>
+                        <li>The challenges of maintenance planning</li>
+                        <li>
+                            Introducing maintenance systems according to
+                            technical condition
+                        </li>
+                        <li>Elements of effective reliability management</li>
+                        <li>
+                            Selection of technological capacity of
+                            maintenance units
+                        </li>
+                        <li>Equipment and component inventory</li>
+                        <li>Internal transport system</li>
+                        <li>Manufacturer’s literature</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="planning-day">
+
+                    <h3>
+                        Day 2 — Maintenance Models and Resources
+                    </h3>
+
+                    <ul>
+
+                        <li>Maintenance models</li>
+                        <li>Corrective model</li>
+                        <li>Conditional model</li>
+                        <li>Systematic model</li>
+                        <li>High availability maintenance model</li>
+                        <li>Records of maintenance performed</li>
+                        <li>Technical resources</li>
+                        <li>Spare parts inventory</li>
+                        <li>Personnel training</li>
+                        <li>Budgeting for maintenance</li>
+                        <li>
+                            Estimating staff hours for various
+                            maintenance functions
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="planning-day">
+
+                    <h3>
+                        Day 3 — Preventive Maintenance and Replacement Planning
+                    </h3>
+
+                    <ul>
+
+                        <li>Task analysis of preventive maintenance</li>
+                        <li>
+                            Setting up reserve accounts for emergency
+                            maintenance
+                        </li>
+                        <li>Scheduled equipment replacement</li>
+                        <li>Maintenance reporting and record keeping</li>
+                        <li>
+                            Life cycle planning for major equipment
+                            replacement
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="planning-day">
+
+                    <h3>
+                        Day 4 — Shutdowns, Turnarounds and Maintenance Strategy
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Integrated organizational approach to planning
+                        </li>
+
+                        <li>
+                            Reliability and dependability improvement
+                        </li>
+
+                        <li>
+                            Maintenance modeling and optimization
+                        </li>
+
+                        <li>
+                            Optimum inspection intervals for equipment
+                        </li>
+
+                        <li>
+                            Team approach to plant shutdown planning
+                        </li>
+
+                        <li>
+                            Turnaround planning and execution
+                        </li>
+
+                        <li>
+                            Technological design of facilities for maintenance
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="planning-day">
+
+                    <h3>
+                        Day 5 — Maintenance Contracting and CMMS
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Subcontracted maintenance to a specialist
+                        </li>
+
+                        <li>
+                            Maintenance reporting and record keeping
+                        </li>
+
+                        <li>
+                            Life cycle planning for major equipment
+                        </li>
+
+                        <li>
+                            Computerized Maintenance Management Systems
+                            (CMMS)
+                        </li>
+
+                        <li>
+                            Integrated maintenance planning and programming
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="planning-cta">
+
+        <h2>
+            Develop Your Mechanical Maintenance Planning Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional mechanical
+            engineering training and practical maintenance planning,
+            reliability and asset management development.
+        </p>
+
+        <a
+            href="{{ url_for('mechanical_maintenance_planning_registration') }}"
+            class="planning-btn primary">
+            REGISTER
+        </a>
+
+        <a
+            href="{{ url_for('engines') }}"
+            class="planning-btn">
+            GO HOME
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="planning-footer">
+
+        For training assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,461 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+/* ================================
+   ASSEMBLIES PAGE
+================================ */
+
+.assemblies-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.assemblies-hero {
+    min-height: 480px;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,.90), rgba(6,29,45,.48)),
+        url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=88")
+        center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.assemblies-hero-content {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 90px 0;
+    color: white;
+}
+
+.assemblies-eyebrow {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d2a43b;
+    margin-bottom: 14px;
+}
+
+.assemblies-hero h1 {
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 18px;
+    font-weight: 700;
+}
+
+.assemblies-hero p {
+    max-width: 760px;
+    font-size: 20px;
+    line-height: 1.65;
+    margin: 0;
+    color: #f3f6f8;
+}
+
+/* INTRO */
+.assemblies-intro {
+    width: min(1050px, 90%);
+    margin: 0 auto;
+    padding: 70px 0 45px;
+    text-align: center;
+}
+
+.assemblies-intro h2 {
+    font-size: 32px;
+    margin: 0 0 18px;
+    color: #061d2d;
+}
+
+.assemblies-intro p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* SECTIONS */
+.assemblies-container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.assembly-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding: 70px 0;
+    border-top: 1px solid #dfe5e8;
+}
+
+.assembly-section.reverse .assembly-image-wrap {
+    order: 2;
+}
+
+.assembly-section.reverse .assembly-copy {
+    order: 1;
+}
+
+.assembly-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #dfe5e8;
+    box-shadow: 0 16px 40px rgba(6,29,45,.12);
+}
+
+.assembly-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.assembly-image-wrap:hover .assembly-image {
+    transform: scale(1.03);
+}
+
+.assembly-number {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #c69b32;
+    margin-bottom: 12px;
+}
+
+.assembly-copy h2 {
+    font-size: 31px;
+    line-height: 1.2;
+    color: #061d2d;
+    margin: 0 0 16px;
+}
+
+.assembly-copy p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 560px;
+}
+
+/* CTA */
+.assemblies-cta {
+    margin-top: 30px;
+    padding: 75px 20px;
+    background: #061d2d;
+    text-align: center;
+    color: white;
+}
+
+.assemblies-cta h2 {
+    margin: 0 0 14px;
+    font-size: 34px;
+}
+
+.assemblies-cta p {
+    margin: 0 auto 28px;
+    max-width: 720px;
+    line-height: 1.7;
+    color: #dce5ea;
+}
+
+.assemblies-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.assemblies-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #d2a43b;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.assemblies-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.assemblies-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+
+    .assemblies-hero {
+        min-height: 420px;
+    }
+
+    .assembly-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 55px 0;
+    }
+
+    .assembly-section.reverse .assembly-image-wrap,
+    .assembly-section.reverse .assembly-copy {
+        order: initial;
+    }
+
+    .assembly-image {
+        height: 300px;
+    }
+
+    .assemblies-intro {
+        padding-top: 55px;
+    }
+}
+</style>
+
+
+<div class="assemblies-page">
+
+    <!-- HERO -->
+    <section class="assemblies-hero">
+
+        <div class="assemblies-hero-content">
+
+            <div class="assemblies-eyebrow">
+                Assemblies Division
+            </div>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Assembly Division provides prototype assembly to small-scale
+                production assembly facilities for various types of industrial
+                and specialized application products.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="assemblies-intro">
+
+        <h2>
+            Integrated Assembly Solutions
+        </h2>
+
+        <p>
+            Our assembly capabilities bring precision components, engineered
+            systems and application-specific equipment together into reliable
+            finished products and assemblies.
+        </p>
+
+    </section>
+
+
+    <div class="assemblies-container">
+
+
+        <!-- 01 -->
+        <section class="assembly-section">
+
+            <div class="assembly-image-wrap">
+
+                <img
+                    class="assembly-image"
+                    src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1800&q=88"
+                    alt="Modern agriculture and survey drone assembly"
+                    loading="lazy">
+
+            </div>
+
+            <div class="assembly-copy">
+
+                <span class="assembly-number">01 / ASSEMBLY</span>
+
+                <h2>
+                    Survey and Agriculture Drone Assembly
+                </h2>
+
+                <p>
+                    Precision assembly of drone structures, propulsion systems,
+                    electronics and application-specific payloads for surveying,
+                    agriculture and field operations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+        <section class="assembly-section reverse">
+
+            <div class="assembly-image-wrap">
+
+                <img
+                    class="assembly-image"
+                    src="https://idsb.tmgrup.com.tr/ly/uploads/images/2026/02/01/thumbs/1200x675/424543.jpg"
+                    alt="Armored vehicle and APC engineering assembly"
+                    loading="lazy">
+
+            </div>
+
+            <div class="assembly-copy">
+
+                <span class="assembly-number">02 / ASSEMBLY</span>
+
+                <h2>
+                    APC Vehicle Assembly
+                </h2>
+
+                <p>
+                    Integrated assembly of armored vehicle systems, mechanical
+                    structures, equipment and supporting components for
+                    specialized mobility applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+        <section class="assembly-section">
+
+            <div class="assembly-image-wrap">
+
+                <img
+                    class="assembly-image"
+                    src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1800&q=88"
+                    alt="Specialized industrial vehicle assembly"
+                    loading="lazy">
+
+            </div>
+
+            <div class="assembly-copy">
+
+                <span class="assembly-number">03 / ASSEMBLY</span>
+
+                <h2>
+                    Specialized Vehicle Assembly
+                </h2>
+
+                <p>
+                    Assembly solutions for specialized vehicles combining
+                    engineered structures, mechanical systems and application-
+                    specific equipment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+        <section class="assembly-section reverse">
+
+            <div class="assembly-image-wrap">
+
+                <img
+                    class="assembly-image"
+                    src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1800&q=88"
+                    alt="Modern agricultural machinery assembly"
+                    loading="lazy">
+
+            </div>
+
+            <div class="assembly-copy">
+
+                <span class="assembly-number">04 / ASSEMBLY</span>
+
+                <h2>
+                    Agriculture Machinery Assembly
+                </h2>
+
+                <p>
+                    Assembly of agricultural machinery, implements and
+                    application-specific equipment designed for reliable
+                    field performance and operational efficiency.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+        <section class="assembly-section">
+
+            <div class="assembly-image-wrap">
+
+                <img
+                    class="assembly-image"
+                 src="https://images.pexels.com/photos/34938443/pexels-photo-34938443.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                    alt="Industrial process and equipment assembly"
+                    loading="lazy">
+
+            </div>
+
+            <div class="assembly-copy">
+
+                <span class="assembly-number">05 / ASSEMBLY</span>
+
+                <h2>
+                    Process and Other Equipment Assembly
+                </h2>
+
+                <p>
+                    Integrated assembly of process equipment, industrial systems
+                    and specialized machinery according to functional and
+                    application-specific requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="assemblies-cta">
+
+        <h2>
+            Discuss Your Assembly Requirement
+        </h2>
+
+        <p>
+            Share your prototype, production assembly or specialized equipment
+            requirement with Capital Engineering Corporation.
+        </p>
+
+        <div class="assemblies-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="assemblies-btn primary">
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="assemblies-btn">
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

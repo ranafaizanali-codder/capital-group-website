@@ -1,0 +1,808 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+CC Mechanical Department | Capital Engineering Corporation
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - MECHANICAL DEPARTMENT
+   ========================================================= */
+
+.mechanical-page {
+
+    background: #f5f7f8;
+
+    color: #12384f;
+
+    min-height: 100vh;
+
+}
+
+
+/* ================= HERO ================= */
+
+.mechanical-hero {
+
+    position: relative;
+
+    min-height: 500px;
+
+    background:
+
+        linear-gradient(
+
+            rgba(6, 29, 45, 0.78),
+
+            rgba(6, 29, 45, 0.88)
+
+        ),
+
+        url("https://people.iitism.ac.in/~natfoe2026/photos/man.webp")
+
+        center / cover no-repeat;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 70px 7%;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ================= HERO CONTENT ================= */
+
+.mechanical-hero-content {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    text-align: left;
+
+}
+
+
+.mechanical-hero-content .department-name {
+
+    color: #d2a43b;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.mechanical-hero-content h1 {
+
+    color: white;
+
+    font-size: clamp(34px, 5vw, 58px);
+
+    line-height: 1.12;
+
+    margin: 0 0 24px;
+
+    font-weight: 800;
+
+}
+
+
+.mechanical-hero-content p {
+
+    color: #eef3f5;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    max-width: 780px;
+
+    margin: 0;
+
+}
+
+
+/* ================= MODULE SECTION ================= */
+
+.mechanical-modules-section {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 65px 25px 75px;
+
+}
+
+
+.mechanical-modules-title {
+
+    text-align: left;
+
+    margin-bottom: 30px;
+
+}
+
+
+.mechanical-modules-title span {
+
+    display: block;
+
+    color: #c69b32;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+
+}
+
+
+.mechanical-modules-title h2 {
+
+    color: #061d2d;
+
+    font-size: 32px;
+
+    margin: 0;
+
+}
+
+
+/* ================= SIX MODULE LINKS ================= */
+
+.mechanical-modules {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+}
+
+
+.mechanical-module-button {
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 18px 22px;
+
+    box-sizing: border-box;
+
+    background: white;
+
+    border: 1px solid #dfe5e8;
+
+    border-left: 4px solid #c69b32;
+
+    border-radius: 7px;
+
+    color: #061d2d;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    box-shadow:
+
+        0 6px 20px rgba(6, 29, 45, 0.07);
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        background 0.25s ease;
+
+}
+.mechanical-module-description {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.3;
+    opacity: 0.75;
+}
+
+.mechanical-module-button:hover,
+
+.mechanical-module-button:focus-visible {
+
+    transform: translateY(-4px);
+
+    background: #fbfcfc;
+
+    box-shadow:
+
+        0 12px 28px rgba(6, 29, 45, 0.13);
+
+    outline: none;
+
+}
+
+
+.mechanical-module-arrow {
+
+    color: #c69b32;
+
+    font-size: 21px;
+
+    transition:
+
+        transform 0.25s ease;
+
+}
+
+
+.mechanical-module-button:hover
+.mechanical-module-arrow,
+
+.mechanical-module-button:focus-visible
+.mechanical-module-arrow {
+
+    transform: translateX(5px);
+
+}
+
+
+/* ================= CTA ================= */
+
+.mechanical-cta {
+
+    background: #061d2d;
+
+    padding: 65px 25px;
+
+    text-align: center;
+
+}
+
+
+.mechanical-cta h2 {
+
+    color: white;
+
+    font-size: 32px;
+
+    margin: 0 0 12px;
+
+}
+
+
+.mechanical-cta p {
+
+    color: #dce5e9;
+
+    max-width: 700px;
+
+    margin: 0 auto 28px;
+
+    line-height: 1.7;
+
+}
+
+
+.mechanical-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.mechanical-quote-button,
+
+.mechanical-home-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 13px 25px;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+
+        transform 0.2s ease,
+
+        background 0.2s ease;
+
+}
+
+
+.mechanical-quote-button {
+
+    background: #d2a43b;
+
+    color: #061d2d;
+
+}
+
+
+.mechanical-home-button {
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.55);
+
+}
+
+
+.mechanical-quote-button:hover,
+
+.mechanical-home-button:hover,
+
+.mechanical-quote-button:focus-visible,
+
+.mechanical-home-button:focus-visible {
+
+    transform: translateY(-2px);
+
+}
+
+
+.mechanical-quote-button:hover,
+
+.mechanical-quote-button:focus-visible {
+
+    background: #e0b64e;
+
+}
+
+
+.mechanical-home-button:hover,
+
+.mechanical-home-button:focus-visible {
+
+    background: rgba(255,255,255,0.08);
+
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .mechanical-hero {
+
+        padding: 60px 30px;
+
+    }
+
+
+    .mechanical-modules {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .mechanical-hero {
+
+        min-height: 450px;
+
+        padding: 50px 22px;
+
+    }
+
+
+    .mechanical-hero-content h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .mechanical-hero-content p {
+
+        font-size: 16px;
+
+    }
+
+
+    .mechanical-modules-section {
+
+        padding:
+            50px 18px
+            60px;
+
+    }
+
+
+    .mechanical-modules-title h2 {
+
+        font-size: 27px;
+
+    }
+
+
+    .mechanical-modules {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .mechanical-cta {
+
+        padding: 50px 20px;
+
+    }
+
+
+    .mechanical-cta h2 {
+
+        font-size: 27px;
+
+    }
+
+}
+
+</style>
+
+
+<div class="mechanical-page">
+
+
+    <!-- =====================================================
+         MECHANICAL HERO
+         ===================================================== -->
+
+    <section
+        class="mechanical-hero"
+        aria-labelledby="mechanical-title"
+    >
+
+        <div class="mechanical-hero-content">
+
+            <div class="department-name">
+
+                MECHANICAL DEPARTMENT
+
+            </div>
+
+
+            <h1 id="mechanical-title">
+
+                Precision Manufacturing Solutions par Excellence
+
+            </h1>
+
+
+            <p>
+
+                CECs Mechanical Department delivers precision manufacturing
+                solutions across advanced production technologies,
+                machining, metal casting, forging, fabrication and
+                engineered assemblies.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SIX MECHANICAL MODULE LINKS
+         ===================================================== -->
+
+    <section
+        class="mechanical-modules-section"
+        aria-labelledby="mechanical-modules-title"
+    >
+
+        <div class="mechanical-modules-title">
+
+            <span>
+
+                Mechanical Engineering
+
+            </span>
+
+
+            <h2 id="mechanical-modules-title">
+
+                Our Mechanical Capabilities
+
+            </h2>
+
+        </div>
+
+
+        <div class="mechanical-modules">
+
+
+            <!-- 1. 3D PRINTING -->
+
+            <a
+               href="{{ url_for('three_d_printing') }}"
+                class="mechanical-module-button"
+                aria-label="3D Printing"
+            >
+
+                <span>
+    3D PRINTING
+</span>
+
+<span class="mechanical-module-description">
+    Additive Manufacturing
+</span>
+
+
+                <span
+                    class="mechanical-module-arrow"
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </span>
+
+            </a>
+
+
+            <!-- 2. MACHINING -->
+
+            <a
+                 href="{{ url_for('machining') }}"
+                class="mechanical-module-button"
+                aria-label="Machining"
+            >
+
+                <span>
+    MACHINING
+</span>
+
+<span class="mechanical-module-description">
+    Subtractive Manufacturing
+</span>
+
+
+                <span
+                    class="mechanical-module-arrow"
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </span>
+
+            </a>
+
+
+            <!-- 3. CASTING -->
+
+            <a
+               href="{{ url_for('casting') }}"
+                class="mechanical-module-button"
+                aria-label="Casting"
+            >
+
+                <span>
+    CASTING
+</span>
+
+<span class="mechanical-module-description">
+    PDC · Sand · Investment · Centrifugal
+</span>
+
+
+                <span
+                    class="mechanical-module-arrow"
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </span>
+
+            </a>
+
+
+            <!-- 4. FORGING -->
+
+            <a
+               href="{{ url_for('forging') }}"
+                class="mechanical-module-button"
+                aria-label="Forging"
+            >
+
+                <span>
+    FORGING
+</span>
+
+<span class="mechanical-module-description">
+    Open · Closed · Drop · Press
+</span>
+
+
+                <span
+                    class="mechanical-module-arrow"
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </span>
+
+            </a>
+
+
+            <!-- 5. FABRICATION -->
+
+            <a
+               href="{{ url_for('fabrication') }}"
+                class="mechanical-module-button"
+                aria-label="Fabrication"
+            >
+
+                <span>
+    FABRICATION
+</span>
+
+<span class="mechanical-module-description">
+    Laser Cutting · Welding · Bending · Folding
+</span>
+
+
+                <span
+                    class="mechanical-module-arrow"
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </span>
+
+            </a>
+
+
+            <!-- 6. ASSEMBLIES -->
+
+            <a
+                href="{{ url_for('assemblies') }}" 
+                class="mechanical-module-button"
+                aria-label="Assemblies"
+            >
+
+                <span>
+    ASSEMBLIES
+</span>
+
+<span class="mechanical-module-description">
+    Auto Process · Agri Equipment
+</span>
+
+
+                <span
+                    class="mechanical-module-arrow"
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REQUIREMENTS / HOME
+         ===================================================== -->
+
+    <section class="mechanical-cta">
+
+        <h2>
+
+            Have a Mechanical Engineering Requirement?
+
+        </h2>
+
+
+        <p>
+
+            Share your manufacturing requirements with Capital
+            Engineering Corporation and our team can review your
+            application and technical needs.
+
+        </p>
+
+
+        <div class="mechanical-buttons">
+
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="mechanical-quote-button"
+            >
+
+                SEND REQUIREMENTS HERE
+
+                <span aria-hidden="true">
+
+                    &nbsp;→
+
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('home') }}"
+                class="mechanical-home-button"
+            >
+
+                GO BACK HOME
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

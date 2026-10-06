@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assemblies Division | Capital Engineering Corporation</title>
+
+    <style>
+        .ea-page {
+            margin: 0;
+            padding: 0;
+            background: #f5f7f8;
+            color: #12384f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .ea-hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6,29,45,.95) 0%,
+                    rgba(6,29,45,.82) 48%,
+                    rgba(6,29,45,.35) 100%
+                ),
+                url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=88")
+                center/cover no-repeat;
+        }
+
+        .ea-hero-content {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+            padding: 90px 0;
+            color: white;
+        }
+
+        .ea-eyebrow {
+            font-size: 15px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #d2a43b;
+            margin-bottom: 20px;
+        }
+
+        .ea-hero h1 {
+            margin: 0 0 18px;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .ea-hero h2 {
+            margin: 0 0 24px;
+            color: #d2a43b;
+            font-size: clamp(24px, 3vw, 40px);
+            line-height: 1.15;
+            font-weight: 700;
+        }
+
+        .ea-hero p {
+            max-width: 760px;
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #edf3f6;
+        }
+
+        .ea-intro {
+            width: min(1050px, 90%);
+            margin: 0 auto;
+            padding: 75px 0 55px;
+            text-align: center;
+        }
+
+        .ea-intro h2 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: 38px;
+        }
+
+        .ea-intro p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #536773;
+        }
+
+        .ea-container {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+        }
+
+        .ea-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+            padding: 65px 0;
+            border-top: 1px solid #dbe2e6;
+        }
+
+        .ea-section.reverse .ea-image-wrap {
+            order: 2;
+        }
+
+        .ea-section.reverse .ea-copy {
+            order: 1;
+        }
+
+        .ea-image-wrap {
+            overflow: hidden;
+            min-height: 330px;
+            background: #e7ecef;
+            border-radius: 4px;
+        }
+
+        .ea-image {
+            width: 100%;
+            height: 360px;
+            display: block;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .ea-image-wrap:hover .ea-image {
+            transform: scale(1.035);
+        }
+
+        .ea-copy {
+            padding: 10px 0;
+        }
+
+        .ea-number {
+            margin-bottom: 13px;
+            color: #c69b32;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .ea-copy h2 {
+            margin: 0 0 17px;
+            color: #061d2d;
+            font-size: 31px;
+            line-height: 1.2;
+        }
+
+        .ea-copy p {
+            margin: 0;
+            color: #526671;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .ea-cta {
+            margin-top: 25px;
+            padding: 75px 20px;
+            text-align: center;
+            background: #061d2d;
+            color: white;
+        }
+
+        .ea-cta h2 {
+            margin: 0 0 14px;
+            font-size: 36px;
+        }
+
+        .ea-cta p {
+            max-width: 680px;
+            margin: 0 auto 28px;
+            color: #dce6eb;
+            line-height: 1.7;
+        }
+
+        .ea-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .ea-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border: 1px solid #d2a43b;
+            background: #d2a43b;
+            color: #061d2d;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            transition: .25s ease;
+        }
+
+        .ea-btn:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .ea-btn.secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .ea-btn.secondary:hover {
+            background: #d2a43b;
+            color: #061d2d;
+        }
+
+        @media (max-width: 800px) {
+
+            .ea-hero {
+                min-height: 560px;
+            }
+
+            .ea-section,
+            .ea-section.reverse {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .ea-section.reverse .ea-image-wrap,
+            .ea-section.reverse .ea-copy {
+                order: initial;
+            }
+
+            .ea-image {
+                height: 300px;
+            }
+
+            .ea-intro {
+                padding-top: 55px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .ea-hero-content {
+                padding: 65px 0;
+            }
+
+            .ea-hero h1 {
+                font-size: 43px;
+            }
+
+            .ea-hero h2 {
+                font-size: 25px;
+            }
+
+            .ea-hero p {
+                font-size: 16px;
+            }
+
+            .ea-copy h2 {
+                font-size: 27px;
+            }
+
+            .ea-cta h2 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="ea-page">
+
+    <!-- HERO -->
+    <section class="ea-hero">
+
+        <div class="ea-hero-content">
+
+            <div class="ea-eyebrow">
+                ASSEMBLIES DIVISION
+            </div>
+
+            <h1>
+                Advanced Electronics Assembly
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CCs Assemblies Division provides precision electronic
+                assembly and system integration solutions for PCBs,
+                electronic modules, control systems and specialized
+                industrial applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="ea-intro">
+
+        <h2>
+            Electronic Assembly & Integration
+        </h2>
+
+        <p>
+            Our assembly capabilities combine component integration,
+            PCB assembly, wiring, mechanical integration, inspection
+            and final system assembly to support reliable electronic
+            products and specialized engineering systems.
+        </p>
+
+    </section>
+
+
+    <div class="ea-container">
+
+
+        <!-- 01 -->
+        <section class="ea-section">
+
+            <div class="ea-image-wrap">
+                <img
+                    class="ea-image"
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90"
+                    alt="Electronic PCB assembly and manufacturing"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="ea-copy">
+
+                <div class="ea-number">
+                    01 · PCB ASSEMBLY
+                </div>
+
+                <h2>
+                    PCB Assembly
+                </h2>
+
+                <p>
+                    Precision assembly of electronic components onto
+                    printed circuit boards, supporting prototype,
+                    low-volume and production-level requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+        <section class="ea-section reverse">
+
+            <div class="ea-image-wrap">
+                <img
+                    class="ea-image"
+                    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic engineering module assembly"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="ea-copy">
+
+                <div class="ea-number">
+                    02 · ELECTRONIC MODULES
+                </div>
+
+                <h2>
+                    Electronic Module Assembly
+                </h2>
+
+                <p>
+                    Integration of populated PCBs, electronic components,
+                    housings and supporting hardware into complete
+                    functional electronic modules.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+        <section class="ea-section">
+
+            <div class="ea-image-wrap">
+                <img
+                    class="ea-image"
+                    src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=88"
+                    alt="Industrial control panel assembly"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="ea-copy">
+
+                <div class="ea-number">
+                    03 · CONTROL SYSTEMS
+                </div>
+
+                <h2>
+                    Control Panel Assembly
+                </h2>
+
+                <p>
+                    Assembly and integration of control panels, electrical
+                    interfaces, switching components and industrial
+                    automation hardware.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+        <section class="ea-section reverse">
+
+            <div class="ea-image-wrap">
+                <img
+                    class="ea-image"
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic cable and wiring assembly"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="ea-copy">
+
+                <div class="ea-number">
+                    04 · WIRING & INTERCONNECT
+                </div>
+
+                <h2>
+                    Cable & Wire Harness Assembly
+                </h2>
+
+                <p>
+                    Assembly of cables, connectors and wire harnesses
+                    for electronic systems, control equipment and
+                    specialized engineering applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+        <section class="ea-section">
+
+            <div class="ea-image-wrap">
+                <img
+                    class="ea-image"
+                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=90"
+                    alt="Engineering system integration and electronics"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="ea-copy">
+
+                <div class="ea-number">
+                    05 · SYSTEM INTEGRATION
+                </div>
+
+                <h2>
+                    Electronic System Integration
+                </h2>
+
+                <p>
+                    Integration of electronic, electrical, mechanical
+                    and control elements into complete assemblies
+                    according to defined application requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 06 -->
+        <section class="ea-section reverse">
+
+            <div class="ea-image-wrap">
+                <img
+                    class="ea-image"
+                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=88"
+                    alt="Electronic assembly inspection and quality control"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="ea-copy">
+
+                <div class="ea-number">
+                    06 · FINAL INSPECTION
+                </div>
+
+                <h2>
+                    Inspection & Final Assembly
+                </h2>
+
+                <p>
+                    Final inspection, assembly verification and
+                    functional checks help ensure completed electronic
+                    assemblies meet defined engineering requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="ea-cta">
+
+        <h2>
+            Discuss Your Assembly Requirement
+        </h2>
+
+        <p>
+            Share your electronic assembly or system integration
+            requirements with our engineering team for a tailored
+            manufacturing solution.
+        </p>
+
+        <div class="ea-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="ea-btn"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/"
+                class="ea-btn secondary"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

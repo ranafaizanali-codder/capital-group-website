@@ -1,0 +1,651 @@
+{% extends "base.html" %}
+
+{% block title %}Pillow Covers Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .pillow-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .pillow-hero {
+        min-height: 570px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.92),
+                rgba(6, 29, 45, 0.70),
+                rgba(6, 29, 45, 0.30)
+            ),
+            url("https://images.pexels.com/photos/5461582/pexels-photo-5461582.jpeg?auto=compress&cs=tinysrgb&w=1800&q=75")
+            center/cover no-repeat;
+    }
+
+    .pillow-hero-content {
+        width: min(1180px, 90%);
+        margin: auto;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .pillow-label {
+        display: block;
+        margin-bottom: 22px;
+
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    .pillow-hero h1 {
+        max-width: 950px;
+        margin: 0 0 24px;
+
+        color: #ffffff;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+
+    .pillow-slogan {
+        max-width: 900px;
+        margin: 0 0 24px;
+
+        color: #d2a43b;
+        font-size: 15px;
+        line-height: 1.7;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    .pillow-hero-description {
+        max-width: 800px;
+        margin: 0;
+
+        color: #edf2f5;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .pillow-intro {
+        width: min(1080px, 90%);
+        margin: auto;
+        padding: 95px 0 65px;
+        text-align: center;
+    }
+
+    .pillow-intro span {
+        display: block;
+        margin-bottom: 16px;
+
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+    }
+
+    .pillow-intro h2 {
+        margin: 0 0 20px;
+
+        color: #061d2d;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .pillow-intro p {
+        max-width: 850px;
+        margin: auto;
+
+        color: #526674;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       CONTENT SECTIONS
+    ========================= */
+
+    .pillow-sections {
+        width: min(1180px, 90%);
+        margin: auto;
+        padding: 25px 0 80px;
+    }
+
+    .pillow-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+
+        padding: 70px 0;
+
+        border-top: 1px solid rgba(18, 56, 79, 0.12);
+    }
+
+    .pillow-section:nth-child(even) .pillow-image {
+        order: -1;
+    }
+
+    .pillow-number {
+        display: block;
+        margin-bottom: 14px;
+
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .pillow-section h3 {
+        margin: 0 0 18px;
+
+        color: #061d2d;
+        font-size: clamp(27px, 3vw, 40px);
+        line-height: 1.15;
+    }
+
+    .pillow-section p {
+        max-width: 520px;
+        margin: 0;
+
+        color: #526674;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .pillow-image {
+        height: 390px;
+
+        border-radius: 3px;
+
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        box-shadow: 0 18px 45px rgba(6, 29, 45, 0.12);
+    }
+
+
+    /* =========================
+       IMAGE 01
+    ========================= */
+
+    .pillow-image-1 {
+        background-image:
+            url("https://images.pexels.com/photos/5461582/pexels-photo-5461582.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 02
+    ========================= */
+
+    .pillow-image-2 {
+        background-image:
+            url("https://images.pexels.com/photos/10750993/pexels-photo-10750993.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 03
+    ========================= */
+
+    .pillow-image-3 {
+        background-image:
+            url("https://images.pexels.com/photos/4993080/pexels-photo-4993080.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 04
+    ========================= */
+
+    .pillow-image-4 {
+        background-image:
+            url("https://images.pexels.com/photos/3030684/pexels-photo-3030684.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 05
+    ========================= */
+
+    .pillow-image-5 {
+        background-image:
+            url("https://images.pexels.com/photos/8251692/pexels-photo-8251692.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       IMAGE 06
+    ========================= */
+
+    .pillow-image-6 {
+        background-image:
+            url("https://images.pexels.com/photos/6466496/pexels-photo-6466496.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .pillow-cta {
+        background: #061d2d;
+        color: #ffffff;
+        text-align: center;
+
+        padding: 90px 20px;
+    }
+
+    .pillow-cta h2 {
+        margin: 0 0 18px;
+
+        color: #ffffff;
+        font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .pillow-cta p {
+        max-width: 720px;
+        margin: 0 auto 32px;
+
+        color: #dbe5ea;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .pillow-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .pillow-buttons a {
+        display: inline-block;
+
+        padding: 13px 24px;
+
+        border: 1px solid #c69b32;
+
+        color: #ffffff;
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+
+        transition: 0.25s ease;
+    }
+
+    .pillow-buttons a:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .pillow-email {
+        margin-top: 28px;
+
+        color: #d2a43b;
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+        .pillow-hero {
+            min-height: 520px;
+        }
+
+        .pillow-section {
+            grid-template-columns: 1fr;
+            gap: 35px;
+
+            padding: 55px 0;
+        }
+
+        .pillow-section:nth-child(even) .pillow-image {
+            order: 0;
+        }
+
+        .pillow-image {
+            height: 320px;
+        }
+    }
+
+
+    @media (max-width: 550px) {
+
+        .pillow-hero-content {
+            padding: 70px 0;
+        }
+
+        .pillow-hero h1 {
+            font-size: 38px;
+        }
+
+        .pillow-slogan {
+            font-size: 13px;
+        }
+
+        .pillow-hero-description {
+            font-size: 14px;
+        }
+
+        .pillow-intro {
+            padding: 70px 0 45px;
+        }
+
+        .pillow-image {
+            height: 260px;
+        }
+
+        .pillow-buttons {
+            flex-direction: column;
+        }
+
+        .pillow-buttons a {
+            width: 220px;
+        }
+    }
+</style>
+
+
+<div class="pillow-page">
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="pillow-hero">
+
+        <div class="pillow-hero-content">
+
+            <span class="pillow-label">
+                Pillow Covers Division
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="pillow-hero-description">
+                CTC’s Pillow Covers Division provides professionally sourced
+                pillow cover solutions for hospitality, residential, retail
+                and institutional markets, supporting dependable quality,
+                fabric specifications, sizing requirements, quantity planning
+                and international textile trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="pillow-intro">
+
+        <span>
+            Professional Bedding Solutions
+        </span>
+
+        <h2>
+            Premium Pillow Cover Supply
+        </h2>
+
+        <p>
+            CTC supports pillow cover sourcing through reliable supplier
+            coordination, fabric selection, sizing specifications, quality
+            standards, quantity planning and organized supply solutions for
+            domestic and international textile markets.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         SIX SECTIONS
+    ========================= -->
+
+    <section class="pillow-sections">
+
+
+        <!-- 01 -->
+
+        <div class="pillow-section">
+
+            <div>
+
+                <span class="pillow-number">
+                    01
+                </span>
+
+                <h3>
+                    Premium Pillow Covers
+                </h3>
+
+                <p>
+                    CTC provides professionally sourced pillow covers with
+                    attention to fabric quality, finishing, construction and
+                    presentation for residential, retail and hospitality
+                    applications.
+                </p>
+
+            </div>
+
+            <div class="pillow-image pillow-image-1"></div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="pillow-section">
+
+            <div>
+
+                <span class="pillow-number">
+                    02
+                </span>
+
+                <h3>
+                    Hotel & Hospitality Pillow Covers
+                </h3>
+
+                <p>
+                    Pillow cover solutions designed around hospitality
+                    requirements, supporting consistent sizing, practical
+                    laundering needs, clean presentation and dependable
+                    supply planning.
+                </p>
+
+            </div>
+
+            <div class="pillow-image pillow-image-2"></div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="pillow-section">
+
+            <div>
+
+                <span class="pillow-number">
+                    03
+                </span>
+
+                <h3>
+                    Cotton & Premium Fabric Options
+                </h3>
+
+                <p>
+                    CTC coordinates suitable cotton and premium textile
+                    options according to buyer specifications, comfort
+                    requirements, durability expectations and intended
+                    market use.
+                </p>
+
+            </div>
+
+            <div class="pillow-image pillow-image-3"></div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="pillow-section">
+
+            <div>
+
+                <span class="pillow-number">
+                    04
+                </span>
+
+                <h3>
+                    Plain, Printed & Decorative Covers
+                </h3>
+
+                <p>
+                    Our sourcing approach supports plain, printed and
+                    decorative pillow cover designs, helping buyers develop
+                    coordinated bedding and interior textile collections.
+                </p>
+
+            </div>
+
+            <div class="pillow-image pillow-image-4"></div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="pillow-section">
+
+            <div>
+
+                <span class="pillow-number">
+                    05
+                </span>
+
+                <h3>
+                    Quality & Size Specifications
+                </h3>
+
+                <p>
+                    CTC coordinates dimensions, fabric specifications,
+                    finishing requirements and quality expectations to support
+                    accurate production and consistent pillow cover supply.
+                </p>
+
+            </div>
+
+            <div class="pillow-image pillow-image-5"></div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="pillow-section">
+
+            <div>
+
+                <span class="pillow-number">
+                    06
+                </span>
+
+                <h3>
+                    International Pillow Cover Markets
+                </h3>
+
+                <p>
+                    CTC supports organized sourcing and supply coordination
+                    for international buyers seeking dependable pillow cover
+                    products, specifications and textile trade solutions.
+                </p>
+
+            </div>
+
+            <div class="pillow-image pillow-image-6"></div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="pillow-cta">
+
+        <h2>
+            Looking for Pillow Cover Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional pillow cover sourcing,
+            supply coordination and international textile market solutions.
+        </p>
+
+        <div class="pillow-buttons">
+
+            <a href="{{ url_for('trading_quote') }}">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}">
+                BACK TO TRADING
+            </a>
+
+            <a href="/">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="pillow-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

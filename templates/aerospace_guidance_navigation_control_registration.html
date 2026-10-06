@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registration | Advanced Aerospace Guidance, Navigation & Control
+{% endblock %}
+
+{% block content %}
+
+<style>
+.gnc-registration-page {
+    background: #f5f7f8;
+    min-height: 100vh;
+    padding: 70px 20px;
+}
+
+.gnc-registration-container {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    border: 1px solid #d8e0e4;
+    border-radius: 8px;
+    padding: 45px;
+}
+
+.gnc-registration-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gnc-registration-header .label {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.gnc-registration-header h1 {
+    color: #08283b;
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.gnc-registration-header p {
+    color: #60717b;
+    font-size: 15px;
+}
+
+.gnc-course-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.gnc-summary-box {
+    border: 1px solid #d8e0e4;
+    border-left: 3px solid #c69b32;
+    padding: 18px;
+    background: #fafbfc;
+}
+
+.gnc-summary-box span {
+    display: block;
+    color: #71808a;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.gnc-summary-box strong {
+    color: #12384f;
+    font-size: 14px;
+}
+
+.gnc-form-section {
+    margin-top: 35px;
+}
+
+.gnc-form-section h2 {
+    color: #08283b;
+    font-size: 21px;
+    border-bottom: 1px solid #d8e0e4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.gnc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.gnc-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.gnc-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.gnc-form-group label {
+    color: #12384f;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.gnc-form-group input,
+.gnc-form-group select,
+.gnc-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #cfd9de;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #12384f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.gnc-form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.gnc-submit {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.gnc-submit button {
+    background: #123f58;
+    color: #ffffff;
+    border: 1px solid #123f58;
+    padding: 14px 32px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.gnc-submit button:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+}
+
+.gnc-footer-note {
+    text-align: center;
+    margin-top: 30px;
+    color: #60717b;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+
+    .gnc-registration-container {
+        padding: 25px;
+    }
+
+    .gnc-course-summary,
+    .gnc-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gnc-form-group.full {
+        grid-column: auto;
+    }
+
+    .gnc-registration-header h1 {
+        font-size: 26px;
+    }
+}
+</style>
+
+
+<div class="gnc-registration-page">
+
+    <div class="gnc-registration-container">
+
+        <div class="gnc-registration-header">
+
+            <div class="label">
+                Advanced Avionics Engineering
+            </div>
+
+            <h1>
+                Course Registration
+            </h1>
+
+            <p>
+                Advanced Aerospace Guidance, Navigation & Control (GNC)
+            </p>
+
+        </div>
+
+
+        <div class="gnc-course-summary">
+
+            <div class="gnc-summary-box">
+                <span>Course Reference</span>
+                <strong>93853</strong>
+            </div>
+
+            <div class="gnc-summary-box">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="gnc-summary-box">
+                <span>Course Date</span>
+                <strong>Can be offered upon a specific date request</strong>
+            </div>
+
+            <div class="gnc-summary-box">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <form method="POST">
+
+
+            <div class="gnc-form-section">
+
+                <h2>A. Course Details</h2>
+
+                <div class="gnc-form-grid">
+
+                    <div class="gnc-form-group">
+                        <label>Course Reference</label>
+                        <input
+                            type="text"
+                            value="93853"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Course Duration</label>
+                        <input
+                            type="text"
+                            value="5 Days"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Course Date</label>
+                        <input
+                            type="text"
+                            value="Can be offered against a specific date request"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Venue</label>
+                        <input
+                            type="text"
+                            value="Marriott Islamabad"
+                            readonly
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="gnc-form-section">
+
+                <h2>B. Company Details</h2>
+
+                <div class="gnc-form-grid">
+
+                    <div class="gnc-form-group">
+                        <label>Company Name</label>
+                        <input
+                            type="text"
+                            name="company"
+                            required
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Country</label>
+                        <input
+                            type="text"
+                            name="country"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="gnc-form-section">
+
+                <h2>C. Contact Details</h2>
+
+                <div class="gnc-form-grid">
+
+                    <div class="gnc-form-group">
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Mobile</label>
+                        <input
+                            type="text"
+                            name="mobile"
+                            required
+                        >
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Salutation</label>
+                        <select name="salutation">
+                            <option>Mr.</option>
+                            <option>Ms.</option>
+                            <option>Mrs.</option>
+                            <option>Dr.</option>
+                            <option>Prof.</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="gnc-form-section">
+
+                <h2>D. Participant Details</h2>
+
+                <div class="gnc-form-grid">
+
+                    <div class="gnc-form-group">
+                        <label>Number of Participants</label>
+
+                        <select name="participants">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10+</option>
+                        </select>
+
+                    </div>
+
+                    <div class="gnc-form-group">
+                        <label>Language</label>
+
+                        <select name="language">
+                            <option>English</option>
+                            <option>Arabic</option>
+                            <option>Chinese</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Italian</option>
+                            <option>Japanese</option>
+                            <option>Korean</option>
+                            <option>Persian</option>
+                            <option>Portuguese</option>
+                            <option>Russian</option>
+                            <option>Spanish</option>
+                            <option>Turkish</option>
+                        </select>
+
+                    </div>
+
+                    <div class="gnc-form-group full">
+                        <label>How did you hear about this training?</label>
+
+                        <select name="source">
+                            <option>Website</option>
+                            <option>Search Engine</option>
+                            <option>Social Media</option>
+                            <option>Email</option>
+                            <option>Referral</option>
+                            <option>Other</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="gnc-submit">
+
+                <button type="submit">
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="gnc-footer-note">
+            For registration assistance: ceo@capitalgroup.pk
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,619 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ophthalmic Instruments Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .ophthalmic-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+
+    .ophthalmic-hero {
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,.95) 0%,
+                rgba(6,29,45,.82) 45%,
+                rgba(6,29,45,.28) 100%
+            ),
+            url("https://images.pexels.com/photos/38167602/pexels-photo-38167602.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75")
+            center / cover no-repeat;
+    }
+
+    .ophthalmic-hero-inner {
+        width: 100%;
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 100px 7%;
+    }
+
+    .ophthalmic-label {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+    }
+
+    .ophthalmic-hero h1 {
+        max-width: 900px;
+        margin: 0 0 25px;
+        color: #fff;
+        font-size: clamp(42px, 6vw, 78px);
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+    }
+
+    .ophthalmic-description {
+        max-width: 710px;
+        margin: 0;
+        color: rgba(255,255,255,.88);
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* INTRO */
+
+    .ophthalmic-intro {
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 100px 7% 70px;
+        text-align: center;
+    }
+
+    .ophthalmic-intro h2 {
+        margin: 0 0 20px;
+        color: #12384f;
+        font-size: clamp(32px, 4vw, 50px);
+        line-height: 1.15;
+    }
+
+    .ophthalmic-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #596b77;
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+
+    /* SIX DETAIL SECTIONS */
+
+    .ophthalmic-sections {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 20px 7% 100px;
+    }
+
+    .ophthalmic-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+        padding: 70px 0;
+        border-top: 1px solid rgba(18,56,79,.12);
+    }
+
+    .ophthalmic-section:nth-child(even) .ophthalmic-image {
+        order: 2;
+    }
+
+    .ophthalmic-section:nth-child(even) .ophthalmic-content {
+        order: 1;
+    }
+
+    .ophthalmic-image {
+        min-height: 390px;
+        border-radius: 5px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 18px 45px rgba(6,29,45,.13);
+        transition: transform .4s ease;
+    }
+
+    .ophthalmic-image:hover {
+        transform: translateY(-4px);
+    }
+
+
+    /* UNIQUE OPHTHALMIC GRAPHICS */
+
+    .ophthalmic-image-1 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/5752232/pexels-photo-5752232.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ophthalmic-image-2 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/5996707/pexels-photo-5996707.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ophthalmic-image-3 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/6749761/pexels-photo-6749761.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ophthalmic-image-4 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/5766072/pexels-photo-5766072.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ophthalmic-image-5 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/6749698/pexels-photo-6749698.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+    .ophthalmic-image-6 {
+        background-image:
+            linear-gradient(
+                rgba(6,29,45,.08),
+                rgba(6,29,45,.08)
+            ),
+            url("https://images.pexels.com/photos/33857838/pexels-photo-33857838.jpeg?auto=compress&cs=tinysrgb&w=1100&q=75");
+    }
+
+
+    .ophthalmic-content {
+        max-width: 530px;
+    }
+
+    .ophthalmic-number {
+        margin-bottom: 16px;
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .ophthalmic-content h3 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 31px;
+        line-height: 1.2;
+    }
+
+    .ophthalmic-content p {
+        margin: 0;
+        color: #596b77;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* CTA */
+
+    .ophthalmic-cta {
+        padding: 90px 7%;
+        background: #08283b;
+        color: #fff;
+        text-align: center;
+    }
+
+    .ophthalmic-cta h2 {
+        margin: 0 0 20px;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .ophthalmic-cta p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: rgba(255,255,255,.78);
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .ophthalmic-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .ophthalmic-btn {
+        display: inline-block;
+        padding: 14px 25px;
+        border: 1px solid #c69b32;
+        border-radius: 30px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .7px;
+        transition: .3s ease;
+    }
+
+    .ophthalmic-primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .ophthalmic-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .ophthalmic-email {
+        margin-top: 25px;
+        color: rgba(255,255,255,.65);
+        font-size: 14px;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+
+        .ophthalmic-hero {
+            min-height: 600px;
+        }
+
+        .ophthalmic-hero-inner {
+            padding: 80px 7%;
+        }
+
+        .ophthalmic-section {
+            grid-template-columns: 1fr;
+            gap: 35px;
+            padding: 55px 0;
+        }
+
+        .ophthalmic-section:nth-child(even) .ophthalmic-image,
+        .ophthalmic-section:nth-child(even) .ophthalmic-content {
+            order: initial;
+        }
+
+        .ophthalmic-image {
+            min-height: 320px;
+        }
+    }
+
+
+    @media (max-width: 520px) {
+
+        .ophthalmic-hero h1 {
+            font-size: 40px;
+        }
+
+        .ophthalmic-description {
+            font-size: 15px;
+        }
+
+        .ophthalmic-intro {
+            padding-top: 70px;
+        }
+
+        .ophthalmic-image {
+            min-height: 270px;
+        }
+
+        .ophthalmic-content h3 {
+            font-size: 27px;
+        }
+    }
+</style>
+
+
+<main class="ophthalmic-page">
+
+
+    <!-- HERO -->
+
+    <section class="ophthalmic-hero">
+
+        <div class="ophthalmic-hero-inner">
+
+            <div class="ophthalmic-label">
+                Ophthalmic Instruments Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="ophthalmic-description">
+                CTC’s Ophthalmic Instruments Division provides professional
+                eye-care sourcing and coordinated healthcare solutions for
+                hospitals, eye clinics, distributors and international
+                medical markets, with a focus on dependable quality,
+                consistent availability and long-term healthcare
+                partnerships.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="ophthalmic-intro">
+
+        <h2>
+            Ophthalmic Healthcare Solutions
+        </h2>
+
+        <p>
+            CTC supports eye-care organizations and healthcare distribution
+            networks with professionally coordinated ophthalmic solutions,
+            connecting dependable sourcing, modern medical technology and
+            international business opportunities.
+        </p>
+
+    </section>
+
+
+    <!-- SIX DETAIL SECTIONS -->
+
+    <section class="ophthalmic-sections">
+
+
+        <!-- 01 -->
+
+        <article class="ophthalmic-section">
+
+            <div
+                class="ophthalmic-image ophthalmic-image-1"
+                role="img"
+                aria-label="Modern ophthalmology clinic equipment">
+            </div>
+
+            <div class="ophthalmic-content">
+
+                <div class="ophthalmic-number">
+                    01 — OPHTHALMIC HEALTHCARE
+                </div>
+
+                <h3>
+                    Ophthalmic Clinical Solutions
+                </h3>
+
+                <p>
+                    CTC provides professional healthcare solutions for
+                    hospitals, eye clinics and ophthalmic care environments,
+                    supporting dependable sourcing and coordinated service.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="ophthalmic-section">
+
+            <div
+                class="ophthalmic-image ophthalmic-image-2"
+                role="img"
+                aria-label="Ophthalmic examination instrument">
+            </div>
+
+            <div class="ophthalmic-content">
+
+                <div class="ophthalmic-number">
+                    02 — PROFESSIONAL EYE CARE
+                </div>
+
+                <h3>
+                    Ophthalmic Practice Support
+                </h3>
+
+                <p>
+                    Supporting professional eye-care institutions with
+                    organized sourcing and dependable solutions aligned
+                    with modern ophthalmic healthcare environments.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="ophthalmic-section">
+
+            <div
+                class="ophthalmic-image ophthalmic-image-3"
+                role="img"
+                aria-label="Modern ophthalmic diagnostic equipment">
+            </div>
+
+            <div class="ophthalmic-content">
+
+                <div class="ophthalmic-number">
+                    03 — MEDICAL TECHNOLOGY
+                </div>
+
+                <h3>
+                    Ophthalmic Medical Technology
+                </h3>
+
+                <p>
+                    CTC supports access to modern eye-care technology and
+                    equipment solutions for organizations seeking dependable
+                    and professionally coordinated medical support.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="ophthalmic-section">
+
+            <div
+                class="ophthalmic-image ophthalmic-image-4"
+                role="img"
+                aria-label="Eye-care professional examining a patient">
+            </div>
+
+            <div class="ophthalmic-content">
+
+                <div class="ophthalmic-number">
+                    04 — HEALTHCARE PARTNERSHIP
+                </div>
+
+                <h3>
+                    Ophthalmic Healthcare Partnerships
+                </h3>
+
+                <p>
+                    We support healthcare businesses and distribution
+                    networks through professional communication, organized
+                    sourcing and long-term business relationships across
+                    domestic and international markets.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="ophthalmic-section">
+
+            <div
+                class="ophthalmic-image ophthalmic-image-5"
+                role="img"
+                aria-label="Patient receiving professional eye examination">
+            </div>
+
+            <div class="ophthalmic-content">
+
+                <div class="ophthalmic-number">
+                    05 — SUPPLY COORDINATION
+                </div>
+
+                <h3>
+                    Ophthalmic Supply Coordination
+                </h3>
+
+                <p>
+                    Our approach focuses on organized sourcing, dependable
+                    coordination and professional service for healthcare
+                    institutions and ophthalmic distribution requirements.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="ophthalmic-section">
+
+            <div
+                class="ophthalmic-image ophthalmic-image-6"
+                role="img"
+                aria-label="Advanced ophthalmology examination environment">
+            </div>
+
+            <div class="ophthalmic-content">
+
+                <div class="ophthalmic-number">
+                    06 — GLOBAL SOURCING
+                </div>
+
+                <h3>
+                    International Ophthalmic Supply
+                </h3>
+
+                <p>
+                    CTC supports domestic and international eye-care markets
+                    through professional sourcing, supply coordination and
+                    business-to-business services designed for reliable
+                    long-term collaboration.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="ophthalmic-cta">
+
+        <h2>
+            Looking for Ophthalmic Healthcare Solutions?
+        </h2>
+
+        <p>
+            Connect with CTC for professional ophthalmic healthcare
+            sourcing, supply coordination and international market
+            solutions.
+        </p>
+
+        <div class="ophthalmic-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="ophthalmic-btn ophthalmic-primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="ophthalmic-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="ophthalmic-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="ophthalmic-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+
+</main>
+
+{% endblock %}

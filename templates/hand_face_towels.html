@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand & Face Towels Division | Capital Trading Corporation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #12384f;
+            line-height: 1.6;
+        }
+
+        .hand-face-hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            padding: 110px 8%;
+            background:
+                linear-gradient(rgba(6,29,45,.78), rgba(6,29,45,.84)),
+                url("https://images.pexels.com/photos/8142193/pexels-photo-8142193.jpeg?auto=compress&cs=tinysrgb&w=1800&q=75")
+                center/cover no-repeat;
+            color: white;
+        }
+
+        .hand-face-hero-content {
+            max-width: 850px;
+        }
+
+        .hand-face-label {
+            color: #d2a43b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hand-face-hero h1 {
+            font-size: clamp(42px, 6vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .hand-face-slogan {
+            font-size: 16px;
+            letter-spacing: 1.8px;
+            color: #d2a43b;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hand-face-hero p {
+            max-width: 760px;
+            font-size: 18px;
+            color: #e8eef1;
+        }
+
+        .hand-face-intro {
+            padding: 90px 8% 65px;
+            max-width: 1100px;
+        }
+
+        .hand-face-intro span {
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hand-face-intro h2 {
+            font-size: 42px;
+            margin: 12px 0 18px;
+            color: #08283b;
+        }
+
+        .hand-face-intro p {
+            max-width: 850px;
+            color: #53636d;
+            font-size: 17px;
+        }
+
+        .hand-face-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 500px;
+            border-top: 1px solid #dfe5e8;
+        }
+
+        .hand-face-section:nth-child(even) {
+            direction: rtl;
+        }
+
+        .hand-face-section:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .hand-face-text {
+            padding: 80px 9%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hand-face-number {
+            color: #c69b32;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hand-face-text h3 {
+            color: #08283b;
+            font-size: 34px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hand-face-text p {
+            color: #5b6971;
+            max-width: 520px;
+            font-size: 16px;
+        }
+
+        .hand-face-image {
+            min-height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hf-img-1 {
+            background-image: url("https://images.pexels.com/photos/8142193/pexels-photo-8142193.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+        }
+
+        .hf-img-2 {
+            background-image: url("https://images.pexels.com/photos/12859724/pexels-photo-12859724.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+        }
+
+        .hf-img-3 {
+            background-image: url("https://images.pexels.com/photos/6466219/pexels-photo-6466219.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+        }
+
+        .hf-img-4 {
+            background-image: url("https://images.pexels.com/photos/7466531/pexels-photo-7466531.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+        }
+
+        .hf-img-5 {
+            background-image:  url("/static/quality_supply_planning.jpg");
+
+        }
+
+        .hf-img-6 {
+            background-image: url("https://images.pexels.com/photos/6127437/pexels-photo-6127437.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+        }
+
+        .hand-face-cta {
+            margin: 80px 8%;
+            padding: 65px 8%;
+            background: #08283b;
+            color: white;
+            text-align: center;
+        }
+
+        .hand-face-cta h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .hand-face-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #d9e3e8;
+        }
+
+        .hand-face-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hand-face-buttons a {
+            text-decoration: none;
+            padding: 13px 24px;
+            border: 1px solid #c69b32;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            transition: .25s;
+        }
+
+        .hand-face-buttons a:hover {
+            background: #c69b32;
+            color: #08283b;
+        }
+
+        .hand-face-email {
+            margin-top: 22px;
+            color: #d2a43b;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .hand-face-hero {
+                min-height: 620px;
+                padding: 90px 7%;
+            }
+
+            .hand-face-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hand-face-section:nth-child(even) {
+                direction: ltr;
+            }
+
+            .hand-face-image {
+                min-height: 380px;
+            }
+
+            .hand-face-text {
+                padding: 60px 8%;
+            }
+
+            .hand-face-intro h2,
+            .hand-face-cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hand-face-hero">
+        <div class="hand-face-hero-content">
+
+            <div class="hand-face-label">
+                Hand & Face Towels Division
+            </div>
+
+            <div class="hand-face-slogan">
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </div>
+
+            <h1>
+                PROFESSIONAL HAND & FACE TOWEL SOLUTIONS.
+            </h1>
+
+            <p>
+                CTC’s Hand & Face Towels Division provides professionally sourced
+                towel products for retail, hospitality, institutional and commercial
+                markets, supporting reliable quality, fabric specifications,
+                quantity planning and international textile trade requirements.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section class="hand-face-intro">
+        <span>Hand & Face Textile Solutions</span>
+
+        <h2>
+            Premium Hand & Face Towel Supply
+        </h2>
+
+        <p>
+            CTC supports hand and face towel sourcing through dependable supplier
+            coordination, fabric and size specifications, quality requirements,
+            quantity planning and organized supply solutions for domestic and
+            international textile markets.
+        </p>
+    </section>
+
+
+    <section class="hand-face-section">
+
+        <div class="hand-face-text">
+            <div class="hand-face-number">01</div>
+
+            <h3>Premium Hand & Face Towels</h3>
+
+            <p>
+                Professionally sourced hand and face towels selected for
+                softness, absorbency, durability and dependable everyday use.
+            </p>
+        </div>
+
+        <div class="hand-face-image hf-img-1"></div>
+
+    </section>
+
+
+    <section class="hand-face-section">
+
+        <div class="hand-face-text">
+            <div class="hand-face-number">02</div>
+
+            <h3>Quality & Fabric Selection</h3>
+
+            <p>
+                Towel sourcing aligned with fabric composition, texture,
+                absorbency, finishing and product specifications for different
+                market requirements.
+            </p>
+        </div>
+
+        <div class="hand-face-image hf-img-2"></div>
+
+    </section>
+
+
+    <section class="hand-face-section">
+
+        <div class="hand-face-text">
+            <div class="hand-face-number">03</div>
+
+            <h3>Hospitality Towel Supply</h3>
+
+            <p>
+                Reliable hand and face towel solutions for hotels, resorts,
+                guest facilities and professional hospitality environments.
+            </p>
+        </div>
+
+        <div class="hand-face-image hf-img-3"></div>
+
+    </section>
+
+
+    <section class="hand-face-section">
+
+        <div class="hand-face-text">
+            <div class="hand-face-number">04</div>
+
+            <h3>Retail-Ready Towel Solutions</h3>
+
+            <p>
+                Product sourcing and presentation solutions designed for
+                retail channels, private requirements and consumer textile markets.
+            </p>
+        </div>
+
+        <div class="hand-face-image hf-img-4"></div>
+
+    </section>
+
+
+    <section class="hand-face-section">
+
+        <div class="hand-face-text">
+            <div class="hand-face-number">05</div>
+
+            <h3>Quantity & Supply Planning</h3>
+
+            <p>
+                Organized quantity planning, supplier coordination and shipment
+                support for recurring commercial and international towel requirements.
+            </p>
+        </div>
+
+        <div class="hand-face-image hf-img-5"></div>
+
+    </section>
+
+
+    <section class="hand-face-section">
+
+        <div class="hand-face-text">
+            <div class="hand-face-number">06</div>
+
+            <h3>International Hand & Face Towel Markets</h3>
+
+            <p>
+                Professional sourcing and supply coordination supporting
+                international textile trade and diverse hand and face towel
+                market requirements.
+            </p>
+        </div>
+
+        <div class="hand-face-image hf-img-6"></div>
+
+    </section>
+
+
+    <section class="hand-face-cta">
+
+        <h2>Looking for Hand & Face Towel Products?</h2>
+
+        <p>
+            Connect with CTC for professional hand and face towel sourcing,
+            supply coordination and international textile market solutions.
+        </p>
+
+        <div class="hand-face-buttons">
+
+            <a href="{{ url_for('trading_quote') }}">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('hosiery_towel') }}">
+                BACK TO HOSIERY / TOWEL
+            </a>
+
+            <a href="/">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="hand-face-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+{% extends "base.html" %}
+
+{% block title %}Electrical Engineering Training | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        position: relative;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg")
+            center/cover no-repeat;
+    }
+
+    .electrical-hero-content {
+        max-width: 850px;
+        color: #fff;
+    }
+
+    .electrical-label {
+        display: block;
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .electrical-hero h1 {
+        font-size: 54px;
+        line-height: 1.12;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-hero p {
+        max-width: 760px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #edf3f6;
+    }
+
+    .electrical-intro {
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 85px 25px 45px;
+        text-align: center;
+    }
+
+    .electrical-intro h2 {
+        font-size: 38px;
+        margin-bottom: 18px;
+        color: #12384f;
+    }
+
+    .electrical-intro p {
+        max-width: 850px;
+        margin: auto;
+        line-height: 1.7;
+        color: #52636d;
+        font-size: 17px;
+    }
+
+    .electrical-features {
+        max-width: 1100px;
+        margin: 20px auto 80px;
+        padding: 0 25px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .electrical-feature {
+        background: #fff;
+        border: 1px solid #e1e7ea;
+        padding: 32px 26px;
+        text-align: center;
+        border-top: 3px solid #c69b32;
+    }
+
+    .electrical-feature h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        color: #12384f;
+    }
+
+    .electrical-feature p {
+        margin: 0;
+        color: #60717b;
+        line-height: 1.6;
+    }
+
+    .electrical-course-title {
+        text-align: center;
+        padding: 30px 20px 45px;
+    }
+
+    .electrical-course-title span {
+        color: #c69b32;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .electrical-course-title h2 {
+        font-size: 40px;
+        margin: 12px 0 0;
+        color: #12384f;
+    }
+
+    .electrical-training-grid {
+        max-width: 1100px;
+        margin: 0 auto 80px;
+        padding: 0 25px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .electrical-training-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 125px;
+        padding: 24px 22px;
+        background: #fff;
+        border: 1px solid #dfe6e9;
+        border-top: 3px solid #c69b32;
+        color: #12384f;
+        text-decoration: none;
+        transition: .25s ease;
+    }
+
+    .electrical-training-button strong {
+        font-size: 17px;
+        line-height: 1.35;
+        margin-bottom: 9px;
+    }
+
+    .electrical-training-button span {
+        color: #60717b;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .electrical-training-button:hover {
+        border-color: #c69b32;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.08);
+    }
+
+    .electrical-outcomes {
+        background: #08283b;
+        color: #fff;
+        padding: 85px 25px;
+        margin-top: 20px;
+    }
+
+    .electrical-outcomes-inner {
+        max-width: 1050px;
+        margin: auto;
+    }
+
+    .electrical-outcomes h2 {
+        font-size: 38px;
+        margin: 0 0 35px;
+    }
+
+    .electrical-outcomes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .electrical-outcome {
+        border-left: 2px solid #c69b32;
+        padding: 5px 20px;
+        color: #dce6eb;
+        line-height: 1.6;
+    }
+
+    .electrical-cta {
+        text-align: center;
+        padding: 85px 25px;
+        background: #f5f7f8;
+    }
+
+    .electrical-cta h2 {
+        font-size: 38px;
+        margin-bottom: 15px;
+        color: #12384f;
+    }
+
+    .electrical-cta p {
+        color: #60717b;
+        margin-bottom: 30px;
+    }
+
+    .electrical-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-btn {
+        display: inline-block;
+        padding: 14px 27px;
+        border: 1px solid #12384f;
+        color: #12384f;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: .5px;
+        transition: .25s ease;
+    }
+
+    .electrical-btn.primary {
+        background: #12384f;
+        color: #fff;
+        border-color: #12384f;
+    }
+
+    .electrical-btn:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+        color: #fff;
+    }
+
+    .electrical-email {
+        margin-top: 25px;
+        color: #12384f;
+        font-weight: 600;
+    }
+
+    @media (max-width: 850px) {
+        .electrical-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .electrical-hero h1 {
+            font-size: 40px;
+        }
+
+        .electrical-features,
+        .electrical-training-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .electrical-outcomes-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .electrical-hero h1 {
+            font-size: 32px;
+        }
+
+        .electrical-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-intro h2,
+        .electrical-course-title h2,
+        .electrical-outcomes h2,
+        .electrical-cta h2 {
+            font-size: 30px;
+        }
+    }
+</style>
+
+<div class="electrical-page">
+
+    <!-- HERO -->
+    <section class="electrical-hero">
+        <div class="electrical-hero-content">
+
+            <span class="electrical-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional electrical engineering training develops
+                practical expertise in electrical circuits, power systems,
+                protection systems and modern electrical technologies.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="electrical-intro">
+
+        <h2>
+            Professional Electrical Engineering Training
+        </h2>
+
+        <p>
+            Develop practical engineering knowledge across electrical systems,
+            power distribution, machines, protection, renewable energy and
+            industrial automation through structured professional training.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="electrical-features">
+
+        <div class="electrical-feature">
+            <h3>Practical Engineering</h3>
+            <p>
+                Industry-focused learning with practical electrical engineering concepts.
+            </p>
+        </div>
+
+        <div class="electrical-feature">
+            <h3>Power Systems</h3>
+            <p>
+                Understand generation, transmission, distribution and electrical control.
+            </p>
+        </div>
+
+        <div class="electrical-feature">
+            <h3>Modern Technologies</h3>
+            <p>
+                Explore renewable energy, automation and smart electrical systems.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- COURSE TITLE -->
+    <section class="electrical-course-title">
+
+        <span>Advanced Professional Courses</span>
+
+        <h2>
+            Electrical Engineering Training Courses
+        </h2>
+
+    </section>
+
+
+    <!-- SIX TRAINING BUTTONS -->
+    <section class="electrical-training-grid">
+
+        <a href="{{ url_for('electrical_faults_troubleshooting') }}"
+           class="electrical-training-button">
+
+            <strong>
+                Electrical Faults and Troubleshooting
+            </strong>
+
+            <span>
+                Practical electrical fault diagnosis, testing and troubleshooting techniques.
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('instrumentation_controls_facilities')}}"
+           class="electrical-training-button">
+
+            <strong>
+                Instrumentation, Controls and Electrical Systems for Facilities Engineers
+            </strong>
+
+            <span>
+                Professional training in instrumentation, controls and facility electrical systems.
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('electrical_submersible_pumps')}}"
+           class="electrical-training-button">
+
+            <strong>
+                Electrical and Submersible Pumps (ESP) Operation, Design, Optimization and Troubleshooting (5 Days)
+            </strong>
+
+            <span>
+                Practical ESP operation, design, optimization and troubleshooting expertise.
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('electrical_grounding_bonding')}}"
+           class="electrical-training-button">
+
+            <strong>
+                Electrical Grounding, Bonding & Lightning Protection
+            </strong>
+
+            <span>
+                Professional grounding, bonding and lightning protection principles and practices.
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('electrical_substation_protection')}}"
+           class="electrical-training-button">
+
+            <strong>
+                Electrical Substation Design and Electrical Protection System (5 Days)
+            </strong>
+
+            <span>
+                Practical substation design and electrical protection system concepts.
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('electrical_automation_engineering') }}"
+           class="electrical-training-button">
+
+            <strong>
+                Electrical Automation Engineering (5 Days)
+            </strong>
+
+            <span>
+                Industrial electrical automation, control systems and modern plant applications.
+            </span>
+
+        </a>
+
+    </section>
+
+
+    <!-- OUTCOMES -->
+    <section class="electrical-outcomes">
+
+        <div class="electrical-outcomes-inner">
+
+            <h2>
+                Professional Learning Outcomes
+            </h2>
+
+            <div class="electrical-outcomes-grid">
+
+                <div class="electrical-outcome">
+                    Understand fundamental electrical engineering principles
+                    and circuit analysis.
+                </div>
+
+                <div class="electrical-outcome">
+                    Develop knowledge of power systems, machines and electrical
+                    distribution.
+                </div>
+
+                <div class="electrical-outcome">
+                    Apply electrical protection and control concepts to
+                    engineering systems.
+                </div>
+
+                <div class="electrical-outcome">
+                    Understand renewable energy and smart electrical technologies.
+                </div>
+
+                <div class="electrical-outcome">
+                    Develop practical knowledge of industrial electrical
+                    automation.
+                </div>
+
+                <div class="electrical-outcome">
+                    Build professional technical understanding for modern
+                    electrical engineering environments.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-cta">
+
+        <h2>
+            Advance Your Electrical Engineering Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional engineering
+            training and technical development.
+        </p>
+
+        <div class="electrical-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="electrical-btn primary">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="electrical-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+        <div class="electrical-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

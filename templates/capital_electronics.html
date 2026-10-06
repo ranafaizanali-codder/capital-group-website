@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+{% block title %}CC Electronics Department | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+    .electronics-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* ================= HERO ================= */
+
+    .electronics-hero {
+        position: relative;
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: #061d2d;
+    }
+
+    .electronics-hero-background {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.94),
+                rgba(6, 29, 45, 0.78),
+                rgba(6, 29, 45, 0.58)
+            ),
+            url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=90");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .electronics-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(
+                135deg,
+                rgba(4, 24, 38, 0.55),
+                rgba(6, 29, 45, 0.20)
+            );
+        z-index: 1;
+    }
+
+    .electronics-hero-content {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 1150px;
+        padding: 100px 8%;
+    }
+
+    .electronics-label {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+        text-transform: uppercase;
+    }
+
+    .electronics-hero h1 {
+        color: #ffffff;
+        font-size: clamp(46px, 6vw, 78px);
+        line-height: 1.05;
+        letter-spacing: -2px;
+        max-width: 1000px;
+        margin: 0 0 26px;
+    }
+
+    .electronics-hero h2 {
+        color: #ffffff;
+        font-size: clamp(24px, 3vw, 38px);
+        font-weight: 500;
+        line-height: 1.25;
+        max-width: 900px;
+        margin: 0 0 28px;
+    }
+
+    .electronics-description {
+        color: #e7eef2;
+        max-width: 820px;
+        font-size: 19px;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    /* ================= CAPABILITIES ================= */
+
+    .electronics-capabilities {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 85px 7% 90px;
+    }
+
+    .electronics-section-title {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    .electronics-section-title h2 {
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        margin: 0 0 12px;
+    }
+
+    .electronics-section-title p {
+        color: #5d6d76;
+        font-size: 17px;
+        margin: 0;
+    }
+
+    .electronics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .electronics-module-button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 145px;
+        padding: 28px 25px;
+        text-decoration: none;
+        background: #061d2d;
+        border: 1px solid rgba(198, 155, 50, 0.35);
+        border-radius: 4px;
+        overflow: hidden;
+        transition:
+            transform 0.3s ease,
+            background 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .electronics-module-button::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: #c69b32;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.3s ease;
+    }
+
+    .electronics-module-button:hover {
+        transform: translateY(-5px);
+        background: #0b2a3d;
+        border-color: #c69b32;
+        box-shadow: 0 15px 35px rgba(6, 29, 45, 0.18);
+    }
+
+    .electronics-module-button:hover::before {
+        transform: scaleY(1);
+    }
+
+    .electronics-module-button h3 {
+        position: relative;
+        z-index: 2;
+        color: #ffffff;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        margin: 0 0 8px;
+    }
+
+    .electronics-module-button span {
+        position: relative;
+        z-index: 2;
+        color: #cbd8de;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* ================= BOTTOM BUTTONS ================= */
+
+    .electronics-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-top: 55px;
+    }
+
+    .electronics-action-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 210px;
+        padding: 15px 28px;
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        transition: all 0.3s ease;
+    }
+
+    .electronics-back {
+        color: #12384f;
+        background: transparent;
+        border: 1px solid #12384f;
+    }
+
+    .electronics-back:hover {
+        color: #ffffff;
+        background: #12384f;
+    }
+
+    .electronics-request {
+        color: #ffffff;
+        background: #c69b32;
+        border: 1px solid #c69b32;
+    }
+
+    .electronics-request:hover {
+        background: #a98025;
+        border-color: #a98025;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+        .electronics-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .electronics-hero-content {
+            padding: 80px 7%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .electronics-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .electronics-hero {
+            min-height: 560px;
+        }
+
+        .electronics-hero-content {
+            padding: 70px 6%;
+        }
+
+        .electronics-description {
+            font-size: 17px;
+        }
+
+        .electronics-capabilities {
+            padding: 65px 6%;
+        }
+    }
+</style>
+
+<div class="electronics-page">
+
+    <!-- HERO -->
+    <section class="electronics-hero">
+
+        <div class="electronics-hero-background"></div>
+        <div class="electronics-hero-overlay"></div>
+
+        <div class="electronics-hero-content">
+
+            <div class="electronics-label">
+                {{ _("ELECTRONICS DEPARTMENT") }}
+            </div>
+
+            <h1>
+                {{ _("Precision Manufacturing Solutions par Excellence") }}
+            </h1>
+
+            <p class="electronics-description">
+                {{ _("Capital Engineering Electronics Department delivers advanced electronic manufacturing solutions, covering PCB design and assembly, electronic components, system integration, enclosures, testing and engineered assemblies for industrial and high-performance applications.") }}
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ELECTRONICS CAPABILITIES -->
+    <section class="electronics-capabilities">
+
+        <div class="electronics-section-title">
+            <h2>{{ _("Electronics Capabilities") }}</h2>
+            <p>{{ _("Integrated solutions from electronic design and assembly to testing and finished systems.") }}</p>
+        </div>
+
+        <div class="electronics-grid">
+
+            <a href="{{ url_for('pcbs') }}" class="electronics-module-button">
+                <h3>{{ _("PCBs") }}</h3>
+                <span>{{ _("Printed Circuit Boards · Design · Manufacturing · Assembly") }}</span>
+            </a>
+
+            <a href="{{ url_for('components') }}" class="electronics-module-button">
+                <h3>{{ _("Components") }}</h3>
+                <span>{{ _("Electronic Components · Selection · Integration · Supply") }}</span>
+            </a>
+
+            <a href="{{ url_for('stuffing') }}" class="electronics-module-button">
+                <h3>{{ _("Stuffing") }}</h3>
+                <span>{{ _("Component Placement · Soldering · PCB Population") }}</span>
+            </a>
+
+            <a href="{{ url_for('enclosures') }}" class="electronics-module-button">
+                <h3>{{ _("Enclosures") }}</h3>
+                <span>{{ _("Electronic Housings · Protection · Mechanical Integration") }}</span>
+            </a>
+
+            <a  href="{{ url_for('testing') }}" class="electronics-module-button">
+                <h3>{{ _("Testing") }}</h3>
+                <span>{{ _("Inspection · Functional Testing · Quality Verification") }}</span>
+            </a>
+
+            <a href="{{ url_for('electronics_assemblies') }}" class="electronics-module-button">
+                <h3>{{ _("Assemblies") }}</h3>
+                <span>{{ _("Electronic Assemblies · Integration · System-Level Solutions") }}</span>
+            </a>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+        <div class="electronics-actions">
+
+            <a href="{{ url_for('engineering') }}" class="electronics-action-button electronics-back">
+                ← {{ _("Go Back") }}
+            </a>
+
+            <a href="{{ url_for('engineering_quote') }}" class="electronics-action-button electronics-request">
+                {{ _("Request for Requirement") }}
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

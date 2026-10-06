@@ -1,0 +1,519 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ladies Shirts Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING - LADIES SHIRTS
+   ========================================================= */
+
+.ladies-shirts-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.ladies-shirts-hero {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,0.93) 0%,
+            rgba(6,29,45,0.78) 45%,
+            rgba(6,29,45,0.18) 100%
+        ),
+        url("https://images.pexels.com/photos/15221644/pexels-photo-15221644.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center / cover no-repeat;
+}
+
+.ladies-shirts-hero-content {
+    max-width: 760px;
+    padding: 70px 7%;
+    color: white;
+}
+
+.ladies-shirts-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.ladies-shirts-hero h1 {
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.ladies-shirts-hero h1 span {
+    color: #d2a43b;
+}
+
+.ladies-shirts-hero p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f1f4f6;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.ladies-shirts-intro {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 30px 45px;
+    text-align: center;
+}
+
+.ladies-shirts-intro h2 {
+    font-size: 36px;
+    color: #12384f;
+    margin-bottom: 20px;
+}
+
+.ladies-shirts-intro p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #526575;
+}
+
+/* ================= FEATURE ROWS ================= */
+
+.ladies-shirt-feature {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 30px;
+}
+
+.ladies-shirt-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 350px;
+    background: white;
+    margin-bottom: 35px;
+    box-shadow: 0 12px 35px rgba(6,29,45,0.08);
+    overflow: hidden;
+}
+
+.ladies-shirt-feature-row.reverse .ladies-shirt-text {
+    order: 2;
+}
+
+.ladies-shirt-feature-row.reverse .ladies-shirt-image {
+    order: 1;
+}
+
+.ladies-shirt-text {
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ladies-shirt-text small {
+    color: #c69b32;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.ladies-shirt-text h3 {
+    font-size: 30px;
+    margin: 0 0 15px;
+    color: #12384f;
+}
+
+.ladies-shirt-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5c6d79;
+    margin: 0;
+}
+
+.ladies-shirt-image {
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ================= COLLECTIONS ================= */
+
+.ladies-shirt-categories {
+    max-width: 1100px;
+    margin: 80px auto 30px;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.ladies-shirt-categories h2 {
+    font-size: 34px;
+    color: #12384f;
+    margin-bottom: 35px;
+}
+
+.ladies-shirt-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.ladies-shirt-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 82px;
+    padding: 18px;
+    background: #061d2d;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 3px solid #c69b32;
+    transition: all 0.3s ease;
+}
+
+.ladies-shirt-product:hover {
+    background: #12384f;
+    transform: translateY(-4px);
+}
+
+/* ================= CTA ================= */
+
+.ladies-shirt-cta {
+    margin-top: 80px;
+    padding: 70px 30px;
+    background: #061d2d;
+    text-align: center;
+    color: white;
+}
+
+.ladies-shirt-cta h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.ladies-shirt-cta p {
+    color: #d8e0e5;
+    margin-bottom: 30px;
+}
+
+.ladies-shirt-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ladies-shirt-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #d2a43b;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.ladies-shirt-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.ladies-shirt-btn:hover {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.ladies-shirt-email {
+    margin-top: 30px;
+    color: #d2a43b;
+    font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .ladies-shirt-feature-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ladies-shirt-feature-row.reverse .ladies-shirt-text,
+    .ladies-shirt-feature-row.reverse .ladies-shirt-image {
+        order: initial;
+    }
+
+    .ladies-shirt-image {
+        min-height: 300px;
+    }
+
+    .ladies-shirt-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .ladies-shirts-hero {
+        min-height: 520px;
+    }
+
+    .ladies-shirts-hero-content {
+        padding: 50px 25px;
+    }
+
+    .ladies-shirts-hero p {
+        font-size: 16px;
+    }
+
+    .ladies-shirt-text {
+        padding: 35px 25px;
+    }
+
+    .ladies-shirt-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<div class="ladies-shirts-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="ladies-shirts-hero">
+
+        <div class="ladies-shirts-hero-content">
+
+            <div class="ladies-shirts-label">
+                Ladies Shirts Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL
+                <span>SOURCING / SUPPLY CHAIN SOLUTIONS.</span>
+            </h1>
+
+            <p>
+                CTC’s Ladies Shirts Division provides 
+                solutions for contemporary women's shirts and blouses,
+                connecting quality apparel manufacturers with domestic
+                and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="ladies-shirts-intro">
+
+        <h2>Ladies Shirts</h2>
+
+        <p>
+            Our ladies shirt collection combines contemporary styling,
+            refined tailoring and versatile fabrics for modern wardrobes.
+            We support sourcing requirements across casual, formal and
+            fashion-oriented women's shirt collections.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE 1 ================= -->
+
+    <section class="ladies-shirt-feature">
+
+        <div class="ladies-shirt-feature-row">
+
+            <div class="ladies-shirt-text">
+
+                <small>01 / Contemporary Collection</small>
+
+                <h3>Modern Ladies Shirts</h3>
+
+                <p>
+                    Contemporary silhouettes, clean finishing and versatile
+                    designs provide stylish shirt options for modern
+                    women's apparel collections.
+                </p>
+
+            </div>
+
+            <div
+                class="ladies-shirt-image"
+                style="
+                    background-image:
+                    url('https://images.pexels.com/photos/15221644/pexels-photo-15221644.jpeg?auto=compress&cs=tinysrgb&w=1800');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 2 ================= -->
+
+    <section class="ladies-shirt-feature">
+
+        <div class="ladies-shirt-feature-row reverse">
+
+            <div class="ladies-shirt-text">
+
+                <small>02 / Refined Styling</small>
+
+                <h3>Elegant Blouses</h3>
+
+                <p>
+                    Refined blouse silhouettes and carefully selected details
+                    create versatile pieces suitable for contemporary,
+                    professional and occasion-based collections.
+                </p>
+
+            </div>
+
+            <div
+                class="ladies-shirt-image"
+                style="
+                    background-image:
+                    url('https://images.pexels.com/photos/7432236/pexels-photo-7432236.jpeg?auto=compress&cs=tinysrgb&w=1800');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 3 ================= -->
+
+    <section class="ladies-shirt-feature">
+
+        <div class="ladies-shirt-feature-row">
+
+            <div class="ladies-shirt-text">
+
+                <small>03 / Fashion Collection</small>
+
+                <h3>Printed &amp; Statement Shirts</h3>
+
+                <p>
+                    Distinctive prints, contemporary patterns and expressive
+                    styling support fashion-focused collections for modern
+                    retail and international apparel markets.
+                </p>
+
+            </div>
+
+            <div
+                class="ladies-shirt-image"
+                style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1800&q=85');
+                ">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COLLECTIONS ================= -->
+
+    <section class="ladies-shirt-categories">
+
+        <h2>Ladies Shirt Collections</h2>
+
+        <div class="ladies-shirt-grid">
+
+            <a href="#" class="ladies-shirt-product">
+                Casual Shirts
+            </a>
+
+            <a href="#" class="ladies-shirt-product">
+                Formal Shirts
+            </a>
+
+            <a href="#" class="ladies-shirt-product">
+                Blouses
+            </a>
+
+            <a href="#" class="ladies-shirt-product">
+                Printed Shirts
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="ladies-shirt-cta">
+
+        <h2>Looking for Ladies Shirts?</h2>
+
+        <p>
+            Share your product requirements with Capital Trading Corporation
+            for sourcing, supply and apparel solutions.
+        </p>
+
+        <div class="ladies-shirt-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="ladies-shirt-btn primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('garments_apparel') }}"
+                class="ladies-shirt-btn">
+                BACK TO GARMENTS
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="ladies-shirt-btn">
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="ladies-shirt-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="ladies-shirt-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="/" class="logo">
+        <img src="{{ url_for('static', filename='capital_group_logo.png') }}">
+    </a>
+
+    <nav class="nav">
+
+        <a href="/" class="{% if active=='home' %}active{% endif %}">
+            HOME
+        </a>
+
+        <div class="drop">
+            <a href="/about">ABOUT US <span>⌄</span></a>
+            <div class="menu">
+                <a href="/about">Who We Are</a>
+                <a href="/about">Our Vision</a>
+                <a href="/about">Our Mission</a>
+            </div>
+        </div>
+
+        <div class="drop">
+            <a href="/products">PRODUCTS <span>⌄</span></a>
+            <div class="menu">
+                <a href="/products">Our Products</a>
+                <a href="/companies/trading">Trading Products</a>
+                <a href="/companies/engineering">Engineering</a>
+            </div>
+        </div>
+
+        <div class="drop">
+            <a href="/services">SERVICES <span>⌄</span></a>
+            <div class="menu">
+                <a href="/services">Engineering Design</a>
+                <a href="/services">IT & Software</a>
+                <a href="/services">Supply Chain</a>
+                <a href="/services">Trade Services</a>
+            </div>
+        </div>
+
+        <div class="drop">
+            <a href="/follow">FOLLOW US <span>⌄</span></a>
+            <div class="menu">
+                <a href="/follow">LinkedIn</a>
+                <a href="/follow">Facebook</a>
+                <a href="/follow">Instagram</a>
+                <a href="/follow">YouTube</a>
+            </div>
+        </div>
+
+        <a href="/contact">CONTACT US</a>
+
+    </nav>
+
+    <a href="/contact" class="talk">LET'S TALK ↗</a>
+
+</header>
+
+
+{% if active == "home" %}
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">CAPITAL GROUP</div>
+
+        <h1>
+            Building Businesses.<br>
+            <span>Creating Solutions.</span>
+        </h1>
+
+        <p>
+            A diversified corporate group delivering engineering,
+            consulting, technology, trading and supply solutions
+            for a better tomorrow.
+        </p>
+
+        <div class="buttons">
+            <a href="/companies" class="primary">
+                EXPLORE OUR COMPANIES <b>→</b>
+            </a>
+
+            <a href="/contact" class="secondary">
+                CONTACT US
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+{% else %}
+
+<section class="inner-hero">
+
+    <div class="inner-content">
+
+        <div class="eyebrow">CAPITAL GROUP</div>
+
+        <h1>
+            {{ page.heading }}
+            {% if page.gold %}
+            <br><span>{{ page.gold }}</span>
+            {% endif %}
+        </h1>
+
+        <p>{{ page.text }}</p>
+
+    </div>
+
+</section>
+
+
+{% if active == "companies" and page.cards is not defined %}
+
+<section class="companies">
+
+    <div class="company-card">
+        <div class="number">01</div>
+        <h2>Capital Engineering Corporation</h2>
+        <p>Engineering and technical solutions for industrial and business requirements.</p>
+        <a href="/companies/engineering">EXPLORE COMPANY →</a>
+    </div>
+
+    <div class="company-card">
+        <div class="number">02</div>
+        <h2>Capital Consultants</h2>
+        <p>Professional consulting solutions for management, IT, HR and business growth.</p>
+        <a href="/companies/consultants">EXPLORE COMPANY →</a>
+    </div>
+
+    <div class="company-card">
+        <div class="number">03</div>
+        <h2>Capital Trading Corporation</h2>
+        <p>Import, export, supply chain and international trading capabilities.</p>
+        <a href="/companies/trading">EXPLORE COMPANY →</a>
+    </div>
+
+</section>
+
+{% elif page.cards is defined %}
+
+<section class="expertise">
+
+    {% for title, text in page.cards %}
+
+    <div class="expertise-card">
+        <span>0{{ loop.index }}</span>
+        <h2>{{ title }}</h2>
+        <p>{{ text }}</p>
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endif %}
+
+{% endif %}
+
+
+<footer>
+
+    <div>
+        <strong>CAPITAL GROUP</strong>
+        <p>Indigenous Innovations</p>
+    </div>
+
+    <div class="footer-contact">
+        <p>info@capitalgroup.pk</p>
+        <p>+92-51-280-9611</p>
+        <p>#2, 2nd Floor Park View Inn Plaza,<br>
+        F-10 Markaz, Islamabad, Pakistan-44000</p>
+    </div>
+
+</footer>
+
+</body>
+</html>

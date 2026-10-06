@@ -1,0 +1,749 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+IT Services Department | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING - IT SERVICES DEPARTMENT
+   ========================================================= */
+
+.it-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+
+/* ================= HERO ================= */
+
+.it-hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.80),
+            rgba(6, 29, 45, 0.80)
+        ),
+        url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1800");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.it-hero-content {
+    max-width: 900px;
+    padding: 80px 7%;
+    color: #ffffff;
+}
+
+.it-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.it-hero h1 {
+    margin: 0 0 22px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.it-description {
+    max-width: 850px;
+    margin: 0;
+    color: #f3f6f8;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* ================= SERVICES ================= */
+
+.it-services {
+    width: 100%;
+    padding: 80px 0 0;
+}
+
+.it-services-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 70px;
+}
+
+.it-services-header h2 {
+    margin: 0 0 14px;
+    color: #12384f;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.it-services-header p {
+    max-width: 760px;
+    margin: 0;
+    color: #667780;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ================= SERVICE ROW ================= */
+
+.it-service-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 470px;
+    background: #ffffff;
+}
+
+.it-service-row:nth-child(odd) {
+    background: #f5f7f8;
+}
+
+
+/* IMAGE */
+
+.it-service-image {
+    min-height: 470px;
+    overflow: hidden;
+    position: relative;
+}
+
+.it-service-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 470px;
+    display: block;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.it-service-row:hover .it-service-image img {
+    transform: scale(1.035);
+}
+
+.it-service-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(6,29,45,.02),
+        rgba(6,29,45,.28)
+    );
+}
+
+
+/* TEXT */
+
+.it-service-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 65px 8%;
+}
+
+.it-service-number {
+    margin-bottom: 12px;
+
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.it-service-caption {
+    margin-bottom: 12px;
+
+    color: #d2a43b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.it-service-content h2 {
+    max-width: 550px;
+    margin: 0 0 18px;
+
+    color: #12384f;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.15;
+}
+
+.it-service-content p {
+    max-width: 560px;
+    margin: 0 0 22px;
+
+    color: #667780;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.it-service-points {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.it-service-points li {
+    position: relative;
+
+    margin-bottom: 9px;
+    padding-left: 21px;
+
+    color: #52636c;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.it-service-points li::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 9px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #d2a43b;
+    border-radius: 50%;
+}
+
+
+/* ALTERNATING */
+
+.it-service-row.reverse .it-service-image {
+    order: 2;
+}
+
+.it-service-row.reverse .it-service-content {
+    order: 1;
+}
+
+
+/* ================= CTA ================= */
+
+.it-cta {
+    background: #061d2d;
+    padding: 70px 24px;
+    text-align: center;
+}
+
+.it-cta h2 {
+    margin: 0 0 28px;
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.it-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.it-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+
+    padding: 14px 24px;
+
+    border: 1px solid #d2a43b;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+
+    transition: all 0.25s ease;
+}
+
+.it-cta-button.primary {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.it-cta-button:hover {
+    background: #ffffff;
+    color: #061d2d;
+    border-color: #ffffff;
+}
+
+.it-email {
+    margin-top: 28px;
+    color: #d2a43b;
+    font-size: 14px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .it-service-row,
+    .it-service-row.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .it-service-row.reverse .it-service-image {
+        order: 1;
+    }
+
+    .it-service-row.reverse .it-service-content {
+        order: 2;
+    }
+
+    .it-service-image,
+    .it-service-image img {
+        min-height: 360px;
+        height: 360px;
+    }
+
+    .it-service-content {
+        padding: 55px 35px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .it-hero {
+        min-height: 500px;
+    }
+
+    .it-hero-content {
+        padding: 70px 24px;
+    }
+
+    .it-hero h1 {
+        font-size: 40px;
+    }
+
+    .it-services {
+        padding-top: 60px;
+    }
+
+    .it-services-header {
+        padding: 0 20px 55px;
+    }
+
+    .it-services-header h2 {
+        font-size: 30px;
+    }
+
+    .it-service-image,
+    .it-service-image img {
+        min-height: 290px;
+        height: 290px;
+    }
+
+    .it-service-content {
+        padding: 45px 25px;
+    }
+
+    .it-service-content h2 {
+        font-size: 29px;
+    }
+
+    .it-service-content p {
+        font-size: 15px;
+    }
+
+    .it-cta {
+        padding: 60px 20px;
+    }
+
+    .it-cta h2 {
+        font-size: 27px;
+    }
+
+    .it-cta-button {
+        width: 100%;
+    }
+}
+</style>
+
+
+<div class="it-page">
+
+
+    <!-- ================= HERO — SAME ================= -->
+
+    <section class="it-hero">
+
+        <div class="it-hero-content">
+
+            <span class="it-label">
+                IT Services Department
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="it-description">
+                CC’s IT Services Department provides professional information technology solutions, helping organizations manage, modernize and secure their digital infrastructure through reliable technology services and support.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="it-services">
+
+
+        <div class="it-services-header">
+
+            <h2>
+                IT Services &amp; Solutions
+            </h2>
+
+            <p>
+                Professional technology services covering infrastructure, networks,
+                cloud systems, cybersecurity and ongoing IT support.
+            </p>
+
+        </div>
+
+
+        <!-- ================= 01 ================= -->
+
+        <div class="it-service-row">
+
+            <div class="it-service-image">
+
+                <img
+                    src="{{ url_for('static', filename='it_infrastructure_graphic.jpg') }}"
+                    alt="IT Infrastructure"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="it-service-content">
+
+                <div class="it-service-number">
+                    01
+                </div>
+
+                <div class="it-service-caption">
+                    Technology Infrastructure
+                </div>
+
+                <h2>
+                    IT Infrastructure
+                </h2>
+
+                <p>
+                    Reliable IT infrastructure solutions supporting secure,
+                    scalable and efficient digital business operations.
+                </p>
+
+                <ul class="it-service-points">
+                    <li>Server infrastructure</li>
+                    <li>Data management</li>
+                    <li>System integration</li>
+                    <li>Infrastructure planning</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 02 ================= -->
+
+        <div class="it-service-row reverse">
+
+            <div class="it-service-image">
+
+                <img
+                    src="{{ url_for('static', filename='network_connectivity.jpg') }}"
+                    alt="Network Solutions"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="it-service-content">
+
+                <div class="it-service-number">
+                    02
+                </div>
+
+                <div class="it-service-caption">
+                    Connected Systems
+                </div>
+
+                <h2>
+                    Network Solutions
+                </h2>
+
+                <p>
+                    Dependable network solutions providing secure connectivity
+                    for communication and efficient digital operations.
+                </p>
+
+                <ul class="it-service-points">
+                    <li>Network architecture</li>
+                    <li>Secure connectivity</li>
+                    <li>Network monitoring</li>
+                    <li>System configuration</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 03 ================= -->
+
+        <div class="it-service-row">
+
+            <div class="it-service-image">
+
+                <img
+                    src="{{ url_for('static', filename='cloud_digital_services.jpg') }}"
+                    alt="Cloud Services"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="it-service-content">
+
+                <div class="it-service-number">
+                    03
+                </div>
+
+                <div class="it-service-caption">
+                    Cloud Technology
+                </div>
+
+                <h2>
+                    Cloud Services
+                </h2>
+
+                <p>
+                    Flexible and scalable cloud-based solutions supporting
+                    accessible and efficient digital business systems.
+                </p>
+
+                <ul class="it-service-points">
+                    <li>Cloud infrastructure</li>
+                    <li>Data accessibility</li>
+                    <li>Cloud integration</li>
+                    <li>Digital scalability</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 04 ================= -->
+
+        <div class="it-service-row reverse">
+
+            <div class="it-service-image">
+
+                <img
+                    src="{{ url_for('static', filename='cybersecurity_protection.jpg') }}"
+                    alt="Cybersecurity Services"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="it-service-content">
+
+                <div class="it-service-number">
+                    04
+                </div>
+
+                <div class="it-service-caption">
+                    Digital Protection
+                </div>
+
+                <h2>
+                    Cybersecurity Services
+                </h2>
+
+                <p>
+                    Structured cybersecurity solutions helping protect digital
+                    systems, information and business operations.
+                </p>
+
+                <ul class="it-service-points">
+                    <li>Security monitoring</li>
+                    <li>Access protection</li>
+                    <li>Threat management</li>
+                    <li>Data security</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 05 ================= -->
+
+        <div class="it-service-row">
+
+            <div class="it-service-image">
+
+                <img
+                    src="{{ url_for('static', filename='it_support_consulting.jpg') }}"
+                    alt="IT Support and Maintenance"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="it-service-content">
+
+                <div class="it-service-number">
+                    05
+                </div>
+
+                <div class="it-service-caption">
+                    Technical Support
+                </div>
+
+                <h2>
+                    IT Support &amp; Maintenance
+                </h2>
+
+                <p>
+                    Professional technical support and maintenance services
+                    helping organizations maintain reliable IT operations.
+                </p>
+
+                <ul class="it-service-points">
+                    <li>Technical support</li>
+                    <li>System maintenance</li>
+                    <li>Performance monitoring</li>
+                    <li>Technology support</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 06 ================= -->
+
+        <div class="it-service-row reverse">
+
+            <div class="it-service-image">
+
+                <img
+                    src="{{ url_for('static', filename='business_technology.jpg') }}"
+                    alt="IT Consulting"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="it-service-content">
+
+                <div class="it-service-number">
+                    06
+                </div>
+
+                <div class="it-service-caption">
+                    Technology Advisory
+                </div>
+
+                <h2>
+                    IT Consulting
+                </h2>
+
+                <p>
+                    Professional technology advisory services helping
+                    organizations plan, optimize and improve their digital systems.
+                </p>
+
+                <ul class="it-service-points">
+                    <li>Technology planning</li>
+                    <li>IT strategy</li>
+                    <li>Digital transformation</li>
+                    <li>Technology optimization</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= CTA — SAME ================= -->
+
+    <section class="it-cta">
+
+        <h2>
+            Looking for IT Services &amp; Solutions?
+        </h2>
+
+        <div class="it-cta-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="it-cta-button primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="it-cta-button"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="it-cta-button"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="it-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+

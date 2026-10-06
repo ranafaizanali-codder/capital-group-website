@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+
+{% block title %}Hosiery / Towel Department | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.hosiery-towel-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.hosiery-towel-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.76),rgba(6,29,45,.76)),
+        url("https://images.pexels.com/photos/22598409/pexels-photo-22598409.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.hosiery-towel-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.hosiery-towel-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.hosiery-towel-hero h1{
+    max-width:950px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.hosiery-towel-description{
+    max-width:780px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.hosiery-towel-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.hosiery-towel-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.hosiery-towel-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.hosiery-towel-products{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 105px;
+}
+
+.hosiery-towel-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.hosiery-towel-card{
+    position:relative;
+    min-height:245px;
+    padding:35px 30px;
+    background:#fff;
+    border:1px solid #dce4e8;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    transition:.3s ease;
+    overflow:hidden;
+}
+
+.hosiery-towel-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:0;
+    background:#c69b32;
+    transition:.3s ease;
+}
+
+.hosiery-towel-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(6,29,45,.10);
+    border-color:#c69b32;
+}
+
+.hosiery-towel-card:hover::before{
+    height:100%;
+}
+
+.hosiery-towel-number{
+    position:absolute;
+    top:25px;
+    right:28px;
+    color:#c69b32;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.hosiery-towel-card h3{
+    color:#12384f;
+    font-size:27px;
+    margin:0 0 12px;
+}
+
+.hosiery-towel-card p{
+    color:#60727e;
+    font-size:15px;
+    line-height:1.7;
+    margin:0;
+    max-width:340px;
+}
+
+.hosiery-towel-quality{
+    max-width:1180px;
+    margin:auto;
+    padding:25px 25px 110px;
+}
+
+.hosiery-towel-quality-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.hosiery-towel-quality-image{
+    min-height:470px;
+    background:
+        url("https://images.pexels.com/photos/282892/pexels-photo-282892.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80")
+        center/cover no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.hosiery-towel-quality-content{
+    padding:20px 0;
+}
+
+.hosiery-towel-quality-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.hosiery-towel-quality-content h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    line-height:1.15;
+    margin:0 0 22px;
+}
+
+.hosiery-towel-quality-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0 0 18px;
+}
+
+.hosiery-towel-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.hosiery-towel-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.hosiery-towel-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.hosiery-towel-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.hosiery-towel-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.hosiery-towel-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.hosiery-towel-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:850px){
+
+    .hosiery-towel-hero{
+        min-height:620px;
+    }
+
+    .hosiery-towel-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hosiery-towel-quality-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .hosiery-towel-quality-image{
+        min-height:350px;
+    }
+}
+</style>
+
+
+<div class="hosiery-towel-page">
+
+    <section class="hosiery-towel-hero">
+
+        <div class="hosiery-towel-hero-inner">
+
+            <div class="hosiery-towel-label">
+                Hosiery / Towel Department
+            </div>
+
+            <h1>
+                 EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="hosiery-towel-description">
+                CTC’s Hosiery / Towel Department provides professionally
+                sourced textile and towel products for retail, hospitality,
+                institutional and commercial markets, supporting dependable
+                quality, product specifications, quantity planning and
+                international trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="hosiery-towel-intro">
+
+        <h2>
+            Pakistani Textile & Towel Solutions
+        </h2>
+
+        <p>
+            CTC supports textile sourcing through reliable supplier
+            coordination, product specifications, packaging requirements,
+            quantity planning and organized export solutions for domestic
+            and international markets.
+        </p>
+
+    </section>
+
+
+    <section class="hosiery-towel-products">
+
+        <div class="hosiery-towel-grid">
+
+            <a href="{{ url_for('towel') }}" class="hosiery-towel-card">
+
+                <span class="hosiery-towel-number">01</span>
+
+                <h3>
+                    Towels
+                </h3>
+
+                <p>
+                    Professional towel sourcing for retail,
+                    commercial and international textile markets.
+                </p>
+
+            </a>
+
+
+            <a href="{{ url_for('bath_towels') }}" class="hosiery-towel-card">
+
+                <span class="hosiery-towel-number">02</span>
+
+                <h3>
+                    Bath Towels
+                </h3>
+
+                <p>
+                    Quality-focused bath towel solutions for
+                    home, hospitality and commercial requirements.
+                </p>
+
+            </a>
+
+
+            <a href="{{ url_for('hand_face_towels') }}" class="hosiery-towel-card">
+
+                <span class="hosiery-towel-number">03</span>
+
+                <h3>
+                    Hand & Face Towels
+                </h3>
+
+                <p>
+                    Practical textile solutions for personal,
+                    hospitality and institutional applications.
+                </p>
+
+            </a>
+
+
+            <a href="{{ url_for('hospitality_towels') }}" class="hosiery-towel-card">
+
+                <span class="hosiery-towel-number">04</span>
+
+                <h3>
+                    Hospitality Towels
+                </h3>
+
+                <p>
+                    Coordinated towel sourcing for hotels,
+                    spas, resorts and hospitality businesses.
+                </p>
+
+            </a>
+
+
+            <a href="{{ url_for('kitchen_utility_towels') }}" class="hosiery-towel-card">
+
+                <span class="hosiery-towel-number">05</span>
+
+                <h3>
+                    Kitchen & Utility Towels
+                </h3>
+
+                <p>
+                    Functional textile products for kitchen,
+                    cleaning and commercial utility requirements.
+                </p>
+
+            </a>
+
+
+            <a href="{{ url_for('hosiery_products') }}" class="hosiery-towel-card">
+
+                <span class="hosiery-towel-number">06</span>
+
+                <h3>
+                    Hosiery Products
+                </h3>
+
+                <p>
+                    Professionally sourced hosiery products for
+                    apparel, retail and international markets.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="hosiery-towel-cta">
+
+        <h2>
+            Looking for Hosiery & Towel Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional textile sourcing,
+            towel supply coordination and international market
+            solutions.
+        </p>
+
+        <div class="hosiery-towel-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="hosiery-towel-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="hosiery-towel-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="hosiery-towel-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="hosiery-towel-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

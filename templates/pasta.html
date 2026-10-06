@@ -1,0 +1,478 @@
+{% extends "base.html" %}
+
+{% block title %}Pasta Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.pasta-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.pasta-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,.90), rgba(6,29,45,.42)),
+        url("https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.pasta-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.pasta-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.pasta-hero h1 {
+    max-width: 900px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.pasta-description {
+    max-width: 760px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e7edf1;
+}
+
+/* INTRO */
+.pasta-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+    padding: 90px 0 55px;
+    text-align: center;
+}
+
+.pasta-intro h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 18px;
+    color: #12384f;
+}
+
+.pasta-intro p {
+    max-width: 820px;
+    margin: auto;
+    color: #526673;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* SECTIONS */
+.pasta-sections {
+    width: min(1150px, 92%);
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.pasta-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    padding: 65px 0;
+    border-top: 1px solid #d9e0e4;
+}
+
+.pasta-section:nth-child(even) .pasta-image {
+    order: 2;
+}
+
+.pasta-section:nth-child(even) .pasta-content {
+    order: 1;
+}
+
+.pasta-image {
+    height: 410px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #e8edef;
+}
+
+.pasta-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pasta-number {
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.pasta-content h3 {
+    font-size: 31px;
+    color: #12384f;
+    margin: 0 0 17px;
+}
+
+.pasta-content p {
+    color: #596d79;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* CTA */
+.pasta-cta {
+    background: #08283b;
+    color: #fff;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.pasta-cta h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 0 0 18px;
+}
+
+.pasta-cta p {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: #dce6eb;
+    line-height: 1.7;
+}
+
+.pasta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.pasta-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 1px solid #c69b32;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.pasta-btn:hover {
+    background: #c69b32;
+    color: #08283b;
+}
+
+.pasta-email {
+    margin-top: 28px;
+    color: #cfdce2;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+
+    .pasta-hero {
+        min-height: 570px;
+    }
+
+    .pasta-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 0;
+    }
+
+    .pasta-section:nth-child(even) .pasta-image,
+    .pasta-section:nth-child(even) .pasta-content {
+        order: initial;
+    }
+
+    .pasta-image {
+        height: 320px;
+    }
+
+    .pasta-content h3 {
+        font-size: 27px;
+    }
+}
+</style>
+
+
+<div class="pasta-page">
+
+    <!-- HERO -->
+    <section class="pasta-hero">
+
+        <div class="pasta-hero-inner">
+
+            <div class="pasta-label">
+                Pasta Division
+            </div>
+
+            <h1>
+                 EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="pasta-description">
+                CTC’s Pasta Division provides professionally sourced pasta products
+                for retail, foodservice and commercial markets, supporting dependable
+                quality, product specifications, quantity planning and international
+                food trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="pasta-intro">
+
+        <h2>Premium Pasta Food Solutions</h2>
+
+        <p>
+            CTC supports pasta sourcing through dependable supplier coordination,
+            product specifications, packaging requirements, quantity planning and
+            organized supply solutions for domestic and international food markets.
+        </p>
+
+    </section>
+
+
+    <!-- CONTENT -->
+    <section class="pasta-sections">
+
+
+        <!-- 01 -->
+        <div class="pasta-section">
+
+            <div class="pasta-image">
+
+                <img
+                    src="https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium cooked pasta dish"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pasta-content">
+
+                <div class="pasta-number">01</div>
+
+                <h3>Premium Pasta Products</h3>
+
+                <p>
+                    CTC connects buyers with professionally sourced pasta products
+                    selected according to commercial specifications, consistent
+                    quality and dependable supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="pasta-section">
+
+            <div class="pasta-image">
+
+                <img
+                    src="https://images.pexels.com/photos/12003039/pexels-photo-12003039.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Variety of dry pasta products"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pasta-content">
+
+                <div class="pasta-number">02</div>
+
+                <h3>Quality & Pasta Selection</h3>
+
+                <p>
+                    Pasta sourcing can be coordinated around product format,
+                    quality expectations, packaging requirements and the needs
+                    of retail and foodservice buyers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="pasta-section">
+
+            <div class="pasta-image">
+
+                <img
+                    src="https://images.pexels.com/photos/30350309/pexels-photo-30350309.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Cooked pasta food product"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pasta-content">
+
+                <div class="pasta-number">03</div>
+
+                <h3>Foodservice Pasta Supply</h3>
+
+                <p>
+                    CTC supports food businesses and foodservice buyers with
+                    organized pasta sourcing, quantity coordination and dependable
+                    commercial supply planning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="pasta-section">
+
+            <div class="pasta-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8414741/pexels-photo-8414741.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium pasta dish for foodservice"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pasta-content">
+
+                <div class="pasta-number">04</div>
+
+                <h3>Retail-Ready Pasta Solutions</h3>
+
+                <p>
+                    Our sourcing approach supports retail requirements through
+                    coordinated product specifications, packaging needs, quantity
+                    planning and professional supply communication.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="pasta-section">
+
+            <div class="pasta-image">
+
+                <img
+                    src="https://images.pexels.com/photos/36346862/pexels-photo-36346862.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Dry fettuccine pasta texture"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pasta-content">
+
+                <div class="pasta-number">05</div>
+
+                <h3>Quantity & Supply Planning</h3>
+
+                <p>
+                    CTC coordinates required quantities, product specifications,
+                    packaging expectations and delivery schedules for recurring
+                    pasta supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="pasta-section">
+
+            <div class="pasta-image">
+
+                <img
+                    src="https://images.pexels.com/photos/8559300/pexels-photo-8559300.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh pasta with tomato sauce"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="pasta-content">
+
+                <div class="pasta-number">06</div>
+
+                <h3>International Pasta Markets</h3>
+
+                <p>
+                    CTC supports international buyers through organized pasta
+                    sourcing, export coordination and professional supply-chain
+                    communication for global food markets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="pasta-cta">
+
+        <h2>Looking for Pasta Products?</h2>
+
+        <p>
+            Connect with CTC for professional pasta sourcing, quantity planning,
+            supply coordination and international food market solutions.
+        </p>
+
+        <div class="pasta-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="pasta-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="pasta-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="pasta-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="pasta-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,478 @@
+{% extends "base.html" %}
+
+{% block title %}Seafood Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.seafood-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.seafood-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,.90), rgba(6,29,45,.45)),
+        url("https://images.pexels.com/photos/20810994/pexels-photo-20810994.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.seafood-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.seafood-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.seafood-hero h1 {
+    max-width: 850px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.seafood-description {
+    max-width: 720px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e7edf1;
+}
+
+/* INTRO */
+.seafood-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+    padding: 90px 0 55px;
+    text-align: center;
+}
+
+.seafood-intro h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 18px;
+    color: #12384f;
+}
+
+.seafood-intro p {
+    max-width: 820px;
+    margin: auto;
+    color: #526673;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* SECTIONS */
+.seafood-sections {
+    width: min(1150px, 92%);
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.seafood-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    padding: 65px 0;
+    border-top: 1px solid #d9e0e4;
+}
+
+.seafood-section:nth-child(even) .seafood-image {
+    order: 2;
+}
+
+.seafood-section:nth-child(even) .seafood-content {
+    order: 1;
+}
+
+.seafood-image {
+    height: 410px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #e8edef;
+}
+
+.seafood-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.seafood-number {
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.seafood-content h3 {
+    font-size: 31px;
+    color: #12384f;
+    margin: 0 0 17px;
+}
+
+.seafood-content p {
+    color: #596d79;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* CTA */
+.seafood-cta {
+    background: #08283b;
+    color: #fff;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.seafood-cta h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 0 0 18px;
+}
+
+.seafood-cta p {
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: #dce6eb;
+    line-height: 1.7;
+}
+
+.seafood-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.seafood-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 1px solid #c69b32;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.seafood-btn:hover {
+    background: #c69b32;
+    color: #08283b;
+}
+
+.seafood-email {
+    margin-top: 28px;
+    color: #cfdce2;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+
+    .seafood-hero {
+        min-height: 570px;
+    }
+
+    .seafood-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 0;
+    }
+
+    .seafood-section:nth-child(even) .seafood-image,
+    .seafood-section:nth-child(even) .seafood-content {
+        order: initial;
+    }
+
+    .seafood-image {
+        height: 320px;
+    }
+
+    .seafood-content h3 {
+        font-size: 27px;
+    }
+}
+</style>
+
+
+<div class="seafood-page">
+
+    <!-- HERO -->
+    <section class="seafood-hero">
+
+        <div class="seafood-hero-inner">
+
+            <div class="seafood-label">
+                Seafood Division
+            </div>
+
+            <h1>
+                 EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="seafood-description">
+                CTC’s Seafood Division provides professional sourcing and international
+                trade solutions for chilled and frozen seafood products, connecting
+                reliable fisheries, processors and suppliers with distributors,
+                food businesses and global markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="seafood-intro">
+
+        <h2>Chilled & Frozen Seafood Solutions</h2>
+
+        <p>
+            CTC supports professionally sourced seafood products through organized
+            procurement, quality-focused handling, quantity planning, chilled and
+            frozen logistics, export coordination and international market access.
+        </p>
+
+    </section>
+
+
+    <!-- SEAFOOD SECTIONS -->
+    <section class="seafood-sections">
+
+
+        <!-- 01 -->
+        <div class="seafood-section">
+
+            <div class="seafood-image">
+
+                <img
+                    src="https://images.pexels.com/photos/20810994/pexels-photo-20810994.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh seafood products on ice"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="seafood-content">
+
+                <div class="seafood-number">01</div>
+
+                <h3>Premium Seafood Products</h3>
+
+                <p>
+                    CTC connects buyers with professionally sourced seafood products,
+                    supporting consistent quality, reliable supply and international
+                    commercial requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="seafood-section">
+
+            <div class="seafood-image">
+
+                <img
+                    src="https://images.pexels.com/photos/29133875/pexels-photo-29133875.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh prawns and seafood products"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="seafood-content">
+
+                <div class="seafood-number">02</div>
+
+                <h3>Fresh & Chilled Seafood</h3>
+
+                <p>
+                    Fresh and chilled seafood sourcing is coordinated according to
+                    product specifications, order quantities, freshness requirements
+                    and destination-market expectations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="seafood-section">
+
+            <div class="seafood-image">
+
+                <img
+                    src="https://images.pexels.com/photos/18476179/pexels-photo-18476179.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Frozen shrimp seafood products"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="seafood-content">
+
+                <div class="seafood-number">03</div>
+
+                <h3>Frozen Seafood Supply</h3>
+
+                <p>
+                    CTC coordinates frozen seafood requirements with attention to
+                    product specifications, packaging, quantity planning and
+                    dependable cold-chain logistics.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="seafood-section">
+
+            <div class="seafood-image">
+
+                <img
+                    src="https://images.pexels.com/photos/17924401/pexels-photo-17924401.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh fish and shrimp seafood selection"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="seafood-content">
+
+                <div class="seafood-number">04</div>
+
+                <h3>Export-Ready Seafood Solutions</h3>
+
+                <p>
+                    Our seafood sourcing approach supports commercial orders through
+                    coordinated product specifications, packaging requirements,
+                    documentation and international shipment planning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="seafood-section">
+
+            <div class="seafood-image">
+
+                <img
+                    src="https://images.pexels.com/photos/12417979/pexels-photo-12417979.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh shrimp seafood supply"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="seafood-content">
+
+                <div class="seafood-number">05</div>
+
+                <h3>Quantity & Supply Planning</h3>
+
+                <p>
+                    CTC works with buyers and suppliers to coordinate required
+                    quantities, product specifications, delivery schedules and
+                    recurring seafood supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="seafood-section">
+
+            <div class="seafood-image">
+
+                <img
+                    src="https://images.pexels.com/photos/3903587/pexels-photo-3903587.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Assorted fresh seafood products"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="seafood-content">
+
+                <div class="seafood-number">06</div>
+
+                <h3>International Seafood Markets</h3>
+
+                <p>
+                    CTC supports international buyers through organized seafood
+                    sourcing, export coordination and supply-chain communication
+                    for global food markets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="seafood-cta">
+
+        <h2>Looking for Seafood Products?</h2>
+
+        <p>
+            Connect with CTC for professional seafood sourcing, chilled and frozen
+            supply, export coordination and international market solutions.
+        </p>
+
+        <div class="seafood-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="seafood-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="seafood-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="seafood-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="seafood-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

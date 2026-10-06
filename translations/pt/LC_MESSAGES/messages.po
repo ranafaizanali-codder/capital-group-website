@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Language: pt\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "HOME"
+msgstr "INÍCIO"
+
+msgid "ABOUT US"
+msgstr "SOBRE NÓS"
+
+msgid "FOLLOW US"
+msgstr "SIGA-NOS"
+
+msgid "CONTACT US"
+msgstr "FALE CONOSCO"
+
+msgid "LET'S TALK"
+msgstr "VAMOS CONVERSAR"
+
+msgid "Developing Business, Creating Solutions"
+msgstr "Desenvolvendo Negócios, Criando Soluções"

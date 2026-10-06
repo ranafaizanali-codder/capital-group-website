@@ -1,0 +1,616 @@
+{% extends "base.html" %}
+
+{% block title %}Flight Vehicle Engineering & Design Registration | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .registration-page {
+        background: #f5f7f8;
+        padding: 60px 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #12384f;
+    }
+
+    .registration-container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        box-shadow: 0 10px 35px rgba(6, 29, 45, 0.08);
+    }
+
+    .registration-header {
+        background: #08283b;
+        color: white;
+        padding: 40px;
+        border-bottom: 4px solid #c69b32;
+    }
+
+    .registration-header span {
+        display: block;
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    .registration-header h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.25;
+    }
+
+    .registration-body {
+        padding: 40px;
+    }
+
+    .course-summary {
+        background: #f5f7f8;
+        border-left: 4px solid #c69b32;
+        padding: 25px;
+        margin-bottom: 35px;
+    }
+
+    .course-summary h2 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 24px;
+    }
+
+    .course-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .summary-item span {
+        display: block;
+        color: #c69b32;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+    }
+
+    .summary-item strong {
+        font-size: 14px;
+        color: #12384f;
+        line-height: 1.4;
+    }
+
+    .form-section {
+        margin-top: 35px;
+    }
+
+    .form-section h2 {
+        font-size: 22px;
+        color: #12384f;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #dfe5e8;
+        margin-bottom: 25px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #12384f;
+        margin-bottom: 8px;
+    }
+
+    .required {
+        color: #c69b32;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 14px;
+        border: 1px solid #d5dde1;
+        background: #fff;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        outline: none;
+        transition: border-color .2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #c69b32;
+    }
+
+    .form-group textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+    .error-message {
+        background: #fff3f3;
+        border-left: 4px solid #b33a3a;
+        color: #8d2929;
+        padding: 15px 18px;
+        margin-bottom: 25px;
+        font-size: 14px;
+    }
+
+    .submit-area {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #dfe5e8;
+        text-align: center;
+    }
+
+    .submit-button {
+        border: 1px solid #c69b32;
+        background: #12384f;
+        color: white;
+        padding: 15px 35px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: .25s ease;
+    }
+
+    .submit-button:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+    }
+
+    .registration-footer {
+        background: #061d2d;
+        color: #dbe5ea;
+        text-align: center;
+        padding: 22px;
+        font-size: 13px;
+    }
+
+    .registration-footer strong {
+        color: #d2a43b;
+    }
+
+    @media (max-width: 850px) {
+        .course-summary-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .registration-page {
+            padding: 25px 12px;
+        }
+
+        .registration-header {
+            padding: 30px 25px;
+        }
+
+        .registration-header h1 {
+            font-size: 27px;
+        }
+
+        .registration-body {
+            padding: 25px;
+        }
+
+        .form-grid,
+        .course-summary-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+            grid-column: auto;
+        }
+    }
+</style>
+
+
+<div class="registration-page">
+
+    <div class="registration-container">
+
+        <!-- HEADER -->
+        <div class="registration-header">
+
+            <span>Aerospace Engineering Training</span>
+
+            <h1>
+                Flight Vehicle Engineering &amp; Design
+            </h1>
+
+        </div>
+
+
+        <div class="registration-body">
+
+            {% if error %}
+                <div class="error-message">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+
+            <!-- COURSE DETAILS -->
+            <div class="course-summary">
+
+                <h2>Course Details</h2>
+
+                <div class="course-summary-grid">
+
+                    <div class="summary-item">
+                        <span>Course Reference</span>
+                        <strong>MIT 16.82</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Duration</span>
+                        <strong>5 Days</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Course Date</span>
+                        <strong>
+                            Can be offered against a specific date request
+                        </strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Venue</span>
+                        <strong>Marriott Islamabad</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form method="POST">
+
+
+                <!-- COURSE & LOCATION -->
+                <div class="form-section">
+
+                    <h2>Course &amp; Location Information</h2>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Language <span class="required">*</span>
+                            </label>
+
+                            <select name="language" required>
+
+                                <option value="">Select Language</option>
+
+                                <option value="English">English</option>
+                                <option value="Arabic">Arabic</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="French">French</option>
+                                <option value="German">German</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Korean">Korean</option>
+                                <option value="Persian">Persian</option>
+                                <option value="Portuguese">Portuguese</option>
+                                <option value="Russian">Russian</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="Turkish">Turkish</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Country <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="country"
+                                placeholder="Enter country"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPANY DETAILS -->
+                <div class="form-section">
+
+                    <h2>B. Company Details</h2>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Company Name <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="company_name"
+                                placeholder="Enter company name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Website</label>
+
+                            <input
+                                type="text"
+                                name="website"
+                                placeholder="https://"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Nature of Business <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="nature_of_business"
+                                placeholder="Enter nature of business"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Postal Address <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                name="postal_address"
+                                placeholder="Enter complete postal address"
+                                required
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT DETAILS -->
+                <div class="form-section">
+
+                    <h2>C. Contact Details</h2>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Salutation <span class="required">*</span>
+                            </label>
+
+                            <select name="salutation" required>
+
+                                <option value="">Select</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Ms.">Ms.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Prof.">Prof.</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Job Title <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="job_title"
+                                placeholder="Enter job title"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter email address"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Mobile <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="mobile"
+                                placeholder="Enter mobile number"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PARTICIPANT DETAILS -->
+                <div class="form-section">
+
+                    <h2>D. Participant Details</h2>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Number of Participants
+                                <span class="required">*</span>
+                            </label>
+
+                            <select name="participants" required>
+
+                                <option value="">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="10+">10+</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                How did you hear about us?
+                                <span class="required">*</span>
+                            </label>
+
+                            <select name="source" required>
+
+                                <option value="">Select</option>
+                                <option value="Website">Website</option>
+                                <option value="Search Engine">Search Engine</option>
+                                <option value="Social Media">Social Media</option>
+                                <option value="Email">Email</option>
+                                <option value="Referral">Referral</option>
+                                <option value="Other">Other</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <div class="submit-area">
+
+                    <button
+                        type="submit"
+                        class="submit-button">
+                        SUBMIT REGISTRATION
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <div class="registration-footer">
+
+            For registration assistance:
+            <strong>ceo@capitalgroup.pk</strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

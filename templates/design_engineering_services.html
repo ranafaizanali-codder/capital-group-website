@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}
+Design & Engineering Services | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style> /* ========================================================= DESIGN & ENGINEERING SERVICES ========================================================= */ .design-engineering-page { background: #f5f7f8; color: #12384f; min-height: 100vh; } /* ================= HERO ================= */ .design-engineering-hero { min-height: 560px; background: linear-gradient( 90deg, rgba(6, 29, 45, 0.94) 0%, rgba(6, 29, 45, 0.78) 48%, rgba(6, 29, 45, 0.35) 100% ), url("https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1800") center center / cover no-repeat; display: flex; align-items: center; } .design-engineering-hero-content { width: min(1180px, 92%); margin: 0 auto; padding: 80px 0; } .design-engineering-label { color: #d2a43b; font-size: 14px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 18px; } .design-engineering-hero h1 { max-width: 850px; margin: 0 0 22px; color: #ffffff; font-size: clamp(38px, 5vw, 68px); line-height: 1.08; font-weight: 700; } .design-engineering-hero-description { max-width: 820px; color: #ffffff; font-size: 17px; line-height: 1.8; margin: 0; } /* ================= CONTENT ================= */ .design-engineering-content { width: min(1180px, 92%); margin: 0 auto; padding: 70px 0 85px; } /* ================= EIGHT SERVICES ================= */ .design-engineering-product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; max-width: 1050px; margin: 0 auto; } .design-engineering-product { min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px 16px; background: #ffffff; border: 1px solid #dce3e7; color: #12384f; text-decoration: none; text-align: center; box-shadow: 0 7px 20px rgba(6, 29, 45, 0.07); transition: all 0.25s ease; } .design-engineering-product-title { font-size: 14px; font-weight: 700; line-height: 1.35; } .design-engineering-product-caption { margin-top: 6px; color: #7a8991; font-size: 11px; font-weight: 500; letter-spacing: 0.2px; } .design-engineering-product:hover { background: #061d2d; color: #ffffff; border-color: #061d2d; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(6, 29, 45, 0.14); } .design-engineering-product:hover .design-engineering-product-caption { color: #d2a43b; } /* ================= CTA ================= */ .design-engineering-cta { margin-top: 70px; padding: 55px 30px; background: #061d2d; text-align: center; } .design-engineering-cta h2 { margin: 0 0 28px; color: #ffffff; font-size: 30px; } .design-engineering-cta-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; } .design-engineering-cta-button { display: inline-block; padding: 13px 26px; background: #d2a43b; color: #061d2d; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; transition: all 0.25s ease; } .design-engineering-cta-button:hover { background: #ffffff; color: #061d2d; } .design-engineering-email { margin-top: 25px; color: #d2a43b; font-size: 14px; } /* ================= RESPONSIVE ================= */ @media (max-width: 950px) { .design-engineering-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .design-engineering-hero { min-height: 500px; } } @media (max-width: 600px) { .design-engineering-product-grid { grid-template-columns: 1fr; } .design-engineering-hero { min-height: 500px; } .design-engineering-hero-content { padding: 60px 0; } .design-engineering-hero h1 { font-size: 38px; } .design-engineering-hero-description { font-size: 15px; line-height: 1.7; } } </style>
+
+<div class="design-engineering-page">
+
+<!-- ================= HERO ================= -->
+
+<section class="design-engineering-hero">
+
+    <div class="design-engineering-hero-content">
+
+        <div class="design-engineering-label">
+            Design &amp; Engineering Services Department
+        </div>
+
+        <h1>
+            Strategic Insight and Expertise for Sustainable Business Growth
+        </h1>
+
+        <p class="design-engineering-hero-description">
+            CCs provides integrated design and engineering solutions across aerospace, 
+            avionics, mechanical, electrical, environmental, software, IT and artificial 
+            intelligence domains. Our technical expertise focuses on engineering design, 
+            system development, digital technologies and innovative solutions that support 
+            complex projects, improve operational efficiency and deliver reliable, scalable 
+            and sustainable results for local and international clients.
+        </p>
+
+    </div>
+
+</section>
+
+<h2 style="text-align:center; margin:45px 0 20px; color:#12384f;">
+    Engineering Design Services
+</h2>
+
+
+<!-- ================= EIGHT SERVICES ================= -->
+
+<section class="design-engineering-content">
+
+    <div class="design-engineering-product-grid">
+
+
+        <a href="{{ url_for('electronics_avionics') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                Electronics &amp; Avionics Design
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Advanced Systems Engineering
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('aerospace_design') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                Aerospace Design
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Innovative Aerospace Solutions
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('mechanical_design_services') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                Mechanical Design
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Precision Mechanical Engineering
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('electrical_design_services') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                Electrical Design
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Reliable Electrical Solutions
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('environmental_design_services') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                Environmental Design
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Sustainable Environmental Solutions
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('software_engineering_services') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                Software Engineering
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Scalable Software Solutions
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('it_solutions')}}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                IT Solutions
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Professional Technology Support
+            </span>
+
+        </a>
+
+
+        <a href="{{ url_for('ai_solutions') }}" class="design-engineering-product">
+
+            <span class="design-engineering-product-title">
+                AI Solutions
+            </span>
+
+            <span class="design-engineering-product-caption">
+                Intelligent Digital Solutions
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <!-- ================= CTA ================= -->
+
+    <div class="design-engineering-cta">
+
+        <div class="design-engineering-cta-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="design-engineering-cta-button">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="/"
+               class="design-engineering-cta-button">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="design-engineering-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+{% endblock %}

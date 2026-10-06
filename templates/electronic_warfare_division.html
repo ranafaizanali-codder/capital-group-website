@@ -1,0 +1,565 @@
+{% extends "base.html" %}
+
+{% block title %}
+Electronic Warfare Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - ELECTRONIC WARFARE DIVISION
+   ========================================================= */
+
+.ew-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.ew-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #061d2d;
+}
+
+.ew-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.82;
+}
+
+.ew-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.98) 0%,
+            rgba(6, 29, 45, 0.90) 35%,
+            rgba(6, 29, 45, 0.48) 68%,
+            rgba(6, 29, 45, 0.18) 100%
+        );
+}
+
+.ew-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, 88%);
+    margin: auto;
+    color: white;
+}
+
+.ew-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.ew-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.ew-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.ew-content {
+    width: min(1200px, 88%);
+    margin: auto;
+    padding: 90px 0 70px;
+}
+
+.ew-heading {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+.ew-heading span {
+    display: block;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.ew-heading h2 {
+    margin: 0 0 15px;
+    color: #061d2d;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.ew-heading p {
+    max-width: 760px;
+    margin: auto;
+    color: #526675;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ================= FEATURE ROWS ================= */
+
+.ew-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    margin-bottom: 95px;
+}
+
+.ew-feature.reverse {
+    direction: rtl;
+}
+
+.ew-feature.reverse .ew-text {
+    direction: ltr;
+}
+
+.ew-image {
+    overflow: hidden;
+    border: 1px solid rgba(198,155,50,0.45);
+    box-shadow: 0 18px 45px rgba(6,29,45,0.13);
+    background: white;
+}
+
+.ew-image img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ew-image:hover img {
+    transform: scale(1.035);
+}
+
+.ew-number {
+    color: #c69b32;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.ew-text h3 {
+    color: #061d2d;
+    font-size: 30px;
+    margin: 0 0 17px;
+}
+
+.ew-text p {
+    color: #526675;
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+    max-width: 520px;
+}
+
+/* ================= BOTTOM ACTIONS ================= */
+
+.ew-actions {
+    border-top: 1px solid #d9e0e4;
+    padding-top: 45px;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.ew-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0 30px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition: all 0.3s ease;
+}
+
+.ew-btn.back {
+    color: #061d2d;
+    border: 1px solid #061d2d;
+    background: transparent;
+}
+
+.ew-btn.back:hover {
+    background: #061d2d;
+    color: white;
+}
+
+.ew-btn.request {
+    color: white;
+    background: #c69b32;
+    border: 1px solid #c69b32;
+}
+
+.ew-btn.request:hover {
+    background: #a98124;
+    border-color: #a98124;
+}
+
+.ew-email {
+    text-align: right;
+    margin-top: 28px;
+    color: #526675;
+    font-size: 14px;
+}
+
+.ew-email strong {
+    color: #061d2d;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .ew-hero {
+        min-height: 500px;
+    }
+
+    .ew-feature,
+    .ew-feature.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 35px;
+        margin-bottom: 70px;
+    }
+
+    .ew-image img {
+        height: 330px;
+    }
+
+    .ew-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ew-btn {
+        width: 100%;
+    }
+
+    .ew-email {
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .ew-content {
+        padding: 65px 0 50px;
+    }
+
+    .ew-hero h1 {
+        font-size: 38px;
+    }
+
+    .ew-hero p {
+        font-size: 15px;
+    }
+
+    .ew-image img {
+        height: 270px;
+    }
+
+    .ew-text h3 {
+        font-size: 25px;
+    }
+}
+
+</style>
+
+
+<div class="ew-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="ew-hero">
+
+        <img
+            class="ew-hero-image"
+            src="https://annualreport2022.hensoldt.net/resource/images/en/turning_point/focus/focus_infosueberlegenheit_efekesj_smartphone.jpg"
+            alt="Airborne electronic warfare pod with integrated electronic warfare systems"
+            loading="eager"
+        >
+
+        <div class="ew-hero-overlay"></div>
+
+        <div class="ew-hero-content">
+
+            <span class="ew-label">
+                ELECTRONIC WARFARE DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Electronic Warfare Division specializes in
+                precision-engineered airborne EW systems, RF sensing,
+                threat detection and electronic protection technologies
+                for advanced aerospace applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="ew-content">
+
+        <div class="ew-heading">
+
+            <span>OUR CAPABILITIES</span>
+
+            <h2>
+                Airborne Electronic Warfare Systems
+            </h2>
+
+            <p>
+                CCs provides engineered electronic warfare solutions
+                covering RF sensing, threat warning, electronic
+                countermeasures and integrated mission protection.
+            </p>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <section class="ew-feature">
+
+            <div class="ew-text">
+
+                <div class="ew-number">
+                    01
+                </div>
+
+                <h3>
+                    Electronic Support Measures
+                </h3>
+
+                <p>
+                    Precision RF sensing systems designed to detect,
+                    intercept and characterize electromagnetic
+                    emissions for airborne situational awareness.
+                </p>
+
+            </div>
+
+            <div class="ew-image">
+
+                <img
+                    src="https://cdn.northropgrumman.com/-/jssmedia/Project/Northrop-Grumman/ngc/what-we-do/air/an-apr-39-digital-radar-warning-receiver-family/an-apr-39dv2-digital-radar-warning-receiver.jpg?mw=3840"
+                    alt="Airborne electronic support and radar warning receiver hardware"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+
+        <section class="ew-feature reverse">
+
+            <div class="ew-text">
+
+                <div class="ew-number">
+                    02
+                </div>
+
+                <h3>
+                    Radar Warning Receivers
+                </h3>
+
+                <p>
+                    Digital RWR hardware for detecting and identifying
+                    radar emissions while providing timely threat
+                    information to integrated aircraft systems.
+                </p>
+
+            </div>
+
+            <div class="ew-image">
+
+                <img
+                    src="https://files.ekmcdn.com/5e6440/images/tornado-aircraft-rwr-radar-spine-receiver-lru-f492e-503-pl51-1-27316-p.jpg?h=400&v=743573EB-A627-425A-8F0A-1519FB6F92F1&w=400"
+                    alt="Aircraft radar warning receiver electronic warfare LRU"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+
+        <section class="ew-feature">
+
+            <div class="ew-text">
+
+                <div class="ew-number">
+                    03
+                </div>
+
+                <h3>
+                    Electronic Countermeasures
+                </h3>
+
+                <p>
+                    Integrated electronic countermeasure equipment
+                    supporting aircraft protection through advanced
+                    RF countermeasure and electronic attack functions.
+                </p>
+
+            </div>
+
+            <div class="ew-image">
+
+                <img
+                    src="https://americanmilitaryweapons.com/eximg/thumb-20250915033417_600x0.jpg"
+                    alt="Airborne electronic countermeasure pod"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+
+        <section class="ew-feature reverse">
+
+            <div class="ew-text">
+
+                <div class="ew-number">
+                    04
+                </div>
+
+                <h3>
+                    RF Antenna &amp; Sensor Systems
+                </h3>
+
+                <p>
+                    Aircraft-mounted RF antennas and sensor assemblies
+                    engineered for reliable electromagnetic signal
+                    reception, direction finding and system integration.
+                </p>
+
+            </div>
+
+            <div class="ew-image">
+
+                <img
+                    src="https://www.marvellouswings.com/Aircraft/Electronics/Pic/ANALQ-218_Expo162.JPG"
+                    alt="Aircraft electronic warfare RF sensor and antenna system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+
+        <section class="ew-feature">
+
+            <div class="ew-text">
+
+                <div class="ew-number">
+                    05
+                </div>
+
+                <h3>
+                    EW Processing &amp; Control
+                </h3>
+
+                <p>
+                    High-performance processing and control hardware
+                    for coordinating electronic warfare sensors,
+                    warning functions and integrated countermeasures.
+                </p>
+
+            </div>
+
+            <div class="ew-image">
+
+                <img
+                    src="https://www.shephardmedia.com/media/cache/images/images/article/Guardian/f15049fe52374c8aa232ef9378063d94.jpg"
+                    alt="Aircraft electronic protection and countermeasure sensor assembly"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTIONS ================= -->
+
+        <div class="ew-actions">
+
+            <a
+                href="/companies/engineering/avionics"
+                class="ew-btn back"
+            >
+                GO BACK TO AVIONICS
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="ew-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+        <div class="ew-email">
+            <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

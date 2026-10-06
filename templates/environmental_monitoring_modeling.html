@@ -1,0 +1,503 @@
+{% extends "base.html" %}
+
+{% block title %}
+MUN 507 - Environmental Monitoring and Modelling | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .environmental-course-page {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .environmental-course-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(
+                rgba(6, 29, 45, 0.82),
+                rgba(8, 40, 59, 0.88)
+            ),
+            url("https://canada.newsroom.ibm.com/image/Water_Purification_Plant_Banner.jpg")
+            center/cover no-repeat;
+    }
+
+    .environmental-course-hero-content {
+        width: 100%;
+        max-width: 1150px;
+        margin: auto;
+        padding: 90px 30px;
+        color: white;
+    }
+
+    .environmental-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .environmental-course-hero h1 {
+        font-size: 50px;
+        line-height: 1.12;
+        max-width: 950px;
+        margin-bottom: 25px;
+        color: white;
+    }
+
+    .environmental-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #e8eef2;
+    }
+
+    /* MAIN */
+    .environmental-course-container {
+        max-width: 1150px;
+        margin: auto;
+        padding: 80px 25px;
+    }
+
+    .environmental-section-label {
+        color: #c69b32;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    .environmental-course-container h2 {
+        color: #12384f;
+        font-size: 34px;
+        line-height: 1.25;
+        margin-bottom: 20px;
+    }
+
+    .environmental-intro {
+        max-width: 950px;
+        color: #526570;
+        font-size: 17px;
+        line-height: 1.8;
+        margin-bottom: 55px;
+    }
+
+    /* COURSE DETAILS */
+    .environmental-course-details {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-bottom: 65px;
+    }
+
+    .environmental-detail-card {
+        background: #ffffff;
+        border: 1px solid #dbe3e7;
+        border-top: 3px solid #c69b32;
+        padding: 25px 20px;
+        border-radius: 6px;
+    }
+
+    .environmental-detail-card span {
+        display: block;
+        color: #8a969d;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+
+    .environmental-detail-card strong {
+        color: #12384f;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    /* OBJECTIVES / ATTENDEES */
+    .environmental-content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 70px;
+    }
+
+    .environmental-content-box {
+        background: #ffffff;
+        padding: 35px;
+        border: 1px solid #dbe3e7;
+        border-radius: 7px;
+    }
+
+    .environmental-content-box h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+
+    .environmental-content-box ul {
+        padding-left: 21px;
+        margin: 0;
+    }
+
+    .environmental-content-box li {
+        color: #536873;
+        margin-bottom: 13px;
+        line-height: 1.6;
+    }
+
+    /* SYLLABUS */
+    .environmental-syllabus {
+        margin-top: 20px;
+    }
+
+    .environmental-syllabus-note {
+        background: #ffffff;
+        border: 1px solid #dbe3e7;
+        border-left: 4px solid #c69b32;
+        padding: 25px 30px;
+        border-radius: 6px;
+        color: #536873;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    /* CTA */
+    .environmental-course-cta {
+        background: #08283b;
+        padding: 70px 25px;
+        text-align: center;
+    }
+
+    .environmental-course-cta h2 {
+        color: #ffffff;
+        font-size: 34px;
+        margin-bottom: 15px;
+    }
+
+    .environmental-course-cta p {
+        color: #d9e3e8;
+        max-width: 750px;
+        margin: 0 auto 28px;
+        line-height: 1.7;
+    }
+
+    .environmental-btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 13px 27px;
+        margin: 5px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: .5px;
+        transition: 0.25s ease;
+    }
+
+    .environmental-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .environmental-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    /* FOOTER */
+    .environmental-course-footer {
+        background: #061d2d;
+        color: #c9d4da;
+        text-align: center;
+        padding: 25px;
+        font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+
+        .environmental-course-hero h1 {
+            font-size: 40px;
+        }
+
+        .environmental-course-details {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .environmental-content-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .environmental-course-hero {
+            min-height: 560px;
+        }
+
+        .environmental-course-hero-content {
+            padding: 70px 22px;
+        }
+
+        .environmental-course-hero h1 {
+            font-size: 31px;
+        }
+
+        .environmental-course-hero p {
+            font-size: 16px;
+        }
+
+        .environmental-course-container {
+            padding: 60px 18px;
+        }
+
+        .environmental-course-container h2 {
+            font-size: 29px;
+        }
+
+        .environmental-course-details {
+            grid-template-columns: 1fr;
+        }
+
+        .environmental-content-box {
+            padding: 25px 22px;
+        }
+
+        .environmental-course-cta h2 {
+            font-size: 28px;
+        }
+    }
+</style>
+
+
+<div class="environmental-course-page">
+
+    <!-- HERO -->
+    <section class="environmental-course-hero">
+
+        <div class="environmental-course-hero-content">
+
+            <span class="environmental-course-label">
+                Advanced Environmental Engineering Department
+            </span>
+
+            <h1>
+                MUN 507 - Environmental Monitoring and Modelling
+            </h1>
+
+            <p>
+                Advanced professional training focused on environmental
+                monitoring, data analysis, modelling and understanding
+                environmental processes and their responses to changing conditions.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="environmental-course-container">
+
+        <div class="environmental-section-label">
+            Professional Environmental Engineering Training
+        </div>
+
+        <h2>
+            MUN 507 - Environmental Monitoring and Modelling
+        </h2>
+
+        <p class="environmental-intro">
+            This programme focuses on the analysis of dynamic environments,
+            past, present, and future. Concerns over human impacts on the
+            environment have stimulated demand from governments and industry
+            for the monitoring, analysis and modelling of natural processes
+            in environmental systems. This is essential to improve understanding
+            of the interrelation of environmental variables in order to predict
+            and manage responses to anthropogenic perturbations.
+        </p>
+
+
+        <!-- COURSE DETAILS -->
+        <div class="environmental-course-details">
+
+            <div class="environmental-detail-card">
+                <span>Course Code</span>
+                <strong>MUN 507</strong>
+            </div>
+
+            <div class="environmental-detail-card">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="environmental-detail-card">
+                <span>Course Date</span>
+                <strong>Can be offered upon  a specific date request</strong>
+            </div>
+
+            <div class="environmental-detail-card">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <!-- OBJECTIVES + WHO SHOULD ATTEND -->
+        <div class="environmental-content-grid">
+
+            <div class="environmental-content-box">
+
+                <h3>
+                    Course Objectives
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Understanding the appropriate level of advanced
+                        theoretical knowledge and practical expertise required
+                        to collect, interpret, and analyse contemporary and
+                        past environmental data.
+                    </li>
+
+                    <li>
+                        Developing modelling skills required to investigate
+                        the interrelationships between environmental variables
+                        and to predict their responses to changing internal
+                        and external conditions.
+                    </li>
+
+                    <li>
+                        Learning the intellectual and practical skills required
+                        to design and undertake field and/or laboratory
+                        experiments in contemporary environmental
+                        process-monitoring or environmental reconstruction.
+                    </li>
+
+                    <li>
+                        Learning how to design and test appropriate
+                        environmental models using collected data.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="environmental-content-box">
+
+                <h3>
+                    Who Should Attend?
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Environmental engineers and scientists
+                    </li>
+
+                    <li>
+                        Environmental monitoring professionals
+                    </li>
+
+                    <li>
+                        Environmental consultants
+                    </li>
+
+                    <li>
+                        Researchers and technical professionals
+                    </li>
+
+                    <li>
+                        Professionals involved in environmental data
+                        analysis and modelling
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <section class="environmental-syllabus">
+
+            <div class="environmental-section-label">
+                Course Syllabus
+            </div>
+
+            <h2>
+                Training Programme
+            </h2>
+
+            <div class="environmental-syllabus-note">
+
+                <strong>
+                    No syllabus available for this training.
+                </strong>
+
+                <br><br>
+
+                The programme focuses on advanced environmental monitoring,
+                environmental data analysis, modelling techniques and the
+                interpretation of environmental processes.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CTA -->
+    <section class="environmental-course-cta">
+
+        <h2>
+            Advance Your Environmental Monitoring Expertise
+        </h2>
+
+        <p>
+            Develop advanced knowledge of environmental monitoring,
+            data analysis and modelling for understanding and managing
+            environmental systems.
+        </p>
+
+        <a href="{{ url_for('environmental_monitoring_modeling_registration') }}"
+           class="environmental-btn primary">
+            REGISTER
+        </a>
+
+        <a href="{{ url_for('engines') }}"
+           class="environmental-btn">
+            GO HOME
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="environmental-course-footer">
+
+        For registration assistance:
+        ceo@capitalgroup.pk
+
+    </footer>
+
+</div>
+
+{% endblock %}

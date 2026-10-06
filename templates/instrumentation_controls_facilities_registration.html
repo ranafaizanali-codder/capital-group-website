@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+{% block title %}
+Course Registration | EEE 130 - Instrumentation, Controls and Electrical Systems for Facilities Engineers
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .registration-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 70px 6%;
+    }
+
+    .registration-container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        padding: 45px;
+        border: 1px solid #dfe5e8;
+        box-shadow: 0 10px 30px rgba(18, 56, 79, 0.07);
+    }
+
+    .registration-header {
+        margin-bottom: 40px;
+    }
+
+    .registration-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .registration-header h1 {
+        color: #12384f;
+        font-size: 34px;
+        line-height: 1.25;
+        margin: 12px 0;
+    }
+
+    .registration-header p {
+        color: #60727e;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .course-details {
+        background: #f5f7f8;
+        border-left: 4px solid #c69b32;
+        padding: 22px 25px;
+        margin-bottom: 40px;
+    }
+
+    .course-details p {
+        margin: 7px 0;
+        color: #506574;
+    }
+
+    .course-details strong {
+        color: #12384f;
+    }
+
+    .form-section {
+        margin-top: 38px;
+    }
+
+    .form-section h2 {
+        font-size: 22px;
+        color: #12384f;
+        border-left: 4px solid #c69b32;
+        padding-left: 13px;
+        margin-bottom: 25px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #12384f;
+        margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 14px;
+        border: 1px solid #ccd6dc;
+        background: white;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #c69b32;
+    }
+
+    .required {
+        color: #b22222;
+    }
+
+    .submit-area {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .submit-btn {
+        background: #c69b32;
+        color: #061d2d;
+        border: 1px solid #c69b32;
+        padding: 14px 32px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background: #d2a43b;
+    }
+
+    .registration-footer {
+        margin-top: 35px;
+        text-align: center;
+        color: #60727e;
+        font-size: 14px;
+    }
+
+    .registration-footer a {
+        color: #c69b32;
+        text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+        .registration-page {
+            padding: 45px 5%;
+        }
+
+        .registration-container {
+            padding: 28px 22px;
+        }
+
+        .registration-header h1 {
+            font-size: 28px;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full {
+            grid-column: auto;
+        }
+    }
+</style>
+
+<div class="registration-page">
+
+    <div class="registration-container">
+
+        <div class="registration-header">
+            <span class="registration-label">
+                Capital Consultants
+            </span>
+
+            <h1>
+                Course Registration
+            </h1>
+
+            <p>
+                Register for EEE 130 - Instrumentation, Controls and Electrical Systems for Facilities Engineers.
+            </p>
+        </div>
+
+
+        <!-- COURSE DETAILS -->
+        <div class="course-details">
+
+            <p>
+                <strong>Course Code:</strong>
+                EEE 130
+            </p>
+
+            <p>
+                <strong>Course Title:</strong>
+                Instrumentation, Controls and Electrical Systems for Facilities Engineers
+            </p>
+
+            <p>
+                <strong>Course Date:</strong>
+                Can be offered upon a specific date request
+            </p>
+
+            <p>
+                <strong>Venue:</strong>
+                Marriott Islamabad
+            </p>
+
+        </div>
+
+
+        <form method="POST" id="registration-form">
+
+            <!-- A. COURSE DETAILS -->
+            <div class="form-section">
+
+                <h2>A. Course Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>
+                            Language <span class="required">*</span>
+                        </label>
+
+                        <select name="language" required>
+                            <option value="">Select Language</option>
+                            <option>English</option>
+                            <option>Arabic</option>
+                            <option>Chinese</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Italian</option>
+                            <option>Japanese</option>
+                            <option>Korean</option>
+                            <option>Persian</option>
+                            <option>Portuguese</option>
+                            <option>Russian</option>
+                            <option>Spanish</option>
+                            <option>Turkish</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- B. COMPANY DETAILS -->
+            <div class="form-section">
+
+                <h2>B. Institution / Company Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>
+                            Country <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="country"
+                            placeholder="Country"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Company Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="company_name"
+                            placeholder="Company Name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Website
+                        </label>
+
+                        <input
+                            type="text"
+                            name="website"
+                            placeholder="Company Website"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Nature of Business <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nature_of_business"
+                            placeholder="Nature of Business"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group full">
+                        <label>
+                            Postal Address <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            name="postal_address"
+                            placeholder="Postal Address"
+                            required
+                        ></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- C. CONTACT DETAILS -->
+            <div class="form-section">
+
+                <h2>C. Contact Person Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>
+                            Salutation <span class="required">*</span>
+                        </label>
+
+                        <select name="salutation" required>
+                            <option value="">Select</option>
+                            <option>Mr.</option>
+                            <option>Ms.</option>
+                            <option>Mrs.</option>
+                            <option>Dr.</option>
+                            <option>Prof.</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Full Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Full Name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Job Title / Position <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="job_title"
+                            placeholder="Job Title / Position"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Email <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Telephone <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Telephone"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            Mobile <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="mobile"
+                            placeholder="Mobile Number"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- D. PARTICIPANT DETAILS -->
+            <div class="form-section">
+
+                <h2>D. Participant Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>
+                            Number of Participants <span class="required">*</span>
+                        </label>
+
+                        <select name="participants" required>
+                            <option value="">Select</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>10+</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            How did you hear about us? <span class="required">*</span>
+                        </label>
+
+                        <select name="source" required>
+                            <option value="">Select</option>
+                            <option>Website</option>
+                            <option>Search Engine</option>
+                            <option>Social Media</option>
+                            <option>Email</option>
+                            <option>Referral</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="submit-area">
+
+                <button type="submit" class="submit-btn">
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="registration-footer">
+            For registration assistance:
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

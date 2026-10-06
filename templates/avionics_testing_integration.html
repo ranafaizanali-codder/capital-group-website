@@ -1,0 +1,602 @@
+{% extends "base.html" %}
+
+{% block title %}
+Avionics Testing & Integration | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - AVIONICS TESTING & INTEGRATION
+   ========================================================= */
+
+.ati-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.ati-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #061d2d;
+}
+
+.ati-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.82;
+}
+
+.ati-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.98) 0%,
+            rgba(6, 29, 45, 0.90) 35%,
+            rgba(6, 29, 45, 0.48) 68%,
+            rgba(6, 29, 45, 0.18) 100%
+        );
+}
+
+.ati-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, 88%);
+    margin: auto;
+    color: white;
+}
+
+.ati-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.ati-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.ati-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.ati-content {
+    width: min(1200px, 88%);
+    margin: auto;
+    padding: 90px 0 70px;
+}
+
+.ati-heading {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+.ati-heading span {
+    display: block;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.ati-heading h2 {
+    margin: 0 0 15px;
+    color: #061d2d;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.ati-heading p {
+    max-width: 760px;
+    margin: auto;
+    color: #526675;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ================= FEATURE ROWS ================= */
+
+.ati-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    margin-bottom: 95px;
+}
+
+.ati-feature.reverse {
+    direction: rtl;
+}
+
+.ati-feature.reverse .ati-text {
+    direction: ltr;
+}
+
+.ati-image {
+    overflow: hidden;
+    border: 1px solid rgba(198,155,50,0.45);
+    box-shadow: 0 18px 45px rgba(6,29,45,0.13);
+    background: white;
+}
+
+.ati-image img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ati-image:hover img {
+    transform: scale(1.035);
+}
+
+.ati-number {
+    color: #c69b32;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.ati-text h3 {
+    color: #061d2d;
+    font-size: 30px;
+    margin: 0 0 17px;
+}
+
+.ati-text p {
+    color: #526675;
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+    max-width: 520px;
+}
+
+/* ================= BOTTOM ACTIONS ================= */
+
+.ati-actions {
+    border-top: 1px solid #d9e0e4;
+    padding-top: 45px;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.ati-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0 30px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition: all 0.3s ease;
+}
+
+.ati-btn.back {
+    color: #061d2d;
+    border: 1px solid #061d2d;
+    background: transparent;
+}
+
+.ati-btn.back:hover {
+    background: #061d2d;
+    color: white;
+}
+
+.ati-btn.request {
+    color: white;
+    background: #c69b32;
+    border: 1px solid #c69b32;
+}
+
+.ati-btn.request:hover {
+    background: #a98124;
+    border-color: #a98124;
+}
+
+.ati-email {
+    text-align: right;
+    margin-top: 28px;
+    color: #526675;
+    font-size: 14px;
+}
+
+.ati-email strong {
+    color: #061d2d;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .ati-hero {
+        min-height: 500px;
+    }
+
+    .ati-feature,
+    .ati-feature.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 35px;
+        margin-bottom: 70px;
+    }
+
+    .ati-image img {
+        height: 330px;
+    }
+
+    .ati-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ati-btn {
+        width: 100%;
+    }
+
+    .ati-email {
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .ati-content {
+        padding: 65px 0 50px;
+    }
+
+    .ati-hero h1 {
+        font-size: 38px;
+    }
+
+    .ati-hero p {
+        font-size: 15px;
+    }
+
+    .ati-image img {
+        height: 270px;
+    }
+
+    .ati-text h3 {
+        font-size: 25px;
+    }
+}
+
+</style>
+
+
+<div class="ati-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="ati-hero">
+
+        <img
+            class="ati-hero-image"
+            src="https://www.navair.navy.mil/lakehurst/sites/g/files/jejdrs591/files/ecass.jpg"
+            alt="Avionics automated test equipment and aircraft electronics integration test system"
+            loading="eager"
+        >
+
+        <div class="ati-hero-overlay"></div>
+
+        <div class="ati-hero-content">
+
+            <span class="ati-label">
+                AVIONICS TESTING &amp; INTEGRATION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Avionics Testing &amp; Integration Division
+                specializes in precision test systems, avionics
+                integration, verification and validation for advanced
+                aerospace electronic platforms.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="ati-content">
+
+        <div class="ati-heading">
+
+            <span>OUR CAPABILITIES</span>
+
+            <h2>
+                Avionics Testing &amp; Integration Systems
+            </h2>
+
+            <p>
+                CECs provides engineered test and integration solutions
+                for avionics LRUs, electronic interfaces, embedded
+                systems and complete aerospace subsystems.
+            </p>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <section class="ati-feature">
+
+            <div class="ati-text">
+
+                <div class="ati-number">
+                    01
+                </div>
+
+                <h3>
+                    Automated Test Equipment
+                </h3>
+
+                <p>
+                    Modular automated test equipment for repeatable
+                    verification, diagnostics and acceptance testing
+                    of aircraft electronic and avionics LRUs.
+                </p>
+
+            </div>
+
+            <div class="ati-image">
+
+                <img
+                    src="https://media.defense.gov/2018/Oct/24/2002054883/-1/-1/0/181018-F-ZV819-1277.JPG"
+                    alt="Automated avionics test equipment rack for aircraft LRU testing"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 -->
+
+        <section class="ati-feature reverse">
+
+            <div class="ati-text">
+
+                <div class="ati-number">
+                    02
+                </div>
+
+                <h3>
+                    LRU Testing &amp; Diagnostics
+                </h3>
+
+                <p>
+                    Precision test interfaces and diagnostic systems
+                    for validating line-replaceable units, signal paths,
+                    power functions and electronic performance.
+                </p>
+
+            </div>
+
+            <div class="ati-image">
+
+                <img
+                   src="https://www.kaiweb.jp/dcms_media/image/41.png"
+                    alt="Avionics suite tester for aircraft electronic LRU testing"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+
+        <section class="ati-feature">
+
+            <div class="ati-text">
+
+                <div class="ati-number">
+                    03
+                </div>
+
+                <h3>
+                    Hardware-in-the-Loop Testing
+                </h3>
+
+                <p>
+                    Hardware-in-the-loop test environments combine
+                    real avionics hardware with simulated signals,
+                    aircraft interfaces and controlled operating
+                    conditions.
+                </p>
+
+            </div>
+
+            <div class="ati-image">
+
+                <img
+                    src="https://www.bloomy.com/sites/default/files/styles/media_gallery_thumbnail/public/draper_lg_0.jpg?itok=TqiGvPC8"
+                    alt="Hardware-in-the-loop aerospace avionics test system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 -->
+
+        <section class="ati-feature reverse">
+
+            <div class="ati-text">
+
+                <div class="ati-number">
+                    04
+                </div>
+
+                <h3>
+                    Avionics Interface Integration
+                </h3>
+
+                <p>
+                    Integrated interface solutions for connecting
+                    avionics equipment through RF, digital, serial,
+                    Ethernet and aircraft data-bus architectures.
+                </p>
+
+            </div>
+
+            <div class="ati-image">
+
+                <img
+                    src="https://www.hename.com/sites/default/files/LLZ1_0.JPG"
+                    alt="Avionics test rack with RF instruments and electronic interfaces"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 -->
+
+        <section class="ati-feature">
+
+            <div class="ati-text">
+
+                <div class="ati-number">
+                    05
+                </div>
+
+                <h3>
+                    System Verification &amp; Validation
+                </h3>
+
+                <p>
+                    Structured verification and validation of avionics
+                    functions, interfaces and subsystem performance
+                    before deployment and flight testing.
+                </p>
+
+            </div>
+
+            <div class="ati-image">
+
+                <img
+                    src="https://www.bloomy.com/sites/default/files/styles/media_gallery_thumbnail/public/draper_lg_0.jpg?itok=TqiGvPC8"
+                    alt="Avionics system verification and validation test station"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 06 -->
+
+        <section class="ati-feature reverse">
+
+            <div class="ati-text">
+
+                <div class="ati-number">
+                    06
+                </div>
+
+                <h3>
+                    Integration &amp; Acceptance Testing
+                </h3>
+
+                <p>
+                    Final integration and acceptance testing for
+                    assembled avionics systems, supporting functional
+                    checks, interface verification and configuration
+                    readiness.
+                </p>
+
+            </div>
+
+            <div class="ati-image">
+
+                <img
+                    src="https://www.navair.navy.mil/lakehurst/sites/g/files/jejdrs591/files/ecass.jpg"
+                    alt="Integrated avionics acceptance test station"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTIONS ================= -->
+
+        <div class="ati-actions">
+
+            <a
+                href="/companies/engineering/avionics"
+                class="ati-btn back"
+            >
+                GO BACK TO AVIONICS
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="ati-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+        <div class="ati-email">
+            <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

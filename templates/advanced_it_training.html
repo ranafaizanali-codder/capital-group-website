@@ -1,0 +1,830 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced IT Training | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .it-training-page {
+        background: #f5f7f8;
+        color: #12384f;
+        overflow: hidden;
+    }
+
+    /* ================= HERO ================= */
+
+    .it-training-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        position: relative;
+
+        background:
+            linear-gradient(
+                rgba(6, 29, 45, 0.80),
+                rgba(6, 29, 45, 0.80)
+            ),
+            url("https://www.cloudstrail.com/assets/hero-slide-3-BL3vNW03.webp")
+            center / cover no-repeat;
+    }
+
+    .it-training-hero-content {
+        max-width: 850px;
+    }
+
+    .it-training-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .it-training-hero h1 {
+        color: #ffffff;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 700;
+        margin-bottom: 25px;
+        max-width: 900px;
+    }
+
+    .it-training-hero p {
+        color: #e8eef1;
+        font-size: 17px;
+        line-height: 1.7;
+        max-width: 760px;
+    }
+
+
+    /* ================= INTRO ================= */
+
+    .it-training-intro {
+        padding: 90px 8% 60px;
+        text-align: center;
+    }
+
+    .it-training-intro h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 18px;
+    }
+
+    .it-training-intro > p {
+        max-width: 850px;
+        margin: auto;
+        color: #52636d;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+
+    /* ================= FEATURE CARDS ================= */
+
+    .it-training-features {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 8% 80px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .it-training-feature {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 30px 26px;
+        min-height: 190px;
+    }
+
+    .it-training-feature span {
+        display: block;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    .it-training-feature h3 {
+        color: #12384f;
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+    .it-training-feature p {
+        color: #61717a;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= MODULES ================= */
+
+    .it-training-modules {
+        padding: 80px 8%;
+        background: #ffffff;
+    }
+
+    .it-training-modules-title {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .it-training-modules-title h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 12px;
+    }
+
+    .it-training-modules-title p {
+        color: #65757e;
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+    .it-training-module {
+        max-width: 1180px;
+        margin: 0 auto 75px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .it-training-module.reverse {
+        direction: rtl;
+    }
+
+    .it-training-module.reverse > * {
+        direction: ltr;
+    }
+
+    .it-training-module-image {
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        background: #edf1f3;
+    }
+
+    .it-training-module-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .it-training-module-content span {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .it-training-module-content h3 {
+        color: #12384f;
+        font-size: 31px;
+        line-height: 1.2;
+        margin: 12px 0 16px;
+    }
+
+    .it-training-module-content p {
+        color: #596b74;
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 520px;
+    }
+
+
+    /* ================= OUTCOMES ================= */
+
+    .it-training-outcomes {
+        padding: 90px 8%;
+        background: #f5f7f8;
+        text-align: center;
+    }
+
+    .it-training-outcomes h2 {
+        font-size: 38px;
+        color: #12384f;
+        margin-bottom: 45px;
+    }
+
+    .it-training-outcome-grid {
+        max-width: 1100px;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .it-training-outcome {
+        background: #ffffff;
+        padding: 25px 20px;
+        border: 1px solid #dce4e8;
+    }
+
+    .it-training-outcome h3 {
+        color: #12384f;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .it-training-outcome p {
+        color: #687780;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .it-training-cta {
+        padding: 90px 8%;
+        background: #08283b;
+        text-align: center;
+    }
+
+    .it-training-cta h2 {
+        color: #ffffff;
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .it-training-cta p {
+        color: #d8e2e7;
+        max-width: 700px;
+        margin: 0 auto 25px;
+        line-height: 1.7;
+    }
+
+    .it-training-email {
+        display: block;
+        color: #d2a43b;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .it-training-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .it-training-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+    }
+
+    .it-training-btn.primary {
+        background: #c69b32;
+        color: #08283b;
+    }
+
+    .it-training-btn:hover {
+        background: #d2a43b;
+        color: #08283b;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+        .it-training-features {
+            grid-template-columns: 1fr;
+        }
+
+        .it-training-module,
+        .it-training-module.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            gap: 30px;
+        }
+
+        .it-training-outcome-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .it-training-module-image {
+            height: 300px;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+
+        .it-training-hero {
+            min-height: 560px;
+            padding: 80px 7%;
+        }
+
+        .it-training-hero h1 {
+            font-size: 38px;
+        }
+
+        .it-training-intro,
+        .it-training-modules,
+        .it-training-outcomes,
+        .it-training-cta {
+            padding-left: 7%;
+            padding-right: 7%;
+        }
+
+        .it-training-module-image {
+            height: 250px;
+        }
+
+        .it-training-module-content h3 {
+            font-size: 27px;
+        }
+
+    }
+
+</style>
+
+
+<div class="it-training-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="it-training-hero">
+
+        <div class="it-training-hero-content">
+
+            <span class="it-training-label">
+                Advanced IT Training Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional IT training develops practical expertise
+                in information technology, networking, cloud computing,
+                cybersecurity, database systems and modern IT infrastructure.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="it-training-intro">
+
+        <h2>
+            Professional IT Training Program
+        </h2>
+
+        <p>
+            A structured professional program covering IT systems,
+            network infrastructure, cloud technologies, cybersecurity,
+            databases, server administration and modern IT operations.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE CARDS ================= -->
+
+    <section class="it-training-features">
+
+
+        <div class="it-training-feature">
+
+            <span>01</span>
+
+            <h3>
+                IT Infrastructure
+            </h3>
+
+            <p>
+                Core knowledge of computer systems, operating systems,
+                servers and technical infrastructure.
+            </p>
+
+        </div>
+
+
+        <div class="it-training-feature">
+
+            <span>02</span>
+
+            <h3>
+                Networking & Cloud
+            </h3>
+
+            <p>
+                Practical understanding of network connectivity,
+                cloud platforms and virtualized environments.
+            </p>
+
+        </div>
+
+
+        <div class="it-training-feature">
+
+            <span>03</span>
+
+            <h3>
+                Cybersecurity & Operations
+            </h3>
+
+            <p>
+                Security fundamentals, system protection,
+                monitoring and modern IT operational practices.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= MODULES ================= -->
+
+    <section class="it-training-modules">
+
+
+        <div class="it-training-modules-title">
+
+            <h2>
+                Advanced IT Training Modules
+            </h2>
+
+            <p>
+                Professional modules covering the essential areas
+                of modern information technology.
+            </p>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <div class="it-training-module">
+
+            <div class="it-training-module-image">
+
+                <img
+                    src="https://www.siht.in/img/trainings1.png"
+                    alt="IT systems and computer networking training"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="it-training-module-content">
+
+                <span>01</span>
+
+                <h3>
+                    IT Systems & Technical Foundations
+                </h3>
+
+                <p>
+                    Computer hardware, operating systems, software
+                    environments, troubleshooting and essential
+                    information technology concepts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="it-training-module reverse">
+
+            <div class="it-training-module-image">
+
+                <img
+                    src="https://www.cedeg.be/images/site/formations/technicien-reseau.webp"
+                    alt="Network infrastructure and administration training"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="it-training-module-content">
+
+                <span>02</span>
+
+                <h3>
+                    Networking & Infrastructure
+                </h3>
+
+                <p>
+                    Network architecture, IP addressing, routing,
+                    switching, connectivity, network administration
+                    and infrastructure security.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="it-training-module">
+
+            <div class="it-training-module-image">
+
+                <img
+                    src="https://www.cloudstrail.com/assets/hero-slide-3-BL3vNW03.webp"
+                    alt="Cloud computing and cloud infrastructure training"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="it-training-module-content">
+
+                <span>03</span>
+
+                <h3>
+                    Cloud Computing & Virtualization
+                </h3>
+
+                <p>
+                    Cloud service models, virtual machines, cloud
+                    infrastructure, storage, networking and modern
+                    cloud deployment concepts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="it-training-module reverse">
+
+            <div class="it-training-module-image">
+
+                <img
+                     src="https://www.sanjuancollege.edu/media/sanjuancollegeedu-2023/images/homepage/about/blog/Complete-Guide-to-Cybersecurity-Careers.jpg"
+                    alt="Cybersecurity training and digital security"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="it-training-module-content">
+
+                <span>04</span>
+
+                <h3>
+                    Cybersecurity & Network Protection
+                </h3>
+
+                <p>
+                    Cybersecurity fundamentals, network protection,
+                    security monitoring, common threats and secure
+                    IT practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="it-training-module">
+
+            <div class="it-training-module-image">
+
+                <img
+                    src="https://image4.slideserve.com/9230464/architecture-of-a-dbms-l.jpg"
+                    alt="Database management training"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="it-training-module-content">
+
+                <span>05</span>
+
+                <h3>
+                    Database & Data Management
+                </h3>
+
+                <p>
+                    Database concepts, data organization, administration,
+                    data integrity, access management and reliable
+                    information systems.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="it-training-module reverse">
+
+            <div class="it-training-module-image">
+
+                <img
+                    src="https://udeckacademy.in/uploads/thumbnails/course_thumbnails/course_thumbnail_default_65.jpg"
+                    alt="Linux server administration and IT operations training"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="it-training-module-content">
+
+                <span>06</span>
+
+                <h3>
+                    Linux, Servers & IT Operations
+                </h3>
+
+                <p>
+                    Linux administration, server management, system
+                    services, troubleshooting, backups and modern
+                    IT operations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= LEARNING OUTCOMES ================= -->
+
+    <section class="it-training-outcomes">
+
+        <h2>
+            Professional Learning Outcomes
+        </h2>
+
+
+        <div class="it-training-outcome-grid">
+
+
+            <div class="it-training-outcome">
+
+                <h3>
+                    IT Infrastructure
+                </h3>
+
+                <p>
+                    Understand core computer and enterprise IT infrastructure.
+                </p>
+
+            </div>
+
+
+            <div class="it-training-outcome">
+
+                <h3>
+                    Network Administration
+                </h3>
+
+                <p>
+                    Understand network connectivity, configuration and support.
+                </p>
+
+            </div>
+
+
+            <div class="it-training-outcome">
+
+                <h3>
+                    Cloud Technologies
+                </h3>
+
+                <p>
+                    Apply foundational concepts of modern cloud environments.
+                </p>
+
+            </div>
+
+
+            <div class="it-training-outcome">
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    Apply fundamental practices for protecting IT systems.
+                </p>
+
+            </div>
+
+
+            <div class="it-training-outcome">
+
+                <h3>
+                    Database Management
+                </h3>
+
+                <p>
+                    Understand structured data and database administration.
+                </p>
+
+            </div>
+
+
+            <div class="it-training-outcome">
+
+                <h3>
+                    Server Operations
+                </h3>
+
+                <p>
+                    Develop foundational skills in Linux and server management.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="it-training-cta">
+
+        <h2>
+            Advance Your IT Training Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional training
+            and advanced information technology development opportunities.
+        </p>
+
+        <span class="it-training-email">
+            ceo@capitalgroup.pk
+        </span>
+
+
+        <div class="it-training-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="it-training-btn primary"
+            >
+                SEND REQUEST
+            </a>
+
+
+            <a
+                href="{{ url_for('engines') }}"
+                class="it-training-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

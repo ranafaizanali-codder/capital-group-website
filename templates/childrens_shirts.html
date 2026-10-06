@@ -1,0 +1,443 @@
+{% extends "base.html" %}
+
+{% block title %}
+Children’s Shirts Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING - CHILDREN'S SHIRTS
+   ========================================================= */
+
+.childrens-shirts-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.childrens-shirts-hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.78) 45%,
+            rgba(6, 29, 45, 0.30) 100%
+        ),
+        url("https://images.pexels.com/photos/7988717/pexels-photo-7988717.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center / cover no-repeat;
+}
+
+.childrens-shirts-hero-content {
+    width: min(1180px, 90%);
+    margin: auto;
+    color: white;
+    padding: 80px 0;
+}
+
+.childrens-shirts-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.childrens-shirts-hero h1 {
+    max-width: 850px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.childrens-shirts-hero p {
+    max-width: 780px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f1f4f6;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.childrens-shirts-intro {
+    width: min(1180px, 90%);
+    margin: auto;
+    padding: 80px 0 45px;
+    text-align: center;
+}
+
+.childrens-shirts-intro h2 {
+    font-size: 38px;
+    margin-bottom: 18px;
+    color: #12384f;
+}
+
+.childrens-shirts-intro p {
+    max-width: 850px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #52616b;
+}
+
+/* ================= FEATURE ROWS ================= */
+
+.childrens-feature {
+    width: min(1180px, 90%);
+    margin: 0 auto 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.childrens-feature.reverse .childrens-feature-text {
+    order: 2;
+}
+
+.childrens-feature.reverse .childrens-feature-image {
+    order: 1;
+}
+
+.childrens-feature-text h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #12384f;
+}
+
+.childrens-feature-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #596973;
+    margin: 0;
+}
+
+.childrens-feature-image {
+    height: 360px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 35px rgba(6, 29, 45, 0.12);
+}
+
+/* ================= PRODUCT BUTTONS ================= */
+
+.childrens-products {
+    width: min(1180px, 90%);
+    margin: 10px auto 80px;
+}
+
+.childrens-products h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 35px;
+    color: #12384f;
+}
+
+.childrens-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.childrens-product {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #12384f;
+    background: white;
+    border: 1px solid #e1e7eb;
+    padding: 19px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.childrens-product:hover {
+    background: #061d2d;
+    color: white;
+    border-color: #061d2d;
+    transform: translateY(-3px);
+}
+
+/* ================= CTA ================= */
+
+.childrens-cta {
+    background: #061d2d;
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.childrens-cta h2 {
+    font-size: 34px;
+    margin-bottom: 28px;
+}
+
+.childrens-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.childrens-cta a {
+    display: inline-block;
+    padding: 14px 25px;
+    text-decoration: none;
+    border: 1px solid #d2a43b;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.childrens-cta a.primary {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.childrens-cta a:hover {
+    background: white;
+    color: #061d2d;
+    border-color: white;
+}
+
+.childrens-email {
+    margin-top: 30px;
+    color: #d2a43b;
+    font-size: 15px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .childrens-shirts-hero {
+        min-height: 500px;
+    }
+
+    .childrens-feature {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 55px;
+    }
+
+    .childrens-feature.reverse .childrens-feature-text,
+    .childrens-feature.reverse .childrens-feature-image {
+        order: unset;
+    }
+
+    .childrens-feature-image {
+        height: 300px;
+    }
+
+    .childrens-product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .childrens-shirts-intro {
+        padding-top: 60px;
+    }
+}
+</style>
+
+
+<div class="childrens-shirts-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="childrens-shirts-hero">
+
+        <div class="childrens-shirts-hero-content">
+
+            <div class="childrens-shirts-label">
+                Children’s Shirts Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CTC’s Children’s Shirts Division provides 
+                solutions for modern boys’ and girls’ shirts, connecting quality
+                apparel manufacturers with domestic and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="childrens-shirts-intro">
+
+        <h2>Children’s Shirts</h2>
+
+        <p>
+            Our children’s shirt sourcing portfolio covers comfortable,
+            contemporary and well-finished apparel for everyday wear, casual
+            occasions and smarter dressing. We connect buyers with reliable
+            manufacturing partners and flexible apparel supply solutions.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURE 1 ================= -->
+
+    <section class="childrens-feature">
+
+        <div class="childrens-feature-text">
+
+            <h3>Boys’ Shirts</h3>
+
+            <p>
+                Contemporary shirts for boys, including casual button-down
+                styles, checks, stripes and versatile everyday collections
+                designed for comfort and modern kidswear markets.
+            </p>
+
+        </div>
+
+        <div
+            class="childrens-feature-image"
+            style="background-image:
+            url('https://images.pexels.com/photos/7988717/pexels-photo-7988717.jpeg?auto=compress&cs=tinysrgb&w=1800');">
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 2 ================= -->
+
+    <section class="childrens-feature reverse">
+
+        <div class="childrens-feature-text">
+
+            <h3>Girls’ Shirts</h3>
+
+            <p>
+                Modern girls’ shirts and blouses featuring comfortable
+                silhouettes, attractive prints and contemporary details
+                suitable for casual and everyday collections.
+            </p>
+
+        </div>
+
+        <div
+            class="childrens-feature-image"
+            style="background-image:
+            url('https://images.pexels.com/photos/4712009/pexels-photo-4712009.jpeg?auto=compress&cs=tinysrgb&w=1800');">
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURE 3 ================= -->
+
+    <section class="childrens-feature">
+
+        <div class="childrens-feature-text">
+
+            <h3>Casual &amp; Formal Children’s Shirts</h3>
+
+            <p>
+                A flexible range of children’s shirts for school, family
+                occasions, casual outings and smart dressing, with sourcing
+                options suited to different markets and requirements.
+            </p>
+
+        </div>
+
+        <div
+            class="childrens-feature-image"
+            style="background-image:
+            url('https://images.pexels.com/photos/951003/pexels-photo-951003.jpeg?auto=compress&cs=tinysrgb&w=1800');">
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="childrens-products">
+
+        <h2>Children’s Shirt Categories</h2>
+
+        <div class="childrens-product-grid">
+
+            <a href="#" class="childrens-product">
+                Boys’ Casual Shirts
+            </a>
+
+            <a href="#" class="childrens-product">
+                Boys’ Formal Shirts
+            </a>
+
+            <a href="#" class="childrens-product">
+                Girls’ Casual Shirts
+            </a>
+
+            <a href="#" class="childrens-product">
+                Girls’ Blouses
+            </a>
+
+            <a href="#" class="childrens-product">
+                Printed Children’s Shirts
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="childrens-cta">
+
+        <h2>
+            Looking for Children’s Shirts?
+        </h2>
+
+        <div class="childrens-cta-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('garments_apparel') }}">
+                BACK TO GARMENTS
+            </a>
+
+            <a href="{{ url_for('trading') }}">
+                BACK TO TRADING
+            </a>
+
+            <a href="/">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="childrens-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

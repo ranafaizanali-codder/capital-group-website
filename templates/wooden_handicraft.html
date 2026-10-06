@@ -1,0 +1,584 @@
+{% extends "base.html" %}
+
+{% block title %}
+Wooden Handicraft | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING — WOODEN HANDICRAFT
+   ========================================================= */
+
+.wooden-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.wooden-hero {
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.93) 0%,
+            rgba(6, 29, 45, 0.76) 42%,
+            rgba(6, 29, 45, 0.35) 100%
+        ),
+       url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Furniture_craftsmanship_in_Chiniot.jpg")
+        center center / cover no-repeat;
+}
+
+.wooden-hero-content {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.wooden-label {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.wooden-hero h1 {
+    color: #ffffff;
+    font-size: clamp(42px, 5vw, 70px);
+    line-height: 1.08;
+    max-width: 900px;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.wooden-hero p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 850px;
+    margin: 0;
+}
+
+
+/* ================= INTRO ================= */
+
+.wooden-intro {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px 40px;
+    text-align: center;
+}
+
+.wooden-intro h2 {
+    color: #12384f;
+    font-size: 36px;
+    margin: 0 0 20px;
+}
+
+.wooden-intro p {
+    color: #536773;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+
+/* ================= FEATURE SECTIONS ================= */
+
+.wooden-features {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 30px 40px 40px;
+}
+
+.wooden-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #d9e0e4;
+}
+
+.wooden-feature:last-child {
+    border-bottom: none;
+}
+
+
+/* ================= TEXT ================= */
+
+.wooden-feature-text {
+    padding: 10px 10px;
+}
+
+.wooden-feature-label {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.wooden-feature h2 {
+    color: #12384f;
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.wooden-feature p {
+    color: #536773;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 520px;
+}
+
+
+/* ================= IMAGE ================= */
+
+.wooden-feature-image {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e9edef;
+    box-shadow: 0 12px 35px rgba(6, 29, 45, 0.12);
+}
+
+.wooden-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.wooden-feature:hover .wooden-feature-image img {
+    transform: scale(1.035);
+}
+
+
+/* ================= CTA ================= */
+
+.wooden-cta {
+    max-width: 1050px;
+    margin: 30px auto 0;
+    padding: 65px 40px 70px;
+    text-align: center;
+}
+
+.wooden-cta h2 {
+    color: #12384f;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.wooden-cta p {
+    color: #5b6d77;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.wooden-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.wooden-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.wooden-btn-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.wooden-btn-primary:hover,
+.wooden-btn-primary:focus {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.wooden-btn-secondary {
+    background: #061d2d;
+    color: #ffffff;
+}
+
+.wooden-btn-secondary:hover,
+.wooden-btn-secondary:focus {
+    background: #12384f;
+    color: #ffffff;
+}
+
+.wooden-btn:focus-visible {
+    outline: 3px solid #c69b32;
+    outline-offset: 3px;
+}
+
+
+/* ================= EMAIL ================= */
+
+.wooden-email {
+    text-align: right;
+    padding: 0 40px 25px;
+    color: #12384f;
+    font-size: 14px;
+}
+
+.wooden-email a {
+    color: #12384f;
+    text-decoration: none;
+}
+
+.wooden-email a:hover {
+    color: #c69b32;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .wooden-hero {
+        min-height: 540px;
+    }
+
+    .wooden-hero-content {
+        padding: 70px 25px;
+    }
+
+    .wooden-intro {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .wooden-features {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .wooden-feature {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 45px 0;
+    }
+
+    .wooden-feature:nth-child(even) .wooden-feature-image {
+        order: -1;
+    }
+
+    .wooden-feature-image {
+        height: 320px;
+    }
+
+    .wooden-cta {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .wooden-email {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .wooden-hero h1 {
+        font-size: 40px;
+    }
+
+    .wooden-hero p {
+        font-size: 16px;
+    }
+
+    .wooden-feature h2 {
+        font-size: 29px;
+    }
+
+    .wooden-feature-image {
+        height: 270px;
+    }
+
+}
+
+</style>
+
+
+<div class="wooden-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="wooden-hero">
+
+        <div class="wooden-hero-content">
+
+            <div class="wooden-label">
+                Wooden Handicraft Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CC’s Wooden Handicraft Division connects traditional
+                Chinioti craftsmanship with modern markets through
+                carefully selected carved wood products and furniture.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="wooden-intro">
+
+        <h2>
+            Chinioti Woodcraft — Crafted by Heritage
+        </h2>
+
+        <p>
+            Chiniot is renowned for its traditional wood carving and
+            handcrafted furniture. Skilled artisans create detailed
+            designs in solid wood, combining traditional craftsmanship
+            with refined finishing for distinctive domestic and
+            international markets.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="wooden-features">
+
+
+        <!-- ================= FEATURE 01 ================= -->
+
+        <div class="wooden-feature">
+
+            <div class="wooden-feature-text">
+
+                <div class="wooden-feature-label">
+                    Traditional Craft
+                </div>
+
+                <h2>
+                    Intricate Hand Carving
+                </h2>
+
+                <p>
+                    Traditional Chinioti artisans transform solid wood
+                    into detailed floral and geometric designs using
+                    skilled hand-carving techniques passed through
+                    generations.
+                </p>
+
+            </div>
+
+
+            <div class="wooden-feature-image">
+
+                <img
+                    src="{{ url_for('static', filename='intricate_hand_carving.jpg') }}"
+                    alt="Traditional Chinioti carved wooden furniture"
+                    loading="eager"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURE 02 ================= -->
+
+        <div class="wooden-feature">
+
+            <div class="wooden-feature-image">
+
+                <img
+                      src="{{ url_for('static', filename='sheesham_wood_carving.jpg') }}"
+                    alt="Chiniot artisan hand carving wooden furniture"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="wooden-feature-text">
+
+                <div class="wooden-feature-label">
+                    Premium Material
+                </div>
+
+                <h2>
+                    Solid Sheesham Wood
+                </h2>
+
+                <p>
+                    Sheesham is widely associated with Chinioti furniture,
+                    valued for its strength, natural grain and suitability
+                    for detailed carving and long-lasting handcrafted work.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURE 03 ================= -->
+
+        <div class="wooden-feature">
+
+            <div class="wooden-feature-text">
+
+                <div class="wooden-feature-label">
+                    Signature Detail
+                </div>
+
+                <h2>
+                    Carving &amp; Brass Inlay
+                </h2>
+
+                <p>
+                    Selected Chinioti pieces combine deep wood carving
+                    with refined brass inlay, creating distinctive
+                    decorative surfaces with a rich traditional character.
+                </p>
+
+            </div>
+
+
+            <div class="wooden-feature-image">
+
+                <img
+                    src="{{ url_for('static', filename='brass_inlay.jpg') }}"
+                    alt="Chinioti wooden furniture with decorative brass inlay"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURE 04 ================= -->
+
+        <div class="wooden-feature">
+
+            <div class="wooden-feature-image">
+
+                <img
+                    src="{{ url_for('static', filename='furniture_decorative_pieces.jpg') }}"
+                    alt="Handcrafted Chinioti wooden furniture"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="wooden-feature-text">
+
+                <div class="wooden-feature-label">
+                    Crafted Collections
+                </div>
+
+                <h2>
+                    Furniture &amp; Decorative Pieces
+                </h2>
+
+                <p>
+                    The craft extends beyond furniture to decorative
+                    wooden pieces, mirror frames, cabinets, table sets
+                    and other handcrafted products suitable for
+                    residential and commercial markets.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="wooden-cta">
+
+        <h2>
+            Looking for Wooden Handicraft Products?
+        </h2>
+
+        <p>
+            Share your requirements with Capital Trading Corporation
+            for sourcing and supply of selected wooden handicraft
+            products from Pakistan.
+        </p>
+
+        <div class="wooden-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="wooden-btn wooden-btn-primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="wooden-btn wooden-btn-secondary">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="wooden-btn wooden-btn-secondary">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EMAIL ================= -->
+
+    <div class="wooden-email">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

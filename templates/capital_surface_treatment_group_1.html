@@ -1,0 +1,881 @@
+{% extends "base.html" %}
+
+{% block title %}
+Surface Treatment Techniques 01–12 | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .stg1-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .stg1-hero {
+        min-height: 480px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,.95),
+                rgba(6,29,45,.74),
+                rgba(6,29,45,.40)
+            ),
+            url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2200&q=90")
+            center/cover no-repeat;
+    }
+
+    .stg1-hero-content {
+        width: min(1150px, 92%);
+        margin: auto;
+        padding: 80px 0;
+        color: #fff;
+    }
+
+    .stg1-eyebrow {
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+    }
+
+    .stg1-hero h1 {
+        margin: 0 0 18px;
+        font-size: clamp(38px, 5vw, 64px);
+        line-height: 1.05;
+        font-weight: 800;
+    }
+
+    .stg1-hero h2 {
+        margin: 0 0 22px;
+        color: #fff;
+        font-size: clamp(25px, 3vw, 40px);
+        line-height: 1.15;
+        font-weight: 700;
+    }
+
+    .stg1-hero p {
+        max-width: 850px;
+        margin: 0;
+        color: rgba(255,255,255,.92);
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       INTRO
+       ========================= */
+
+    .stg1-intro {
+        width: min(1120px, 92%);
+        margin: auto;
+        padding: 65px 0 30px;
+        text-align: center;
+    }
+
+    .stg1-intro h2 {
+        margin: 0 0 15px;
+        color: #061d2d;
+        font-size: 34px;
+    }
+
+    .stg1-intro p {
+        max-width: 850px;
+        margin: auto;
+        color: #536875;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       TECHNIQUE SECTIONS
+       ========================= */
+
+    .stg1-container {
+        width: min(1120px, 92%);
+        margin: auto;
+    }
+
+    .stg1-section {
+        padding: 35px 0 70px;
+    }
+
+    .stg1-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+    }
+
+    .stg1-section.reverse .stg1-image-wrap {
+        order: 2;
+    }
+
+    .stg1-section.reverse .stg1-copy {
+        order: 1;
+    }
+
+    .stg1-image-wrap {
+        overflow: hidden;
+        border-radius: 8px;
+        background: #dfe5e8;
+        box-shadow: 0 8px 25px rgba(6,29,45,.10);
+    }
+
+    .stg1-image {
+        width: 100%;
+        height: 350px;
+        display: block;
+        object-fit: cover;
+    }
+
+    .stg1-number {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .stg1-copy h2 {
+        margin: 0 0 14px;
+        color: #061d2d;
+        font-size: 31px;
+        line-height: 1.2;
+    }
+
+    .stg1-copy p {
+        margin: 0;
+        color: #536875;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .stg1-cta {
+        padding: 65px 20px;
+        background: #061d2d;
+        color: #fff;
+        text-align: center;
+    }
+
+    .stg1-cta h2 {
+        margin: 0 0 14px;
+        font-size: 32px;
+    }
+
+    .stg1-cta p {
+        max-width: 720px;
+        margin: 0 auto 25px;
+        color: rgba(255,255,255,.78);
+        line-height: 1.7;
+    }
+
+    .stg1-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .stg1-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: .2s ease;
+    }
+
+    .stg1-btn-primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .stg1-btn-secondary {
+        border: 1px solid rgba(255,255,255,.45);
+        color: #fff;
+    }
+
+    .stg1-btn:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 760px) {
+
+        .stg1-hero {
+            min-height: 500px;
+        }
+
+        .stg1-hero-content {
+            padding: 65px 0;
+        }
+
+        .stg1-grid {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .stg1-section.reverse .stg1-image-wrap,
+        .stg1-section.reverse .stg1-copy {
+            order: initial;
+        }
+
+        .stg1-image {
+            height: 300px;
+        }
+    }
+</style>
+
+
+<div class="stg1-page">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="stg1-hero">
+
+        <div class="stg1-hero-content">
+
+            <div class="stg1-eyebrow">
+                SURFACE TREATMENT DIVISION
+            </div>
+
+            <h1>
+                Surface Treatment Techniques
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CECs provides specialized surface treatment solutions for
+                components manufactured from ferrous and non-ferrous alloys,
+                plastics and other engineering materials.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="stg1-intro">
+
+        <h2>
+            Surface Treatment Capabilities · 01–12
+        </h2>
+
+        <p>
+            Our first range of surface treatment capabilities supports
+            surface preparation, cleaning, finishing, corrosion protection,
+            wear resistance and specialized engineering requirements.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         01 — SAND BLASTING
+         ===================================================== -->
+
+    <section class="stg1-section">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial surface preparation and sand blasting"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        01 · SAND BLASTING
+                    </div>
+
+                    <h2>
+                        Sand Blasting
+                    </h2>
+
+                    <p>
+                        Sand blasting provides controlled surface preparation
+                        by removing contaminants, oxidation and unwanted
+                        surface layers. It prepares components for coating,
+                        painting, plating and other finishing processes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         02 — SHOT PEENING
+         ===================================================== -->
+
+    <section class="stg1-section reverse">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial metal surface treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        02 · SHOT PEENING
+                    </div>
+
+                    <h2>
+                        Shot Peening
+                    </h2>
+
+                    <p>
+                        Shot peening improves fatigue resistance by introducing
+                        controlled compressive stresses into component surfaces.
+                        It is suitable for demanding mechanical and engineering
+                        applications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         03 — ELECTROLESS POLISHING
+         ===================================================== -->
+
+    <section class="stg1-section">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1800&q=90"
+                        alt="Precision metal finishing process"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        03 · ELECTROLESS POLISHING
+                    </div>
+
+                    <h2>
+                        Electroless Polishing
+                    </h2>
+
+                    <p>
+                        Electroless polishing provides controlled chemical
+                        surface finishing for selected metal components.
+                        The process improves surface smoothness, cleanliness
+                        and functional finishing characteristics.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         04 — ULTRASONIC CLEANING
+         ===================================================== -->
+
+    <section class="stg1-section reverse">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=90"
+                        alt="Precision industrial cleaning and inspection"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        04 · ULTRASONIC CLEANING
+                    </div>
+
+                    <h2>
+                        Ultrasonic Cleaning
+                    </h2>
+
+                    <p>
+                        Ultrasonic cleaning uses high-frequency sound energy
+                        to remove contaminants from component surfaces and
+                        difficult-to-reach areas, supporting precision cleaning
+                        requirements.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         05 — CONVENTIONAL GOLD PLATING
+         ===================================================== -->
+
+    <section class="stg1-section">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                       src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=90"
+                        alt="Metal surface finishing and plating"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        05 · CONVENTIONAL GOLD PLATING
+                    </div>
+
+                    <h2>
+                        Conventional Gold Plating
+                    </h2>
+
+                    <p>
+                        Conventional gold plating provides a controlled gold
+                        finish for components requiring electrical conductivity,
+                        corrosion resistance and specialized surface protection
+                        in demanding applications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         06 — VACUUM GOLD PLATING
+         ===================================================== -->
+
+    <section class="stg1-section reverse">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
+                        alt="Advanced industrial coating technology"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        06 · VACUUM GOLD PLATING
+                    </div>
+
+                    <h2>
+                        Vacuum Gold Plating
+                    </h2>
+
+                    <p>
+                        Vacuum gold plating supports controlled deposition of
+                        gold-based protective finishes under vacuum conditions.
+                        It can provide specialized appearance, protection and
+                        functional surface characteristics.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         07 — NICKEL CADMIUM PLATING
+         ===================================================== -->
+
+    <section class="stg1-section">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial metal coating and surface treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        07 · NICKEL CADMIUM PLATING
+                    </div>
+
+                    <h2>
+                        Nickel Cadmium Plating
+                    </h2>
+
+                    <p>
+                        Nickel cadmium plating is used for specialized
+                        corrosion protection and engineered surface performance.
+                        It supports selected components exposed to demanding
+                        industrial and aerospace environments.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         08 — NICKEL PLATING
+         ===================================================== -->
+
+    <section class="stg1-section reverse">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial metal component finishing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        08 · NICKEL PLATING
+                    </div>
+
+                    <h2>
+                        Nickel Plating
+                    </h2>
+
+                    <p>
+                        Nickel plating provides a durable metallic surface
+                        finish with improved corrosion resistance, wear
+                        protection and functional performance for selected
+                        engineering components.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         09 — CHROME PLATING
+         ===================================================== -->
+
+    <section class="stg1-section">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1800&q=90"
+                        alt="Metal finishing and chrome surface treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        09 · CHROME PLATING
+                    </div>
+
+                    <h2>
+                        Chrome Plating
+                    </h2>
+
+                    <p>
+                        Chrome plating provides a hard and protective surface
+                        finish for components requiring improved wear resistance,
+                        corrosion protection and controlled surface appearance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         10 — TIN PLATING
+         ===================================================== -->
+
+    <section class="stg1-section reverse">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial component surface finishing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        10 · TIN PLATING
+                    </div>
+
+                    <h2>
+                        Tin Plating
+                    </h2>
+
+                    <p>
+                        Tin plating provides a functional metallic coating
+                        for selected electrical and engineering components.
+                        It supports corrosion protection, solderability and
+                        controlled surface performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         11 — SILVER COATING
+         ===================================================== -->
+
+    <section class="stg1-section">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90" 
+                        alt="Specialized metallic coating process"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        11 · SILVER COATING
+                    </div>
+
+                    <h2>
+                        Silver Coating
+                    </h2>
+
+                    <p>
+                        Silver coating provides a highly conductive metallic
+                        surface for selected engineering and electrical
+                        applications where controlled conductivity and surface
+                        performance are required.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         12 — ANODIZING & RED ANODIZING
+         ===================================================== -->
+
+    <section class="stg1-section reverse">
+
+        <div class="stg1-container">
+
+            <div class="stg1-grid">
+
+                <div class="stg1-image-wrap">
+                    <img
+                        class="stg1-image"
+                        src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
+                        alt="Advanced protective surface treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg1-copy">
+
+                    <div class="stg1-number">
+                        12 · ANODIZING &amp; RED ANODIZING
+                    </div>
+
+                    <h2>
+                        Anodizing &amp; Red Anodizing
+                    </h2>
+
+                    <p>
+                        Anodizing creates a controlled protective oxide layer
+                        on suitable metal components, improving corrosion
+                        resistance and surface durability while allowing
+                        specialized finishes and colours.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="stg1-cta">
+
+        <h2>
+            Discuss Your Surface Treatment Requirement
+        </h2>
+
+        <p>
+            Contact Capital Engineering Corporation for specialized
+            surface treatment, finishing and component requirements.
+        </p>
+
+        <div class="stg1-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="stg1-btn stg1-btn-primary"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/companies/engineering/mechanical/machining/surface-treatment"
+                class="stg1-btn stg1-btn-secondary"
+            >
+                BACK TO SURFACE TREATMENT
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

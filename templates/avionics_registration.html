@@ -1,0 +1,847 @@
+{% extends "base.html" %}
+
+{% block title %}
+Avionics Course Registration | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .registration-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 70px 20px 90px;
+    }
+
+    .registration-container {
+        max-width: 1050px;
+        margin: auto;
+    }
+
+    .registration-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .registration-header span {
+        display: block;
+        margin-bottom: 12px;
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .registration-header h1 {
+        margin: 0 0 15px;
+        color: #12384f;
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .registration-header p {
+        max-width: 720px;
+        margin: auto;
+        color: #68757d;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .registration-form {
+        background: #ffffff;
+        border: 1px solid rgba(18, 56, 79, 0.10);
+    }
+
+    .form-section {
+        padding: 35px;
+        border-bottom: 1px solid rgba(18, 56, 79, 0.10);
+    }
+
+    .form-section:last-of-type {
+        border-bottom: none;
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading span {
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+        margin: 7px 0 0;
+        color: #12384f;
+        font-size: 25px;
+    }
+
+    .course-summary {
+        background: #08283b;
+        padding: 25px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .course-item span {
+        display: block;
+        margin-bottom: 6px;
+        color: #d2a43b;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+    }
+
+    .course-item strong {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        margin-bottom: 8px;
+        color: #12384f;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .required {
+        color: #b98215;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 14px;
+        border: 1px solid #d7dde0;
+        background: #ffffff;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+
+    .form-group textarea {
+        min-height: 115px;
+        resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #c69b32;
+    }
+
+    .form-note {
+        margin-top: 7px;
+        color: #8a9499;
+        font-size: 12px;
+    }
+
+    .form-actions {
+        padding: 35px;
+        text-align: center;
+        background: #fafbfb;
+    }
+
+    .submit-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 220px;
+        padding: 15px 28px;
+        border: 1px solid #c69b32;
+        background: #c69b32;
+        color: #061d2d;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    .submit-button:hover {
+        background: #d2a43b;
+    }
+
+    .registration-footer {
+        margin-top: 22px;
+        text-align: center;
+        color: #7a858b;
+        font-size: 13px;
+    }
+
+    .registration-footer strong {
+        color: #12384f;
+    }
+
+    @media (max-width: 700px) {
+
+        .registration-page {
+            padding: 50px 15px 70px;
+        }
+
+        .registration-header h1 {
+            font-size: 32px;
+        }
+
+        .form-section {
+            padding: 25px 20px;
+        }
+
+        .form-grid,
+        .course-summary {
+            grid-template-columns: 1fr;
+        }
+
+        .form-actions {
+            padding: 28px 20px;
+        }
+
+        .submit-button {
+            width: 100%;
+        }
+    }
+</style>
+
+
+<div class="registration-page">
+
+    <div class="registration-container">
+
+        <!-- HEADER -->
+
+        <div class="registration-header">
+
+            <span>
+                Course Registration
+            </span>
+
+            <h1>
+                Avionics System Engineering Crash Course
+            </h1>
+
+            <p>
+                Complete the registration form below to register for
+                ATC 150 through Capital Consultants.
+            </p>
+
+        </div>
+
+
+        <form
+            class="registration-form"
+            method="POST"
+            action="{{ url_for('avionics_registration') }}"
+        >
+
+
+            <!-- A - COURSE DETAILS -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        Section A
+                    </span>
+
+                    <h2>
+                        Course Details
+                    </h2>
+
+                </div>
+
+                <div class="course-summary">
+
+                    <div class="course-item">
+
+                        <span>
+                            Course Code
+                        </span>
+
+                        <strong>
+                            ATC 150
+                        </strong>
+
+                    </div>
+
+                    <div class="course-item">
+
+                        <span>
+                            Title
+                        </span>
+
+                        <strong>
+                            Avionics System Engineering Crash Course
+                        </strong>
+
+                    </div>
+
+                    <div class="course-item">
+
+                        <span>
+                            Date
+                        </span>
+
+                        <strong>
+                            can be offered upon a specific date request
+                        </strong>
+
+                    </div>
+
+                    <div class="course-item">
+
+                        <span>
+                            Venue
+                        </span>
+
+                        <strong>
+                            Marriott Islamabad
+                        </strong>
+
+                    </div>
+
+                    <div class="course-item">
+
+                        <span>
+                            Language
+                        </span>
+
+                        <strong>
+                            Select below
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="form-group">
+
+                    <label for="language">
+                        Language <span class="required">*</span>
+                    </label>
+
+                    <select id="language" name="language" required>
+
+                        <option value="">
+                            Select Language
+                        </option>
+
+                        <option value="English">
+                            English
+                        </option>
+
+                        <option value="Arabic">
+                            Arabic
+                        </option>
+
+                        <option value="Chinese">
+                            Chinese
+                        </option>
+
+                        <option value="French">
+                            French
+                        </option>
+
+                        <option value="German">
+                            German
+                        </option>
+
+                        <option value="Italian">
+                            Italian
+                        </option>
+
+                        <option value="Japanese">
+                            Japanese
+                        </option>
+
+                        <option value="Korean">
+                            Korean
+                        </option>
+
+                        <option value="Persian">
+                            Persian
+                        </option>
+
+                        <option value="Portuguese">
+                            Portuguese
+                        </option>
+
+                        <option value="Russian">
+                            Russian
+                        </option>
+
+                        <option value="Spanish">
+                            Spanish
+                        </option>
+
+                        <option value="Turkish">
+                            Turkish
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <!-- B - INSTITUTION / COMPANY -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        Section B
+                    </span>
+
+                    <h2>
+                        Institution / Company Details
+                    </h2>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="country">
+                            Country <span class="required">*</span>
+                        </label>
+
+                        <select id="country" name="country" required>
+
+                            <option value="">
+                                Select Country
+                            </option>
+
+                            <option value="Pakistan">
+                                Pakistan
+                            </option>
+
+                            <option value="Turkey">
+                                Turkey
+                            </option>
+
+                            <option value="United Arab Emirates">
+                                United Arab Emirates
+                            </option>
+
+                            <option value="Saudi Arabia">
+                                Saudi Arabia
+                            </option>
+
+                            <option value="United Kingdom">
+                                United Kingdom
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="company">
+                            Company Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            name="company_name"
+                            placeholder="Company name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="website">
+                            Website <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="url"
+                            id="website"
+                            name="website"
+                            placeholder="https://"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="business">
+                            Nature of Business
+                        </label>
+
+                        <input
+                            type="text"
+                            id="business"
+                            name="nature_of_business"
+                            placeholder="Nature of business"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="postal_address">
+                            Postal Address <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="postal_address"
+                            name="postal_address"
+                            placeholder="Enter postal address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- C - CONTACT PERSON -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        Section C
+                    </span>
+
+                    <h2>
+                        Contact Person Details
+                    </h2>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="salutation">
+                            Salutation <span class="required">*</span>
+                        </label>
+
+                        <select id="salutation" name="salutation" required>
+
+                            <option value="">
+                                Select Salutation
+                            </option>
+
+                            <option value="Mr.">
+                                Mr.
+                            </option>
+
+                            <option value="Ms.">
+                                Ms.
+                            </option>
+
+                            <option value="Mrs.">
+                                Mrs.
+                            </option>
+
+                            <option value="Dr.">
+                                Dr.
+                            </option>
+
+                            <option value="Prof.">
+                                Prof.
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="job_title">
+                            Job Title / Position <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="job_title"
+                            name="job_title"
+                            placeholder="Job title / position"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email address"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Telephone <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+Code Telephone"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="+Code Mobile"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- D - PARTICIPANTS -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        Section D
+                    </span>
+
+                    <h2>
+                        Participant(s) Details
+                    </h2>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="participants">
+                            Number of Participants
+                            <span class="required">*</span>
+                        </label>
+
+                        <select
+                            id="participants"
+                            name="participants"
+                            required
+                        >
+
+                            <option value="">
+                                Select number of participants
+                            </option>
+
+                            <option value="1">
+                                1
+                            </option>
+
+                            <option value="2">
+                                2
+                            </option>
+
+                            <option value="3">
+                                3
+                            </option>
+
+                            <option value="4">
+                                4
+                            </option>
+
+                            <option value="5">
+                                5
+                            </option>
+
+                            <option value="6">
+                                6
+                            </option>
+
+                            <option value="7">
+                                7
+                            </option>
+
+                            <option value="8">
+                                8
+                            </option>
+
+                            <option value="9">
+                                9
+                            </option>
+
+                            <option value="10+">
+                                10+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="source">
+                            How did you hear about us?
+                            <span class="required">*</span>
+                        </label>
+
+                        <select
+                            id="source"
+                            name="source"
+                            required
+                        >
+
+                            <option value="">
+                                Select option
+                            </option>
+
+                            <option value="Website">
+                                Website
+                            </option>
+
+                            <option value="Search Engine">
+                                Search Engine
+                            </option>
+
+                            <option value="Social Media">
+                                Social Media
+                            </option>
+
+                            <option value="Email">
+                                Email
+                            </option>
+
+                            <option value="Referral">
+                                Referral
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBMIT -->
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+                <div class="registration-footer">
+
+                    For registration assistance:
+                    <strong>ceo@capitalgroup.pk</strong>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}Introduction to Satellite Communications & Marine VSAT | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .marine-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* HERO — SAME PATTERN */
+    .marine-course-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.72), rgba(6, 29, 45, 0.82)),
+            url("https://images.pexels.com/photos/12464244/pexels-photo-12464244.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center/cover no-repeat;
+    }
+
+    .marine-course-hero-content {
+        max-width: 1150px;
+        width: 90%;
+        margin: auto;
+        color: white;
+        padding: 80px 0;
+    }
+
+    .marine-course-label {
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .marine-course-hero h1 {
+        font-size: 56px;
+        line-height: 1.12;
+        max-width: 900px;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .marine-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #edf4f7;
+    }
+
+    /* COURSE CONTENT */
+    .marine-course-content {
+        max-width: 1150px;
+        width: 90%;
+        margin: auto;
+        padding: 75px 0;
+    }
+
+    .marine-course-heading {
+        font-size: 34px;
+        color: #12384f;
+        margin-bottom: 18px;
+    }
+
+    .marine-course-content h2 {
+        font-size: 30px;
+        color: #12384f;
+        margin-top: 55px;
+        margin-bottom: 18px;
+        border-left: 4px solid #c69b32;
+        padding-left: 15px;
+    }
+
+    .marine-course-content h3 {
+        font-size: 22px;
+        color: #12384f;
+        margin-top: 30px;
+        margin-bottom: 14px;
+    }
+
+    .marine-course-content p {
+        font-size: 16px;
+        line-height: 1.75;
+        color: #4b5d66;
+    }
+
+    .marine-course-content ul {
+        padding-left: 22px;
+        margin-bottom: 25px;
+    }
+
+    .marine-course-content li {
+        margin-bottom: 10px;
+        line-height: 1.65;
+        color: #4b5d66;
+    }
+
+    /* COURSE INFO */
+    .marine-course-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin: 35px 0 55px;
+    }
+
+    .marine-info-box {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-top: 3px solid #c69b32;
+        padding: 22px;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.06);
+    }
+
+    .marine-info-box span {
+        display: block;
+        font-size: 13px;
+        color: #7a8a92;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .marine-info-box strong {
+        color: #12384f;
+        font-size: 16px;
+    }
+
+    /* END BUTTONS */
+    .marine-course-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 60px;
+        padding-top: 35px;
+        border-top: 1px solid #d9e0e3;
+    }
+
+    .marine-course-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border: 1px solid #12384f;
+        color: #12384f;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .marine-course-btn:hover {
+        background: #12384f;
+        color: white;
+    }
+
+    .marine-course-btn.primary {
+        background: #c69b32;
+        border-color: #c69b32;
+        color: white;
+    }
+
+    .marine-course-btn.primary:hover {
+        background: #a98224;
+        border-color: #a98224;
+    }
+
+    @media (max-width: 800px) {
+        .marine-course-hero h1 {
+            font-size: 40px;
+        }
+
+        .marine-course-info {
+            grid-template-columns: 1fr;
+        }
+
+        .marine-course-actions {
+            flex-direction: column;
+        }
+
+        .marine-course-btn {
+            text-align: center;
+        }
+    }
+</style>
+
+
+<div class="marine-course-page">
+
+    <!-- HERO -->
+    <section class="marine-course-hero">
+        <div class="marine-course-hero-content">
+
+            <div class="marine-course-label">
+                Advanced Marine Engineering Department
+            </div>
+
+            <h1>
+                Introduction to Satellite Communications & Marine VSAT
+            </h1>
+
+            <p>
+                CC’s professional marine engineering training develops practical expertise
+                in satellite communication, digital communications, marine VSAT systems,
+                stabilized antennas and maritime connectivity.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="marine-course-content">
+
+        <h2 class="marine-course-heading">
+            TCM 140 - Introduction to Satellite Communications & Marine VSAT
+        </h2>
+
+
+        <!-- COURSE INFORMATION -->
+        <div class="marine-course-info">
+
+            <div class="marine-info-box">
+                <span>Course Reference</span>
+                <strong>TCM 140</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <!-- COURSE DESCRIPTION -->
+        <h2>Course Description</h2>
+
+        <p>
+            This training course will introduce the basics of digital communication and
+            VSAT systems, explaining the particularities of Marine VSAT Systems and
+            Stabilized Antennas. It will focus in operation of Marine VSAT systems with
+            hands-on labs and exercises and in troubleshooting using real Marine VSAT
+            antennas and equipment. The use of the Spectrum Analyzer will be shown for
+            a better faultfinding.
+        </p>
+
+
+        <!-- COURSE OBJECTIVES -->
+        <h2>Course Objectives</h2>
+
+        <ul>
+            <li>Describe VSAT service characteristics and manage the service using Custom Support Portal.</li>
+            <li>Describe and compare the parameters that characterize a VSAT service.</li>
+            <li>Predict the operation of a marine VSAT system under normal conditions.</li>
+            <li>Identify the hazards involved when working with marine VSAT systems.</li>
+            <li>Perform a basic site survey and evaluate existing installations conditions.</li>
+            <li>Configure and operate marine VSAT systems.</li>
+        </ul>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <h2>Who should Attend?</h2>
+
+        <ul>
+            <li>Practising engineers</li>
+            <li>Information technologists</li>
+            <li>Operation staff</li>
+            <li>Anyone who needs a technical introduction to SATCOM and VSAT</li>
+        </ul>
+
+
+        <!-- COURSE SYLLABUS -->
+        <h2>Course Syllabus</h2>
+
+
+        <!-- DAY 1 -->
+        <h3>Day 1</h3>
+
+        <ul>
+            <li><strong>VSAT Fundamentals</strong></li>
+            <li>Digital communication techniques</li>
+            <li>Radio frequency link</li>
+            <li>Satellites for VSAT networks</li>
+            <li>VSAT Networks</li>
+            <li>VSAT network earth station</li>
+            <li>Networking essentials</li>
+            <li>Ethernet LAN</li>
+            <li>IP Networking</li>
+            <li>WAN</li>
+            <li>Networking tools</li>
+            <li>Other network services</li>
+        </ul>
+
+
+        <!-- DAY 2 -->
+        <h3>Day 2</h3>
+
+        <ul>
+            <li><strong>Broadbeam VSAT</strong></li>
+            <li>OmniAccess network</li>
+            <li>Quality of Service</li>
+            <li>Customer Support Portal</li>
+            <li>OmniAccess NOC</li>
+            <li>Plexus UNITY</li>
+            <li>Marine VSAT Stations</li>
+            <li>VSAT Stabilized antennas</li>
+            <li>Navigational systems</li>
+            <li>Modem</li>
+            <li>Antenna-Modem interface protocols</li>
+            <li>Dual antenna configuration</li>
+        </ul>
+
+
+        <!-- DAY 3 -->
+        <h3>Day 3</h3>
+
+        <ul>
+            <li><strong>Marine VSAT Systems Introduction</strong></li>
+            <li>Marine VSAT system ADU and BDU</li>
+            <li>Marine VSAT operating theory</li>
+            <li>Safety in Marine VSAT</li>
+            <li>Marine VSAT system installation basics</li>
+            <li>Marine VSAT Systems Operation</li>
+            <li>System settings</li>
+            <li>Satellite settings</li>
+            <li>Commissioning process</li>
+            <li>Dual systems operation & balancing</li>
+            <li>BUC access</li>
+        </ul>
+
+
+        <!-- DAY 4 -->
+        <h3>Day 4</h3>
+
+        <ul>
+            <li>Cabling</li>
+            <li>Coaxial cables</li>
+            <li>RF cables performance</li>
+            <li>Ethernet cabling</li>
+            <li>Spectrum analyzer measurements</li>
+            <li>Functional tests and health checks</li>
+            <li>Functional tests</li>
+            <li>Preventive maintenance</li>
+            <li>Dual systems</li>
+            <li>Software upgrades</li>
+            <li>Sea trials</li>
+        </ul>
+
+
+        <!-- DAY 5 -->
+        <h3>Day 5</h3>
+
+        <ul>
+            <li>Marine VSAT System troubleshooting</li>
+            <li>Troubleshooting procedures</li>
+            <li>Troubleshooting tools</li>
+            <li>Troubleshooting dual systems</li>
+            <li>Replacing components</li>
+        </ul>
+
+
+        <!-- END BUTTONS -->
+        <div class="marine-course-actions">
+
+            <a href="{{ url_for('satellite_communication_marine_vsat_registration') }}"
+               class="marine-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('marine_engineering') }}"
+               class="marine-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

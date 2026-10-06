@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="{{ current_language }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Request Submitted | Capital Group
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<main id="main-content">
+
+    <section class="quote-page">
+
+        <div class="quote-container">
+
+            <div class="quote-label">
+                CAPITAL GROUP
+            </div>
+
+            <h1>
+                Request Submitted Successfully
+            </h1>
+
+            <p class="quote-intro">
+
+                Thank you for contacting
+                <strong>{{ company }}</strong>.
+
+                Your requirements have been received successfully.
+
+            </p>
+
+            <p class="quote-intro">
+
+                Your Request ID is:
+
+                <strong>
+                    #{{ request_id }}
+                </strong>
+
+            </p>
+
+            <a
+                href="{{ url_for('engineering') }}"
+                class="engineering-contact-link"
+            >
+                BACK TO ENGINEERING
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div>
+
+        <strong>
+            CAPITAL GROUP
+        </strong>
+
+        <p>
+            Indigenous Innovations • Global Vision
+        </p>
+
+    </div>
+
+    <a
+        href="mailto:ceo@capitalgroup.pk"
+        class="footer-email"
+    >
+        ceo@capitalgroup.pk
+    </a>
+
+</footer>
+
+</body>
+
+</html>

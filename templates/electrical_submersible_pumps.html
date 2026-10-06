@@ -1,0 +1,460 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 194B - Electrical Submersible Pumps (ESP) Basics, Operation, Design, Optimization & Troubleshooting | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .electrical-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .electrical-course-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 100px 8%;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(8, 40, 59, 0.82)),
+            url("https://cdn.prod.website-files.com/69456531a8ed69e3a0a30a26/694e96496bee72833b8edc4e_rose-galloway-green-j4LMklF3C-8-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+
+    .electrical-course-hero-content {
+        max-width: 950px;
+    }
+
+    .electrical-course-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .electrical-course-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .electrical-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #e8eef2;
+    }
+
+    .electrical-course-section {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px 6%;
+    }
+
+    .electrical-course-section h2 {
+        font-size: 34px;
+        margin: 0 0 22px;
+        color: #12384f;
+    }
+
+    .electrical-course-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #506574;
+        margin-bottom: 20px;
+    }
+
+    .course-block {
+        margin-top: 55px;
+    }
+
+    .course-block h3 {
+        color: #12384f;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .course-list {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .course-list li {
+        margin-bottom: 12px;
+        color: #506574;
+        line-height: 1.7;
+    }
+
+    .day-block {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(18, 56, 79, 0.05);
+    }
+
+    .day-block h4 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 20px;
+    }
+
+    .day-block ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .day-block li {
+        margin-bottom: 9px;
+        color: #506574;
+        line-height: 1.6;
+    }
+
+    .electrical-course-cta {
+        background: #08283b;
+        color: white;
+        text-align: center;
+        padding: 75px 6%;
+    }
+
+    .electrical-course-cta h2 {
+        font-size: 34px;
+        margin: 0 0 18px;
+    }
+
+    .electrical-course-cta p {
+        max-width: 760px;
+        margin: 0 auto 30px;
+        color: #dbe5ea;
+        line-height: 1.7;
+    }
+
+    .electrical-course-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .electrical-course-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        border: 1px solid #c69b32;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .electrical-course-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .electrical-course-btn:hover {
+        background: #d2a43b;
+        color: #061d2d;
+    }
+
+    .course-footer {
+        background: #061d2d;
+        text-align: center;
+        padding: 22px;
+        color: #bfcdd5;
+        font-size: 14px;
+    }
+
+    .course-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        .electrical-course-hero {
+            min-height: 500px;
+            padding: 80px 7%;
+        }
+
+        .electrical-course-hero h1 {
+            font-size: 34px;
+        }
+
+        .electrical-course-hero p {
+            font-size: 16px;
+        }
+
+        .electrical-course-section {
+            padding: 60px 7%;
+        }
+
+        .electrical-course-section h2 {
+            font-size: 28px;
+        }
+
+        .day-block {
+            padding: 20px;
+        }
+    }
+</style>
+
+
+<div class="electrical-course-page">
+
+    <!-- HERO -->
+    <section class="electrical-course-hero">
+        <div class="electrical-course-hero-content">
+
+            <span class="electrical-course-label">
+                Advanced Electrical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional ESP training develops practical expertise in
+                Electrical Submersible Pump operation, design, optimization,
+                troubleshooting and modern artificial lift technologies.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="electrical-course-section">
+
+        <h2>
+            EEE 194B - Electrical Submersible Pumps (ESP) Basics Operation,
+            Design, Optimization & Troubleshooting
+        </h2>
+
+        <p>
+            This course covers ESP basics of design, operation and optimization,
+            ESP components, troubleshooting and ESP surface equipment.
+        </p>
+
+        <p>
+            By the end of the course, trainees will be familiar with all ESP
+            types and their uses in addition to ESP wells down hole problems
+            and the best solution applied in artificial lift technology.
+        </p>
+
+        <p>
+            Trainees will be familiar with the newest ESP technology and Down
+            Hole Monitoring tools which are considered as the eyes of the ESP
+            operators.
+        </p>
+
+        <p>
+            Trainees will be familiar with VSD Variable Speed Drives and their
+            application in ESP wells.
+        </p>
+
+
+        <!-- OBJECTIVES -->
+        <div class="course-block">
+
+            <h3>Course Objectives</h3>
+
+            <ul class="course-list">
+                <li>Learn about the design considerations for ESP systems, including pump selection, motor sizing, and cable design.</li>
+                <li>Understand the basic operation principles of Electrical Submersible Pumps (ESP) in oil and gas production.</li>
+                <li>Explore optimization techniques for ESP systems to maximize production efficiency and minimize downtime.</li>
+                <li>Gain knowledge on troubleshooting common issues with ESP systems, such as motor overheating, pump cavitation, and electrical failures.</li>
+                <li>Develop practical skills in analyzing ESP performance data and implementing corrective actions to improve system reliability.</li>
+                <li>Enhance understanding of safety protocols and best practices for working with ESP systems in hazardous environments.</li>
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="course-block">
+
+            <h3>Who Should Attend?</h3>
+
+            <ul class="course-list">
+                <li>Production Staff</li>
+                <li>ESP Operators and ESP staff</li>
+                <li>ESP Field Service Technicians and Engineers</li>
+                <li>ESP Application Engineers</li>
+            </ul>
+
+        </div>
+
+
+        <!-- 5-DAY SYLLABUS -->
+        <div class="course-block">
+
+            <h3>5-Day Course Syllabus</h3>
+
+
+            <div class="day-block">
+                <h4>Day 1 — ESP Fundamentals & Well Performance</h4>
+
+                <ul>
+                    <li>ESP basics and fundamentals</li>
+                    <li>IPR and VLP</li>
+                    <li>Pressure gradient, pressure and depth</li>
+                    <li>Pressure drawdown and skin factor</li>
+                    <li>Multiphase flow</li>
+                    <li>Well inflow performance</li>
+                    <li>Productivity Index Model</li>
+                    <li>Vogel's inflow performance relationship</li>
+                    <li>Composite Inflow Performance Relationship</li>
+                    <li>Total Dynamic Head components and calculations</li>
+                    <li>Well conditions</li>
+                    <li>Pump performance curves</li>
+                    <li>GOR calculation, specific gravity and API</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 2 — ESP Components, Applications & Surface Equipment</h4>
+
+                <ul>
+                    <li>ESP applications and components</li>
+                    <li>Three-phase induction motor principles and ratings</li>
+                    <li>Motor components</li>
+                    <li>Protector components and types</li>
+                    <li>Gas separator components and types</li>
+                    <li>Pump components, types and intake configurations</li>
+                    <li>DMT types and principles</li>
+                    <li>DMT surface panel and SIB Surface Integrated Board</li>
+                    <li>Cable types, components and well-condition requirements</li>
+                    <li>Wellhead components</li>
+                    <li>Principles of electricity</li>
+                    <li>Surface equipment types and applications</li>
+                    <li>Transformer types and applications</li>
+                    <li>FSD and VSD transformers including step-up and step-down applications</li>
+                    <li>FSD and VSD types and applications</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 3 — VSD Systems, ESP Design & Optimization</h4>
+
+                <ul>
+                    <li>VSD basic electrical block diagram</li>
+                    <li>VSD components including rectifier, inverter, DC bus and filters</li>
+                    <li>Single-phase and three-phase rectifiers</li>
+                    <li>Three-phase full-wave and half-wave bridge rectifiers</li>
+                    <li>VSD inverters and PWM</li>
+                    <li>VSD simulation</li>
+                    <li>ESP design with variable rating using VSD</li>
+                    <li>ESP design and optimization</li>
+                    <li>ESP design with pressure gradient</li>
+                    <li>Affinity laws</li>
+                    <li>Pump sizing exercises</li>
+                    <li>High water-cut and high GOR exercises</li>
+                    <li>Gassy wells design</li>
+                    <li>Variable rating and high-temperature wells design</li>
+                    <li>SIB and DMT data analysis</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 4 — ESP Troubleshooting & Electrical Protection</h4>
+
+                <ul>
+                    <li>Amp chart analysis</li>
+                    <li>Gassy wells and gas locking</li>
+                    <li>Pump-off conditions</li>
+                    <li>Tubing leaks</li>
+                    <li>Plugged pump or intake</li>
+                    <li>Broken shaft</li>
+                    <li>Reverse rotation</li>
+                    <li>Well pumping off</li>
+                    <li>Power fluctuations</li>
+                    <li>ESP troubleshooting</li>
+                    <li>Electrical surface equipment protection</li>
+                    <li>Harmonics principles and origin</li>
+                    <li>Harmonic effects and reduction</li>
+                    <li>Harmonics simulation</li>
+                </ul>
+            </div>
+
+
+            <div class="day-block">
+                <h4>Day 5 — Advanced ESP Applications, Technology & Software</h4>
+
+                <ul>
+                    <li>ESP VSD applications</li>
+                    <li>Pump and motor horsepower related to variable speed</li>
+                    <li>Pump head and flow with variable speed</li>
+                    <li>ESP optimization</li>
+                    <li>ESP new technology</li>
+                    <li>SCADA system in ESP</li>
+                    <li>ESP design using Prosper and SubPump 2018 software</li>
+                    <li>Gassy wells design using SubPump</li>
+                    <li>Variable rating design using Prosper</li>
+                    <li>High-temperature wells design</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="electrical-course-cta">
+
+        <h2>
+            Develop Your ESP Engineering Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional ESP training,
+            practical engineering guidance and advanced artificial lift
+            technology development.
+        </p>
+
+        <div class="electrical-course-buttons">
+
+            <a href="{{ url_for('electrical_submersible_pumps_registration') }}"
+               class="electrical-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('engines') }}"
+               class="electrical-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="course-footer">
+        For registration assistance:
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

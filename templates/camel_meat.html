@@ -1,0 +1,717 @@
+{% extends "base.html" %}
+
+{% block title %}Camel Meat Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.camel-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.camel-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.76) 45%,
+            rgba(6, 29, 45, 0.25) 100%
+        ),
+        url("https://images.pexels.com/photos/31612177/pexels-photo-31612177.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center center / cover no-repeat;
+}
+
+.camel-hero-inner {
+    width: min(1180px, 90%);
+    margin: auto;
+    padding: 100px 0;
+}
+
+.camel-label {
+    display: inline-block;
+    margin-bottom: 22px;
+
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.camel-hero h1 {
+    max-width: 850px;
+    margin: 0 0 25px;
+
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.camel-description {
+    max-width: 720px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.camel-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+
+    padding: 90px 0 65px;
+    text-align: center;
+}
+
+.camel-intro h2 {
+    margin: 0 0 18px;
+
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.camel-intro p {
+    max-width: 850px;
+    margin: auto;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CAMEL MEAT SECTIONS
+========================= */
+
+.camel-sections {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+.camel-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+
+    padding: 75px 0;
+
+    border-top: 1px solid #dce2e5;
+}
+
+.camel-section:last-child {
+    border-bottom: 1px solid #dce2e5;
+}
+
+
+/* IMAGE */
+
+.camel-image {
+    width: 100%;
+    height: 420px;
+
+    overflow: hidden;
+    border-radius: 4px;
+
+    background: #e9edef;
+}
+
+.camel-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.camel-image:hover img {
+    transform: scale(1.035);
+}
+
+
+/* CONTENT */
+
+.camel-content {
+    position: relative;
+}
+
+.camel-number {
+    margin-bottom: 17px;
+
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.camel-content h3 {
+    margin: 0 0 8px;
+
+    color: #12384f;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.camel-subtitle {
+    margin-bottom: 20px;
+
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.camel-content p {
+    margin: 0;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.camel-cta {
+    width: min(1050px, 90%);
+    margin: auto;
+
+    padding: 100px 0;
+
+    text-align: center;
+}
+
+.camel-cta h2 {
+    margin: 0 0 16px;
+
+    color: #12384f;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.camel-cta p {
+    max-width: 760px;
+    margin: 0 auto 35px;
+
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.camel-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.camel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 185px;
+    padding: 14px 24px;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+    transition: all 0.25s ease;
+}
+
+.camel-btn-primary {
+    background: #123f58;
+    color: #ffffff;
+}
+
+.camel-btn-primary:hover {
+    background: #0b2c40;
+    transform: translateY(-2px);
+}
+
+.camel-btn-secondary {
+    background: transparent;
+    color: #12384f;
+    border: 1px solid #c69b32;
+}
+
+.camel-btn-secondary:hover {
+    background: #c69b32;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.camel-email {
+    margin-top: 28px;
+
+    color: #6b7479;
+    font-size: 14px;
+}
+
+.camel-email a {
+    color: #12384f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .camel-hero {
+        min-height: 570px;
+    }
+
+    .camel-hero-inner {
+        padding: 80px 0;
+    }
+
+    .camel-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 60px 0;
+    }
+
+    .camel-image {
+        height: 360px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .camel-hero {
+        min-height: 540px;
+    }
+
+    .camel-hero-inner {
+        width: 88%;
+        padding: 70px 0;
+    }
+
+    .camel-hero h1 {
+        font-size: 34px;
+    }
+
+    .camel-description {
+        font-size: 15px;
+    }
+
+    .camel-intro {
+        padding: 70px 0 45px;
+    }
+
+    .camel-image {
+        height: 280px;
+    }
+
+    .camel-content h3 {
+        font-size: 29px;
+    }
+
+    .camel-cta {
+        padding: 75px 0;
+    }
+
+    .camel-buttons {
+        flex-direction: column;
+    }
+
+    .camel-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+</style>
+
+
+<div class="camel-page">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="camel-hero">
+
+        <div class="camel-hero-inner">
+
+            <span class="camel-label">
+                Camel Meat Division
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING /
+                SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="camel-description">
+                CTC’s Camel Meat Division provides professional sourcing and
+                international trade solutions for chilled and frozen camel meat
+                products, connecting reliable suppliers and processors with
+                distributors, food businesses and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="camel-intro">
+
+        <h2>
+            Camel Meat Supply Solutions
+        </h2>
+
+        <p>
+            CTC’s Camel Meat Division supports commercial buyers with
+            professionally sourced camel meat products, organized procurement,
+            quality-focused handling, quantity planning, chilled and frozen
+            logistics, export coordination and international market access.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         CAMEL MEAT SECTIONS
+    ========================== -->
+
+    <section class="camel-sections">
+
+
+        <!-- 01 -->
+
+        <div class="camel-section">
+
+            <div class="camel-image">
+
+                <img
+                    src="https://images.pexels.com/photos/31612177/pexels-photo-31612177.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium red meat products"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="camel-content">
+
+                <div class="camel-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Camel Meat
+                </h3>
+
+                <div class="camel-subtitle">
+                    Quality-focused meat sourcing
+                </div>
+
+                <p>
+                    CTC supports professionally coordinated camel meat sourcing
+                    for commercial buyers, distributors and international food
+                    markets, with attention to product specifications,
+                    consistent quality and dependable supply.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="camel-section">
+
+            <div class="camel-content">
+
+                <div class="camel-number">
+                    02
+                </div>
+
+                <h3>
+                    Camel Meat Cubes
+                </h3>
+
+                <div class="camel-subtitle">
+                    Chilled and frozen product requirements
+                </div>
+
+                <p>
+                    Camel meat cubes can be coordinated according to buyer
+                    requirements, planned quantities and supply specifications,
+                    supporting organized distribution and international food
+                    market requirements.
+                </p>
+
+            </div>
+
+            <div class="camel-image">
+
+                <img
+                    src="https://images.pexels.com/photos/7163985/pexels-photo-7163985.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh red meat product cuts"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="camel-section">
+
+            <div class="camel-image">
+
+                <img
+                    src="https://images.pexels.com/photos/12884549/pexels-photo-12884549.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh meat cuts displayed for commercial supply"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="camel-content">
+
+                <div class="camel-number">
+                    03
+                </div>
+
+                <h3>
+                    Boneless Camel Meat
+                </h3>
+
+                <div class="camel-subtitle">
+                    Flexible commercial meat supply
+                </div>
+
+                <p>
+                    CTC supports boneless camel meat requirements through
+                    coordinated sourcing, product specifications, quantity
+                    planning and chilled or frozen supply arrangements for
+                    commercial buyers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="camel-section">
+
+            <div class="camel-content">
+
+                <div class="camel-number">
+                    04
+                </div>
+
+                <h3>
+                    Camel Meat Mince
+                </h3>
+
+                <div class="camel-subtitle">
+                    Processed meat product requirements
+                </div>
+
+                <p>
+                    Camel boneless mince is included within Pakistan’s
+                    documented camel meat product categories. CTC supports
+                    buyer-specific sourcing and coordinated supply arrangements
+                    for commercial food markets.
+                </p>
+
+            </div>
+
+            <div class="camel-image">
+
+                <img
+                    src="https://images.pexels.com/photos/7493586/pexels-photo-7493586.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh minced and prepared red meat product"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="camel-section">
+
+            <div class="camel-image">
+
+                <img
+                    src="https://images.pexels.com/photos/29834283/pexels-photo-29834283.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh premium meat products in chilled display"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="camel-content">
+
+                <div class="camel-number">
+                    05
+                </div>
+
+                <h3>
+                    Chilled & Frozen Supply
+                </h3>
+
+                <div class="camel-subtitle">
+                    Cold-chain market coordination
+                </div>
+
+                <p>
+                    CTC coordinates chilled and frozen camel meat requirements
+                    with planned quantities, product specifications and
+                    organized cold-chain supply arrangements for commercial
+                    distribution.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="camel-section">
+
+            <div class="camel-content">
+
+                <div class="camel-number">
+                    06
+                </div>
+
+                <h3>
+                    International Camel Meat Markets
+                </h3>
+
+                <div class="camel-subtitle">
+                    Global sourcing and trade coordination
+                </div>
+
+                <p>
+                    CTC connects camel meat sourcing requirements with
+                    international trade networks, supporting buyers through
+                    professional coordination, quantity planning and
+                    market-focused export supply solutions.
+                </p>
+
+            </div>
+
+            <div class="camel-image">
+
+                <img
+                    src="https://images.pexels.com/photos/19352815/pexels-photo-19352815.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Fresh meat products in commercial market"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="camel-cta">
+
+        <h2>
+            Looking for Camel Meat Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional camel meat sourcing, quantity
+            coordination, chilled and frozen supply solutions and
+            international meat market support.
+        </p>
+
+        <div class="camel-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="camel-btn camel-btn-primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="camel-btn camel-btn-secondary"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="camel-btn camel-btn-secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="camel-email">
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

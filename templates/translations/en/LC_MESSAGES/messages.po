@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+msgid "HOME"
+msgstr "HOME"
+msgid "ABOUT US"
+msgstr "ABOUT US"
+
+msgid "FOLLOW US"
+msgstr "FOLLOW US"
+
+msgid "CONTACT US"
+msgstr "CONTACT US"
+
+msgid "LET'S TALK"
+msgstr "LET'S TALK"
+
+msgid "Developing Business, Creating Solutions"
+msgstr "Developing Business, Creating Solutions"

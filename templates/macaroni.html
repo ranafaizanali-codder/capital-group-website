@@ -1,0 +1,478 @@
+{% extends "base.html" %}
+
+{% block title %}Macaroni Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.macaroni-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.macaroni-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,.90), rgba(6,29,45,.42)),
+        url("https://images.pexels.com/photos/37416579/pexels-photo-37416579.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.macaroni-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.macaroni-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.macaroni-hero h1 {
+    max-width: 900px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.macaroni-description {
+    max-width: 760px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e7edf1;
+}
+
+/* INTRO */
+.macaroni-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+    padding: 90px 0 55px;
+    text-align: center;
+}
+
+.macaroni-intro h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 18px;
+    color: #12384f;
+}
+
+.macaroni-intro p {
+    max-width: 820px;
+    margin: auto;
+    color: #526673;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* SECTIONS */
+.macaroni-sections {
+    width: min(1150px, 92%);
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.macaroni-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+    padding: 65px 0;
+    border-top: 1px solid #d9e0e4;
+}
+
+.macaroni-section:nth-child(even) .macaroni-image {
+    order: 2;
+}
+
+.macaroni-section:nth-child(even) .macaroni-content {
+    order: 1;
+}
+
+.macaroni-image {
+    height: 410px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #e8edef;
+}
+
+.macaroni-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.macaroni-number {
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.macaroni-content h3 {
+    font-size: 31px;
+    color: #12384f;
+    margin: 0 0 17px;
+}
+
+.macaroni-content p {
+    color: #596d79;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* CTA */
+.macaroni-cta {
+    background: #08283b;
+    color: #fff;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.macaroni-cta h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 0 0 18px;
+}
+
+.macaroni-cta p {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: #dce6eb;
+    line-height: 1.7;
+}
+
+.macaroni-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.macaroni-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 1px solid #c69b32;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.macaroni-btn:hover {
+    background: #c69b32;
+    color: #08283b;
+}
+
+.macaroni-email {
+    margin-top: 28px;
+    color: #cfdce2;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+
+    .macaroni-hero {
+        min-height: 570px;
+    }
+
+    .macaroni-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 0;
+    }
+
+    .macaroni-section:nth-child(even) .macaroni-image,
+    .macaroni-section:nth-child(even) .macaroni-content {
+        order: initial;
+    }
+
+    .macaroni-image {
+        height: 320px;
+    }
+
+    .macaroni-content h3 {
+        font-size: 27px;
+    }
+}
+</style>
+
+
+<div class="macaroni-page">
+
+    <!-- HERO -->
+    <section class="macaroni-hero">
+
+        <div class="macaroni-hero-inner">
+
+            <div class="macaroni-label">
+                Macaroni Division
+            </div>
+
+            <h1>
+                 EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="macaroni-description">
+                CTC’s Macaroni Division provides professionally sourced macaroni
+                products for retail, foodservice and commercial markets, supporting
+                reliable quality, consistent supply, quantity planning and
+                international food trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="macaroni-intro">
+
+        <h2>Macaroni Food Solutions</h2>
+
+        <p>
+            CTC supports macaroni sourcing through dependable supplier coordination,
+            product specification, quantity planning, packaging requirements and
+            organized supply solutions for domestic and international markets.
+        </p>
+
+    </section>
+
+
+    <!-- CONTENT -->
+    <section class="macaroni-sections">
+
+
+        <!-- 01 -->
+        <div class="macaroni-section">
+
+            <div class="macaroni-image">
+
+                <img
+                    src="https://images.pexels.com/photos/37416579/pexels-photo-37416579.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium dry macaroni pasta"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="macaroni-content">
+
+                <div class="macaroni-number">01</div>
+
+                <h3>Premium Macaroni Products</h3>
+
+                <p>
+                    CTC connects buyers with professionally sourced macaroni products
+                    selected according to commercial specifications, consistent
+                    quality and reliable supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="macaroni-section">
+
+            <div class="macaroni-image">
+
+                <img
+                    src="https://images.pexels.com/photos/6994943/pexels-photo-6994943.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Packaged uncooked macaroni products"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="macaroni-content">
+
+                <div class="macaroni-number">02</div>
+
+                <h3>Quality & Product Selection</h3>
+
+                <p>
+                    Product sourcing can be coordinated around quality expectations,
+                    product format, packaging requirements and the needs of retail
+                    and foodservice buyers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="macaroni-section">
+
+            <div class="macaroni-image">
+
+                <img
+                    src="https://images.pexels.com/photos/6746319/pexels-photo-6746319.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Prepared macaroni pasta dish"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="macaroni-content">
+
+                <div class="macaroni-number">03</div>
+
+                <h3>Foodservice Macaroni Supply</h3>
+
+                <p>
+                    CTC supports food businesses and foodservice buyers with organized
+                    macaroni sourcing, quantity coordination and dependable commercial
+                    supply planning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="macaroni-section">
+
+            <div class="macaroni-image">
+
+                <img
+                    src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Macaroni pasta prepared for food markets"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="macaroni-content">
+
+                <div class="macaroni-number">04</div>
+
+                <h3>Retail-Ready Macaroni Solutions</h3>
+
+                <p>
+                    Our sourcing approach supports retail requirements through
+                    coordinated product specifications, packaging needs, quantity
+                    planning and supply communication.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="macaroni-section">
+
+            <div class="macaroni-image">
+
+                <img
+                    src="https://images.pexels.com/photos/37180610/pexels-photo-37180610.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Raw macaroni pasta close-up"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="macaroni-content">
+
+                <div class="macaroni-number">05</div>
+
+                <h3>Quantity & Supply Planning</h3>
+
+                <p>
+                    CTC coordinates required quantities, product specifications,
+                    packaging expectations and delivery schedules for recurring
+                    macaroni supply requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="macaroni-section">
+
+            <div class="macaroni-image">
+
+                <img
+                    src="https://images.pexels.com/photos/25524076/pexels-photo-25524076.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80"
+                    alt="Premium cooked macaroni food product"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="macaroni-content">
+
+                <div class="macaroni-number">06</div>
+
+                <h3>International Macaroni Markets</h3>
+
+                <p>
+                    CTC supports international buyers through organized macaroni
+                    sourcing, export coordination and professional supply-chain
+                    communication for global food markets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="macaroni-cta">
+
+        <h2>Looking for Macaroni Products?</h2>
+
+        <p>
+            Connect with CTC for professional macaroni sourcing, quantity planning,
+            supply coordination and international food market solutions.
+        </p>
+
+        <div class="macaroni-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="macaroni-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="macaroni-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="macaroni-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="macaroni-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

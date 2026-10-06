@@ -1,0 +1,680 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Sports Goods Department | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING - SPORTS GOODS DEPARTMENT
+   ========================================================= */
+
+.sports-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.sports-hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.78),
+            rgba(6, 29, 45, 0.78)
+        ),
+        url("https://images.pexels.com/photos/35825597/pexels-photo-35825597.jpeg?auto=compress&cs=tinysrgb&w=1800");
+    background-size: cover;
+    background-position: center;
+}
+
+.sports-hero-content {
+    max-width: 900px;
+    padding: 80px 7%;
+    color: #ffffff;
+}
+
+.sports-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.sports-hero h1 {
+    margin: 0 0 22px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.sports-description {
+    max-width: 850px;
+    margin: 0;
+    color: #f3f6f8;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* ================= PRODUCTS INTRO ================= */
+
+.sports-products-intro {
+    padding: 85px 7% 55px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.sports-products-intro h2 {
+    margin: 0 0 14px;
+    color: #12384f;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.sports-products-intro p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #667780;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ================= PRODUCT SECTIONS ================= */
+
+.sports-product-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+    background: #ffffff;
+    border-top: 1px solid #e4eaed;
+}
+
+.sports-product-section:nth-of-type(even) {
+    background: #f7f9fa;
+}
+
+.sports-product-image {
+    min-height: 480px;
+    overflow: hidden;
+}
+
+.sports-product-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.sports-product-section:hover .sports-product-image img {
+    transform: scale(1.035);
+}
+
+.sports-product-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px 8%;
+}
+
+.sports-product-number {
+    margin-bottom: 15px;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.sports-product-content h3 {
+    margin: 0 0 8px;
+    color: #12384f;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.sports-product-subtitle {
+    margin-bottom: 22px;
+    color: #c69b32;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.sports-product-content p {
+    max-width: 560px;
+    margin: 0 0 25px;
+    color: #637482;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.sports-product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.sports-product-features span {
+    padding: 9px 14px;
+    border: 1px solid #d9e0e4;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #34576b;
+    font-size: 13px;
+}
+
+
+/* Alternate image / text */
+
+.sports-product-section:nth-of-type(odd) .sports-product-image {
+    order: 2;
+}
+
+.sports-product-section:nth-of-type(odd) .sports-product-content {
+    order: 1;
+}
+
+
+/* ================= CTA ================= */
+
+.sports-cta {
+    padding: 70px 24px;
+    background: #061d2d;
+    text-align: center;
+}
+
+.sports-cta h2 {
+    margin: 0 0 28px;
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.sports-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.sports-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 14px 24px;
+    border: 1px solid #d2a43b;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    transition: all 0.25s ease;
+}
+
+.sports-cta-button.primary {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.sports-cta-button:hover {
+    background: #ffffff;
+    color: #061d2d;
+    border-color: #ffffff;
+}
+
+.sports-email {
+    margin-top: 28px;
+    color: #d2a43b;
+    font-size: 14px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .sports-product-section {
+        grid-template-columns: 1fr;
+    }
+
+    .sports-product-section:nth-of-type(odd) .sports-product-image,
+    .sports-product-section:nth-of-type(odd) .sports-product-content {
+        order: initial;
+    }
+
+    .sports-product-image {
+        min-height: 360px;
+    }
+
+    .sports-product-image img {
+        height: 360px;
+        min-height: 360px;
+    }
+
+    .sports-product-content {
+        padding: 55px 7%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .sports-hero {
+        min-height: 500px;
+    }
+
+    .sports-hero-content {
+        padding: 70px 24px;
+    }
+
+    .sports-hero h1 {
+        font-size: 40px;
+    }
+
+    .sports-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .sports-products-intro {
+        padding: 65px 7% 40px;
+    }
+
+    .sports-products-intro h2 {
+        font-size: 29px;
+    }
+
+    .sports-product-content h3 {
+        font-size: 28px;
+    }
+
+    .sports-product-image,
+    .sports-product-image img {
+        height: 300px;
+        min-height: 300px;
+    }
+
+    .sports-cta {
+        padding: 60px 20px;
+    }
+
+    .sports-cta h2 {
+        font-size: 27px;
+    }
+
+    .sports-cta-button {
+        width: 100%;
+    }
+}
+</style>
+
+
+<div class="sports-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="sports-hero">
+
+        <div class="sports-hero-content">
+
+            <span class="sports-label">
+                Sports Goods Department
+            </span>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="sports-description">
+                CC’s Sports Goods Department provides professional sourcing
+                and supply solutions for quality sports equipment, sporting
+                goods and athletic products, connecting reliable manufacturers
+                with domestic and international sports markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS INTRO ================= -->
+
+    <section class="sports-products-intro">
+
+        <h2>
+            Sports Goods &amp; Equipment
+        </h2>
+
+        <p>
+            Professional sourcing and supply solutions across sports
+            equipment, training gear and sporting goods.
+        </p>
+
+    </section>
+
+
+    <!-- ================= 01 CRICKET ================= -->
+
+    <section class="sports-product-section">
+
+        <div class="sports-product-image">
+
+            <img
+                src="{{ url_for('static', filename='cricket_equipment.jpg') }}"
+                alt="Cricket Equipment"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="sports-product-content">
+
+            <div class="sports-product-number">
+                01 / CRICKET
+            </div>
+
+            <h3>
+                Cricket Equipment
+            </h3>
+
+            <div class="sports-product-subtitle">
+                Cricket Essentials
+            </div>
+
+            <p>
+                Professional sourcing and supply solutions for cricket
+                equipment serving clubs, academies, retailers and sporting
+                institutions across domestic and international markets.
+            </p>
+
+            <div class="sports-product-features">
+                <span>Cricket Gear</span>
+                <span>Training Equipment</span>
+                <span>Sports Supply</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= 02 FOOTBALL ================= -->
+
+    <section class="sports-product-section">
+
+        <div class="sports-product-image">
+
+            <img
+                src="{{ url_for('static', filename='football_equipment.jpg') }}"
+                alt="Football Equipment"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="sports-product-content">
+
+            <div class="sports-product-number">
+                02 / FOOTBALL
+            </div>
+
+            <h3>
+                Football Equipment
+            </h3>
+
+            <div class="sports-product-subtitle">
+                Football Gear
+            </div>
+
+            <p>
+                Quality football equipment and training gear sourced for
+                sporting organizations, academies, clubs, retailers and
+                professional sports markets.
+            </p>
+
+            <div class="sports-product-features">
+                <span>Football Gear</span>
+                <span>Training Solutions</span>
+                <span>Club Supply</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= 03 BOXING ================= -->
+
+    <section class="sports-product-section">
+
+        <div class="sports-product-image">
+
+            <img
+                src="{{ url_for('static', filename='boxing_equipment.jpg') }}"
+                alt="Boxing Equipment"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="sports-product-content">
+
+            <div class="sports-product-number">
+                03 / BOXING
+            </div>
+
+            <h3>
+                Boxing Equipment
+            </h3>
+
+            <div class="sports-product-subtitle">
+                Combat Sports
+            </div>
+
+            <p>
+                Sourcing solutions for boxing and combat-sports equipment
+                suitable for training facilities, sports academies, clubs
+                and specialized sporting markets.
+            </p>
+
+            <div class="sports-product-features">
+                <span>Boxing Gear</span>
+                <span>Training Equipment</span>
+                <span>Sports Academies</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= 04 FITNESS ================= -->
+
+    <section class="sports-product-section">
+
+        <div class="sports-product-image">
+
+            <img
+                src="{{ url_for('static', filename='fitness_equipment.jpg') }}"
+                alt="Fitness Equipment"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="sports-product-content">
+
+            <div class="sports-product-number">
+                04 / FITNESS
+            </div>
+
+            <h3>
+                Fitness Equipment
+            </h3>
+
+            <div class="sports-product-subtitle">
+                Training Solutions
+            </div>
+
+            <p>
+                Professional fitness equipment sourcing for gyms, training
+                centers, sports facilities, hotels and institutional
+                wellness environments.
+            </p>
+
+            <div class="sports-product-features">
+                <span>Gym Equipment</span>
+                <span>Fitness Training</span>
+                <span>Wellness Facilities</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= 05 PROTECTIVE GEAR ================= -->
+
+    <section class="sports-product-section">
+
+        <div class="sports-product-image">
+
+            <img
+                src="{{ url_for('static', filename='sports_protective_gear.jpg') }}"
+                alt="Sports Protective Gear"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="sports-product-content">
+
+            <div class="sports-product-number">
+                05 / PROTECTIVE GEAR
+            </div>
+
+            <h3>
+                Sports Protective Gear
+            </h3>
+
+            <div class="sports-product-subtitle">
+                Athlete Protection
+            </div>
+
+            <p>
+                Sourcing and supply solutions for sports protective products
+                designed to support athletes and sporting organizations
+                across a range of training and competitive environments.
+            </p>
+
+            <div class="sports-product-features">
+                <span>Protective Gear</span>
+                <span>Athlete Support</span>
+                <span>Sports Safety</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= 06 ACCESSORIES ================= -->
+
+    <section class="sports-product-section">
+
+        <div class="sports-product-image">
+
+            <img
+                src="{{ url_for('static', filename='sports_accessories.jpg') }}"
+                alt="Sports Accessories"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="sports-product-content">
+
+            <div class="sports-product-number">
+                06 / ACCESSORIES
+            </div>
+
+            <h3>
+                Sports Accessories
+            </h3>
+
+            <div class="sports-product-subtitle">
+                Athletic Essentials
+            </div>
+
+            <p>
+                A broad range of sporting accessories and athletic essentials
+                sourced for retailers, clubs, training centers and
+                professional sports markets.
+            </p>
+
+            <div class="sports-product-features">
+                <span>Sports Accessories</span>
+                <span>Athletic Essentials</span>
+                <span>Retail Supply</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="sports-cta">
+
+        <h2>
+            Looking for Sports Goods &amp; Equipment?
+        </h2>
+
+        <div class="sports-cta-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="sports-cta-button primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="sports-cta-button"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="sports-cta-button"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="sports-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}
+Request Submitted | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+.trading-success-page {
+    min-height: 75vh;
+    background: #f5f7f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    font-family:
+        "IBM Plex Sans",
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+.trading-success-card {
+    width: min(680px, 94%);
+    background: #ffffff;
+    text-align: center;
+    padding: 55px 40px;
+    border-top: 4px solid #c69b32;
+    box-shadow: 0 15px 40px rgba(6, 29, 45, 0.08);
+}
+
+.trading-success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #061d2d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.trading-success-card h1 {
+    margin: 0 0 18px;
+    color: #061d2d;
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 600;
+}
+
+.trading-success-card p {
+    margin: 10px auto;
+    max-width: 560px;
+    color: #526572;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.trading-request-id {
+    margin: 28px 0;
+    color: #12384f;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.trading-success-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 28px;
+    background: #061d2d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.trading-success-btn:hover {
+    background: #12384f;
+    transform: translateY(-2px);
+}
+
+.trading-success-email {
+    margin-top: 25px;
+    color: #6b7b84;
+    font-size: 14px;
+}
+
+.trading-success-email strong {
+    color: #12384f;
+}
+
+@media (max-width: 600px) {
+
+    .trading-success-page {
+        padding: 45px 15px;
+    }
+
+    .trading-success-card {
+        padding: 40px 22px;
+    }
+
+    .trading-success-btn {
+        width: 100%;
+    }
+}
+</style>
+
+<section class="trading-success-page">
+
+    <div class="trading-success-card">
+
+        <div class="trading-success-icon">
+            ✓
+        </div>
+
+        <h1>
+            Requirement Submitted Successfully
+        </h1>
+
+        <p>
+            Thank you for contacting
+            <strong>Capital Trading Corporation</strong>.
+        </p>
+
+        <p>
+            Your requirement has been received successfully.
+            Our team will review your request and contact you
+            regarding the required sourcing, export, import or
+            supply chain solution.
+        </p>
+
+        <div class="trading-request-id">
+            Request ID: #{{ request_id }}
+        </div>
+
+        <a
+            href="{{ url_for('trading') }}"
+            class="trading-success-btn"
+        >
+            BACK TO TRADING
+        </a>
+
+        <div class="trading-success-email">
+            Email:
+            <strong>ceo@capitalgroup.pk</strong>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

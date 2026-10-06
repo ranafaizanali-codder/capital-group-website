@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}Asset Integrity Management for Marine Terminal Storage Tanks | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+    .marine-course-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* HERO — SAME PATTERN */
+    .marine-course-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.72), rgba(6, 29, 45, 0.82)),
+            url("https://images.pexels.com/photos/12464244/pexels-photo-12464244.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center/cover no-repeat;
+    }
+
+    .marine-course-hero-content {
+        max-width: 1150px;
+        width: 90%;
+        margin: auto;
+        color: white;
+        padding: 80px 0;
+    }
+
+    .marine-course-label {
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .marine-course-hero h1 {
+        font-size: 56px;
+        line-height: 1.12;
+        max-width: 950px;
+        margin: 0 0 22px;
+        font-weight: 700;
+    }
+
+    .marine-course-hero p {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+        color: #edf4f7;
+    }
+
+    /* COURSE CONTENT */
+    .marine-course-content {
+        max-width: 1150px;
+        width: 90%;
+        margin: auto;
+        padding: 75px 0;
+    }
+
+    .marine-course-heading {
+        font-size: 34px;
+        color: #12384f;
+        margin-bottom: 18px;
+    }
+
+    .marine-course-content h2 {
+        font-size: 30px;
+        color: #12384f;
+        margin-top: 55px;
+        margin-bottom: 18px;
+        border-left: 4px solid #c69b32;
+        padding-left: 15px;
+    }
+
+    .marine-course-content h3 {
+        font-size: 22px;
+        color: #12384f;
+        margin-top: 30px;
+        margin-bottom: 14px;
+    }
+
+    .marine-course-content p {
+        font-size: 16px;
+        line-height: 1.75;
+        color: #4b5d66;
+    }
+
+    .marine-course-content ul {
+        padding-left: 22px;
+        margin-bottom: 25px;
+    }
+
+    .marine-course-content li {
+        margin-bottom: 10px;
+        line-height: 1.65;
+        color: #4b5d66;
+    }
+
+    /* COURSE INFO */
+    .marine-course-info {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin: 35px 0 55px;
+    }
+
+    .marine-info-box {
+        background: white;
+        border: 1px solid #dfe5e8;
+        border-top: 3px solid #c69b32;
+        padding: 22px;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.06);
+    }
+
+    .marine-info-box span {
+        display: block;
+        font-size: 13px;
+        color: #7a8a92;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .marine-info-box strong {
+        color: #12384f;
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    /* END BUTTONS */
+    .marine-course-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 60px;
+        padding-top: 35px;
+        border-top: 1px solid #d9e0e3;
+    }
+
+    .marine-course-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border: 1px solid #12384f;
+        color: #12384f;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        transition: 0.25s ease;
+    }
+
+    .marine-course-btn:hover {
+        background: #12384f;
+        color: white;
+    }
+
+    .marine-course-btn.primary {
+        background: #c69b32;
+        border-color: #c69b32;
+        color: white;
+    }
+
+    .marine-course-btn.primary:hover {
+        background: #a98224;
+        border-color: #a98224;
+    }
+
+    @media (max-width: 950px) {
+        .marine-course-info {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 800px) {
+
+        .marine-course-hero h1 {
+            font-size: 40px;
+        }
+
+        .marine-course-info {
+            grid-template-columns: 1fr;
+        }
+
+        .marine-course-actions {
+            flex-direction: column;
+        }
+
+        .marine-course-btn {
+            text-align: center;
+        }
+    }
+</style>
+
+
+<div class="marine-course-page">
+
+    <!-- HERO -->
+    <section class="marine-course-hero">
+
+        <div class="marine-course-hero-content">
+
+            <div class="marine-course-label">
+                Advanced Marine Engineering Department
+            </div>
+
+            <h1>
+                Asset Integrity Management for Marine Terminal Storage Tanks
+            </h1>
+
+            <p>
+                CC’s professional marine engineering training develops practical expertise
+                in asset integrity, inspection, reliability, corrosion management and
+                lifecycle performance of marine terminal storage tanks.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE CONTENT -->
+    <section class="marine-course-content">
+
+        <h2 class="marine-course-heading">
+            OG-S 110A - Asset Integrity Management for Marine Terminal Storage Tanks
+        </h2>
+
+
+        <!-- COURSE INFORMATION -->
+        <div class="marine-course-info">
+
+            <div class="marine-info-box">
+                <span>Course Reference</span>
+                <strong>OG-S 110A</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Duration</span>
+                <strong>5 Days</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Course Date</span>
+                <strong>Can be offered upon a specific date request</strong>
+            </div>
+
+            <div class="marine-info-box">
+                <span>Venue</span>
+                <strong>Marriott Islamabad</strong>
+            </div>
+
+        </div>
+
+
+        <!-- COURSE DESCRIPTION -->
+        <h2>Course Description</h2>
+
+        <p>
+            The assets of a company should be kept in good condition working effectively
+            and efficiently to ensure that the final product reaches the end user in time.
+            The safety and reliability of operations and technical integrity of assets helps
+            the company achieve target objectives. Therefore, it is necessary that asset
+            integrity management be performed correctly so that business processes,
+            systems, tools, competence and resources run correctly throughout the asset
+            lifecycle.
+        </p>
+
+        <p>
+            In this course, participants will learn about the details of asset integrity
+            management. They will also learn how to perform inspection, calibration,
+            Reliability, corrosion management monitoring and auditing for marine terminal
+            storage tanks.
+        </p>
+
+
+        <!-- COURSE OBJECTIVES -->
+        <h2>Course Objectives</h2>
+
+        <ul>
+            <li>Understanding the basic principles of asset integrity management.</li>
+            <li>Applying these principles to marine terminal storage tanks.</li>
+            <li>Maximizing productivity of facilities.</li>
+            <li>Ensuring reliability and safety of equipment.</li>
+            <li>Reduce risks and meeting all relevant regulations.</li>
+        </ul>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <h2>Who should Attend?</h2>
+
+        <ul>
+            <li>Maintenance staff</li>
+            <li>Engineers</li>
+            <li>Inspectors</li>
+            <li>Auditors</li>
+        </ul>
+
+
+        <!-- COURSE SYLLABUS -->
+        <h2>Course Syllabus</h2>
+
+
+        <!-- DAY 1 -->
+        <h3>Day 1</h3>
+
+        <ul>
+            <li>Asset integrity management</li>
+            <li>Development and optimization of maintenance, inspection and testing (MIT) plans</li>
+            <li>Work processes</li>
+            <li>Condition assessment and monitoring</li>
+            <li>Analysis of plant performance as part of Root Cause assessment</li>
+            <li>Technical inspections</li>
+            <li>Technical integrity analysis</li>
+        </ul>
+
+
+        <!-- DAY 2 -->
+        <h3>Day 2</h3>
+
+        <ul>
+            <li>Life Cycle Asset Management (LCAM)</li>
+            <li>Barrier management</li>
+            <li>Safety risk management</li>
+            <li>Offshore hazard and risk assessment</li>
+            <li>3D laser scanning</li>
+        </ul>
+
+
+        <!-- DAY 3 -->
+        <h3>Day 3</h3>
+
+        <ul>
+            <li>Dimensional control</li>
+            <li>Smart asset optimization</li>
+            <li>Surveying and mapping</li>
+            <li>Non-destructive testing (NDT)</li>
+        </ul>
+
+
+        <!-- DAY 4 -->
+        <h3>Day 4</h3>
+
+        <ul>
+            <li>Storage Tank & Piping inspection (API 653) (API 570) (API 571)</li>
+            <li>Proper inspection protocol</li>
+            <li>Corrosion</li>
+            <li>Erosion</li>
+            <li>Fatigue</li>
+            <li>Cracking</li>
+        </ul>
+
+
+        <!-- DAY 5 -->
+        <h3>Day 5</h3>
+
+        <ul>
+            <li>Visual Testing (VT)</li>
+            <li>Ultrasonic Thickness Testing (UTT)</li>
+            <li>Penetrant Testing (PT)</li>
+            <li>Radiographic Testing (RT)</li>
+            <li>Magnetic Particle Testing (MT)</li>
+            <li>Bubble Leak Testing (BLT)</li>
+            <li>Corrosion Under Insulation (CUI)</li>
+        </ul>
+
+
+        <!-- END BUTTONS -->
+        <div class="marine-course-actions">
+
+            <a href="{{ url_for('asset_integrity_management_marine_terminal_storage_tanks_registration') }}"
+               class="marine-course-btn primary">
+                REGISTER
+            </a>
+
+            <a href="{{ url_for('marine_engineering') }}"
+               class="marine-course-btn">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

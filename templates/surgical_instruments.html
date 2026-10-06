@@ -1,0 +1,478 @@
+{% extends "base.html" %}
+
+{% block title %}
+Surgical Instruments Department | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+.surgical-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* =========================
+   HERO
+========================= */
+.surgical-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.95) 0%,
+            rgba(6,29,45,.82) 48%,
+            rgba(6,29,45,.30) 100%
+        ),
+        url("https://images.pexels.com/photos/36101264/pexels-photo-36101264.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.surgical-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.surgical-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.surgical-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    color: #fff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.surgical-description {
+    max-width: 780px;
+    color: rgba(255,255,255,.88);
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+.surgical-intro {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 70px 0 30px;
+}
+
+.surgical-intro h2 {
+    margin: 0 0 14px;
+    color: #12384f;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.surgical-intro p {
+    max-width: 760px;
+    margin: 0;
+    color: #60717c;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   PREMIUM BUTTON GRID
+========================= */
+.surgical-products {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 28px 0 80px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.surgical-card {
+    min-height: 142px;
+    padding: 25px 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-decoration: none;
+
+    background: #ffffff;
+    border: 1px solid #dce3e7;
+    border-left: 4px solid #c69b32;
+
+    box-shadow: 0 5px 16px rgba(6,29,45,.06);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.surgical-card:hover {
+    transform: translateY(-3px);
+    border-color: #c69b32;
+    box-shadow: 0 10px 24px rgba(6,29,45,.11);
+    background: #fbfcfc;
+}
+
+.surgical-card-number {
+    margin-bottom: 12px;
+
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.surgical-card h3 {
+    margin: 0 0 7px;
+
+    color: #12384f;
+    font-size: 19px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.surgical-card span {
+    color: #687982;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+
+/* =========================
+   CTA
+========================= */
+.surgical-cta {
+    background: #061d2d;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.surgical-cta h2 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: 32px;
+}
+
+.surgical-cta p {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.7;
+}
+
+.surgical-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.surgical-btn {
+    display: inline-block;
+    padding: 13px 24px;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .7px;
+
+    border-radius: 3px;
+    transition: .25s ease;
+}
+
+.surgical-btn-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.surgical-btn-primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.surgical-btn-secondary {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.35);
+}
+
+.surgical-btn-secondary:hover {
+    border-color: #d2a43b;
+    color: #d2a43b;
+}
+
+.surgical-email {
+    margin-top: 25px;
+    color: rgba(255,255,255,.62);
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+
+    .surgical-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .surgical-hero {
+        min-height: 520px;
+    }
+
+    .surgical-hero-inner {
+        padding: 65px 0;
+    }
+
+    .surgical-hero h1 {
+        font-size: 38px;
+    }
+
+    .surgical-description {
+        font-size: 15px;
+    }
+
+    .surgical-intro {
+        padding-top: 55px;
+    }
+
+    .surgical-intro h2 {
+        font-size: 28px;
+    }
+
+    .surgical-products {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .surgical-card {
+        min-height: 130px;
+    }
+
+    .surgical-cta h2 {
+        font-size: 27px;
+    }
+
+}
+</style>
+
+<div class="surgical-page">
+
+```
+<!-- HERO -->
+<section class="surgical-hero">
+    <div class="surgical-hero-inner">
+
+        <div class="surgical-label">
+            Surgical Instruments Department
+        </div>
+
+        <h1>
+            EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+        </h1>
+
+        <p class="surgical-description">
+            CTC’s Surgical Instruments Department provides professional
+            sourcing and supply solutions for precision surgical and
+            medical instruments, connecting reliable manufacturers with
+            hospitals, healthcare institutions, distributors and
+            international medical markets.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="surgical-intro">
+
+    <h2>
+        Surgical &amp; Medical Instrument Solutions
+    </h2>
+
+    <p>
+        Professional medical instrument solutions supporting specialized
+        healthcare, clinical and hospital requirements through reliable
+        sourcing and international supply capabilities.
+    </p>
+
+</section>
+
+
+<!-- SIX BUTTONS -->
+<section class="surgical-products">
+
+    <a href="{{ url_for('general_surgical') }}" class="surgical-card">
+
+        <div class="surgical-card-number">
+            01
+        </div>
+
+        <h3>
+            General Surgical Instruments
+        </h3>
+
+        <span>
+            Essential Clinical Precision
+        </span>
+
+    </a>
+
+
+    <a href="{{ url_for('dental_instruments') }}" class="surgical-card">
+
+        <div class="surgical-card-number">
+            02
+        </div>
+
+        <h3>
+            Dental Instruments
+        </h3>
+
+        <span>
+            Professional Dental Care
+        </span>
+
+    </a>
+
+
+    <a href="{{ url_for('orthopedic_instruments') }}" class="surgical-card">
+
+        <div class="surgical-card-number">
+            03
+        </div>
+
+        <h3>
+            Orthopedic Instruments
+        </h3>
+
+        <span>
+            Specialized Orthopedic Support
+        </span>
+
+    </a>
+
+
+    <a href="{{ url_for('ent_instruments') }}" class="surgical-card">
+
+        <div class="surgical-card-number">
+            04
+        </div>
+
+        <h3>
+            ENT Instruments
+        </h3>
+
+        <span>
+            Specialized ENT Care
+        </span>
+
+    </a>
+
+
+    <a href="{{ url_for('ophthalmic_instruments') }}" class="surgical-card">
+
+        <div class="surgical-card-number">
+            05
+        </div>
+
+        <h3>
+            Ophthalmic Instruments
+        </h3>
+
+        <span>
+            Precision Eye Care
+        </span>
+
+    </a>
+
+
+    <a href="{{ url_for('gynecology_instruments') }}" class="surgical-card">
+
+        <div class="surgical-card-number">
+            06
+        </div>
+
+        <h3>
+            Gynecology Instruments
+        </h3>
+
+        <span>
+            Specialized Women’s Healthcare
+        </span>
+
+    </a>
+
+</section>
+
+
+<!-- CTA -->
+<section class="surgical-cta">
+
+    <h2>
+        Looking for Surgical Instrument Solutions?
+    </h2>
+
+    <p>
+        Connect with CTC for professional sourcing, supply and
+        international healthcare market solutions.
+    </p>
+
+    <div class="surgical-buttons">
+
+        <a href="{{ url_for('trading_quote') }}"
+           class="surgical-btn surgical-btn-primary">
+            SEND REQUIREMENT
+        </a>
+
+        <a href="{{ url_for('trading') }}"
+           class="surgical-btn surgical-btn-secondary">
+            BACK TO TRADING
+        </a>
+
+        <a href="/"
+           class="surgical-btn surgical-btn-secondary">
+            BACK TO HOME
+        </a>
+
+    </div>
+
+    <div class="surgical-email">
+        ceo@capitalgroup.pk
+    </div>
+
+</section>
+```
+
+</div>
+
+{% endblock %}

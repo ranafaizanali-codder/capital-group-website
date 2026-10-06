@@ -1,0 +1,1242 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced On-Campus Engineering & Professional Training | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.on-campus-page {
+    background:#f5f7f8;
+    color:#12384f;
+    min-height:100vh;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.on-campus-hero {
+    position:relative;
+    min-height:610px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4,22,35,.97) 0%,
+            rgba(4,22,35,.88) 42%,
+            rgba(4,22,35,.48) 72%,
+            rgba(4,22,35,.18) 100%
+        ),
+        url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.on-campus-hero::after {
+    content:"";
+    position:absolute;
+    right:-130px;
+    bottom:-190px;
+    width:430px;
+    height:430px;
+    border:1px solid rgba(210,164,59,.35);
+    border-radius:50%;
+}
+
+.on-campus-hero-content {
+    position:relative;
+    z-index:2;
+    width:min(1180px,92%);
+    margin:auto;
+    padding:90px 0;
+}
+
+.on-campus-label {
+    display:inline-flex;
+    padding:9px 15px;
+    margin-bottom:25px;
+    border:1px solid rgba(210,164,59,.55);
+    background:rgba(210,164,59,.08);
+    color:#d2a43b;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.on-campus-hero h1 {
+    max-width:850px;
+    margin:0 0 25px;
+    color:#fff;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.06;
+    font-weight:700;
+    letter-spacing:-1px;
+}
+
+.on-campus-hero h1::after {
+    content:"";
+    display:block;
+    width:70px;
+    height:3px;
+    margin-top:25px;
+    background:#d2a43b;
+}
+
+.on-campus-hero-description {
+    max-width:850px;
+    margin:0;
+    color:rgba(255,255,255,.86);
+    font-size:17px;
+    line-height:1.85;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.on-campus-content {
+    width:min(1180px,92%);
+    margin:auto;
+    padding:85px 0 90px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.on-campus-intro {
+    max-width:950px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.on-campus-intro h2 {
+    margin:0 0 18px;
+    color:#12384f;
+    font-size:clamp(29px,3.5vw,43px);
+    line-height:1.18;
+    font-weight:700;
+}
+
+.on-campus-intro p {
+    max-width:850px;
+    margin:0 auto;
+    color:#64747d;
+    font-size:16px;
+    line-height:1.85;
+}
+
+
+/* =========================================================
+   LEVEL STRIP
+========================================================= */
+
+.on-campus-level-strip {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:42px;
+}
+
+.on-campus-level-item {
+    padding:11px 18px;
+    background:#fff;
+    border:1px solid #dce3e7;
+    color:#12384f;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.on-campus-level-item span {
+    color:#b1882f;
+}
+
+
+/* =========================================================
+   COURSE GRID
+========================================================= */
+
+.on-campus-training-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:70px;
+}
+
+
+/* =========================================================
+   COURSE CARD
+========================================================= */
+
+.on-campus-training-button {
+    position:relative;
+    min-height:235px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+
+    text-align:left;
+    padding:0;
+
+    background:#fff;
+    border:1px solid #dce3e7;
+    color:#12384f;
+
+    text-decoration:none;
+
+    box-shadow:0 8px 22px rgba(6,29,45,.055);
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.on-campus-training-button:hover {
+    transform:translateY(-5px);
+    border-color:#d2a43b;
+    box-shadow:0 16px 32px rgba(6,29,45,.14);
+}
+
+
+/* =========================================================
+   COURSE GRAPHIC
+========================================================= */
+
+.course-graphic {
+    width:100%;
+    height:105px;
+    flex-shrink:0;
+
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
+}
+
+.course-graphic::after {
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6,29,45,.08),
+            rgba(6,29,45,.42)
+        );
+}
+
+.course-graphic-label {
+    position:absolute;
+    z-index:2;
+
+    left:15px;
+    bottom:12px;
+
+    padding:5px 8px;
+
+    background:rgba(6,29,45,.82);
+    color:#fff;
+
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   COURSE GRAPHICS
+========================================================= */
+
+.graphic-avionics {
+    background-image:url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-electronics {
+    background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-electrical {
+    background-image:url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-mechanical {
+    background-image:url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-aerospace {
+    background-image:url("https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-environmental {
+    background-image:url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-software {
+    background-image:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-it {
+    background-image:url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-ai {
+    background-image:url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-petroleum {
+    background-image:url("https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-marine {
+    background-image:url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-agricultural {
+    background-image:url("https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-robotics {
+    background-image:url("https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-telecom {
+    background-image:url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-civil {
+    background-image:url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-biotech {
+    background-image:url("https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-medical {
+    background-image:url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-transport {
+    background-image:url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-oilgas {
+    background-image:url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-finance {
+    background-image:url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-qms {
+    background-image:url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-productivity {
+    background-image:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-food {
+    background-image:url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=75");
+}
+
+.graphic-manufacturing {
+    background-image:url("https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=700&q=75");
+}
+
+
+/* =========================================================
+   LASER ENGINEERING
+========================================================= */
+
+.graphic-laser {
+    background-image:
+        linear-gradient(
+            rgba(6,29,45,.15),
+            rgba(6,29,45,.15)
+        ),
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80");
+
+    background-position:center;
+    background-size:cover;
+}
+
+
+/* =========================================================
+   ACOUSTIC ENGINEERING
+========================================================= */
+
+.graphic-acoustic {
+    background-image:url("https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=700&q=80");
+}
+
+
+/* =========================================================
+   SUPPLY CHAIN & LOGISTICS
+========================================================= */
+
+.graphic-supply {
+    background-image:
+        linear-gradient(
+            rgba(6,29,45,.10),
+            rgba(6,29,45,.10)
+        ),
+        url("https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=700&q=80");
+
+    background-position:center;
+    background-size:cover;
+}
+
+
+/* =========================================================
+   INDUSTRIAL MANAGEMENT
+========================================================= */
+
+.graphic-industrial {
+    background-image:url("https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=700&q=80");
+}
+
+
+/* =========================================================
+   COURSE TEXT
+========================================================= */
+
+.on-campus-training-button span {
+    display:block;
+    width:100%;
+    padding:17px 18px 20px;
+}
+
+.on-campus-training-button strong {
+    display:block;
+    margin:0 0 8px;
+
+    color:#12384f;
+
+    font-size:15px;
+    line-height:1.35;
+    font-weight:700;
+}
+
+.on-campus-training-button small {
+    display:block;
+
+    color:#687981;
+
+    font-size:12px;
+    line-height:1.55;
+    font-weight:400;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.on-campus-cta {
+    position:relative;
+
+    margin-top:55px;
+    padding:60px 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #061d2d,
+            #0b3045
+        );
+
+    text-align:center;
+    overflow:hidden;
+}
+
+.on-campus-cta::before {
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    left:-120px;
+    top:-150px;
+
+    border:1px solid rgba(210,164,59,.25);
+    border-radius:50%;
+}
+
+.on-campus-cta h2 {
+    position:relative;
+    z-index:2;
+
+    margin:0 0 28px;
+
+    color:#fff;
+
+    font-size:31px;
+    line-height:1.3;
+}
+
+.on-campus-cta-buttons {
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.on-campus-cta-button {
+    display:inline-block;
+
+    padding:14px 25px;
+
+    background:#d2a43b;
+    color:#061d2d;
+
+    text-decoration:none;
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.6px;
+
+    transition:all .25s ease;
+}
+
+.on-campus-cta-button:hover {
+    background:#fff;
+    color:#061d2d;
+}
+
+.on-campus-email {
+    position:relative;
+    z-index:2;
+
+    margin-top:25px;
+
+    color:#d2a43b;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px) {
+
+    .on-campus-training-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px) {
+
+    .on-campus-hero {
+        min-height:570px;
+    }
+
+    .on-campus-hero-content {
+        padding:65px 0;
+    }
+
+    .on-campus-hero h1 {
+        font-size:39px;
+        letter-spacing:-.5px;
+    }
+
+    .on-campus-hero-description {
+        font-size:15px;
+        line-height:1.75;
+    }
+
+    .on-campus-content {
+        padding:65px 0 70px;
+    }
+
+    .on-campus-level-strip {
+        justify-content:flex-start;
+    }
+
+    .on-campus-training-grid {
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .on-campus-training-button {
+        min-height:220px;
+    }
+
+    .course-graphic {
+        height:110px;
+    }
+
+    .on-campus-cta {
+        padding:50px 22px;
+    }
+
+    .on-campus-cta h2 {
+        font-size:27px;
+    }
+
+}
+
+</style>
+
+
+<div class="on-campus-page">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="on-campus-hero">
+
+    <div class="on-campus-hero-content">
+
+        <div class="on-campus-label">
+            ADVANCED ON-CAMPUS TRAINING
+        </div>
+
+        <h1>
+            Strategic Insight and Expertise for Sustainable Business Growth
+        </h1>
+
+        <p class="on-campus-hero-description">
+            CCs provides advanced-level on-campus engineering, technology
+            and professional training for experienced professionals,
+            technical specialists and organizations seeking deeper expertise,
+            specialized capabilities and industry-focused knowledge.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="on-campus-content">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="on-campus-intro">
+
+    <h2>
+        Advanced Engineering &amp; Professional Training Programs
+    </h2>
+
+    <p>
+        A specialized portfolio of advanced-level programs designed
+        for in-service professionals and organizations seeking to
+        strengthen technical expertise, specialized capabilities and
+        practical industry knowledge.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     LEVEL STRIP
+===================================================== -->
+
+<section class="on-campus-level-strip">
+
+    <div class="on-campus-level-item">
+        <span>01</span>&nbsp; Advanced Level
+    </div>
+
+    <div class="on-campus-level-item">
+        <span>02</span>&nbsp; Industry Focused
+    </div>
+
+    <div class="on-campus-level-item">
+        <span>03</span>&nbsp; Professional Development
+    </div>
+
+    <div class="on-campus-level-item">
+        <span>04</span>&nbsp; Specialist Knowledge
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     28 TRAINING COURSES
+===================================================== -->
+
+<section class="on-campus-training-grid">
+
+
+<!-- 01 -->
+<a href="{{ url_for('avionics_section') }}"
+   class="on-campus-training-button">
+
+    <div class="course-graphic graphic-avionics">
+        <div class="course-graphic-label">Aerospace</div>
+    </div>
+
+    <span>
+        <strong>Avionics Engineering</strong>
+        <small>
+            Advanced aircraft systems and avionics technology
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 02 -->
+<a href="{{ url_for('electronics_engineering') }}"
+   class="on-campus-training-button">
+
+    <div class="course-graphic graphic-electronics">
+        <div class="course-graphic-label">Technology</div>
+    </div>
+
+    <span>
+        <strong>Electronics Engineering</strong>
+        <small>
+            Electronic systems, circuits and industrial applications
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 03 -->
+<a href="{{ url_for('electrical_engineering') }}"
+   class="on-campus-training-button">
+
+    <div class="course-graphic graphic-electrical">
+        <div class="course-graphic-label">Electrical</div>
+    </div>
+
+    <span>
+        <strong>Electrical Engineering</strong>
+        <small>
+            Power systems, electrical technology and applications
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 04 -->
+<a href="{{ url_for('mechanical_engineering') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-mechanical">
+        <div class="course-graphic-label">Engineering</div>
+    </div>
+
+    <span>
+        <strong>Mechanical Engineering</strong>
+        <small>
+            Mechanical systems, design and industrial practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 05 -->
+<a href="{{ url_for('advanced_aerospace_engineering') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-aerospace">
+        <div class="course-graphic-label">Aerospace</div>
+    </div>
+
+    <span>
+        <strong>Aerospace Engineering</strong>
+        <small>
+            Aerospace systems, technology and engineering practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 06 -->
+<a href="{{ url_for('advanced_environmental_engineering') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-environmental">
+        <div class="course-graphic-label">Sustainability</div>
+    </div>
+
+    <span>
+        <strong>Environmental Engineering</strong>
+        <small>
+            Sustainable technologies and environmental management
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 07 -->
+<a href="{{ url_for('advanced_software_development') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-software">
+        <div class="course-graphic-label">Software</div>
+    </div>
+
+    <span>
+        <strong>Software Development</strong>
+        <small>
+            Modern software technologies and development practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 08 -->
+<a href="{{ url_for('advanced_it_training') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-it">
+        <div class="course-graphic-label">
+            Information Technology
+        </div>
+    </div>
+
+    <span>
+        <strong>IT Training</strong>
+        <small>
+            Information technology skills for modern workplaces
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 09 -->
+<a href="{{ url_for('advanced_ai_training') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-ai">
+        <div class="course-graphic-label">
+            Artificial Intelligence
+        </div>
+    </div>
+
+    <span>
+        <strong>AI Training</strong>
+        <small>
+            Artificial intelligence and intelligent technology solutions
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 10 -->
+<a href="{{ url_for('advanced_petroleum_engineering') }}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-petroleum">
+        <div class="course-graphic-label">Energy</div>
+    </div>
+
+    <span>
+        <strong>Petroleum Engineering</strong>
+        <small>
+            Petroleum operations, technology and engineering practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 11 -->
+<a href="{{ url_for('marine_engineering')}}" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-marine">
+        <div class="course-graphic-label">Marine</div>
+    </div>
+
+    <span>
+        <strong>Marine Engineering</strong>
+        <small>
+            Marine systems, machinery and engineering technologies
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 12 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-agricultural">
+        <div class="course-graphic-label">Agriculture</div>
+    </div>
+
+    <span>
+        <strong>Agricultural Engineering</strong>
+        <small>
+            Modern agricultural systems and engineering technologies
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 13 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-robotics">
+        <div class="course-graphic-label">Automation</div>
+    </div>
+
+    <span>
+        <strong>Robotics Engineering</strong>
+        <small>
+            Robotics, automation and intelligent control systems
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 14 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-telecom">
+        <div class="course-graphic-label">Networks</div>
+    </div>
+
+    <span>
+        <strong>Telecommunication Engineering</strong>
+        <small>
+            Communication networks and telecommunications technology
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 15 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-civil">
+        <div class="course-graphic-label">Infrastructure</div>
+    </div>
+
+    <span>
+        <strong>Civil Engineering</strong>
+        <small>
+            Infrastructure, construction and civil engineering practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 16 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-biotech">
+        <div class="course-graphic-label">Biotechnology</div>
+    </div>
+
+    <span>
+        <strong>Biotechnology &amp; Genetic Engineering</strong>
+        <small>
+            Biotechnology, genetics and applied life sciences
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 17 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-medical">
+        <div class="course-graphic-label">Life Sciences</div>
+    </div>
+
+    <span>
+        <strong>Medical &amp; Life Sciences</strong>
+        <small>
+            Modern healthcare, medical and life science practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 18 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-transport">
+        <div class="course-graphic-label">Transportation</div>
+    </div>
+
+    <span>
+        <strong>Transportation Engineering</strong>
+        <small>
+            Transportation systems, planning and engineering solutions
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 19 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-oilgas">
+        <div class="course-graphic-label">Energy</div>
+    </div>
+
+    <span>
+        <strong>Oil &amp; Gas</strong>
+        <small>
+            Energy operations, technology and industry practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 20 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-finance">
+        <div class="course-graphic-label">Finance</div>
+    </div>
+
+    <span>
+        <strong>Corporate Finance</strong>
+        <small>
+            Financial management, planning and corporate practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 21 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-qms">
+        <div class="course-graphic-label">Quality</div>
+    </div>
+
+    <span>
+        <strong>Quality Management Services (QMS)</strong>
+        <small>
+            Quality systems, standards and continuous improvement
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 22 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-productivity">
+        <div class="course-graphic-label">Performance</div>
+    </div>
+
+    <span>
+        <strong>Productivity Management</strong>
+        <small>
+            Performance improvement and operational efficiency
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 23 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-food">
+        <div class="course-graphic-label">Food Technology</div>
+    </div>
+
+    <span>
+        <strong>Food Technology</strong>
+        <small>
+            Food processing, technology and quality practices
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 24 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-manufacturing">
+        <div class="course-graphic-label">Manufacturing</div>
+    </div>
+
+    <span>
+        <strong>Manufacturing Engineering</strong>
+        <small>
+            Manufacturing systems, processes and industrial technology
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 25 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-laser">
+        <div class="course-graphic-label">
+            Laser Technology
+        </div>
+    </div>
+
+    <span>
+        <strong>Laser Engineering</strong>
+        <small>
+            Laser technology, applications and engineering systems
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 26 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-acoustic">
+        <div class="course-graphic-label">
+            Acoustics
+        </div>
+    </div>
+
+    <span>
+        <strong>Acoustic Engineering</strong>
+        <small>
+            Sound, vibration and acoustic engineering applications
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 27 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-supply">
+        <div class="course-graphic-label">
+            Supply Chain
+        </div>
+    </div>
+
+    <span>
+        <strong>Supply Chain &amp; Logistics</strong>
+        <small>
+            Advanced supply chain, logistics and operational planning
+        </small>
+    </span>
+
+</a>
+
+
+<!-- 28 -->
+<a href="#" class="on-campus-training-button">
+
+    <div class="course-graphic graphic-industrial">
+        <div class="course-graphic-label">
+            Management
+        </div>
+    </div>
+
+    <span>
+        <strong>Industrial Management</strong>
+        <small>
+            Industrial operations, management and process improvement
+        </small>
+    </span>
+
+</a>
+
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="on-campus-cta">
+
+    <h2>
+        Connect With Our Training Department
+    </h2>
+
+    <div class="on-campus-cta-buttons">
+
+        <a href="{{ url_for('trading_quote') }}"
+           class="on-campus-cta-button">
+            SEND TRAINING REQUIREMENT
+        </a>
+
+        <a href="/"
+           class="on-campus-cta-button">
+            RETURN TO HOME (ENGLISH)
+        </a>
+
+        <a href="/"
+           class="on-campus-cta-button">
+            MAIN HOME
+        </a>
+
+    </div>
+
+    <div class="on-campus-email">
+        ceo@capitalgroup.pk
+    </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,561 @@
+{% extends "base.html" %}
+
+{% block title %}
+Wing Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - WING DIVISION
+   ========================================================= */
+
+.wing-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.wing-hero {
+    position: relative;
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.68),
+            rgba(6, 29, 45, 0.90)
+        ),
+        url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=88")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+    box-sizing: border-box;
+}
+
+.wing-hero-content {
+    max-width: 900px;
+    text-align: left;
+}
+
+.wing-eyebrow {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.wing-hero h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 0 0 24px;
+    font-weight: 800;
+}
+
+.wing-hero p {
+    color: #eef3f5;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.wing-intro {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 65px 25px 35px;
+    text-align: center;
+}
+
+.wing-intro h2 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.wing-intro p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= SECTIONS ================= */
+
+.wing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px 75px;
+}
+
+.wing-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 55px;
+    align-items: center;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #dfe5e8;
+}
+
+.wing-section.reverse {
+    direction: rtl;
+}
+
+.wing-section.reverse > * {
+    direction: ltr;
+}
+
+.wing-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9eef1;
+    box-shadow: 0 14px 35px rgba(6, 29, 45, 0.12);
+}
+
+.wing-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.wing-image-wrap:hover .wing-image {
+    transform: scale(1.025);
+}
+
+.wing-copy {
+    max-width: 540px;
+}
+
+.wing-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.wing-copy h2 {
+    color: #061d2d;
+    font-size: 31px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.wing-copy p {
+    color: #12384f;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ================= CTA ================= */
+
+.wing-cta {
+    background: #061d2d;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.wing-cta h2 {
+    color: white;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.wing-cta p {
+    color: #dce5e9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.wing-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.wing-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 25px;
+
+    border-radius: 5px;
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.wing-quote-btn {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.wing-home-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.wing-btn:hover,
+.wing-btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.wing-quote-btn:hover,
+.wing-quote-btn:focus-visible {
+    background: #e0b64e;
+}
+
+.wing-home-btn:hover,
+.wing-home-btn:focus-visible {
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .wing-section,
+    .wing-section.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 30px;
+    }
+
+    .wing-copy {
+        max-width: none;
+    }
+
+    .wing-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .wing-hero {
+        min-height: 450px;
+        padding: 50px 22px;
+    }
+
+    .wing-hero h1 {
+        font-size: 32px;
+    }
+
+    .wing-hero p {
+        font-size: 16px;
+    }
+
+    .wing-intro {
+        padding: 50px 18px 25px;
+    }
+
+    .wing-intro h2 {
+        font-size: 27px;
+    }
+
+    .wing-container {
+        padding: 10px 18px 55px;
+    }
+
+    .wing-section {
+        padding: 40px 0;
+    }
+
+    .wing-copy h2 {
+        font-size: 27px;
+    }
+
+    .wing-image {
+        height: 260px;
+    }
+
+    .wing-cta {
+        padding: 50px 20px;
+    }
+
+    .wing-cta h2 {
+        font-size: 27px;
+    }
+}
+
+</style>
+
+
+<div class="wing-page">
+
+    <!-- =====================================================
+         WING HERO
+         ===================================================== -->
+
+    <section
+        class="wing-hero"
+        aria-labelledby="wing-title"
+    >
+
+        <div class="wing-hero-content">
+
+            <div class="wing-eyebrow">
+                WING DIVISION
+            </div>
+
+            <h1 id="wing-title">
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Wing Division provides precision engineering and
+                manufacturing solutions for aircraft wing structures,
+                aerodynamic components, control surfaces and specialized
+                aerospace applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+         ===================================================== -->
+
+    <section class="wing-intro">
+
+        <h2>
+            Advanced Wing Engineering
+        </h2>
+
+        <p>
+            Our capabilities support the development and manufacture
+            of precision wing structures, aerodynamic components,
+            control surfaces and application-specific aerospace parts.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         WING CAPABILITIES
+         ===================================================== -->
+
+    <main class="wing-container">
+
+
+        <!-- 1. WING STRUCTURES -->
+
+        <section class="wing-section">
+
+            <div class="wing-image-wrap">
+
+                <img
+                    class="wing-image"
+                    src="https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=1800&q=85"
+                    alt="Aircraft wing structure"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="wing-copy">
+
+                <div class="wing-number">
+                    01 · WING STRUCTURES
+                </div>
+
+                <h2>
+                    Wing Structures
+                </h2>
+
+                <p>
+                    Precision structural components support wing
+                    strength, dimensional accuracy and reliable
+                    integration across demanding aerospace applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. AERODYNAMIC COMPONENTS -->
+
+        <section class="wing-section reverse">
+
+            <div class="wing-image-wrap">
+
+                <img
+                    class="wing-image"
+                    src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1800&q=85"
+                    alt="Aircraft aerodynamic wing components"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="wing-copy">
+
+                <div class="wing-number">
+                    02 · AERODYNAMIC COMPONENTS
+                </div>
+
+                <h2>
+                    Aerodynamic Components
+                </h2>
+
+                <p>
+                    Engineered aerodynamic components are developed
+                    with controlled geometry, surface quality and
+                    manufacturing accuracy for efficient airflow performance.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. CONTROL SURFACES -->
+
+        <section class="wing-section">
+
+            <div class="wing-image-wrap">
+
+                <img
+                    class="wing-image"
+                    src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1800&q=85"
+                    alt="Aircraft wing control surface"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="wing-copy">
+
+                <div class="wing-number">
+                    03 · CONTROL SURFACES
+                </div>
+
+                <h2>
+                    Control Surfaces
+                </h2>
+
+                <p>
+                    Precision-manufactured control surfaces support
+                    aircraft stability, maneuverability and accurate
+                    integration with wing and flight-control systems.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. PRECISION WING COMPONENTS -->
+
+        <section class="wing-section reverse">
+
+            <div class="wing-image-wrap">
+
+                <img
+                    class="wing-image"
+                    src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1800&q=85"
+                    alt="Precision aircraft wing component manufacturing"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="wing-copy">
+
+                <div class="wing-number">
+                    04 · PRECISION WING COMPONENTS
+                </div>
+
+                <h2>
+                    Precision Wing Components
+                </h2>
+
+                <p>
+                    Application-specific wing components are produced
+                    with attention to dimensional accuracy, assembly
+                    requirements and aerospace manufacturing standards.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="wing-cta">
+
+        <h2>
+            Have a Wing Engineering Requirement?
+        </h2>
+
+        <p>
+            Share your wing engineering requirements with Capital
+            Engineering Corporation and our team can review your
+            application and technical needs.
+        </p>
+
+
+        <div class="wing-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="wing-btn wing-quote-btn"
+            >
+                SEND QUOTE
+                <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('home') }}"
+                class="wing-btn wing-home-btn"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

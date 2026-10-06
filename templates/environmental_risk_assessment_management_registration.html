@@ -1,0 +1,562 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registration | MISC 240 - Environmental Risk Assessment and Management
+{% endblock %}
+
+{% block content %}
+
+<style>
+.registration-page {
+    background: #f5f7f8;
+    color: #12384f;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 60px 20px;
+}
+
+.registration-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.registration-header {
+    background: #08283b;
+    color: white;
+    padding: 45px;
+    margin-bottom: 25px;
+}
+
+.registration-header .label {
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.registration-header h1 {
+    margin: 0 0 15px;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.registration-header p {
+    margin: 0;
+    color: #dbe6eb;
+    line-height: 1.7;
+}
+
+.registration-form {
+    background: white;
+    border: 1px solid #dce4e8;
+    padding: 40px;
+}
+
+.registration-section {
+    margin-bottom: 40px;
+}
+
+.registration-section h2 {
+    color: #12384f;
+    font-size: 23px;
+    border-bottom: 2px solid #c69b32;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.registration-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.registration-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-field.full {
+    grid-column: 1 / -1;
+}
+
+.registration-field label {
+    color: #12384f;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.registration-field input,
+.registration-field select,
+.registration-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cfd9de;
+    padding: 13px 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #12384f;
+    background: #fff;
+}
+
+.registration-field textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.registration-field input:focus,
+.registration-field select:focus,
+.registration-field textarea:focus {
+    outline: none;
+    border-color: #c69b32;
+}
+
+.registration-error {
+    background: #fff1f1;
+    border: 1px solid #e0b5b5;
+    color: #8b2f2f;
+    padding: 14px 18px;
+    margin-bottom: 25px;
+}
+
+.registration-submit {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.registration-submit button {
+    border: 1px solid #c69b32;
+    background: #c69b32;
+    color: #061d2d;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
+.registration-submit button:hover {
+    background: #d2a43b;
+}
+
+.registration-footer {
+    text-align: center;
+    color: #657680;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.registration-footer a {
+    color: #12384f;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+
+    .registration-page {
+        padding: 35px 15px;
+    }
+
+    .registration-header {
+        padding: 30px 25px;
+    }
+
+    .registration-header h1 {
+        font-size: 28px;
+    }
+
+    .registration-form {
+        padding: 25px;
+    }
+
+    .registration-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-field.full {
+        grid-column: auto;
+    }
+}
+</style>
+
+<div class="registration-page">
+
+    <div class="registration-container">
+
+        <div class="registration-header">
+
+            <div class="label">
+                Professional Technical Engineering Training
+            </div>
+
+            <h1>
+                MISC 240 - Environmental Risk Assessment and Management
+            </h1>
+
+            <p>
+                Complete the registration form below to register your interest
+                in this professional environmental engineering training programme.
+            </p>
+
+        </div>
+
+
+        <form
+            method="POST"
+            class="registration-form"
+        >
+
+            {% if error %}
+                <div class="registration-error">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+
+            <!-- COURSE DETAILS -->
+            <section class="registration-section">
+
+                <h2>A. Course Details</h2>
+
+                <div class="registration-grid">
+
+                    <div class="registration-field">
+                        <label>Course Code</label>
+                        <input
+                            type="text"
+                            value="MISC 240"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="registration-field">
+                        <label>Course Duration</label>
+                        <input
+                            type="text"
+                            value="5 Days"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="registration-field full">
+                        <label>Course Date</label>
+                        <input
+                            type="text"
+                            value="Can be offered upon a specific date request"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="registration-field full">
+                        <label>Venue</label>
+                        <input
+                            type="text"
+                            value="Marriott Islamabad"
+                            readonly
+                        >
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPANY DETAILS -->
+            <section class="registration-section">
+
+                <h2>B. Company Details</h2>
+
+                <div class="registration-grid">
+
+                    <div class="registration-field">
+                        <label for="company_name">
+                            Company Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company_name"
+                            name="company_name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="website">
+                            Website
+                        </label>
+
+                        <input
+                            type="text"
+                            id="website"
+                            name="website"
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="nature_of_business">
+                            Nature of Business *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nature_of_business"
+                            name="nature_of_business"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="country">
+                            Country *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field full">
+                        <label for="postal_address">
+                            Postal Address *
+                        </label>
+
+                        <textarea
+                            id="postal_address"
+                            name="postal_address"
+                            required
+                        ></textarea>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONTACT DETAILS -->
+            <section class="registration-section">
+
+                <h2>C. Contact Details</h2>
+
+                <div class="registration-grid">
+
+                    <div class="registration-field">
+                        <label for="salutation">
+                            Salutation *
+                        </label>
+
+                        <select
+                            id="salutation"
+                            name="salutation"
+                            required
+                        >
+                            <option value="">Select</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Prof.">Prof.</option>
+                        </select>
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="name">
+                            Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="job_title">
+                            Job Title *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="job_title"
+                            name="job_title"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="email">
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="phone">
+                            Phone *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="registration-field">
+                        <label for="mobile">
+                            Mobile *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mobile"
+                            name="mobile"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PARTICIPANT DETAILS -->
+            <section class="registration-section">
+
+                <h2>D. Participant Details</h2>
+
+                <div class="registration-grid">
+
+                    <div class="registration-field">
+
+                        <label for="language">
+                            Preferred Language *
+                        </label>
+
+                        <select
+                            id="language"
+                            name="language"
+                            required
+                        >
+                            <option value="">Select Language</option>
+                            <option value="English">English</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Persian">Persian</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Turkish">Turkish</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="registration-field">
+
+                        <label for="participants">
+                            Number of Participants *
+                        </label>
+
+                        <select
+                            id="participants"
+                            name="participants"
+                            required
+                        >
+                            <option value="">Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="10+">10+</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="registration-field full">
+
+                        <label for="source">
+                            How did you hear about us? *
+                        </label>
+
+                        <select
+                            id="source"
+                            name="source"
+                            required
+                        >
+                            <option value="">Select</option>
+                            <option value="Website">Website</option>
+                            <option value="Search Engine">Search Engine</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Email">Email</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <div class="registration-submit">
+
+                <button type="submit">
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="registration-footer">
+
+            For registration assistance:
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

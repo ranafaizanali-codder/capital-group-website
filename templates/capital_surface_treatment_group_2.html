@@ -1,0 +1,882 @@
+{% extends "base.html" %}
+
+{% block title %}
+Surface Treatment Techniques 13–24 | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .stg2-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .stg2-hero {
+        min-height: 480px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6,29,45,.95),
+                rgba(6,29,45,.74),
+                rgba(6,29,45,.40)
+            ),
+            url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=90")
+            center/cover no-repeat;
+    }
+
+    .stg2-hero-content {
+        width: min(1150px, 92%);
+        margin: auto;
+        padding: 80px 0;
+        color: #fff;
+    }
+
+    .stg2-eyebrow {
+        color: #d2a43b;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+    }
+
+    .stg2-hero h1 {
+        margin: 0 0 18px;
+        font-size: clamp(38px, 5vw, 64px);
+        line-height: 1.05;
+        font-weight: 800;
+    }
+
+    .stg2-hero h2 {
+        margin: 0 0 22px;
+        color: #fff;
+        font-size: clamp(25px, 3vw, 40px);
+        line-height: 1.15;
+        font-weight: 700;
+    }
+
+    .stg2-hero p {
+        max-width: 850px;
+        margin: 0;
+        color: rgba(255,255,255,.92);
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       INTRO
+       ========================= */
+
+    .stg2-intro {
+        width: min(1120px, 92%);
+        margin: auto;
+        padding: 65px 0 30px;
+        text-align: center;
+    }
+
+    .stg2-intro h2 {
+        margin: 0 0 15px;
+        color: #061d2d;
+        font-size: 34px;
+    }
+
+    .stg2-intro p {
+        max-width: 850px;
+        margin: auto;
+        color: #536875;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       TECHNIQUE SECTIONS
+       ========================= */
+
+    .stg2-container {
+        width: min(1120px, 92%);
+        margin: auto;
+    }
+
+    .stg2-section {
+        padding: 35px 0 70px;
+    }
+
+    .stg2-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+    }
+
+    .stg2-section.reverse .stg2-image-wrap {
+        order: 2;
+    }
+
+    .stg2-section.reverse .stg2-copy {
+        order: 1;
+    }
+
+    .stg2-image-wrap {
+        overflow: hidden;
+        border-radius: 8px;
+        background: #dfe5e8;
+        box-shadow: 0 8px 25px rgba(6,29,45,.10);
+    }
+
+    .stg2-image {
+        width: 100%;
+        height: 350px;
+        display: block;
+        object-fit: cover;
+    }
+
+    .stg2-number {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .stg2-copy h2 {
+        margin: 0 0 14px;
+        color: #061d2d;
+        font-size: 31px;
+        line-height: 1.2;
+    }
+
+    .stg2-copy p {
+        margin: 0;
+        color: #536875;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .stg2-cta {
+        padding: 65px 20px;
+        background: #061d2d;
+        color: #fff;
+        text-align: center;
+    }
+
+    .stg2-cta h2 {
+        margin: 0 0 14px;
+        font-size: 32px;
+    }
+
+    .stg2-cta p {
+        max-width: 720px;
+        margin: 0 auto 25px;
+        color: rgba(255,255,255,.78);
+        line-height: 1.7;
+    }
+
+    .stg2-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .stg2-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: .2s ease;
+    }
+
+    .stg2-btn-primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .stg2-btn-secondary {
+        border: 1px solid rgba(255,255,255,.45);
+        color: #fff;
+    }
+
+    .stg2-btn:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 760px) {
+
+        .stg2-hero {
+            min-height: 500px;
+        }
+
+        .stg2-hero-content {
+            padding: 65px 0;
+        }
+
+        .stg2-grid {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .stg2-section.reverse .stg2-image-wrap,
+        .stg2-section.reverse .stg2-copy {
+            order: initial;
+        }
+
+        .stg2-image {
+            height: 300px;
+        }
+    }
+</style>
+
+
+<div class="stg2-page">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="stg2-hero">
+
+        <div class="stg2-hero-content">
+
+            <div class="stg2-eyebrow">
+                SURFACE TREATMENT DIVISION
+            </div>
+
+            <h1>
+                Surface Treatment Techniques
+            </h1>
+
+            <h2>
+                Precision Manufacturing Solutions par Excellence
+            </h2>
+
+            <p>
+                CECs provides advanced surface treatment and thermal
+                processing solutions for engineering components requiring
+                controlled protection, durability and functional performance.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="stg2-intro">
+
+        <h2>
+            Surface Treatment Capabilities · 13–24
+        </h2>
+
+        <p>
+            Our second range covers protective coatings, vapour deposition,
+            thermal processing and specialized metallurgical treatments for
+            demanding industrial and engineering applications.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         13 — BLACKENING
+         ===================================================== -->
+
+    <section class="stg2-section">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial metal surface treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        13 · BLACKENING
+                    </div>
+
+                    <h2>
+                        Blackening
+                    </h2>
+
+                    <p>
+                        Blackening produces a controlled dark oxide finish
+                        on suitable metal components. It provides surface
+                        protection and controlled appearance while supporting
+                        dimensional stability for precision parts.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         14 — GALVANIZING
+         ===================================================== -->
+
+    <section class="stg2-section reverse">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
+                        alt="Protective coating application on industrial components"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        14 · GALVANIZING
+                    </div>
+
+                    <h2>
+                        Galvanizing
+                    </h2>
+
+                    <p>
+                        Galvanizing applies a protective zinc layer to suitable
+                        steel and iron components. The coating provides a
+                        practical barrier against corrosion for industrial
+                        structures and engineered parts.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         15 — CVD
+         ===================================================== -->
+
+    <section class="stg2-section">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90"
+                        alt="Advanced precision coating and engineering technology"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        15 · CVD
+                    </div>
+
+                    <h2>
+                        CVD — Chemical Vapour Deposition
+                    </h2>
+
+                    <p>
+                        Chemical Vapour Deposition forms engineered coatings
+                        through controlled chemical reactions in a vapour
+                        environment. It is used where improved wear, thermal
+                        and surface performance is required.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         16 — PVD
+         ===================================================== -->
+
+    <section class="stg2-section reverse">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=90"
+                        alt="Advanced industrial surface engineering"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        16 · PVD
+                    </div>
+
+                    <h2>
+                        PVD — Physical Vapour Deposition
+                    </h2>
+
+                    <p>
+                        Physical Vapour Deposition creates thin engineered
+                        coatings through controlled vacuum processes. It can
+                        improve surface hardness, wear resistance and functional
+                        performance of selected components.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         17 — PLASTIC POWDER COATING
+         ===================================================== -->
+
+    <section class="stg2-section">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial powder coating and equipment housing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        17 · PLASTIC POWDER COATING
+                    </div>
+
+                    <h2>
+                        Plastic Powder Coating
+                    </h2>
+
+                    <p>
+                        Powder coating applies a durable polymer-based finish
+                        to suitable metal surfaces. It provides corrosion
+                        protection, surface durability and a controlled
+                        decorative or functional finish.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         18 — TBC
+         ===================================================== -->
+
+    <section class="stg2-section reverse">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1800&q=90"
+                        alt="High temperature industrial engineering process"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        18 · THERMAL BARRIER COATING
+                    </div>
+
+                    <h2>
+                        Thermal Barrier Coating (TBC)
+                    </h2>
+
+                    <p>
+                        Thermal Barrier Coatings provide thermal protection
+                        for selected high-temperature components. They help
+                        reduce heat transfer and support component performance
+                        in demanding thermal environments.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         19 — OPEN FURNACE HEAT TREATMENT
+         ===================================================== -->
+
+    <section class="stg2-section">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial furnace and metal heat treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        19 · OPEN FURNACE HEAT TREATMENT
+                    </div>
+
+                    <h2>
+                        Open Furnace Heat Treatment
+                    </h2>
+
+                    <p>
+                        Open furnace heat treatment modifies the mechanical
+                        properties and metallurgical structure of suitable
+                        components through controlled heating, soaking and
+                        cooling cycles.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         20 — VACUUM FURNACE
+         ===================================================== -->
+
+    <section class="stg2-section reverse">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1800&q=90"
+                        alt="Precision industrial thermal processing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        20 · VACUUM FURNACE HEAT TREATMENT
+                    </div>
+
+                    <h2>
+                        Vacuum Furnace Heat Treatment
+                    </h2>
+
+                    <p>
+                        Vacuum furnace processing provides controlled heat
+                        treatment in a low-pressure environment, helping
+                        minimize oxidation and contamination during thermal
+                        processing of precision components.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         21 — CASE HARDENING
+         ===================================================== -->
+
+    <section class="stg2-section">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1800&q=90"
+                        alt="Precision hardened metal components"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        21 · CASE HARDENING
+                    </div>
+
+                    <h2>
+                        Case Hardening
+                    </h2>
+
+                    <p>
+                        Case hardening develops a hard wear-resistant surface
+                        while retaining a comparatively tougher core. It is
+                        commonly used for components exposed to repeated
+                        contact, friction and mechanical loading.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         22 — ANNEALING
+         ===================================================== -->
+
+    <section class="stg2-section reverse">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial metal thermal processing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        22 · ANNEALING
+                    </div>
+
+                    <h2>
+                        Annealing
+                    </h2>
+
+                    <p>
+                        Annealing uses controlled heating and cooling to
+                        modify material structure and relieve internal
+                        stresses. It can improve machinability, ductility
+                        and dimensional stability.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         23 — NITRIDING
+         ===================================================== -->
+
+    <section class="stg2-section">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
+                        alt="Advanced metallurgical surface treatment"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        23 · NITRIDING
+                    </div>
+
+                    <h2>
+                        Nitriding
+                    </h2>
+
+                    <p>
+                        Nitriding introduces nitrogen into the surface of
+                        suitable alloys to develop a hard, wear-resistant
+                        layer. The process supports components requiring
+                        enhanced surface durability and fatigue performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         24 — PASSIVATION
+         ===================================================== -->
+
+    <section class="stg2-section reverse">
+
+        <div class="stg2-container">
+
+            <div class="stg2-grid">
+
+                <div class="stg2-image-wrap">
+                    <img
+                        class="stg2-image"
+                        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1800&q=90"
+                        alt="Industrial stainless steel surface finishing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="stg2-copy">
+
+                    <div class="stg2-number">
+                        24 · PASSIVATION
+                    </div>
+
+                    <h2>
+                        Passivation
+                    </h2>
+
+                    <p>
+                        Passivation improves the corrosion resistance of
+                        suitable stainless steel and other compatible
+                        components by removing surface contaminants and
+                        supporting formation of a stable protective surface.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="stg2-cta">
+
+        <h2>
+            Discuss Your Surface Treatment Requirement
+        </h2>
+
+        <p>
+            Contact Capital Engineering Corporation for specialized
+            surface treatment, finishing and thermal processing requirements.
+        </p>
+
+        <div class="stg2-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="stg2-btn stg2-btn-primary"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a
+                href="/companies/engineering/mechanical/machining/surface-treatment"
+                class="stg2-btn stg2-btn-secondary"
+            >
+                BACK TO SURFACE TREATMENT
+            </a>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+{% endblock %}

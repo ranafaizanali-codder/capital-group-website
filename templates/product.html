@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Capital Group</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <a href="/" class="logo">
+        <img src="{{ url_for('static', filename='capital_group_logo.png') }}">
+    </a>
+
+    <nav>
+        <a href="/about">ABOUT US</a>
+        <a href="/products">PRODUCTS</a>
+        <a href="/services">SERVICES</a>
+        <a href="/follow">FOLLOW US</a>
+        <a href="/contact">CONTACT US</a>
+    </nav>
+
+    <a href="/contact" class="talk">LET'S TALK ↗</a>
+</header>
+
+<section class="inner-page">
+    <div class="gold-text">CAPITAL GROUP</div>
+
+    <h1>
+        Our <span>Products</span>
+    </h1>
+
+    <p>
+        Our product capabilities cover engineering,
+        industrial and trading requirements.
+    </p>
+</section>
+
+<section class="content-section">
+
+    <div class="info-card">
+        <h2>Engineering Products</h2>
+        <p>
+            Engineering components and specialized technical
+            products for industrial applications.
+        </p>
+    </div>
+
+    <div class="info-card">
+        <h2>Industrial Products</h2>
+        <p>
+            Industrial products and solutions sourced according
+            to project and customer requirements.
+        </p>
+    </div>
+
+    <div class="info-card">
+        <h2>Trading Products</h2>
+        <p>
+            Products sourced through our international trading
+            and supply capabilities.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    <div>© 2026 Capital Group</div>
+    <div>ceo@capitalgroup.pk</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+
+{% block title %}
+Avionics Engineering | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+.avionics-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.avionics-hero {
+    min-height: 620px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94),
+            rgba(8, 40, 59, 0.76),
+            rgba(8, 40, 59, 0.38)
+        ),
+        url("https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center center / cover no-repeat;
+}
+
+.avionics-hero-content {
+    max-width: 850px;
+    padding: 90px 7%;
+}
+
+.avionics-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.avionics-hero h1 {
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 1.12;
+    margin: 0 0 22px;
+    font-weight: 700;
+}
+
+.avionics-hero p {
+    color: #e7eef2;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 780px;
+    margin: 0;
+}
+
+
+/* =========================
+   COURSE SECTION
+========================= */
+
+.avionics-courses {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 65px 25px;
+}
+
+.avionics-section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.avionics-section-heading h2 {
+    color: #08283b;
+    font-size: 30px;
+    margin: 0 0 10px;
+}
+
+.avionics-section-heading p {
+    color: #65747d;
+    margin: 0;
+}
+
+
+/* =========================
+   COURSE CARDS
+========================= */
+
+.avionics-course-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.avionics-course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 145px;
+    padding: 25px;
+
+    text-decoration: none;
+
+    background: #ffffff;
+
+    border: 1px solid #d8e0e4;
+    border-left: 4px solid #c69b32;
+
+    border-radius: 8px;
+
+    transition: all 0.25s ease;
+}
+
+.avionics-course-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #c69b32;
+
+    box-shadow:
+        0 10px 25px rgba(8, 40, 59, 0.09);
+}
+
+.avionics-course-card h3 {
+    color: #08283b;
+
+    font-size: 19px;
+    line-height: 1.35;
+
+    margin: 0 0 9px;
+}
+
+.avionics-course-card span {
+    color: #65747d;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BOTTOM BUTTONS
+========================= */
+
+.avionics-actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 15px;
+
+    padding: 20px 25px 75px;
+}
+
+.avionics-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 13px 28px;
+
+    border: 1px solid #123f58;
+    border-radius: 5px;
+
+    color: #123f58;
+    background: transparent;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.2s ease;
+}
+
+.avionics-btn:hover {
+    background: #123f58;
+    color: #ffffff;
+}
+
+.avionics-btn.primary {
+    background: #123f58;
+    color: #ffffff;
+}
+
+.avionics-btn.primary:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .avionics-hero {
+        min-height: 560px;
+    }
+
+    .avionics-hero-content {
+        padding: 70px 25px;
+    }
+
+    .avionics-hero h1 {
+        font-size: 36px;
+    }
+
+    .avionics-course-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .avionics-hero h1 {
+        font-size: 30px;
+    }
+
+    .avionics-hero p {
+        font-size: 15px;
+    }
+
+    .avionics-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avionics-btn {
+        width: 210px;
+        text-align: center;
+    }
+}
+
+</style>
+
+
+<div class="avionics-page">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="avionics-hero">
+
+        <div class="avionics-hero-content">
+
+            <div class="avionics-label">
+                Advanced Avionics Engineering
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional avionics engineering training develops practical
+                expertise in guidance, navigation, flight-control systems,
+                aircraft electronics, communication systems and modern avionics
+                integration.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COURSE SECTION
+    ========================== -->
+
+    <section class="avionics-courses">
+
+        <div class="avionics-section-heading">
+
+            <h2>
+                Professional Avionics Engineering Training
+            </h2>
+
+            <p>
+                Specialized technical training for modern aerospace and avionics systems.
+            </p>
+
+        </div>
+
+
+        <div class="avionics-course-grid">
+
+
+            <!-- COURSE 1 -->
+
+            <a
+                href="{{ url_for('aerospace_guidance_navigation_control') }}"
+                class="avionics-course-card"
+            >
+
+                <h3>
+                    Advanced Aerospace Guidance, Navigation & Control (GNC)
+                </h3>
+
+                <span>
+                    Professional Aerospace Guidance, Navigation & Control Training
+                </span>
+
+            </a>
+
+
+
+            <!-- COURSE 2 -->
+
+            <a
+                href="{{ url_for('avionics_system_engineering_crash_course') }}"
+                class="avionics-course-card"
+            >
+
+                <h3>
+                    Avionics System Engineering — Crash Course
+                </h3>
+
+                <span>
+                    Intensive Aircraft Avionics Systems Engineering Training
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FINAL BUTTONS
+    ========================== -->
+
+    <div class="avionics-actions">
+
+        <a
+            href="{{ url_for('trading_quote') }}"
+            class="avionics-btn primary"
+        >
+            SEND REQUEST
+        </a>
+
+
+        <a
+            href="{{ url_for('consultants') }}"
+            class="avionics-btn"
+        >
+            GO HOME
+        </a>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

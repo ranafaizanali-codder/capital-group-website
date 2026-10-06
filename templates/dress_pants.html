@@ -1,0 +1,677 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dress Pants Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING — DRESS PANTS DIVISION
+   ========================================================= */
+
+.dress-pants-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.dress-pants-hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.93) 0%,
+            rgba(6, 29, 45, 0.78) 48%,
+            rgba(6, 29, 45, 0.32) 100%
+        ),
+        url("https://images.pexels.com/photos/13339846/pexels-photo-13339846.jpeg?auto=compress&dpr=1&w=1800")
+        center center / cover no-repeat;
+}
+
+.dress-pants-hero-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 90px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.dress-pants-label {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.dress-pants-hero h1 {
+    max-width: 900px;
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.dress-pants-hero-description {
+    max-width: 780px;
+    margin: 0;
+
+    color: rgba(255,255,255,0.91);
+
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+/* ================= CONTENT ================= */
+
+.dress-pants-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 75px 0 90px;
+}
+
+.dress-pants-intro {
+    max-width: 880px;
+    margin-bottom: 55px;
+}
+
+.dress-pants-intro h2 {
+    margin: 0 0 16px;
+
+    color: #061d2d;
+
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.dress-pants-intro p {
+    margin: 0;
+
+    color: #4b6170;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ================= FEATURE ROW ================= */
+
+.dress-pants-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 340px;
+    margin-bottom: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8ec;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.dress-pants-feature-text {
+    padding: 48px 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dress-pants-feature-text h3 {
+    margin: 0 0 14px;
+
+    color: #061d2d;
+
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.dress-pants-feature-text p {
+    margin: 0;
+
+    color: #526774;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.dress-pants-feature-image {
+    min-height: 340px;
+    overflow: hidden;
+}
+
+.dress-pants-feature-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+/* ================= ALTERNATING ROW ================= */
+
+.dress-pants-feature.reverse .dress-pants-feature-image {
+    order: -1;
+}
+
+/* ================= PRODUCT BAND ================= */
+
+.dress-pants-product-band {
+    margin: 55px 0 0;
+    padding: 55px 35px;
+
+    background: #061d2d;
+
+    border-radius: 6px;
+
+    text-align: center;
+}
+
+.dress-pants-product-band h2 {
+    margin: 0 0 28px;
+
+    color: #ffffff;
+
+    font-size: 31px;
+    font-weight: 600;
+}
+
+.dress-pants-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.dress-pants-product {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 11px 22px;
+
+    background: #ffffff;
+    color: #061d2d;
+
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dress-pants-product:hover {
+    background: #d2a43b;
+    border-color: #d2a43b;
+
+    transform: translateY(-2px);
+}
+
+.dress-pants-product:focus-visible {
+    outline: 3px solid #d2a43b;
+    outline-offset: 4px;
+}
+
+/* ================= CTA ================= */
+
+.dress-pants-cta {
+    margin-top: 70px;
+    padding: 55px 30px;
+
+    background: #061d2d;
+
+    border-radius: 6px;
+
+    text-align: center;
+}
+
+.dress-pants-cta h2 {
+    margin: 0 0 25px;
+
+    color: #ffffff;
+
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.dress-pants-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 14px;
+}
+
+.dress-pants-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    padding: 12px 25px;
+
+    background: #d2a43b;
+    color: #061d2d;
+
+    border: 1px solid #d2a43b;
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dress-pants-cta-button:hover {
+    background: transparent;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+.dress-pants-cta-button.secondary {
+    background: transparent;
+    color: #ffffff;
+
+    border-color: rgba(255,255,255,0.55);
+}
+
+.dress-pants-cta-button.secondary:hover {
+    background: #ffffff;
+    color: #061d2d;
+
+    border-color: #ffffff;
+}
+
+.dress-pants-cta-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* ================= EMAIL ================= */
+
+.dress-pants-email {
+    margin-top: 35px;
+    text-align: right;
+}
+
+.dress-pants-email a {
+    color: #12384f;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dress-pants-email a:hover {
+    color: #c69b32;
+    text-decoration: underline;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .dress-pants-hero {
+        min-height: 500px;
+    }
+
+    .dress-pants-hero-content {
+        padding: 70px 0;
+    }
+
+    .dress-pants-hero h1 {
+        font-size: 40px;
+    }
+
+    .dress-pants-hero-description {
+        font-size: 16px;
+    }
+
+    .dress-pants-content {
+        padding: 55px 0 70px;
+    }
+
+    .dress-pants-intro h2 {
+        font-size: 29px;
+    }
+
+    .dress-pants-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .dress-pants-feature-image {
+        min-height: 280px;
+        order: -1;
+    }
+
+    .dress-pants-feature.reverse .dress-pants-feature-image {
+        order: -1;
+    }
+
+    .dress-pants-feature-text {
+        padding: 35px 28px;
+    }
+
+    .dress-pants-product {
+        width: 100%;
+    }
+
+    .dress-pants-product-band {
+        padding: 45px 20px;
+    }
+
+    .dress-pants-cta {
+        padding: 45px 20px;
+    }
+
+    .dress-pants-cta h2 {
+        font-size: 27px;
+    }
+
+    .dress-pants-cta-button {
+        width: 100%;
+    }
+
+    .dress-pants-email {
+        text-align: center;
+    }
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .dress-pants-product,
+    .dress-pants-cta-button {
+        transition: none;
+    }
+
+    .dress-pants-product:hover,
+    .dress-pants-cta-button:hover {
+        transform: none;
+    }
+}
+</style>
+
+
+<div class="dress-pants-page">
+
+    <!-- ================= HERO ================= -->
+
+    <header class="dress-pants-hero">
+
+        <div class="dress-pants-hero-content">
+
+            <div class="dress-pants-label">
+                Dress Pants Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="dress-pants-hero-description">
+                CTC’s Dress Pants Division offers professionally sourced
+                trousers and formal pants designed for business, corporate
+                and contemporary apparel markets, connecting reliable
+                manufacturers with domestic and international buyers.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dress-pants-content">
+
+        <section
+            class="dress-pants-intro"
+            aria-labelledby="dress-pants-intro-heading"
+        >
+
+            <h2 id="dress-pants-intro-heading">
+                Dress Pants &amp; Formal Trousers
+            </h2>
+
+            <p>
+                Our dress pants sourcing portfolio covers tailored and
+                contemporary trouser styles suitable for office wear,
+                business attire, formal occasions and professional
+                wardrobes.
+            </p>
+
+        </section>
+
+
+        <!-- ================= FEATURE 1 ================= -->
+
+        <section class="dress-pants-feature">
+
+            <div class="dress-pants-feature-text">
+
+                <h3>
+                    Tailored Dress Pants
+                </h3>
+
+                <p>
+                    Clean silhouettes, structured construction and
+                    professional styling for modern business and
+                    formal wardrobes.
+                </p>
+
+            </div>
+
+            <div class="dress-pants-feature-image">
+
+                <img
+                    src="https://images.pexels.com/photos/1450114/pexels-photo-1450114.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Modern formal menswear featuring tailored dress pants"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURE 2 ================= -->
+
+        <section class="dress-pants-feature reverse">
+
+            <div class="dress-pants-feature-text">
+
+                <h3>
+                    Corporate &amp; Business Wear
+                </h3>
+
+                <p>
+                    Professional trousers designed to complement
+                    corporate shirts, jackets and complete business
+                    outfits.
+                </p>
+
+            </div>
+
+            <div class="dress-pants-feature-image">
+
+                <img
+                    src="https://images.pexels.com/photos/13339846/pexels-photo-13339846.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Man wearing modern black dress pants and formal shirt"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURE 3 ================= -->
+
+        <section class="dress-pants-feature">
+
+            <div class="dress-pants-feature-text">
+
+                <h3>
+                    Contemporary Trouser Styles
+                </h3>
+
+                <p>
+                    A flexible range of modern cuts and neutral styles
+                    suitable for international apparel sourcing and
+                    different customer requirements.
+                </p>
+
+            </div>
+
+            <div class="dress-pants-feature-image">
+
+                <img
+                    src="https://images.pexels.com/photos/33633245/pexels-photo-33633245/free-photo-of-flat-lay-of-men-s-casual-outfits-on-blue-background.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Modern menswear trousers and accessories arranged for apparel presentation"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUCT CATEGORIES ================= -->
+
+        <section
+            class="dress-pants-product-band"
+            aria-labelledby="dress-pants-products-heading"
+        >
+
+            <h2 id="dress-pants-products-heading">
+                Dress Pants Categories
+            </h2>
+
+            <nav
+                class="dress-pants-products"
+                aria-label="Dress pants categories"
+            >
+
+                <a href="#" class="dress-pants-product">
+                    Slim Fit Dress Pants
+                </a>
+
+                <a href="#" class="dress-pants-product">
+                    Classic Fit Trousers
+                </a>
+
+                <a href="#" class="dress-pants-product">
+                    Business Trousers
+                </a>
+
+                <a href="#" class="dress-pants-product">
+                    Formal Trousers
+                </a>
+
+                <a href="#" class="dress-pants-product">
+                    Office Wear Pants
+                </a>
+
+            </nav>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section
+            class="dress-pants-cta"
+            aria-labelledby="dress-pants-cta-heading"
+        >
+
+            <h2 id="dress-pants-cta-heading">
+                Looking for Dress Pants Products?
+            </h2>
+
+            <div class="dress-pants-cta-buttons">
+
+                <a
+                    href="{{ url_for('trading_quote') }}"
+                    class="dress-pants-cta-button"
+                >
+                    SEND REQUIREMENT
+                </a>
+
+                <a
+                    href="{{ url_for('garments_apparel') }}"
+                    class="dress-pants-cta-button secondary"
+                >
+                    BACK TO GARMENTS
+                </a>
+
+                <a
+                    href="{{ url_for('trading') }}"
+                    class="dress-pants-cta-button secondary"
+                >
+                    BACK TO TRADING
+                </a>
+
+                <a
+                    href="/"
+                    class="dress-pants-cta-button secondary"
+                >
+                    BACK TO HOME
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="dress-pants-email">
+
+            <a href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

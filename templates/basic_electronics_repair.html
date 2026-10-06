@@ -1,0 +1,742 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 152 - Basic Electronics Repair (10 Days) | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .repair-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        padding: 90px 8%;
+        background:
+            linear-gradient(90deg, rgba(6,29,45,0.94), rgba(6,29,45,0.68)),
+            url("https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1800")
+            center/cover no-repeat;
+    }
+
+    .repair-hero-content {
+        max-width: 760px;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .repair-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .repair-hero h1 {
+        font-size: 48px;
+        line-height: 1.15;
+        margin-bottom: 22px;
+        font-weight: 700;
+    }
+
+    .repair-hero p {
+        max-width: 720px;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e8eef2;
+    }
+
+    .repair-container {
+        width: min(1120px, 92%);
+        margin: auto;
+    }
+
+    .repair-section {
+        padding: 75px 0;
+    }
+
+    .repair-intro {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .section-label {
+        color: #c69b32;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .repair-intro h2 {
+        font-size: 36px;
+        color: #12384f;
+        margin-bottom: 20px;
+        line-height: 1.25;
+    }
+
+    .repair-intro p {
+        color: #526572;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .content-block {
+        margin-top: 45px;
+    }
+
+    .content-block h2 {
+        color: #12384f;
+        font-size: 28px;
+        margin-bottom: 22px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .objective-list,
+    .attendee-list {
+        padding-left: 24px;
+        color: #526572;
+    }
+
+    .objective-list li,
+    .attendee-list li {
+        margin-bottom: 11px;
+    }
+
+    .syllabus-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .syllabus-card {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(18,56,79,0.06);
+    }
+
+    .syllabus-card h3 {
+        color: #12384f;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .syllabus-card ul {
+        padding-left: 20px;
+        color: #526572;
+    }
+
+    .syllabus-card li {
+        margin-bottom: 8px;
+    }
+
+    .repair-cta {
+        background: #08283b;
+        padding: 65px 20px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .repair-cta h2 {
+        font-size: 32px;
+        margin-bottom: 14px;
+    }
+
+    .repair-cta p {
+        max-width: 720px;
+        margin: 0 auto 28px;
+        color: #dce7ed;
+    }
+
+    .repair-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        margin: 5px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease;
+    }
+
+    .repair-btn:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .repair-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .repair-btn.primary:hover {
+        background: #d2a43b;
+    }
+
+    @media (max-width: 900px) {
+        .repair-hero {
+            min-height: 560px;
+            padding: 70px 7%;
+        }
+
+        .repair-hero h1 {
+            font-size: 38px;
+        }
+
+        .syllabus-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .repair-hero {
+            min-height: 520px;
+            padding: 60px 6%;
+        }
+
+        .repair-hero h1 {
+            font-size: 31px;
+        }
+
+        .repair-hero p {
+            font-size: 15px;
+        }
+
+        .repair-intro h2 {
+            font-size: 29px;
+        }
+
+        .repair-section {
+            padding: 55px 0;
+        }
+    }
+</style>
+
+
+<!-- HERO -->
+<section class="repair-hero">
+
+    <div class="repair-hero-content">
+
+        <span class="repair-label">
+            Advanced Electronics Engineering Department
+        </span>
+
+        <h1>
+            Strategic Insight and Expertise for Sustainable Business Growth
+        </h1>
+
+        <p>
+            CC’s professional basic electronics repair training develops
+            practical skills in electronic equipment handling, testing,
+            troubleshooting, component repair and fault finding.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- COURSE CONTENT -->
+<section class="repair-section">
+
+    <div class="repair-container">
+
+        <!-- INTRO -->
+        <div class="repair-intro">
+
+            <div class="section-label">
+                Professional Training Program
+            </div>
+
+            <h2>
+                EEE 152 - Basic Electronics Repair (10 Days)
+            </h2>
+
+            <p>
+                This electronics course is designed to expose participants
+                to the handling and troubleshooting of electronic equipment.
+            </p>
+
+            <p>
+                Participants will work with a wide range of complex analogue
+                circuits and components, diagnose faults and learn to use
+                advanced electronic test equipment.
+            </p>
+
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="content-block">
+
+            <h2>
+                Course Objectives
+            </h2>
+
+            <ul class="objective-list">
+
+                <li>
+                    Know the importance of safety precautions when dealing
+                    with AC and DC electronic circuits.
+                </li>
+
+                <li>
+                    Use an analog/digital multimeter to measure voltage,
+                    current, resistance and continuity for troubleshooting.
+                </li>
+
+                <li>
+                    Differentiate between AC and DC circuits.
+                </li>
+
+                <li>
+                    Remove and solder electronic components from and onto
+                    PCB boards.
+                </li>
+
+                <li>
+                    Understand how to protect PCB boards from moisture,
+                    water and vibration.
+                </li>
+
+                <li>
+                    Use the right chemical spray to clean PCBs.
+                </li>
+
+                <li>
+                    Understand how electronic components work with the help
+                    of diagrammatic explanations.
+                </li>
+
+                <li>
+                    Calculate the code value of resistors, potentiometers
+                    and capacitors.
+                </li>
+
+                <li>
+                    Identify and test most basic electronic components so
+                    troubleshooting work can be performed on electronic equipment.
+                </li>
+
+                <li>
+                    Read semiconductor substitution manuals and find suitable
+                    replacement parts using search engines.
+                </li>
+
+                <li>
+                    Understand semiconductor part numbers and datasheet
+                    specifications.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="content-block">
+
+            <h2>
+                Who Should Attend?
+            </h2>
+
+            <ul class="attendee-list">
+
+                <li>
+                    Technicians
+                </li>
+
+                <li>
+                    Maintenance Engineers
+                </li>
+
+                <li>
+                    Electrical Engineers
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="content-block">
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+            <div class="syllabus-grid">
+
+
+                <!-- DAY 1 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 1 — BASICS OF MEASUREMENTS</h3>
+
+                    <ul>
+
+                        <li>
+                            Basics of Measurements
+                        </li>
+
+                        <li>
+                            Measurement systematics
+                        </li>
+
+                        <li>
+                            Definition of the basic units of measurement
+                        </li>
+
+                        <li>
+                            Description of the SI system
+                        </li>
+
+                        <li>
+                            Expression of numbers in scientific notation
+                        </li>
+
+                        <li>
+                            Representation of numbers to the power of 10
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 2 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 2 — BASICS OF ELECTRONICS-1</h3>
+
+                    <ul>
+
+                        <li>
+                            Electronic components (active and passive)
+                        </li>
+
+                        <li>
+                            Kirchhoff’s Law
+                        </li>
+
+                        <li>
+                            Ohm's Law
+                        </li>
+
+                        <li>
+                            Electro motor force
+                        </li>
+
+                        <li>
+                            Transformers
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 3 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 3 — BASICS OF ELECTRONICS-2</h3>
+
+                    <ul>
+
+                        <li>
+                            Circuit diagrams
+                        </li>
+
+                        <li>
+                            DC Circuits
+                        </li>
+
+                        <li>
+                            AC Circuits
+                        </li>
+
+                        <li>
+                            Integrated circuits
+                        </li>
+
+                        <li>
+                            Power
+                        </li>
+
+                        <li>
+                            Energy
+                        </li>
+
+                        <li>
+                            Dissipation
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 4 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 4 — BASICS OF ELECTRONICS-3</h3>
+
+                    <ul>
+
+                        <li>
+                            Analog circuits
+                        </li>
+
+                        <li>
+                            Digital Circuits
+                        </li>
+
+                        <li>
+                            Mixed Circuits
+                        </li>
+
+                        <li>
+                            Equivalent circuits
+                        </li>
+
+                        <li>
+                            Resonance concept in AC Circuits
+                        </li>
+
+                        <li>
+                            Analog filters
+                        </li>
+
+                        <li>
+                            Harmonic analysis
+                        </li>
+
+                        <li>
+                            Frequently used circuits
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 5 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 5 — DIGITAL ELECTRONIC CIRCUITS</h3>
+
+                    <ul>
+
+                        <li>
+                            Binary logic
+                        </li>
+
+                        <li>
+                            ASCII codes
+                        </li>
+
+                        <li>
+                            Truth tables
+                        </li>
+
+                        <li>
+                            Realization of truth tables
+                        </li>
+
+                        <li>
+                            Logic circuit
+                        </li>
+
+                        <li>
+                            Microcontrollers and microprocessors
+                        </li>
+
+                        <li>
+                            Programming of digital microcontrollers
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 6 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 6 — DESIGN, SCHEMATICS AND PCBs</h3>
+
+                    <ul>
+
+                        <li>
+                            Design considerations
+                        </li>
+
+                        <li>
+                            Catalog reading
+                        </li>
+
+                        <li>
+                            Importance of quality of components
+                        </li>
+
+                        <li>
+                            Procurement methods of components
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 7 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 7 — USE OF DESIGN TOOLS</h3>
+
+                    <ul>
+
+                        <li>
+                            Use of schematic and PCB design programs
+                        </li>
+
+                        <li>
+                            Grounding issue in electrical circuits
+                        </li>
+
+                        <li>
+                            Sample projects
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 8 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 8 — LABORATORY CONSIDERATIONS-1</h3>
+
+                    <ul>
+
+                        <li>
+                            Safety precautions
+                        </li>
+
+                        <li>
+                            Soldering and desoldering techniques
+                        </li>
+
+                        <li>
+                            Testing of electronic components
+                        </li>
+
+                        <li>
+                            Troubleshooting of circuits (Fault tracking techniques)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 9 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 9 — LABORATORY CONSIDERATIONS-2</h3>
+
+                    <ul>
+
+                        <li>
+                            Use of multimeters during troubleshooting
+                        </li>
+
+                        <li>
+                            Use of heat for troubleshooting
+                        </li>
+
+                        <li>
+                            Advanced use of oscilloscopes
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 10 -->
+                <div class="syllabus-card">
+
+                    <h3>Day 10 — LABORATORY CONSIDERATIONS-2</h3>
+
+                    <ul>
+
+                        <li>
+                            Use of rework station
+                        </li>
+
+                        <li>
+                            Selection of equivalent component during repair
+                        </li>
+
+                        <li>
+                            Protection of PCBs from natural disrupting factors
+                        </li>
+
+                        <li>
+                            Protection of PCBs from natural effects
+                        </li>
+
+                        <li>
+                            Maintenance of PCBs
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="repair-cta">
+
+    <h2>
+        Develop Your Basic Electronics Repair Expertise
+    </h2>
+
+    <p>
+        Connect with Capital Consultants for professional electronics
+        repair training, technical guidance and practical troubleshooting development.
+    </p>
+
+    <a href="{{ url_for('basic_electronics_repair_registration') }}"
+       class="repair-btn primary">
+        REGISTER FOR COURSE
+    </a>
+
+    <a href="{{ url_for('home') }}"
+       class="repair-btn">
+        GO HOME
+    </a>
+
+</section>
+
+{% endblock %}

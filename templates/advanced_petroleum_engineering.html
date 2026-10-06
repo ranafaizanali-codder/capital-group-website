@@ -1,0 +1,745 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced Petroleum Engineering | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.petroleum-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.petroleum-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    position: relative;
+    background:
+        linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+        url("https://student.haward.org/storage/publiccourse/images/DE0624.jpg")
+        center/cover no-repeat;
+}
+
+.petroleum-hero-content {
+    max-width: 850px;
+    color: #ffffff;
+}
+
+.petroleum-label {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.petroleum-hero h1 {
+    margin: 0 0 24px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.petroleum-hero p {
+    max-width: 760px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e7eef2;
+}
+
+
+/* INTRO */
+.petroleum-intro {
+    max-width: 1180px;
+    margin: auto;
+    padding: 95px 7%;
+    text-align: center;
+}
+
+.petroleum-intro-label {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.petroleum-intro h2 {
+    margin: 14px 0 20px;
+    color: #12384f;
+    font-size: 38px;
+}
+
+.petroleum-intro p {
+    max-width: 800px;
+    margin: auto;
+    color: #5b6870;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* FEATURE CARDS */
+.petroleum-features {
+    max-width: 1180px;
+    margin: 0 auto 90px;
+    padding: 0 7%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.petroleum-feature {
+    padding: 34px 28px;
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    border-top: 3px solid #c69b32;
+}
+
+.petroleum-feature span {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.petroleum-feature h3 {
+    margin: 14px 0 10px;
+    color: #12384f;
+    font-size: 21px;
+}
+
+.petroleum-feature p {
+    margin: 0;
+    color: #66737b;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* MODULES */
+.petroleum-modules {
+    max-width: 1180px;
+    margin: auto;
+    padding: 30px 7% 100px;
+}
+
+.petroleum-section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.petroleum-section-title span {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.petroleum-section-title h2 {
+    margin: 12px 0 0;
+    color: #12384f;
+    font-size: 38px;
+}
+
+
+/* MODULE */
+.petroleum-module {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+    margin-bottom: 55px;
+    background: #ffffff;
+    border: 1px solid #e0e5e8;
+}
+
+.petroleum-module-image {
+    overflow: hidden;
+}
+
+.petroleum-module-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.petroleum-module-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 55px;
+}
+
+.petroleum-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.petroleum-module-content h3 {
+    margin: 0 0 15px;
+    color: #12384f;
+    font-size: 29px;
+    line-height: 1.2;
+}
+
+.petroleum-module-content p {
+    margin: 0;
+    max-width: 500px;
+    color: #65727a;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+
+/* ALTERNATING */
+.petroleum-module.reverse .petroleum-module-image {
+    order: 2;
+}
+
+.petroleum-module.reverse .petroleum-module-content {
+    order: 1;
+}
+
+
+/* OUTCOMES */
+.petroleum-outcomes {
+    padding: 100px 7%;
+    background: #08283b;
+    color: #ffffff;
+}
+
+.petroleum-outcomes-inner {
+    max-width: 1180px;
+    margin: auto;
+}
+
+.petroleum-outcomes-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.petroleum-outcomes-title span {
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.petroleum-outcomes-title h2 {
+    margin: 12px 0 0;
+    font-size: 38px;
+}
+
+.petroleum-outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.petroleum-outcome {
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,0.14);
+}
+
+.petroleum-outcome span {
+    color: #d2a43b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.petroleum-outcome h3 {
+    margin: 12px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* CTA */
+.petroleum-cta {
+    padding: 95px 7%;
+    text-align: center;
+    background: #f5f7f8;
+}
+
+.petroleum-cta-inner {
+    max-width: 850px;
+    margin: auto;
+}
+
+.petroleum-cta h2 {
+    margin: 0 0 15px;
+    color: #12384f;
+    font-size: 38px;
+}
+
+.petroleum-cta p {
+    margin: 0 auto 25px;
+    max-width: 700px;
+    color: #65727a;
+    line-height: 1.8;
+}
+
+.petroleum-email {
+    margin-bottom: 30px;
+    color: #12384f;
+    font-weight: 600;
+}
+
+.petroleum-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.petroleum-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid #12384f;
+    color: #12384f;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.25s ease;
+}
+
+.petroleum-btn.primary {
+    background: #12384f;
+    color: #ffffff;
+}
+
+.petroleum-btn:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+    color: #ffffff;
+}
+
+
+/* MOBILE */
+@media (max-width: 850px) {
+
+    .petroleum-hero {
+        min-height: 560px;
+        padding: 80px 7%;
+    }
+
+    .petroleum-features,
+    .petroleum-outcome-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .petroleum-module {
+        grid-template-columns: 1fr;
+    }
+
+    .petroleum-module.reverse .petroleum-module-image,
+    .petroleum-module.reverse .petroleum-module-content {
+        order: initial;
+    }
+
+    .petroleum-module-content {
+        padding: 40px 30px;
+    }
+
+    .petroleum-module-image img {
+        min-height: 280px;
+        height: 280px;
+    }
+
+    .petroleum-intro h2,
+    .petroleum-section-title h2,
+    .petroleum-outcomes-title h2,
+    .petroleum-cta h2 {
+        font-size: 30px;
+    }
+}
+
+</style>
+
+
+<div class="petroleum-page">
+
+    <!-- HERO -->
+    <section class="petroleum-hero">
+
+        <div class="petroleum-hero-content">
+
+            <span class="petroleum-label">
+                Advanced Petroleum Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional petroleum engineering training develops
+                practical expertise in drilling, reservoir engineering,
+                production systems, well logging, well testing and advanced
+                petroleum field operations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="petroleum-intro">
+
+        <span class="petroleum-intro-label">
+            Professional Petroleum Engineering Program
+        </span>
+
+        <h2>
+            Advanced Petroleum Engineering
+        </h2>
+
+        <p>
+            A structured professional program covering drilling engineering,
+            reservoir management, production engineering, well evaluation,
+            completion operations and modern petroleum recovery techniques.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="petroleum-features">
+
+        <div class="petroleum-feature">
+            <span>01</span>
+            <h3>Drilling & Well Engineering</h3>
+            <p>
+                Professional understanding of drilling systems,
+                well planning, drilling fluids and completion operations.
+            </p>
+        </div>
+
+        <div class="petroleum-feature">
+            <span>02</span>
+            <h3>Reservoir Engineering</h3>
+            <p>
+                Practical knowledge of reservoir behaviour,
+                modelling, well testing and production forecasting.
+            </p>
+        </div>
+
+        <div class="petroleum-feature">
+            <span>03</span>
+            <h3>Production & Recovery</h3>
+            <p>
+                Advanced approaches to production optimization,
+                well performance and enhanced recovery methods.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- MODULES -->
+    <section class="petroleum-modules">
+
+        <div class="petroleum-section-title">
+            <span>Professional Curriculum</span>
+            <h2>Petroleum Engineering Modules</h2>
+        </div>
+
+
+        <!-- 01 -->
+        <div class="petroleum-module">
+
+            <div class="petroleum-module-image">
+                <img
+                    src="https://media.licdn.com/dms/image/v2/D5610AQEATXUgWDa2jw/image-shrink_800/image-shrink_800/0/1700230511051?e=2147483647&t=iamO2zKN1u8A4p6P_5GO1M0giV8p3HEwj3va8Ck5_us&v=beta"
+                    alt="Petroleum drilling engineering"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="petroleum-module-content">
+
+                <span class="petroleum-number">01</span>
+
+                <h3>
+                    Drilling Engineering & Well Planning
+                </h3>
+
+                <p>
+                    Covers well planning, drilling systems, rig operations,
+                    drilling fluids, casing, cementing and modern drilling
+                    practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="petroleum-module reverse">
+
+            <div class="petroleum-module-image">
+                <img
+                    src="https://student.haward.org/storage/publiccourse/images/DE0624.jpg"
+                    alt="Petroleum wellhead and field operations"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="petroleum-module-content">
+
+                <span class="petroleum-number">02</span>
+
+                <h3>
+                    Reservoir Engineering & Management
+                </h3>
+
+                <p>
+                    Develops understanding of reservoir properties, fluid
+                    behaviour, reservoir performance, simulation and field
+                    development planning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="petroleum-module">
+
+            <div class="petroleum-module-image">
+                <img
+                    src="https://universitaspertamina.ac.id/uploads/student-corner/sc_3.jpeg"
+                    alt="Oilfield equipment and petroleum operations"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="petroleum-module-content">
+
+                <span class="petroleum-number">03</span>
+
+                <h3>
+                    Petroleum Production Engineering
+                </h3>
+
+                <p>
+                    Focuses on production systems, well performance,
+                    artificial lift, production optimization and surface
+                    production operations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="petroleum-module reverse">
+
+            <div class="petroleum-module-image">
+                <img
+                       src="{{ url_for('static', filename='well-logging.jpg') }}"
+                    alt="Petroleum field drilling operations"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="petroleum-module-content">
+
+                <span class="petroleum-number">04</span>
+
+                <h3>
+                    Well Logging & Formation Evaluation
+                </h3>
+
+                <p>
+                    Covers well logging, formation evaluation, petrophysical
+                    interpretation and analysis of subsurface information for
+                    petroleum decision-making.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+        <div class="petroleum-module">
+
+            <div class="petroleum-module-image">
+                <img
+                    src="https://media.licdn.com/dms/image/v2/C4D1BAQGX8fI3Koyn0A/company-background_10000/company-background_10000/0/1601914719143/jc_international_training_cover?e=2147483647&t=7FOZ27uj4bvOtdfev7t0ZAvKiNu6kegAzvD1uRJBOwc&v=beta"
+                    alt="Oil and gas engineering training"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="petroleum-module-content">
+
+                <span class="petroleum-number">05</span>
+
+                <h3>
+                    Well Testing, Completion & Integrity
+                </h3>
+
+                <p>
+                    Introduces well testing, completion design, well control,
+                    integrity management and practical evaluation of well
+                    performance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+        <div class="petroleum-module reverse">
+
+            <div class="petroleum-module-image">
+                <img
+                    src="https://www.eaglereservoir.com/blog/mastering-reservoir-engineering-essentials-for-optimizing-oil-and-gas-recovery"
+                    alt="Advanced reservoir engineering"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="petroleum-module-content">
+
+                <span class="petroleum-number">06</span>
+
+                <h3>
+                    Enhanced Oil Recovery & Field Optimization
+                </h3>
+
+                <p>
+                    Covers secondary and enhanced recovery methods, reservoir
+                    monitoring, production forecasting and field optimization
+                    strategies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUTCOMES -->
+    <section class="petroleum-outcomes">
+
+        <div class="petroleum-outcomes-inner">
+
+            <div class="petroleum-outcomes-title">
+
+                <span>Professional Learning Outcomes</span>
+
+                <h2>
+                    Engineering Capabilities
+                </h2>
+
+            </div>
+
+            <div class="petroleum-outcome-grid">
+
+                <div class="petroleum-outcome">
+                    <span>01</span>
+                    <h3>Drilling Engineering</h3>
+                </div>
+
+                <div class="petroleum-outcome">
+                    <span>02</span>
+                    <h3>Reservoir Management</h3>
+                </div>
+
+                <div class="petroleum-outcome">
+                    <span>03</span>
+                    <h3>Production Engineering</h3>
+                </div>
+
+                <div class="petroleum-outcome">
+                    <span>04</span>
+                    <h3>Well Logging & Evaluation</h3>
+                </div>
+
+                <div class="petroleum-outcome">
+                    <span>05</span>
+                    <h3>Well Testing & Completion</h3>
+                </div>
+
+                <div class="petroleum-outcome">
+                    <span>06</span>
+                    <h3>Enhanced Oil Recovery</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="petroleum-cta">
+
+        <div class="petroleum-cta-inner">
+
+            <h2>
+                Advance Your Petroleum Engineering Expertise
+            </h2>
+
+            <p>
+                Connect with Capital Consultants for professional training
+                and advanced petroleum engineering development opportunities.
+            </p>
+
+            <div class="petroleum-email">
+                ceo@capitalgroup.pk
+            </div>
+
+            <div class="petroleum-buttons">
+
+                <a
+                    href="{{ url_for('trading_quote') }}"
+                    class="petroleum-btn primary"
+                >
+                    SEND REQUEST
+                </a>
+
+                <a
+                    href="{{ url_for('engines') }}"
+                    class="petroleum-btn"
+                >
+                    GO HOME
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

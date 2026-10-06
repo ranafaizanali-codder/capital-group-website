@@ -1,0 +1,452 @@
+{% extends "base.html" %}
+
+{% block title %}
+Software Engineering Services | Capital Group
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   SOFTWARE ENGINEERING SERVICES
+   ========================================================= */
+
+.software-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.software-hero {
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.78) 48%,
+            rgba(6, 29, 45, 0.35) 100%
+        ),
+        url("{{ url_for('static', filename='software_engineering_hero.jpg') }}")
+        center center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+}
+
+.software-hero-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.software-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.software-hero h1 {
+    max-width: 850px;
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.software-hero-description {
+    max-width: 820px;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ================= CONTENT ================= */
+
+.software-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 75px 0 85px;
+}
+
+/* ================= INTRO ================= */
+
+.software-intro {
+    max-width: 850px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.software-intro h2 {
+    margin: 0 0 18px;
+    color: #12384f;
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+.software-intro p {
+    margin: 0;
+    color: #667780;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= SERVICE ROWS ================= */
+
+.software-service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.software-service-row.reverse {
+    direction: rtl;
+}
+
+.software-service-row.reverse > * {
+    direction: ltr;
+}
+
+.software-service-image {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 12px 30px rgba(6, 29, 45, 0.12);
+}
+
+.software-service-text h2 {
+    max-width: 520px;
+    margin: 0 0 18px;
+    color: #12384f;
+    font-size: 29px;
+    line-height: 1.25;
+}
+
+.software-service-text p {
+    max-width: 540px;
+    margin: 0;
+    color: #657780;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+/* ================= CTA ================= */
+
+.software-cta {
+    margin-top: 20px;
+    padding: 55px 30px;
+    background: #061d2d;
+    text-align: center;
+}
+
+.software-cta h2 {
+    margin: 0 0 28px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.software-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.software-cta-button {
+    display: inline-block;
+    padding: 13px 26px;
+    background: #d2a43b;
+    color: #061d2d;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.software-cta-button:hover {
+    background: #ffffff;
+    color: #061d2d;
+}
+
+.software-email {
+    margin-top: 25px;
+    color: #d2a43b;
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .software-service-row,
+    .software-service-row.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 28px;
+    }
+
+    .software-service-image {
+        height: 280px;
+    }
+
+    .software-hero {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .software-hero {
+        min-height: 500px;
+    }
+
+    .software-hero-content {
+        padding: 60px 0;
+    }
+
+    .software-hero h1 {
+        font-size: 38px;
+    }
+
+    .software-hero-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .software-content {
+        padding-top: 55px;
+    }
+
+    .software-intro h2 {
+        font-size: 27px;
+    }
+
+    .software-service-text h2 {
+        font-size: 26px;
+    }
+
+    .software-service-image {
+        height: 240px;
+    }
+}
+
+</style>
+
+
+<div class="software-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="software-hero">
+
+        <div class="software-hero-content">
+
+            <div class="software-label">
+                Software Engineering Services Division
+            </div>
+
+            <h1>
+                Professional Software Engineering Solutions for Modern Business
+            </h1>
+
+            <p class="software-hero-description">
+                Capital Consultants provides professional software engineering
+                and IT solutions focused on developing reliable digital systems,
+                business applications and technology platforms that support
+                efficient operations and sustainable business growth.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="software-content">
+
+        <div class="software-intro">
+
+            <h2>
+                Engineering Digital Solutions for Performance and Growth
+            </h2>
+
+            <p>
+                Our software engineering approach combines technical expertise,
+                structured development and practical business requirements to
+                deliver scalable, secure and dependable digital solutions for
+                organizations and modern enterprises.
+            </p>
+
+        </div>
+
+
+        <!-- ================= SERVICE 1 ================= -->
+
+        <div class="software-service-row">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='custom_software_development.jpg') }}"
+                    alt="Custom software development"
+                    class="software-service-image"
+                >
+
+            </div>
+
+            <div class="software-service-text">
+
+                <h2>
+                    Custom Software Development
+                </h2>
+
+                <p>
+                    Development of tailored software applications designed
+                    around specific business requirements, operational
+                    processes and organizational objectives for efficient
+                    digital transformation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SERVICE 2 ================= -->
+
+        <div class="software-service-row reverse">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='enterprise_software_solutions.jpg') }}"
+                    alt="Enterprise software solutions"
+                    class="software-service-image"
+                >
+
+            </div>
+
+            <div class="software-service-text">
+
+                <h2>
+                    Enterprise Software Solutions
+                </h2>
+
+                <p>
+                    Design and development of structured enterprise systems
+                    that support business operations, information management,
+                    workflow coordination and scalable organizational growth.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SERVICE 3 ================= -->
+
+        <div class="software-service-row">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='web_application_development.jpg') }}"
+                    alt="Web application development"
+                    class="software-service-image"
+                >
+
+            </div>
+
+            <div class="software-service-text">
+
+                <h2>
+                    Web Application Development
+                </h2>
+
+                <p>
+                    Development of responsive and practical web applications
+                    that provide organizations with accessible digital tools,
+                    online platforms and efficient user-focused business
+                    solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SERVICE 4 ================= -->
+
+        <div class="software-service-row reverse">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='software_systems_integration.jpg') }}"
+                    alt="Software systems integration"
+                    class="software-service-image"
+                >
+
+            </div>
+
+            <div class="software-service-text">
+
+                <h2>
+                    Software Systems Integration
+                </h2>
+
+                <p>
+                    Integration of software platforms and digital systems to
+                    improve information flow, reduce operational complexity
+                    and create connected technology environments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CTA ================= -->
+
+        <div class="software-cta">
+
+           
+
+            <div class="software-cta-buttons">
+
+                <a href="{{ url_for('trading_quote') }}"
+                   class="software-cta-button">
+                    SEND REQUIREMENT
+                </a>
+
+                <a href="/"
+                   class="software-cta-button">
+                    BACK TO HOME
+                </a>
+
+            </div>
+
+            <div class="software-email">
+                ceo@capitalgroup.pk
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

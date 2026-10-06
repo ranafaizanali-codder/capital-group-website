@@ -1,0 +1,462 @@
+{% extends "base.html" %}
+
+{% block title %}
+Handicraft Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING — HANDICRAFT DIVISION
+   ========================================================= */
+
+.handicraft-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.handicraft-hero {
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.90) 0%,
+            rgba(6, 29, 45, 0.68) 48%,
+            rgba(6, 29, 45, 0.38) 100%
+        ),
+        url("https://psic.punjab.gov.pk/system/files/metal.png")
+        center center / cover no-repeat;
+}
+
+.handicraft-hero-content {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.handicraft-label {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.handicraft-hero h1 {
+    color: #ffffff;
+    font-size: clamp(42px, 5vw, 70px);
+    line-height: 1.08;
+    max-width: 850px;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.handicraft-hero p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 850px;
+    margin: 0;
+}
+
+/* ================= FOUR CATEGORIES ================= */
+
+.handicraft-categories {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 55px 40px 25px;
+}
+
+.handicraft-categories h2 {
+    text-align: center;
+    color: #12384f;
+    font-size: 32px;
+    margin: 0 0 35px;
+}
+
+.handicraft-button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+/* ================= CATEGORY CARD ================= */
+
+.handicraft-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 125px;
+    padding: 24px 20px;
+
+    background: #061d2d;
+    color: #ffffff;
+
+    text-decoration: none;
+    border: 1px solid #061d2d;
+    border-radius: 5px;
+
+    text-align: center;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.handicraft-category-card:hover,
+.handicraft-category-card:focus {
+    background: #c69b32;
+    color: #061d2d;
+    border-color: #c69b32;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(6, 29, 45, 0.15);
+}
+
+.handicraft-category-card:focus-visible {
+    outline: 3px solid #c69b32;
+    outline-offset: 3px;
+}
+
+.handicraft-category-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 9px;
+}
+
+.handicraft-category-caption {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.85;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* ================= INTRO ================= */
+
+.handicraft-intro {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 55px 40px 30px;
+    text-align: center;
+}
+
+.handicraft-intro h2 {
+    color: #12384f;
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.handicraft-intro p {
+    color: #4d626f;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ================= CTA ================= */
+
+.handicraft-cta {
+    max-width: 1050px;
+    margin: 30px auto 0;
+    padding: 55px 40px 70px;
+    text-align: center;
+}
+
+.handicraft-cta h2 {
+    color: #12384f;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.handicraft-cta p {
+    color: #5b6d77;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.handicraft-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.handicraft-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.handicraft-btn-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.handicraft-btn-primary:hover,
+.handicraft-btn-primary:focus {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.handicraft-btn-secondary {
+    background: #061d2d;
+    color: #ffffff;
+}
+
+.handicraft-btn-secondary:hover,
+.handicraft-btn-secondary:focus {
+    background: #12384f;
+    color: #ffffff;
+}
+
+.handicraft-btn:focus-visible {
+    outline: 3px solid #c69b32;
+    outline-offset: 3px;
+}
+
+/* ================= EMAIL ================= */
+
+.handicraft-email {
+    text-align: right;
+    padding: 0 40px 25px;
+    color: #12384f;
+    font-size: 14px;
+}
+
+.handicraft-email a {
+    color: #12384f;
+    text-decoration: none;
+}
+
+.handicraft-email a:hover {
+    color: #c69b32;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .handicraft-hero {
+        min-height: 520px;
+    }
+
+    .handicraft-hero-content {
+        padding: 65px 25px;
+    }
+
+    .handicraft-button-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .handicraft-categories,
+    .handicraft-intro,
+    .handicraft-cta {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .handicraft-email {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+}
+
+</style>
+
+
+<div class="handicraft-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="handicraft-hero">
+
+        <div class="handicraft-hero-content">
+
+            <div class="handicraft-label">
+                Handicraft Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CC’s Handicraft Division offers carefully selected traditional
+                handicrafts representing the rich cultural heritage and skilled
+                craftsmanship of Punjab for local and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOUR CATEGORIES ================= -->
+
+    <section class="handicraft-categories">
+
+        <h2>
+            Crafts of Punjab
+        </h2>
+
+        <div class="handicraft-button-grid">
+
+            <!-- WOODEN HANDICRAFT -->
+
+            <a href="{{ url_for('wooden_handicraft') }}"
+               class="handicraft-category-card">
+
+                <span class="handicraft-category-title">
+                    Wooden Handicraft
+                </span>
+
+                <span class="handicraft-category-caption">
+                    Carved Wood
+                </span>
+
+            </a>
+
+
+            <!-- STONE HANDICRAFT -->
+
+            <a href="{{ url_for('stone_handicraft') }}"
+               class="handicraft-category-card">
+
+                <span class="handicraft-category-title">
+                    Stone Handicraft
+                </span>
+
+                <span class="handicraft-category-caption">
+                    Handcrafted Stone
+                </span>
+
+            </a>
+
+
+            <!-- THREAD HANDICRAFT -->
+
+            <a href="{{ url_for('thread_handicraft') }}"
+               class="handicraft-category-card">
+
+                <span class="handicraft-category-title">
+                    Thread Handicraft
+                </span>
+
+                <span class="handicraft-category-caption">
+                    Traditional Threadwork
+                </span>
+
+            </a>
+
+
+            <!-- METAL HANDICRAFT -->
+
+            <a href="{{ url_for('metal_handicraft') }}"
+               class="handicraft-category-card">
+
+                <span class="handicraft-category-title">
+                    Metal Handicraft
+                </span>
+
+                <span class="handicraft-category-caption">
+                    Brass &amp; Copper
+                </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="handicraft-intro">
+
+        <h2>
+            Traditional Craftsmanship
+        </h2>
+
+        <p>
+            Punjab is known for a diverse range of traditional crafts,
+            including wooden handicrafts, stone work, thread craftsmanship
+            and metal craft. These crafts reflect generations of artistic
+            skill and cultural heritage.
+        </p>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="handicraft-cta">
+
+        <h2>
+            Looking for Handicraft Products?
+        </h2>
+
+        <p>
+            Share your requirements with Capital Trading Corporation
+            for sourcing and supply of selected handicraft products.
+        </p>
+
+        <div class="handicraft-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="handicraft-btn handicraft-btn-primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="handicraft-btn handicraft-btn-secondary">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="handicraft-btn handicraft-btn-secondary">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EMAIL ================= -->
+
+    <div class="handicraft-email">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

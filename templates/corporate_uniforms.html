@@ -1,0 +1,504 @@
+{% extends "base.html" %}
+
+{% block title %}Corporate Uniforms Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.corporate-uniforms-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.corporate-uniforms-hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94),
+            rgba(6, 29, 45, 0.72),
+            rgba(6, 29, 45, 0.30)
+        ),
+        url("https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1800&q=85")
+        center/cover no-repeat;
+}
+
+.corporate-uniforms-hero-content {
+    width: min(1180px, 90%);
+    margin: auto;
+    color: white;
+}
+
+.corporate-uniforms-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.corporate-uniforms-hero h1 {
+    max-width: 900px;
+    margin: 0 0 24px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.corporate-uniforms-hero p {
+    max-width: 820px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e8eef1;
+}
+
+/* INTRO */
+.corporate-uniforms-intro {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 95px 0 70px;
+    text-align: center;
+}
+
+.corporate-uniforms-intro span {
+    display: block;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.corporate-uniforms-intro h2 {
+    margin: 0 0 20px;
+    font-size: clamp(30px, 4vw, 48px);
+    color: #08283b;
+}
+
+.corporate-uniforms-intro p {
+    max-width: 850px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #53636c;
+}
+
+/* SECTIONS */
+.corporate-uniforms-sections {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+.corporate-uniforms-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    padding: 75px 0;
+    border-top: 1px solid #dce2e5;
+}
+
+.corporate-uniforms-section.reverse .corporate-uniforms-image {
+    order: 2;
+}
+
+.corporate-uniforms-section.reverse .corporate-uniforms-text {
+    order: 1;
+}
+
+.corporate-uniforms-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.corporate-uniforms-text h3 {
+    margin: 0 0 18px;
+    color: #08283b;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.corporate-uniforms-text p {
+    margin: 0;
+    max-width: 520px;
+    color: #596970;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.corporate-uniforms-image {
+    min-height: 390px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 18px 45px rgba(6, 29, 45, 0.12);
+}
+
+/* RELATED GRAPHICS */
+.corporate-uniforms-image-1 {
+    background-image:
+        url("https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85");
+}
+
+.corporate-uniforms-image-2 {
+    background-image:
+        url("https://images.pexels.com/photos/5212328/pexels-photo-5212328.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85");
+}
+
+.corporate-uniforms-image-3 {
+    background-image:
+        url("https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85");
+}
+
+.corporate-uniforms-image-4 {
+    background-image:
+        url("https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85");
+}
+
+.corporate-uniforms-image-5 {
+    background-image:
+        url("https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85");
+}
+
+.corporate-uniforms-image-6 {
+    background-image:
+        url("https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85");
+}
+
+/* CTA */
+.corporate-uniforms-cta {
+    margin-top: 50px;
+    padding: 90px 20px;
+    background: #08283b;
+    color: white;
+    text-align: center;
+}
+
+.corporate-uniforms-cta h2 {
+    margin: 0 0 15px;
+    font-size: clamp(30px, 4vw, 46px);
+}
+
+.corporate-uniforms-cta p {
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: #d9e3e8;
+    line-height: 1.7;
+}
+
+.corporate-uniforms-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.corporate-uniforms-btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid #c69b32;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.25s ease;
+}
+
+.corporate-uniforms-btn:hover {
+    background: #c69b32;
+    color: #08283b;
+}
+
+.corporate-uniforms-email {
+    margin-top: 25px;
+    color: #c69b32;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+
+    .corporate-uniforms-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 55px 0;
+    }
+
+    .corporate-uniforms-section.reverse .corporate-uniforms-image {
+        order: 1;
+    }
+
+    .corporate-uniforms-section.reverse .corporate-uniforms-text {
+        order: 2;
+    }
+
+    .corporate-uniforms-image {
+        min-height: 300px;
+    }
+
+    .corporate-uniforms-hero {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .corporate-uniforms-hero h1 {
+        font-size: 36px;
+    }
+
+    .corporate-uniforms-hero p {
+        font-size: 15px;
+    }
+
+    .corporate-uniforms-intro {
+        padding: 70px 0 45px;
+    }
+
+    .corporate-uniforms-text h3 {
+        font-size: 27px;
+    }
+
+    .corporate-uniforms-image {
+        min-height: 260px;
+    }
+}
+</style>
+
+<div class="corporate-uniforms-page">
+
+```
+<!-- HERO -->
+<section class="corporate-uniforms-hero">
+
+    <div class="corporate-uniforms-hero-content">
+
+        <span class="corporate-uniforms-label">
+            Corporate Uniforms Division
+        </span>
+
+        <h1>
+            EXPORT, IMPORT AND GLOBAL SOURCING /
+            SUPPLY CHAIN SOLUTIONS.
+        </h1>
+
+        <p>
+            CTC’s Corporate Uniforms Division provides professionally
+            sourced uniform solutions for corporate offices, service
+            organizations, hospitality businesses and commercial
+            environments, supporting dependable quality, fabric
+            specifications, sizing requirements, quantity planning
+            and organized textile supply.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- INTRO -->
+<section class="corporate-uniforms-intro">
+
+    <span>Professional Uniform Solutions</span>
+
+    <h2>Premium Corporate Uniform Supply</h2>
+
+    <p>
+        CTC supports corporate uniform sourcing through reliable
+        supplier coordination, fabric selection, garment specifications,
+        sizing requirements, quality standards, quantity planning and
+        organized supply solutions for domestic and international
+        markets.
+    </p>
+
+</section>
+
+<!-- SIX SECTIONS -->
+<section class="corporate-uniforms-sections">
+
+    <!-- 01 -->
+    <div class="corporate-uniforms-section">
+
+        <div class="corporate-uniforms-text">
+
+            <div class="corporate-uniforms-number">01</div>
+
+            <h3>Professional Corporate Uniforms</h3>
+
+            <p>
+                CTC provides professionally sourced corporate uniforms
+                designed to support consistent presentation, workplace
+                requirements and practical daily use across offices,
+                organizations and commercial environments.
+            </p>
+
+        </div>
+
+        <div class="corporate-uniforms-image corporate-uniforms-image-1"></div>
+
+    </div>
+
+    <!-- 02 -->
+    <div class="corporate-uniforms-section reverse">
+
+        <div class="corporate-uniforms-text">
+
+            <div class="corporate-uniforms-number">02</div>
+
+            <h3>Office & Business Attire</h3>
+
+            <p>
+                Formal and business-oriented uniform solutions support
+                professional workplace environments through coordinated
+                garments, suitable fabrics, practical designs and
+                consistent sizing requirements.
+            </p>
+
+        </div>
+
+        <div class="corporate-uniforms-image corporate-uniforms-image-2"></div>
+
+    </div>
+
+    <!-- 03 -->
+    <div class="corporate-uniforms-section">
+
+        <div class="corporate-uniforms-text">
+
+            <div class="corporate-uniforms-number">03</div>
+
+            <h3>Hospitality & Service Uniforms</h3>
+
+            <p>
+                CTC supports hospitality and service-sector uniform
+                requirements with coordinated garments for hotels,
+                restaurants, reception teams and customer-facing
+                professional environments.
+            </p>
+
+        </div>
+
+        <div class="corporate-uniforms-image corporate-uniforms-image-3"></div>
+
+    </div>
+
+    <!-- 04 -->
+    <div class="corporate-uniforms-section reverse">
+
+        <div class="corporate-uniforms-text">
+
+            <div class="corporate-uniforms-number">04</div>
+
+            <h3>Custom Design & Branding</h3>
+
+            <p>
+                Corporate uniform programs can be coordinated around
+                approved colors, garment specifications, branding
+                requirements and consistent designs for an organized
+                professional appearance.
+            </p>
+
+        </div>
+
+        <div class="corporate-uniforms-image corporate-uniforms-image-4"></div>
+
+    </div>
+
+    <!-- 05 -->
+    <div class="corporate-uniforms-section">
+
+        <div class="corporate-uniforms-text">
+
+            <div class="corporate-uniforms-number">05</div>
+
+            <h3>Fabric Quality & Size Planning</h3>
+
+            <p>
+                CTC coordinates fabric selection, garment construction,
+                sizing specifications, finishing requirements and
+                quantity planning to support reliable uniform supply
+                for different workforce requirements.
+            </p>
+
+        </div>
+
+        <div class="corporate-uniforms-image corporate-uniforms-image-5"></div>
+
+    </div>
+
+    <!-- 06 -->
+    <div class="corporate-uniforms-section reverse">
+
+        <div class="corporate-uniforms-text">
+
+            <div class="corporate-uniforms-number">06</div>
+
+            <h3>International Uniform Markets</h3>
+
+            <p>
+                CTC supports organized uniform sourcing and supply for
+                international markets through supplier coordination,
+                product planning, quality requirements and dependable
+                export-oriented textile solutions.
+            </p>
+
+        </div>
+
+        <div class="corporate-uniforms-image corporate-uniforms-image-6"></div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="corporate-uniforms-cta">
+
+    <h2>Looking for Corporate Uniform Products?</h2>
+
+    <p>
+        Connect with CTC for professional corporate uniform sourcing,
+        supply coordination and international textile market solutions.
+    </p>
+
+    <div class="corporate-uniforms-buttons">
+
+        <a href="{{ url_for('trading_quote') }}"
+           class="corporate-uniforms-btn">
+            SEND REQUIREMENT
+        </a>
+
+        <a href="{{ url_for('trading') }}"
+           class="corporate-uniforms-btn">
+            BACK TO TRADING
+        </a>
+
+        <a href="/"
+           class="corporate-uniforms-btn">
+            BACK TO HOME
+        </a>
+
+    </div>
+
+    <div class="corporate-uniforms-email">
+        ceo@capitalgroup.pk
+    </div>
+
+</section>
+```
+
+</div>
+
+{% endblock %}

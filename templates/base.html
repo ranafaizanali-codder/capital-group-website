@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html
+    lang="{{ current_language }}"
+    dir="{{ 'rtl' if current_language == 'ar' else 'ltr' }}"
+>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Capital Group — Developing Businesses Creating Solutions."
+    >
+
+    <title>
+        {% block title %}
+        Capital Group
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     ACCESSIBILITY
+     ========================================================= -->
+
+<a
+    href="#main-content"
+    class="skip-link"
+>
+    Skip to main content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header>
+
+
+    <!-- =====================================================
+         CAPITAL GROUP LOGO
+         ===================================================== -->
+
+    <a
+        href="{{ url_for('home') }}"
+        class="logo"
+        aria-label="Capital Group Home"
+        translate="no"
+    >
+
+        <img
+            src="{{ url_for('static', filename='capital_group_logo.png') }}"
+            alt="Capital Group Logo"
+            translate="no"
+        >
+
+    </a>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav aria-label="Main navigation">
+
+
+        <!-- HOME -->
+
+        <a href="{{ url_for('home') }}">
+            HOME
+        </a>
+
+
+        <!-- ABOUT -->
+
+        <a href="{{ url_for('about') }}">
+            ABOUT US
+        </a>
+        <!-- OUR CLIENTS -->
+
+<a href="{{ url_for('clients') }}">
+    OUR CLIENTS
+</a>
+
+
+
+
+        <!-- =================================================
+             FOLLOW US DROPDOWN
+             ================================================= -->
+
+        <div class="dropdown">
+
+            <a href="{{ url_for('follow') }}">
+                FOLLOW US ▾
+            </a>
+
+
+            <div class="dropdown-content">
+
+
+                <a
+                    href="{{ url_for('follow') }}"
+                    translate="no"
+                >
+                    TikTok
+                </a>
+
+
+                <a
+                    href="{{ url_for('follow') }}"
+                    translate="no"
+                >
+                    YouTube
+                </a>
+
+
+                <a
+                    href="{{ url_for('follow') }}"
+                    translate="no"
+                >
+                    Instagram
+                </a>
+
+
+                <a
+                    href="{{ url_for('follow') }}"
+                    translate="no"
+                >
+                    LinkedIn
+                </a>
+
+
+                <a
+                    href="{{ url_for('follow') }}"
+                    translate="no"
+                >
+                    Facebook
+                </a>
+
+
+                <a
+                    href="{{ url_for('follow') }}"
+                    translate="no"
+                >
+                    Pinterest
+                </a>
+
+
+                <a href="{{ url_for('follow') }}">
+                    Video
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <a href="{{ url_for('contact') }}">
+            CONTACT US
+        </a>
+
+
+        <!-- =================================================
+             LANGUAGE FLAGS
+             ================================================= -->
+
+        <div class="language-switcher">
+
+
+            <!-- ================= ARABIC ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='ar') }}"
+                class="language-item"
+                title="العربية"
+                data-language="ar"
+                onclick="changeWebsiteLanguage(event, 'ar')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='arabic.png') }}"
+                    alt="العربية"
+                >
+
+                <span>
+                    العربية
+                </span>
+
+            </a>
+
+
+            <!-- ================= CHINESE ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='zh') }}"
+                class="language-item"
+                title="中文"
+                data-language="zh"
+                onclick="changeWebsiteLanguage(event, 'zh')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='chinese.png') }}"
+                    alt="中文"
+                >
+
+                <span>
+                    中文
+                </span>
+
+            </a>
+
+
+            <!-- ================= SPANISH ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='es') }}"
+                class="language-item"
+                title="Español"
+                data-language="es"
+                onclick="changeWebsiteLanguage(event, 'es')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='spanish.png') }}"
+                    alt="Español"
+                >
+
+                <span>
+                    Español
+                </span>
+
+            </a>
+
+
+            <!-- ================= FRENCH ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='fr') }}"
+                class="language-item"
+                title="Français"
+                data-language="fr"
+                onclick="changeWebsiteLanguage(event, 'fr')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='french.png') }}"
+                    alt="Français"
+                >
+
+                <span>
+                    Français
+                </span>
+
+            </a>
+
+
+            <!-- ================= RUSSIAN ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='ru') }}"
+                class="language-item"
+                title="Русский"
+                data-language="ru"
+                onclick="changeWebsiteLanguage(event, 'ru')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='russian.png') }}"
+                    alt="Русский"
+                >
+
+                <span>
+                    Русский
+                </span>
+
+            </a>
+
+
+            <!-- ================= GERMAN ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='de') }}"
+                class="language-item"
+                title="Deutsch"
+                data-language="de"
+                data-language="de"
+                onclick="changeWebsiteLanguage(event, 'de')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='german.png') }}"
+                    alt="Deutsch"
+                >
+
+                <span>
+                    Deutsch
+                </span>
+
+            </a>
+
+
+            <!-- ================= PORTUGUESE ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='pt') }}"
+                class="language-item"
+                title="Português"
+                data-language="pt"
+                onclick="changeWebsiteLanguage(event, 'pt')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='portuguese.png') }}"
+                    alt="Português"
+                >
+
+                <span>
+                    Português
+                </span>
+
+            </a>
+
+
+            <!-- ================= TURKISH ================= -->
+
+            <a
+                href="{{ url_for('set_language', language='tr') }}"
+                class="language-item"
+                title="Türkçe"
+                data-language="tr"
+                onclick="changeWebsiteLanguage(event, 'tr')"
+            >
+
+                <img
+                    src="{{ url_for('static', filename='turkish.png') }}"
+                    alt="Türkçe"
+                >
+
+                <span>
+                    Türkçe
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </nav>
+
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<main id="main-content">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+
+    <div>
+
+        <strong translate="no">
+            CAPITAL GROUP
+        </strong>
+
+        <p>
+            Indigenous Innovations • Global Vision
+        </p>
+
+    </div>
+
+
+    <a
+        href="mailto:ceo@capitalgroup.pk"
+        class="footer-email"
+        translate="no"
+    >
+        ceo@capitalgroup.pk
+    </a>
+
+
+</footer>
+
+
+<!-- =========================================================
+     GOOGLE TRANSLATE
+     =========================================================
+
+     IMPORTANT:
+
+     Google Translate is ONLY initialized when Flask
+     says the selected language is NOT English.
+
+     Therefore:
+
+     English = no Google Translate
+     Russian = Google Translate
+     Chinese = Google Translate
+     etc.
+
+     ========================================================= -->
+
+{% if current_language != 'en' %}
+
+
+<div
+    id="google_translate_element"
+    aria-hidden="true"
+    style="
+        position:absolute;
+        left:-9999px;
+        top:-9999px;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+    "
+></div>
+
+
+<script>
+
+    /* =====================================================
+       CAPITAL GROUP SUPPORTED LANGUAGES
+       ===================================================== */
+
+    const CAPITAL_LANGUAGES = [
+        "en",
+        "ar",
+        "zh",
+        "es",
+        "fr",
+        "ru",
+        "de",
+        "pt",
+        "tr"
+    ];
+
+
+    /* =====================================================
+       FLASK SELECTED LANGUAGE
+       ===================================================== */
+
+    const CURRENT_CAPITAL_LANGUAGE =
+        "{{ current_language|default('en') }}";
+
+
+    /* =====================================================
+       SAVE LANGUAGE
+       ===================================================== */
+
+    function saveCapitalLanguage(language) {
+
+        try {
+
+            localStorage.setItem(
+                "capital_group_language",
+                language
+            );
+
+        } catch (error) {
+
+            console.log(
+                "Could not save language:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PAGE DIRECTION
+       ===================================================== */
+
+    function setPageDirection(language) {
+
+        if (language === "ar") {
+
+            document.documentElement.dir = "rtl";
+
+        } else {
+
+            document.documentElement.dir = "ltr";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       APPLY GOOGLE TRANSLATION
+       ===================================================== */
+
+    function applyGoogleTranslation(language) {
+
+        if (!CAPITAL_LANGUAGES.includes(language)) {
+
+            return;
+
+        }
+
+
+        /*
+         * English does NOT use Google Translate.
+         *
+         * Flask already renders English as the original
+         * website language.
+         */
+
+        if (language === "en") {
+
+            return;
+
+        }
+
+
+        const startTime = Date.now();
+
+        const timeout = 15000;
+
+
+        function tryTranslation() {
+
+            const combo =
+                document.querySelector(".goog-te-combo");
+
+
+            if (combo) {
+
+                combo.value = language;
+
+
+                combo.dispatchEvent(
+                    new Event("change", {
+                        bubbles: true
+                    })
+                );
+
+
+                console.log(
+                    "Capital Group translated to:",
+                    language
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                Date.now() - startTime <
+                timeout
+            ) {
+
+                setTimeout(
+                    tryTranslation,
+                    250
+                );
+
+            }
+
+        }
+
+
+        tryTranslation();
+
+    }
+
+
+    /* =====================================================
+       LANGUAGE FLAG CLICK
+       ===================================================== */
+
+    function changeWebsiteLanguage(
+        event,
+        language
+    ) {
+
+        event.preventDefault();
+
+
+        if (
+            !CAPITAL_LANGUAGES.includes(language)
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+         * Save selected language locally.
+         *
+         * This is only for remembering the user's
+         * choice.
+         *
+         * It does NOT override Flask.
+         */
+
+        saveCapitalLanguage(language);
+
+
+        /*
+         * Set text direction immediately.
+         */
+
+        setPageDirection(language);
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Do NOT manually trigger Google Translate
+         * before Flask changes the session.
+         *
+         * Flask must decide the language first.
+         */
+
+
+        /*
+         * Navigate immediately to Flask's language route.
+         *
+         * Flask will:
+         *
+         * 1. Save language in session.
+         * 2. Set/remove googtrans cookie.
+         * 3. Redirect back to current page.
+         */
+
+        window.location.href =
+            event.currentTarget.href;
+
+    }
+
+
+    /* =====================================================
+       GOOGLE TRANSLATE INITIALIZATION
+       ===================================================== */
+
+    function googleTranslateElementInit() {
+
+        if (
+            typeof google === "undefined" ||
+            !google.translate
+        ) {
+
+            console.log(
+                "Google Translate API not available yet."
+            );
+
+            return;
+
+        }
+
+
+        new google.translate.TranslateElement({
+
+            pageLanguage: "en",
+
+            includedLanguages:
+                "en,ar,zh-CN,es,fr,ru,de,pt,tr",
+
+            autoDisplay: false,
+
+            multilanguagePage: true
+
+        }, "google_translate_element");
+
+
+        /*
+         * Apply ONLY the language Flask selected.
+         */
+
+        setTimeout(function() {
+
+            applyGoogleTranslation(
+                CURRENT_CAPITAL_LANGUAGE
+            );
+
+        }, 500);
+
+    }
+
+
+    /* =====================================================
+       PAGE LOAD
+       ===================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            /*
+             * IMPORTANT:
+             *
+             * DO NOT read localStorage here to determine
+             * the language.
+             *
+             * Flask is the single source of truth.
+             */
+
+
+            setPageDirection(
+                CURRENT_CAPITAL_LANGUAGE
+            );
+
+
+            /*
+             * Apply exactly the language Flask selected.
+             */
+
+            setTimeout(function() {
+
+                applyGoogleTranslation(
+                    CURRENT_CAPITAL_LANGUAGE
+                );
+
+            }, 1000);
+
+        }
+    );
+
+</script>
+
+
+<!-- =========================================================
+     GOOGLE TRANSLATE SCRIPT
+     ========================================================= -->
+
+<script
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    async
+></script>
+
+
+{% else %}
+
+
+<!-- =========================================================
+     ENGLISH MODE
+     =========================================================
+
+     Google Translate is NOT loaded.
+
+     Clear any old local browser language state so an old
+     Russian/Chinese/etc. preference cannot override English.
+     ========================================================= -->
+
+<script>
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            /*
+             * English is controlled by Flask.
+             */
+
+            document.documentElement.lang = "en";
+
+            document.documentElement.dir = "ltr";
+
+
+            /*
+             * Remove old locally saved language.
+             */
+
+            try {
+
+                localStorage.removeItem(
+                    "capital_group_language"
+                );
+
+            } catch (error) {
+
+                console.log(
+                    "Could not clear language:",
+                    error
+                );
+
+            }
+
+
+            /*
+             * Remove old Google Translate cookie.
+             */
+
+            document.cookie =
+                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+
+            /*
+             * Also try common localhost cookie variant.
+             */
+
+            document.cookie =
+                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
+
+        }
+    );
+
+</script>
+
+
+{% endif %}
+
+
+</body>
+
+</html>

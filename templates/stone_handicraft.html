@@ -1,0 +1,587 @@
+{% extends "base.html" %}
+
+{% block title %}
+Stone Handicraft | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING — STONE HANDICRAFT
+   HARIPUR / HAZARA
+   ========================================================= */
+
+.stone-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+
+/* ================= HERO ================= */
+
+.stone-hero {
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 29, 45, 0.94) 0%,
+            rgba(6, 29, 45, 0.78) 43%,
+            rgba(6, 29, 45, 0.36) 100%
+        ),
+        url("https://i.dawn.com/2012/12/pakistani-labourers-economy-4.jpg")
+        center center / cover no-repeat;
+}
+
+.stone-hero-content {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.stone-label {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.stone-hero h1 {
+    color: #ffffff;
+    font-size: clamp(42px, 5vw, 70px);
+    line-height: 1.08;
+    max-width: 900px;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.stone-hero p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 850px;
+    margin: 0;
+}
+
+
+/* ================= INTRO ================= */
+
+.stone-intro {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px 40px;
+    text-align: center;
+}
+
+.stone-intro h2 {
+    color: #12384f;
+    font-size: 36px;
+    margin: 0 0 20px;
+}
+
+.stone-intro p {
+    color: #536773;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+
+/* ================= FEATURES ================= */
+
+.stone-features {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 30px 40px 40px;
+}
+
+.stone-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #d9e0e4;
+}
+
+.stone-feature:last-child {
+    border-bottom: none;
+}
+
+
+/* ================= TEXT ================= */
+
+.stone-feature-text {
+    padding: 10px;
+}
+
+.stone-feature-label {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.stone-feature h2 {
+    color: #12384f;
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.stone-feature p {
+    color: #536773;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 520px;
+}
+
+
+/* ================= IMAGE ================= */
+
+.stone-feature-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e9edef;
+    box-shadow: 0 12px 35px rgba(6, 29, 45, 0.11);
+}
+
+.stone-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.stone-feature:hover .stone-feature-image img {
+    transform: scale(1.03);
+}
+
+
+/* ================= CTA ================= */
+
+.stone-cta {
+    max-width: 1050px;
+    margin: 30px auto 0;
+    padding: 65px 40px 70px;
+    text-align: center;
+}
+
+.stone-cta h2 {
+    color: #12384f;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.stone-cta p {
+    color: #5b6d77;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.stone-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.stone-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.stone-btn-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.stone-btn-primary:hover,
+.stone-btn-primary:focus {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.stone-btn-secondary {
+    background: #061d2d;
+    color: #ffffff;
+}
+
+.stone-btn-secondary:hover,
+.stone-btn-secondary:focus {
+    background: #12384f;
+    color: #ffffff;
+}
+
+.stone-btn:focus-visible {
+    outline: 3px solid #c69b32;
+    outline-offset: 3px;
+}
+
+
+/* ================= EMAIL ================= */
+
+.stone-email {
+    text-align: right;
+    padding: 0 40px 25px;
+    color: #12384f;
+    font-size: 14px;
+}
+
+.stone-email a {
+    color: #12384f;
+    text-decoration: none;
+}
+
+.stone-email a:hover {
+    color: #c69b32;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .stone-hero {
+        min-height: 540px;
+    }
+
+    .stone-hero-content {
+        padding: 70px 25px;
+    }
+
+    .stone-intro {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .stone-features {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .stone-feature {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 45px 0;
+    }
+
+    .stone-feature:nth-child(even) .stone-feature-image {
+        order: -1;
+    }
+
+    .stone-feature-image {
+        height: 310px;
+    }
+
+    .stone-cta {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .stone-email {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .stone-hero h1 {
+        font-size: 40px;
+    }
+
+    .stone-hero p {
+        font-size: 16px;
+    }
+
+    .stone-feature h2 {
+        font-size: 29px;
+    }
+
+    .stone-feature-image {
+        height: 270px;
+    }
+}
+
+</style>
+
+
+<div class="stone-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="stone-hero">
+
+        <div class="stone-hero-content">
+
+            <div class="stone-label">
+                Stone Handicraft Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CC’s Stone Handicraft Division connects the traditional
+                stone-carving skills of Haripur and the Hazara region
+                with contemporary domestic and international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="stone-intro">
+
+        <h2>
+            Haripur Stonecraft — Heritage in Stone
+        </h2>
+
+        <p>
+            Haripur is associated with a distinctive tradition of
+            stone carving, including work in locally available black
+            stone and other natural materials. Skilled artisans shape,
+            engrave and finish stone into decorative and functional
+            pieces through detailed hand craftsmanship.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="stone-features">
+
+
+        <!-- ================= FEATURE 01 ================= -->
+
+        <div class="stone-feature">
+
+            <div class="stone-feature-text">
+
+                <div class="stone-feature-label">
+                    Traditional Craft
+                </div>
+
+                <h2>
+                    Hand-Carved Stonework
+                </h2>
+
+                <p>
+                    Haripur's stone-carving tradition uses chisels,
+                    hammers and careful finishing to transform raw
+                    stone into detailed handcrafted forms.
+                </p>
+
+            </div>
+
+
+            <div class="stone-feature-image">
+
+                <img
+                    src="https://i.dawn.com/2012/12/pakistani-labourers-economy-4.jpg"
+                    alt="Pakistani stone artisans working with traditional carving tools"
+                    loading="eager"
+                    decoding="async"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURE 02 ================= -->
+
+        <div class="stone-feature">
+
+            <div class="stone-feature-image">
+
+                <img
+                  src="https://static.wixstatic.com/media/379e29_125461a79792404592f1b026eb783058~mv2.jpg/v1/fill/w_980%2Ch_942%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/379e29_125461a79792404592f1b026eb783058~mv2.jpg"
+                    alt="Detailed carved stone sculpture"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+
+            <div class="stone-feature-text">
+
+                <div class="stone-feature-label">
+                    Natural Materials
+                </div>
+
+                <h2>
+                    Black Stone &amp; Natural Stone
+                </h2>
+
+                <p>
+                    Local stone materials provide the foundation for
+                    handcrafted decoration, carving and architectural
+                    pieces with distinctive natural textures.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURE 03 ================= -->
+
+        <div class="stone-feature">
+
+            <div class="stone-feature-text">
+
+                <div class="stone-feature-label">
+                    Signature Detail
+                </div>
+
+                <h2>
+                    Floral &amp; Geometric Engraving
+                </h2>
+
+                <p>
+                    Artisans create floral, geometric and calligraphic
+                    details with controlled hand engraving, giving each
+                    piece its own character and visual depth.
+                </p>
+
+            </div>
+
+
+            <div class="stone-feature-image">
+
+                <img
+                    src="https://cpimg.tistatic.com/10114004/b/4/Marble-Artifact..jpg"
+                    alt="Intricately carved stone decorative pieces"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURE 04 ================= -->
+
+        <div class="stone-feature">
+
+            <div class="stone-feature-image">
+
+                <img
+                  src="{{ url_for('static', filename='decorative_and_functional_image.jpg') }}"
+                    alt="Traditional Pakistani stone artisan carving decorative stone"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+
+            <div class="stone-feature-text">
+
+                <div class="stone-feature-label">
+                    Crafted Collections
+                </div>
+
+                <h2>
+                    Decorative &amp; Functional Pieces
+                </h2>
+
+                <p>
+                    Stone craftsmanship can be developed into trays,
+                    vessels, decorative panels, architectural accents
+                    and distinctive handcrafted objects for modern spaces.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="stone-cta">
+
+        <h2>
+            Looking for Stone Handicraft Products?
+        </h2>
+
+        <p>
+            Share your requirements with Capital Trading Corporation
+            for sourcing and supply of selected stone handicraft
+            products from Pakistan.
+        </p>
+
+        <div class="stone-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="stone-btn stone-btn-primary">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="stone-btn stone-btn-secondary">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="stone-btn stone-btn-secondary">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EMAIL ================= -->
+
+    <div class="stone-email">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

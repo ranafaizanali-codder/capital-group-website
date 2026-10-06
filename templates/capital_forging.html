@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.forging-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+.forging-hero {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,0.94), rgba(6,29,45,0.58)),
+        url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=85")
+        center / cover no-repeat;
+}
+
+.forging-hero-content {
+    max-width: 1180px;
+    width: 100%;
+    margin: auto;
+    padding: 90px 6%;
+    color: #fff;
+}
+
+.forging-eyebrow {
+    color: #d2a43b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.forging-hero h1 {
+    font-size: clamp(2.3rem, 5vw, 4.6rem);
+    line-height: 1.05;
+    margin: 0 0 20px;
+    font-weight: 700;
+}
+
+.forging-hero p {
+    max-width: 760px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+}
+
+.forging-container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 80px 6%;
+}
+
+.forging-intro {
+    max-width: 850px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+.forging-intro h2 {
+    color: #061d2d;
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.forging-intro p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.forging-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    margin-bottom: 90px;
+}
+
+.forging-section.reverse .forging-image {
+    order: 2;
+}
+
+.forging-section.reverse .forging-copy {
+    order: 1;
+}
+
+.forging-image {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(6,29,45,0.13);
+}
+
+.forging-copy h2 {
+    color: #061d2d;
+    font-size: 2rem;
+    margin: 0 0 18px;
+}
+
+.forging-copy p {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    margin: 0;
+    max-width: 560px;
+}
+
+.forging-number {
+    display: block;
+    color: #c69b32;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.forging-cta {
+    background: #061d2d;
+    color: #fff;
+    text-align: center;
+    padding: 70px 6%;
+}
+
+.forging-cta h2 {
+    margin: 0 0 14px;
+    font-size: 2rem;
+}
+
+.forging-cta p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.82);
+}
+
+.forging-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.forging-btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid #d2a43b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: 0.25s ease;
+}
+
+.forging-btn.primary {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.forging-btn.secondary {
+    background: transparent;
+    color: #fff;
+}
+
+.forging-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+@media (max-width: 800px) {
+    .forging-hero {
+        min-height: 480px;
+    }
+
+    .forging-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 65px;
+    }
+
+    .forging-section.reverse .forging-image,
+    .forging-section.reverse .forging-copy {
+        order: initial;
+    }
+
+    .forging-image {
+        height: 300px;
+    }
+
+    .forging-container {
+        padding: 60px 5%;
+    }
+}
+</style>
+
+<div class="forging-page">
+
+    <!-- HERO -->
+    <section class="forging-hero">
+        <div class="forging-hero-content">
+
+            <div class="forging-eyebrow">
+                Forging Division
+            </div>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CCs Forging Division offers complete range of forging services
+                with under mentioned forging facilities for industrial and
+                specialized applications.
+            </p>
+
+        </div>
+    </section>
+
+
+    <main class="forging-container">
+
+        <!-- INTRO -->
+        <section class="forging-intro">
+            <h2>Advanced Forging Capabilities</h2>
+            <p>
+                Our forging capabilities support the production of durable,
+                high-strength components through controlled forming processes
+                selected according to component geometry, material and application.
+            </p>
+        </section>
+
+
+        <!-- OPEN FORGING -->
+        <section class="forging-section">
+
+            <img
+                class="forging-image"
+                src="https://live.cdn.cms.sms-group.com/_processed_/6/6/csm_Hitachi_FF_Presse_90_108_MN_04_aeaf2826c3.webp"
+                alt="Industrial open die forging operation"
+                loading="lazy">
+
+            <div class="forging-copy">
+
+                <span class="forging-number">01 · FORGING PROCESS</span>
+
+                <h2>Open Forging</h2>
+
+                <p>
+                    Open forging supports large shafts, blocks, rings and
+                    heavy-duty components using controlled deformation between
+                    open dies. The process provides flexibility for specialized
+                    geometries and large-section industrial components.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLOSED FORGING -->
+        <section class="forging-section reverse">
+
+            <img
+                class="forging-image"
+                src="https://image.made-in-china.com/318f0j00QTLUwhYRuPpy/video-of-press-mp4.webp"
+                alt="Closed die forging industrial process"
+                loading="lazy">
+
+            <div class="forging-copy">
+
+                <span class="forging-number">02 · FORGING PROCESS</span>
+
+                <h2>Close Forging</h2>
+
+                <p>
+                    Close forging forms heated metal within shaped dies to
+                    achieve repeatable component geometry and controlled
+                    material flow. It is suitable for engineered components
+                    requiring strength, consistency and production repeatability.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DROP FORGING -->
+        <section class="forging-section">
+
+            <img
+                class="forging-image"
+                src="https://dabrox.com/view/uploads/6/30/19/191927-9771.jpeg"
+                alt="Industrial drop forging process"
+                loading="lazy">
+
+            <div class="forging-copy">
+
+                <span class="forging-number">03 · FORGING PROCESS</span>
+
+                <h2>Drop Forging</h2>
+
+                <p>
+                    Drop forging uses controlled impact from a forging hammer
+                    to shape heated metal within dies. The process is suited
+                    to repeatable production of strong components with defined
+                    geometry and high structural integrity.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRESS FORGING -->
+        <section class="forging-section reverse">
+
+            <img
+                class="forging-image"
+              src="https://ld-gmbh.com/ld_files/WWW/Web-Attachments/10%20Machines/Machines%202020/Schuler/Pictures/SCHULER%20PAR%20325.png"
+                alt="Industrial hydraulic press forging machine"
+                loading="lazy">
+
+            <div class="forging-copy">
+
+                <span class="forging-number">04 · FORGING PROCESS</span>
+
+                <h2>Press Forging</h2>
+
+                <p>
+                    Press forging applies controlled continuous pressure to
+                    form heated metal with accurate and repeatable deformation.
+                    It supports demanding industrial components where controlled
+                    forming and dimensional consistency are important.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CTA -->
+    <section class="forging-cta">
+
+        <h2>Forging Requirements</h2>
+
+        <p>
+            Share your component drawing, material specification or manufacturing
+            requirement with Capital Engineering Corporation.
+        </p>
+
+        <div class="forging-buttons">
+
+            <a href="{{ url_for('engineering_quote') }}"
+               class="forging-btn primary">
+                REQUEST FOR REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="forging-btn secondary">
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

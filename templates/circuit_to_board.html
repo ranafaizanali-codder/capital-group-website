@@ -1,0 +1,529 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 144 - Circuit to Board: Fundamentals of Electronics and PCB Prototyping | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .circuit-hero {
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        padding: 90px 8%;
+        background:
+            linear-gradient(90deg, rgba(6,29,45,0.94), rgba(6,29,45,0.68)),
+            url("https://toslanka.com/articles/prototyping_electronics.webp")
+            center/cover no-repeat;
+    }
+
+    .circuit-hero-content {
+        max-width: 760px;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .circuit-label {
+        display: inline-block;
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .circuit-hero h1 {
+        font-size: 48px;
+        line-height: 1.15;
+        margin-bottom: 22px;
+        font-weight: 700;
+    }
+
+    .circuit-hero p {
+        max-width: 720px;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e8eef2;
+    }
+
+    .circuit-container {
+        width: min(1120px, 92%);
+        margin: auto;
+    }
+
+    .circuit-section {
+        padding: 75px 0;
+    }
+
+    .circuit-intro {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .section-label {
+        color: #c69b32;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .circuit-intro h2 {
+        font-size: 36px;
+        color: #12384f;
+        margin-bottom: 20px;
+        line-height: 1.25;
+    }
+
+    .circuit-intro p {
+        color: #526572;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .content-block {
+        margin-top: 45px;
+    }
+
+    .content-block h2 {
+        color: #12384f;
+        font-size: 28px;
+        margin-bottom: 22px;
+        border-left: 4px solid #c69b32;
+        padding-left: 14px;
+    }
+
+    .objective-list,
+    .attendee-list {
+        padding-left: 24px;
+        color: #526572;
+    }
+
+    .objective-list li,
+    .attendee-list li {
+        margin-bottom: 11px;
+    }
+
+    .syllabus-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .syllabus-card {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(18,56,79,0.06);
+    }
+
+    .syllabus-card h3 {
+        color: #12384f;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .syllabus-card ul {
+        padding-left: 20px;
+        color: #526572;
+    }
+
+    .syllabus-card li {
+        margin-bottom: 8px;
+    }
+
+    .circuit-cta {
+        background: #08283b;
+        padding: 65px 20px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .circuit-cta h2 {
+        font-size: 32px;
+        margin-bottom: 14px;
+    }
+
+    .circuit-cta p {
+        max-width: 720px;
+        margin: 0 auto 28px;
+        color: #dce7ed;
+    }
+
+    .circuit-btn {
+        display: inline-block;
+        padding: 13px 25px;
+        margin: 5px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease;
+    }
+
+    .circuit-btn:hover {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .circuit-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .circuit-btn.primary:hover {
+        background: #d2a43b;
+    }
+
+    @media (max-width: 900px) {
+        .circuit-hero {
+            min-height: 560px;
+            padding: 70px 7%;
+        }
+
+        .circuit-hero h1 {
+            font-size: 38px;
+        }
+
+        .syllabus-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .circuit-hero {
+            min-height: 520px;
+            padding: 60px 6%;
+        }
+
+        .circuit-hero h1 {
+            font-size: 31px;
+        }
+
+        .circuit-hero p {
+            font-size: 15px;
+        }
+
+        .circuit-intro h2 {
+            font-size: 29px;
+        }
+
+        .circuit-section {
+            padding: 55px 0;
+        }
+    }
+</style>
+
+
+<!-- HERO -->
+<section class="circuit-hero">
+
+    <div class="circuit-hero-content">
+
+        <span class="circuit-label">
+            Advanced Electronics Engineering Department
+        </span>
+
+        <h1>
+            Strategic Insight and Expertise for Sustainable Business Growth
+        </h1>
+
+        <p>
+            CC’s professional electronics and PCB prototyping training
+            covers circuit design, simulation, PCB layout, fabrication,
+            assembly, testing and complete concept-to-prototype development.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- COURSE CONTENT -->
+<section class="circuit-section">
+
+    <div class="circuit-container">
+
+        <!-- INTRO -->
+        <div class="circuit-intro">
+
+            <div class="section-label">
+                Professional Training Program
+            </div>
+
+            <h2>
+                EEE 144 - Circuit to Board: Fundamentals of Electronics and PCB Prototyping
+            </h2>
+
+            <p>
+                This intensive program provides a rapid and comprehensive introduction
+                to the entire lifecycle of modern electronic product development.
+            </p>
+
+            <p>
+                Participants will quickly build a foundation in circuit theory,
+                transition to practical schematic capture and simulation, and master
+                the full process of PCB design, fabrication, assembly and testing.
+            </p>
+
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="content-block">
+
+            <h2>
+                Course Objectives
+            </h2>
+
+            <ul class="objective-list">
+
+                <li>
+                    Analyze basic electronic circuits using fundamental laws
+                    and identify standard components and symbols.
+                </li>
+
+                <li>
+                    Utilize circuit simulation software such as LTspice to design,
+                    simulate and validate basic circuit schematics.
+                </li>
+
+                <li>
+                    Apply the key stages of the PCB design workflow, including
+                    component placement, trace routing and Design Rules Check (DRC).
+                </li>
+
+                <li>
+                    Understand the industrial processes involved in PCB fabrication
+                    including etching, drilling, plating and quality control.
+                </li>
+
+                <li>
+                    Differentiate between manual and SMT soldering and assembly
+                    techniques and perform basic board testing and troubleshooting.
+                </li>
+
+                <li>
+                    Complete a basic integrated project demonstrating the full
+                    concept-to-prototype development path.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="content-block">
+
+            <h2>
+                Who Should Attend?
+            </h2>
+
+            <ul class="attendee-list">
+
+                <li>
+                    Aspiring Hardware Engineers and Technicians
+                </li>
+
+                <li>
+                    Mechanical or Software Engineers
+                </li>
+
+                <li>
+                    Product Managers
+                </li>
+
+                <li>
+                    Project Leads
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="content-block">
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+            <div class="syllabus-grid">
+
+
+                <!-- DAY 1 -->
+                <div class="syllabus-card">
+
+                    <h3>
+                        Day 1
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Overview of electronic components and symbols
+                        </li>
+
+                        <li>
+                            Circuit Theory and Basic Laws
+                        </li>
+
+                        <li>
+                            Analog and Digital Circuits
+                        </li>
+
+                        <li>
+                            Circuit Simulation Overview
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 2 -->
+                <div class="syllabus-card">
+
+                    <h3>
+                        Day 2
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Circuit Design Fundamentals
+                        </li>
+
+                        <li>
+                            Introduction to PCB Concepts
+                        </li>
+
+                        <li>
+                            PCB Design Tool Basics
+                        </li>
+
+                        <li>
+                            Design Rules and Routing
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 3 -->
+                <div class="syllabus-card">
+
+                    <h3>
+                        Day 3
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            PCB Fabrication Process
+                        </li>
+
+                        <li>
+                            PCB Assembly and Soldering
+                        </li>
+
+                        <li>
+                            Board Testing and Troubleshooting
+                        </li>
+
+                        <li>
+                            Project Kick-off
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 4 -->
+                <div class="syllabus-card">
+
+                    <h3>
+                        Day 4
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Simple Design Project (Hands-on/Guided Practice)
+                        </li>
+
+                        <li>
+                            Fabrication Wrap-up
+                        </li>
+
+                        <li>
+                            Assembly and Testing
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 5 -->
+                <div class="syllabus-card">
+
+                    <h3>
+                        Day 5
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Technical Field Visit to Relevant Authorities
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="circuit-cta">
+
+    <h2>
+        Develop Your Electronics & PCB Prototyping Expertise
+    </h2>
+
+    <p>
+        Connect with Capital Consultants for professional electronics training,
+        PCB design guidance and practical prototype development.
+    </p>
+
+    <a href="{{ url_for('circuit_to_board_registration') }}"
+       class="circuit-btn primary">
+        REGISTER FOR COURSE
+    </a>
+
+    <a href="{{ url_for('home') }}"
+       class="circuit-btn">
+        GO HOME
+    </a>
+
+</section>
+
+{% endblock %}

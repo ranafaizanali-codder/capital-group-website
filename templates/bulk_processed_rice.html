@@ -1,0 +1,755 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Bulk / Processed Rice | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================================================
+   CAPITAL TRADING - BULK / PROCESSED RICE
+   ========================================================= */
+
+.bulk-rice-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.bulk-rice-hero {
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.72),
+            rgba(6, 29, 45, 0.72)
+        ),
+       url("https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=2400&q=90")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+}
+
+.bulk-rice-hero-content {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.bulk-rice-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.bulk-rice-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.bulk-rice-hero p {
+    max-width: 850px;
+    margin: 0;
+
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* ================= PRODUCTS ================= */
+
+.bulk-rice-products {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 75px 0;
+}
+
+.bulk-rice-products-heading {
+    margin-bottom: 45px;
+}
+
+.bulk-rice-products-heading h2 {
+    margin: 0 0 10px;
+
+    color: #12384f;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.bulk-rice-products-heading p {
+    margin: 0;
+
+    color: #667781;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* ================= PRODUCT SECTIONS ================= */
+
+.bulk-rice-product-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 390px;
+
+    margin-bottom: 55px;
+
+    background: #ffffff;
+    border: 1px solid #dce3e7;
+
+    box-shadow: 0 10px 30px rgba(6, 29, 45, 0.07);
+}
+
+.bulk-rice-product-section:last-child {
+    margin-bottom: 0;
+}
+
+
+/* IMAGE */
+
+.bulk-rice-product-image {
+    min-height: 390px;
+    overflow: hidden;
+}
+
+.bulk-rice-product-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 390px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.45s ease;
+}
+
+.bulk-rice-product-section:hover
+.bulk-rice-product-image img {
+    transform: scale(1.03);
+}
+
+
+/* TEXT */
+
+.bulk-rice-product-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+.bulk-rice-product-number {
+    margin-bottom: 12px;
+
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.bulk-rice-product-content h3 {
+    margin: 0 0 16px;
+
+    color: #12384f;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.bulk-rice-product-content p {
+    margin: 0 0 22px;
+
+    color: #667781;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* FEATURES */
+
+.bulk-rice-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 25px;
+
+    margin-top: 5px;
+}
+
+.bulk-rice-feature {
+    position: relative;
+
+    padding-left: 17px;
+
+    color: #12384f;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.bulk-rice-feature::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+
+    width: 6px;
+    height: 6px;
+
+    background: #d2a43b;
+    border-radius: 50%;
+}
+
+
+/* ALTERNATING SECTIONS */
+
+.bulk-rice-product-section.reverse
+.bulk-rice-product-image {
+    order: 2;
+}
+
+.bulk-rice-product-section.reverse
+.bulk-rice-product-content {
+    order: 1;
+}
+
+
+/* ================= CTA ================= */
+
+.bulk-rice-cta {
+    background: #061d2d;
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.bulk-rice-cta h2 {
+    margin: 0 0 24px;
+
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.bulk-rice-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.bulk-rice-cta-buttons a {
+    display: inline-block;
+
+    padding: 13px 24px;
+
+    border: 1px solid #d2a43b;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    transition: all 0.25s ease;
+}
+
+.bulk-rice-cta-buttons a:hover {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.bulk-rice-email {
+    margin-top: 22px;
+
+    color: #d2a43b;
+    font-size: 14px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .bulk-rice-product-section {
+        grid-template-columns: 1fr;
+    }
+
+    .bulk-rice-product-section.reverse
+    .bulk-rice-product-image {
+        order: 1;
+    }
+
+    .bulk-rice-product-section.reverse
+    .bulk-rice-product-content {
+        order: 2;
+    }
+
+    .bulk-rice-product-image,
+    .bulk-rice-product-image img {
+        min-height: 320px;
+    }
+
+    .bulk-rice-product-content {
+        padding: 40px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .bulk-rice-hero {
+        min-height: 500px;
+    }
+
+    .bulk-rice-products {
+        padding: 50px 0;
+    }
+
+    .bulk-rice-hero p {
+        font-size: 15px;
+    }
+
+    .bulk-rice-product-content {
+        padding: 30px 25px;
+    }
+
+    .bulk-rice-product-content h3 {
+        font-size: 25px;
+    }
+
+    .bulk-rice-product-image,
+    .bulk-rice-product-image img {
+        min-height: 250px;
+    }
+
+    .bulk-rice-features {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+
+<div class="bulk-rice-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="bulk-rice-hero">
+
+        <div class="bulk-rice-hero-content">
+
+            <div class="bulk-rice-label">
+                Bulk / Processed Rice Department
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p>
+                CC’s Bulk / Processed Rice Department provides professional
+                sourcing and supply solutions for quality Pakistani rice,
+                connecting reliable producers and exporters with domestic
+                and international food, retail, hospitality and institutional
+                markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="bulk-rice-products">
+
+        <div class="bulk-rice-products-heading">
+
+            <h2>
+                Top Pakistani Rice Products
+            </h2>
+
+            <p>
+                Professional sourcing and supply solutions across Pakistan’s
+                aromatic, basmati and long-grain rice varieties.
+            </p>
+
+        </div>
+
+
+        <!-- ================= 1. AROMATIC RICE ================= -->
+
+        <div class="bulk-rice-product-section">
+
+            <div class="bulk-rice-product-image">
+
+                <img
+                    src="{{ url_for('static', filename='aromatic_rice.jpg') }}"
+                    alt="Aromatic Pakistani Rice"
+                >
+
+            </div>
+
+            <div class="bulk-rice-product-content">
+
+                <div class="bulk-rice-product-number">
+                    Rice Product 01
+                </div>
+
+                <h3>
+                    Aromatic Rice Products
+                </h3>
+
+                <p>
+                    Selected Pakistani aromatic rice offering natural
+                    fragrance, fine grain character and dependable cooking
+                    quality for premium domestic and international markets.
+                </p>
+
+                <div class="bulk-rice-features">
+
+                    <div class="bulk-rice-feature">
+                        Natural Aroma
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Fine Grain
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Premium Selection
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Export Supply
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 2. 1121 BASMATI ================= -->
+
+        <div class="bulk-rice-product-section reverse">
+
+            <div class="bulk-rice-product-image">
+
+                <img
+                    src="{{ url_for('static', filename='1121_basmati.jpg') }}"
+                    alt="1121 Basmati Rice"
+                >
+
+            </div>
+
+            <div class="bulk-rice-product-content">
+
+                <div class="bulk-rice-product-number">
+                    Rice Product 02
+                </div>
+
+                <h3>
+                    1121 Basmati Rice
+                </h3>
+
+                <p>
+                    Extra-long grain Basmati rice known for its slender
+                    appearance, distinctive aroma, excellent elongation and
+                    separate light grains after cooking.
+                </p>
+
+                <div class="bulk-rice-features">
+
+                    <div class="bulk-rice-feature">
+                        Extra Long Grain
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Distinctive Aroma
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Excellent Elongation
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Premium Grade
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 3. SUPER BASMATI ================= -->
+
+        <div class="bulk-rice-product-section">
+
+            <div class="bulk-rice-product-image">
+
+                <img
+                    src="{{ url_for('static', filename='super_basmati.jpg') }}"
+                    alt="Super Basmati Rice"
+                >
+
+            </div>
+
+            <div class="bulk-rice-product-content">
+
+                <div class="bulk-rice-product-number">
+                    Rice Product 03
+                </div>
+
+                <h3>
+                    Super Basmati Rice
+                </h3>
+
+                <p>
+                    Premium Pakistani Basmati rice with long slender grains,
+                    natural aroma, attractive appearance and reliable cooking
+                    performance for quality-focused markets.
+                </p>
+
+                <div class="bulk-rice-features">
+
+                    <div class="bulk-rice-feature">
+                        Long Slender Grain
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Natural Aroma
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Separate Grains
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Export Quality
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 4. BASMATI 385 ================= -->
+
+        <div class="bulk-rice-product-section reverse">
+
+            <div class="bulk-rice-product-image">
+
+                <img
+                    src="{{ url_for('static', filename='basmati_385.jpg') }}"
+                    alt="Basmati 385 Rice"
+                >
+
+            </div>
+
+            <div class="bulk-rice-product-content">
+
+                <div class="bulk-rice-product-number">
+                    Rice Product 04
+                </div>
+
+                <h3>
+                    Basmati 385
+                </h3>
+
+                <p>
+                    A traditional Pakistani Basmati variety featuring long
+                    slender grains, pleasant cooking characteristics and a
+                    dependable texture for domestic and export supply.
+                </p>
+
+                <div class="bulk-rice-features">
+
+                    <div class="bulk-rice-feature">
+                        Traditional Variety
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Long Grain
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Separate Texture
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Pakistan Origin
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 5. PK-386 ================= -->
+
+        <div class="bulk-rice-product-section">
+
+            <div class="bulk-rice-product-image">
+
+                <img
+                    src="{{ url_for('static', filename='pk_386.jpg') }}"
+                    alt="PK-386 Long Grain Rice"
+                >
+
+            </div>
+
+            <div class="bulk-rice-product-content">
+
+                <div class="bulk-rice-product-number">
+                    Rice Product 05
+                </div>
+
+                <h3>
+                    PK-386 Rice
+                </h3>
+
+                <p>
+                    Pakistani long-grain rice with uniform appearance and
+                    dependable grain characteristics, suitable for commercial,
+                    food-service and bulk supply requirements.
+                </p>
+
+                <div class="bulk-rice-features">
+
+                    <div class="bulk-rice-feature">
+                        Long Grain
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Uniform Appearance
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Bulk Supply
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Commercial Use
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= 6. IRRI-9 ================= -->
+
+        <div class="bulk-rice-product-section reverse">
+
+            <div class="bulk-rice-product-image">
+
+                <img
+                    src="{{ url_for('static', filename='irri_9.jpg') }}"
+                    alt="IRRI-9 Long Grain Rice"
+                >
+
+            </div>
+
+            <div class="bulk-rice-product-content">
+
+                <div class="bulk-rice-product-number">
+                    Rice Product 06
+                </div>
+
+                <h3>
+                    IRRI-9 Rice
+                </h3>
+
+                <p>
+                    Pakistani long-grain non-Basmati rice offering consistent
+                    grain characteristics for commercial, institutional,
+                    food-service and everyday consumption markets.
+                </p>
+
+                <div class="bulk-rice-features">
+
+                    <div class="bulk-rice-feature">
+                        Long Grain
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Non-Basmati
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Commercial Supply
+                    </div>
+
+                    <div class="bulk-rice-feature">
+                        Versatile Use
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="bulk-rice-cta">
+
+        <h2>
+            Looking for Bulk / Processed Rice Products?
+        </h2>
+
+        <div class="bulk-rice-cta-buttons">
+
+            <a href="{{ url_for('trading_quote') }}">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}">
+                BACK TO TRADING
+            </a>
+
+            <a href="/">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="bulk-rice-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+```

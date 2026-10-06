@@ -1,0 +1,426 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+/* =========================================
+   ENGINES DIVISION
+========================================= */
+
+.engines-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.engines-hero {
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.92),
+            rgba(6,29,45,.48)
+        ),
+        url("https://www.gknaerospace.com/media/dqchmptj/trollha-ttan-engine-services.jpg?height=1200&v=1db68ff16077be0&width=1800")
+        center / cover no-repeat;
+}
+
+.engines-hero-content {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 90px 0;
+    color: white;
+}
+
+.engines-eyebrow {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.engines-hero h1 {
+    margin: 0 0 18px;
+    max-width: 850px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.engines-hero p {
+    max-width: 760px;
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #f2f6f8;
+}
+
+/* INTRO */
+.engines-intro {
+    width: min(1000px, 90%);
+    margin: auto;
+    padding: 70px 0 45px;
+    text-align: center;
+}
+
+.engines-intro h2 {
+    margin: 0 0 18px;
+    color: #061d2d;
+    font-size: 32px;
+}
+
+.engines-intro p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* SECTIONS */
+.engines-container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.engine-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding: 70px 0;
+    border-top: 1px solid #dfe5e8;
+}
+
+.engine-section.reverse .engine-image-wrap {
+    order: 2;
+}
+
+.engine-section.reverse .engine-copy {
+    order: 1;
+}
+
+/* IMAGE */
+.engine-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e2e7e9;
+    box-shadow: 0 16px 40px rgba(6,29,45,.12);
+}
+
+.engine-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.engine-image-wrap:hover .engine-image {
+    transform: scale(1.03);
+}
+
+/* TEXT */
+.engine-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.engine-copy h2 {
+    margin: 0 0 16px;
+    color: #061d2d;
+    font-size: 31px;
+    line-height: 1.2;
+}
+
+.engine-copy p {
+    max-width: 560px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* CTA */
+.engines-cta {
+    margin-top: 30px;
+    padding: 75px 20px;
+    background: #061d2d;
+    color: white;
+    text-align: center;
+}
+
+.engines-cta h2 {
+    margin: 0 0 14px;
+    font-size: 34px;
+}
+
+.engines-cta p {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    color: #dce5ea;
+    line-height: 1.7;
+}
+
+.engines-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.engines-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #d2a43b;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.engines-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.engines-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+
+    .engines-hero {
+        min-height: 420px;
+    }
+
+    .engine-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 55px 0;
+    }
+
+    .engine-section.reverse .engine-image-wrap,
+    .engine-section.reverse .engine-copy {
+        order: initial;
+    }
+
+    .engine-image {
+        height: 290px;
+    }
+
+    .engines-intro {
+        padding-top: 55px;
+    }
+}
+</style>
+
+
+<div class="engines-page">
+
+    <!-- HERO -->
+    <section class="engines-hero">
+
+        <div class="engines-hero-content">
+
+            <div class="engines-eyebrow">
+                Engines Division
+            </div>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Engines Division provides precision engineering and
+                manufacturing solutions for critical aerospace engine
+                components, turbine systems and high-performance propulsion
+                applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="engines-intro">
+
+        <h2>
+            Aerospace Engine Component Solutions
+        </h2>
+
+        <p>
+            Our capabilities focus on the development, machining and
+            manufacturing of precision engine components and turbine-related
+            systems where dimensional accuracy, material performance and
+            engineering reliability are essential.
+        </p>
+
+    </section>
+
+
+    <div class="engines-container">
+
+
+        <!-- 01 ENGINE COMPONENTS -->
+        <section class="engine-section">
+
+            <div class="engine-image-wrap">
+
+                <img
+                    class="engine-image"
+                    src="https://images.unsplash.com/photo-1741848137437-56fb14b7ba87?auto=format&fit=crop&w=1800&q=85"
+                    alt="Aircraft engine turbine and precision aerospace components"
+                    loading="lazy">
+
+            </div>
+
+            <div class="engine-copy">
+
+                <span class="engine-number">
+                    01 / ENGINE SYSTEMS
+                </span>
+
+                <h2>
+                    Engine Components
+                </h2>
+
+                <p>
+                    CCs precision engineering capabilities support the
+                    manufacturing of critical engine components including
+                    blades, housings, discs, shafts and other complex parts
+                    for demanding aerospace applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 TURBINE SYSTEM -->
+        <section class="engine-section reverse">
+
+            <div class="engine-image-wrap">
+
+                <img
+                    class="engine-image"
+                    src="https://cdn.sanity.io/images/f1gc64oj/production/b8049f057b276d73dc1b64329a3bfbee3a46ace7-1024x1024.jpg?auto=format&q=80&w=1200"
+                    alt="Aerospace turbine blade assembly system"
+                    loading="lazy">
+
+            </div>
+
+            <div class="engine-copy">
+
+                <span class="engine-number">
+                    02 / TURBINE TECHNOLOGY
+                </span>
+
+                <h2>
+                    Turbine System
+                </h2>
+
+                <p>
+    We support Inconel 718, 625, 738, Cobalt, Chromium, Titanium,
+    Aluminium Alloy, SS304, 316L and 17-4PH alloys etc.
+</p>
+
+<p>
+    We achieve state-of-the-art machining facility —
+    details available at
+    <a href="{{ url_for('machining') }}">Machining Department</a>.
+</p>
+
+<p>
+    Comprehensive surface treatment details available at
+    <a href="{{ url_for('surface_treatment') }}">Surface Treatment</a>.
+</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 PRECISION MANUFACTURING -->
+        <section class="engine-section">
+
+            <div class="engine-image-wrap">
+
+                <img
+                    class="engine-image"
+                    src="https://www.kastle.group/cdn/shop/files/AdobeStock_170849545.jpg?v=1734932107&width=1600"
+                    alt="Precision CNC machining of aerospace turbine components"
+                    loading="lazy">
+
+            </div>
+
+            <div class="engine-copy">
+
+                <span class="engine-number">
+                    03 / ADVANCED MANUFACTURING
+                </span>
+
+                <h2>
+                    Precision Manufacturing
+                </h2>
+
+                <p>
+                    Advanced machining and manufacturing processes support
+                    complex aerospace geometries with controlled dimensions,
+                    repeatability and application-focused production
+                    requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="engines-cta">
+
+        <h2>
+            Discuss Your Engine Component Requirement
+        </h2>
+
+        <p>
+            Share your aerospace component, turbine system or precision
+            manufacturing requirement with Capital Engineering Corporation.
+        </p>
+
+        <div class="engines-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="engines-btn primary">
+                SEND QUOTE
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="engines-btn">
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

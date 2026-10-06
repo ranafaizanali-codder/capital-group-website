@@ -1,0 +1,701 @@
+{% extends "base.html" %}
+
+{% block title %}
+MSE 154 - Asset Management & Mechanical Failure Analysis | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .asset-page {
+        background: #f5f7f8;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .asset-hero {
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        padding: 90px 8%;
+        box-sizing: border-box;
+        background:
+            linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.78)),
+            url("https://www.klingele-technik.de/media/yootheme/cache/a7/3d-konstuktion-detail_roboter-a7ec906e.jpg")
+            center/cover no-repeat;
+    }
+
+    .asset-hero-content {
+        max-width: 850px;
+        color: #ffffff;
+    }
+
+    .asset-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+    }
+
+    .asset-hero h1 {
+        font-size: 46px;
+        line-height: 1.15;
+        margin: 18px 0;
+    }
+
+    .asset-hero p {
+        max-width: 760px;
+        font-size: 17px;
+        line-height: 1.7;
+        color: #e5edf1;
+        margin: 0;
+    }
+
+    .asset-container {
+        max-width: 1150px;
+        margin: auto;
+        padding: 75px 7%;
+    }
+
+    .asset-section-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .asset-section-title {
+        font-size: 34px;
+        color: #12384f;
+        margin: 12px 0 18px;
+    }
+
+    .asset-description {
+        color: #5d707d;
+        line-height: 1.8;
+        max-width: 900px;
+    }
+
+    .asset-features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-top: 40px;
+    }
+
+    .asset-feature {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-top: 3px solid #c69b32;
+        padding: 27px;
+    }
+
+    .asset-feature h3 {
+        color: #12384f;
+        margin: 0 0 10px;
+        font-size: 20px;
+    }
+
+    .asset-feature p {
+        color: #667985;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .asset-content-section {
+        margin-top: 65px;
+    }
+
+    .asset-content-section h2 {
+        font-size: 29px;
+        color: #12384f;
+        margin-bottom: 20px;
+    }
+
+    .asset-content-section p {
+        color: #5d707d;
+        line-height: 1.8;
+        margin-bottom: 18px;
+    }
+
+    .asset-list {
+        padding-left: 20px;
+        color: #5d707d;
+    }
+
+    .asset-list li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .asset-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    .asset-detail {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        padding: 22px;
+    }
+
+    .asset-detail strong {
+        display: block;
+        color: #12384f;
+        margin-bottom: 7px;
+    }
+
+    .asset-detail span {
+        color: #667985;
+    }
+
+    .asset-syllabus {
+        margin-top: 35px;
+    }
+
+    .asset-day {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        border-left: 4px solid #c69b32;
+        padding: 25px 28px;
+        margin-bottom: 20px;
+    }
+
+    .asset-day h3 {
+        color: #12384f;
+        margin: 0 0 15px;
+        font-size: 21px;
+    }
+
+    .asset-day ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .asset-day li {
+        color: #5d707d;
+        margin-bottom: 8px;
+        line-height: 1.55;
+    }
+
+    .asset-cta {
+        background: #08283b;
+        color: #ffffff;
+        text-align: center;
+        padding: 65px 8%;
+    }
+
+    .asset-cta h2 {
+        font-size: 32px;
+        margin: 0 0 15px;
+    }
+
+    .asset-cta p {
+        max-width: 760px;
+        margin: 0 auto 28px;
+        color: #dce7ec;
+        line-height: 1.7;
+    }
+
+    .asset-btn {
+        display: inline-block;
+        padding: 13px 27px;
+        margin: 5px;
+        border: 1px solid #c69b32;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .asset-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .asset-footer {
+        text-align: center;
+        padding: 22px;
+        background: #061d2d;
+        color: #aebfc8;
+        font-size: 14px;
+    }
+
+    .asset-footer a {
+        color: #d2a43b;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    @media (max-width: 800px) {
+
+        .asset-hero h1 {
+            font-size: 36px;
+        }
+
+        .asset-features,
+        .asset-details {
+            grid-template-columns: 1fr;
+        }
+
+        .asset-container {
+            padding: 55px 6%;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        .asset-hero {
+            min-height: 500px;
+            padding: 70px 7%;
+        }
+
+        .asset-hero h1 {
+            font-size: 30px;
+        }
+    }
+</style>
+
+
+<div class="asset-page">
+
+    <!-- HERO -->
+    <section class="asset-hero">
+
+        <div class="asset-hero-content">
+
+            <span class="asset-label">
+                Advanced Mechanical Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional asset management and mechanical failure analysis
+                training develops practical expertise in physical asset performance,
+                property management, reliability and mechanical failure prevention.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section class="asset-container">
+
+        <span class="asset-section-label">
+            Professional Training Program
+        </span>
+
+        <h2 class="asset-section-title">
+            MSE 154 - Asset Management & Mechanical Failure Analysis
+        </h2>
+
+        <p class="asset-description">
+            A comprehensive professional training program combining property and
+            physical asset management with mechanical failure analysis, reliability,
+            risk management and practical maintenance decision-making.
+        </p>
+
+
+        <div class="asset-features">
+
+            <div class="asset-feature">
+                <h3>Asset Management</h3>
+                <p>
+                    Develop practical knowledge of property, physical assets,
+                    investment and asset performance management.
+                </p>
+            </div>
+
+            <div class="asset-feature">
+                <h3>Risk & Reliability</h3>
+                <p>
+                    Understand sustainability, risk assessment, failure modes
+                    and strategies for improving asset performance.
+                </p>
+            </div>
+
+            <div class="asset-feature">
+                <h3>Failure Analysis</h3>
+                <p>
+                    Apply mechanical failure analysis techniques to identify
+                    causes and improve equipment reliability.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- COURSE DESCRIPTION -->
+        <div class="asset-content-section">
+
+            <h2>
+                Course Description
+            </h2>
+
+            <p>
+                Like most facets of modern business, the management of property and
+                assets has to meet the same imperatives of controlling costs and
+                maximizing returns. Therefore, it is imperative that you grasp and
+                optimize your property management skills to ensure you meet the
+                demands of the competitive property market.
+            </p>
+
+            <p>
+                Through a comprehensive analysis of best practice techniques,
+                national and international experiences, and individual and group
+                exercises, participants will be able to focus their management
+                thinking and learn new approaches. This course provides an
+                opportunity to gain a competitive edge through best-practice
+                property management.
+            </p>
+
+            <p>
+                The second part of this course discusses mechanical failure analysis.
+                Mechanical failures are a cause of production stoppages and therefore
+                ought to be eliminated through effective maintenance intervention.
+                Participants will develop a practical understanding of failures,
+                their causes and methods of analysis.
+            </p>
+
+            <p>
+                The course is designed to bridge the gap between theory and practice
+                of mechanical failure analysis.
+            </p>
+
+        </div>
+
+
+        <!-- OBJECTIVES -->
+        <div class="asset-content-section">
+
+            <h2>
+                Course Objectives
+            </h2>
+
+            <ul class="asset-list">
+
+                <li>
+                    Understanding the most important ingredient for development.
+                </li>
+
+                <li>
+                    Discussing the principles of sustainability.
+                </li>
+
+                <li>
+                    Discussing how governments raise resources.
+                </li>
+
+                <li>
+                    Learning about freehold and leasehold property.
+                </li>
+
+                <li>
+                    Introducing Modern Portfolio Theory.
+                </li>
+
+                <li>
+                    Familiarizing with mechanical failure analysis.
+                </li>
+
+                <li>
+                    Learning failure modes and designing fail-safe systems.
+                </li>
+
+                <li>
+                    Understanding the service and maintenance requirements for
+                    machine failures.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- WHO SHOULD ATTEND -->
+        <div class="asset-content-section">
+
+            <h2>
+                Who Should Attend?
+            </h2>
+
+            <ul class="asset-list">
+
+                <li>Engineering and technical managers</li>
+                <li>Maintenance managers</li>
+                <li>Production or operational managers</li>
+                <li>
+                    Managers who want to improve the condition and performance
+                    of their physical assets to optimise the return on their
+                    capital investments
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- COURSE DETAILS -->
+        <div class="asset-content-section">
+
+            <h2>
+                Course Details
+            </h2>
+
+            <div class="asset-details">
+
+                <div class="asset-detail">
+                    <strong>Course Code</strong>
+                    <span>MSE 154</span>
+                </div>
+
+                <div class="asset-detail">
+                    <strong>Course Duration</strong>
+                    <span>5 Days</span>
+                </div>
+
+                <div class="asset-detail">
+                    <strong>Course Date</strong>
+                    <span>
+                        Can be offered upon a specific date request
+                    </span>
+                </div>
+
+                <div class="asset-detail">
+                    <strong>Venue</strong>
+                    <span>Marriott Islamabad</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYLLABUS -->
+        <div class="asset-content-section">
+
+            <h2>
+                5-Day Course Syllabus
+            </h2>
+
+
+            <div class="asset-syllabus">
+
+                <!-- DAY 1 -->
+                <div class="asset-day">
+
+                    <h3>
+                        Day 1 — Economy, Development and Asset Foundations
+                    </h3>
+
+                    <ul>
+
+                        <li>A brief introduction about what is Economy</li>
+                        <li>Key Economic Sectors</li>
+                        <li>Development and Construction</li>
+                        <li>Most important ingredient for Development: Land</li>
+                        <li>Acquisition of Land for Development</li>
+                        <li>Eminent Domain</li>
+                        <li>Project life cycles and phases</li>
+                        <li>Procurement as part of the planning phase</li>
+                        <li>PACD (Plan–Act–Check–Do) quality management</li>
+                        <li>Construction Safety</li>
+                        <li>Environmental Sustainability</li>
+                        <li>Government and Sustainability</li>
+                        <li>Principles of Sustainability</li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 2 -->
+                <div class="asset-day">
+
+                    <h3>
+                        Day 2 — Finance, Risk and Property Investigation
+                    </h3>
+
+                    <ul>
+
+                        <li>Assessment</li>
+                        <li>Personal, corporate and public finance</li>
+                        <li>Union Budget</li>
+                        <li>Fiscal Deficit</li>
+                        <li>Revenue and Capital Expenditure</li>
+                        <li>Risk Management Process</li>
+                        <li>Qualitative and Quantitative Risk Analysis</li>
+                        <li>Probability and Impact Matrix</li>
+                        <li>Risk Mitigation – Action Strategies</li>
+                        <li>Investigation of a Property</li>
+                        <li>Investigation Steps</li>
+                        <li>Safety Management System</li>
+                        <li>Arbitration and Dispute Board</li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 3 -->
+                <div class="asset-day">
+
+                    <h3>
+                        Day 3 — Property & Asset Management and Portfolio Strategy
+                    </h3>
+
+                    <ul>
+
+                        <li>Property Management / Asset Management</li>
+                        <li>Property market cycle</li>
+                        <li>Tenancy Rules in Various Countries</li>
+                        <li>Tenancy Business Model</li>
+                        <li>Tenancy company job profile</li>
+                        <li>Modern Portfolio Theory</li>
+                        <li>Property Investment Process</li>
+                        <li>Capital Asset Pricing Model (CAPM)</li>
+                        <li>Property Volatility</li>
+                        <li>Diversification within the Property Asset Class</li>
+                        <li>Property Portfolio Strategy and Investment</li>
+                        <li>Capital Markets and the Financing Environment</li>
+                        <li>Mixed Asset Portfolio Investments</li>
+                        <li>Short-term versus long-term periods</li>
+                        <li>Property Sector – Residential</li>
+                        <li>Residential Industry Growth</li>
+                        <li>Property Sector – Retail</li>
+                        <li>Demand–Supply Situation for Retail</li>
+                        <li>Trends in Lease Rentals</li>
+                        <li>Property Sector – Commercial</li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 4 -->
+                <div class="asset-day">
+
+                    <h3>
+                        Day 4 — Property Marketing, Technology and Contemporary Management
+                    </h3>
+
+                    <ul>
+
+                        <li>Marketing Property</li>
+                        <li>Freehold and Leasehold Property</li>
+                        <li>How Government Disposes Property</li>
+                        <li>Role of the Broker</li>
+                        <li>Changes to the Broker Profession</li>
+                        <li>The Marketing Mix for Property</li>
+                        <li>Government eAuction System</li>
+                        <li>Challenges and Opportunities</li>
+                        <li>Contemporary Issues</li>
+                        <li>Technology for Property Management</li>
+                        <li>Computerizing Land Records</li>
+                        <li>Features Desired in Property Management Software</li>
+                        <li>Current Concerns When Choosing Property Management Software</li>
+                        <li>Blockchain – Technology for the Future of Property Management</li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- DAY 5 -->
+                <div class="asset-day">
+
+                    <h3>
+                        Day 5 — Mechanical Failure Analysis and Reliability
+                    </h3>
+
+                    <ul>
+
+                        <li>What is mechanical failure</li>
+                        <li>Failure Modes</li>
+                        <li>Causes of failures in production</li>
+                        <li>Effective ways to prevent failure or live with failures</li>
+                        <li>Static failure modes</li>
+                        <li>Fracture</li>
+                        <li>Buckling</li>
+                        <li>Impact</li>
+                        <li>Strength calculations</li>
+                        <li>Material and dimension selection</li>
+                        <li>Dynamic failure modes</li>
+                        <li>Fatigue</li>
+                        <li>Creep</li>
+                        <li>Wear</li>
+                        <li>Corrosion</li>
+                        <li>Crack growth</li>
+                        <li>Failure rate</li>
+                        <li>Hazard analysis</li>
+                        <li>Impact testing</li>
+                        <li>Fatigue testing</li>
+                        <li>Failure testing</li>
+                        <li>Improving fatigue life</li>
+                        <li>Improving creep life</li>
+                        <li>Structural examples</li>
+                        <li>Bearing example</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="asset-cta">
+
+        <h2>
+            Develop Your Asset Management & Failure Analysis Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional mechanical
+            engineering training and practical asset management, reliability,
+            maintenance and mechanical failure analysis development.
+        </p>
+
+        <a
+            href="{{ url_for('asset_management_failure_analysis_registration') }}"
+            class="asset-btn primary">
+            REGISTER
+        </a>
+
+        <a
+            href="{{ url_for('engines') }}"
+            class="asset-btn">
+            GO HOME
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="asset-footer">
+
+        For training assistance:
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

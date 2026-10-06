@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Piping Division | Capital Engineering Corporation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #12384f;
+        }
+
+        /* ================= HERO ================= */
+
+        .piping-hero {
+            position: relative;
+            min-height: 560px;
+            background: #061d2d;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .piping-hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .piping-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 29, 45, 0.97) 0%,
+                    rgba(6, 29, 45, 0.88) 35%,
+                    rgba(6, 29, 45, 0.48) 65%,
+                    rgba(6, 29, 45, 0.18) 100%
+                );
+        }
+
+        .piping-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, 88%);
+            margin: auto;
+            padding: 90px 0;
+        }
+
+        .piping-label {
+            display: inline-block;
+            color: #d2a43b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            margin-bottom: 18px;
+        }
+
+        .piping-hero h1 {
+            margin: 0 0 24px;
+            max-width: 760px;
+            color: #ffffff;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.05;
+            font-weight: 700;
+        }
+
+        .piping-hero p {
+            max-width: 720px;
+            margin: 0;
+            color: #eef3f6;
+            font-size: 18px;
+            line-height: 1.75;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .piping-content {
+            width: min(1200px, 88%);
+            margin: auto;
+            padding: 90px 0 70px;
+        }
+
+        .piping-capabilities {
+            margin-bottom: 75px;
+        }
+
+        .piping-capabilities-label {
+            display: block;
+            color: #c69b32;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        .piping-capabilities h2 {
+            margin: 0 0 16px;
+            color: #061d2d;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.15;
+        }
+
+        .piping-capabilities p {
+            max-width: 850px;
+            margin: 0;
+            color: #526773;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================= FEATURE ROWS ================= */
+
+        .piping-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+            margin-bottom: 95px;
+        }
+
+        .piping-feature.reverse {
+            direction: rtl;
+        }
+
+        .piping-feature.reverse .piping-feature-text {
+            direction: ltr;
+        }
+
+        .piping-feature-image {
+            overflow: hidden;
+            border: 1px solid rgba(198, 155, 50, 0.35);
+            box-shadow: 0 18px 45px rgba(6, 29, 45, 0.12);
+        }
+
+        .piping-feature-image img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .piping-feature-image:hover img {
+            transform: scale(1.035);
+        }
+
+        .piping-number {
+            display: block;
+            color: #c69b32;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .piping-feature-text h3 {
+            margin: 0 0 15px;
+            color: #061d2d;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .piping-feature-text p {
+            margin: 0;
+            color: #526773;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        /* ================= ACTIONS ================= */
+
+        .piping-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 35px;
+            border-top: 1px solid #d8e0e4;
+        }
+
+        .piping-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 28px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            transition: 0.25s ease;
+        }
+
+        .piping-btn.back {
+            color: #061d2d;
+            border: 1px solid #061d2d;
+            background: transparent;
+        }
+
+        .piping-btn.back:hover {
+            color: #ffffff;
+            background: #061d2d;
+        }
+
+        .piping-btn.request {
+            color: #ffffff;
+            background: #c69b32;
+            border: 1px solid #c69b32;
+        }
+
+        .piping-btn.request:hover {
+            background: #a98225;
+            border-color: #a98225;
+        }
+
+        /* ================= EMAIL ================= */
+
+        .piping-email {
+            width: min(1200px, 88%);
+            margin: 0 auto;
+            padding: 0 0 28px;
+            text-align: right;
+        }
+
+        .piping-email a {
+            color: #12384f;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .piping-email a:hover {
+            color: #c69b32;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .piping-hero {
+                min-height: 500px;
+            }
+
+            .piping-feature,
+            .piping-feature.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 30px;
+                margin-bottom: 65px;
+            }
+
+            .piping-feature.reverse .piping-feature-text {
+                direction: ltr;
+            }
+
+            .piping-feature-image img {
+                height: 280px;
+            }
+
+            .piping-actions {
+                flex-direction: column;
+            }
+
+            .piping-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .piping-hero-content {
+                padding: 70px 0;
+            }
+
+            .piping-hero p {
+                font-size: 16px;
+            }
+
+            .piping-content {
+                padding-top: 65px;
+            }
+
+            .piping-feature-image img {
+                height: 240px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="piping-hero">
+
+        <img
+            class="piping-hero-image"
+            src="https://images.squarespace-cdn.com/content/v1/666cc44ae1d4196d1b3ab997/c9e513e2-fb14-449b-a2fb-c4bc86ccc527/industryprocess.jpg"
+            alt="Industrial process piping network"
+        >
+
+        <div class="piping-hero-content">
+
+            <span class="piping-label">
+                PIPING DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CCs Piping Division specializes in the engineering,
+                fabrication and installation of precision industrial
+                piping systems for process, utility and fluid-handling
+                applications, with emphasis on reliable flow,
+                structural integrity and efficient plant operation.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="piping-content">
+
+        <section class="piping-capabilities">
+
+            <span class="piping-capabilities-label">
+                OUR CAPABILITIES
+            </span>
+
+            <h2>
+                Industrial Piping Solutions
+            </h2>
+
+            <p>
+                CCs provides engineered piping solutions for process
+                transport, fabrication, installation and integrated
+                fluid-handling systems across demanding industrial
+                applications.
+            </p>
+
+        </section>
+
+
+        <!-- 01 PROCESS PIPING -->
+
+        <section class="piping-feature">
+
+            <div class="piping-feature-text">
+
+                <span class="piping-number">
+                    01
+                </span>
+
+                <h3>
+                    Process Piping
+                </h3>
+
+                <p>
+                    Engineered piping networks for the controlled
+                    transport of process fluids, gases, steam and
+                    other media between equipment and plant systems.
+                </p>
+
+            </div>
+
+            <div class="piping-feature-image">
+
+                <img
+                    src="https://images.squarespace-cdn.com/content/v1/6054f4b7f30c7f1e91e1f2e9/870359c6-dcdf-477e-b7ef-12e153d05fc1/vfd_pumps_refinery_1920x12802x.jpg"
+                    alt="Industrial process piping with valves and pumps"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 FABRICATION -->
+
+        <section class="piping-feature reverse">
+
+            <div class="piping-feature-text">
+
+                <span class="piping-number">
+                    02
+                </span>
+
+                <h3>
+                    Fabrication
+                </h3>
+
+                <p>
+                    Precision pipe spool fabrication involving cutting,
+                    fitting and welding to produce accurate assemblies
+                    ready for controlled industrial installation.
+                </p>
+
+            </div>
+
+            <div class="piping-feature-image">
+
+                <img
+                    src="https://www.dynapumps.com.au/theme/dynapumps2019comau/assets/public/Image/fab/581688007_1466885942112269_8734067876495180234_n.jpg"
+                    alt="Industrial stainless steel pipe fabrication"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 INSTALLATION -->
+
+        <section class="piping-feature">
+
+            <div class="piping-feature-text">
+
+                <span class="piping-number">
+                    03
+                </span>
+
+                <h3>
+                    Installation
+                </h3>
+
+                <p>
+                    Professional installation of piping runs, valves,
+                    fittings and equipment connections with accurate
+                    alignment, supports and coordinated plant interfaces.
+                </p>
+
+            </div>
+
+            <div class="piping-feature-image">
+
+                <img
+                    src="https://static.wixstatic.com/media/9cbf44_c2cf84812b8e483ba8c85c87495ba924~mv2.jpg/v1/fill/w_1200%2Ch_1386%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_auto/IMG_0677_JPG.jpg"
+                    alt="Industrial stainless steel piping installation"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 FLUID SYSTEM -->
+
+        <section class="piping-feature reverse">
+
+            <div class="piping-feature-text">
+
+                <span class="piping-number">
+                    04
+                </span>
+
+                <h3>
+                    Fluid System
+                </h3>
+
+                <p>
+                    Integrated fluid-handling systems combining piping,
+                    pumps, valves and process interfaces for dependable
+                    flow control and efficient industrial operation.
+                </p>
+
+            </div>
+
+            <div class="piping-feature-image">
+
+                <img
+                    src="https://images.squarespace-cdn.com/content/v1/697bbc23e0870374e63e3e35/1773166495169-IPOZ8IUTQ24HCKARVU7P/Hawman%2BContainer%2BServices%2B-%2BCustom%2BFabrication%2B-%2BTurnkey%2BPumping%2BSystems%2B-%2B1.jpg"
+                    alt="Industrial fluid handling piping and pump system"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="piping-actions">
+
+            <a
+                href="/companies/engineering/process-industry"
+                class="piping-btn back"
+            >
+                GO BACK TO PROCESS INDUSTRY
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="piping-btn request"
+            >
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= EMAIL ================= -->
+
+    <div class="piping-email">
+
+        <a href="mailto:ceo@capitalgroup.pk">
+            ceo@capitalgroup.pk
+        </a>
+
+    </div>
+
+</body>
+</html>

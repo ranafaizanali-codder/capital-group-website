@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vessel Division | Capital Engineering Corporation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #12384f;
+        }
+
+        .vessel-page {
+            min-height: 100vh;
+        }
+
+        /* HERO */
+        .vessel-hero {
+            position: relative;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #061d2d;
+        }
+
+        .vessel-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 29, 45, 0.96) 0%,
+                    rgba(6, 29, 45, 0.80) 42%,
+                    rgba(6, 29, 45, 0.25) 100%
+                ),
+                url("https://mermaid.sa/pages/man%20power/assets/section%20img/Pressure_vessel_Fabrication.jpeg");
+
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .vessel-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, 88%);
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        .vessel-label {
+            display: inline-block;
+            color: #d2a43b;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .vessel-hero h1 {
+            margin: 0 0 22px;
+            max-width: 850px;
+            color: white;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.08;
+            font-weight: 700;
+        }
+
+        .vessel-hero p {
+            max-width: 760px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* CONTENT */
+        .vessel-content {
+            width: min(1200px, 88%);
+            margin: auto;
+            padding: 90px 0 70px;
+        }
+
+        .vessel-intro {
+            max-width: 850px;
+            margin-bottom: 75px;
+        }
+
+        .vessel-intro h2 {
+            margin: 0 0 15px;
+            color: #061d2d;
+            font-size: 36px;
+            line-height: 1.2;
+        }
+
+        .vessel-intro p {
+            margin: 0;
+            color: #526673;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* FEATURE ROWS */
+        .vessel-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+            margin-bottom: 95px;
+        }
+
+        .vessel-feature.reverse {
+            direction: rtl;
+        }
+
+        .vessel-feature.reverse .vessel-text {
+            direction: ltr;
+        }
+
+        .vessel-text .number {
+            display: block;
+            margin-bottom: 12px;
+            color: #c69b32;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .vessel-text h3 {
+            margin: 0 0 15px;
+            color: #061d2d;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .vessel-text p {
+            margin: 0;
+            color: #526673;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* IMAGES */
+        .vessel-image {
+            height: 390px;
+            overflow: hidden;
+            border: 1px solid rgba(198, 155, 50, 0.45);
+            box-shadow: 0 18px 45px rgba(6, 29, 45, 0.12);
+            background: #e9eef1;
+        }
+
+        .vessel-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .vessel-image:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ACTION BUTTONS */
+        .vessel-actions {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding-top: 45px;
+            border-top: 1px solid rgba(18, 56, 79, 0.15);
+        }
+
+        .vessel-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 220px;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid #12384f;
+            transition: all 0.25s ease;
+        }
+
+        .vessel-btn.back {
+            color: #12384f;
+            background: transparent;
+        }
+
+        .vessel-btn.request {
+            color: white;
+            background: #061d2d;
+            border-color: #061d2d;
+        }
+
+        .vessel-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .vessel-btn.back:hover {
+            color: white;
+            background: #12384f;
+        }
+
+        .vessel-btn.request:hover {
+            background: #c69b32;
+            border-color: #c69b32;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+
+            .vessel-hero {
+                min-height: 520px;
+            }
+
+            .vessel-feature,
+            .vessel-feature.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 35px;
+            }
+
+            .vessel-feature.reverse .vessel-text {
+                direction: ltr;
+            }
+
+            .vessel-image {
+                height: 330px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .vessel-hero-content {
+                width: 90%;
+                padding: 65px 0;
+            }
+
+            .vessel-hero h1 {
+                font-size: 38px;
+            }
+
+            .vessel-hero p {
+                font-size: 16px;
+            }
+
+            .vessel-content {
+                width: 90%;
+                padding-top: 65px;
+            }
+
+            .vessel-intro h2 {
+                font-size: 30px;
+            }
+
+            .vessel-feature {
+                margin-bottom: 70px;
+            }
+
+            .vessel-image {
+                height: 270px;
+            }
+
+            .vessel-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="vessel-page">
+
+    <!-- HERO -->
+    <section class="vessel-hero">
+
+        <div class="vessel-hero-content">
+
+            <span class="vessel-label">
+                VESSEL DIVISION
+            </span>
+
+            <h1>
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Vessel Division specializes in the engineering,
+                fabrication and integration of pressure vessels, storage
+                vessels and process equipment for demanding industrial
+                applications, with emphasis on precision, durability and
+                reliable process performance.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="vessel-content">
+
+        <div class="vessel-intro">
+
+            <h2>
+                Process Vessel & Equipment Solutions
+            </h2>
+
+            <p>
+                Precision-engineered vessels and process equipment designed
+                for safe containment, controlled processing, thermal
+                management and reliable industrial operation.
+            </p>
+
+        </div>
+
+
+        <!-- 01 PRESSURE VESSELS -->
+        <section class="vessel-feature">
+
+            <div class="vessel-text">
+
+                <span class="number">01</span>
+
+                <h3>
+                    Pressure Vessels
+                </h3>
+
+                <p>
+                    CECs Pressure Vessels capability covers engineered
+                    vessels for controlled pressure and process service,
+                    incorporating precision fabrication, reinforced
+                    construction and reliable nozzle and connection systems.
+                </p>
+
+            </div>
+
+            <div class="vessel-image">
+
+                <img
+                     src="https://cdn.prod.website-files.com/68c8938a96bafed9104572ad/68f8d311e85038ee09900bd8_Att.5%201.webp"
+                    alt="Industrial horizontal pressure vessel with piping and valves"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 STORAGE VESSELS -->
+        <section class="vessel-feature reverse">
+
+            <div class="vessel-text">
+
+                <span class="number">02</span>
+
+                <h3>
+                    Storage Vessels
+                </h3>
+
+                <p>
+                    Our Storage Vessels solutions support the safe handling
+                    and containment of industrial liquids and process media,
+                    with configurations developed for capacity, material
+                    compatibility and operational requirements.
+                </p>
+
+            </div>
+
+            <div class="vessel-image">
+
+                <img
+                    src="https://n.sinaimg.cn/spider20260122/289/w1080h809/20260122/052b-8363c293266e6c195a19c0588b066f28.png"
+                    alt="Stainless steel industrial storage vessel"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 PROCESS EQUIPMENT -->
+        <section class="vessel-feature">
+
+            <div class="vessel-text">
+
+                <span class="number">03</span>
+
+                <h3>
+                    Process Equipment
+                </h3>
+
+                <p>
+                    CECs Process Equipment capability includes engineered
+                    reactors, process tanks and specialized equipment
+                    designed for mixing, reaction, fluid handling and
+                    controlled industrial processing.
+                </p>
+
+            </div>
+
+            <div class="vessel-image">
+
+                <img
+                    src="https://www.planttech.co.in/brochure-reaction-vessel.png"
+                    alt="Stainless steel industrial reaction vessel and process equipment"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 THERMAL & SEPARATION SYSTEMS -->
+        <section class="vessel-feature reverse">
+
+            <div class="vessel-text">
+
+                <span class="number">04</span>
+
+                <h3>
+                    Thermal & Separation Systems
+                </h3>
+
+                <p>
+                    Our Thermal & Separation capability covers heat
+                    exchangers, separators and associated equipment designed
+                    for controlled heat transfer, phase separation and
+                    efficient process operation.
+                </p>
+
+            </div>
+
+            <div class="vessel-image">
+
+                <img
+                  src="https://s3.us-east-1.amazonaws.com/contents.newzenler.com/86/library/ourse-image62bc7a9988005_lg.JPG"
+                    alt="Industrial shell and tube heat exchanger"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- 05 FABRICATED VESSEL ASSEMBLIES -->
+        <section class="vessel-feature">
+
+            <div class="vessel-text">
+
+                <span class="number">05</span>
+
+                <h3>
+                    Fabricated Vessel Assemblies
+                </h3>
+
+                <p>
+                    CECs Fabricated Vessel Assemblies combine precision
+                    vessels, jackets, nozzles, supports and process
+                    connections into integrated equipment ready for
+                    installation and plant integration.
+                </p>
+
+            </div>
+
+            <div class="vessel-image">
+
+                <img
+                
+                 src="https://images.squarespace-cdn.com/content/v1/5539390ce4b06a8136285829/1740235297386-8PRVN99I4DH8L8CLTJSJ/20250204_090841.jpg?format=500w"
+                
+>
+                    alt="Fabricated stainless steel process vessels"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTION BUTTONS -->
+        <div class="vessel-actions">
+
+            <a
+                href="/companies/engineering/process-industry"
+                class="vessel-btn back">
+                GO BACK TO PROCESS INDUSTRY
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="vessel-btn request">
+                REQUEST FOR REQUIREMENT
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

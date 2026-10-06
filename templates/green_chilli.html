@@ -1,0 +1,775 @@
+{% extends "base.html" %}
+
+{% block title %}
+Green Chilli Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING - GREEN CHILI DIVISION
+   ========================================================= */
+
+.green-chili-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.green-chili-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.95) 0%,
+            rgba(6,29,45,.80) 45%,
+            rgba(6,29,45,.25) 100%
+        ),
+        url("https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=1600&q=75");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.green-chili-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.green-chili-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.green-chili-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.green-chili-description {
+    max-width: 760px;
+    color: rgba(255,255,255,.88);
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.green-chili-intro {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 85px 0 35px;
+    text-align: center;
+}
+
+.green-chili-intro h2 {
+    margin: 0 0 18px;
+    color: #061d2d;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.green-chili-intro p {
+    max-width: 760px;
+    margin: auto;
+    color: #5c6d77;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= VARIETIES ================= */
+
+.green-chili-varieties {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 35px 0 80px;
+}
+
+.green-chili-variety {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding: 55px 0;
+    border-bottom: 1px solid rgba(18,56,79,.12);
+}
+
+.green-chili-variety:nth-child(even) .green-chili-image {
+    order: 2;
+}
+
+.green-chili-variety:nth-child(even) .green-chili-info {
+    order: 1;
+}
+
+.green-chili-image {
+    height: 330px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e9eef0;
+}
+
+.green-chili-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+
+.green-chili-image:hover img {
+    transform: scale(1.04);
+}
+
+.green-chili-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.green-chili-info h3 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 18px;
+}
+
+.green-chili-info p {
+    color: #5c6d77;
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 0 0 20px;
+}
+
+.green-chili-specs {
+    display: grid;
+    gap: 10px;
+}
+
+.green-chili-spec {
+    padding: 13px 16px;
+    background: #ffffff;
+    border-left: 3px solid #c69b32;
+}
+
+.green-chili-spec strong {
+    display: inline-block;
+    min-width: 105px;
+    color: #061d2d;
+    font-size: 14px;
+}
+
+.green-chili-spec span {
+    color: #5c6d77;
+    font-size: 14px;
+}
+
+/* ================= CTA ================= */
+
+.green-chili-cta {
+    background: #061d2d;
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.green-chili-cta h2 {
+    color: #ffffff;
+    font-size: 38px;
+    margin: 0 0 15px;
+}
+
+.green-chili-cta p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.8;
+}
+
+.green-chili-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.green-chili-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.green-chili-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.green-chili-btn.primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.green-chili-btn.secondary {
+    border: 1px solid rgba(255,255,255,.5);
+    color: #ffffff;
+}
+
+.green-chili-btn.secondary:hover {
+    background: #ffffff;
+    color: #061d2d;
+}
+
+.green-chili-email {
+    margin-top: 25px;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .green-chili-hero {
+        min-height: 520px;
+    }
+
+    .green-chili-variety {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .green-chili-variety:nth-child(even) .green-chili-image {
+        order: 1;
+    }
+
+    .green-chili-variety:nth-child(even) .green-chili-info {
+        order: 2;
+    }
+
+    .green-chili-image {
+        height: 280px;
+    }
+
+    .green-chili-info h3 {
+        font-size: 28px;
+    }
+}
+
+</style>
+
+
+<div class="green-chili-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="green-chili-hero">
+
+        <div class="green-chili-hero-inner">
+
+            <div class="green-chili-label">
+                Green Chili Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="green-chili-description">
+                CTC’s Green Chili Division specializes in sourcing, grading,
+                packing and supplying fresh green chillies for domestic and
+                international markets, with a focus on freshness, consistent
+                quality, reliable availability and efficient export logistics.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="green-chili-intro">
+
+        <h2>
+            Selected Green Chili Varieties
+        </h2>
+
+        <p>
+            Our green chili supply program covers selected varieties for
+            fresh markets, food service, retail, processing and international
+            trade, with flexible grading, packaging and bulk supply options.
+        </p>
+
+    </section>
+
+
+    <!-- ================= VARIETIES ================= -->
+
+    <section class="green-chili-varieties">
+
+
+        <!-- 01 SERRANO -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='serrano_green_chili.jpg') }}"
+                    alt="Serrano Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    01 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Serrano Green Chili</h3>
+
+                <p>
+                    Small, firm and distinctly hot green chilies suitable for
+                    fresh culinary use, sauces, pickling and food service.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Firm, fresh, green and evenly graded</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and programmed supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Fresh-market and bulk orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 DANDI CUT -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='dandi_cut_green_chili.jpg') }}"
+                    alt="Dandi Cut Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    02 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Dandi Cut Green Chili</h3>
+
+                <p>
+                    Fresh green chilies supplied with the stem removed,
+                    offering convenient preparation for food service and
+                    processing applications.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, clean and carefully prepared</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and on-request supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Commercial and bulk supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 LONG GREEN -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='long_green_chili.jpg') }}"
+                    alt="Long Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    03 / GREEN CHILLI VARIETY
+                </div>
+
+                <h3>Long Green Chili</h3>
+
+                <p>
+                    Long, fresh green chilies with a crisp texture, suitable
+                    for daily cooking, fresh markets, wholesale and food service.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, crisp and uniform in size</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and programmed supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Wholesale and export quantities</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 BIRDS EYE -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='birds_eye_chili.jpg') }}"
+                    alt="Birds Eye Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    04 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Birds Eye Chili</h3>
+
+                <p>
+                    Small, highly pungent green chilies suitable for spicy
+                    sauces, seasoning, pickling and specialty culinary markets.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, firm and intensely hot</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal specialty supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and bulk requirements</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 JALAPENO -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='jalapeno.jpg') }}"
+                    alt="Jalapeno Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    05 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Jalapeno</h3>
+
+                <p>
+                    Thick-fleshed green chili with moderate heat, suitable
+                    for fresh use, stuffing, sauces, pickling and processing.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Firm, thick-fleshed and clean</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and programmed supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Commercial and processing orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 CAYENNE -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='cayenne_green_chili.jpg') }}"
+                    alt="Cayenne Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    06 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Cayenne Green Chili</h3>
+
+                <p>
+                    Slender green chili with pronounced heat, suitable for
+                    fresh cooking, sauces, seasoning and food processing.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, slender and evenly graded</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and specialty supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Bulk and commercial orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 07 ANAHEIM -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='anaheim_green_chili.jpg') }}"
+                    alt="Anaheim Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    07 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Anaheim Green Chili</h3>
+
+                <p>
+                    Long, mild-to-medium hot green chili suitable for
+                    roasting, stuffing, fresh cooking and specialty markets.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, smooth and carefully graded</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal specialty supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and bulk supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 08 POBLANO -->
+
+        <article class="green-chili-variety">
+
+            <div class="green-chili-image">
+                <img
+                    src="{{ url_for('static', filename='poblano_green_chili.jpg') }}"
+                    alt="Poblano Green Chili"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="green-chili-info">
+
+                <div class="green-chili-number">
+                    08 / GREEN CHILI VARIETY
+                </div>
+
+                <h3>Poblano Green Chili</h3>
+
+                <p>
+                    Broad, dark-green chili with mild-to-medium heat,
+                    suitable for stuffing, roasting, sauces and gourmet cooking.
+                </p>
+
+                <div class="green-chili-specs">
+
+                    <div class="green-chili-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, broad and firm pods</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal specialty supply</span>
+                    </div>
+
+                    <div class="green-chili-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and commercial orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="green-chili-cta">
+
+        <h2>
+            Global Green Chili Supply
+        </h2>
+
+        <p>
+            Tell us your required variety, grade, quantity, packaging and
+            destination. Our team can coordinate sourcing and supply
+            requirements for domestic and international markets.
+        </p>
+
+        <div class="green-chili-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="green-chili-btn primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="green-chili-btn secondary"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="green-chili-btn secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="green-chili-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

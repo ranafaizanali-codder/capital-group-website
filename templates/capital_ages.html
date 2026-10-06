@@ -1,0 +1,666 @@
+{% extends "base.html" %}
+
+{% block title %}
+AGES Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - AGES DIVISION
+   AEROSPACE GROUND EQUIPMENT SYSTEMS
+   ========================================================= */
+
+.ages-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.ages-hero {
+    position: relative;
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.70),
+            rgba(6, 29, 45, 0.91)
+        ),
+        url("https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=2200&q=88")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+    box-sizing: border-box;
+}
+
+.ages-hero-content {
+    max-width: 900px;
+    text-align: left;
+}
+
+.ages-eyebrow {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.ages-hero h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 0 0 24px;
+    font-weight: 800;
+}
+
+.ages-hero p {
+    color: #eef3f5;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.ages-intro {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 65px 25px 35px;
+    text-align: center;
+}
+
+.ages-intro h2 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.ages-intro p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= SECTIONS ================= */
+
+.ages-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px 75px;
+}
+
+.ages-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 55px;
+    align-items: center;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #dfe5e8;
+}
+
+.ages-section.reverse {
+    direction: rtl;
+}
+
+.ages-section.reverse > * {
+    direction: ltr;
+}
+
+.ages-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9eef1;
+    box-shadow: 0 14px 35px rgba(6, 29, 45, 0.12);
+}
+
+.ages-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.ages-image-wrap:hover .ages-image {
+    transform: scale(1.025);
+}
+
+.ages-copy {
+    max-width: 540px;
+}
+
+.ages-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.ages-copy h2 {
+    color: #061d2d;
+    font-size: 31px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.ages-copy p {
+    color: #12384f;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ================= CTA ================= */
+
+.ages-cta {
+    background: #061d2d;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.ages-cta h2 {
+    color: white;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.ages-cta p {
+    color: #dce5e9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.ages-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.ages-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 25px;
+
+    border-radius: 5px;
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.ages-quote-btn {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.ages-home-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.ages-btn:hover,
+.ages-btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.ages-quote-btn:hover,
+.ages-quote-btn:focus-visible {
+    background: #e0b64e;
+}
+
+.ages-home-btn:hover,
+.ages-home-btn:focus-visible {
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .ages-section,
+    .ages-section.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 30px;
+    }
+
+    .ages-copy {
+        max-width: none;
+    }
+
+    .ages-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .ages-hero {
+        min-height: 450px;
+        padding: 50px 22px;
+    }
+
+    .ages-hero h1 {
+        font-size: 32px;
+    }
+
+    .ages-hero p {
+        font-size: 16px;
+    }
+
+    .ages-intro {
+        padding: 50px 18px 25px;
+    }
+
+    .ages-intro h2 {
+        font-size: 27px;
+    }
+
+    .ages-container {
+        padding: 10px 18px 55px;
+    }
+
+    .ages-section {
+        padding: 40px 0;
+    }
+
+    .ages-copy h2 {
+        font-size: 27px;
+    }
+
+    .ages-image {
+        height: 260px;
+    }
+
+    .ages-cta {
+        padding: 50px 20px;
+    }
+
+    .ages-cta h2 {
+        font-size: 27px;
+    }
+}
+
+</style>
+
+
+<div class="ages-page">
+
+    <!-- =====================================================
+         AGES HERO
+         ===================================================== -->
+
+    <section
+        class="ages-hero"
+        aria-labelledby="ages-title"
+    >
+
+        <div class="ages-hero-content">
+
+            <div class="ages-eyebrow">
+                AGES DIVISION
+            </div>
+
+            <h1 id="ages-title">
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs AGEs Division provides engineering and manufacturing
+                solutions for Aerospace Ground Equipments, supporting
+                aircraft servicing, maintenance, handling and ground
+                operations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+         ===================================================== -->
+
+    <section class="ages-intro">
+
+        <h2>
+            Advanced Aerospace Ground Equipment
+        </h2>
+
+        <p>
+            Our capabilities support specialized ground equipment
+            for aircraft maintenance, servicing, movement, power
+            support and operational requirements.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         AGES CAPABILITIES
+         ===================================================== -->
+
+    <main class="ages-container">
+
+
+        <!-- 1. GROUND POWER EQUIPMENT -->
+
+        <section class="ages-section">
+
+            <div class="ages-image-wrap">
+
+                <img
+                    class="ages-image"
+                    src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1800&q=85"
+                    alt="Aircraft ground power support equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ages-copy">
+
+                <div class="ages-number">
+                    01 · GROUND POWER EQUIPMENT
+                </div>
+
+                <h2>
+                    Ground Power Equipment
+                </h2>
+
+                <p>
+                    Ground power equipment supports aircraft electrical
+                    requirements during maintenance, servicing and
+                    pre-flight ground operations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. Ladders and Stands -->
+
+<section class="ages-section reverse">
+
+    <div class="ages-image-wrap">
+
+        <img
+            class="ages-image"
+            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=90"
+            alt="Aircraft maintenance ladders and access stands"
+            loading="lazy"
+        >
+
+    </div>
+
+
+    <div class="ages-copy">
+
+        <div class="ages-number">
+            02 · LADDERS & STANDS
+        </div>
+
+        <h2>
+            Ladders and Stands
+        </h2>
+
+        <p>
+            We provide specialized ladders and maintenance stands
+            designed for safe and efficient access to aircraft,
+            supporting inspection, maintenance and servicing
+            operations at different working heights.
+        </p>
+
+    </div>
+
+</section>
+
+        <!-- 3. MAINTENANCE EQUIPMENT -->
+
+        <section class="ages-section">
+
+            <div class="ages-image-wrap">
+
+                <img
+                    class="ages-image"
+                    src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1800&q=85"
+                    alt="Aerospace maintenance support equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ages-copy">
+
+                <div class="ages-number">
+                    03 · MAINTENANCE EQUIPMENT
+                </div>
+
+                <h2>
+                    Maintenance Equipment
+                </h2>
+
+                <p>
+                    Maintenance support equipment is designed for
+                    inspection, servicing, access and specialized
+                    ground maintenance requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. SERVICING & SUPPORT SYSTEMS -->
+
+        <section class="ages-section reverse">
+
+            <div class="ages-image-wrap">
+
+                <img
+                    class="ages-image"
+                    src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1800&q=85"
+                    alt="Industrial aerospace ground support equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="ages-copy">
+
+                <div class="ages-number">
+                    04 · SERVICING & SUPPORT SYSTEMS
+                </div>
+
+                <h2>
+                    Servicing & Support Systems
+                </h2>
+
+                <p>
+                    Application-specific support systems assist aircraft
+                    servicing, fluid handling, maintenance operations
+                    and specialized ground-support requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+<!-- 5. Part Cleaning Trays -->
+
+<section class="ages-section">
+
+    <div class="ages-image-wrap">
+
+        <img
+            class="ages-image"
+           src="https://www.marlinwire.com/hs-fs/hubfs/Aerospace%20Baskets%20to%20wash%20Rolls%20Royce%20Jet%20engine%20parts-2.jpg?height=535&name=Aerospace+Baskets+to+wash+Rolls+Royce+Jet+engine+parts-2.jpg&width=715"
+            alt="Part cleaning trays for aircraft maintenance"
+            loading="lazy"
+        >
+
+    </div>
+
+    <div class="ages-copy">
+
+        <div class="ages-number">
+            05 · PART CLEANING TRAYS
+        </div>
+
+        <h2>
+            Part Cleaning Trays
+        </h2>
+
+        <p>
+            Specialized part cleaning trays designed for the safe
+            handling, cleaning and organization of aircraft components
+            during maintenance and servicing operations.
+        </p>
+
+    </div>
+
+</section><!-- 6. Part Cleaning Taps -->
+
+<section class="ages-section reverse">
+
+    <div class="ages-image-wrap">
+
+        <img
+            class="ages-image"
+            src="https://www.aircraftspruce.com/catalog/graphics/1/11-19534.jpg"
+            alt="Part cleaning taps for aerospace maintenance"
+            loading="lazy"
+        >
+
+    </div>
+
+    <div class="ages-copy">
+
+        <div class="ages-number">
+            06 · PART CLEANING TAPS
+        </div>
+
+        <h2>
+            Part Cleaning Taps
+        </h2>
+
+        <p>
+            Specialized cleaning taps and accessories designed to
+            support effective cleaning, flushing and maintenance of
+            component passages and internal features during
+            aerospace servicing operations.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- 7. Opening & Closing Tools for Engines and Landing Gear -->
+
+<section class="ages-section">
+
+    <div class="ages-image-wrap">
+
+        <img
+            class="ages-image"
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=90"
+            alt="Specialized tools for aircraft engine and landing gear maintenance"
+            loading="lazy"
+        >
+
+    </div>
+
+    <div class="ages-copy">
+
+        <div class="ages-number">
+            07 · OPENING & CLOSING TOOLS
+        </div>
+
+        <h2>
+            Opening & Closing Tools for Engines and Landing Gear
+        </h2>
+
+        <p>
+            Specialized opening and closing tools designed for the
+            controlled disassembly, assembly and servicing of aircraft
+            engines and landing gear components during maintenance
+            operations.
+        </p>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="ages-cta">
+
+        <h2>
+            Have an Aerospace Ground Equipment Requirement?
+        </h2>
+
+        <p>
+            Share your AGEs engineering requirements with Capital
+            Engineering Corporation and our team can review your
+            application and technical needs.
+        </p>
+
+
+        <div class="ages-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="ages-btn ages-quote-btn"
+            >
+                SEND QUOTE
+                <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('home') }}"
+                class="ages-btn ages-home-btn"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

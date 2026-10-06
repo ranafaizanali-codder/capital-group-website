@@ -1,0 +1,647 @@
+{% extends "base.html" %}
+
+{% block title %}
+Advanced Environmental Engineering | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+.environmental-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* =========================
+   HERO
+========================= */
+.environmental-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.76),
+            rgba(6, 29, 45, 0.76)
+        ),
+        url("https://canada.newsroom.ibm.com/image/Water_Purification_Plant_Banner.jpg")
+        center center / cover no-repeat;
+}
+
+.environmental-hero-content {
+    max-width: 900px;
+    color: white;
+}
+
+.environmental-label {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.environmental-hero h1 {
+    margin: 0 0 25px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.environmental-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: #e7eef2;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+.environmental-intro {
+    max-width: 1150px;
+    margin: auto;
+    padding: 90px 8% 50px;
+    text-align: center;
+}
+
+.environmental-intro h2 {
+    margin-bottom: 18px;
+    font-size: 36px;
+    color: #12384f;
+}
+
+.environmental-intro p {
+    max-width: 850px;
+    margin: auto;
+    color: #5d6d76;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+.environmental-features {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 8% 80px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.environmental-feature {
+    padding: 32px 28px;
+    background: white;
+    border: 1px solid #e2e7e9;
+    border-top: 3px solid #c69b32;
+}
+
+.environmental-feature span {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.environmental-feature h3 {
+    margin: 15px 0 10px;
+    color: #12384f;
+    font-size: 21px;
+}
+
+.environmental-feature p {
+    margin: 0;
+    color: #66757d;
+    line-height: 1.65;
+}
+
+
+/* =========================
+   COURSE TITLE
+========================= */
+.environmental-modules-title {
+    padding: 70px 8% 40px;
+    text-align: center;
+}
+
+.environmental-modules-title h2 {
+    margin: 0;
+    color: #12384f;
+    font-size: 38px;
+}
+
+
+/* =========================
+   COURSE BUTTONS
+========================= */
+.environmental-courses {
+    max-width: 1150px;
+    margin: auto;
+    padding: 10px 8% 85px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.environmental-course {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 155px;
+    padding: 25px 24px;
+
+    background: #ffffff;
+    border: 1px solid #dce3e7;
+    border-left: 4px solid #c69b32;
+
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.environmental-course-number {
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.environmental-course h3 {
+    margin: 0 0 9px;
+    color: #12384f;
+    font-size: 19px;
+    line-height: 1.35;
+}
+
+.environmental-course p {
+    margin: 0;
+    color: #66757d;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.environmental-course:hover {
+    transform: translateY(-3px);
+    border-color: #c69b32;
+    box-shadow: 0 10px 25px rgba(18, 56, 79, 0.08);
+}
+
+
+/* =========================
+   OUTCOMES
+========================= */
+.environmental-outcomes {
+    background: #08283b;
+    color: white;
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.environmental-outcomes h2 {
+    margin: 0 0 35px;
+    font-size: 38px;
+}
+
+.environmental-outcomes-grid {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.environmental-outcome {
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.environmental-outcome p {
+    margin: 0;
+    color: #d9e3e8;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CTA
+========================= */
+.environmental-cta {
+    padding: 90px 8%;
+    text-align: center;
+    background: #f5f7f8;
+}
+
+.environmental-cta h2 {
+    margin-bottom: 15px;
+    color: #12384f;
+    font-size: 38px;
+}
+
+.environmental-cta p {
+    margin-bottom: 28px;
+    color: #65747c;
+}
+
+.environmental-email {
+    margin-bottom: 30px;
+    color: #12384f;
+    font-weight: 700;
+}
+
+.environmental-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.environmental-btn {
+    display: inline-block;
+    padding: 14px 28px;
+
+    border: 1px solid #12384f;
+    color: #12384f;
+
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.environmental-btn.primary {
+    background: #12384f;
+    color: white;
+}
+
+.environmental-btn:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+    color: white;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+
+    .environmental-features,
+    .environmental-courses,
+    .environmental-outcomes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .environmental-hero {
+        min-height: 560px;
+        padding: 80px 7%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .environmental-features,
+    .environmental-courses,
+    .environmental-outcomes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .environmental-hero h1 {
+        font-size: 38px;
+    }
+
+    .environmental-intro h2,
+    .environmental-modules-title h2,
+    .environmental-outcomes h2,
+    .environmental-cta h2 {
+        font-size: 30px;
+    }
+}
+</style>
+
+
+<div class="environmental-page">
+
+
+    <!-- HERO -->
+    <section class="environmental-hero">
+
+        <div class="environmental-hero-content">
+
+            <span class="environmental-label">
+                Advanced Environmental Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s professional environmental engineering training develops
+                practical expertise in environmental management, monitoring,
+                modeling, risk assessment, groundwater resources and
+                sustainable engineering systems.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="environmental-intro">
+
+        <h2>
+            Professional Environmental Engineering Program
+        </h2>
+
+        <p>
+            A structured professional program covering environmental
+            management systems, environmental monitoring, risk assessment,
+            groundwater resources, environmental modeling and
+            data-driven environmental analysis.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="environmental-features">
+
+        <div class="environmental-feature">
+
+            <span>01</span>
+
+            <h3>
+                Environmental Management
+            </h3>
+
+            <p>
+                Professional understanding of environmental management
+                systems, compliance and sustainable practices.
+            </p>
+
+        </div>
+
+
+        <div class="environmental-feature">
+
+            <span>02</span>
+
+            <h3>
+                Monitoring & Assessment
+            </h3>
+
+            <p>
+                Practical knowledge of environmental monitoring,
+                risk assessment and resource evaluation.
+            </p>
+
+        </div>
+
+
+        <div class="environmental-feature">
+
+            <span>03</span>
+
+            <h3>
+                Modeling & Data Science
+            </h3>
+
+            <p>
+                Modern environmental modeling using data analysis,
+                machine learning and R-based techniques.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE TITLE -->
+    <section class="environmental-modules-title">
+
+        <h2>
+            Environmental Engineering Courses
+        </h2>
+
+    </section>
+
+
+    <!-- COURSES -->
+    <section class="environmental-courses">
+
+
+        <!-- 01 -->
+        <a
+            href="{{ url_for('iso_14001_lead_auditor')}}"
+            class="environmental-course"
+        >
+
+            <span class="environmental-course-number">
+                COURSE 01
+            </span>
+
+            <h3>
+                ISO 14001 Environmental Management System (EMS) Lead Auditor
+            </h3>
+
+            <p>
+                Professional training in EMS auditing, environmental
+                compliance, audit planning and ISO 14001 requirements.
+            </p>
+
+        </a>
+
+
+        <!-- 02 -->
+        <a
+            href="{{ url_for('environmental_monitoring_modeling')}}"
+            class="environmental-course"
+        >
+
+            <span class="environmental-course-number">
+                COURSE 02
+            </span>
+
+            <h3>
+                Environmental Monitoring & Modeling
+            </h3>
+
+            <p>
+                Practical environmental monitoring techniques,
+                data interpretation and environmental modeling.
+            </p>
+
+        </a>
+
+
+        <!-- 03 -->
+        <a
+            href="{{ url_for('environmental_risk_assessment_management')}}"
+            class="environmental-course"
+        >
+
+            <span class="environmental-course-number">
+                COURSE 03
+            </span>
+
+            <h3>
+                Environmental Risk Assessment & Management
+            </h3>
+
+            <p>
+                Develop professional skills in environmental risk
+                identification, assessment, mitigation and management.
+            </p>
+
+        </a>
+
+
+        <!-- 04 -->
+        <a
+            href="{{ url_for('environmental_groundwater_resources')}}"
+            class="environmental-course"
+        >
+
+            <span class="environmental-course-number">
+                COURSE 04
+            </span>
+
+            <h3>
+                Environmental Monitoring & Management of Groundwater
+                Resources & Problems (5 Days)
+            </h3>
+
+            <p>
+                Practical groundwater monitoring, resource management,
+                contamination assessment and environmental protection.
+            </p>
+
+        </a>
+
+
+        <!-- 05 -->
+        <a
+            href="{{ url_for('environmental_modeling_machine_learning_r')}}"
+            class="environmental-course"
+        >
+
+            <span class="environmental-course-number">
+                COURSE 05
+            </span>
+
+            <h3>
+                Environmental Modeling: Machine Learning & Data Mining with R
+            </h3>
+
+            <p>
+                Apply machine learning, data mining and R-based
+                analytical methods to environmental datasets.
+            </p>
+
+        </a>
+
+
+    </section>
+
+
+    <!-- OUTCOMES -->
+    <section class="environmental-outcomes">
+
+        <h2>
+            Professional Learning Outcomes
+        </h2>
+
+
+        <div class="environmental-outcomes-grid">
+
+            <div class="environmental-outcome">
+
+                <p>
+                    Understand modern environmental management,
+                    monitoring and assessment practices.
+                </p>
+
+            </div>
+
+
+            <div class="environmental-outcome">
+
+                <p>
+                    Apply professional methods to environmental risk,
+                    groundwater and resource-management challenges.
+                </p>
+
+            </div>
+
+
+            <div class="environmental-outcome">
+
+                <p>
+                    Develop practical knowledge of environmental modeling,
+                    data analysis and sustainable engineering.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="environmental-cta">
+
+        <h2>
+            Advance Your Environmental Engineering Expertise
+        </h2>
+
+        <p>
+            Connect with Capital Consultants for professional training
+            and engineering development opportunities.
+        </p>
+
+        <div class="environmental-email">
+            ceo@capitalgroup.pk
+        </div>
+
+
+        <div class="environmental-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="environmental-btn primary"
+            >
+                SEND REQUEST
+            </a>
+
+
+            <a
+                href="{{ url_for('engines') }}"
+                class="environmental-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

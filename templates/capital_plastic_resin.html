@@ -1,0 +1,1582 @@
+{% extends "base.html" %}
+
+{% block title %}
+Plastic & Resin Based 3D Printing | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING CORPORATION
+   PLASTIC & RESIN BASED 3D PRINTING
+   ========================================================= */
+
+.pr-page {
+    background: #f5f7f8;
+    color: #12384f;
+    overflow: hidden;
+}
+
+.pr-page * {
+    box-sizing: border-box;
+}
+
+.pr-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.pr-hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.97) 0%,
+            rgba(6,29,45,.84) 45%,
+            rgba(6,29,45,.28) 100%
+        ),
+        url("https://images.unsplash.com/photo-1741848137437-56fb14b7ba87?auto=format&fit=crop&w=2200&q=88")
+        center / cover no-repeat;
+}
+
+.pr-hero-content {
+    width: min(800px, 92%);
+    margin-left: max(4%, calc((100vw - 1180px) / 2));
+    padding: 70px 0;
+}
+
+.pr-eyebrow {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.pr-hero h1 {
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    line-height: 1.03;
+    font-weight: 700;
+    letter-spacing: -.035em;
+}
+
+.pr-hero h1 span {
+    color: #d2a43b;
+}
+
+.pr-hero-text {
+    max-width: 720px;
+    margin: 0;
+    color: rgba(255,255,255,.88);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.pr-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.pr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: .86rem;
+    font-weight: 700;
+    transition: .25s ease;
+}
+
+.pr-btn-primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.pr-btn-primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.pr-btn-secondary {
+    border: 1px solid rgba(255,255,255,.55);
+    color: #fff;
+    background: rgba(255,255,255,.04);
+}
+
+.pr-btn-secondary:hover {
+    background: #fff;
+    color: #061d2d;
+}
+
+.pr-btn-dark {
+    background: #061d2d;
+    color: #fff;
+}
+
+.pr-btn-dark:hover {
+    background: #12384f;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.pr-intro {
+    padding: 65px 0 40px;
+}
+
+.pr-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.pr-kicker {
+    color: #c69b32;
+    font-size: .73rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.pr-title {
+    margin: 0 0 14px;
+    color: #061d2d;
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+}
+
+.pr-text {
+    margin: 0 0 10px;
+    color: #526674;
+    font-size: .92rem;
+    line-height: 1.55;
+}
+
+.pr-intro-image {
+    min-height: 340px;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(6,29,45,.15);
+}
+
+.pr-intro-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.pr-section {
+    padding: 60px 0;
+}
+
+.pr-section.alt {
+    background: #fff;
+}
+
+.pr-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.pr-section-grid.reverse .pr-copy {
+    order: 2;
+}
+
+.pr-section-grid.reverse .pr-visual {
+    order: 1;
+}
+
+.pr-copy h2 {
+    margin: 0 0 13px;
+    color: #061d2d;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -.025em;
+}
+
+.pr-copy h3 {
+    margin: 18px 0 7px;
+    color: #12384f;
+    font-size: 1rem;
+}
+
+.pr-copy p {
+    margin: 0 0 10px;
+    color: #526674;
+    font-size: .91rem;
+    line-height: 1.55;
+}
+
+.pr-copy ul {
+    margin: 12px 0 0;
+    padding-left: 18px;
+}
+
+.pr-copy li {
+    margin-bottom: 5px;
+    color: #526674;
+    font-size: .89rem;
+    line-height: 1.45;
+}
+
+.pr-copy li::marker {
+    color: #c69b32;
+}
+
+
+/* =========================================================
+   GRAPHICS
+   ========================================================= */
+
+.pr-visual {
+    position: relative;
+}
+
+.pr-image-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9px;
+    min-height: 340px;
+    background: #dfe5e8;
+    box-shadow: 0 18px 50px rgba(6,29,45,.13);
+}
+
+.pr-image-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 9px;
+    pointer-events: none;
+}
+
+.pr-image-frame img {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    display: block;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.pr-image-frame:hover img {
+    transform: scale(1.025);
+}
+
+.pr-caption {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    max-width: calc(100% - 30px);
+    padding: 8px 12px;
+    background: rgba(6,29,45,.88);
+    color: #fff;
+    border-left: 3px solid #c69b32;
+    font-size: .72rem;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   PRINTING TECHNOLOGIES
+   ========================================================= */
+
+.pr-tech {
+    padding: 65px 0;
+    background: #061d2d;
+}
+
+.pr-tech-layout {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.pr-tech-heading {
+    max-width: 680px;
+}
+
+.pr-tech-heading .pr-kicker {
+    color: #d2a43b;
+}
+
+.pr-tech-heading h2 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    line-height: 1.08;
+}
+
+.pr-tech-heading p {
+    margin: 0;
+    color: rgba(255,255,255,.68);
+    line-height: 1.55;
+    font-size: .9rem;
+}
+
+.pr-tech-image {
+    overflow: hidden;
+    border-radius: 8px;
+    min-height: 250px;
+}
+
+.pr-tech-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    display: block;
+    object-fit: cover;
+}
+
+.pr-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.pr-tech-card {
+    padding: 23px;
+    border: 1px solid rgba(255,255,255,.11);
+    background: rgba(255,255,255,.045);
+    border-radius: 7px;
+    transition: .25s ease;
+}
+
+.pr-tech-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(210,164,59,.55);
+}
+
+.pr-tech-number {
+    color: #d2a43b;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+
+.pr-tech-card h3 {
+    margin: 8px 0 8px;
+    color: #fff;
+    font-size: 1.12rem;
+}
+
+.pr-tech-card p {
+    margin: 0;
+    color: rgba(255,255,255,.65);
+    line-height: 1.5;
+    font-size: .84rem;
+}
+
+
+/* =========================================================
+   MATERIALS
+   ========================================================= */
+
+.pr-materials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.pr-material {
+    padding: 17px;
+    border-top: 3px solid #c69b32;
+    background: #f5f7f8;
+}
+
+.pr-material strong {
+    display: block;
+    color: #061d2d;
+    margin-bottom: 5px;
+    font-size: .84rem;
+}
+
+.pr-material span {
+    color: #627481;
+    font-size: .79rem;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   APPLICATIONS
+   ========================================================= */
+
+.pr-app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-top: 28px;
+}
+
+.pr-app-card {
+    min-height: 135px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e3e8eb;
+    border-radius: 7px;
+    transition: .25s ease;
+}
+
+.pr-app-card:hover {
+    transform: translateY(-4px);
+    border-color: #c69b32;
+    box-shadow: 0 12px 30px rgba(6,29,45,.08);
+}
+
+.pr-app-card h3 {
+    margin: 0 0 7px;
+    color: #061d2d;
+    font-size: .98rem;
+}
+
+.pr-app-card p {
+    margin: 0;
+    color: #657783;
+    line-height: 1.45;
+    font-size: .82rem;
+}
+
+
+/* =========================================================
+   ADVANTAGES
+   ========================================================= */
+
+.pr-advantage-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.pr-advantage {
+    padding: 14px 16px;
+    background: #fff;
+    border-left: 3px solid #c69b32;
+    box-shadow: 0 6px 20px rgba(6,29,45,.05);
+}
+
+.pr-advantage strong {
+    display: block;
+    color: #061d2d;
+    margin-bottom: 3px;
+    font-size: .84rem;
+}
+
+.pr-advantage span {
+    color: #687985;
+    font-size: .78rem;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   WHY CAPITAL ENGINEERING
+   ========================================================= */
+
+.pr-why {
+    padding: 70px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.97),
+            rgba(6,29,45,.86)
+        ),
+        url("https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=2200&q=85")
+        center / cover no-repeat;
+}
+
+.pr-why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.pr-why-content h2 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+    line-height: 1.08;
+}
+
+.pr-why-content p {
+    margin: 0 0 10px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.55;
+    font-size: .9rem;
+}
+
+.pr-why-points {
+    display: grid;
+    gap: 9px;
+}
+
+.pr-why-point {
+    padding: 14px 16px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.1);
+    color: rgba(255,255,255,.78);
+    font-size: .84rem;
+}
+
+.pr-why-point strong {
+    color: #d2a43b;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.pr-cta {
+    padding: 60px 0;
+    text-align: center;
+    background: #f5f7f8;
+}
+
+.pr-cta h2 {
+    margin: 0 0 10px;
+    color: #061d2d;
+    font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+}
+
+.pr-cta p {
+    width: min(680px, 92%);
+    margin: 0 auto 23px;
+    color: #627481;
+    line-height: 1.55;
+    font-size: .9rem;
+}
+
+.pr-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .pr-intro-grid,
+    .pr-section-grid,
+    .pr-tech-layout,
+    .pr-why-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .pr-section-grid.reverse .pr-copy,
+    .pr-section-grid.reverse .pr-visual {
+        order: initial;
+    }
+
+    .pr-tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pr-materials {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pr-app-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .pr-hero-content {
+        padding: 55px 0;
+    }
+
+    .pr-section,
+    .pr-intro,
+    .pr-tech,
+    .pr-why {
+        padding: 50px 0;
+    }
+
+    .pr-materials,
+    .pr-app-grid,
+    .pr-advantage-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pr-image-frame,
+    .pr-image-frame img,
+    .pr-intro-image,
+    .pr-intro-image img {
+        min-height: 270px;
+    }
+
+    .pr-hero-buttons,
+    .pr-cta-buttons {
+        flex-direction: column;
+    }
+
+    .pr-btn {
+        width: 100%;
+    }
+}
+
+</style>
+
+
+<div class="pr-page">
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="pr-hero">
+
+    <div class="pr-hero-content">
+
+        <div class="pr-eyebrow">
+            Additive Manufacturing Division
+        </div>
+
+        <h1>
+            Plastic &amp; Resin Based
+            <span>3D Printing</span>
+        </h1>
+
+        <p class="pr-hero-text">
+            Advanced polymer additive manufacturing for prototypes,
+            functional components and application-focused production
+            across industrial, defence and aerospace sectors.
+        </p>
+
+        <div class="pr-hero-buttons">
+
+            <a
+                href="{{ url_for('three_d_printing') }}"
+                class="pr-btn pr-btn-primary"
+            >
+                Back to Additive Manufacturing
+            </a>
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="pr-btn pr-btn-secondary"
+            >
+                Request Engineering Support
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRODUCTION
+     LIGHT PROFESSIONAL GRAPHIC
+     ===================================================== -->
+
+<section class="pr-intro">
+
+    <div class="pr-container">
+
+        <div class="pr-intro-grid">
+
+            <div>
+
+                <div class="pr-kicker">
+                    Engineering Additive Manufacturing
+                </div>
+
+                <h2 class="pr-title">
+                    From Digital Design to Functional Parts
+                </h2>
+
+                <p class="pr-text">
+                    Converts digital designs into precision polymer
+                    and resin components without conventional tooling.
+                </p>
+
+                <p class="pr-text">
+                    Supports prototyping, design verification,
+                    tooling aids and low-volume production.
+                </p>
+
+                <p class="pr-text">
+                    Engineering support covers preparation,
+                    printing, finishing and component development.
+                </p>
+
+            </div>
+
+            <div class="pr-intro-image">
+
+                <img
+                    src="https://images.ctfassets.net/0u0h1lgcum3a/6tMymgHTZxBK7p7ZfZa3v/f8d26225f1d8d79ef85ff574873d2fd1/1.png"
+                    alt="Professional industrial additive manufacturing facility"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FDM
+     LIGHT PROFESSIONAL GRAPHIC
+     TEXT LEFT / GRAPHIC RIGHT
+     ===================================================== -->
+
+<section class="pr-section alt">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    FDM / FFF
+                </div>
+
+                <h2>
+                    High-Strength Polymer Components
+                </h2>
+
+                <p>
+                    FDM produces functional polymer parts directly
+                    from digital engineering models.
+                </p>
+
+                <p>
+                    Suitable for housings, fixtures, prototypes,
+                    brackets and application-specific components.
+                </p>
+
+                <p>
+                    <strong>
+                        PEEK enables high-performance components
+                        for demanding industrial applications.
+                    </strong>
+                </p>
+
+                <h3>
+                    Typical Applications
+                </h3>
+
+                <ul>
+                    <li>Functional prototypes</li>
+                    <li>Equipment housings</li>
+                    <li>Jigs and fixtures</li>
+                    <li>Low-volume components</li>
+                    <li>Lightweight structures</li>
+                </ul>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://www.jellypipe.com/fileadmin/_processed_/a/f/csm_3D-Druck-Printfactory-Druckerarbeiten__2__1d1e1e13fa.jpg"
+                        alt="Professional FDM additive manufacturing equipment"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1631544110000-d60a8f6c6f3b?auto=format&fit=crop&w=1800&q=85';"
+                    >
+
+                    <div class="pr-caption">
+                        Professional FDM additive manufacturing
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRINTING TECHNOLOGIES
+     ===================================================== -->
+
+<section class="pr-tech">
+
+    <div class="pr-container">
+
+        <div class="pr-tech-layout">
+
+            <div class="pr-tech-heading">
+
+                <div class="pr-kicker">
+                    Process Technologies
+                </div>
+
+                <h2>
+                    Plastic &amp; Resin Printing Technologies
+                </h2>
+
+                <p>
+                    Process selection is based on geometry,
+                    accuracy, surface finish and material requirements.
+                </p>
+
+            </div>
+
+            <div class="pr-tech-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1631544110000-d60a8f6c6f3b?auto=format&fit=crop&w=1800&q=85"
+                    alt="Advanced plastic additive manufacturing equipment"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="pr-tech-grid">
+
+            <article class="pr-tech-card">
+
+                <div class="pr-tech-number">
+                    01
+                </div>
+
+                <h3>
+                    FDM / FFF
+                </h3>
+
+                <p>
+                    Layer-based polymer deposition for functional
+                    parts, prototypes and fixtures.
+                </p>
+
+            </article>
+
+
+            <article class="pr-tech-card">
+
+                <div class="pr-tech-number">
+                    02
+                </div>
+
+                <h3>
+                    SLA
+                </h3>
+
+                <p>
+                    Resin process for fine detail, smooth surfaces
+                    and high-accuracy prototypes.
+                </p>
+
+            </article>
+
+
+            <article class="pr-tech-card">
+
+                <div class="pr-tech-number">
+                    03
+                </div>
+
+                <h3>
+                    DLP
+                </h3>
+
+                <p>
+                    Photopolymer process for detailed components
+                    and fine-feature development.
+                </p>
+
+            </article>
+
+
+            <article class="pr-tech-card">
+
+                <div class="pr-tech-number">
+                    04
+                </div>
+
+                <h3>
+                    SLS
+                </h3>
+
+                <p>
+                    Polymer powder process for complex geometries
+                    and functional components.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESIN
+     GRAPHIC LEFT / TEXT RIGHT
+     ===================================================== -->
+
+<section class="pr-section">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid reverse">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    Resin Manufacturing
+                </div>
+
+                <h2>
+                    High-Detail Resin Components
+                </h2>
+
+                <p>
+                    Resin printing delivers fine features,
+                    accurate geometry and high-quality surfaces.
+                </p>
+
+                <p>
+                    Ideal for detailed prototypes, inspection aids,
+                    development models and precision components.
+                </p>
+
+                <p>
+                    Material selection is matched to functional,
+                    visual and environmental requirements.
+                </p>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://3drepublika.com/cdn/shop/files/rspro2100-sla-3dprinter-03.png?v=1726488002&width=1500"
+                        alt="Industrial SLA resin 3D printing machine"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1631544110000-d60a8f6c6f3b?auto=format&fit=crop&w=1800&q=85';"
+                    >
+
+                    <div class="pr-caption">
+                        Resin-based precision manufacturing
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MATERIALS
+     TEXT LEFT / GRAPHIC RIGHT
+     ===================================================== -->
+
+<section class="pr-section alt">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    Material Engineering
+                </div>
+
+                <h2>
+                    Materials for Application Requirements
+                </h2>
+
+                <p>
+                    Material selection is driven by mechanical,
+                    thermal, environmental and dimensional requirements.
+                </p>
+
+                <div class="pr-materials">
+
+                    <div class="pr-material">
+
+                        <strong>
+                            Engineering Thermoplastics
+                        </strong>
+
+                        <span>
+                            Functional parts, housings and fixtures.
+                        </span>
+
+                    </div>
+
+
+                    <div class="pr-material">
+
+                        <strong>
+                            High-Performance Polymers
+                        </strong>
+
+                        <span>
+                            High mechanical and thermal performance.
+                        </span>
+
+                    </div>
+
+
+                    <div class="pr-material">
+
+                        <strong>
+                            Photopolymer Resins
+                        </strong>
+
+                        <span>
+                            Fine detail, accuracy and surface quality.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=85"
+                        alt="Advanced engineering materials and manufacturing environment"
+                        loading="lazy"
+                    >
+
+                    <div class="pr-caption">
+                        Engineering materials and production
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     APPLICATIONS
+     GRAPHIC LEFT / TEXT RIGHT
+     ===================================================== -->
+
+<section class="pr-section">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid reverse">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    Applications
+                </div>
+
+                <h2>
+                    Prototypes to Production Components
+                </h2>
+
+                <p>
+                    Accelerates design validation and supports
+                    selected low-volume manufacturing requirements.
+                </p>
+
+                <p>
+                    Suitable where geometry changes, tooling cost
+                    or development speed are critical factors.
+                </p>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=85"
+                        alt="Industrial engineer working with advanced manufacturing equipment"
+                        loading="lazy"
+                    >
+
+                    <div class="pr-caption">
+                        Industrial additive manufacturing
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pr-app-grid">
+
+            <article class="pr-app-card">
+                <h3>Rapid Prototyping</h3>
+                <p>
+                    Fast form and fit evaluation during development.
+                </p>
+            </article>
+
+            <article class="pr-app-card">
+                <h3>Functional Prototypes</h3>
+                <p>
+                    Engineering parts for practical testing.
+                </p>
+            </article>
+
+            <article class="pr-app-card">
+                <h3>Jigs &amp; Fixtures</h3>
+                <p>
+                    Customized aids for production and inspection.
+                </p>
+            </article>
+
+            <article class="pr-app-card">
+                <h3>Housings &amp; Enclosures</h3>
+                <p>
+                    Application-specific protective structures.
+                </p>
+            </article>
+
+            <article class="pr-app-card">
+                <h3>Replacement Components</h3>
+                <p>
+                    Selected low-volume polymer replacements.
+                </p>
+            </article>
+
+            <article class="pr-app-card">
+                <h3>Design Verification</h3>
+                <p>
+                    Physical models for engineering validation.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INDUSTRIES
+     TEXT LEFT / GRAPHIC RIGHT
+     ===================================================== -->
+
+<section class="pr-section alt">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    Industry Applications
+                </div>
+
+                <h2>
+                    Advanced Engineering Sectors
+                </h2>
+
+                <p>
+                    Plastic and resin additive manufacturing supports
+                    industrial, commercial, defence and aerospace work.
+                </p>
+
+                <p>
+                    Process, material and component validation are
+                    selected according to application requirements.
+                </p>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1800&q=85"
+                        alt="Professional industrial engineering environment"
+                        loading="lazy"
+                    >
+
+                    <div class="pr-caption">
+                        Advanced engineering applications
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ADVANTAGES
+     GRAPHIC LEFT / TEXT RIGHT
+     ===================================================== -->
+
+<section class="pr-section">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid reverse">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    Engineering Advantages
+                </div>
+
+                <h2>
+                    Performance Through Additive Manufacturing
+                </h2>
+
+                <p>
+                    Provides design flexibility, rapid iteration and
+                    reduced tooling dependency for suitable applications.
+                </p>
+
+
+                <div class="pr-advantage-list">
+
+                    <div class="pr-advantage">
+
+                        <strong>
+                            Design Freedom
+                        </strong>
+
+                        <span>
+                            Complex geometries from digital models.
+                        </span>
+
+                    </div>
+
+
+                    <div class="pr-advantage">
+
+                        <strong>
+                            Rapid Iteration
+                        </strong>
+
+                        <span>
+                            Faster evaluation of design changes.
+                        </span>
+
+                    </div>
+
+
+                    <div class="pr-advantage">
+
+                        <strong>
+                            Reduced Tooling
+                        </strong>
+
+                        <span>
+                            Lower tooling dependency for suitable parts.
+                        </span>
+
+                    </div>
+
+
+                    <div class="pr-advantage">
+
+                        <strong>
+                            Low-Volume Flexibility
+                        </strong>
+
+                        <span>
+                            Efficient for selected development quantities.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1800&q=85"
+                        alt="Advanced additive manufacturing and engineering workflow"
+                        loading="lazy"
+                    >
+
+                    <div class="pr-caption">
+                        Additive manufacturing workflow
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COMPONENTS
+     TEXT LEFT / GRAPHIC RIGHT
+     ===================================================== -->
+
+<section class="pr-section alt">
+
+    <div class="pr-container">
+
+        <div class="pr-section-grid">
+
+            <div class="pr-copy">
+
+                <div class="pr-kicker">
+                    Component Development
+                </div>
+
+                <h2>
+                    Typical Engineering Components
+                </h2>
+
+                <p>
+                    Supports precision development parts across
+                    equipment, assemblies and industrial applications.
+                </p>
+
+                <ul>
+                    <li>Equipment housings and covers</li>
+                    <li>Mounting brackets and supports</li>
+                    <li>Protective guards</li>
+                    <li>Air and fluid routing prototypes</li>
+                    <li>Assembly aids and fixtures</li>
+                    <li>Product-development prototypes</li>
+                    <li>Inspection models</li>
+                    <li>Low-volume components</li>
+                </ul>
+
+            </div>
+
+
+            <div class="pr-visual">
+
+                <div class="pr-image-frame">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=85"
+                        alt="Precision engineering components and manufacturing development"
+                        loading="lazy"
+                    >
+
+                    <div class="pr-caption">
+                        Precision engineering components
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CAPITAL ENGINEERING
+     ===================================================== -->
+
+<section class="pr-why">
+
+    <div class="pr-container">
+
+        <div class="pr-why-grid">
+
+            <div class="pr-why-content">
+
+                <div class="pr-kicker">
+                    Capital Engineering Corporation
+                </div>
+
+                <h2>
+                    Engineering Support Beyond the Printer
+                </h2>
+
+                <p>
+                    Our approach connects additive manufacturing
+                    with engineering requirements and applications.
+                </p>
+
+                <p>
+                    Material, process, component and manufacturing
+                    considerations are evaluated as one solution.
+                </p>
+
+            </div>
+
+
+            <div class="pr-why-points">
+
+                <div class="pr-why-point">
+                    <strong>01</strong>
+                    &nbsp; Engineering-focused manufacturing
+                </div>
+
+                <div class="pr-why-point">
+                    <strong>02</strong>
+                    &nbsp; Application-based material selection
+                </div>
+
+                <div class="pr-why-point">
+                    <strong>03</strong>
+                    &nbsp; Prototype and component development
+                </div>
+
+                <div class="pr-why-point">
+                    <strong>04</strong>
+                    &nbsp; Integrated manufacturing solutions
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="pr-cta">
+
+    <div class="pr-container">
+
+        <h2>
+            Develop Your Next Engineering Component
+        </h2>
+
+        <p>
+            Discuss your component, material or additive manufacturing
+            requirement with Capital Engineering Corporation.
+        </p>
+
+        <div class="pr-cta-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="pr-btn pr-btn-primary"
+            >
+                Request a Quote
+            </a>
+
+            <a
+                href="{{ url_for('three_d_printing') }}"
+                class="pr-btn pr-btn-dark"
+            >
+                Explore Additive Manufacturing
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+{% endblock %}

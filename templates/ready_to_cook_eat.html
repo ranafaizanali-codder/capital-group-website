@@ -1,0 +1,399 @@
+{% extends "base.html" %}
+
+{% block title %}Ready to Cook / Eat Department | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.ready-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+/* HERO */
+.ready-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(6,29,45,.90), rgba(6,29,45,.45)),
+        url("https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.ready-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.ready-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.ready-hero h1 {
+    max-width: 900px;
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.08;
+    margin: 0 0 25px;
+    font-weight: 700;
+}
+
+.ready-description {
+    max-width: 760px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e7edf1;
+}
+
+/* INTRO */
+.ready-intro {
+    width: min(1050px, 90%);
+    margin: auto;
+    padding: 90px 0 55px;
+    text-align: center;
+}
+
+.ready-intro h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 18px;
+    color: #12384f;
+}
+
+.ready-intro p {
+    max-width: 820px;
+    margin: auto;
+    color: #526673;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* PRODUCT GRID */
+.ready-products {
+    width: min(1150px, 92%);
+    margin: auto;
+    padding: 20px 0 90px;
+}
+
+.ready-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.ready-card {
+    min-height: 155px;
+    padding: 30px 28px;
+    background: #fff;
+    border: 1px solid #d9e0e4;
+    text-decoration: none;
+    color: #12384f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: .25s ease;
+}
+
+.ready-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #c69b32;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: .25s ease;
+}
+
+.ready-card:hover {
+    transform: translateY(-4px);
+    border-color: #c69b32;
+    box-shadow: 0 12px 30px rgba(6,29,45,.08);
+}
+
+.ready-card:hover::before {
+    transform: scaleY(1);
+}
+
+.ready-card-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.ready-card h3 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    color: #12384f;
+}
+
+.ready-card p {
+    margin: 0;
+    color: #687984;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* CTA */
+.ready-cta {
+    background: #08283b;
+    color: #fff;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.ready-cta h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 0 0 18px;
+}
+
+.ready-cta p {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: #dce6eb;
+    line-height: 1.7;
+}
+
+.ready-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ready-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 1px solid #c69b32;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.ready-btn:hover {
+    background: #c69b32;
+    color: #08283b;
+}
+
+.ready-email {
+    margin-top: 28px;
+    color: #cfdce2;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+
+    .ready-hero {
+        min-height: 570px;
+    }
+
+    .ready-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .ready-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ready-card {
+        min-height: 135px;
+    }
+}
+</style>
+
+
+<div class="ready-page">
+
+    <!-- HERO -->
+    <section class="ready-hero">
+
+        <div class="ready-hero-inner">
+
+            <div class="ready-label">
+                Ready to Cook / Eat Department
+            </div>
+
+            <h1>
+                CONVENIENCE FOOD SOLUTIONS FOR MODERN MARKETS.
+            </h1>
+
+            <p class="ready-description">
+                CTC’s Ready to Cook / Eat Department provides professionally sourced
+                convenience food solutions, connecting reliable food suppliers with
+                distributors, retailers, food businesses and international markets
+                through organized sourcing and supply coordination.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="ready-intro">
+
+        <h2>Ready to Cook & Ready to Eat Products</h2>
+
+        <p>
+            CTC supports convenient food sourcing across a diverse range of prepared
+            and frozen products, with a focus on consistent quality, dependable supply,
+            product specifications, quantity planning and international market access.
+        </p>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="ready-products">
+
+        <div class="ready-grid">
+
+            <!-- 01 -->
+            <a href="{{ url_for('macaroni') }}" class="ready-card">
+
+                <div class="ready-card-number">01</div>
+
+                <h3>Macaroni</h3>
+
+                <p>
+                    Convenient macaroni products for foodservice,
+                    retail and commercial supply requirements.
+                </p>
+
+            </a>
+
+
+            <!-- 02 -->
+            <a href="{{ url_for('pizza') }}" class="ready-card">
+
+                <div class="ready-card-number">02</div>
+
+                <h3>Pizza</h3>
+
+                <p>
+                    Ready-to-cook pizza solutions suitable for
+                    convenient meals and foodservice markets.
+                </p>
+
+            </a>
+
+
+            <!-- 03 -->
+            <a href="{{ url_for('pasta') }}" class="ready-card">
+
+                <div class="ready-card-number">03</div>
+
+                <h3>Pasta</h3>
+
+                <p>
+                    Convenient pasta products supporting retail,
+                    foodservice and international sourcing needs.
+                </p>
+
+            </a>
+
+
+            <!-- 04 -->
+            <a href="{{ url_for('nuggets') }}" class="ready-card">
+
+                <div class="ready-card-number">04</div>
+
+                <h3>Nuggets</h3>
+
+                <p>
+                    Professionally sourced prepared poultry products
+                    for convenient food and commercial markets.
+                </p>
+
+            </a>
+
+
+            <!-- 05 -->
+            <a href="{{ url_for('sausage') }}" class="ready-card">
+
+                <div class="ready-card-number">05</div>
+
+                <h3>Sausage</h3>
+
+                <p>
+                    Prepared sausage products coordinated for
+                    consistent commercial sourcing and supply.
+                </p>
+
+            </a>
+
+
+            <!-- 06 -->
+            <a href="{{ url_for('burger_patties') }}" class="ready-card">
+
+                <div class="ready-card-number">06</div>
+
+                <h3>Burger Patties</h3>
+
+                <p>
+                    Convenient burger patty solutions for
+                    foodservice, retail and commercial buyers.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="ready-cta">
+
+        <h2>Looking for Ready Food Solutions?</h2>
+
+        <p>
+            Connect with CTC for professional ready-to-cook and ready-to-eat
+            sourcing, supply coordination and international market solutions.
+        </p>
+
+        <div class="ready-buttons">
+
+            <a href="{{ url_for('trading_quote') }}" class="ready-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}" class="ready-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/" class="ready-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="ready-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

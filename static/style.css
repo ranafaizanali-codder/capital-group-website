@@ -1,0 +1,4021 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7f8;
+    color: #12384f;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 10px;
+    z-index: 99999;
+    background: #c69b32;
+    color: #061d2d;
+    padding: 12px 18px;
+    font-weight: 800;
+}
+
+.skip-link:focus {
+    left: 10px;
+}
+
+a:focus-visible {
+    outline: 3px solid #d2a43b;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    min-height: 105px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, .08);
+}
+
+.logo {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 215px;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+nav > a,
+.dropdown > a {
+    color: #12384f;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    padding: 40px 0;
+}
+
+nav > a:hover,
+.dropdown > a:hover {
+    color: #c69b32;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 82px;
+    left: -20px;
+    width: 240px;
+    background: white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .15);
+    border-top: 3px solid #c69b32;
+    display: none;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #12384f;
+    padding: 16px 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+    background: #f5f1e7;
+    color: #c69b32;
+}
+
+.talk {
+    background: #12384f;
+    color: white;
+    padding: 18px 27px;
+    border-radius: 4px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.talk:hover {
+    background: #c69b32;
+}
+
+
+/* =========================================================
+   HOME HERO
+   ========================================================= */
+
+.hero {
+    min-height: calc(100vh - 105px);
+    background: url("/static/hero.jpg") center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(3, 27, 43, .95),
+        rgba(3, 27, 43, .68),
+        rgba(3, 27, 43, .18)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 7%;
+    max-width: 900px;
+}
+
+.gold-text {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: clamp(55px, 6vw, 88px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.hero h1 span,
+.inner-page h1 span,
+.company-hero h1 span {
+    color: #d8aa3d;
+}
+
+.hero p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 18px;
+}
+
+.main-btn,
+.outline-btn {
+    padding: 20px 30px;
+    font-weight: 800;
+}
+
+.main-btn {
+    background: white;
+    color: #12384f;
+}
+
+.outline-btn {
+    color: white;
+    border: 1px solid white;
+}
+/* =========================================================
+   HOME COMPANY BUTTON TEXT ALIGNMENT
+   ========================================================= */
+
+.main-btn {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.main-btn strong {
+    grid-column: 1;
+    display: block;
+}
+
+ 
+
+.main-btn span {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+}
+.main-btn:hover {
+    background: #d2a43b;
+    color: white;
+}
+
+.outline-btn:hover {
+    background: white;
+    color: #12384f;
+}
+
+
+/* =========================================================
+   HOME INTRO
+   ========================================================= */
+
+.intro {
+    background: white;
+    padding: 110px 8%;
+}
+
+.intro h2 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.intro h2 span {
+    color: #c69b32;
+}
+
+.intro p {
+    max-width: 850px;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #63737e;
+}
+
+
+/* =========================================================
+   COMPANIES
+   ========================================================= */
+
+.companies {
+    padding: 100px 7%;
+    background: #f1f4f6;
+}
+
+.section-title h2 {
+    font-size: 55px;
+    margin-bottom: 50px;
+}
+
+.section-title h2 span {
+    color: #c69b32;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.company-card {
+    background: white;
+    padding: 28px 30px;
+    min-height: 230px;
+    border-top: 4px solid #c69b32;
+    color: #12384f;
+    transition: .3s;
+}
+
+
+.company-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+}
+
+.company-card small {
+    color: #c69b32;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.company-card h2 {
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 15px 0 14px;
+}
+
+.company-card p {
+    color: #63737e;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.company-card b {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   GENERAL INNER PAGES
+   ========================================================= */
+
+.inner-page,
+.company-hero {
+    min-height: 480px;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 29, 45, .97),
+            rgba(4, 29, 45, .70),
+            rgba(4, 29, 45, .30)
+        ),
+        url("/static/hero.jpg") center / cover;
+}
+
+.inner-page h1,
+.company-hero h1 {
+    color: white;
+    font-size: 70px;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.inner-page p,
+.company-hero p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 850px;
+}
+
+
+/* =========================================================
+   GENERAL CONTENT
+   ========================================================= */
+
+.content-section {
+    padding: 90px 7%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+    padding: 35px;
+    border-left: 4px solid #c69b32;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+}
+
+.info-card h2 {
+    color: #12384f;
+    margin-bottom: 18px;
+}
+
+.info-card p {
+    color: #63737e;
+    line-height: 1.8;
+}
+
+.wide-content {
+    grid-column: 1 / -1;
+    background: white;
+    padding: 45px;
+    margin-bottom: 15px;
+    border-top: 4px solid #c69b32;
+}
+
+.wide-content h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.wide-content p {
+    color: #63737e;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   SOCIAL
+   ========================================================= */
+
+.social-section {
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.social-section a {
+    background: #12384f;
+    color: white;
+    padding: 35px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.social-section a:hover {
+    background: #c69b32;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-grid {
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.contact-card {
+    background: white;
+    padding: 45px;
+    border-top: 4px solid #c69b32;
+}
+
+.contact-card h2 {
+    margin-bottom: 20px;
+}
+
+.contact-card p {
+    color: #63737e;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CAPITAL ENGINEERING MAIN HERO
+   NAVY + PCB + ELECTRONS
+   ========================================================= */
+
+.engineering-main-hero {
+    min-height: 720px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 19, 33, .98),
+            rgba(3, 30, 48, .90),
+            rgba(3, 30, 48, .72)
+        ),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=85")
+        center / cover no-repeat;
+}
+
+
+/* subtle technology grid */
+
+.engineering-main-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+    opacity: .45;
+    pointer-events: none;
+}
+
+
+/* golden technology glow */
+
+.engineering-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 78% 35%,
+            rgba(210, 164, 59, .20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(0, 150, 255, .14),
+            transparent 30%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CIRCUIT DECORATION
+   ========================================================= */
+
+.engineering-circuit-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .85;
+}
+
+.engineering-circuit-background .circuit-line {
+    position: absolute;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(210,164,59,.75),
+        rgba(115,205,255,.8)
+    );
+
+    box-shadow: 0 0 10px rgba(92,185,255,.25);
+}
+
+
+/* horizontal tracks */
+
+.line-one {
+    width: 34%;
+    right: 3%;
+    top: 24%;
+}
+
+.line-two {
+    width: 43%;
+    right: 0;
+    top: 48%;
+}
+
+.line-three {
+    width: 28%;
+    right: 12%;
+    top: 70%;
+}
+
+.line-four {
+    width: 20%;
+    right: 20%;
+    top: 84%;
+}
+
+
+/* vertical small tracks */
+
+.line-one::after,
+.line-two::after,
+.line-three::after,
+.line-four::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 75px;
+    right: 0;
+    top: 0;
+    background: #c69b32;
+}
+
+
+/* circuit nodes */
+
+.engineering-circuit-background .circuit-node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d2a43b;
+
+    box-shadow:
+        0 0 8px #d2a43b,
+        0 0 25px rgba(210,164,59,.65);
+}
+
+.node-one {
+    right: 36%;
+    top: calc(24% - 4px);
+}
+
+.node-two {
+    right: 44%;
+    top: calc(48% - 4px);
+}
+
+.node-three {
+    right: 39%;
+    top: calc(70% - 4px);
+}
+
+.node-four {
+    right: 31%;
+    top: calc(84% - 4px);
+}
+
+
+/* =========================================================
+   MICROCHIPS
+   ========================================================= */
+
+.chip {
+    position: absolute;
+    width: 105px;
+    height: 105px;
+
+    border: 2px solid rgba(210,164,59,.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15,55,76,.95),
+            rgba(3,20,33,.95)
+        );
+
+    box-shadow:
+        inset 0 0 25px rgba(0,150,255,.12),
+        0 0 25px rgba(0,0,0,.25);
+}
+
+.chip::before,
+.chip::after {
+    content: "";
+    position: absolute;
+    background: #c69b32;
+}
+
+.chip::before {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+}
+
+.chip::after {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+}
+
+.chip span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #78d6ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #78d6ff;
+}
+
+.chip span:nth-child(1) {
+    top: 18px;
+    left: 18px;
+}
+
+.chip span:nth-child(2) {
+    top: 18px;
+    right: 18px;
+}
+
+.chip span:nth-child(3) {
+    bottom: 18px;
+    left: 18px;
+}
+
+.chip span:nth-child(4) {
+    bottom: 18px;
+    right: 18px;
+}
+
+.chip-one {
+    right: 20%;
+    top: 15%;
+    transform: rotate(8deg);
+}
+
+.chip-two {
+    right: 8%;
+    bottom: 13%;
+    transform: rotate(-7deg);
+    width: 80px;
+    height: 80px;
+}
+
+
+/* =========================================================
+   FLOWING ELECTRONS
+   ========================================================= */
+
+.electron {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #8de0ff;
+
+    box-shadow:
+        0 0 8px #8de0ff,
+        0 0 20px rgba(141,224,255,.85);
+}
+
+.electron::after {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 1px;
+    right: 5px;
+    top: 3px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(141,224,255,.8),
+        transparent
+    );
+}
+
+.electron-one {
+    right: 25%;
+    top: 24%;
+}
+
+.electron-two {
+    right: 15%;
+    top: 48%;
+}
+
+.electron-three {
+    right: 28%;
+    top: 70%;
+}
+
+.electron-four {
+    right: 10%;
+    top: 84%;
+}
+
+
+/* =========================================================
+   ENGINEERING HERO CONTENT
+   ========================================================= */
+
+.engineering-hero-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1150px;
+    padding: 90px 8%;
+}
+
+.engineering-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.engineering-hero-content h1 {
+    color: white;
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    max-width: 1000px;
+    margin-bottom: 28px;
+}
+
+.engineering-hero-content h1 span {
+    display: block;
+    color: #ffffff;
+}
+
+.engineering-hero-content p {
+    color: #e7eef2;
+    max-width: 780px;
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 38px;
+}
+
+
+/* =========================================================
+   SIX ENGINEERING LINKS
+   ========================================================= */
+
+.engineering-links {
+    width: 100%;
+    max-width: 900px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.engineering-link {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+
+    background: rgba(4, 31, 48, .72);
+    border: 1px solid rgba(255,255,255,.15);
+    border-left: 3px solid #c69b32;
+
+    color: white;
+    padding: 15px 18px;
+
+    backdrop-filter: blur(5px);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.engineering-link:hover {
+    transform: translateX(6px);
+    background: rgba(18,56,79,.94);
+    border-color: #d2a43b;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.engineering-number {
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    min-width: 42px;
+}
+
+.engineering-link-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.engineering-link-content strong {
+    font-size: 18px;
+    letter-spacing: .3px;
+}
+
+.engineering-link-content small {
+    color: #b9cbd4;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.engineering-arrow {
+    color: #d2a43b;
+    font-size: 24px;
+    padding-left: 12px;
+    transition: transform .25s ease;
+}
+
+.engineering-link:hover .engineering-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ENGINEERING INTRO
+   ========================================================= */
+
+.engineering-intro {
+    background: white;
+    padding: 105px 8%;
+}
+
+.engineering-intro-content {
+    max-width: 900px;
+}
+
+.engineering-intro h2 {
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.engineering-intro h2 span {
+    color: #c69b32;
+}
+
+.engineering-intro p {
+    color: #63737e;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 850px;
+}
+
+
+/* =========================================================
+   ENGINEERING TECHNOLOGY SECTION
+   ========================================================= */
+
+.engineering-tech-section {
+    background: #061d2d;
+    color: white;
+    padding: 105px 8%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.tech-content {
+    max-width: 720px;
+}
+
+.engineering-intro-label {
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.tech-content h2 {
+    font-size: clamp(40px, 5vw, 62px);
+    line-height: 1.08;
+    margin-bottom: 25px;
+}
+
+.tech-content h2 span {
+    color: #d2a43b;
+    display: block;
+}
+
+.tech-content p {
+    color: #cbd7dc;
+    font-size: 19px;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   LARGE PCB VISUAL
+   ========================================================= */
+
+.tech-visual {
+    min-height: 430px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(40,100,130,.30),
+            transparent 60%
+        ),
+        #08283b;
+
+    border: 1px solid rgba(210,164,59,.30);
+    overflow: hidden;
+}
+
+.tech-visual::before {
+    content: "";
+    position: absolute;
+    inset: 25px;
+
+    background-image:
+        linear-gradient(
+            rgba(210,164,59,.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(210,164,59,.12) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+}
+
+.tech-board {
+    position: relative;
+
+    width: 72%;
+    height: 65%;
+
+    border: 2px solid rgba(210,164,59,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0a3449,
+            #061e2f
+        );
+
+    box-shadow:
+        inset 0 0 35px rgba(0,0,0,.45),
+        0 0 35px rgba(0,0,0,.25);
+
+    transform: rotate(-3deg);
+}
+
+
+/* PCB tracks */
+
+.board-track {
+    position: absolute;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #c69b32,
+        #70d6ff,
+        transparent
+    );
+
+    box-shadow: 0 0 7px rgba(112,214,255,.5);
+}
+
+.track-a {
+    width: 70%;
+    left: 5%;
+    top: 25%;
+}
+
+.track-b {
+    width: 58%;
+    right: 5%;
+    top: 50%;
+}
+
+.track-c {
+    width: 45%;
+    left: 18%;
+    top: 72%;
+}
+
+.track-d {
+    width: 35%;
+    right: 8%;
+    top: 85%;
+}
+
+
+/* PCB chip */
+
+.board-chip {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    left: 42%;
+    top: 38%;
+
+    background: #071824;
+
+    border: 2px solid #c69b32;
+
+    box-shadow:
+        0 0 20px rgba(210,164,59,.2),
+        inset 0 0 20px rgba(70,180,230,.15);
+
+    z-index: 3;
+}
+
+.board-chip span {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #72d8ff;
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px #72d8ff;
+}
+
+.board-chip span:nth-child(1) {
+    top: 15px;
+    left: 15px;
+}
+
+.board-chip span:nth-child(2) {
+    top: 15px;
+    right: 15px;
+}
+
+.board-chip span:nth-child(3) {
+    bottom: 15px;
+    left: 15px;
+}
+
+.board-chip span:nth-child(4) {
+    bottom: 15px;
+    right: 15px;
+}
+
+.board-chip span:nth-child(5) {
+    top: 50%;
+    left: 15px;
+}
+
+.board-chip span:nth-child(6) {
+    top: 50%;
+    right: 15px;
+}
+
+
+/* PCB dots */
+
+.board-dot {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    background: #d2a43b;
+    border-radius: 50%;
+
+    box-shadow: 0 0 12px rgba(210,164,59,.75);
+}
+
+.dot-a {
+    left: 7%;
+    top: 25%;
+}
+
+.dot-b {
+    left: 74%;
+    top: 25%;
+}
+
+.dot-c {
+    left: 18%;
+    top: 72%;
+}
+
+.dot-d {
+    right: 5%;
+    top: 50%;
+}
+
+.dot-e {
+    right: 8%;
+    top: 85%;
+}
+
+
+/* PCB electrons */
+
+.board-electron {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #7bdcff;
+
+    box-shadow:
+        0 0 8px #7bdcff,
+        0 0 20px rgba(123,220,255,.7);
+
+    z-index: 5;
+}
+
+.electron-a {
+    left: 12%;
+    top: 24%;
+}
+
+.electron-b {
+    right: 15%;
+    top: 49%;
+}
+
+.electron-c {
+    left: 25%;
+    top: 71%;
+}
+
+
+/* =========================================================
+   OLD ENGINEERING SECTIONS
+   Kept for compatibility
+   ========================================================= */
+
+.engineering-areas {
+    background: #f1f4f6;
+    padding: 105px 7%;
+}
+
+.engineering-section-heading {
+    max-width: 900px;
+    margin-bottom: 50px;
+}
+
+.engineering-section-heading h2 {
+    font-size: clamp(42px, 5vw, 62px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.engineering-section-heading h2 span {
+    color: #c69b32;
+}
+
+.engineering-section-heading p {
+    color: #63737e;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.engineering-area-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.engineering-area-card {
+    position: relative;
+    background: white;
+    min-height: 335px;
+    padding: 34px;
+    color: #12384f;
+    border-top: 4px solid #c69b32;
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.engineering-area-card::after {
+    content: "";
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    right: -80px;
+    bottom: -80px;
+
+    border: 1px solid rgba(198,155,50,.18);
+    border-radius: 50%;
+}
+
+.engineering-area-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 45px rgba(0,0,0,.12);
+    border-color: #12384f;
+}
+
+.engineering-card-number {
+    color: #c69b32;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.engineering-card-icon {
+    margin-top: 20px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #12384f;
+    color: #d8aa3d;
+
+    font-size: 27px;
+    border-radius: 50%;
+}
+
+.engineering-area-card h3 {
+    font-size: 29px;
+    margin: 24px 0 13px;
+}
+
+.engineering-area-card p {
+    color: #63737e;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.engineering-area-card span:last-child {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ENGINEERING APPROACH
+   ========================================================= */
+
+.engineering-approach {
+    background: #f1f4f6;
+    padding: 105px 8%;
+}
+
+.engineering-approach-title {
+    max-width: 850px;
+    margin-bottom: 55px;
+}
+
+.engineering-approach-title h2 {
+    font-size: clamp(40px,5vw,62px);
+    line-height: 1.1;
+}
+
+.engineering-approach-title h2 span {
+    color: #c69b32;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 22px;
+}
+
+.approach-card {
+    background: white;
+    padding: 32px;
+    border-top: 4px solid #c69b32;
+    min-height: 230px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.05);
+}
+
+.approach-icon {
+    color: #c69b32;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.approach-card h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.approach-card p {
+    color: #63737e;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ENGINEERING CONTACT
+   ========================================================= */
+
+.engineering-contact {
+    background: #12384f;
+    color: white;
+    padding: 80px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.engineering-contact h2 {
+    font-size: clamp(40px,5vw,62px);
+    line-height: 1.05;
+    margin-bottom: 15px;
+}
+
+.engineering-contact h2 span {
+    color: #d2a43b;
+}
+
+.engineering-contact p {
+    color: #cbd8dd;
+    max-width: 700px;
+}
+
+.engineering-contact-link {
+    flex-shrink: 0;
+    background: white;
+    color: #12384f;
+    padding: 18px 28px;
+    font-weight: 900;
+}
+
+.engineering-contact-link span {
+    color: #c69b32;
+    margin-left: 8px;
+}
+
+.engineering-contact-link:hover {
+    background: #d2a43b;
+    color: white;
+}
+
+
+/* =========================================================
+   INDIVIDUAL INDUSTRY HERO
+   ========================================================= */
+
+.industry-hero {
+    min-height: 680px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.industry-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,24,39,.96),
+            rgba(3,24,39,.76),
+            rgba(3,24,39,.34)
+        );
+
+    z-index: 1;
+}
+
+.industry-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 78% 45%,
+            rgba(210,164,59,.18),
+            transparent 30%
+        );
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.industry-hero-content {
+    position: relative;
+    z-index: 3;
+
+    padding: 90px 8%;
+    max-width: 1100px;
+}
+
+.industry-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 12px;
+}
+
+.industry-number {
+    color: rgba(255,255,255,.65);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.industry-hero h1 {
+    color: white;
+    font-size: clamp(45px,5.8vw,78px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 950px;
+    margin-bottom: 28px;
+}
+
+.industry-hero p {
+    color: #e6edf0;
+    font-size: 19px;
+    line-height: 1.8;
+    max-width: 820px;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   INDUSTRY INTRO
+   ========================================================= */
+
+.industry-intro {
+    background: white;
+    padding: 100px 8%;
+}
+
+.industry-intro-label {
+    color: #c69b32;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.industry-intro h2 {
+    font-size: clamp(40px,5vw,62px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.industry-intro h2 span {
+    color: #c69b32;
+}
+
+.industry-intro p {
+    max-width: 850px;
+    color: #63737e;
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   INDUSTRY CAPABILITIES
+   ========================================================= */
+
+.industry-capabilities {
+    background: #f1f4f6;
+    padding: 100px 7%;
+}
+
+.industry-heading {
+    max-width: 900px;
+    margin-bottom: 50px;
+}
+
+.industry-heading h2 {
+    font-size: clamp(40px,5vw,62px);
+    line-height: 1.1;
+    margin: 12px 0 20px;
+}
+
+.industry-heading h2 span {
+    color: #c69b32;
+}
+
+.industry-heading p {
+    color: #63737e;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.industry-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+}
+
+.industry-card {
+    position: relative;
+    background: white;
+    padding: 34px;
+    min-height: 310px;
+    border-top: 4px solid #c69b32;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.05);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    overflow: hidden;
+}
+
+.industry-card::after {
+    content: "";
+    position: absolute;
+
+    right: -60px;
+    bottom: -60px;
+
+    width: 150px;
+    height: 150px;
+
+    border: 1px solid rgba(198,155,50,.20);
+    border-radius: 50%;
+}
+
+.industry-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.11);
+}
+
+.industry-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.industry-card-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.industry-card-symbol {
+    color: #12384f;
+    font-size: 27px;
+}
+
+.industry-card h3 {
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 28px 0 14px;
+}
+
+.industry-card p {
+    color: #63737e;
+    line-height: 1.75;
+}
+
+.industry-card-line {
+    height: 1px;
+    background: #e3e8eb;
+    margin: 25px 0 17px;
+}
+
+.industry-card-more {
+    color: #12384f;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   INDUSTRY APPROACH
+   ========================================================= */
+
+.industry-approach {
+    background: #061d2d;
+    color: white;
+    padding: 100px 8%;
+}
+
+.industry-approach-content {
+    max-width: 900px;
+}
+
+.industry-approach-content h2 {
+    font-size: clamp(40px,5vw,62px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.industry-approach-content h2 span {
+    color: #d2a43b;
+}
+
+.industry-approach-content > p {
+    color: #cbd7dc;
+    font-size: 19px;
+    line-height: 1.8;
+    max-width: 800px;
+}
+
+.industry-approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    margin-top: 55px;
+}
+
+.approach-item {
+    border-top: 1px solid rgba(255,255,255,.18);
+    padding-top: 25px;
+}
+
+.approach-item > span {
+    color: #d2a43b;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.approach-item h3 {
+    font-size: 25px;
+    margin: 15px 0 10px;
+}
+
+.approach-item p {
+    color: #bdccd2;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   OTHER ENGINEERING AREAS
+   ========================================================= */
+
+.other-engineering {
+    background: white;
+    padding: 100px 7%;
+}
+
+.other-engineering-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.other-area-link {
+    background: #f1f4f6;
+    color: #12384f;
+    padding: 23px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-weight: 800;
+    border-left: 3px solid #c69b32;
+
+    transition: .25s ease;
+}
+
+.other-area-link span {
+    color: #c69b32;
+    font-size: 20px;
+}
+
+.other-area-link:hover {
+    background: #12384f;
+    color: white;
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   INDUSTRY CTA
+   ========================================================= */
+
+.industry-cta {
+    background: #12384f;
+    color: white;
+    padding: 75px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+}
+
+.industry-cta h2 {
+    font-size: clamp(35px,4vw,50px);
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.industry-cta p {
+    color: #cedbe0;
+}
+
+.industry-cta > a {
+    flex-shrink: 0;
+    background: white;
+    color: #12384f;
+    padding: 17px 28px;
+    font-weight: 800;
+}
+
+.industry-cta > a:hover {
+    background: #d2a43b;
+    color: white;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #061d2d;
+    color: white;
+
+    padding: 45px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    color: #bfcbd1;
+    margin-top: 8px;
+}
+
+footer a {
+    color: #d2a43b;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.footer-email {
+    color: #d2a43b;
+}
+
+.footer-email:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   SIX ENGINEERING CARD GRAPHICS
+   PROFESSIONAL INDUSTRIAL VISUALS
+   ========================================================= */
+
+.industry-graphic {
+    position: relative;
+
+    width: 100%;
+    height: 150px;
+
+    margin-bottom: 28px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #061d2d,
+            #12384f
+        );
+
+    border: 1px solid rgba(198,155,50,.30);
+
+    box-shadow:
+        inset 0 0 35px rgba(0,0,0,.20);
+}
+
+
+/* technical grid */
+
+.graphic-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(210,164,59,.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(210,164,59,.07) 1px,
+            transparent 1px
+        );
+
+    background-size: 22px 22px;
+}
+
+
+/* =========================================================
+   GRAPHIC CORNER MARKS
+   ========================================================= */
+
+.industry-graphic::before,
+.industry-graphic::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.industry-graphic::before {
+    left: 8px;
+    top: 8px;
+
+    border-left: 1px solid rgba(210,164,59,.65);
+    border-top: 1px solid rgba(210,164,59,.65);
+}
+
+.industry-graphic::after {
+    right: 8px;
+    bottom: 8px;
+
+    border-right: 1px solid rgba(120,214,255,.55);
+    border-bottom: 1px solid rgba(120,214,255,.55);
+}
+
+
+/* =========================================================
+   01 — MECHANICAL
+   CNC / PRECISION MACHINED COMPONENTS
+   ========================================================= */
+
+.mechanical-gear {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #12384f 0 25%,
+            #071824 26% 48%,
+            #12384f 49% 62%,
+            #071824 63%
+        );
+
+    border: 4px solid #c69b32;
+
+    box-shadow:
+        inset 0 0 15px rgba(120,214,255,.15),
+        0 0 18px rgba(198,155,50,.20);
+}
+
+.mechanical-gear::before {
+    content: "";
+
+    position: absolute;
+    inset: 12px;
+
+    border: 2px dashed #78d6ff;
+    border-radius: 50%;
+}
+
+.mechanical-gear::after {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    background: #061d2d;
+    border: 3px solid #d2a43b;
+}
+
+.gear-one {
+    width: 76px;
+    height: 76px;
+
+    left: 27%;
+    top: 35px;
+}
+
+.gear-two {
+    width: 58px;
+    height: 58px;
+
+    left: 53%;
+    top: 54px;
+
+    border-width: 3px;
+}
+
+.mechanical-center {
+    position: absolute;
+
+    width: 120px;
+    height: 42px;
+
+    left: 50%;
+    top: 54px;
+
+    transform: translateX(-50%);
+
+    border: 2px solid #78d6ff;
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(120,214,255,.15),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(120,214,255,.18);
+}
+
+.mechanical-center::before,
+.mechanical-center::after {
+    content: "";
+
+    position: absolute;
+
+    height: 4px;
+
+    background: #d2a43b;
+
+    left: 14px;
+    right: 14px;
+}
+
+.mechanical-center::before {
+    top: 10px;
+}
+
+.mechanical-center::after {
+    bottom: 10px;
+}
+
+
+/* =========================================================
+   02 — AEROSPACE
+   AIRCRAFT COMPONENTS — NOT A COMPLETE AIRPLANE
+   ========================================================= */
+
+.aircraft-body {
+    position: absolute;
+
+    width: 155px;
+    height: 58px;
+
+    left: 50%;
+    top: 47px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #183f55,
+            #071824
+        );
+
+    border: 2px solid #d2a43b;
+
+    border-radius:
+        8px 28px 28px 8px;
+
+    box-shadow:
+        inset 0 0 15px rgba(120,214,255,.12),
+        0 0 18px rgba(210,164,59,.12);
+}
+
+.aircraft-body::before {
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+    height: 22px;
+
+    left: 28px;
+    top: 16px;
+
+    border-top: 2px solid #78d6ff;
+    border-bottom: 2px solid rgba(120,214,255,.45);
+}
+
+.aircraft-body::after {
+    content: "";
+
+    position: absolute;
+
+    width: 26px;
+    height: 26px;
+
+    right: 14px;
+    top: 14px;
+
+    border-radius: 50%;
+
+    border: 2px solid #78d6ff;
+    box-shadow: inset 0 0 8px rgba(120,214,255,.2);
+}
+
+.aircraft-wing {
+    position: absolute;
+
+    height: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c69b32,
+            #78d6ff
+        );
+
+    box-shadow:
+        0 0 10px rgba(120,214,255,.25);
+}
+
+.wing-one {
+    width: 85px;
+
+    left: 25%;
+    top: 38px;
+
+    transform:
+        rotate(27deg)
+        skewX(-18deg);
+}
+
+.wing-two {
+    width: 72px;
+
+    right: 24%;
+    top: 88px;
+
+    transform:
+        rotate(-22deg)
+        skewX(-15deg);
+}
+
+.aircraft-tail {
+    position: absolute;
+
+    width: 38px;
+    height: 45px;
+
+    left: 21%;
+    top: 38px;
+
+    border-left: 5px solid #d2a43b;
+    border-top: 5px solid #78d6ff;
+
+    transform: skewY(-22deg);
+
+    box-shadow:
+        -4px 0 10px rgba(210,164,59,.15);
+}
+
+
+/* =========================================================
+   03 — AVIONICS
+   RUGGED ELECTRONIC AVIONICS MODULE
+   ========================================================= */
+
+.avionics-screen {
+    position: absolute;
+
+    width: 190px;
+    height: 92px;
+
+    left: 50%;
+    top: 30px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d3449,
+            #061824
+        );
+
+    border:
+        2px solid #78d6ff;
+
+    box-shadow:
+        inset 0 0 25px rgba(120,214,255,.12),
+        0 0 20px rgba(120,214,255,.15);
+}
+
+.avionics-screen::before {
+    content: "";
+
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 16px;
+
+    height: 42px;
+
+    border:
+        1px solid rgba(120,214,255,.55);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(120,214,255,.08),
+            transparent
+        );
+}
+
+.avionics-screen::after {
+    content: "AVIONICS";
+
+    position: absolute;
+
+    left: 22px;
+    bottom: 8px;
+
+    color: #d2a43b;
+
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.avionics-line {
+    position: absolute;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d2a43b,
+            #78d6ff
+        );
+
+    z-index: 2;
+}
+
+.line-a {
+    width: 85px;
+    left: calc(50% - 42px);
+    top: 63px;
+}
+
+.line-b {
+    width: 58px;
+    left: calc(50% - 29px);
+    top: 82px;
+}
+
+.avionics-dot {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    background: #78d6ff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px #78d6ff;
+
+    z-index: 3;
+}
+
+.dot-a {
+    left: calc(50% - 84px);
+    top: 62px;
+}
+
+.dot-b {
+    left: calc(50% + 76px);
+    top: 62px;
+}
+
+.dot-c {
+    left: calc(50% - 8px);
+    top: 80px;
+}
+
+
+/* =========================================================
+   04 — ELECTRONICS
+   MULTILAYER PCB / PCBA
+   ========================================================= */
+
+.pcb-chip {
+    position: absolute;
+
+    width: 68px;
+    height: 68px;
+
+    left: 50%;
+    top: 41px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #071824,
+            #0d3348
+        );
+
+    border:
+        2px solid #d2a43b;
+
+    box-shadow:
+        0 0 20px rgba(210,164,59,.25),
+        inset 0 0 20px rgba(70,180,230,.15);
+
+    z-index: 4;
+}
+
+.pcb-chip::before {
+    content: "IC";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #78d6ff;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.pcb-chip::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -8px;
+
+    border:
+        1px dashed rgba(120,214,255,.45);
+}
+
+.pcb-track {
+    position: absolute;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d2a43b,
+            #78d6ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px rgba(120,214,255,.6);
+}
+
+.pcb-one {
+    width: 78px;
+    left: 19%;
+    top: 59px;
+}
+
+.pcb-two {
+    width: 82px;
+    right: 18%;
+    top: 76px;
+}
+
+.pcb-three {
+    width: 65px;
+    left: 25%;
+    top: 104px;
+}
+
+.pcb-node {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #d2a43b;
+
+    box-shadow:
+        0 0 12px rgba(210,164,59,.8);
+}
+
+.pcb-node-one {
+    left: 18%;
+    top: 55px;
+}
+
+.pcb-node-two {
+    right: 17%;
+    top: 72px;
+}
+
+.pcb-node-three {
+    left: 24%;
+    top: 100px;
+}
+
+
+/* =========================================================
+   05 — AUTOMOBILE
+   ENGINE / AUTOMOTIVE COMPONENT
+   NOT A COMPLETE CAR
+   ========================================================= */
+
+.car-body {
+    position: absolute;
+
+    width: 145px;
+    height: 76px;
+
+    left: 50%;
+    top: 37px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #173e54,
+            #071824
+        );
+
+    border:
+        2px solid #d2a43b;
+
+    border-radius: 8px 8px 18px 18px;
+
+    box-shadow:
+        inset 0 0 22px rgba(120,214,255,.12),
+        0 0 20px rgba(210,164,59,.12);
+}
+
+.car-body::before {
+    content: "";
+
+    position: absolute;
+
+    width: 48px;
+    height: 48px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border:
+        4px solid #78d6ff;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #071824 0 22%,
+            #d2a43b 23% 30%,
+            #071824 31% 55%,
+            #78d6ff 56% 62%,
+            transparent 63%
+        );
+}
+
+.car-body::after {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 90px;
+
+    left: 20px;
+    top: -8px;
+
+    border-left:
+        2px solid rgba(120,214,255,.55);
+
+    border-right:
+        2px solid rgba(120,214,255,.55);
+}
+
+.car-window {
+    position: absolute;
+
+    width: 30px;
+    height: 72px;
+
+    left: calc(50% - 15px);
+    top: 39px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #78d6ff,
+            #12384f
+        );
+
+    border:
+        2px solid #c69b32;
+
+    opacity: .65;
+}
+
+.car-wheel {
+    position: absolute;
+
+    width: 23px;
+    height: 23px;
+
+    background: #061d2d;
+
+    border:
+        3px solid #d2a43b;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px rgba(210,164,59,.35);
+}
+
+.wheel-one {
+    left: calc(50% - 74px);
+    top: 105px;
+}
+
+.wheel-two {
+    right: calc(50% - 74px);
+    top: 105px;
+}
+
+
+/* =========================================================
+   06 — PROCESS INDUSTRY
+   HEAT EXCHANGER / PRESSURE SYSTEM
+   ========================================================= */
+
+.process-tank {
+    position: absolute;
+
+    width: 78px;
+    height: 94px;
+
+    left: 50%;
+    top: 27px;
+
+    transform: translateX(-50%);
+
+    border:
+        3px solid #d2a43b;
+
+    border-radius:
+        10px 10px 18px 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #08283b,
+            #17465d,
+            #08283b
+        );
+
+    box-shadow:
+        inset 0 0 20px rgba(120,214,255,.12),
+        0 0 18px rgba(210,164,59,.12);
+}
+
+.process-tank::before {
+    content: "";
+
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    left: 50%;
+    top: 28px;
+
+    transform: translateX(-50%);
+
+    border:
+        2px solid #78d6ff;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #d2a43b 0 18%,
+            #061d2d 19% 60%,
+            transparent 61%
+        );
+}
+
+.process-tank::after {
+    content: "";
+
+    position: absolute;
+
+    width: 24px;
+    height: 5px;
+
+    left: 50%;
+    bottom: 8px;
+
+    transform: translateX(-50%);
+
+    background: #78d6ff;
+
+    box-shadow:
+        0 -9px 0 rgba(120,214,255,.35),
+        0 -18px 0 rgba(120,214,255,.18);
+}
+
+.process-pipe {
+    position: absolute;
+
+    width: 72px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #78d6ff,
+            #d2a43b
+        );
+
+    box-shadow:
+        0 0 8px rgba(120,214,255,.6);
+}
+
+.pipe-one {
+    left: 13%;
+    top: 55px;
+}
+
+.pipe-two {
+    right: 13%;
+    top: 91px;
+}
+
+.process-valve {
+    position: absolute;
+
+    width: 22px;
+    height: 22px;
+
+    left: 50%;
+    top: 69px;
+
+    transform: translateX(-50%) rotate(45deg);
+
+    border:
+        2px solid #d2a43b;
+
+    background: #061d2d;
+
+    box-shadow:
+        0 0 10px rgba(210,164,59,.25);
+}
+
+.process-valve::after {
+    content: "";
+
+    position: absolute;
+
+    width: 34px;
+    height: 2px;
+
+    left: -8px;
+    top: 8px;
+
+    background: #78d6ff;
+
+    transform: rotate(-45deg);
+}
+
+.process-light {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    left: calc(50% + 32px);
+    top: 40px;
+
+    background: #78d6ff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 15px #78d6ff;
+}
+
+
+/* =========================================================
+   GRAPHIC HOVER EFFECT
+   ========================================================= */
+
+.industry-card:hover .industry-graphic {
+    border-color: #d2a43b;
+
+    box-shadow:
+        0 0 25px rgba(198,155,50,.12),
+        inset 0 0 30px rgba(0,0,0,.15);
+}
+
+.industry-card:hover .mechanical-gear {
+    box-shadow:
+        inset 0 0 15px rgba(120,214,255,.25),
+        0 0 25px rgba(198,155,50,.35);
+}
+
+.industry-card:hover .aircraft-body {
+    box-shadow:
+        inset 0 0 18px rgba(120,214,255,.18),
+        0 0 25px rgba(210,164,59,.35);
+}
+
+.industry-card:hover .avionics-screen {
+    box-shadow:
+        inset 0 0 30px rgba(120,214,255,.18),
+        0 0 25px rgba(120,214,255,.28);
+}
+
+.industry-card:hover .pcb-chip {
+    box-shadow:
+        0 0 28px rgba(120,214,255,.35),
+        inset 0 0 20px rgba(70,180,230,.20);
+}
+
+.industry-card:hover .car-body {
+    box-shadow:
+        inset 0 0 25px rgba(120,214,255,.18),
+        0 0 25px rgba(210,164,59,.30);
+}
+
+.industry-card:hover .process-tank {
+    box-shadow:
+        inset 0 0 25px rgba(120,214,255,.18),
+        0 0 25px rgba(210,164,59,.30);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    header {
+        padding: 18px 4%;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .logo img {
+        width: 180px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    nav > a,
+    .dropdown > a {
+        font-size: 13px;
+    }
+
+    .company-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+    .engineering-area-grid,
+    .industry-card-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .engineering-tech-section {
+        grid-template-columns: 1fr;
+    }
+
+    .approach-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .other-engineering-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    header {
+        min-height: auto;
+        flex-wrap: wrap;
+        padding: 18px 5%;
+    }
+
+    .logo {
+        width: 170px;
+    }
+
+    .logo img {
+        width: 155px;
+    }
+
+    .talk {
+        padding: 13px 17px;
+        font-size: 13px;
+    }
+
+    nav {
+        width: 100%;
+        order: 3;
+
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        gap: 12px 20px;
+        margin-top: 15px;
+    }
+
+    nav > a,
+    .dropdown > a {
+        padding: 7px 0;
+        font-size: 12px;
+    }
+
+    .dropdown-content {
+        top: 35px;
+        left: 0;
+        width: 210px;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        padding: 60px 7%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .intro,
+    .companies,
+    .engineering-intro,
+    .engineering-areas,
+    .engineering-tech-section,
+    .engineering-approach,
+    .industry-intro,
+    .industry-capabilities,
+    .industry-approach,
+    .other-engineering {
+        padding: 75px 6%;
+    }
+
+    .intro h2,
+    .section-title h2 {
+        font-size: 42px;
+    }
+
+    .company-grid,
+    .content-section,
+    .contact-grid,
+    .social-section,
+    .engineering-area-grid,
+    .industry-card-grid,
+    .industry-approach-grid,
+    .other-engineering-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .engineering-main-hero,
+    .industry-hero {
+        min-height: 760px;
+    }
+
+    .engineering-hero-content,
+    .industry-hero-content {
+        padding: 70px 6%;
+    }
+
+    .engineering-hero-content h1,
+    .industry-hero h1 {
+        font-size: 46px;
+    }
+
+    .engineering-hero-content p,
+    .industry-hero p {
+        font-size: 17px;
+    }
+
+    .engineering-links {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .engineering-tech-section {
+        gap: 45px;
+    }
+
+    .tech-visual {
+        min-height: 330px;
+    }
+
+    .tech-board {
+        width: 82%;
+        height: 65%;
+    }
+
+    .engineering-contact,
+    .industry-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 65px 6%;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 40px 6%;
+    }
+
+    .industry-graphic {
+        height: 140px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .logo {
+        width: 145px;
+    }
+
+    .logo img {
+        width: 135px;
+    }
+
+    .talk {
+        padding: 11px 13px;
+        font-size: 11px;
+    }
+
+    nav {
+        gap: 10px 14px;
+    }
+
+    nav > a,
+    .dropdown > a {
+        font-size: 11px;
+    }
+
+    .gold-text {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .hero h1,
+    .engineering-hero-content h1,
+    .industry-hero h1 {
+        font-size: 38px;
+    }
+
+    .intro h2,
+    .section-title h2,
+    .engineering-intro h2,
+    .engineering-section-heading h2,
+    .tech-content h2,
+    .industry-intro h2,
+    .industry-heading h2,
+    .industry-approach-content h2 {
+        font-size: 36px;
+    }
+
+    .engineering-area-card,
+    .industry-card {
+        padding: 28px;
+    }
+
+    .engineering-link {
+        min-height: 72px;
+        padding: 13px;
+    }
+
+    .engineering-link-content strong {
+        font-size: 16px;
+    }
+
+    .engineering-link-content small {
+        font-size: 11px;
+    }
+
+    .engineering-number {
+        min-width: 35px;
+        font-size: 11px;
+    }
+
+    .chip-one {
+        right: 8%;
+        top: 12%;
+        transform: scale(.75);
+    }
+
+    .chip-two {
+        right: 4%;
+        bottom: 10%;
+        transform: scale(.65);
+    }
+
+    .engineering-circuit-background {
+        opacity: .55;
+    }
+
+    .tech-visual {
+        min-height: 270px;
+    }
+
+    .tech-board {
+        width: 88%;
+        height: 62%;
+    }
+
+    .board-chip {
+        width: 75px;
+        height: 75px;
+        left: 38%;
+    }
+
+    .engineering-contact h2 {
+        font-size: 38px;
+    }
+
+    .industry-graphic {
+        height: 130px;
+    }
+
+    .mechanical-gear {
+        transform: scale(.82);
+    }
+
+    .gear-one {
+        left: 22%;
+    }
+
+    .gear-two {
+        left: 54%;
+    }
+
+    .aircraft-body {
+        width: 135px;
+        height: 52px;
+    }
+
+    .aircraft-wing {
+        width: 65px;
+    }
+
+    .avionics-screen {
+        width: 155px;
+        height: 78px;
+    }
+
+    .pcb-chip {
+        width: 60px;
+        height: 60px;
+    }
+
+    .car-body {
+        width: 125px;
+        height: 68px;
+    }
+
+    .process-tank {
+        width: 65px;
+        height: 80px;
+    }
+
+    .process-pipe {
+        width: 55px;
+    }
+}
+/* =========================================================
+   LANGUAGE FLAGS - HORIZONTAL PROFESSIONAL ROW
+   ========================================================= */
+.language-switcher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-left: 20px;
+
+    white-space: nowrap;
+
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+.language-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+
+    padding: 3px;
+
+    border: none;
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.language-item img {
+    width: 34px;
+    height: 22px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 3px;
+
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.22);
+
+    transition: transform 0.2s ease;
+}
+
+.language-item span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    color: #12384f;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+.language-item:hover img {
+    transform: scale(1.12);
+}
+
+.language-item:hover span {
+    color: #c69b32;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .language-switcher {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 7px;
+
+        margin-left: 0;
+
+        margin-top: 10px;
+    }
+
+    .language-item {
+        width: 44px;
+    }
+
+    .language-item img {
+        width: 31px;
+        height: 20px;
+    }
+
+    .language-item span {
+        font-size: 7px;
+    }
+
+}
+/* =========================================================
+   COMPANIES CARDS — ONE LINE DESCRIPTIONS
+   ========================================================= */
+
+.company-grid .company-card {
+    min-height: 220px;
+    padding: 25px 28px;
+    box-sizing: border-box;
+}
+
+.company-grid .company-card h2 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 10px 0 14px;
+}
+
+.company-grid .company-card p {
+    display: block;
+    width: 100%;
+    margin: 0 0 18px 0;
+    padding: 0;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    white-space: nowrap;
+    overflow: visible;
+}
+/* =========================================================
+   CAPITAL GROUP — COMPANY CARDS
+   ========================================================= */
+
+.company-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.company-grid .company-card {
+    min-height: 220px;
+    padding: 25px 20px;
+    box-sizing: border-box;
+}
+
+.company-grid .company-card h2 {
+    font-size: 23px;
+    line-height: 1.2;
+    margin: 10px 0 15px;
+}
+
+.company-grid .company-card p {
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: nowrap;
+    margin: 0 0 18px;
+}
+/* Company button descriptions */
+.main-btn small {
+    display: block;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.3;
+    max-width: none;
+}/* FINAL COMPANY BUTTON SIZE FIX */
+
+.main-btn {
+    width: 650px;
+    max-width: 90%;
+    min-height: 60px;
+    box-sizing: border-box;
+}
+
+.main-btn small {
+    display: block;
+    white-space: normal;
+    line-height: 1.25;
+    max-width: 420px;
+}
+/* =========================================================
+   HOME COMPANY BUTTONS - FINAL PROFESSIONAL FIX
+   ========================================================= */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+}
+
+.buttons .main-btn {
+    width: 100%;
+    max-width: none;
+    min-height: 64px;
+    padding: 14px 18px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: center;
+}
+
+.buttons .main-btn strong {
+    grid-column: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buttons .main-btn small {
+    grid-column: 1;
+    display: block;
+    max-width: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.buttons .main-btn span {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: 20px;
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons .main-btn strong,
+    .buttons .main-btn small {
+        white-space: normal;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+    .buttons {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .buttons .main-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .buttons .main-btn strong,
+    .buttons .main-btn small {
+        white-space: normal;
+    }
+}
+/* =========================================================
+   COMPANY BUTTONS - SHOW FULL NAME & DESCRIPTION
+   ========================================================= */
+
+.buttons .main-btn {
+    width: 100%;
+    max-width: none;
+    min-height: 64px;
+    padding: 14px 18px;
+}
+
+.buttons .main-btn strong {
+    font-size: 18px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.2;
+}
+
+.buttons .main-btn small {
+    font-size: 12px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: none;
+    line-height: 1.25;
+}
+
+/* Arrow */
+.buttons .main-btn span {
+    white-space: nowrap;
+    font-size: 20px;
+}
+/* =========================================================
+   FINAL HOME COMPANY BUTTON DESIGN
+   ========================================================= */
+
+.buttons .main-btn {
+    width: 100%;
+    max-width: none;
+    min-height: 64px;
+    height: 72px;
+    padding: 12px 18px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 12px;
+
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* COMPANY NAME - FULLY VISIBLE */
+.buttons .main-btn strong {
+    grid-column: 1;
+    grid-row: 1;
+
+    font-size: 14px;
+    line-height: 1;
+    white-space: nowrap;
+
+    overflow: visible;
+    text-overflow: clip;
+    min-width: 0;
+}
+
+/* DESCRIPTION - SMALLER */
+.buttons .main-btn small {
+    grid-column: 1;
+    grid-row: 2;
+
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+
+    max-width: none;
+}
+
+/* ARROW */
+.buttons .main-btn span {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    font-size: 20px;
+    align-self: center;
+}
+/* =========================================================
+   COMPANY BUTTONS - FINAL TEXT FIT
+   ========================================================= */
+
+.buttons .main-btn {
+    width: 100%;
+    max-width: none;
+    height: 78px;
+    min-height: 78px;
+    padding: 10px 18px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 28px;
+    grid-template-rows: 24px 32px;
+    column-gap: 8px;
+
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* COMPANY NAME - ONLY ONE LINE */
+.buttons .main-btn strong {
+    grid-column: 1;
+    grid-row: 1;
+
+    font-size: 15px;
+    line-height: 1;
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+/* DESCRIPTION - MAXIMUM 2 LINES */
+.buttons .main-btn small {
+    grid-column: 1;
+    grid-row: 2;
+
+    font-size: 10px;
+    line-height: 1.25;
+
+    white-space: normal;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+}
+
+/* ARROW */
+.buttons .main-btn span {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    font-size: 19px;
+    align-self: center;
+}
+/* =========================================================
+   FINAL FIX - FULL COMPANY NAMES
+   ========================================================= */
+
+.buttons .main-btn strong {
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    min-width: 0 !important;
+    letter-spacing: 0 !important;
+}
+/* ENGINEERING HERO - TEXT VISIBILITY ONLY */
+
+.engineering-hero-content h1 {
+    color: #d2a43b !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+.engineering-hero-content .engineering-description {
+    color: #f5f5f5 !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+
+/* =========================================================
+   STEP 3 — PREMIUM CORPORATE HEADER
+   ========================================================= */
+
+header {
+    min-height: 92px;
+    padding: 0 5%;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 4px 24px rgba(6, 29, 45, 0.08);
+    border-bottom: 1px solid rgba(198, 155, 50, 0.12);
+}
+
+nav {
+    gap: 26px;
+}
+
+nav > a,
+.dropdown > a {
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 34px 0;
+    transition: color .25s ease;
+}
+
+nav > a:hover,
+.dropdown > a:hover {
+    color: #c69b32;
+}
+
+.talk {
+    padding: 13px 22px;
+    border: 1px solid #12384f;
+    border-radius: 3px;
+    font-size: 13px;
+    letter-spacing: .7px;
+    transition: all .25s ease;
+}
+
+.talk:hover {
+    background: #c69b32;
+    border-color: #c69b32;
+    color: #061d2d;
+}
+/* =========================================================
+   STEP 4 — PREMIUM CORPORATE HOMEPAGE HERO
+   ========================================================= */
+
+.hero {
+    min-height: calc(100vh - 92px);
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 27, 43, .97) 0%,
+            rgba(3, 27, 43, .82) 48%,
+            rgba(3, 27, 43, .38) 100%
+        );
+}
+
+.hero-content {
+    margin-left: 7%;
+    max-width: 1050px;
+    padding: 80px 0;
+}
+
+.hero .gold-text {
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    max-width: 900px;
+    font-size: clamp(48px, 5.5vw, 78px);
+    line-height: 1.04;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 780px;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+/* =========================================================
+   STEP 5 — PREMIUM COMPANY CARDS
+   ========================================================= */
+
+.buttons .main-btn {
+    background: rgba(255, 255, 255, 0.97);
+    color: #12384f;
+    border: 1px solid rgba(198, 155, 50, 0.35);
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(6, 29, 45, 0.12);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.buttons .main-btn:hover {
+    background: #ffffff;
+    color: #12384f;
+    border-color: #c69b32;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(6, 29, 45, 0.18);
+}
+
+.buttons .main-btn strong {
+    color: #12384f;
+    font-weight: 800;
+    letter-spacing: .15px;
+}
+
+.buttons .main-btn small {
+    color: #5d6b73;
+    font-weight: 600;
+}
+
+.buttons .main-btn span {
+    color: #c69b32;
+    transition: transform .25s ease;
+}
+
+.buttons .main-btn:hover span {
+    transform: translateX(4px);
+}
+/* =========================================================
+   STEP 6 — PREMIUM SEND REQUEST CTA
+   ========================================================= */
+
+.quote-cta {
+    margin-top: 28px;
+}
+
+.quote-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-width: 190px;
+    padding: 15px 24px;
+    background: #c69b32;
+    color: #061d2d;
+    border: 1px solid #d2a43b;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.quote-btn span {
+    font-size: 20px;
+    line-height: 1;
+    transition: transform .25s ease;
+}
+
+.quote-btn:hover {
+    background: #ffffff;
+    color: #12384f;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+}
+
+.quote-btn:hover span {
+    transform: translateX(5px);
+}
+/* =========================================================
+   STEP 5 — OUR CLIENTS PAGE
+   ========================================================= */
+
+.clients-hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 27, 43, .96),
+            rgba(3, 27, 43, .78),
+            rgba(3, 27, 43, .45)
+        ),
+        url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center / cover no-repeat;
+}
+
+.clients-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 5%;
+}
+
+.clients-hero h1 {
+    color: #ffffff;
+    font-size: clamp(44px, 5vw, 70px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 850px;
+    margin: 18px 0 22px;
+}
+
+.clients-hero p {
+    color: rgba(255,255,255,.86);
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.clients-section {
+    padding: 90px 7%;
+    background: #f5f7f8;
+}
+
+.clients-heading {
+    max-width: 780px;
+    margin-bottom: 50px;
+}
+
+.clients-heading > span {
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.clients-heading h2 {
+    color: #12384f;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.1;
+    margin: 14px 0 18px;
+}
+
+.clients-heading p {
+    color: #66747d;
+    font-size: 17px;
+    max-width: 700px;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.client-card {
+    min-height: 190px;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid rgba(198,155,50,.20);
+    border-top: 3px solid #c69b32;
+    box-shadow: 0 10px 30px rgba(6,29,45,.07);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(6,29,45,.13);
+}
+
+.client-card > span {
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.client-card h3 {
+    color: #12384f;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 22px 0 10px;
+}
+
+.client-card p {
+    color: #71808a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.clients-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 65px 7%;
+    background: #061d2d;
+}
+
+.clients-cta > div > span {
+    color: #c69b32;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.clients-cta h2 {
+    color: #ffffff;
+    font-size: clamp(28px, 3vw, 42px);
+    margin-top: 12px;
+}
+
+.clients-cta > a {
+    flex-shrink: 0;
+    padding: 15px 24px;
+    background: #c69b32;
+    color: #061d2d;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: all .25s ease;
+}
+
+.clients-cta > a:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+}
+
+.clients-cta > a > span {
+    color: inherit;
+    margin-left: 12px;
+}
+
+
+@media (max-width: 900px) {
+
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .clients-cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clients-section {
+        padding: 65px 6%;
+    }
+
+    .clients-hero-content {
+        padding: 65px 6%;
+    }
+
+    .clients-cta {
+        padding: 55px 6%;
+    }
+
+}

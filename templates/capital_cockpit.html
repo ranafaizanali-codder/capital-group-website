@@ -1,0 +1,561 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cockpit Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - COCKPIT DIVISION
+   ========================================================= */
+
+.cockpit-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.cockpit-hero {
+    position: relative;
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.68),
+            rgba(6, 29, 45, 0.88)
+        ),
+        url("https://images.unsplash.com/photo-1768579706588-cf1983fc3064?auto=format&fit=crop&fm=jpg&q=80&w=2200")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+    box-sizing: border-box;
+}
+
+.cockpit-hero-content {
+    max-width: 900px;
+    margin: 0;
+    text-align: left;
+}
+
+.cockpit-eyebrow {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.cockpit-hero h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 0 0 24px;
+    font-weight: 800;
+}
+
+.cockpit-hero p {
+    color: #eef3f5;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.cockpit-intro {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 65px 25px 35px;
+    text-align: center;
+}
+
+.cockpit-intro h2 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.cockpit-intro p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= SECTIONS ================= */
+
+.cockpit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px 75px;
+}
+
+.cockpit-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 55px;
+    align-items: center;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #dfe5e8;
+}
+
+.cockpit-section.reverse {
+    direction: rtl;
+}
+
+.cockpit-section.reverse > * {
+    direction: ltr;
+}
+
+.cockpit-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9eef1;
+    box-shadow: 0 14px 35px rgba(6, 29, 45, 0.12);
+}
+
+.cockpit-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.cockpit-image-wrap:hover .cockpit-image {
+    transform: scale(1.025);
+}
+
+.cockpit-copy {
+    max-width: 540px;
+}
+
+.cockpit-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.cockpit-copy h2 {
+    color: #061d2d;
+    font-size: 31px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.cockpit-copy p {
+    color: #12384f;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ================= CTA ================= */
+
+.cockpit-cta {
+    background: #061d2d;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.cockpit-cta h2 {
+    color: white;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.cockpit-cta p {
+    color: #dce5e9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.cockpit-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cockpit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 25px;
+
+    border-radius: 5px;
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.cockpit-quote-btn {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.cockpit-home-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.cockpit-btn:hover,
+.cockpit-btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.cockpit-quote-btn:hover,
+.cockpit-quote-btn:focus-visible {
+    background: #e0b64e;
+}
+
+.cockpit-home-btn:hover,
+.cockpit-home-btn:focus-visible {
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .cockpit-section,
+    .cockpit-section.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 30px;
+    }
+
+    .cockpit-copy {
+        max-width: none;
+    }
+
+    .cockpit-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .cockpit-hero {
+        min-height: 450px;
+        padding: 50px 22px;
+    }
+
+    .cockpit-hero h1 {
+        font-size: 32px;
+    }
+
+    .cockpit-hero p {
+        font-size: 16px;
+    }
+
+    .cockpit-intro {
+        padding: 50px 18px 25px;
+    }
+
+    .cockpit-intro h2 {
+        font-size: 27px;
+    }
+
+    .cockpit-container {
+        padding: 10px 18px 55px;
+    }
+
+    .cockpit-section {
+        padding: 40px 0;
+    }
+
+    .cockpit-copy h2 {
+        font-size: 27px;
+    }
+
+    .cockpit-image {
+        height: 260px;
+    }
+
+    .cockpit-cta {
+        padding: 50px 20px;
+    }
+
+    .cockpit-cta h2 {
+        font-size: 27px;
+    }
+}
+
+</style>
+
+
+<div class="cockpit-page">
+
+    <!-- =====================================================
+         COCKPIT HERO
+         ===================================================== -->
+
+    <section
+        class="cockpit-hero"
+        aria-labelledby="cockpit-title"
+    >
+
+        <div class="cockpit-hero-content">
+
+            <div class="cockpit-eyebrow">
+                COCKPIT DIVISION
+            </div>
+
+            <h1 id="cockpit-title">
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+               CECs Cockpit Division provides precision engineering and manufacturing solutions
+                for cockpit structures, control panels, instrument interfaces and specialized 
+                aerospace cockpit systems, in compliance with the drawings provided by our valued customers.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+         ===================================================== -->
+
+    <section class="cockpit-intro">
+
+        <h2>
+            Advanced Cockpit Engineering
+        </h2>
+
+        <p>
+            Our cockpit engineering capabilities support the development
+            and manufacturing of precision structures, panels, interfaces
+            and specialized components for demanding aerospace applications.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         COCKPIT CAPABILITIES
+         ===================================================== -->
+
+    <main class="cockpit-container">
+
+
+        <!-- 1. COCKPIT STRUCTURES -->
+
+        <section class="cockpit-section">
+
+            <div class="cockpit-image-wrap">
+
+                <img
+                    class="cockpit-image"
+                    src="https://images.pexels.com/photos/31458771/pexels-photo-31458771/free-photo-of-aircraft-cockpit-with-instrument-panel-view.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Aircraft cockpit structure and instrument environment"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="cockpit-copy">
+
+                <div class="cockpit-number">
+                    01 · COCKPIT STRUCTURES
+                </div>
+
+                <h2>
+                    Cockpit Structures
+                </h2>
+
+                <p>
+                    Precision-manufactured cockpit structures support
+                    integrated systems, operator interfaces and demanding
+                    aerospace structural requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. INSTRUMENT PANELS -->
+
+        <section class="cockpit-section reverse">
+
+            <div class="cockpit-image-wrap">
+
+                <img
+                    class="cockpit-image"
+                    src="https://images.pexels.com/photos/2353937/pexels-photo-2353937.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Aircraft cockpit instrument panel and controls"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="cockpit-copy">
+
+                <div class="cockpit-number">
+                    02 · INSTRUMENT PANELS
+                </div>
+
+                <h2>
+                    Instrument Panels
+                </h2>
+
+                <p>
+                    Engineered instrument panels provide accurate mounting,
+                    controlled interfaces and integration for cockpit
+                    displays, instruments and operator controls.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. FLIGHT CONTROL INTERFACES -->
+
+        <section class="cockpit-section">
+
+            <div class="cockpit-image-wrap">
+
+                <img
+                    class="cockpit-image"
+                    src="https://images.pexels.com/photos/34297538/pexels-photo-34297538/free-photo-of-detailed-aircraft-cockpit-control-panel.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Aircraft cockpit flight control interface"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="cockpit-copy">
+
+                <div class="cockpit-number">
+                    03 · FLIGHT CONTROL INTERFACES
+                </div>
+
+                <h2>
+                    Flight Control Interfaces
+                </h2>
+
+                <p>
+                    Precision interfaces support reliable interaction
+                    between cockpit controls, flight systems and
+                    integrated aerospace electronics.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. COCKPIT COMPONENTS -->
+
+        <section class="cockpit-section reverse">
+
+            <div class="cockpit-image-wrap">
+
+                <img
+                    class="cockpit-image"
+                    src="https://images.pexels.com/photos/37299248/pexels-photo-37299248/free-photo-of-close-up-of-aircraft-cockpit-controls-and-panel.jpeg?auto=compress&dpr=1&w=1800"
+                    alt="Aircraft cockpit components and control panel"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="cockpit-copy">
+
+                <div class="cockpit-number">
+                    04 · COCKPIT COMPONENTS
+                </div>
+
+                <h2>
+                    Cockpit Components
+                </h2>
+
+                <p>
+                    Specialized cockpit components are developed with
+                    attention to dimensional accuracy, functional
+                    integration and aerospace application requirements.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="cockpit-cta">
+
+        <h2>
+            Have a Cockpit Engineering Requirement?
+        </h2>
+
+        <p>
+            Share your cockpit engineering requirements with
+            Capital Engineering Corporation and our team can review
+            your application and technical needs.
+        </p>
+
+
+        <div class="cockpit-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="cockpit-btn cockpit-quote-btn"
+            >
+                SEND QUOTE
+                <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('home') }}"
+                class="cockpit-btn cockpit-home-btn"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

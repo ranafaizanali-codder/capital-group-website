@@ -1,0 +1,473 @@
+{% extends "base.html" %}
+
+{% block title %}Bath Towel Division | Capital Trading Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.bath-towels-page{
+    background:#f5f7f8;
+    color:#12384f;
+}
+
+.bath-towels-hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(rgba(6,29,45,.76),rgba(6,29,45,.76)),
+        url("https://images.pexels.com/photos/18071807/pexels-photo-18071807.jpeg?auto=compress&cs=tinysrgb&w=1800&q=75")
+        center/cover no-repeat;
+}
+
+.bath-towels-hero-inner{
+    max-width:1180px;
+    width:90%;
+    margin:auto;
+    padding:110px 0;
+}
+
+.bath-towels-label{
+    color:#d2a43b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.bath-towels-hero h1{
+    max-width:1000px;
+    color:#fff;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin:0 0 28px;
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.bath-towels-description{
+    max-width:780px;
+    color:#e8eef2;
+    font-size:18px;
+    line-height:1.8;
+    margin:0;
+}
+
+.bath-towels-intro{
+    max-width:900px;
+    margin:0 auto;
+    padding:105px 25px 65px;
+    text-align:center;
+}
+
+.bath-towels-intro h2{
+    color:#12384f;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 22px;
+}
+
+.bath-towels-intro p{
+    color:#526674;
+    font-size:17px;
+    line-height:1.8;
+    margin:0 auto;
+    max-width:800px;
+}
+
+.bath-towels-sections{
+    max-width:1180px;
+    margin:auto;
+    padding:20px 25px 100px;
+}
+
+.bath-towels-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:460px;
+    align-items:center;
+    gap:70px;
+    margin-bottom:90px;
+}
+
+.bath-towels-section:nth-child(even){
+    direction:rtl;
+}
+
+.bath-towels-section:nth-child(even) .bath-towels-content{
+    direction:ltr;
+}
+
+.bath-towels-image{
+    min-height:430px;
+    border-radius:4px;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:0 20px 45px rgba(6,29,45,.12);
+}
+
+.bath-towels-image-1{
+    background-image:url("https://images.pexels.com/photos/18071807/pexels-photo-18071807.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.bath-towels-image-2{
+    background-image:url("https://images.pexels.com/photos/4404976/pexels-photo-4404976.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.bath-towels-image-3{
+    background-image:url("https://images.pexels.com/photos/6127451/pexels-photo-6127451.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.bath-towels-image-4{
+    background-image:url("https://images.pexels.com/photos/6466227/pexels-photo-6466227.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.bath-towels-image-5{
+    background-image:url("https://images.pexels.com/photos/3872899/pexels-photo-3872899.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.bath-towels-image-6{
+    background-image:url("https://images.pexels.com/photos/29614917/pexels-photo-29614917.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75");
+}
+
+.bath-towels-number{
+    color:#c69b32;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.bath-towels-content h3{
+    color:#12384f;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 20px;
+}
+
+.bath-towels-content p{
+    color:#526674;
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    max-width:500px;
+}
+
+.bath-towels-cta{
+    background:#061d2d;
+    text-align:center;
+    padding:95px 25px;
+}
+
+.bath-towels-cta h2{
+    color:#fff;
+    font-size:clamp(32px,4vw,48px);
+    margin:0 0 18px;
+}
+
+.bath-towels-cta p{
+    color:#cbd7de;
+    max-width:720px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.bath-towels-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.bath-towels-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border:1px solid #c69b32;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s ease;
+}
+
+.bath-towels-btn:hover{
+    background:#c69b32;
+    color:#061d2d;
+}
+
+.bath-towels-email{
+    margin-top:28px;
+    color:#d2a43b;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+
+    .bath-towels-hero{
+        min-height:620px;
+    }
+
+    .bath-towels-section{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .bath-towels-section:nth-child(even){
+        direction:ltr;
+    }
+
+    .bath-towels-image{
+        min-height:330px;
+    }
+
+    .bath-towels-content h3{
+        font-size:30px;
+    }
+}
+</style>
+
+
+<div class="bath-towels-page">
+
+    <section class="bath-towels-hero">
+
+        <div class="bath-towels-hero-inner">
+
+            <div class="bath-towels-label">
+                Bath Towel Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="bath-towels-description">
+                CTC’s Bath Towel Division provides professionally sourced
+                bath towel products for hospitality, retail, institutional
+                and commercial markets, supporting dependable quality,
+                product specifications, quantity planning and
+                international textile trade requirements.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="bath-towels-intro">
+
+        <h2>
+            Premium Bath Towel Solutions
+        </h2>
+
+        <p>
+            CTC supports bath towel sourcing through reliable supplier
+            coordination, product specifications, fabric and size
+            requirements, quantity planning and organized supply
+            solutions for domestic and international textile markets.
+        </p>
+
+    </section>
+
+
+    <section class="bath-towels-sections">
+
+        <div class="bath-towels-section">
+
+            <div class="bath-towels-image bath-towels-image-1"></div>
+
+            <div class="bath-towels-content">
+
+                <div class="bath-towels-number">
+                    01
+                </div>
+
+                <h3>
+                    Premium Bath Towel Products
+                </h3>
+
+                <p>
+                    Professionally sourced bath towels for hospitality,
+                    retail, institutional and commercial markets, with
+                    a focus on dependable quality and consistent supply
+                    requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="bath-towels-section">
+
+            <div class="bath-towels-image bath-towels-image-2"></div>
+
+            <div class="bath-towels-content">
+
+                <div class="bath-towels-number">
+                    02
+                </div>
+
+                <h3>
+                    Quality & Fabric Selection
+                </h3>
+
+                <p>
+                    CTC coordinates product specifications, fabric
+                    requirements, dimensions and supplier selection
+                    to support consistent bath towel sourcing for
+                    different market needs.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="bath-towels-section">
+
+            <div class="bath-towels-image bath-towels-image-3"></div>
+
+            <div class="bath-towels-content">
+
+                <div class="bath-towels-number">
+                    03
+                </div>
+
+                <h3>
+                    Hospitality Towel Supply
+                </h3>
+
+                <p>
+                    Reliable bath towel sourcing for hotels, resorts,
+                    spas and hospitality businesses requiring organized
+                    recurring supply and professional textile solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="bath-towels-section">
+
+            <div class="bath-towels-image bath-towels-image-4"></div>
+
+            <div class="bath-towels-content">
+
+                <div class="bath-towels-number">
+                    04
+                </div>
+
+                <h3>
+                    Retail-Ready Bath Towels
+                </h3>
+
+                <p>
+                    CTC supports retail-focused sourcing with coordinated
+                    product specifications, packaging requirements and
+                    supply planning for modern home textile markets.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="bath-towels-section">
+
+            <div class="bath-towels-image bath-towels-image-5"></div>
+
+            <div class="bath-towels-content">
+
+                <div class="bath-towels-number">
+                    05
+                </div>
+
+                <h3>
+                    Quantity & Supply Planning
+                </h3>
+
+                <p>
+                    Organized procurement and quantity planning help
+                    buyers manage recurring bath towel requirements
+                    while supporting dependable commercial supply.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="bath-towels-section">
+
+            <div class="bath-towels-image bath-towels-image-6"></div>
+
+            <div class="bath-towels-content">
+
+                <div class="bath-towels-number">
+                    06
+                </div>
+
+                <h3>
+                    International Bath Towel Markets
+                </h3>
+
+                <p>
+                    CTC connects reliable textile suppliers with
+                    international buyers through professional sourcing,
+                    supply coordination and global market access for
+                    bath towel products.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="bath-towels-cta">
+
+        <h2>
+            Looking for Bath Towel Products?
+        </h2>
+
+        <p>
+            Connect with CTC for professional bath towel sourcing,
+            supply coordination and international textile market
+            solutions.
+        </p>
+
+        <div class="bath-towels-buttons">
+
+            <a href="{{ url_for('trading_quote') }}"
+               class="bath-towels-btn">
+                SEND REQUIREMENT
+            </a>
+
+            <a href="{{ url_for('trading') }}"
+               class="bath-towels-btn">
+                BACK TO TRADING
+            </a>
+
+            <a href="/"
+               class="bath-towels-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="bath-towels-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

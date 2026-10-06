@@ -1,0 +1,530 @@
+{% extends "base.html" %}
+
+{% block title %}EEE 189 - Power Electronics Rectifier & Inverter | Capital Consultants{% endblock %}
+
+{% block content %}
+
+<style>
+.power-electronics-page {
+    background: #f5f7f8;
+    color: #12384f;
+}
+
+.power-electronics-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(rgba(6, 29, 45, 0.78), rgba(6, 29, 45, 0.82)),
+        url("https://images.pexels.com/photos/15927566/pexels-photo-15927566.jpeg?auto=compress&cs=tinysrgb&w=1800")
+        center/cover no-repeat;
+}
+
+.power-electronics-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 25px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.power-electronics-label {
+    display: inline-block;
+    color: #d2a43b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.power-electronics-hero h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 0 0 22px;
+}
+
+.power-electronics-hero p {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e7edf0;
+}
+
+.power-electronics-section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 75px 25px;
+}
+
+.power-electronics-intro {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 60px;
+}
+
+.power-electronics-small-title {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.power-electronics-intro h2 {
+    color: #061d2d;
+    font-size: 36px;
+    margin: 12px 0 20px;
+}
+
+.power-electronics-intro p {
+    color: #5d6b73;
+    line-height: 1.8;
+}
+
+.power-electronics-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.power-electronics-block:nth-child(even) {
+    direction: rtl;
+}
+
+.power-electronics-block:nth-child(even) > * {
+    direction: ltr;
+}
+
+.power-electronics-content h2 {
+    color: #12384f;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.power-electronics-content p {
+    color: #5d6b73;
+    line-height: 1.8;
+}
+
+.power-electronics-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.power-electronics-list li {
+    margin-bottom: 12px;
+    color: #53656f;
+    line-height: 1.6;
+}
+
+.power-electronics-syllabus {
+    margin-top: 30px;
+}
+
+.power-electronics-day {
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    border-left: 4px solid #c69b32;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+}
+
+.power-electronics-day h3 {
+    color: #12384f;
+    margin: 0 0 18px;
+    font-size: 21px;
+}
+
+.power-electronics-day ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.power-electronics-day li {
+    color: #5d6b73;
+    line-height: 1.6;
+    margin-bottom: 9px;
+}
+
+.power-electronics-cta {
+    background: #061d2d;
+    color: #ffffff;
+    text-align: center;
+    padding: 75px 25px;
+}
+
+.power-electronics-cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.power-electronics-cta h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.power-electronics-cta p {
+    color: #dce5e9;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.power-electronics-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    margin: 5px;
+    border: 1px solid #c69b32;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.power-electronics-btn:hover {
+    background: #c69b32;
+    color: #ffffff;
+}
+
+@media (max-width: 800px) {
+
+    .power-electronics-hero {
+        min-height: 520px;
+    }
+
+    .power-electronics-hero h1 {
+        font-size: 36px;
+    }
+
+    .power-electronics-block,
+    .power-electronics-block:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    .power-electronics-section {
+        padding: 55px 20px;
+    }
+}
+</style>
+
+
+<div class="power-electronics-page">
+
+    <!-- HERO -->
+
+    <section class="power-electronics-hero">
+
+        <div class="power-electronics-hero-content">
+
+            <span class="power-electronics-label">
+                Advanced Electronics Engineering Department
+            </span>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                Professional power electronics training covering rectifiers,
+                inverters, semiconductor devices, PWM techniques, harmonics
+                and their applications across modern industries.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="power-electronics-section">
+
+        <div class="power-electronics-intro">
+
+            <span class="power-electronics-small-title">
+                Professional Training Program
+            </span>
+
+            <h2>
+                EEE 189 - Power Electronics Rectifier &amp; Inverter
+            </h2>
+
+            <p>
+                This course on Power Electronics Rectifiers and Inverters
+                covers the fundamental principles, operation, and design of
+                rectifiers and inverters used in power electronics applications.
+                The course is designed for participants with a background in
+                electrical engineering or a related field.
+            </p>
+
+            <p>
+                Participants will develop a strong understanding of power
+                electronic devices, single-phase and three-phase rectifiers,
+                inverters and their applications in various industries.
+            </p>
+
+        </div>
+
+
+        <!-- COURSE OBJECTIVES -->
+
+        <div class="power-electronics-block">
+
+            <div class="power-electronics-content">
+
+                <span class="power-electronics-small-title">
+                    Learning Outcomes
+                </span>
+
+                <h2>
+                    Course Objectives
+                </h2>
+
+                <ul class="power-electronics-list">
+
+                    <li>
+                        Introducing the fundamental principles and operation
+                        of power electronics rectifiers and inverters.
+                    </li>
+
+                    <li>
+                        Providing an understanding of the different types of
+                        power electronic devices used in rectifiers and inverters.
+                    </li>
+
+                    <li>
+                        Learning about single-phase and three-phase rectifiers,
+                        half-wave and full-wave rectifiers, bridge rectifiers,
+                        filter circuits, and voltage regulation.
+                    </li>
+
+                    <li>
+                        Discussing different types of inverters.
+                    </li>
+
+                    <li>
+                        Understanding the applications of power electronics
+                        in various industries.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="power-electronics-content">
+
+                <span class="power-electronics-small-title">
+                    Target Participants
+                </span>
+
+                <h2>
+                    Who Should Attend?
+                </h2>
+
+                <ul class="power-electronics-list">
+
+                    <li>Electronics engineers</li>
+
+                    <li>Power Systems Engineers</li>
+
+                    <li>
+                        Individuals working in renewable energy,
+                        motor drives, electric vehicles, power supplies,
+                        and lighting systems
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE SYLLABUS -->
+
+        <div class="power-electronics-intro">
+
+            <span class="power-electronics-small-title">
+                Five-Day Professional Program
+            </span>
+
+            <h2>
+                Course Syllabus
+            </h2>
+
+        </div>
+
+
+        <div class="power-electronics-syllabus">
+
+            <!-- DAY 1 -->
+
+            <div class="power-electronics-day">
+
+                <h3>Day 1</h3>
+
+                <ul>
+
+                    <li>Introduction to Power Electronics Rectifier</li>
+                    <li>Applications of Power Electronics</li>
+                    <li>Types of Power Electronic Circuits</li>
+                    <li>Design of Power Electronics Equipment</li>
+                    <li>Power Semiconductor Devices</li>
+                    <li>Control Characteristics of Power Devices</li>
+                    <li>Power Diodes and Rectifiers</li>
+                    <li>Power Diodes and SCRs (thyristor)</li>
+                    <li>Semiconductor Basics</li>
+                    <li>Diode and SCR Characteristics</li>
+                    <li>Reverse Recovery Characteristics</li>
+                    <li>Power Diode Types</li>
+                    <li>General-Purpose Diodes</li>
+                    <li>Silicon Carbide Diodes</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 2 -->
+
+            <div class="power-electronics-day">
+
+                <h3>Day 2</h3>
+
+                <ul>
+
+                    <li>Power Transistors</li>
+                    <li>Power MOSFETs</li>
+                    <li>Steady-State Characteristics</li>
+                    <li>Switching Characteristics</li>
+                    <li>Silicon Carbide MOSFETs</li>
+                    <li>Bipolar Junction Transistors</li>
+                    <li>Steady-State Characteristics</li>
+                    <li>Switching Characteristics</li>
+                    <li>Silicon Carbide BJTs</li>
+                    <li>IGBTs</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 3 -->
+
+            <div class="power-electronics-day">
+
+                <h3>Day 3</h3>
+
+                <ul>
+
+                    <li>Diode Rectifiers</li>
+                    <li>
+                        Single-Phase half and Full-Wave controlled
+                        and uncontrolled Rectifiers
+                    </li>
+                    <li>
+                        Single phase controlled and uncontrolled full wave
+                        bridge and center tapped rectifier
+                    </li>
+                    <li>
+                        Three-Phase full wave six pulse Bridge Rectifiers
+                    </li>
+                    <li>Three-Phase half wave Rectifier</li>
+                    <li>Comparisons of Diode and SCR Rectifiers</li>
+                    <li>Rectifier output voltage &amp; current smoothing.</li>
+                    <li>Types of smoothing circuits</li>
+                    <li>Six-phase Series Bridge Rectifier</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 4 -->
+
+            <div class="power-electronics-day">
+
+                <h3>Day 4</h3>
+
+                <ul>
+
+                    <li>Single-phase inverter</li>
+                    <li>Three phase inverters</li>
+                    <li>Pulse Width Modulation Techniques</li>
+                    <li>PWM Voltage and Current Waveforms</li>
+                    <li>Inverter output filters</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DAY 5 -->
+
+            <div class="power-electronics-day">
+
+                <h3>Day 5</h3>
+
+                <ul>
+
+                    <li>Harmonics, origin &amp; consequences</li>
+                    <li>The effects of harmonics</li>
+                    <li>Current &amp; Voltage total harmonic distortion</li>
+                    <li>Rms value of a current &amp; voltage with harmonics</li>
+                    <li>Power factor in the presence of harmonics</li>
+                    <li>Disturbances caused by non-linear loads</li>
+                    <li>Standards on devices</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="power-electronics-cta">
+
+        <div class="power-electronics-cta-inner">
+
+            <h2>
+                Develop Your Power Electronics Expertise
+            </h2>
+
+            <p>
+                Connect with Capital Consultants for professional power
+                electronics training, technical guidance and practical
+                engineering development.
+            </p>
+
+            <a
+                href="{{ url_for('power_electronics_inverter_registration') }}"
+                class="power-electronics-btn"
+            >
+                REGISTER FOR COURSE
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="power-electronics-btn"
+            >
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

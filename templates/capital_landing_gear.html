@@ -1,0 +1,561 @@
+{% extends "base.html" %}
+
+{% block title %}
+Landing Gear Division | Capital Engineering Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL ENGINEERING - LANDING GEAR DIVISION
+   ========================================================= */
+
+.landing-gear-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.landing-gear-hero {
+    position: relative;
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(6, 29, 45, 0.70),
+            rgba(6, 29, 45, 0.91)
+        ),
+        url("https://static.wixstatic.com/media/e6f890_b7217cf249e743f3a44edf6f29c126d0~mv2.jpg/v1/fill/w_1600,h_1800,al_c,q_85,enc_avif,quality_auto/L_G.jpg")
+        center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+    box-sizing: border-box;
+}
+
+.landing-gear-hero-content {
+    max-width: 900px;
+    text-align: left;
+}
+
+.landing-gear-eyebrow {
+    color: #d2a43b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.landing-gear-hero h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 0 0 24px;
+    font-weight: 800;
+}
+
+.landing-gear-hero p {
+    color: #eef3f5;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.landing-gear-intro {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 65px 25px 35px;
+    text-align: center;
+}
+
+.landing-gear-intro h2 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.landing-gear-intro p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ================= SECTIONS ================= */
+
+.landing-gear-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px 75px;
+}
+
+.landing-gear-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 55px;
+    align-items: center;
+
+    padding: 55px 0;
+    border-bottom: 1px solid #dfe5e8;
+}
+
+.landing-gear-section.reverse {
+    direction: rtl;
+}
+
+.landing-gear-section.reverse > * {
+    direction: ltr;
+}
+
+.landing-gear-image-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9eef1;
+    box-shadow: 0 14px 35px rgba(6, 29, 45, 0.12);
+}
+
+.landing-gear-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.landing-gear-image-wrap:hover .landing-gear-image {
+    transform: scale(1.025);
+}
+
+.landing-gear-copy {
+    max-width: 540px;
+}
+
+.landing-gear-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.landing-gear-copy h2 {
+    color: #061d2d;
+    font-size: 31px;
+    line-height: 1.2;
+    margin: 0 0 17px;
+}
+
+.landing-gear-copy p {
+    color: #12384f;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ================= CTA ================= */
+
+.landing-gear-cta {
+    background: #061d2d;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.landing-gear-cta h2 {
+    color: white;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.landing-gear-cta p {
+    color: #dce5e9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.landing-gear-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.landing-gear-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 13px 25px;
+
+    border-radius: 5px;
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.landing-gear-quote-btn {
+    background: #d2a43b;
+    color: #061d2d;
+}
+
+.landing-gear-home-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.landing-gear-btn:hover,
+.landing-gear-btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.landing-gear-quote-btn:hover,
+.landing-gear-quote-btn:focus-visible {
+    background: #e0b64e;
+}
+
+.landing-gear-home-btn:hover,
+.landing-gear-home-btn:focus-visible {
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .landing-gear-section,
+    .landing-gear-section.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 30px;
+    }
+
+    .landing-gear-copy {
+        max-width: none;
+    }
+
+    .landing-gear-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .landing-gear-hero {
+        min-height: 450px;
+        padding: 50px 22px;
+    }
+
+    .landing-gear-hero h1 {
+        font-size: 32px;
+    }
+
+    .landing-gear-hero p {
+        font-size: 16px;
+    }
+
+    .landing-gear-intro {
+        padding: 50px 18px 25px;
+    }
+
+    .landing-gear-intro h2 {
+        font-size: 27px;
+    }
+
+    .landing-gear-container {
+        padding: 10px 18px 55px;
+    }
+
+    .landing-gear-section {
+        padding: 40px 0;
+    }
+
+    .landing-gear-copy h2 {
+        font-size: 27px;
+    }
+
+    .landing-gear-image {
+        height: 260px;
+    }
+
+    .landing-gear-cta {
+        padding: 50px 20px;
+    }
+
+    .landing-gear-cta h2 {
+        font-size: 27px;
+    }
+}
+
+</style>
+
+
+<div class="landing-gear-page">
+
+    <!-- =====================================================
+         LANDING GEAR HERO
+         ===================================================== -->
+
+    <section
+        class="landing-gear-hero"
+        aria-labelledby="landing-gear-title"
+    >
+
+        <div class="landing-gear-hero-content">
+
+            <div class="landing-gear-eyebrow">
+                LANDING GEAR DIVISION
+            </div>
+
+            <h1 id="landing-gear-title">
+                Precision Manufacturing Solutions par Excellence
+            </h1>
+
+            <p>
+                CECs Landing Gear Division provides precision engineering
+                and manufacturing solutions for aircraft landing gear
+                structures, wheels, braking systems, shock struts and
+                specialized aerospace components.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+         ===================================================== -->
+
+    <section class="landing-gear-intro">
+
+        <h2>
+            Advanced Landing Gear Engineering
+        </h2>
+
+        <p>
+            Our capabilities support precision components and assemblies
+            for aircraft ground-support systems, landing loads, braking,
+            steering and controlled ground operations.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         LANDING GEAR CAPABILITIES
+         ===================================================== -->
+
+    <main class="landing-gear-container">
+
+
+        <!-- 1. LANDING GEAR STRUCTURES -->
+
+        <section class="landing-gear-section">
+
+            <div class="landing-gear-image-wrap">
+
+                <img
+                    class="landing-gear-image"
+                    src="https://static.wixstatic.com/media/e6f890_b7217cf249e743f3a44edf6f29c126d0~mv2.jpg/v1/fill/w_1600,h_1800,al_c,q_85,enc_avif,quality_auto/L_G.jpg"
+                    alt="Aircraft landing gear strut and wheel assembly"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="landing-gear-copy">
+
+                <div class="landing-gear-number">
+                    01 · LANDING GEAR STRUCTURES
+                </div>
+
+                <h2>
+                    Landing Gear Structures
+                </h2>
+
+                <p>
+                    Precision structural components support landing loads,
+                    dimensional accuracy and reliable integration with
+                    aircraft airframe systems.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. BRAKING SYSTEMS -->
+
+        <section class="landing-gear-section reverse">
+
+            <div class="landing-gear-image-wrap">
+
+                <img
+                    class="landing-gear-image"
+                    src="https://prd-sc102-cdn.rtx.com/collinsaerospace/-/media/ca/newsroom/library/brake-systems.jpg?rev=e59747d158d54fdd9796c13241177a48&rid=fb94abda39a84718ad84a450293fe7b7"
+                    alt="Aircraft landing gear brake assembly"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="landing-gear-copy">
+
+                <div class="landing-gear-number">
+                    02 · BRAKING SYSTEMS
+                </div>
+
+                <h2>
+                    Braking Systems
+                </h2>
+
+                <p>
+                    Precision brake components support controlled aircraft
+                    deceleration through engineered friction systems,
+                    mechanical interfaces and high-load assemblies.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. SHOCK STRUTS -->
+
+        <section class="landing-gear-section">
+
+            <div class="landing-gear-image-wrap">
+
+                <img
+                    class="landing-gear-image"
+                    src="https://i.ebayimg.com/images/g/X9kAAeSwwKRoVv7j/s-l960.jpg"
+                    alt="Aircraft landing gear shock strut component"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="landing-gear-copy">
+
+                <div class="landing-gear-number">
+                    03 · SHOCK STRUTS
+                </div>
+
+                <h2>
+                    Shock Struts
+                </h2>
+
+                <p>
+                    Shock strut components are engineered to absorb landing
+                    loads and control vertical movement during touchdown,
+                    taxiing and ground operations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. WHEELS & PRECISION COMPONENTS -->
+
+        <section class="landing-gear-section reverse">
+
+            <div class="landing-gear-image-wrap">
+
+                <img
+                    class="landing-gear-image"
+                    src="https://media.licdn.com/dms/image/v2/D4E10AQGmOJOy_rceHw/image-shrink_1280/image-shrink_1280/0/1693324896613?e=2147483647&t=y1uVEmlbBMrzcKkqCoxysVYpCmkAqt0dVsqfCOt16mg&v=beta"
+                    alt="Aircraft landing gear wheel and brake components"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="landing-gear-copy">
+
+                <div class="landing-gear-number">
+                    04 · WHEELS & PRECISION COMPONENTS
+                </div>
+
+                <h2>
+                    Wheels & Precision Components
+                </h2>
+
+                <p>
+                    Application-specific wheels, hubs, brake interfaces
+                    and precision landing gear components are developed
+                    for demanding aerospace ground-support applications.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="landing-gear-cta">
+
+        <h2>
+            Have a Landing Gear Engineering Requirement?
+        </h2>
+
+        <p>
+            Share your landing gear engineering requirements with
+            Capital Engineering Corporation and our team can review
+            your application and technical needs.
+        </p>
+
+
+        <div class="landing-gear-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="landing-gear-btn landing-gear-quote-btn"
+            >
+                SEND QUOTE
+                <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+
+            <a
+                href="{{ url_for('home') }}"
+                class="landing-gear-btn landing-gear-home-btn"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

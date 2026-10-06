@@ -1,0 +1,775 @@
+{% extends "base.html" %}
+
+{% block title %}
+Potato Division | Capital Trading Corporation
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================================================
+   CAPITAL TRADING - POTATO DIVISION
+   ========================================================= */
+
+.potato-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.potato-hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.95) 0%,
+            rgba(6,29,45,.80) 45%,
+            rgba(6,29,45,.25) 100%
+        ),
+        url("https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1600&q=75");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.potato-hero-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.potato-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.potato-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.potato-description {
+    max-width: 760px;
+    color: rgba(255,255,255,.88);
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ================= INTRO ================= */
+
+.potato-intro {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 85px 0 35px;
+    text-align: center;
+}
+
+.potato-intro h2 {
+    margin: 0 0 18px;
+    color: #061d2d;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.potato-intro p {
+    max-width: 760px;
+    margin: auto;
+    color: #5c6d77;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= VARIETIES ================= */
+
+.potato-varieties {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 35px 0 80px;
+}
+
+.potato-variety {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding: 55px 0;
+    border-bottom: 1px solid rgba(18,56,79,.12);
+}
+
+.potato-variety:nth-child(even) .potato-image {
+    order: 2;
+}
+
+.potato-variety:nth-child(even) .potato-info {
+    order: 1;
+}
+
+.potato-image {
+    height: 330px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e9eef0;
+}
+
+.potato-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+
+.potato-image:hover img {
+    transform: scale(1.04);
+}
+
+.potato-number {
+    color: #c69b32;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.potato-info h3 {
+    color: #061d2d;
+    font-size: 32px;
+    margin: 0 0 18px;
+}
+
+.potato-info p {
+    color: #5c6d77;
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 0 0 20px;
+}
+
+.potato-specs {
+    display: grid;
+    gap: 10px;
+}
+
+.potato-spec {
+    padding: 13px 16px;
+    background: #ffffff;
+    border-left: 3px solid #c69b32;
+}
+
+.potato-spec strong {
+    display: inline-block;
+    min-width: 105px;
+    color: #061d2d;
+    font-size: 14px;
+}
+
+.potato-spec span {
+    color: #5c6d77;
+    font-size: 14px;
+}
+
+/* ================= CTA ================= */
+
+.potato-cta {
+    background: #061d2d;
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.potato-cta h2 {
+    color: #ffffff;
+    font-size: 38px;
+    margin: 0 0 15px;
+}
+
+.potato-cta p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.8;
+}
+
+.potato-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.potato-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .25s ease;
+}
+
+.potato-btn.primary {
+    background: #c69b32;
+    color: #061d2d;
+}
+
+.potato-btn.primary:hover {
+    background: #d2a43b;
+    transform: translateY(-2px);
+}
+
+.potato-btn.secondary {
+    border: 1px solid rgba(255,255,255,.5);
+    color: #ffffff;
+}
+
+.potato-btn.secondary:hover {
+    background: #ffffff;
+    color: #061d2d;
+}
+
+.potato-email {
+    margin-top: 25px;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .potato-hero {
+        min-height: 520px;
+    }
+
+    .potato-variety {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .potato-variety:nth-child(even) .potato-image {
+        order: 1;
+    }
+
+    .potato-variety:nth-child(even) .potato-info {
+        order: 2;
+    }
+
+    .potato-image {
+        height: 280px;
+    }
+
+    .potato-info h3 {
+        font-size: 28px;
+    }
+}
+
+</style>
+
+
+<div class="potato-page">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="potato-hero">
+
+        <div class="potato-hero-inner">
+
+            <div class="potato-label">
+                Potato Division
+            </div>
+
+            <h1>
+                EXPORT, IMPORT AND GLOBAL SOURCING / SUPPLY CHAIN SOLUTIONS.
+            </h1>
+
+            <p class="potato-description">
+                CTC’s Potato Division specializes in sourcing, grading,
+                packing and supplying quality potatoes for domestic and
+                international markets, with a focus on freshness, uniform
+                grading, reliable availability and efficient export logistics.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="potato-intro">
+
+        <h2>
+            Selected Potato Varieties
+        </h2>
+
+        <p>
+            Our potato supply program covers selected varieties for fresh
+            consumption, food service, retail, processing and international
+            trade, with flexible grading, packaging and bulk supply options.
+        </p>
+
+    </section>
+
+
+    <!-- ================= VARIETIES ================= -->
+
+    <section class="potato-varieties">
+
+
+        <!-- 01 RUSSET -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='russet_potato.jpg') }}"
+                    alt="Russet Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    01 / POTATO VARIETY
+                </div>
+
+                <h3>Russet Potato</h3>
+
+                <p>
+                    Large, brown-skinned potatoes with a firm texture,
+                    suitable for fresh markets, baking, frying and food-service
+                    applications.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Firm, clean and well-graded tubers</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and programmed supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Bulk and commercial supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 RED -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='red_potato.jpg') }}"
+                    alt="Red Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    02 / POTATO VARIETY
+                </div>
+
+                <h3>Red Potato</h3>
+
+                <p>
+                    Red-skinned potatoes with smooth appearance and firm
+                    texture, suitable for retail, fresh cooking and food service.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Clean, firm and uniform-sized tubers</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal fresh supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Wholesale and bulk orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 WHITE -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='white_potato.jpg') }}"
+                    alt="White Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    03 / POTATO VARIETY
+                </div>
+
+                <h3>White Potato</h3>
+
+                <p>
+                    Light-skinned potatoes with mild flavour and versatile
+                    culinary use, supplied for retail, wholesale and food service.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, clean and evenly graded</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and storage-based supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Commercial and export quantities</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 YUKON GOLD -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='yukon_gold.jpg') }}"
+                    alt="Yukon Gold Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    04 / POTATO VARIETY
+                </div>
+
+                <h3>Yukon Gold</h3>
+
+                <p>
+                    Golden-skinned potato with naturally yellow flesh and a
+                    creamy texture, suited to cooking, roasting and food service.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Golden skin, firm texture and clean appearance</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal / programmed supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Wholesale and specialty supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 FINGERLING -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='fingerling_potato.jpg') }}"
+                    alt="Fingerling Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    05 / POTATO VARIETY
+                </div>
+
+                <h3>Fingerling Potato</h3>
+
+                <p>
+                    Small elongated specialty potatoes with distinctive shape,
+                    ideal for roasting, gourmet dishes and premium food service.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Firm, clean and carefully selected</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal specialty supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and bulk orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 BABY / NEW -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='baby_new_potato.jpg') }}"
+                    alt="Baby New Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    06 / POTATO VARIETY
+                </div>
+
+                <h3>Baby / New Potato</h3>
+
+                <p>
+                    Young, small-sized potatoes with delicate skin, suitable
+                    for fresh markets, roasting and premium culinary applications.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, tender and carefully graded</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal fresh supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Fresh-market and commercial orders</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 07 PURPLE -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='purple_potato.jpg') }}"
+                    alt="Purple Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    07 / POTATO VARIETY
+                </div>
+
+                <h3>Purple Potato</h3>
+
+                <p>
+                    Naturally purple-skinned and coloured potatoes with a
+                    distinctive appearance, suited to specialty and gourmet markets.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Firm, clean and visually distinctive</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal specialty supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Specialty and bulk requirements</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 08 SWEET POTATO -->
+
+        <article class="potato-variety">
+
+            <div class="potato-image">
+                <img
+                    src="{{ url_for('static', filename='sweet_potato.jpg') }}"
+                    alt="Sweet Potato"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="potato-info">
+
+                <div class="potato-number">
+                    08 / POTATO VARIETY
+                </div>
+
+                <h3>Sweet Potato</h3>
+
+                <p>
+                    Naturally sweet root vegetable with versatile culinary use,
+                    supplied for fresh markets, food service and specialty trade.
+                </p>
+
+                <div class="potato-specs">
+
+                    <div class="potato-spec">
+                        <strong>Quality</strong>
+                        <span>Fresh, firm and clean roots</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Availability</strong>
+                        <span>Seasonal and programmed supply</span>
+                    </div>
+
+                    <div class="potato-spec">
+                        <strong>Quantity</strong>
+                        <span>Wholesale and bulk supply</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="potato-cta">
+
+        <h2>
+            Global Potato Supply
+        </h2>
+
+        <p>
+            Tell us your required variety, grade, quantity, packaging and
+            destination. Our team can coordinate sourcing and supply
+            requirements for domestic and international markets.
+        </p>
+
+        <div class="potato-buttons">
+
+            <a
+                href="{{ url_for('trading_quote') }}"
+                class="potato-btn primary"
+            >
+                SEND REQUIREMENT
+            </a>
+
+            <a
+                href="{{ url_for('trading') }}"
+                class="potato-btn secondary"
+            >
+                BACK TO TRADING
+            </a>
+
+            <a
+                href="/"
+                class="potato-btn secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+        <div class="potato-email">
+            ceo@capitalgroup.pk
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

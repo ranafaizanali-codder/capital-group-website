@@ -1,0 +1,660 @@
+{% extends "base.html" %}
+
+{% block title %}
+EEE 152 - Basic Electronics Repair Registration | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .registration-page {
+        background: #f5f7f8;
+        padding: 70px 20px;
+    }
+
+    .registration-container {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .registration-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .registration-label {
+        color: #c69b32;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .registration-header h1 {
+        color: #12384f;
+        font-size: 38px;
+        margin: 12px 0 15px;
+        line-height: 1.2;
+    }
+
+    .registration-header p {
+        color: #526572;
+        font-size: 16px;
+    }
+
+    .registration-card {
+        background: #ffffff;
+        border: 1px solid #dce4e8;
+        padding: 38px;
+        margin-bottom: 25px;
+        box-shadow: 0 8px 28px rgba(18, 56, 79, 0.06);
+    }
+
+    .registration-card h2 {
+        color: #12384f;
+        font-size: 23px;
+        margin-bottom: 25px;
+        padding-left: 14px;
+        border-left: 4px solid #c69b32;
+    }
+
+    .course-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .course-item {
+        background: #f5f7f8;
+        padding: 16px;
+        border: 1px solid #e0e7ea;
+    }
+
+    .course-item strong {
+        display: block;
+        color: #12384f;
+        margin-bottom: 5px;
+    }
+
+    .course-item span {
+        color: #526572;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        color: #12384f;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 13px 14px;
+        border: 1px solid #cfd9de;
+        background: #ffffff;
+        color: #12384f;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .form-group textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #c69b32;
+    }
+
+    .submit-area {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .submit-btn {
+        border: 1px solid #c69b32;
+        background: #c69b32;
+        color: #061d2d;
+        padding: 14px 30px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background: #d2a43b;
+    }
+
+    .registration-footer {
+        text-align: center;
+        color: #526572;
+        font-size: 13px;
+        margin-top: 25px;
+    }
+
+    @media (max-width: 700px) {
+        .registration-page {
+            padding: 50px 15px;
+        }
+
+        .registration-card {
+            padding: 25px 20px;
+        }
+
+        .registration-header h1 {
+            font-size: 30px;
+        }
+
+        .course-info,
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full {
+            grid-column: auto;
+        }
+    }
+</style>
+
+
+<section class="registration-page">
+
+    <div class="registration-container">
+
+
+        <!-- HEADER -->
+        <div class="registration-header">
+
+            <div class="registration-label">
+                Advanced Electronics Engineering Department
+            </div>
+
+            <h1>
+                Basic Electronics Repair
+            </h1>
+
+            <p>
+                Complete the registration form below to register for EEE 152
+                through Capital Consultants.
+            </p>
+
+        </div>
+
+
+        <!-- COURSE DETAILS -->
+        <div class="registration-card">
+
+            <h2>
+                Course Details
+            </h2>
+
+            <div class="course-info">
+
+                <div class="course-item">
+                    <strong>Course Code</strong>
+                    <span>EEE 152</span>
+                </div>
+
+                <div class="course-item">
+                    <strong>Course Date</strong>
+                    <span>can be offered upon a specific date request</span>
+                </div>
+
+                <div class="course-item">
+                    <strong>Course Title</strong>
+                    <span>
+                        Basic Electronics Repair (10 Days)
+                    </span>
+                </div>
+
+                <div class="course-item">
+                    <strong>Venue</strong>
+                    <span>Marriott Islamabad</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form method="POST">
+
+
+            <!-- INSTITUTION / COMPANY DETAILS -->
+            <div class="registration-card">
+
+                <h2>
+                    Institution / Company Details
+                </h2>
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="language">
+                            Language *
+                        </label>
+
+                        <select
+                            id="language"
+                            name="language"
+                            required
+                        >
+
+                            <option value="">
+                                Select Language
+                            </option>
+
+                            <option value="English">
+                                English
+                            </option>
+
+                            <option value="Arabic">
+                                Arabic
+                            </option>
+
+                            <option value="Chinese">
+                                Chinese
+                            </option>
+
+                            <option value="French">
+                                French
+                            </option>
+
+                            <option value="German">
+                                German
+                            </option>
+
+                            <option value="Italian">
+                                Italian
+                            </option>
+
+                            <option value="Japanese">
+                                Japanese
+                            </option>
+
+                            <option value="Korean">
+                                Korean
+                            </option>
+
+                            <option value="Persian">
+                                Persian
+                            </option>
+
+                            <option value="Portuguese">
+                                Portuguese
+                            </option>
+
+                            <option value="Russian">
+                                Russian
+                            </option>
+
+                            <option value="Spanish">
+                                Spanish
+                            </option>
+
+                            <option value="Turkish">
+                                Turkish
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="country">
+                            Country *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="company_name">
+                            Company Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company_name"
+                            name="company_name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="website">
+                            Website
+                        </label>
+
+                        <input
+                            type="url"
+                            id="website"
+                            name="website"
+                            placeholder="https://"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="nature_of_business">
+                            Nature of Business *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nature_of_business"
+                            name="nature_of_business"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="postal_address">
+                            Postal Address *
+                        </label>
+
+                        <textarea
+                            id="postal_address"
+                            name="postal_address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT PERSON DETAILS -->
+            <div class="registration-card">
+
+                <h2>
+                    Contact Person Details
+                </h2>
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="salutation">
+                            Salutation *
+                        </label>
+
+                        <select
+                            id="salutation"
+                            name="salutation"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Mr.">
+                                Mr.
+                            </option>
+
+                            <option value="Ms.">
+                                Ms.
+                            </option>
+
+                            <option value="Mrs.">
+                                Mrs.
+                            </option>
+
+                            <option value="Dr.">
+                                Dr.
+                            </option>
+
+                            <option value="Prof.">
+                                Prof.
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="job_title">
+                            Job Title / Position *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="job_title"
+                            name="job_title"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Telephone +Code *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile +Code *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mobile"
+                            name="mobile"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARTICIPANT DETAILS -->
+            <div class="registration-card">
+
+                <h2>
+                    Participant Details
+                </h2>
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="participants">
+                            Number of Participants *
+                        </label>
+
+                        <select
+                            id="participants"
+                            name="participants"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10+">10+</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="source">
+                            How did you hear about us? *
+                        </label>
+
+                        <select
+                            id="source"
+                            name="source"
+                            required
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Website">
+                                Website
+                            </option>
+
+                            <option value="Search Engine">
+                                Search Engine
+                            </option>
+
+                            <option value="Social Media">
+                                Social Media
+                            </option>
+
+                            <option value="Email">
+                                Email
+                            </option>
+
+                            <option value="Referral">
+                                Referral
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="registration-footer">
+            For registration assistance: ceo@capitalgroup.pk
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
