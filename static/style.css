@@ -4019,3 +4019,232 @@ nav > a:hover,
     }
 
 }
+
+/* =========================================================
+   CAPITAL GROUP — PREMIUM THEME FINISH
+   Appended as a safe override layer: existing page styles
+   and layouts are preserved.
+   ========================================================= */
+
+:root {
+    --cg-navy: #061d2d;
+    --cg-blue: #12384f;
+    --cg-gold: #c69b32;
+    --cg-gold-light: #d2a43b;
+    --cg-page: #f5f7f8;
+    --cg-muted: #63737e;
+    --cg-border: #dce4e8;
+}
+
+html {
+    scroll-padding-top: 18px;
+}
+
+body {
+    color: var(--cg-blue);
+    background: var(--cg-page);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    color: var(--cg-navy);
+    background: rgba(210, 164, 59, 0.32);
+}
+
+/* Refined global header without changing its navigation structure */
+header {
+    border-bottom: 1px solid rgba(198, 155, 50, 0.20);
+    box-shadow: 0 5px 22px rgba(6, 29, 45, 0.07);
+}
+
+.logo img {
+    transition: transform .25s ease;
+}
+
+.logo:hover img {
+    transform: translateY(-1px);
+}
+
+nav > a,
+.dropdown > a {
+    position: relative;
+    transition: color .22s ease;
+}
+
+nav > a::after,
+.dropdown > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 26px;
+    width: 0;
+    height: 2px;
+    background: var(--cg-gold);
+    transition: width .22s ease;
+}
+
+nav > a:hover::after,
+nav > a:focus-visible::after,
+.dropdown:hover > a::after,
+.dropdown:focus-within > a::after {
+    width: 100%;
+}
+
+.dropdown-content {
+    z-index: 1200;
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    transition: background .2s ease, color .2s ease, padding-left .2s ease;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+    padding-left: 22px;
+}
+
+/* Better heading rhythm across existing and newer pages */
+.hero h1,
+.inner-page h1,
+.company-hero h1,
+.clients-hero h1,
+.engineering-hero-content h1,
+.aerospace-design-hero h1,
+.mechanical-design-hero h1,
+.environmental-hero h1,
+.software-hero h1,
+.it-solutions-hero h1,
+.ai-solutions-hero h1 {
+    text-wrap: balance;
+}
+
+.hero p,
+.inner-page p,
+.company-hero p,
+.clients-hero p {
+    text-wrap: pretty;
+}
+
+/* Consistent, restrained card treatment */
+.company-grid .company-card,
+.client-card,
+.info-card,
+.contact-card,
+.wide-content {
+    border-radius: 4px;
+}
+
+.company-grid .company-card {
+    border-right: 1px solid rgba(198, 155, 50, 0.16);
+    border-bottom: 1px solid rgba(198, 155, 50, 0.16);
+    border-left: 1px solid rgba(198, 155, 50, 0.16);
+    border-top: 4px solid var(--cg-gold);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.company-grid .company-card:hover {
+    transform: translateY(-4px);
+    border-top-color: var(--cg-gold-light);
+    box-shadow: 0 16px 34px rgba(6, 29, 45, 0.12);
+}
+
+.info-card,
+.contact-card,
+.wide-content,
+.client-card {
+    border: 1px solid rgba(18, 56, 79, 0.09);
+    box-shadow: 0 8px 26px rgba(6, 29, 45, 0.055);
+}
+
+.buttons .main-btn {
+    border-radius: 4px;
+}
+
+.quote-btn,
+.talk,
+.clients-cta > a {
+    border-radius: 3px;
+}
+
+/* Match the new engineering/technology pages to the corporate palette */
+.aerospace-design-page .aerospace-design-graphic,
+.mechanical-design-page .mechanical-design-graphic {
+    border-radius: 3px;
+    box-shadow: 0 14px 34px rgba(6, 29, 45, 0.10);
+}
+
+.aerospace-design-page .aerospace-design-cta,
+.mechanical-design-page .mechanical-design-cta,
+.environmental-page .environmental-cta,
+.software-page .software-cta,
+.it-solutions-page .it-solutions-cta,
+.ai-solutions-page .ai-solutions-cta {
+    border-top: 3px solid var(--cg-gold);
+}
+
+.aerospace-design-page .aerospace-design-cta-button,
+.mechanical-design-page .mechanical-design-cta-button,
+.environmental-page .environmental-cta-button,
+.software-page .software-cta-button,
+.it-solutions-page .it-solutions-cta-button,
+.ai-solutions-page .ai-solutions-cta-button {
+    border-radius: 3px;
+    transition: background .22s ease, color .22s ease, transform .22s ease;
+}
+
+.aerospace-design-page .aerospace-design-cta-button:hover,
+.mechanical-design-page .mechanical-design-cta-button:hover,
+.environmental-page .environmental-cta-button:hover,
+.software-page .software-cta-button:hover,
+.it-solutions-page .it-solutions-cta-button:hover,
+.ai-solutions-page .ai-solutions-cta-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Clear keyboard focus for navigation and interactive controls */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.dropdown-content a:focus-visible {
+    outline: 3px solid var(--cg-gold-light);
+    outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+    nav > a::after,
+    .dropdown > a::after {
+        bottom: 0;
+    }
+
+    .company-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-grid .company-card {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo img,
+    nav > a,
+    .dropdown > a,
+    .dropdown-content a,
+    .company-grid .company-card,
+    .buttons .main-btn,
+    .quote-btn,
+    .clients-cta > a {
+        transition: none !important;
+    }
+}
+
