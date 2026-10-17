@@ -1,0 +1,345 @@
+
+{% extends "base.html" %}
+
+{% block title %}Engineering Services | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+<style>
+    .services-page {
+        --navy: #08283b;
+        --deep-navy: #061d2d;
+        --gold: #c69b32;
+        --light-bg: #f5f7f8;
+        --text: #12384f;
+        background: var(--light-bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        padding-bottom: 65px;
+    }
+
+    .services-hero {
+        background: linear-gradient(135deg, #061d2d, #123f58);
+        color: #fff;
+        padding: 75px 24px;
+        text-align: center;
+    }
+
+    .services-hero .eyebrow {
+        color: #d2a43b;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    .services-hero h1 {
+        color: #fff;
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.2;
+        margin: 0 0 20px;
+    }
+
+    .services-hero p {
+        color: #e3ebef;
+        font-size: 16px;
+        line-height: 1.8;
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .services-container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+    }
+
+    .services-intro {
+        background: #fff;
+        border: 1px solid #e0e6e9;
+        border-top: 4px solid var(--gold);
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 38px;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.04);
+    }
+
+    .services-intro p,
+    .portfolio-intro {
+        font-size: 15px;
+        line-height: 1.9;
+        margin: 0;
+    }
+
+    .services-section {
+        margin-top: 55px;
+    }
+
+    .services-section h2 {
+        color: var(--navy);
+        font-size: clamp(25px, 3vw, 32px);
+        line-height: 1.3;
+        margin: 0 0 12px;
+    }
+
+    .section-accent {
+        width: 65px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 4px;
+        margin-bottom: 22px;
+    }
+
+    .portfolio-intro {
+        margin-bottom: 24px;
+        max-width: 900px;
+    }
+
+    .services-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .services-list li {
+        position: relative;
+        background: #fff;
+        border: 1px solid #e0e6e9;
+        border-left: 3px solid var(--gold);
+        border-radius: 5px;
+        padding: 15px 17px 15px 39px;
+        font-size: 14px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .services-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        color: var(--gold);
+        font-weight: 700;
+    }
+
+    .inquiry-panel {
+        background: var(--deep-navy);
+        border-radius: 9px;
+        padding: 38px 25px;
+        margin-top: 60px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .inquiry-panel h2 {
+        color: #fff;
+        margin: 0 0 12px;
+        font-size: 28px;
+    }
+
+    .inquiry-panel p {
+        color: #dce6eb;
+        font-size: 15px;
+        line-height: 1.8;
+        max-width: 720px;
+        margin: 0 auto 24px;
+    }
+
+    .services-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .services-btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 13px 24px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .services-btn-primary {
+        background: var(--gold);
+        color: #061d2d;
+        border: 1px solid var(--gold);
+    }
+
+    .services-btn-primary:hover {
+        background: #fff;
+        border-color: #fff;
+        color: var(--deep-navy);
+    }
+
+    .services-btn-secondary {
+        background: transparent;
+        color: #fff;
+        border: 1px solid #9bb0bc;
+    }
+
+    .services-btn-secondary:hover {
+        background: #fff;
+        color: var(--deep-navy);
+    }
+
+    @media (max-width: 700px) {
+        .services-hero {
+            padding: 55px 20px;
+        }
+
+        .services-intro {
+            padding: 22px;
+        }
+
+        .services-list {
+            grid-template-columns: 1fr;
+        }
+
+        .services-section {
+            margin-top: 40px;
+        }
+
+        .inquiry-panel {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
+<div class="services-page">
+
+    <section class="services-hero">
+        <div class="services-hero eyebrow">
+            Capital Engineering Corporation
+        </div>
+
+        <h1>Engineering Services</h1>
+
+        <p>
+            Engineering design, prototyping, testing, training, repair
+            and maintenance services tailored to customer requirements.
+        </p>
+    </section>
+
+    <div class="services-container">
+
+        <section class="services-intro">
+            <p>
+                We offer a diverse range of engineering design, prototyping,
+                testing, training, repair and maintenance services for the
+                following fields. Our services cover selected structural
+                components, engine-related parts, maintenance tooling,
+                support equipment and industrial process equipment.
+            </p>
+        </section>
+
+        <section class="services-section">
+            <h2>Engineering Components &amp; Support Equipment</h2>
+            <div class="section-accent"></div>
+
+            <ul class="services-list">
+                <li>Nose, T-arch and related components in 7075-T6 aluminium and stainless-steel alloys</li>
+                <li>Doublers and related landing-gear assembly parts</li>
+                <li>Rivets and studs</li>
+                <li>Nuts and bolts</li>
+                <li>Other fasteners</li>
+                <li>Bellows tubes</li>
+                <li>Engine link-drive shafts</li>
+                <li>Engine tachogenerator shafts</li>
+                <li>Engine bushings</li>
+                <li>Engine chamber liners</li>
+                <li>Engine burner-ring pins</li>
+                <li>Propeller-opening tools</li>
+                <li>Engine inlet-nozzle removal tools</li>
+                <li>Engine precision inserts</li>
+                <li>Engine central-section components</li>
+                <li>Engine bypass-compressor components</li>
+                <li>Engine housings</li>
+                <li>Engine ground tooling</li>
+                <li>Engine ground-tooling fixtures</li>
+                <li>Engine OG stands</li>
+                <li>Engine moving stands</li>
+                <li>Engine parts stands</li>
+                <li>Engine-parts cleaning trays</li>
+                <li>Double-jacketed, indirect-heating chemical tanks</li>
+                <li>Power presses and related chemical-process equipment</li>
+            </ul>
+        </section>
+
+        <section class="services-section">
+            <h2>Electronic Systems Portfolio</h2>
+            <div class="section-accent"></div>
+
+            <p class="portfolio-intro">
+                Our customer-focused avionics and electronics solutions
+                are designed to help reduce extended procurement lead times
+                and support practical delivery schedules within agreed
+                budgetary constraints. We develop custom single-layer,
+                double-layer and multilayer electronic modules for a range
+                of applications, including aircraft systems, unmanned
+                platforms, radar equipment, test rigs and CNC controllers.
+                Our approach focuses on customer requirements, system
+                availability and helping minimize avoidable equipment downtime.
+            </p>
+
+            <h2>Avionics / Electronics Products</h2>
+            <div class="section-accent"></div>
+
+            <p class="portfolio-intro">
+                Custom electronic modules, control systems, interface boards,
+                signal-processing assemblies and power electronics for
+                specialized applications.
+            </p>
+
+            <ul class="services-list">
+                <li>Single-layer I/O cards</li>
+                <li>Multilayer I/O cards</li>
+                <li>Controller modules</li>
+                <li>Motion-control modules</li>
+                <li>Compass and gyroscope modules</li>
+                <li>Multilayer discrete-interface avionics modules for cockpit avionics systems (HEC modules)</li>
+                <li>Embedded corelator-processor avionics modules for airborne radar</li>
+                <li>Constant False Alarm Rate (CFAR) modules</li>
+                <li>Up-converter avionics modules for airborne radar</li>
+                <li>Down-converter avionics modules for aircraft systems</li>
+                <li>High-voltage power-supply avionics modules for airborne applications</li>
+                <li>Low-voltage power-supply avionics modules for airborne applications</li>
+                <li>Analogue-to-digital converter modules for airborne radar-warning receiver (RWR) systems</li>
+                <li>Flight controllers for unmanned surface vessels</li>
+                <li>Flight controllers for reconnaissance UAVs</li>
+                <li>Multilayer electronics modules for management systems</li>
+                <li>Multilayer electronics modules for power-plant servo-drive systems</li>
+                <li>Multilayer electronics modules for power-plant power-electronics relay systems</li>
+            </ul>
+        </section>
+
+        <section class="inquiry-panel">
+            <h2>Need a Custom Engineering Service?</h2>
+
+            <p>
+                Contact our team to discuss your requirements, request
+                technical assistance or inquire about a customized solution
+                for your application.
+            </p>
+
+            <div class="services-actions">
+                <a class="services-btn services-btn-primary"
+                   href="{{ url_for('engineering_quote') }}">
+                    Send Inquiry
+                </a>
+
+                <a class="services-btn services-btn-secondary"
+                   href="{{ url_for('home') }}">
+                    Go Home
+                </a>
+            </div>
+        </section>
+
+    </div>
+</div>
+{% endblock %}

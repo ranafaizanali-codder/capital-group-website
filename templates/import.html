@@ -1,0 +1,649 @@
+{% extends "base.html" %}
+
+{% block title %}
+Import Division | International Trade & Import Consultancy | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .import-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .import-hero {
+        position: relative;
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.94) 0%,
+                rgba(6, 29, 45, 0.78) 45%,
+                rgba(6, 29, 45, 0.30) 100%
+            ),
+            url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=80")
+            center/cover no-repeat;
+    }
+
+    .import-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 90px 0;
+        color: #ffffff;
+    }
+
+    .import-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+    }
+
+    .import-hero h1 {
+        max-width: 850px;
+        margin: 0 0 24px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 600;
+        letter-spacing: -1.5px;
+    }
+
+    .import-hero p {
+        max-width: 780px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* INTRO */
+    .import-intro {
+        width: min(1080px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 65px;
+        text-align: center;
+    }
+
+    .import-intro .section-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 15px;
+    }
+
+    .import-intro h2 {
+        max-width: 900px;
+        margin: 0 auto 20px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .import-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #536774;
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    /* MAIN CONTENT */
+    .import-content {
+        width: min(1080px, 90%);
+        margin: 0 auto 90px;
+    }
+
+    .import-section {
+        padding: 48px 0;
+        border-top: 1px solid rgba(18, 56, 79, 0.10);
+    }
+
+    .import-section:first-child {
+        border-top: none;
+    }
+
+    .import-section h2 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 30px;
+        line-height: 1.25;
+        font-weight: 600;
+    }
+
+    .import-section h3 {
+        margin: 28px 0 12px;
+        color: #12384f;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .import-section p {
+        margin: 0;
+        color: #5d6e78;
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .import-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px 45px;
+        margin: 25px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .import-list li {
+        position: relative;
+        padding: 15px 18px 15px 24px;
+        background: #ffffff;
+        border-left: 2px solid #c69b32;
+        color: #536774;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .import-list li::before {
+        content: "•";
+        position: absolute;
+        left: 9px;
+        color: #c69b32;
+        font-weight: 700;
+    }
+
+    /* PROCESS */
+    .import-process {
+        background: #08283b;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .import-process-inner {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+    }
+
+    .import-process-heading {
+        max-width: 800px;
+        margin-bottom: 48px;
+    }
+
+    .import-process-heading span {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+    }
+
+    .import-process-heading h2 {
+        margin: 14px 0 18px;
+        color: #ffffff;
+        font-size: clamp(30px, 4vw, 45px);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .import-process-heading p {
+        margin: 0;
+        color: rgba(255,255,255,0.74);
+        line-height: 1.8;
+    }
+
+    .import-process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .import-process-card {
+        padding: 30px 24px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .import-process-card .number {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .import-process-card h3 {
+        margin: 0 0 12px;
+        color: #ffffff;
+        font-size: 19px;
+    }
+
+    .import-process-card p {
+        margin: 0;
+        color: rgba(255,255,255,0.70);
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* CTA */
+    .import-cta {
+        width: min(1100px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 100px;
+        text-align: center;
+    }
+
+    .import-cta h2 {
+        margin: 0 0 15px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        font-weight: 600;
+    }
+
+    .import-cta p {
+        max-width: 720px;
+        margin: 0 auto 32px;
+        color: #64747d;
+        line-height: 1.8;
+    }
+
+    .import-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .import-actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 170px;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.25s ease;
+    }
+
+    .import-request {
+        background: #12384f;
+        color: #ffffff;
+        border: 1px solid #12384f;
+    }
+
+    .import-request:hover {
+        background: #08283b;
+    }
+
+    .import-home {
+        background: #ffffff;
+        color: #12384f;
+        border: 1px solid #c69b32;
+    }
+
+    .import-home:hover {
+        background: #f8f4e9;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .import-process-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .import-list {
+            gap: 12px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .import-hero {
+            min-height: 520px;
+        }
+
+        .import-hero-content {
+            padding: 70px 0;
+        }
+
+        .import-hero h1 {
+            font-size: 36px;
+        }
+
+        .import-hero p {
+            font-size: 15px;
+        }
+
+        .import-intro {
+            padding: 65px 0 45px;
+        }
+
+        .import-content {
+            width: 92%;
+        }
+
+        .import-section {
+            padding: 38px 0;
+        }
+
+        .import-list,
+        .import-process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .import-process {
+            padding: 70px 0;
+        }
+
+        .import-cta {
+            padding: 65px 0 75px;
+        }
+    }
+</style>
+
+<div class="import-page">
+
+    <!-- HERO -->
+    <section class="import-hero">
+
+        <div class="import-hero-content">
+
+            <div class="import-label">
+                IMPORT DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s import consultancy services provide professional guidance in
+                international sourcing, supplier coordination, trade documentation,
+                regulatory compliance and import planning to support reliable
+                and efficient cross-border business operations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="import-intro">
+
+        <div class="section-label">
+            INTERNATIONAL IMPORT CONSULTANCY
+        </div>
+
+        <h2>
+            Structured Import Solutions for Global Sourcing and Trade
+        </h2>
+
+        <p>
+            International importing requires coordinated planning across suppliers,
+            documentation, regulatory requirements, logistics and commercial controls.
+            A structured import strategy helps organizations identify suitable sources,
+            evaluate commercial conditions and manage the movement of goods from
+            international markets to their required destination.
+        </p>
+
+    </section>
+
+
+    <!-- PROFESSIONAL INFORMATION -->
+    <section class="import-content">
+
+        <div class="import-section">
+
+            <h2>
+                Global Sourcing and Supplier Identification
+            </h2>
+
+            <p>
+                Effective import planning begins with identifying appropriate international
+                suppliers and evaluating their capability to meet technical, commercial
+                and operational requirements. Supplier assessment may consider product
+                specifications, quality requirements, production capability, lead times,
+                commercial terms and supply reliability.
+            </p>
+
+            <ul class="import-list">
+                <li>International supplier identification</li>
+                <li>Product and specification evaluation</li>
+                <li>Supplier capability assessment</li>
+                <li>Commercial quotation analysis</li>
+            </ul>
+
+        </div>
+
+
+        <div class="import-section">
+
+            <h2>
+                Import Documentation and Trade Coordination
+            </h2>
+
+            <p>
+                Import transactions depend on accurate and properly coordinated documentation.
+                Commercial and shipping documents should be reviewed against the requirements
+                of the transaction, destination and applicable regulatory framework.
+            </p>
+
+            <ul class="import-list">
+                <li>Commercial invoice and packing documentation</li>
+                <li>Shipping and transport documentation</li>
+                <li>Certificate of origin requirements</li>
+                <li>Import documentation review and coordination</li>
+            </ul>
+
+        </div>
+
+
+        <div class="import-section">
+
+            <h2>
+                Regulatory Compliance and Customs Planning
+            </h2>
+
+            <p>
+                Import operations must account for applicable customs procedures,
+                product requirements, tariff classification and regulatory controls.
+                Professional planning helps identify compliance requirements before
+                goods enter the import process.
+            </p>
+
+            <ul class="import-list">
+                <li>Trade and customs compliance planning</li>
+                <li>Product classification review</li>
+                <li>Import requirement assessment</li>
+                <li>Regulatory documentation coordination</li>
+            </ul>
+
+        </div>
+
+
+        <div class="import-section">
+
+            <h2>
+                Logistics and Supply Chain Coordination
+            </h2>
+
+            <p>
+                Import performance also depends on effective coordination between suppliers,
+                freight arrangements, documentation and final delivery requirements.
+                Import planning should therefore consider the complete movement of goods
+                rather than treating purchasing and transportation as separate activities.
+            </p>
+
+            <ul class="import-list">
+                <li>International shipment planning</li>
+                <li>Freight and logistics coordination</li>
+                <li>Delivery schedule planning</li>
+                <li>Supply chain communication</li>
+            </ul>
+
+        </div>
+
+
+        <div class="import-section">
+
+            <h2>
+                Import Risk and Commercial Assessment
+            </h2>
+
+            <p>
+                International sourcing involves commercial, operational and compliance
+                considerations. Structured assessment helps organizations identify
+                potential supply, documentation, quality, delivery and commercial risks
+                before committing to an import transaction.
+            </p>
+
+            <ul class="import-list">
+                <li>Supplier and sourcing risk assessment</li>
+                <li>Commercial condition review</li>
+                <li>Supply continuity considerations</li>
+                <li>Import process risk planning</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+    <section class="import-process">
+
+        <div class="import-process-inner">
+
+            <div class="import-process-heading">
+
+                <span>IMPORT MANAGEMENT FRAMEWORK</span>
+
+                <h2>
+                    From International Sourcing to Controlled Delivery
+                </h2>
+
+                <p>
+                    A professional import framework connects sourcing, evaluation,
+                    documentation and logistics into a coordinated business process.
+                </p>
+
+            </div>
+
+
+            <div class="import-process-grid">
+
+                <div class="import-process-card">
+
+                    <div class="number">
+                        01
+                    </div>
+
+                    <h3>
+                        Assess
+                    </h3>
+
+                    <p>
+                        Define product requirements, quantities, technical specifications
+                        and commercial objectives.
+                    </p>
+
+                </div>
+
+
+                <div class="import-process-card">
+
+                    <div class="number">
+                        02
+                    </div>
+
+                    <h3>
+                        Source
+                    </h3>
+
+                    <p>
+                        Identify and evaluate suitable international suppliers and
+                        available commercial options.
+                    </p>
+
+                </div>
+
+
+                <div class="import-process-card">
+
+                    <div class="number">
+                        03
+                    </div>
+
+                    <h3>
+                        Coordinate
+                    </h3>
+
+                    <p>
+                        Align documentation, regulatory requirements, shipment planning
+                        and supplier communication.
+                    </p>
+
+                </div>
+
+
+                <div class="import-process-card">
+
+                    <div class="number">
+                        04
+                    </div>
+
+                    <h3>
+                        Deliver
+                    </h3>
+
+                    <p>
+                        Support coordinated logistics and delivery planning for a
+                        controlled import process.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="import-cta">
+
+        <h2>
+            Plan Your Import Strategy with Confidence
+        </h2>
+
+        <p>
+            Discuss your international sourcing, import planning or trade requirements
+            with Capital Consultants and develop a structured approach for your business.
+        </p>
+
+        <div class="import-actions">
+
+            <a href="{{ url_for('capital_request') }}" class="import-request">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('home') }}" class="import-home">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

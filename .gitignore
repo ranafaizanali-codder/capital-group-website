@@ -1,8 +1,18 @@
+
 __pycache__/
 *.pyc
 instance/
 cloudflared.exe
 templates.zip
 app copy.py
+cloudflared-debug.log
+*.backup
+*.html.backup
+/static/discrete functinal book.pdf
+/templates/base_chatbot_backup.html
+/templates/backup_to_github.ps1
+/backup_to_github.ps1
+/from app import app; print('APP IMPORT OK'); print(app.config.get('TEMPLATES_AUTO_RELOAD'))
+.venv/
 
-from app import app; print('APP IMPORT OK'); print(app.config.get('TEMPLATES_AUTO_RELOAD'))
+/static/capital-engineering_files/

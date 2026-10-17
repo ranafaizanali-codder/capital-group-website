@@ -6,6 +6,8 @@ Our Clients | Capital Group
 
 {% block content %}
 
+<!-- ================= CLIENTS HERO ================= -->
+
 <section class="clients-hero">
 
     <div class="clients-hero-overlay"></div>
@@ -22,7 +24,7 @@ Our Clients | Capital Group
 
         <p>
             Capital Group provides engineering, technology, consulting
-            and technical solutions to leading organizations.
+            and technical solutions to industrial and commercial sectors.
         </p>
 
     </div>
@@ -30,19 +32,20 @@ Our Clients | Capital Group
 </section>
 
 
+<!-- ================= CLIENT LOGO GRID ================= -->
+
 <section class="clients-section">
 
     <div class="clients-heading">
 
-        <span>SELECTED CLIENTS</span>
+        <span>OUR CLIENT NETWORK</span>
 
         <h2>
-            Organizations We Serve
+            Organizations &amp; Partners
         </h2>
 
         <p>
-            Our client relationships reflect our commitment to
-            technical capability, professional service and dependable solutions.
+            Explore the organizations featured in our corporate network.
         </p>
 
     </div>
@@ -50,84 +53,164 @@ Our Clients | Capital Group
 
     <div class="clients-grid">
 
-        <div class="client-card">
+        <!-- 01 PAKISTAN AIR FORCE -->
 
-            <span>01</span>
+        <article class="client-card">
 
-            <h3>
-                Pakistan Aeronautical Complex
-            </h3>
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='pakistan-air-force.png') }}"
+                    alt="Pakistan Air Force logo"
+                    loading="lazy"
+                >
+            </div>
 
-            <p>
-                Aerospace and aviation sector
-            </p>
+            <h3>Pakistan Air Force</h3>
 
-        </div>
-
-
-        <div class="client-card">
-
-            <span>02</span>
-
-            <h3>
-                Pakistan Navy
-            </h3>
-
-            <p>
-                Defence and maritime sector
-            </p>
-
-        </div>
+        </article>
 
 
-        <div class="client-card">
+        <!-- 02 PAKISTAN ARMY -->
 
-            <span>03</span>
+        <article class="client-card">
 
-            <h3>
-                Oil &amp; Gas Development Company Limited
-            </h3>
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='pakistan-army.png') }}"
+                    alt="Pakistan Army logo"
+                    loading="lazy"
+                >
+            </div>
 
-            <p>
-                Energy and industrial sector
-            </p>
+            <h3>Pakistan Army</h3>
 
-        </div>
-
-
-        <div class="client-card">
-
-            <span>04</span>
-
-            <h3>
-                Rousch Power (Pakistan) Limited
-            </h3>
-
-            <p>
-                Power and energy sector
-            </p>
-
-        </div>
+        </article>
 
 
-        <div class="client-card">
+        <!-- 03 PAKISTAN NAVY -->
 
-            <span>05</span>
+        <article class="client-card">
 
-            <h3>
-                Heavy Industries Taxila
-            </h3>
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='pakistan-navy.png') }}"
+                    alt="Pakistan Navy logo"
+                    loading="lazy"
+                >
+            </div>
 
-            <p>
-                Engineering and defence sector
-            </p>
+            <h3>Pakistan Navy</h3>
 
-        </div>
+        </article>
+
+
+        <!-- 04 OGDCL -->
+
+        <article class="client-card">
+
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='ogdcl.png') }}"
+                    alt="OGDCL logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <h3>Oil &amp; Gas Development Company Limited</h3>
+
+        </article>
+
+
+        <!-- 05 PAKISTAN PETROLEUM LIMITED -->
+
+        <article class="client-card">
+
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='ppl.png') }}"
+                    alt="Pakistan Petroleum Limited logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <h3>Pakistan Petroleum Limited (PPL)</h3>
+
+        </article>
+
+
+        <!-- 06 RWR PRIVATE LIMITED -->
+
+        <article class="client-card">
+
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='rwr-private-limited.png') }}"
+                    alt="RWR Private Limited logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <h3>RWR Private Limited</h3>
+
+        </article>
+
+
+        <!-- 07 BQ LIMITED -->
+
+        <article class="client-card">
+
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='bq-limited.png') }}"
+                    alt="BQ Limited logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <h3>BQ Limited</h3>
+
+        </article>
+
+
+        <!-- 08 ROUSCH POWER LIMITED -->
+
+        <article class="client-card">
+
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='rousch-power-limited.png') }}"
+                    alt="Rousch Power Limited logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <h3>Rousch Power Limited</h3>
+
+        </article>
+
+
+        <!-- 09 ENGRO PAKISTAN LIMITED -->
+
+        <article class="client-card">
+
+            <div class="client-logo">
+                <img
+                    src="{{ url_for('static', filename='engro-pakistan-limited.png') }}"
+                    alt="Engro Pakistan Limited logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <h3>Engro Pakistan Limited</h3>
+
+        </article>
 
     </div>
 
 </section>
 
+
+<!-- ================= CLIENTS CTA ================= -->
 
 <section class="clients-cta">
 
@@ -143,12 +226,204 @@ Our Clients | Capital Group
 
     </div>
 
-
-    <a href="{{ url_for('contact') }}">
+    <a href="{{ url_for('capital_request') }}">
         SEND REQUEST
         <span>→</span>
     </a>
 
 </section>
+
+
+<!-- ================= CLIENT PAGE STYLES ================= -->
+
+<style>
+
+.clients-section {
+    padding: 72px 6%;
+    background: #f5f7f8;
+}
+
+.clients-heading {
+    max-width: 780px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.clients-heading > span {
+    color: #b58b32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.clients-heading h2 {
+    margin: 12px 0;
+    color: #12384f;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.3;
+}
+
+.clients-heading p {
+    color: #52616b;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.client-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 25px 18px 22px;
+    background: #ffffff;
+    border: 1px solid #e0e5e8;
+    border-top: 3px solid #c69b32;
+    border-radius: 5px;
+    text-align: center;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    border-color: #c69b32;
+    box-shadow: 0 10px 28px rgba(8, 40, 59, 0.09);
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 115px;
+    margin-bottom: 18px;
+    padding: 8px;
+    background: #ffffff;
+}
+
+.client-logo img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.client-card h3 {
+    margin: 0;
+    color: #12384f;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.clients-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 38px 6%;
+    background: #08283b;
+    border-top: 3px solid #c69b32;
+}
+
+.clients-cta > div > span {
+    color: #d2a43b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.clients-cta h2 {
+    margin: 10px 0 0;
+    color: #ffffff;
+    font-size: clamp(21px, 2.5vw, 30px);
+    line-height: 1.4;
+}
+
+.clients-cta > a {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 23px;
+    background: #c69b32;
+    color: #08283b;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.clients-cta > a:hover {
+    background: #d9b65e;
+}
+
+@media (max-width: 760px) {
+
+    .clients-section {
+        padding: 48px 5%;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .client-card {
+        padding: 18px 10px;
+    }
+
+    .client-logo {
+        height: 90px;
+    }
+
+    .client-card h3 {
+        font-size: 13px;
+    }
+
+    .clients-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 5%;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .clients-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .client-logo {
+        height: 110px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .client-card {
+        transition: none;
+    }
+
+}
+
+</style>
 
 {% endblock %}

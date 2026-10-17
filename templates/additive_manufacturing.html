@@ -1,0 +1,438 @@
+
+{% extends "base.html" %}
+
+{% block title %}Additive Manufacturing | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.additive-page {
+    background: #f7f7f5;
+    color: #24313a;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 70px;
+}
+
+.additive-hero {
+    padding: 76px 8% 58px;
+    background: #ffffff;
+    border-bottom: 1px solid #e6e2d9;
+}
+
+.additive-eyebrow {
+    color: #a78232;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.additive-hero h1 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 500;
+    line-height: 1.13;
+    max-width: 850px;
+    margin: 0 0 24px;
+}
+
+.additive-hero p {
+    color: #5b6469;
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 760px;
+    margin: 0;
+}
+
+.additive-content {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 58px 28px 0;
+}
+
+.additive-section {
+    margin-bottom: 58px;
+}
+
+.additive-section-heading {
+    border-bottom: 1px solid #d9d5cc;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+}
+
+.additive-section-heading span {
+    display: block;
+    color: #a78232;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 12px;
+}
+
+.additive-section-heading h2 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 3.5vw, 38px);
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.additive-section-intro {
+    color: #626a6e;
+    font-size: 15px;
+    line-height: 1.85;
+    max-width: 850px;
+    margin: 0 0 26px;
+}
+
+.additive-printer-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.additive-printer {
+    background: #ffffff;
+    border: 1px solid #e2dfd7;
+    border-left: 3px solid #b18a3b;
+    padding: 23px 24px;
+}
+
+.additive-printer h3 {
+    color: #24343d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 9px;
+}
+
+.additive-printer p {
+    color: #626a6e;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.additive-applications {
+    background: #eeece6;
+    padding: 34px;
+    border: 1px solid #e0ddd4;
+}
+
+.additive-applications h2 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0 0 16px;
+}
+
+.additive-applications p {
+    color: #596267;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.additive-cta {
+    max-width: 1124px;
+    margin: 58px auto 0;
+    padding: 42px 32px;
+    background: #ffffff;
+    border: 1px solid #e2dfd7;
+    border-top: 3px solid #b18a3b;
+    text-align: center;
+}
+
+.additive-cta h2 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 500;
+    margin: 0 0 16px;
+}
+
+.additive-cta > p {
+    color: #626a6e;
+    font-size: 15px;
+    line-height: 1.85;
+    max-width: 760px;
+    margin: 0 auto 26px;
+}
+
+.additive-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.additive-quote-button,
+.additive-home-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    padding: 13px 23px;
+    border: 1px solid #263b44;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+}
+
+.additive-quote-button {
+    background: #263b44;
+    color: #ffffff;
+}
+
+.additive-home-button {
+    background: transparent;
+    color: #263b44;
+}
+
+.additive-quote-button:hover {
+    background: #b18a3b;
+    border-color: #b18a3b;
+    color: #ffffff;
+}
+
+.additive-home-button:hover {
+    background: #263b44;
+    color: #ffffff;
+}
+
+@media (max-width: 700px) {
+    .additive-hero {
+        padding: 52px 24px 42px;
+    }
+
+    .additive-content {
+        padding: 42px 20px 0;
+    }
+
+    .additive-printer-list {
+        grid-template-columns: 1fr;
+    }
+
+    .additive-applications {
+        padding: 25px 22px;
+    }
+
+    .additive-cta {
+        margin: 42px 20px 0;
+        padding: 32px 20px;
+    }
+
+    .additive-buttons {
+        flex-direction: column;
+    }
+
+    .additive-quote-button,
+    .additive-home-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+<div class="additive-page">
+
+    <!-- HERO -->
+
+    <section class="additive-hero">
+        <div class="additive-eyebrow">
+            Capital Engineering Corporation
+        </div>
+
+        <h1>Additive Manufacturing</h1>
+
+        <p>
+            Advanced additive manufacturing technologies enable the
+            development of complex geometries, functional prototypes,
+            and application-specific components. Our technology
+            portfolio covers metal, thermoplastic, and photopolymer
+            printing processes for diverse engineering requirements.
+        </p>
+    </section>
+
+    <main class="additive-content">
+
+        <!-- METAL PRINTING -->
+
+        <section class="additive-section">
+
+            <div class="additive-section-heading">
+                <span>01 / METAL TECHNOLOGIES</span>
+                <h2>3D Metal Printing Facilities</h2>
+            </div>
+
+            <p class="additive-section-intro">
+                Metal additive manufacturing supports the production
+                of intricate components, specialized geometries, and
+                engineering parts designed for demanding applications.
+                Different processes are suited to different materials,
+                component sizes, and production requirements.
+            </p>
+
+            <div class="additive-printer-list">
+
+                <article class="additive-printer">
+                    <h3>SLM Metal Printer</h3>
+                    <p>
+                        Selective Laser Melting uses a laser to fuse
+                        metal powder layer by layer, producing complex
+                        metal components with detailed geometries.
+                    </p>
+                </article>
+
+                <article class="additive-printer">
+                    <h3>WAAM Metal Printer</h3>
+                    <p>
+                        Wire Arc Additive Manufacturing deposits metal
+                        wire using an arc-based heat source to build
+                        larger structures and near-net-shape parts.
+                    </p>
+                </article>
+
+                <article class="additive-printer">
+                    <h3>Binder Jetting Metal Printer</h3>
+                    <p>
+                        Binder jetting selectively applies a binding
+                        agent to metal powder. The printed parts
+                        typically require subsequent processing,
+                        such as debinding and sintering.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- PLASTIC AND RESIN PRINTING -->
+
+        <section class="additive-section">
+
+            <div class="additive-section-heading">
+                <span>02 / POLYMER TECHNOLOGIES</span>
+                <h2>Plastic &amp; Resin-Based 3D Printers</h2>
+            </div>
+
+            <p class="additive-section-intro">
+                Polymer-based additive manufacturing offers a range
+                of solutions for concept models, prototypes,
+                functional parts, detailed components, and
+                application-specific designs.
+            </p>
+
+            <div class="additive-printer-list">
+
+                <article class="additive-printer">
+                    <h3>FDM — PLA and ABS</h3>
+                    <p>
+                        Fused Deposition Modeling builds parts by
+                        depositing thermoplastic filament in successive
+                        layers. PLA and ABS are commonly used materials
+                        for prototypes and functional models.
+                    </p>
+                </article>
+
+                <article class="additive-printer">
+                    <h3>SLA — Polymer Resin</h3>
+                    <p>
+                        Stereolithography uses light to cure
+                        photopolymer resin, supporting fine details,
+                        smooth surfaces, and precision model production.
+                    </p>
+                </article>
+
+                <article class="additive-printer">
+                    <h3>SLS — Selective Laser Sintering (PA-12)</h3>
+                    <p>
+                        Selective Laser Sintering uses a laser to fuse
+                        polymer powder, commonly Nylon PA-12, into
+                        complex parts with functional design features.
+                    </p>
+                </article>
+
+                <article class="additive-printer">
+                    <h3>MJF — Multi Jet Fusion (Nylon PA-12)</h3>
+                    <p>
+                        Multi Jet Fusion uses a detailing and fusing
+                        agent with thermal energy to produce polymer
+                        parts, commonly using Nylon PA-12.
+                    </p>
+                </article>
+
+                <article class="additive-printer">
+                    <h3>DLP — Photopolymer Resin</h3>
+                    <p>
+                        Digital Light Processing cures photopolymer
+                        resin using projected light. Flexible parts
+                        can be produced when compatible flexible
+                        resin materials are selected.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ENGINEERING APPLICATIONS -->
+
+        <section class="additive-applications">
+            <h2>Engineering Applications</h2>
+
+            <p>
+                Additive manufacturing can support rapid prototyping,
+                complex component development, design verification,
+                customized geometries, and low-volume production.
+                The appropriate process depends on material properties,
+                dimensional requirements, operating conditions, and
+                the intended application.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- SEND REQUIREMENTS / HOME -->
+
+    <section class="additive-cta">
+
+        <h2>Have an Additive Manufacturing Requirement?</h2>
+
+        <p>
+            Share your component design, material preferences, or
+            manufacturing requirements with Capital Engineering
+            Corporation so the application and technical needs can
+            be reviewed.
+        </p>
+
+        <div class="additive-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="additive-quote-button"
+            >
+                SEND REQUIREMENTS HERE <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="additive-home-button"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,648 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admission Abroad Division | International Education Consultancy | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .admission-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .admission-hero {
+        min-height: 590px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.94) 0%,
+                rgba(6, 29, 45, 0.76) 45%,
+                rgba(6, 29, 45, 0.25) 100%
+            ),
+            url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=90")
+            center/cover no-repeat;
+    }
+
+    .admission-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 90px 0;
+        color: #ffffff;
+    }
+
+    .admission-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+    }
+
+    .admission-hero h1 {
+        max-width: 850px;
+        margin: 0 0 22px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 700;
+    }
+
+    .admission-hero p {
+        max-width: 800px;
+        margin: 0;
+        color: #eef4f7;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    /* INTRO */
+    .admission-intro {
+        width: min(1050px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 55px;
+        text-align: center;
+    }
+
+    .admission-intro-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+    }
+
+    .admission-intro h2 {
+        max-width: 850px;
+        margin: 0 auto 20px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .admission-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #526673;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* CONTENT */
+    .admission-content {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+        padding: 25px 0 85px;
+    }
+
+    .admission-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: start;
+        padding: 55px 0;
+        border-top: 1px solid #dce3e7;
+    }
+
+    .admission-block:first-child {
+        border-top: none;
+    }
+
+    .admission-block h3 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 27px;
+        line-height: 1.25;
+    }
+
+    .admission-block p {
+        margin: 0;
+        color: #526673;
+        font-size: 15.5px;
+        line-height: 1.85;
+    }
+
+    .admission-points {
+        display: grid;
+        gap: 14px;
+    }
+
+    .admission-point {
+        padding: 17px 20px;
+        background: #ffffff;
+        border-left: 3px solid #c69b32;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.05);
+    }
+
+    .admission-point strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #12384f;
+        font-size: 15px;
+    }
+
+    .admission-point span {
+        color: #647681;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* FRAMEWORK */
+    .admission-framework {
+        background: #08283b;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .admission-framework-inner {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+    }
+
+    .admission-framework-label {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 15px;
+    }
+
+    .admission-framework h2 {
+        max-width: 780px;
+        margin: 0 0 45px;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .admission-framework-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .admission-framework-card {
+        padding: 28px 22px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .admission-framework-card strong {
+        display: block;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    .admission-framework-card span {
+        color: #b9c8d0;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    /* CTA */
+    .admission-cta {
+        width: min(1050px, 90%);
+        margin: 0 auto;
+        padding: 90px 0;
+        text-align: center;
+    }
+
+    .admission-cta h2 {
+        margin: 0 auto 18px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1.15;
+    }
+
+    .admission-cta p {
+        max-width: 730px;
+        margin: 0 auto 32px;
+        color: #5c6e79;
+        line-height: 1.8;
+    }
+
+    .admission-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .admission-request,
+    .admission-home {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 175px;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        transition: 0.25s ease;
+    }
+
+    .admission-request {
+        background: #123f58;
+        color: #ffffff;
+        border: 1px solid #123f58;
+    }
+
+    .admission-request:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+    }
+
+    .admission-home {
+        background: #ffffff;
+        color: #12384f;
+        border: 1px solid #c69b32;
+    }
+
+    .admission-home:hover {
+        background: #c69b32;
+        color: #ffffff;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+        .admission-hero {
+            min-height: 520px;
+        }
+
+        .admission-hero-content {
+            padding: 70px 0;
+        }
+
+        .admission-block {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .admission-framework-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .admission-hero {
+            min-height: 500px;
+        }
+
+        .admission-hero h1 {
+            font-size: 34px;
+        }
+
+        .admission-hero p {
+            font-size: 15px;
+        }
+
+        .admission-intro,
+        .admission-cta {
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .admission-framework {
+            padding: 65px 0;
+        }
+
+        .admission-framework-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .admission-actions {
+            flex-direction: column;
+        }
+
+        .admission-request,
+        .admission-home {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="admission-page">
+
+    <!-- HERO -->
+    <section class="admission-hero">
+
+        <div class="admission-hero-content">
+
+            <div class="admission-label">
+                ADMISSION ABROAD DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s international education consultancy services provide
+                professional guidance for overseas university selection,
+                academic planning, admission applications and international
+                study pathways to help students make informed educational
+                decisions.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- INTRO -->
+    <section class="admission-intro">
+
+        <div class="admission-intro-label">
+            INTERNATIONAL EDUCATION CONSULTANCY
+        </div>
+
+        <h2>
+            Structured Guidance for International Education Opportunities
+        </h2>
+
+        <p>
+            Studying abroad requires careful planning across academic choices,
+            university requirements, application procedures and international
+            education pathways. A structured advisory approach helps students
+            evaluate suitable opportunities and prepare their applications
+            with greater clarity.
+        </p>
+
+    </section>
+
+    <!-- CONTENT -->
+    <section class="admission-content">
+
+        <div class="admission-block">
+
+            <div>
+                <h3>
+                    University and Program Selection
+                </h3>
+
+                <p>
+                    Selecting the right academic program requires consideration
+                    of educational objectives, academic background, program
+                    structure and future career direction. Professional
+                    guidance can help students compare suitable international
+                    study options.
+                </p>
+            </div>
+
+            <div class="admission-points">
+
+                <div class="admission-point">
+                    <strong>University Research</strong>
+                    <span>
+                        Identification and comparison of suitable universities
+                        and academic institutions.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Program Evaluation</strong>
+                    <span>
+                        Review of academic programs according to educational
+                        interests and long-term objectives.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Study Destination Planning</strong>
+                    <span>
+                        Structured comparison of international study
+                        destinations and available pathways.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="admission-block">
+
+            <div>
+                <h3>
+                    Admission Application Planning
+                </h3>
+
+                <p>
+                    International applications often require careful
+                    preparation of academic records, personal information,
+                    supporting documents and application materials. Organized
+                    planning helps applicants manage requirements and
+                    submission timelines effectively.
+                </p>
+            </div>
+
+            <div class="admission-points">
+
+                <div class="admission-point">
+                    <strong>Application Requirements</strong>
+                    <span>
+                        Review of university admission requirements and
+                        supporting documentation.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Application Preparation</strong>
+                    <span>
+                        Structured preparation and organization of required
+                        application materials.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Submission Planning</strong>
+                    <span>
+                        Coordination of application timelines and submission
+                        priorities.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="admission-block">
+
+            <div>
+                <h3>
+                    Academic Profile and Career Direction
+                </h3>
+
+                <p>
+                    International education planning should consider both
+                    academic development and future professional objectives.
+                    Understanding the relationship between academic choices
+                    and career direction supports more informed decision-making.
+                </p>
+            </div>
+
+            <div class="admission-points">
+
+                <div class="admission-point">
+                    <strong>Academic Profile Review</strong>
+                    <span>
+                        Assessment of academic background and educational
+                        objectives.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Career Alignment</strong>
+                    <span>
+                        Consideration of academic pathways in relation to
+                        future professional interests.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Education Roadmap</strong>
+                    <span>
+                        Development of a structured pathway toward selected
+                        educational objectives.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="admission-block">
+
+            <div>
+                <h3>
+                    International Study Planning
+                </h3>
+
+                <p>
+                    Moving toward international education involves planning
+                    beyond the admission application itself. A coordinated
+                    approach helps students understand important stages,
+                    timelines and practical considerations throughout the
+                    study planning process.
+                </p>
+            </div>
+
+            <div class="admission-points">
+
+                <div class="admission-point">
+                    <strong>Timeline Management</strong>
+                    <span>
+                        Planning important academic and application milestones
+                        throughout the admission cycle.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Document Coordination</strong>
+                    <span>
+                        Organized management of academic and supporting
+                        documentation.
+                    </span>
+                </div>
+
+                <div class="admission-point">
+                    <strong>Pathway Guidance</strong>
+                    <span>
+                        Clear guidance through the major stages of an
+                        international education journey.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section class="admission-framework">
+
+        <div class="admission-framework-inner">
+
+            <div class="admission-framework-label">
+                INTERNATIONAL EDUCATION PLANNING FRAMEWORK
+            </div>
+
+            <h2>
+                From Academic Goals to International Study Opportunities
+            </h2>
+
+            <div class="admission-framework-grid">
+
+                <div class="admission-framework-card">
+                    <strong>Explore</strong>
+                    <span>
+                        Understand academic interests, objectives and suitable
+                        international education options.
+                    </span>
+                </div>
+
+                <div class="admission-framework-card">
+                    <strong>Select</strong>
+                    <span>
+                        Evaluate universities, programs and study destinations
+                        according to individual objectives.
+                    </span>
+                </div>
+
+                <div class="admission-framework-card">
+                    <strong>Prepare</strong>
+                    <span>
+                        Organize application requirements, documentation and
+                        important admission milestones.
+                    </span>
+                </div>
+
+                <div class="admission-framework-card">
+                    <strong>Progress</strong>
+                    <span>
+                        Move forward with a structured international education
+                        pathway and informed planning.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="admission-cta">
+
+        <h2>
+            Plan Your International Education Journey
+        </h2>
+
+        <p>
+            Explore suitable academic opportunities, organize your admission
+            pathway and make informed decisions about studying abroad.
+        </p>
+
+        <div class="admission-actions">
+
+            <a href="{{ url_for('capital_request') }}"
+               class="admission-request">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="admission-home">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,170 +1,577 @@
 {% extends "base.html" %}
 
 {% block title %}
-Environmental Design Services | Capital Group
+Environmental Design Services | Capital Consultants
 {% endblock %}
 
 {% block content %}
 
-<style> .environmental-page { background: #f5f7f8; color: #12384f; min-height: 100vh; } .environmental-hero { min-height: 560px; background: linear-gradient(90deg, rgba(6,29,45,.94) 0%, rgba(6,29,45,.76) 50%, rgba(6,29,45,.32) 100% ), url("{{ url_for('static', filename='environmental_design_hero.jpg') }}") center / cover no-repeat; display: flex; align-items: center; } .environmental-hero-content, .environmental-content { width: min(1180px, 92%); margin: auto; } .environmental-hero-content { padding: 80px 0; } .environmental-label { color: #d2a43b; font-size: 14px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 18px; } .environmental-hero h1 { max-width: 800px; margin: 0 0 20px; color: #fff; font-size: clamp(38px, 5vw, 62px); line-height: 1.08; } .environmental-hero-description { max-width: 790px; color: #fff; font-size: 17px; line-height: 1.8; } .environmental-content { padding: 75px 0 85px; } .environmental-intro { max-width: 850px; margin: 0 auto 65px; text-align: center; } .environmental-intro h2 { margin: 0 0 18px; font-size: 32px; line-height: 1.25; } .environmental-intro p, .environmental-service-text p { color: #657780; line-height: 1.8; } .environmental-service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 70px; } .environmental-service-row.reverse { direction: rtl; } .environmental-service-row.reverse > * { direction: ltr; } .environmental-service-image { width: 100%; height: 310px; object-fit: cover; display: block; box-shadow: 0 12px 30px rgba(6,29,45,.12); } .environmental-service-text h2 { max-width: 520px; margin: 0 0 16px; font-size: 29px; line-height: 1.25; } .environmental-service-text p { max-width: 540px; margin: 0; font-size: 15px; } .environmental-cta { margin-top: 20px; padding: 55px 30px; background: #061d2d; text-align: center; } .environmental-cta h2 { color: #fff; margin: 0 0 28px; font-size: 30px; } .environmental-cta-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; } .environmental-cta-button { padding: 13px 26px; background: #d2a43b; color: #061d2d; text-decoration: none; font-size: 13px; font-weight: 700; } .environmental-email { margin-top: 25px; color: #d2a43b; font-size: 14px; } @media (max-width: 850px) { .environmental-service-row, .environmental-service-row.reverse { grid-template-columns: 1fr; direction: ltr; gap: 28px; } .environmental-service-image { height: 280px; } } @media (max-width: 600px) { .environmental-hero { min-height: 500px; } .environmental-hero-content { padding: 60px 0; } .environmental-hero h1 { font-size: 38px; } .environmental-service-image { height: 240px; } } </style> <div class="environmental-page"> <section class="environmental-hero"> <div class="environmental-hero-content">
-    <div class="environmental-label">
-        Environmental Design Services Division
-    </div>
+<style>
+.environmental-design-page {
+    background: #f5f7f8;
+    color: #12384f;
+    min-height: 100vh;
+}
 
-    <h1>
-        Technical Environmental Design for Sustainable Infrastructure
-    </h1>
+.environmental-design-hero {
+    min-height: 560px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,29,45,.96) 0%,
+            rgba(6,29,45,.83) 48%,
+            rgba(6,29,45,.30) 100%
+        ),
+        url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=90")
+        center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
 
-    <p class="environmental-hero-description">
-        Capital Consultants provides professional environmental design
-        solutions focused on sustainable development, environmental
-        planning, resource efficiency and practical engineering
-        strategies for modern infrastructure projects.
-    </p>
+.environmental-design-hero-content {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 80px 0;
+}
+
+.environmental-design-label {
+    color: #d2a43b;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.environmental-design-hero h1 {
+    max-width: 850px;
+    margin: 0 0 22px;
+    color: #fff;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.environmental-design-hero-description {
+    max-width: 850px;
+    margin: 0;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.environmental-design-content {
+    width: min(1080px, 90%);
+    margin: auto;
+    padding: 80px 0 85px;
+}
+
+.environmental-design-intro {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.environmental-design-intro h2 {
+    margin: 0 0 16px;
+    color: #12384f;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.environmental-design-intro p {
+    margin: 0;
+    color: #64747d;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.environmental-design-section {
+    padding: 35px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dce3e7;
+}
+
+.environmental-design-tech-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #b58a25;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.environmental-design-section-text h2 {
+    max-width: 800px;
+    margin: 0 0 16px;
+    color: #12384f;
+    font-size: clamp(25px, 2.7vw, 34px);
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.environmental-design-section-text p {
+    max-width: 900px;
+    margin: 0 0 18px;
+    color: #64747d;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.environmental-design-points {
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 28px;
+}
+
+.environmental-design-points li {
+    position: relative;
+    padding-left: 22px;
+    color: #52636c;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.environmental-design-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    background: #d2a43b;
+    border-radius: 50%;
+}
+
+.environmental-design-tools {
+    margin-top: 55px;
+    padding: 35px;
+    background: #fff;
+    border: 1px solid #e0e6e9;
+    border-left: 4px solid #d2a43b;
+}
+
+.environmental-design-tools h2 {
+    margin: 0 0 15px;
+    color: #12384f;
+    font-size: clamp(25px, 3vw, 34px);
+    line-height: 1.25;
+}
+
+.environmental-design-tools p {
+    margin: 0 0 22px;
+    color: #64747d;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.environmental-design-tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.environmental-design-tool-list li {
+    padding: 10px 15px;
+    color: #12384f;
+    background: #f5f7f8;
+    border: 1px solid #dce3e7;
+    border-bottom: 2px solid #d2a43b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.environmental-design-cta {
+    margin-top: 70px;
+    padding: 55px 30px;
+    background: #061d2d;
+    text-align: center;
+}
+
+.environmental-design-cta h2 {
+    max-width: 760px;
+    margin: 0 auto 16px;
+    color: #fff;
+    font-size: clamp(25px, 3vw, 32px);
+    line-height: 1.35;
+}
+
+.environmental-design-cta p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+    color: #dce5eb;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.environmental-design-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.environmental-design-cta-button {
+    display: inline-block;
+    padding: 13px 26px;
+    background: #d2a43b;
+    color: #061d2d;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: all .25s ease;
+}
+
+.environmental-design-cta-button:hover {
+    background: #fff;
+    color: #061d2d;
+}
+
+.environmental-design-email {
+    margin-top: 25px;
+    color: #d2a43b;
+    font-size: 14px;
+}
+
+@media(max-width: 600px) {
+    .environmental-design-hero {
+        min-height: 500px;
+    }
+
+    .environmental-design-hero-content {
+        padding: 60px 0;
+    }
+
+    .environmental-design-hero h1 {
+        font-size: 38px;
+    }
+
+    .environmental-design-hero-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .environmental-design-content {
+        padding: 60px 0 70px;
+    }
+
+    .environmental-design-section {
+        padding: 28px 0;
+    }
+
+    .environmental-design-section-text h2 {
+        font-size: 28px;
+    }
+
+    .environmental-design-section-text p {
+        font-size: 14px;
+    }
+
+    .environmental-design-points {
+        grid-template-columns: 1fr;
+    }
+
+    .environmental-design-tools {
+        padding: 25px 20px;
+    }
+
+    .environmental-design-tool-list li {
+        font-size: 13px;
+    }
+
+    .environmental-design-cta {
+        padding: 45px 20px;
+    }
+}
+</style>
+
+<div class="environmental-design-page">
+
+    <!-- HERO -->
+    <section class="environmental-design-hero">
+        <div class="environmental-design-hero-content">
+
+            <div class="environmental-design-label">
+                Environmental Design Division
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p class="environmental-design-hero-description">
+                Capital Consultants supports environmental design and
+                engineering studies focused on resource efficiency,
+                environmental assessment and sustainable infrastructure.
+                Our approach considers project requirements, environmental
+                impacts and practical engineering solutions to support
+                responsible project planning.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="environmental-design-content">
+
+        <div class="environmental-design-intro">
+            <h2>
+                Environmental Design &amp; Sustainability Solutions
+            </h2>
+
+            <p>
+                CCs supports environmental engineering workflows through
+                environmental modelling, impact assessment, resource
+                management and sustainability analysis. Project activities
+                can be scoped according to available data, site conditions
+                and applicable environmental requirements.
+            </p>
+        </div>
+
+        <!-- ENVIRONMENTAL ASSESSMENT -->
+        <div class="environmental-design-section">
+            <div class="environmental-design-section-text">
+
+                <span class="environmental-design-tech-label">
+                    Environmental Assessment
+                </span>
+
+                <h2>
+                    Environmental Impact Assessment &amp; Planning
+                </h2>
+
+                <p>
+                    Environmental assessment helps identify potential
+                    environmental effects associated with a proposed
+                    project. Early planning can support impact identification,
+                    mitigation planning and informed project decisions.
+                </p>
+
+                <ul class="environmental-design-points">
+                    <li>Environmental baseline studies</li>
+                    <li>Potential impact identification</li>
+                    <li>Mitigation planning support</li>
+                    <li>Environmental documentation</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- SUSTAINABLE DESIGN -->
+        <div class="environmental-design-section">
+            <div class="environmental-design-section-text">
+
+                <span class="environmental-design-tech-label">
+                    Sustainable Engineering
+                </span>
+
+                <h2>
+                    Sustainable Design &amp; Resource Efficiency
+                </h2>
+
+                <p>
+                    Sustainable design considers energy, water, materials
+                    and resource use throughout project planning. Engineering
+                    studies can help compare alternatives and identify
+                    opportunities to reduce avoidable resource consumption.
+                </p>
+
+                <ul class="environmental-design-points">
+                    <li>Resource efficiency studies</li>
+                    <li>Energy-use assessment</li>
+                    <li>Material and lifecycle considerations</li>
+                    <li>Sustainable design alternatives</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- AIR QUALITY -->
+        <div class="environmental-design-section">
+            <div class="environmental-design-section-text">
+
+                <span class="environmental-design-tech-label">
+                    Air Quality Engineering
+                </span>
+
+                <h2>
+                    Air Quality &amp; Emissions Assessment
+                </h2>
+
+                <p>
+                    Air quality studies examine relevant emission sources
+                    and environmental conditions. Depending on the project,
+                    modelling and available monitoring data may support
+                    the evaluation of potential air quality impacts.
+                </p>
+
+                <ul class="environmental-design-points">
+                    <li>Emission-source assessment</li>
+                    <li>Air quality data analysis</li>
+                    <li>Dispersion modelling support</li>
+                    <li>Mitigation option studies</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- WATER MANAGEMENT -->
+        <div class="environmental-design-section">
+            <div class="environmental-design-section-text">
+
+                <span class="environmental-design-tech-label">
+                    Water &amp; Hydrology
+                </span>
+
+                <h2>
+                    Water Resource Management &amp; Hydrological Studies
+                </h2>
+
+                <p>
+                    Water-related engineering studies can help assess
+                    drainage, runoff, water availability and potential
+                    environmental effects. Appropriate methods depend
+                    on site conditions and the quality of available data.
+                </p>
+
+                <ul class="environmental-design-points">
+                    <li>Water resource assessment</li>
+                    <li>Runoff and drainage studies</li>
+                    <li>Watershed modelling support</li>
+                    <li>Water management planning</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- WASTE MANAGEMENT -->
+        <div class="environmental-design-section">
+            <div class="environmental-design-section-text">
+
+                <span class="environmental-design-tech-label">
+                    Waste &amp; Circular Economy
+                </span>
+
+                <h2>
+                    Waste Management &amp; Pollution Prevention
+                </h2>
+
+                <p>
+                    Waste management planning considers waste generation,
+                    handling, treatment and disposal options. A systematic
+                    approach can help identify opportunities for waste
+                    prevention, material recovery and improved resource use.
+                </p>
+
+                <ul class="environmental-design-points">
+                    <li>Waste-stream assessment</li>
+                    <li>Waste minimisation strategies</li>
+                    <li>Recycling and recovery options</li>
+                    <li>Pollution prevention planning</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- CLIMATE AND GIS -->
+        <div class="environmental-design-section">
+            <div class="environmental-design-section-text">
+
+                <span class="environmental-design-tech-label">
+                    Climate &amp; Spatial Analysis
+                </span>
+
+                <h2>
+                    Climate Assessment &amp; Environmental Mapping
+                </h2>
+
+                <p>
+                    Climate and spatial analysis can help evaluate
+                    environmental patterns, land use and location-specific
+                    conditions. Geographic information systems (GIS) can
+                    combine spatial datasets to support environmental
+                    planning and decision-making.
+                </p>
+
+                <ul class="environmental-design-points">
+                    <li>GIS-based environmental mapping</li>
+                    <li>Land-use and site analysis</li>
+                    <li>Climate data interpretation</li>
+                    <li>Spatial planning support</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- SOFTWARE TOOLS -->
+        <div class="environmental-design-tools">
+
+            <h2>
+                Environmental Design &amp; Analysis Software
+            </h2>
+
+            <p>
+                These six tools are used for different environmental,
+                geospatial and engineering analysis tasks. Their suitability
+                depends on the project scope, data availability and the
+                required analytical methods.
+            </p>
+
+            <ul class="environmental-design-tool-list">
+                <li>QGIS</li>
+                <li>GRASS GIS</li>
+                <li>EPA SWMM</li>
+                <li>EPANET</li>
+                <li>OpenFOAM</li>
+                <li>WEAP</li>
+            </ul>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="environmental-design-cta">
+
+            <h2>
+                Discuss Your Environmental Design Requirements
+            </h2>
+
+            <p>
+                Share your environmental engineering brief, sustainability
+                goals or project requirements with Capital Consultants to
+                discuss an appropriate scope of work and the next steps.
+            </p>
+
+            <div class="environmental-design-cta-buttons">
+
+                <a href="{{ url_for('capital_request') }}"
+                   class="environmental-design-cta-button">
+                    SEND REQUEST
+                </a>
+
+                <a href="{{ url_for('home') }}"
+                   class="environmental-design-cta-button">
+                    GO HOME
+                </a>
+
+            </div>
+
+            <div class="environmental-design-email">
+                ceo@capitalgroup.pk
+            </div>
+
+        </div>
+
+    </section>
 
 </div>
-
-</section> <section class="environmental-content">
-<div class="environmental-intro">
-
-    <h2>
-        Engineering Sustainable Solutions for Responsible Development
-    </h2>
-
-    <p>
-        Our environmental design approach combines technical analysis,
-        engineering principles and sustainability requirements to support
-        efficient, compliant and environmentally responsible projects.
-    </p>
-
-</div>
-
-<div class="environmental-service-row">
-
-    <div>
-        <img
-            src="{{ url_for('static', filename='environmental_planning.jpg') }}"
-            alt="Environmental planning and design"
-            class="environmental-service-image"
-        >
-    </div>
-
-    <div class="environmental-service-text">
-
-        <h2>
-            Environmental Planning &amp; Assessment
-        </h2>
-
-        <p>
-            Technical environmental planning and assessment to identify
-            project impacts, evaluate site conditions and support
-            responsible development decisions.
-        </p>
-
-    </div>
-
-</div>
-
-<div class="environmental-service-row reverse">
-
-    <div>
-        <img
-            src="{{ url_for('static', filename='sustainable_engineering.jpg') }}"
-            alt="Sustainable engineering solutions"
-            class="environmental-service-image"
-        >
-    </div>
-
-    <div class="environmental-service-text">
-
-        <h2>
-            Sustainable Engineering Solutions
-        </h2>
-
-        <p>
-            Integration of sustainable engineering principles into
-            project design, helping improve resource efficiency,
-            operational performance and long-term environmental value.
-        </p>
-
-    </div>
-
-</div>
-
-<div class="environmental-service-row">
-
-    <div>
-        <img
-            src="{{ url_for('static', filename='environmental_monitoring.jpg') }}"
-            alt="Environmental monitoring systems"
-            class="environmental-service-image"
-        >
-    </div>
-
-    <div class="environmental-service-text">
-
-        <h2>
-            Environmental Monitoring &amp; Compliance
-        </h2>
-
-        <p>
-            Structured monitoring and technical assessment to support
-            environmental performance, regulatory requirements and
-            effective project management throughout development.
-        </p>
-
-    </div>
-
-</div>
-
-<div class="environmental-service-row reverse">
-
-    <div>
-        <img
-            src="{{ url_for('static', filename='waste_resource_management.jpg') }}"
-            alt="Waste and resource management engineering"
-            class="environmental-service-image"
-        >
-    </div>
-
-    <div class="environmental-service-text">
-
-        <h2>
-            Waste &amp; Resource Management
-        </h2>
-
-        <p>
-            Practical strategies for waste reduction, resource
-            optimization and improved environmental performance across
-            industrial, commercial and infrastructure projects.
-        </p>
-
-    </div>
-
-</div>
-
-<div class="environmental-cta">
-
-    <div class="environmental-cta-buttons">
-
-        <a href="{{ url_for('trading_quote') }}"
-           class="environmental-cta-button">
-            SEND REQUIREMENT
-        </a>
-
-        <a href="/"
-           class="environmental-cta-button">
-            BACK TO HOME
-        </a>
-
-    </div>
-
-    <div class="environmental-email">
-        ceo@capitalgroup.pk
-    </div>
-
-</div>
-
-</section> </div>
 
 {% endblock %}

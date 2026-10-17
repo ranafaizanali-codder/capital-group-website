@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, make_response
 from flask_babel import Babel
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
 from datetime import datetime
 import os
 from werkzeug.utils import secure_filename
@@ -9,6 +10,19 @@ from werkzeug.utils import secure_filename
 # =========================================================
 
 app = Flask(__name__)
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 587
+app.config["MAIL_USE_TLS"] = True
+app.config["MAIL_USERNAME"] = os.environ.get("CAPITAL_MAIL_USERNAME")
+app.config["MAIL_PASSWORD"] = os.environ.get("CAPITAL_MAIL_PASSWORD")
+app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("CAPITAL_MAIL_USERNAME")
+
+mail = Mail(app)
+@app.route("/robots.txt")
+def robots_txt():
+    return app.send_static_file("robots.txt")
+
+
 UPLOAD_FOLDER = os.path.join(app.root_path, "uploads")
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 # =========================================================
@@ -46,10 +60,11 @@ class QuoteRequest(db.Model):
         db.DateTime,
         default=datetime.utcnow
     )
-app.secret_key = "capital-group-multilingual-2026"
+app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(32).hex()
 
 # Keep session available for longer
 app.permanent_session_lifetime = 60 * 60 * 24 * 365
+
 
 
 # =========================================================
@@ -64,7 +79,7 @@ SUPPORTED_LANGUAGES = {
     "fr": "Français",
     "ru": "Русский",
     "de": "Deutsch",
-    "pt": "Português",
+    "fa": "فارسی",
     "tr": "Türkçe"
 }
 
@@ -81,10 +96,9 @@ GOOGLE_LANGUAGE_CODES = {
     "fr": "fr",
     "ru": "ru",
     "de": "de",
-    "pt": "pt",
+    "fa": "fa",
     "tr": "tr"
 }
-
 
 # =========================================================
 # FLASK-BABEL CONFIGURATION
@@ -160,7 +174,7 @@ def set_language(language):
 
     session["language"] = language
     session.permanent = True
-
+    go_home = request.args.get("next") == "home"
     # -----------------------------------------------------
     # Find Google Translate language
     # -----------------------------------------------------
@@ -170,24 +184,31 @@ def set_language(language):
         "en"
     )
 
+        # -----------------------------------------------------
+    # Return visitor to requested page
     # -----------------------------------------------------
-    # Return visitor to exact page
-    # -----------------------------------------------------
 
-    previous_page = request.referrer
-
-    if previous_page:
-
-        response = make_response(
-            redirect(previous_page)
-        )
-
-    else:
+    if go_home:
 
         response = make_response(
             redirect(url_for("home"))
         )
 
+    else:
+
+        previous_page = request.referrer
+
+        if previous_page:
+
+            response = make_response(
+                redirect(previous_page)
+            )
+
+        else:
+
+            response = make_response(
+                redirect(url_for("home"))
+            )
     # -----------------------------------------------------
     # LANGUAGE COOKIE
     # -----------------------------------------------------
@@ -522,6 +543,13 @@ def home():
         "index.html"
     )
 
+# =========================================================
+# CATALOGUES
+# =========================================================
+
+@app.route("/catalogues")
+def catalogues():
+    return render_template("catalogues.html")
 
 # =========================================================
 # ABOUT
@@ -602,66 +630,132 @@ def capital_request():
 
     if request.method == "POST":
 
+        form_step = request.form.get("form_step", "full")
+
         name = request.form.get("name", "").strip()
         email = request.form.get("email", "").strip()
-        phone = request.form.get("phone", "").strip()
-        requirements = request.form.get("requirements", "").strip()
-        captcha = request.form.get("captcha", "").strip()
 
-        # Security verification
+        # STEP 1: QUICK FORM
+        if form_step == "quick":
 
-        if captcha != "13":
-            return "Incorrect security verification.", 400
-
-        # Required fields
-
-        if not name or not email or not phone or not requirements:
-            return "Please fill in all required fields.", 400
-
-        # Check duplicate email or phone
-
-        existing_request = QuoteRequest.query.filter(
-            (QuoteRequest.email == email) |
-            (QuoteRequest.phone == phone)
-        ).first()
-
-        if existing_request:
+            if not name or not email:
+                return render_template(
+                    "request_form.html",
+                    show_full_form=False,
+                    form_error=(
+                        "Please enter your full name and email address."
+                    )
+                ), 400
 
             return render_template(
                 "request_form.html",
+                show_full_form=True,
+                prefill_name=name,
+                prefill_email=email
+            )
+
+        # STEP 2: FULL INQUIRY FORM
+        company = request.form.get("company", "").strip()
+        requirements = request.form.get("requirements", "").strip()
+        captcha = request.form.get("captcha", "").strip()
+
+        if captcha != "13":
+            return render_template(
+                "request_form.html",
+                show_full_form=True,
+                prefill_name=name,
+                prefill_email=email,
+                form_error="Incorrect security verification."
+            ), 400
+
+        if not name or not email or not company or not requirements:
+            return render_template(
+                "request_form.html",
+                show_full_form=True,
+                prefill_name=name,
+                prefill_email=email,
+                form_error="Please fill in all required fields."
+            ), 400
+
+        # Check for a previous request from this email
+        existing_request = QuoteRequest.query.filter(
+            QuoteRequest.email == email
+        ).first()
+
+        if existing_request:
+            return render_template(
+                "request_form.html",
+                show_full_form=True,
+                prefill_name=name,
+                prefill_email=email,
                 duplicate_error=True,
-                duplicate_message="This email address or phone number has already been used for a request."
+                duplicate_message=(
+                    "This email address has already been used for a request."
+                )
             ), 400
 
         # Attachment
-
         attachment = request.files.get("attachment")
+        attachment_path = None
 
         if attachment and attachment.filename:
-
             filename = secure_filename(attachment.filename)
 
-            attachment.save(
-                os.path.join(
-                    app.config["UPLOAD_FOLDER"],
+            if filename:
+                upload_folder = app.config["UPLOAD_FOLDER"]
+                os.makedirs(upload_folder, exist_ok=True)
+
+                attachment_path = os.path.join(
+                    upload_folder,
                     filename
                 )
-            )
+                attachment.save(attachment_path)
 
         # Save request
-
+        # The existing database model uses 'company' for this field.
         new_request = QuoteRequest(
-            company="Capital Group",
+            company=company,
             name=name,
             email=email,
-            phone=phone,
+            phone="",
             requirements=requirements
         )
 
         db.session.add(new_request)
         db.session.commit()
 
-        # Stay on the same page
+        # Email notification
+        try:
+            email_body = (
+                f"New Capital Group inquiry received.\n\n"
+                f"Request ID: {new_request.id}\n"
+                f"Full Name: {new_request.name}\n"
+                f"Business Email: {new_request.email}\n"
+                f"Organization Name: {new_request.company}\n\n"
+                f"Requirements:\n{new_request.requirements}"
+            )
+
+            msg = Message(
+                subject=f"New Capital Group Inquiry #{new_request.id}",
+                recipients=["mtoor.ceo@gmail.com"],
+                body=email_body
+            )
+
+            # Attach the uploaded file to the notification email
+            if attachment_path:
+                with open(attachment_path, "rb") as file:
+                    msg.attach(
+                        os.path.basename(attachment_path),
+                        None,
+                        file.read()
+                    )
+
+            mail.send(msg)
+
+        except Exception:
+            app.logger.exception(
+                "Inquiry email notification failed."
+            )
 
         return render_template(
             "request_form.html",
@@ -669,10 +763,11 @@ def capital_request():
             request_id=new_request.id
         )
 
+    # Initial page: show the quick form
     return render_template(
-        "request_form.html"
+        "request_form.html",
+        show_full_form=False
     )
-
 # =========================================================
 # COMPANIES
 # =========================================================
@@ -878,7 +973,17 @@ def engineering_quote():
         email = request.form.get("email", "").strip()
         phone = request.form.get("phone", "").strip()
         requirements = request.form.get("requirements", "").strip()
+        captcha = request.form.get("captcha", "").strip()
 
+        # CAPTCHA verification
+        if captcha not in ["13", "19"]:
+            return "Incorrect security verification.", 400
+
+        # Required fields
+        if not name or not email or not phone or not requirements:
+            return "Please fill in all required fields.", 400
+
+        # Attachment
         attachment = request.files.get("attachment")
 
         if attachment and attachment.filename:
@@ -892,9 +997,7 @@ def engineering_quote():
                 )
             )
 
-        if not name or not email or not phone or not requirements:
-            return "Please fill in all required fields.", 400
-
+        # Save request
         new_request = QuoteRequest(
             company="Capital Engineering Corporation",
             name=name,
@@ -906,10 +1009,11 @@ def engineering_quote():
         db.session.add(new_request)
         db.session.commit()
 
+        # Show success message on the same form page
         return render_template(
-            "quote_success.html",
-            request_id=new_request.id,
-            company="Capital Engineering Corporation"
+            "request_form.html",
+            request_success=True,
+            request_id=new_request.id
         )
 
     return render_template(
@@ -1428,6 +1532,86 @@ def aircraft_structural_integrity_programme():
     return render_template(
         "aircraft_structural_integrity_programme.html"
     )
+@app.route("/companies/consultants/consultancy")
+def consultancy():
+    return render_template("consultancy.html")
+@app.route("/companies/consultants/consultancy/starting-a-business")
+def starting_a_business():
+    return render_template("starting_a_business.html")
+@app.route("/companies/consultants/consultancy/environment")
+def environment():
+    return render_template("environment.html")
+@app.route("/companies/consultants/consultancy/marketing")
+def marketing():
+    return render_template("marketing.html")
+@app.route("/companies/consultants/consultancy/procurement")
+def procurement():
+    return render_template("procurement.html")
+@app.route("/companies/consultants/consultancy/import")
+def import_division():
+    return render_template("import.html")
+@app.route("/companies/consultants/consultancy/export")
+def export_division():
+    return render_template("export.html")
+@app.route("/companies/consultants/consultancy/manufacturing")
+def manufacturing():
+    return render_template("manufacturing.html")
+@app.route("/companies/consultants/consultancy/epc-projects")
+def epc_projects():
+    return render_template("epc_projects.html")
+@app.route("/companies/consultants/consultancy/admission-abroad")
+def admission_abroad():
+    return render_template("admission_abroad.html")
+@app.route("/companies/consultants/consultancy/reverse-engineering")
+def reverse_engineering():
+    return render_template("reverse_engineering.html")
+@app.route("/companies/consultants/consultancy/investment")
+def investment():
+    return render_template("investment.html")
+@app.route("/companies/consultants/consultancy/startups")
+def startups():
+    return render_template("startups.html")
+
+
+@app.route("/companies/engineering/infrastructure")
+def infrastructure():
+    return render_template(
+        "infrastructure.html",
+        page_mode="overview"
+    )
+
+
+
+@app.route("/companies/engineering/infrastructure/mechanical")
+def mechanical_infrastructure():
+    return render_template("mechanical_infrastructure.html")
+
+@app.route("/companies/engineering/mechanical/additive-manufacturing")
+def additive_manufacturing():
+    return render_template("additive_manufacturing.html")
+@app.route("/companies/engineering/mechanical/cnc-machining-tools")
+def cnc_machining_tools():
+    return render_template("cnc_machining_tools.html")
+@app.route("/companies/engineering/mechanical/cast")
+def mechanical_cast():
+    return render_template("capital-cast.html")
+@app.route("/companies/engineering/mechanical/forging-services")
+def mechanical_forging():
+    return render_template("forging.html")
+@app.route("/companies/engineering/mechanical/fabrication-services")
+def mechanical_fabrication_services():
+    return render_template("fabrication_services.html")
+@app.route("/companies/engineering/infrastructure/electronics-avionics")
+def electronics_avionics_infrastructure():
+    return render_template("electronics_avionics_infrastructure.html")
+@app.route("/companies/engineering/engin-products")
+def engin_products():
+    return render_template("engin_products.html")
+
+@app.route("/companies/engineering/page-services")
+def page_services():
+    return render_template("page_services.html")
+
 
 
 

@@ -1,0 +1,495 @@
+
+{% extends "base.html" %}
+
+{% block title %}Engineering Products | Capital Group{% endblock %}
+
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.products-page {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #12384f;
+    background: #f5f7f8;
+    padding-bottom: 65px;
+}
+
+.products-hero {
+    background: linear-gradient(135deg, #061d2d, #123f58);
+    color: #fff;
+    padding: 70px 24px;
+    text-align: center;
+}
+
+.products-label {
+    color: #d2a43b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.products-hero h1 {
+    max-width: 850px;
+    margin: 0 auto 18px;
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.7px;
+}
+
+.products-hero p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #dce7ed;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.products-container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.products-intro {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 44px 0 12px;
+}
+
+.products-intro p {
+    margin: 0;
+    color: #4e6573;
+    font-size: 14px;
+    line-height: 1.95;
+    text-align: center;
+}
+
+.products-section {
+    margin-top: 38px;
+    padding: 34px;
+    background: #fff;
+    border: 1px solid #e0e7eb;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(6, 29, 45, 0.035);
+}
+
+.products-section-heading {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e7edf0;
+}
+
+.products-section-heading .eyebrow {
+    display: block;
+    margin-bottom: 9px;
+    color: #ad8428;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.products-section-heading h2 {
+    margin: 0 0 12px;
+    color: #12384f;
+    font-size: clamp(23px, 3vw, 29px);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.4px;
+}
+
+.products-section-heading p {
+    max-width: 850px;
+    margin: 0;
+    color: #5c707c;
+    font-size: 13.5px;
+    line-height: 1.9;
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.products-list li {
+    position: relative;
+    padding: 13px 8px 13px 22px;
+    border-bottom: 1px solid #edf1f3;
+    color: #354f5e;
+    font-size: 13.5px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.products-list li::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c69b32;
+}
+
+.products-list li:last-child {
+    border-bottom-color: transparent;
+}
+
+.products-cta {
+    margin-top: 42px;
+    padding: 36px 24px;
+    border: 1px solid #dfe8ed;
+    border-radius: 9px;
+    background: #eaf0f3;
+    text-align: center;
+}
+
+.products-cta h2 {
+    margin: 0 0 11px;
+    color: #12384f;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.products-cta p {
+    max-width: 660px;
+    margin: 0 auto 22px;
+    color: #526773;
+    font-size: 13.5px;
+    line-height: 1.85;
+}
+
+.products-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.products-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 135px;
+    padding: 13px 24px;
+    border: 1px solid #123f58;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .2s ease, color .2s ease;
+}
+
+.products-btn-primary {
+    background: #123f58;
+    color: #fff;
+}
+
+.products-btn-primary:hover {
+    background: #061d2d;
+    color: #fff;
+}
+
+.products-btn-secondary {
+    background: transparent;
+    color: #123f58;
+}
+
+.products-btn-secondary:hover {
+    background: #123f58;
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .products-hero {
+        padding: 54px 20px;
+    }
+
+    .products-container {
+        width: calc(100% - 28px);
+    }
+
+    .products-section {
+        padding: 24px 20px;
+        margin-top: 25px;
+    }
+
+    .products-list {
+        grid-template-columns: 1fr;
+    }
+
+    .products-list li {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .products-list li:last-child {
+        border-bottom-color: transparent;
+    }
+
+    .products-cta {
+        padding: 30px 18px;
+    }
+}
+</style>
+
+<div class="products-page">
+
+    <section class="products-hero">
+        <div class="products-label">
+            Capital Engineering Corporation
+        </div>
+
+        <h1>Engineering Products &amp; Solutions</h1>
+
+        <p>
+            Custom-developed aerospace components, mechanical parts,
+            avionics modules and electronic assemblies tailored to
+            specialized customer requirements.
+        </p>
+    </section>
+
+    <main class="products-container">
+
+        <!-- AEROSPACE PRODUCTS INTRODUCTION -->
+
+        <section class="products-intro">
+            <p>
+                We develop custom prototypes and production components
+                to meet customer-specific requirements across a range of
+                aerospace applications. Our solutions can help extend the
+                service life of existing systems by addressing parts that
+                have become scarce, obsolete or unavailable in the market.
+                We also support new aircraft programmes with components
+                and modules developed for their intended applications.
+                The following lists highlight selected products from a
+                broader range of parts developed for military transport
+                and fighter aircraft, as well as related engineering systems.
+            </p>
+        </section>
+
+        <!-- AEROSPACE PRODUCTS -->
+
+        <section class="products-section">
+
+            <div class="products-section-heading">
+                <span class="eyebrow">Product Portfolio</span>
+                <h2>Aerospace Products</h2>
+                <p>
+                    Selected structural components, engine-related parts,
+                    maintenance tooling, support equipment and industrial
+                    process equipment.
+                </p>
+            </div>
+
+            <ul class="products-list">
+
+                <li>
+                    Nose, T-arch and related components in 7075-T6
+                    aluminium and stainless-steel alloys
+                </li>
+
+                <li>
+                    Doublers and related landing-gear assembly parts
+                </li>
+
+                <li>Rivets and studs</li>
+
+                <li>Nuts and bolts</li>
+
+                <li>Other fasteners</li>
+
+                <li>Bellows tubes</li>
+
+                <li>Engine link-drive shafts</li>
+
+                <li>Engine tachogenerator shafts</li>
+
+                <li>Engine bushings</li>
+
+                <li>Engine chamber liners</li>
+
+                <li>Engine burner-ring pins</li>
+
+                <li>Propeller-opening tools</li>
+
+                <li>Engine inlet-nozzle removal tools</li>
+
+                <li>Engine precision inserts</li>
+
+                <li>Engine central-section components</li>
+
+                <li>Engine bypass-compressor components</li>
+
+                <li>Engine housings</li>
+
+                <li>Engine ground tooling</li>
+
+                <li>Engine ground-tooling fixtures</li>
+
+                <li>Engine OG stands</li>
+
+                <li>Engine moving stands</li>
+
+                <li>Engine parts stands</li>
+
+                <li>Engine-parts cleaning trays</li>
+
+                <li>
+                    Double-jacketed, indirect-heating chemical tanks
+                </li>
+
+                <li>
+                    Power presses and related chemical-process equipment
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!-- AVIONICS AND ELECTRONICS PRODUCTS INTRODUCTION -->
+
+        <section class="products-intro">
+            <p>
+                Our customer-focused avionics and electronics solutions
+                are designed to help reduce extended procurement lead times
+                and support practical delivery schedules within agreed
+                budgetary constraints. We develop custom single-layer,
+                double-layer and multilayer electronic modules for a range
+                of applications, including aircraft systems, unmanned
+                platforms, radar equipment, test rigs and CNC controllers.
+                Our approach focuses on customer requirements, system
+                availability and helping minimize avoidable equipment
+                downtime.
+            </p>
+        </section>
+
+        <!-- AVIONICS AND ELECTRONICS PRODUCTS -->
+
+        <section class="products-section">
+
+            <div class="products-section-heading">
+                <span class="eyebrow">Electronic Systems Portfolio</span>
+                <h2>Avionics / Electronics Products</h2>
+                <p>
+                    Custom electronic modules, control systems, interface
+                    boards, signal-processing assemblies and power
+                    electronics for specialized applications.
+                </p>
+            </div>
+
+            <ul class="products-list">
+
+                <li>Single-layer I/O cards</li>
+
+                <li>Multilayer I/O cards</li>
+
+                <li>Controller modules</li>
+
+                <li>Motion-control modules</li>
+
+                <li>Compass and gyroscope modules</li>
+
+                <li>
+                    Multilayer discrete-interface avionics modules
+                    for cockpit avionics systems (HEC modules)
+                </li>
+
+                <li>
+                    Embedded corelator-processor avionics modules
+                    for airborne radar
+                </li>
+
+                <li>
+                    Constant False Alarm Rate (CFAR) modules
+                </li>
+
+                <li>
+                    Up-converter avionics modules for airborne radar
+                </li>
+
+                <li>
+                    Down-converter avionics modules for aircraft systems
+                </li>
+
+                <li>
+                    High-voltage power-supply avionics modules
+                    for airborne applications
+                </li>
+
+                <li>
+                    Low-voltage power-supply avionics modules
+                    for airborne applications
+                </li>
+
+                <li>
+                    Analogue-to-digital converter modules for
+                    airborne radar-warning receiver (RWR) systems
+                </li>
+
+                <li>
+                    Flight controllers for unmanned surface vessels
+                </li>
+
+                <li>
+                    Flight controllers for reconnaissance UAVs
+                </li>
+
+                <li>
+                    Multilayer electronics modules for management systems
+                </li>
+
+                <li>
+                    Multilayer electronics modules for power-plant
+                    servo-drive systems
+                </li>
+
+                <li>
+                    Multilayer electronics modules for power-plant
+                    power-electronics relay systems
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!-- ENDING: SAME BUTTON PATTERN -->
+
+        <section class="products-cta">
+
+            <h2>Discuss Your Product Requirements</h2>
+
+            <p>
+                Contact Capital Engineering Corporation to discuss
+                custom prototypes, replacement components, production
+                parts, avionics modules and electronic assemblies.
+            </p>
+
+            <div class="products-actions">
+
+                <a class="products-btn products-btn-primary"
+                   href="{{ url_for('engineering_quote') }}">
+                    Send Request
+                </a>
+
+                <a class="products-btn products-btn-secondary"
+                   href="{{ url_for('home') }}">
+                    Go Home
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+</div>
+{% endblock %}

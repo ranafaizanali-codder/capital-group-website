@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block title %}
@@ -11,12 +12,7 @@ Send Request | Capital Group
     min-height: 100vh;
     background: #f5f7f8;
     color: #12384f;
-    font-family:
-        "IBM Plex Sans",
-        "Inter",
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    font-family: "IBM Plex Sans", "Inter", "Segoe UI", Arial, sans-serif;
     padding: 70px 20px 90px;
 }
 
@@ -114,9 +110,7 @@ Send Request | Capital Group
     font-size: 15px;
     padding: 14px 15px;
     outline: none;
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
+    transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 .engineering-field input {
@@ -178,9 +172,7 @@ Send Request | Capital Group
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+    transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .engineering-submit:hover {
@@ -194,11 +186,10 @@ Send Request | Capital Group
     color: #6b7b84;
     font-size: 14px;
 }
+
 .engineering-email strong {
     color: #12384f;
 }
-
-/* ================= ERROR MESSAGE ================= */
 
 .request-error {
     width: min(850px, 94%);
@@ -224,7 +215,6 @@ Send Request | Capital Group
     font-size: 14px;
     line-height: 1.5;
 }
-/* ================= SUCCESS MESSAGE ================= */
 
 .request-success {
     width: min(850px, 94%);
@@ -234,7 +224,6 @@ Send Request | Capital Group
     border: 1px solid #dfe7eb;
     border-left: 4px solid #c69b32;
     box-shadow: 0 10px 30px rgba(6, 29, 45, 0.08);
-
     display: flex;
     align-items: center;
     gap: 16px;
@@ -244,14 +233,11 @@ Send Request | Capital Group
     width: 42px;
     height: 42px;
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: #061d2d;
     color: #ffffff;
-
     border-radius: 50%;
     font-size: 20px;
     font-weight: 700;
@@ -260,7 +246,6 @@ Send Request | Capital Group
 .request-success-content strong {
     display: block;
     margin-bottom: 4px;
-
     color: #12384f;
     font-size: 16px;
     font-weight: 700;
@@ -268,7 +253,6 @@ Send Request | Capital Group
 
 .request-success-content p {
     margin: 0 0 4px;
-
     color: #667780;
     font-size: 14px;
     line-height: 1.5;
@@ -281,11 +265,7 @@ Send Request | Capital Group
     letter-spacing: .3px;
 }
 
-
-/* ================= MOBILE ================= */
-
 @media (max-width: 650px) {
-
     .engineering-form-page {
         padding: 45px 15px 60px;
     }
@@ -301,58 +281,43 @@ Send Request | Capital Group
 </style>
 
 <section class="engineering-form-page">
-{% if duplicate_error %}
 
-<div class="request-error">
+    {% if duplicate_error %}
+    <div class="request-error">
+        <strong>Request Already Exists</strong>
+        <p>{{ duplicate_message }}</p>
+    </div>
+    {% endif %}
 
-    <strong>
-        Request Already Exists
-    </strong>
+    {% if form_error %}
+    <div class="request-error">
+        <p>{{ form_error }}</p>
+    </div>
+    {% endif %}
 
-    <p>
-        {{ duplicate_message }}
-    </p>
-
-</div>
-
-{% endif %}
     {% if request_success %}
-
     <div class="request-success">
-
-        <div class="request-success-icon">
-            ✓
-        </div>
-
+        <div class="request-success-icon">✓</div>
         <div class="request-success-content">
-
-            <strong>
-                Request Submitted Successfully
-            </strong>
-
+            <strong>Request Submitted Successfully</strong>
             <p>
                 Thank you for contacting Capital Group.
                 Your requirement has been received successfully.
             </p>
-
-            <span>
-                Request ID: #{{ request_id }}
-            </span>
-
+            <p>
+                For urgent assistance, please contact us directly
+                using the phone number provided in the Call Us button
+                on our website.
+            </p>
+            <span>Request ID: #{{ request_id }}</span>
         </div>
-
     </div>
-
     {% endif %}
-
 
     <div class="engineering-form-container">
 
         <header class="engineering-form-header">
-
-            <span class="engineering-form-label">
-                CAPITAL GROUP
-            </span>
+            <span class="engineering-form-label">CAPITAL GROUP</span>
 
             <h1 class="engineering-form-title">
                 Send Your Requirement
@@ -363,171 +328,165 @@ Send Request | Capital Group
                 Our team will review your request and contact you
                 regarding the required solution.
             </p>
-
         </header>
-
 
         <div class="engineering-form-card">
 
             <div class="engineering-company">
-
-                <span>
-                    Company
-                </span>
-
-                <strong>
-                    Capital Group
-                </strong>
-
+                <span>Company</span>
+                <strong>Capital Group</strong>
             </div>
 
+            {% if not show_full_form and not request_success %}
 
+            <!-- STEP 1: QUICK FORM -->
             <form
                 method="POST"
                 action="{{ url_for('capital_request') }}"
-                enctype="multipart/form-data"
             >
+                <input type="hidden" name="form_step" value="quick">
 
                 <div class="engineering-field">
-
-                    <label for="name">
+                    <label for="quick-name">
                         Full Name <span>*</span>
                     </label>
-
                     <input
                         type="text"
-                        id="name"
+                        id="quick-name"
                         name="name"
                         placeholder="Enter your full name"
                         autocomplete="name"
                         required
                     >
-
                 </div>
 
-
                 <div class="engineering-field">
-
-                    <label for="email">
+                    <label for="quick-email">
                         Business Email <span>*</span>
                     </label>
-
                     <input
                         type="email"
-                        id="email"
+                        id="quick-email"
                         name="email"
                         placeholder="name@company.com"
                         autocomplete="email"
                         required
                     >
-
                 </div>
 
+                <button type="submit" class="engineering-submit">
+                    CONTINUE
+                </button>
+            </form>
+
+            {% endif %}
+
+            {% if show_full_form and not request_success %}
+
+            <!-- STEP 2: FULL INQUIRY FORM -->
+            <form
+                method="POST"
+                action="{{ url_for('capital_request') }}"
+                enctype="multipart/form-data"
+            >
+                <input type="hidden" name="form_step" value="full">
 
                 <div class="engineering-field">
-
-                    <label for="phone">
-                        Phone / WhatsApp <span>*</span>
+                    <label for="name">
+                        Full Name <span>*</span>
                     </label>
-
                     <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="+92 3XX XXXXXXX"
-                        autocomplete="tel"
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="{{ prefill_name|default('') }}"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
                         required
                     >
-
                 </div>
 
+                <div class="engineering-field">
+                    <label for="email">
+                        Business Email <span>*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="{{ prefill_email|default('') }}"
+                        placeholder="name@company.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
 
                 <div class="engineering-field">
+                    <label for="organization">
+                        Organization Name <span>*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="organization"
+                        name="company"
+                        placeholder="Enter your organization name"
+                        autocomplete="organization"
+                        required
+                    >
+                </div>
 
+                <div class="engineering-field">
                     <label for="requirements">
                         Requirement Details <span>*</span>
                     </label>
-
                     <textarea
                         id="requirements"
                         name="requirements"
                         placeholder="Please describe your product, service, quantity, specifications, drawings, technical requirements or any other details..."
                         required
                     ></textarea>
-
                 </div>
 
-
                 <div class="engineering-field">
-
                     <label for="attachment">
                         Attach a PDF/File
                     </label>
-
                     <input
                         type="file"
                         id="attachment"
                         name="attachment"
                         accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg"
                     >
-
                 </div>
 
-
                 <div class="engineering-captcha">
-
                     <p class="engineering-captcha-title">
                         Security Verification
                     </p>
-
                     <p class="engineering-captcha-text">
-                      What is 7 + 6?
-                     </p>
-
-                    <select
-                        id="captcha"
-                        name="captcha"
-                        required
-                    >
-
-                        <option value="">
-                            Select answer
-                        </option>
-
-                        <option value="19">
-                            19
-                        </option>
-
-                        <option value="13">
-                            13
-                        </option>
-
+                        What is 7 + 6?
+                    </p>
+                    <select id="captcha" name="captcha" required>
+                        <option value="">Select answer</option>
+                        <option value="19">19</option>
+                        <option value="13">13</option>
                     </select>
-
                 </div>
 
-
-                <button
-                    type="submit"
-                    class="engineering-submit"
-                >
+                <button type="submit" class="engineering-submit">
                     SEND REQUEST
                 </button>
-
             </form>
+
+            {% endif %}
 
         </div>
 
-
         <div class="engineering-email">
-
-            Email:
-            <strong>ceo@capitalgroup.pk</strong>
-
+            Email: <strong>ceo@capitalgroup.pk</strong>
         </div>
 
     </div>
-
 </section>
 
 {% endblock %}

@@ -1,0 +1,451 @@
+
+{% extends "base.html" %}
+
+{% block title %}Electronics & Avionics Infrastructure | Capital Group{% endblock %}
+
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.eai-page {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #12384f;
+    background: #f5f7f8;
+    padding-bottom: 70px;
+}
+
+.eai-hero {
+    background: linear-gradient(135deg, #061d2d, #123f58);
+    color: #fff;
+    padding: 76px 24px;
+    text-align: center;
+}
+
+.eai-label {
+    color: #d2a43b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.eai-hero h1 {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.eai-hero p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #dce7ed;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.eai-container {
+    width: min(1160px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.eai-intro {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 0 10px;
+}
+
+.eai-intro p {
+    margin: 0;
+    color: #425c6b;
+    font-size: 15px;
+    line-height: 1.95;
+    text-align: center;
+}
+
+.eai-section-heading {
+    text-align: center;
+    padding: 40px 0 28px;
+}
+
+.eai-section-heading h2 {
+    font-size: clamp(23px, 3vw, 29px);
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin: 0 0 12px;
+}
+
+.eai-section-heading p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #61727d;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.eai-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.eai-card {
+    min-width: 0;
+    padding: 28px 28px 25px;
+    background: #fff;
+    border: 1px solid #e0e7eb;
+    border-left: 3px solid #c69b32;
+    border-radius: 8px;
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.eai-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(6, 29, 45, .08);
+}
+
+.eai-card h3 {
+    margin: 0 0 15px;
+    color: #12384f;
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.eai-card p {
+    margin: 0 0 15px;
+    color: #5a6e7a;
+    font-size: 13.5px;
+    line-height: 1.8;
+}
+
+.eai-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.eai-list li {
+    position: relative;
+    margin: 0;
+    padding: 9px 0 9px 19px;
+    border-top: 1px solid #edf1f3;
+    color: #354f5e;
+    font-size: 13.5px;
+    line-height: 1.75;
+}
+
+.eai-list li::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 19px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c69b32;
+}
+
+.eai-equipment {
+    margin-top: 28px;
+}
+
+.eai-equipment h3 {
+    margin-bottom: 12px;
+}
+
+.eai-equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.eai-equipment-item {
+    padding: 15px;
+    border: 1px solid #e2e9ed;
+    border-radius: 6px;
+    background: #f8fafb;
+    color: #284a5c;
+    font-size: 12.5px;
+    line-height: 1.65;
+    font-weight: 500;
+}
+
+.eai-cta {
+    margin-top: 50px;
+    padding: 38px 24px;
+    background: #eaf0f3;
+    border: 1px solid #dfe8ed;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.eai-cta h2 {
+    margin: 0 0 12px;
+    color: #12384f;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.eai-cta p {
+    max-width: 650px;
+    margin: 0 auto 23px;
+    color: #526773;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.eai-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.eai-btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .2s ease, color .2s ease,
+                border-color .2s ease;
+}
+
+.eai-btn-primary {
+    background: #123f58;
+    color: #fff;
+    border: 1px solid #123f58;
+}
+
+.eai-btn-primary:hover {
+    background: #061d2d;
+    color: #fff;
+}
+
+.eai-btn-secondary {
+    background: transparent;
+    color: #123f58;
+    border: 1px solid #123f58;
+}
+
+.eai-btn-secondary:hover {
+    background: #123f58;
+    color: #fff;
+}
+
+@media (max-width: 800px) {
+    .eai-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .eai-equipment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .eai-hero {
+        padding: 55px 20px;
+    }
+
+    .eai-container {
+        width: calc(100% - 28px);
+    }
+
+    .eai-intro {
+        padding-top: 32px;
+    }
+
+    .eai-card {
+        padding: 23px 20px;
+    }
+
+    .eai-card h3 {
+        font-size: 16px;
+    }
+
+    .eai-equipment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eai-cta {
+        padding: 30px 18px;
+    }
+
+    .eai-cta h2 {
+        font-size: 21px;
+    }
+}
+</style>
+
+<div class="eai-page">
+
+    <section class="eai-hero">
+        <div class="eai-label">Capital Engineering Corporation</div>
+        <h1>Electronics &amp; Avionics Infrastructure</h1>
+        <p>
+            Integrated electronics manufacturing, printed circuit board
+            assembly, precision instrumentation and testing capabilities
+            supporting demanding engineering and technology applications.
+        </p>
+    </section>
+
+    <main class="eai-container">
+
+        <section class="eai-intro">
+            <p>
+                Capital Engineering Corporation provides a broad range of
+                electronics production and laboratory capabilities, combining
+                multilayer PCB manufacturing, advanced component assembly,
+                and electronic measurement equipment. Our infrastructure
+                supports work across circuit fabrication, component
+                integration, signal evaluation, and electrical testing,
+                with processes selected to meet each project's technical
+                requirements and quality objectives.
+            </p>
+        </section>
+
+        <div class="eai-section-heading">
+            <h2>Manufacturing &amp; Testing Capabilities</h2>
+            <p>
+                Six integrated capability areas covering circuit boards,
+                assembly processes, and electronic test instrumentation.
+            </p>
+        </div>
+
+        <div class="eai-grid">
+
+            <article class="eai-card">
+                <h3>PCB Manufacturing</h3>
+                <p>
+                    Multilayer printed circuit board manufacturing for
+                    complex electronic designs and demanding applications.
+                </p>
+                <ul class="eai-list">
+                    <li>PCB manufacturing capability up to 40 copper layers</li>
+                    <li>Copper, silver and gold finishes, subject to process availability</li>
+                    <li>Design and quality requirements aligned with applicable AS9100 and IPC Class 3 requirements, where specified</li>
+                </ul>
+            </article>
+
+            <article class="eai-card">
+                <h3>PCB Assembly &amp; Component Integration</h3>
+                <p>
+                    Assembly options for through-hole and surface-mount
+                    components across a range of electronic board designs.
+                </p>
+                <ul class="eai-list">
+                    <li>Manual PCB assembly line</li>
+                    <li>Through-Hole Technology (THT) assembly line</li>
+                    <li>Wave-soldering process for compatible through-hole assemblies</li>
+                    <li>Surface-Mount Technology (SMT) assembly line</li>
+                </ul>
+            </article>
+
+            <article class="eai-card">
+                <h3>High-Speed Pick-and-Place</h3>
+                <p>
+                    Automated component placement for fine-pitch PCB
+                    assembly, supporting a variety of integrated circuit
+                    packages and surface-mount devices.
+                </p>
+                <ul class="eai-list">
+                    <li>Specified placement range: 0.18–0.25 mm, subject to component and process requirements</li>
+                    <li>DIP, QFP, BGA and SMT component technologies, where supported by the equipment</li>
+                    <li>Placement of a range of IC packages and electronic devices</li>
+                </ul>
+            </article>
+
+            <article class="eai-card">
+                <h3>Precision Measurement Instruments</h3>
+                <p>
+                    Electrical measurement tools for troubleshooting,
+                    verification, circuit evaluation and laboratory testing.
+                </p>
+                <div class="eai-equipment-grid">
+                    <div class="eai-equipment-item">
+                        Calibrated Digital Multimeter
+                    </div>
+                    <div class="eai-equipment-item">
+                        Digital Oscilloscope
+                    </div>
+                    <div class="eai-equipment-item">
+                        Multichannel Oscilloscope
+                    </div>
+                </div>
+            </article>
+
+            <article class="eai-card">
+                <h3>Signal Analysis &amp; Test Generation</h3>
+                <p>
+                    Instrumentation for examining electronic signals,
+                    evaluating circuit behaviour and supplying test inputs
+                    during development and verification.
+                </p>
+                <div class="eai-equipment-grid">
+                    <div class="eai-equipment-item">
+                        Logic Analyzer
+                    </div>
+                    <div class="eai-equipment-item">
+                        Spectrum Analyzer
+                    </div>
+                    <div class="eai-equipment-item">
+                        Signal Generator
+                    </div>
+                    <div class="eai-equipment-item">
+                        Function Generator
+                    </div>
+                    <div class="eai-equipment-item">
+                        Frequency Generator
+                    </div>
+                </div>
+            </article>
+
+            <article class="eai-card">
+                <h3>Voltage Generation &amp; Power Supplies</h3>
+                <p>
+                    Electrical supply equipment for powering circuits,
+                    supporting bench testing and providing suitable
+                    voltage sources for electronic development tasks.
+                </p>
+                <div class="eai-equipment-grid">
+                    <div class="eai-equipment-item">
+                        Voltage Generator
+                    </div>
+                    <div class="eai-equipment-item">
+                        Regulated Power Supplies
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <section class="eai-cta">
+            <h2>Discuss Your Engineering Requirements</h2>
+            <p>
+                Contact Capital Engineering Corporation for enquiries
+                relating to electronics manufacturing, PCB assembly,
+                instrumentation and testing capabilities.
+            </p>
+
+            <div class="eai-actions">
+                <a class="eai-btn eai-btn-primary"
+                   href="{{ url_for('engineering_quote') }}">Send Request</a>
+
+                <a class="eai-btn eai-btn-secondary"
+                   href="{{ url_for('home') }}">Go Home</a>
+            </div>
+        </section>
+
+    </main>
+</div>
+{% endblock %}

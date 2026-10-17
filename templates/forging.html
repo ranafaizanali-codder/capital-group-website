@@ -1,0 +1,279 @@
+
+{% extends "base.html" %}
+
+{% block title %}Forging Services | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+<style>
+.forging-page {
+    background: #f5f7f8;
+    color: #12384f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.forging-hero {
+    padding: 88px 7% 76px;
+    background: #08283b;
+    color: #ffffff;
+}
+
+.forging-label {
+    color: #d2a43b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.forging-hero h1 {
+    max-width: 850px;
+    margin: 20px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.12;
+}
+
+.forging-hero p {
+    max-width: 700px;
+    color: #d5e0e6;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.forging-content {
+    max-width: 1180px;
+    margin: auto;
+    padding: 70px 24px;
+}
+
+.forging-intro {
+    max-width: 790px;
+    margin-bottom: 42px;
+}
+
+.forging-intro h2,
+.forging-section h2,
+.forging-cta h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.forging-intro h2 {
+    margin: 0 0 18px;
+    font-size: clamp(30px, 4vw, 42px);
+}
+
+.forging-intro p,
+.forging-section p {
+    color: #536773;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.forging-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.forging-card {
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #dce3e6;
+    border-top: 3px solid #c69b32;
+}
+
+.forging-number {
+    color: #b48a29;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.forging-card h3 {
+    margin: 18px 0 12px;
+    color: #12384f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.forging-card p {
+    margin: 0;
+    color: #536773;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.forging-section {
+    margin-top: 64px;
+    padding-top: 42px;
+    border-top: 1px solid #dce3e6;
+}
+
+.forging-section h2 {
+    font-size: 32px;
+}
+
+.forging-cta {
+    padding: 56px 24px;
+    background: #061d2d;
+    color: #ffffff;
+    text-align: center;
+}
+
+.forging-cta h2 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 4vw, 38px);
+}
+
+.forging-cta p {
+    margin: 0 auto 28px;
+    max-width: 650px;
+    color: #d5e0e6;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.forging-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.forging-btn {
+    display: inline-block;
+    padding: 15px 24px;
+    border: 1px solid #c69b32;
+    background: #c69b32;
+    color: #061d2d;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+}
+
+.forging-btn:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+.forging-btn.secondary {
+    border-color: #8295a0;
+    background: transparent;
+    color: #ffffff;
+}
+
+.forging-btn.secondary:hover {
+    border-color: #c69b32;
+    color: #d2a43b;
+}
+
+@media (max-width: 650px) {
+    .forging-hero {
+        padding: 62px 24px;
+    }
+
+    .forging-content {
+        padding: 48px 18px;
+    }
+
+    .forging-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .forging-card {
+        padding: 25px;
+    }
+}
+</style>
+
+<div class="forging-page">
+
+    <section class="forging-hero">
+        <div class="forging-label">Capital Engineering Corporation</div>
+        <h1>Precision Metal Forming Through Forging</h1>
+        <p>
+            Engineering-focused forging solutions for strong, reliable metal
+            components through controlled deformation, material integrity
+            and precision manufacturing processes.
+        </p>
+    </section>
+
+    <main class="forging-content">
+
+        <section class="forging-intro">
+            <h2>Forging Processes &amp; Capabilities</h2>
+            <p>
+                Forging shapes metal under compressive forces to produce
+                components with dependable mechanical properties. Our
+                process selection focuses on component geometry, material
+                requirements, production volume and intended application.
+            </p>
+        </section>
+
+        <section class="forging-grid">
+
+            <article class="forging-card">
+                <div class="forging-number">PROCESS 01</div>
+                <h3>Free Hammer Forging</h3>
+                <p>
+                    Free hammer forging shapes heated metal through repeated
+                    hammer blows, allowing flexible production of large or
+                    specialized components. It is suitable for custom parts
+                    where strength, material control and adaptable geometry
+                    are important.
+                </p>
+            </article>
+
+            <article class="forging-card">
+                <div class="forging-number">PROCESS 02</div>
+                <h3>Die Forging</h3>
+                <p>
+                    Die forging forms metal within shaped dies to achieve
+                    repeatable component geometry and consistent production.
+                    It is well suited to engineered parts requiring controlled
+                    dimensions, repeatability and efficient manufacturing.
+                </p>
+            </article>
+
+        </section>
+
+        <section class="forging-section">
+            <h2>Engineering Applications</h2>
+            <p>
+                Forged components can support mechanical equipment, industrial
+                machinery, shafts, connecting elements and other demanding
+                applications. The appropriate forging method depends on the
+                selected alloy, design, required tolerances and production needs.
+            </p>
+        </section>
+
+    </main>
+
+    <section class="forging-cta">
+        <h2>Discuss Your Forging Requirements</h2>
+        <p>
+            Share your component specifications, material requirements or
+            engineering drawings with our team to discuss the next step.
+        </p>
+
+        <div class="forging-actions">
+            <a class="forging-btn"
+               href="{{ url_for('engineering_quote') }}">
+                SEND REQUIREMENTS HERE
+            </a>
+
+            <a class="forging-btn secondary"
+               href="{{ url_for('home') }}">
+                GO BACK HOME
+            </a>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

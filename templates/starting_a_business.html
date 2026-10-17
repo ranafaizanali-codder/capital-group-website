@@ -1,0 +1,487 @@
+{% extends "base.html" %}
+
+{% block title %}
+Starting a Business | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .business-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .business-hero {
+        min-height: 620px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.94) 0%,
+                rgba(6, 29, 45, 0.78) 48%,
+                rgba(6, 29, 45, 0.35) 100%
+            ),
+            url("https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=2000&q=85")
+            center / cover no-repeat;
+    }
+
+    .business-hero-content {
+        width: min(1180px, 90%);
+        margin: 0 auto;
+        padding: 90px 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .business-eyebrow {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .business-hero h1 {
+        max-width: 850px;
+        margin: 0 0 24px;
+        color: #ffffff;
+        font-size: clamp(42px, 5vw, 72px);
+        line-height: 1.06;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+    }
+
+    .business-hero h1 span {
+        color: #d2a43b;
+    }
+
+    .business-hero p {
+        max-width: 720px;
+        margin: 0;
+        color: rgba(255,255,255,0.88);
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    /* INTRO */
+    .business-intro {
+        width: min(1080px, 88%);
+        margin: 0 auto;
+        padding: 90px 0 65px;
+        text-align: center;
+    }
+
+    .section-label {
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    .business-intro h2 {
+        margin: 0 auto 20px;
+        max-width: 820px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .business-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #526673;
+        font-size: 17px;
+        line-height: 1.85;
+    }
+
+    /* SERVICE SECTIONS */
+    .business-sections {
+        width: min(1180px, 90%);
+        margin: 0 auto;
+        padding-bottom: 90px;
+    }
+
+    .business-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 410px;
+        margin-bottom: 32px;
+        background: #ffffff;
+        border: 1px solid rgba(18, 56, 79, 0.10);
+        overflow: hidden;
+        box-shadow: 0 14px 40px rgba(6, 29, 45, 0.06);
+    }
+
+    .business-section:nth-child(even) .business-section-image {
+        order: -1;
+    }
+
+    .business-section-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px;
+    }
+
+    .business-number {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .business-section h3 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .business-section p {
+        margin: 0;
+        color: #5a6d78;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .business-section-image {
+        min-height: 410px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* CTA */
+    .business-cta {
+        background: #061d2d;
+        padding: 75px 20px;
+        text-align: center;
+    }
+
+    .business-cta h2 {
+        margin: 0 0 15px;
+        color: #ffffff;
+        font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .business-cta p {
+        max-width: 650px;
+        margin: 0 auto 30px;
+        color: rgba(255,255,255,0.76);
+        line-height: 1.7;
+    }
+
+    .business-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .business-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 165px;
+        padding: 14px 25px;
+        border: 1px solid #c69b32;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.25s ease;
+    }
+
+    .business-btn.primary {
+        background: #c69b32;
+        color: #061d2d;
+    }
+
+    .business-btn.secondary {
+        background: transparent;
+        color: #ffffff;
+    }
+
+    .business-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .business-btn.secondary:hover {
+        background: #ffffff;
+        color: #12384f;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+        .business-hero {
+            min-height: 560px;
+        }
+
+        .business-hero-content {
+            padding: 70px 0;
+        }
+
+        .business-hero h1 {
+            font-size: 42px;
+        }
+
+        .business-hero p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .business-intro {
+            padding: 65px 0 45px;
+        }
+
+        .business-section {
+            grid-template-columns: 1fr;
+        }
+
+        .business-section:nth-child(even) .business-section-image {
+            order: 0;
+        }
+
+        .business-section-image {
+            min-height: 280px;
+        }
+
+        .business-section-content {
+            padding: 40px 30px;
+        }
+
+        .business-section h3 {
+            font-size: 27px;
+        }
+    }
+
+    @media (max-width: 520px) {
+
+        .business-hero {
+            min-height: 500px;
+        }
+
+        .business-hero h1 {
+            font-size: 35px;
+        }
+
+        .business-intro h2 {
+            font-size: 30px;
+        }
+
+        .business-section-image {
+            min-height: 230px;
+        }
+
+        .business-section-content {
+            padding: 32px 24px;
+        }
+
+        .business-btn {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="business-page">
+
+    <!-- HERO -->
+    <section class="business-hero">
+        <div class="business-hero-content">
+
+            <div class="business-eyebrow">
+                STARTING BUSINESS DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s business consultancy services provide structured guidance
+                for entrepreneurs and organizations seeking to establish,
+                develop and grow successful business operations.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="business-intro">
+
+        <div class="section-label">
+            BUSINESS CONSULTANCY
+        </div>
+
+        <h2>
+            From Business Idea to Sustainable Operation
+        </h2>
+
+        <p>
+            CC’s approach combines strategic planning, market understanding,
+            operational guidance and technical expertise to help transform
+            business ideas into practical and sustainable ventures.
+        </p>
+
+    </section>
+
+
+    <!-- SECTIONS -->
+    <section class="business-sections">
+
+        <!-- 01 -->
+        <div class="business-section">
+
+            <div class="business-section-content">
+
+                <div class="business-number">01 — BUSINESS PLANNING</div>
+
+                <h3>
+                    Turning an Idea into a Business Plan
+                </h3>
+
+                <p>
+                    CC’s consultants help define the business concept,
+                    objectives, target market, operational requirements and
+                    strategic direction needed to establish a clear business
+                    foundation.
+                </p>
+
+            </div>
+
+            <div
+                class="business-section-image"
+                style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85');">
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="business-section">
+
+            <div class="business-section-content">
+
+                <div class="business-number">02 — MARKET STRATEGY</div>
+
+                <h3>
+                    Understanding the Market
+                </h3>
+
+                <p>
+                    CC’s market-focused guidance helps businesses understand
+                    customer requirements, market opportunities, competition
+                    and positioning before committing resources to a new
+                    venture.
+                </p>
+
+            </div>
+
+            <div
+                class="business-section-image"
+                style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85');">
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="business-section">
+
+            <div class="business-section-content">
+
+                <div class="business-number">03 — BUSINESS STRUCTURE</div>
+
+                <h3>
+                    Building the Right Operating Structure
+                </h3>
+
+                <p>
+                    CC’s consultancy supports the development of practical
+                    organizational structures, workflows, responsibilities
+                    and operational processes for efficient business
+                    management.
+                </p>
+
+            </div>
+
+            <div
+                class="business-section-image"
+                style="background-image:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=85');">
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="business-section">
+
+            <div class="business-section-content">
+
+                <div class="business-number">04 — GROWTH STRATEGY</div>
+
+                <h3>
+                    Preparing for Sustainable Growth
+                </h3>
+
+                <p>
+                    CC’s strategic guidance helps businesses establish
+                    scalable processes and identify opportunities for future
+                    expansion, partnerships, investment and market development.
+                </p>
+
+            </div>
+
+            <div
+                class="business-section-image"
+                style="background-image:url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=85');">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="business-cta">
+
+        <h2>
+            Build Your Business with Strategic Direction
+        </h2>
+
+        <p>
+            Discuss your business concept, requirements or development plans
+            with Capital Consultants.
+        </p>
+
+        <div class="business-actions">
+
+            <a
+                href="{{ url_for('capital_request') }}"
+                class="business-btn primary">
+                SEND REQUEST →
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="business-btn secondary">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

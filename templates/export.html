@@ -1,0 +1,643 @@
+{% extends "base.html" %}
+
+{% block title %}
+Export Division | International Export & Trade Consultancy | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .export-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .export-hero {
+        position: relative;
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.94) 0%,
+                rgba(6, 29, 45, 0.77) 45%,
+                rgba(6, 29, 45, 0.28) 100%
+            ),
+            url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1800&q=80")
+            center/cover no-repeat;
+    }
+
+    .export-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 90px 0;
+        color: #ffffff;
+    }
+
+    .export-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+    }
+
+    .export-hero h1 {
+        max-width: 850px;
+        margin: 0 0 24px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 600;
+        letter-spacing: -1.5px;
+    }
+
+    .export-hero p {
+        max-width: 780px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* INTRO */
+    .export-intro {
+        width: min(1080px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 65px;
+        text-align: center;
+    }
+
+    .export-intro .section-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 15px;
+    }
+
+    .export-intro h2 {
+        max-width: 900px;
+        margin: 0 auto 20px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .export-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #536774;
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    /* INFORMATION */
+    .export-content {
+        width: min(1080px, 90%);
+        margin: 0 auto 90px;
+    }
+
+    .export-section {
+        padding: 48px 0;
+        border-top: 1px solid rgba(18, 56, 79, 0.10);
+    }
+
+    .export-section:first-child {
+        border-top: none;
+    }
+
+    .export-section h2 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 30px;
+        line-height: 1.25;
+        font-weight: 600;
+    }
+
+    .export-section p {
+        margin: 0;
+        color: #5d6e78;
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .export-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px 45px;
+        margin: 25px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .export-list li {
+        position: relative;
+        padding: 15px 18px 15px 24px;
+        background: #ffffff;
+        border-left: 2px solid #c69b32;
+        color: #536774;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .export-list li::before {
+        content: "•";
+        position: absolute;
+        left: 9px;
+        color: #c69b32;
+        font-weight: 700;
+    }
+
+    /* DARK STRATEGY SECTION */
+    .export-strategy {
+        background: #08283b;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .export-strategy-inner {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+    }
+
+    .export-strategy-heading {
+        max-width: 820px;
+        margin-bottom: 48px;
+    }
+
+    .export-strategy-heading span {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+    }
+
+    .export-strategy-heading h2 {
+        margin: 14px 0 18px;
+        color: #ffffff;
+        font-size: clamp(30px, 4vw, 45px);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .export-strategy-heading p {
+        margin: 0;
+        color: rgba(255,255,255,0.74);
+        line-height: 1.8;
+    }
+
+    .export-framework {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .export-framework-card {
+        padding: 30px 24px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .export-framework-card .number {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .export-framework-card h3 {
+        margin: 0 0 12px;
+        color: #ffffff;
+        font-size: 19px;
+    }
+
+    .export-framework-card p {
+        margin: 0;
+        color: rgba(255,255,255,0.70);
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* CTA */
+    .export-cta {
+        width: min(1100px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 100px;
+        text-align: center;
+    }
+
+    .export-cta h2 {
+        margin: 0 0 15px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        font-weight: 600;
+    }
+
+    .export-cta p {
+        max-width: 720px;
+        margin: 0 auto 32px;
+        color: #64747d;
+        line-height: 1.8;
+    }
+
+    .export-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .export-actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 170px;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.25s ease;
+    }
+
+    .export-request {
+        background: #12384f;
+        color: #ffffff;
+        border: 1px solid #12384f;
+    }
+
+    .export-request:hover {
+        background: #08283b;
+    }
+
+    .export-home {
+        background: #ffffff;
+        color: #12384f;
+        border: 1px solid #c69b32;
+    }
+
+    .export-home:hover {
+        background: #f8f4e9;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .export-framework {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .export-list {
+            gap: 12px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .export-hero {
+            min-height: 520px;
+        }
+
+        .export-hero-content {
+            padding: 70px 0;
+        }
+
+        .export-hero h1 {
+            font-size: 36px;
+        }
+
+        .export-hero p {
+            font-size: 15px;
+        }
+
+        .export-intro {
+            padding: 65px 0 45px;
+        }
+
+        .export-content {
+            width: 92%;
+        }
+
+        .export-section {
+            padding: 38px 0;
+        }
+
+        .export-list,
+        .export-framework {
+            grid-template-columns: 1fr;
+        }
+
+        .export-strategy {
+            padding: 70px 0;
+        }
+
+        .export-cta {
+            padding: 65px 0 75px;
+        }
+    }
+</style>
+
+<div class="export-page">
+
+    <!-- HERO -->
+    <section class="export-hero">
+
+        <div class="export-hero-content">
+
+            <div class="export-label">
+                EXPORT DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s export consultancy services provide professional guidance in
+                international market development, export planning, product positioning,
+                trade documentation and cross-border commercial operations to support
+                sustainable global business growth.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="export-intro">
+
+        <div class="section-label">
+            INTERNATIONAL EXPORT CONSULTANCY
+        </div>
+
+        <h2>
+            Connecting Business Capabilities with International Markets
+        </h2>
+
+        <p>
+            Successful exporting requires a structured understanding of target markets,
+            customer requirements, product positioning, commercial conditions and trade
+            procedures. A professional export strategy helps organizations identify
+            suitable opportunities and develop a controlled pathway toward international
+            market participation.
+        </p>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+    <section class="export-content">
+
+        <div class="export-section">
+
+            <h2>
+                International Market Research and Opportunity Assessment
+            </h2>
+
+            <p>
+                Export planning begins with understanding potential markets and identifying
+                opportunities that match an organization's products, services and capabilities.
+                Market assessment can consider demand conditions, customer segments, competitive
+                environments, commercial requirements and market-entry considerations.
+            </p>
+
+            <ul class="export-list">
+                <li>International market opportunity assessment</li>
+                <li>Target market identification</li>
+                <li>Customer and sector analysis</li>
+                <li>Competitive market review</li>
+            </ul>
+
+        </div>
+
+
+        <div class="export-section">
+
+            <h2>
+                Export Strategy and Market Positioning
+            </h2>
+
+            <p>
+                An effective export strategy establishes how products or services should be
+                positioned for selected international markets. Strategic planning considers
+                product value, customer requirements, pricing considerations, market conditions
+                and the organization's ability to serve international customers.
+            </p>
+
+            <ul class="export-list">
+                <li>Export market-entry planning</li>
+                <li>Product and service positioning</li>
+                <li>Commercial strategy development</li>
+                <li>International business development planning</li>
+            </ul>
+
+        </div>
+
+
+        <div class="export-section">
+
+            <h2>
+                Export Documentation and Trade Compliance
+            </h2>
+
+            <p>
+                International export transactions require accurate coordination of commercial,
+                shipping and regulatory documentation. A structured documentation process helps
+                organizations maintain consistency across suppliers, customers, logistics
+                providers and relevant trade authorities.
+            </p>
+
+            <ul class="export-list">
+                <li>Commercial export documentation</li>
+                <li>Shipping and transport documentation</li>
+                <li>Certificate of origin requirements</li>
+                <li>Trade compliance coordination</li>
+            </ul>
+
+        </div>
+
+
+        <div class="export-section">
+
+            <h2>
+                International Customer and Distributor Development
+            </h2>
+
+            <p>
+                Sustainable export growth depends on establishing suitable commercial
+                relationships in target markets. Export development may involve identifying
+                potential customers, distributors, representatives and strategic commercial
+                partners whose capabilities align with the organization's objectives.
+            </p>
+
+            <ul class="export-list">
+                <li>International customer identification</li>
+                <li>Distributor and partner assessment</li>
+                <li>Commercial relationship development</li>
+                <li>Market communication planning</li>
+            </ul>
+
+        </div>
+
+
+        <div class="export-section">
+
+            <h2>
+                Export Logistics and Supply Coordination
+            </h2>
+
+            <p>
+                Export operations require coordination between production, order preparation,
+                documentation, transportation and final delivery. Integrated planning helps
+                maintain supply reliability while supporting agreed customer and delivery
+                requirements.
+            </p>
+
+            <ul class="export-list">
+                <li>Export shipment planning</li>
+                <li>Logistics coordination</li>
+                <li>Delivery schedule management</li>
+                <li>Supply chain communication</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- STRATEGY -->
+    <section class="export-strategy">
+
+        <div class="export-strategy-inner">
+
+            <div class="export-strategy-heading">
+
+                <span>EXPORT DEVELOPMENT FRAMEWORK</span>
+
+                <h2>
+                    From Market Opportunity to Sustainable International Growth
+                </h2>
+
+                <p>
+                    A structured export framework connects market assessment,
+                    positioning, commercial development and coordinated delivery
+                    into one strategic process.
+                </p>
+
+            </div>
+
+
+            <div class="export-framework">
+
+                <div class="export-framework-card">
+
+                    <div class="number">
+                        01
+                    </div>
+
+                    <h3>
+                        Identify
+                    </h3>
+
+                    <p>
+                        Assess international markets and identify opportunities aligned
+                        with business capabilities and customer demand.
+                    </p>
+
+                </div>
+
+
+                <div class="export-framework-card">
+
+                    <div class="number">
+                        02
+                    </div>
+
+                    <h3>
+                        Position
+                    </h3>
+
+                    <p>
+                        Establish suitable product, service and commercial positioning
+                        for selected target markets.
+                    </p>
+
+                </div>
+
+
+                <div class="export-framework-card">
+
+                    <div class="number">
+                        03
+                    </div>
+
+                    <h3>
+                        Develop
+                    </h3>
+
+                    <p>
+                        Build international customer, distributor and commercial
+                        relationships through structured market development.
+                    </p>
+
+                </div>
+
+
+                <div class="export-framework-card">
+
+                    <div class="number">
+                        04
+                    </div>
+
+                    <h3>
+                        Expand
+                    </h3>
+
+                    <p>
+                        Strengthen international operations through continuous market
+                        evaluation, supply coordination and strategic improvement.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="export-cta">
+
+        <h2>
+            Expand Your Business into International Markets
+        </h2>
+
+        <p>
+            Discuss your export, international market development or trade requirements
+            with Capital Consultants and develop a structured strategy for global growth.
+        </p>
+
+        <div class="export-actions">
+
+            <a href="{{ url_for('capital_request') }}" class="export-request">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('home') }}" class="export-home">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

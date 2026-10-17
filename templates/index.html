@@ -4,141 +4,560 @@
 Capital Group | Indigenous Innovation
 {% endblock %}
 
-
 {% block content %}
 
 <!-- ================= HERO ================= -->
 
-<section
-    class="hero"
-    aria-labelledby="hero-title"
->
+<section class="hero" aria-labelledby="hero-title">
 
     <div class="hero-overlay"></div>
 
+    <div class="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide hero-slide-one active"></div>
+        <div class="hero-slide hero-slide-engineering light-image"></div>
+        <div class="hero-slide hero-slide-two"></div>
+        <div class="hero-slide hero-slide-three"></div>
+        <div class="hero-slide hero-slide-four"></div>
+    </div>
 
     <div class="hero-content">
-
-        <!-- SMALL TITLE -->
 
         <div class="gold-text">
             CAPITAL GROUP
         </div>
 
-
-        <!-- HOME SLOGAN -->
-
         <h1 id="hero-title">
             {{ _("Developing Businesses, Creating Solutions") }}
         </h1>
-
-
-        <!-- DESCRIPTION -->
 
         <p>
             {{ _("With three decades of continuous support to our valued customers and clients, Capital Group provides indigenous, innovative and technological solutions through engineering, consulting, technology and trade.") }}
         </p>
 
-
-        <!-- ================= COMPANY BUTTONS ================= -->
+        <!-- COMPANY BUTTONS -->
 
         <div class="buttons">
 
+            <a href="{{ url_for('engineering') }}"
+               class="main-btn engineering-home-btn">
 
-            <!-- CAPITAL ENGINEERING -->
-
-            <a
-                href="{{ url_for('engineering') }}"
-                class="main-btn"
-            >
-
-                <strong>
-                    CAPITAL ENGINEERING CORPORATION
-                </strong>
+                <strong>CAPITAL ENGINEERING CORPORATION</strong>
 
                 <small>
                     {{ _("Manufacturers of precision, aerospace, mechanical, electronics and avionics modules") }}
                 </small>
 
-                <span>
-                    →
-                </span>
-
+                <span>→</span>
             </a>
 
+            <a href="{{ url_for('consultants') }}"
+               class="main-btn consultants-home-btn">
 
-            <!-- CAPITAL CONSULTANTS -->
-
-            <a
-                href="{{ url_for('consultants') }}"
-                class="main-btn"
-            >
-
-                <strong>
-                    CAPITAL CONSULTANTS
-                </strong>
+                <strong>CAPITAL CONSULTANTS</strong>
 
                 <small>
                     {{ _("Engineering design services, professional training, business consultancy") }}
                 </small>
 
-                <span>
-                    →
-                </span>
-
+                <span>→</span>
             </a>
 
+            <a href="{{ url_for('trading') }}"
+               class="main-btn trading-home-btn">
 
-            <!-- CAPITAL TRADING -->
-
-            <a
-                href="{{ url_for('trading') }}"
-                class="main-btn"
-            >
-
-                <strong>
-                    CAPITAL TRADING CORPORATION
-                </strong>
+                <strong>CAPITAL TRADING CORPORATION</strong>
 
                 <small>
                     {{ _("Exporters of textile, food products, minerals, software and precision engineering modules") }}
                 </small>
 
-                <span>
-                    →
-                </span>
-
+                <span>→</span>
             </a>
-
 
         </div>
 
-
-        <!-- ================= SEND REQUEST ================= -->
+        <!-- SEND REQUEST -->
 
         <div class="quote-cta">
+            <a href="{{ url_for('capital_request') }}"
+               class="quote-btn"
+               aria-label="Send a request to Capital Group">
 
-            <a
-                href="{{ url_for('capital_request') }}"
-                class="quote-btn"
-                aria-label="Send a request to Capital Group"
-            >
-
-                <strong>
-                    {{ _("SEND REQUEST") }}
-                </strong>
-
-                <span>
-                    →
-                </span>
-
+                <strong>{{ _("SEND REQUEST") }}</strong>
+                <span>→</span>
             </a>
-
         </div>
 
+        <!-- DOWNLOAD CATALOGUES -->
+
+        <div class="quote-cta">
+            <a href="{{ url_for('catalogues') }}"
+               class="quote-btn"
+               aria-label="Download product catalogues">
+
+                <strong>DOWNLOAD CATALOGUES</strong>
+                <span>→</span>
+            </a>
+        </div>
 
     </div>
-
 </section>
+
+
+<!-- ================= ABOUT CAPITAL GROUP ================= -->
+
+<section class="cg-home-intro" aria-labelledby="about-capital-title">
+
+    <div class="cg-home-intro-inner">
+
+        <div class="cg-home-intro-label">
+            ABOUT CAPITAL GROUP
+        </div>
+
+        <h2 id="about-capital-title">
+            Developing Businesses. Creating Solutions.
+        </h2>
+
+        <p class="cg-about-tagline">
+            Three Decades of Experience
+            <span>•</span>
+            Indigenous Innovation
+            <span>•</span>
+            Global Vision
+        </p>
+
+        <p class="cg-about-description">
+            Capital Group is a diversified business group committed to
+            delivering indigenous, innovative and technology-driven solutions.
+            With three decades of experience, we bring together engineering
+            expertise, professional consultancy and international trade to
+            serve evolving industrial and commercial needs.
+        </p>
+
+        <!-- ROTATING BUSINESS SHOWCASE -->
+
+        <div class="cg-business-showcase"
+             aria-label="Capital Group businesses">
+
+            <!-- 01: ENGINEERING -->
+
+            <article class="cg-business-slide active"
+                     aria-hidden="false">
+
+                <div class="cg-business-image">
+                    <img
+                        src="{{ url_for('static', filename='capital-engineering.jpg') }}"
+                        alt="Engineering components and precision manufacturing"
+                        loading="eager"
+                    >
+                </div>
+
+                <div class="cg-business-content">
+
+                    <span class="cg-business-number">
+                        01 / ENGINEERING
+                    </span>
+
+                    <h3>Capital Engineering Corporation</h3>
+
+                    <p>
+                        Advancing indigenous engineering capabilities through
+                        precision manufacturing and technical solutions
+                        across aerospace, mechanical, electronics and avionics
+                        disciplines. Our focus is on engineering expertise,
+                        dependable quality and practical innovation.
+                    </p>
+
+                    <a href="{{ url_for('engineering') }}"
+                       class="cg-business-link">
+                        Explore Engineering <span>→</span>
+                    </a>
+
+                </div>
+            </article>
+
+
+            <!-- 02: CONSULTING -->
+
+            <article class="cg-business-slide"
+                     aria-hidden="true">
+
+                <div class="cg-business-image">
+                    <img
+                        src="{{ url_for('static', filename='capital-consultants.jpg') }}"
+                        alt="Professional consultants reviewing technical designs"
+                        loading="eager"
+                    >
+                </div>
+
+                <div class="cg-business-content">
+
+                    <span class="cg-business-number">
+                        02 / CONSULTING
+                    </span>
+
+                    <h3>Capital Consultants</h3>
+
+                    <p>
+                        Delivering engineering design, professional training
+                        and business consultancy to address complex technical
+                        and organisational needs. We combine specialist
+                        knowledge with practical insight to help turn
+                        challenges into workable solutions.
+                    </p>
+
+                    <a href="{{ url_for('consultants') }}"
+                       class="cg-business-link">
+                        Explore Consulting <span>→</span>
+                    </a>
+
+                </div>
+            </article>
+
+
+            <!-- 03: TRADING -->
+
+            <article class="cg-business-slide"
+                     aria-hidden="true">
+
+                <div class="cg-business-image">
+                    <img
+                        src="{{ url_for('static', filename='capital-trading.jpg') }}"
+                        alt="International shipping and global trade logistics"
+                        loading="eager"
+                    >
+                </div>
+
+                <div class="cg-business-content">
+
+                    <span class="cg-business-number">
+                        03 / TRADING
+                    </span>
+
+                    <h3>Capital Trading Corporation</h3>
+
+                    <p>
+                        Connecting businesses with export, import and global
+                        sourcing capabilities across a diverse range of
+                        products and specialised technical requirements.
+                        We support commercial relationships through
+                        product sourcing and supply solutions.
+                    </p>
+
+                    <a href="{{ url_for('trading') }}"
+                       class="cg-business-link">
+                        Explore Trading <span>→</span>
+                    </a>
+
+                </div>
+            </article>
+
+            <!-- SHOWCASE INDICATORS -->
+
+            <div class="cg-business-indicators"
+                 aria-label="Business showcase position">
+
+                <button type="button"
+                        class="cg-business-dot active"
+                        aria-label="Show Engineering"
+                        aria-pressed="true"
+                        data-slide="0"></button>
+
+                <button type="button"
+                        class="cg-business-dot"
+                        aria-label="Show Consulting"
+                        aria-pressed="false"
+                        data-slide="1"></button>
+
+                <button type="button"
+                        class="cg-business-dot"
+                        aria-label="Show Trading"
+                        aria-pressed="false"
+                        data-slide="2"></button>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= BUSINESS SHOWCASE STYLES ================= -->
+
+<style>
+.cg-home-intro .cg-about-tagline {
+    margin: 18px 0 14px;
+    color: #12384f;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+.cg-home-intro .cg-about-tagline span {
+    display: inline;
+    padding: 0 7px;
+    color: #c69b32;
+}
+
+.cg-home-intro .cg-about-description {
+    max-width: 920px;
+    margin-bottom: 0;
+    line-height: 1.9;
+}
+
+.cg-business-showcase {
+    position: relative;
+    width: 100%;
+    margin-top: 42px;
+}
+
+.cg-business-slide {
+    display: none;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 54px);
+}
+
+.cg-business-slide.active {
+    display: grid;
+    animation: cgBusinessEnter 0.65s ease both;
+}
+
+.cg-business-image {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    background: #edf1f3;
+    border-radius: 4px;
+}
+
+.cg-business-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cg-business-content {
+    min-width: 0;
+    padding: 12px 0;
+}
+
+.cg-business-number {
+    display: block;
+    margin-bottom: 15px;
+    color: #b58b32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.cg-business-content h3 {
+    margin: 0 0 18px;
+    color: #12384f;
+    font-size: clamp(23px, 2.5vw, 34px);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.cg-business-content p {
+    margin: 0 0 24px;
+    color: #52616b;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.cg-business-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #c69b32;
+    color: #12384f;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.cg-business-link:hover {
+    color: #b58b32;
+}
+
+.cg-business-link span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.cg-business-link:hover span {
+    transform: translateX(4px);
+}
+
+.cg-business-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    margin-top: 28px;
+}
+
+.cg-business-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #cbd2d6;
+    cursor: pointer;
+}
+
+.cg-business-dot.active {
+    background: #c69b32;
+    transform: scale(1.2);
+}
+
+@keyframes cgBusinessEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 760px) {
+    .cg-business-slide,
+    .cg-business-slide.active {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .cg-business-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .cg-business-content {
+        padding: 0;
+    }
+
+    .cg-home-intro .cg-about-tagline {
+        line-height: 2;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cg-business-slide.active {
+        animation: none;
+    }
+
+    .cg-business-link,
+    .cg-business-link span {
+        transition: none;
+    }
+}
+</style>
+
+
+<!-- ================= BUSINESS SHOWCASE ROTATION ================= -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Existing hero slideshow */
+
+    const heroSlides = document.querySelectorAll(
+        ".hero-slideshow .hero-slide"
+    );
+
+    const hero = document.querySelector(".hero");
+    const heroContent = document.querySelector(".hero-content");
+
+    if (heroSlides.length && hero && heroContent) {
+
+        let heroIndex = 0;
+
+        function updateHeroTextColor() {
+            const isLight = heroSlides[heroIndex]
+                .classList.contains("light-image");
+
+            hero.classList.toggle("light-hero-text", isLight);
+        }
+
+        updateHeroTextColor();
+
+        window.setInterval(function () {
+            heroSlides[heroIndex].classList.remove("active");
+
+            heroIndex = (heroIndex + 1) % heroSlides.length;
+
+            heroSlides[heroIndex].classList.add("active");
+
+            updateHeroTextColor();
+        }, 3000);
+    }
+
+
+    /* About section business showcase */
+
+    const showcase = document.querySelector(".cg-business-showcase");
+
+    if (!showcase) return;
+
+    const businessSlides = showcase.querySelectorAll(".cg-business-slide");
+    const dots = showcase.querySelectorAll(".cg-business-dot");
+
+    if (businessSlides.length < 2) return;
+
+    let businessIndex = 0;
+
+    function showBusiness(index) {
+        businessSlides[businessIndex].classList.remove("active");
+        businessSlides[businessIndex].setAttribute("aria-hidden", "true");
+
+        if (dots[businessIndex]) {
+            dots[businessIndex].classList.remove("active");
+            dots[businessIndex].setAttribute("aria-pressed", "false");
+        }
+
+        businessIndex = index;
+
+        businessSlides[businessIndex].classList.add("active");
+        businessSlides[businessIndex].setAttribute("aria-hidden", "false");
+
+        if (dots[businessIndex]) {
+            dots[businessIndex].classList.add("active");
+            dots[businessIndex].setAttribute("aria-pressed", "true");
+        }
+    }
+
+    let rotationTimer = window.setInterval(function () {
+        showBusiness((businessIndex + 1) % businessSlides.length);
+    }, 6000);
+
+    dots.forEach(function (dot) {
+        dot.addEventListener("click", function () {
+            const selectedIndex = Number(dot.dataset.slide);
+
+            if (
+                Number.isInteger(selectedIndex) &&
+                selectedIndex >= 0 &&
+                selectedIndex < businessSlides.length
+            ) {
+                showBusiness(selectedIndex);
+
+                window.clearInterval(rotationTimer);
+
+                rotationTimer = window.setInterval(function () {
+                    showBusiness(
+                        (businessIndex + 1) % businessSlides.length
+                    );
+                }, 6000);
+            }
+        });
+    });
+
+});
+</script>
 
 {% endblock %}

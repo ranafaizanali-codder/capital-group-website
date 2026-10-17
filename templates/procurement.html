@@ -1,0 +1,705 @@
+{% extends "base.html" %}
+
+{% block title %}
+Procurement Division | Strategic Procurement Consultancy | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .procurement-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .procurement-hero {
+        position: relative;
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.93) 0%,
+                rgba(6, 29, 45, 0.76) 45%,
+                rgba(6, 29, 45, 0.30) 100%
+            ),
+            url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=80")
+            center/cover no-repeat;
+    }
+
+    .procurement-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 90px 0;
+        color: #ffffff;
+    }
+
+    .procurement-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+    }
+
+    .procurement-hero h1 {
+        max-width: 850px;
+        margin: 0 0 24px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 600;
+        letter-spacing: -1.5px;
+    }
+
+    .procurement-hero p {
+        max-width: 770px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* INTRO */
+    .procurement-intro {
+        width: min(1080px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 65px;
+        text-align: center;
+    }
+
+    .procurement-intro .section-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 15px;
+    }
+
+    .procurement-intro h2 {
+        max-width: 850px;
+        margin: 0 auto 20px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .procurement-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #536774;
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    /* FEATURE */
+    .procurement-feature {
+        width: min(1180px, 92%);
+        margin: 0 auto 85px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        background: #ffffff;
+        border: 1px solid rgba(18, 56, 79, 0.08);
+        box-shadow: 0 18px 50px rgba(6, 29, 45, 0.07);
+    }
+
+    .procurement-feature-image {
+        min-height: 450px;
+
+        background:
+            url("https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+    }
+
+    .procurement-feature-content {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .procurement-feature-content span {
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .procurement-feature-content h2 {
+        margin: 0 0 18px;
+        color: #12384f;
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .procurement-feature-content p {
+        margin: 0;
+        color: #5d6e78;
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    /* INFORMATION SECTIONS */
+    .procurement-information {
+        width: min(1180px, 92%);
+        margin: 0 auto 90px;
+    }
+
+    .procurement-information-heading {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    .procurement-information-heading h2 {
+        margin: 0 0 15px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        font-weight: 600;
+    }
+
+    .procurement-information-heading p {
+        max-width: 760px;
+        margin: 0 auto;
+        color: #667781;
+        line-height: 1.8;
+    }
+
+    .procurement-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+        margin-bottom: 65px;
+    }
+
+    .procurement-row.reverse .procurement-row-image {
+        order: 2;
+    }
+
+    .procurement-row.reverse .procurement-row-content {
+        order: 1;
+    }
+
+    .procurement-row-image {
+        min-height: 330px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 15px 40px rgba(6, 29, 45, 0.08);
+    }
+
+    .procurement-image-sourcing {
+        background-image:
+            url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .procurement-image-supplier {
+        background-image:
+            url("https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .procurement-image-quality {
+        background-image:
+            url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .procurement-row-content {
+        padding: 10px 0;
+    }
+
+    .procurement-row-content .small-label {
+        color: #c69b32;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+
+    .procurement-row-content h3 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+
+    .procurement-row-content p {
+        margin: 0;
+        color: #60717b;
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    /* TECHNICAL APPROACH */
+    .procurement-approach {
+        background: #08283b;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .procurement-approach-inner {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+    }
+
+    .procurement-approach-heading {
+        max-width: 800px;
+        margin-bottom: 48px;
+    }
+
+    .procurement-approach-heading span {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+    }
+
+    .procurement-approach-heading h2 {
+        margin: 14px 0 18px;
+        font-size: clamp(30px, 4vw, 45px);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .procurement-approach-heading p {
+        margin: 0;
+        color: rgba(255,255,255,0.74);
+        line-height: 1.8;
+    }
+
+    .procurement-principles {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .procurement-principle {
+        padding: 30px 26px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .procurement-principle h3 {
+        margin: 0 0 12px;
+        color: #ffffff;
+        font-size: 20px;
+    }
+
+    .procurement-principle p {
+        margin: 0;
+        color: rgba(255,255,255,0.7);
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    /* CTA */
+    .procurement-cta {
+        width: min(1100px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 100px;
+        text-align: center;
+    }
+
+    .procurement-cta h2 {
+        margin: 0 0 15px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        font-weight: 600;
+    }
+
+    .procurement-cta p {
+        max-width: 720px;
+        margin: 0 auto 32px;
+        color: #64747d;
+        line-height: 1.8;
+    }
+
+    .procurement-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .procurement-actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 170px;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: 0.25s ease;
+    }
+
+    .procurement-request {
+        background: #12384f;
+        color: #ffffff;
+        border: 1px solid #12384f;
+    }
+
+    .procurement-request:hover {
+        background: #08283b;
+    }
+
+    .procurement-home {
+        background: #ffffff;
+        color: #12384f;
+        border: 1px solid #c69b32;
+    }
+
+    .procurement-home:hover {
+        background: #f8f4e9;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .procurement-feature,
+        .procurement-row {
+            grid-template-columns: 1fr;
+        }
+
+        .procurement-row.reverse .procurement-row-image,
+        .procurement-row.reverse .procurement-row-content {
+            order: initial;
+        }
+
+        .procurement-principles {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .procurement-feature-image {
+            min-height: 320px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .procurement-hero {
+            min-height: 520px;
+        }
+
+        .procurement-hero-content {
+            padding: 70px 0;
+        }
+
+        .procurement-hero h1 {
+            font-size: 36px;
+        }
+
+        .procurement-hero p {
+            font-size: 15px;
+        }
+
+        .procurement-intro {
+            padding: 65px 0 45px;
+        }
+
+        .procurement-feature {
+            width: 92%;
+        }
+
+        .procurement-feature-content {
+            padding: 38px 28px;
+        }
+
+        .procurement-row {
+            gap: 25px;
+            margin-bottom: 55px;
+        }
+
+        .procurement-row-image {
+            min-height: 260px;
+        }
+
+        .procurement-principles {
+            grid-template-columns: 1fr;
+        }
+
+        .procurement-cta {
+            padding: 65px 0 75px;
+        }
+    }
+</style>
+
+<div class="procurement-page">
+
+    <!-- HERO -->
+    <section class="procurement-hero">
+
+        <div class="procurement-hero-content">
+
+            <div class="procurement-label">
+                PROCUREMENT DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s procurement consultancy services provide professional guidance in
+                strategic sourcing, supplier evaluation, purchasing planning and supply
+                chain coordination to support efficient and commercially sound business operations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="procurement-intro">
+
+        <div class="section-label">
+            STRATEGIC PROCUREMENT CONSULTANCY
+        </div>
+
+        <h2>
+            Building Efficient Procurement Systems for Sustainable Business Performance
+        </h2>
+
+        <p>
+            Professional procurement requires more than purchasing products and services.
+            It involves structured sourcing, supplier assessment, commercial evaluation,
+            quality requirements and coordinated supply planning. A strategic procurement
+            approach helps organizations improve purchasing decisions while maintaining
+            quality, reliability and operational continuity.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURE -->
+    <section class="procurement-feature">
+
+        <div class="procurement-feature-image"></div>
+
+        <div class="procurement-feature-content">
+
+            <span>STRATEGIC SOURCING & SUPPLY MANAGEMENT</span>
+
+            <h2>
+                Procurement Aligned with Business Requirements
+            </h2>
+
+            <p>
+                Our procurement approach connects organizational requirements with suitable
+                suppliers, commercial conditions and supply capabilities. The process considers
+                specifications, cost, quality, delivery requirements and supplier performance
+                to establish a reliable procurement framework.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+    <section class="procurement-information">
+
+        <div class="procurement-information-heading">
+
+            <h2>
+                Professional Procurement Framework
+            </h2>
+
+            <p>
+                A structured procurement process supports better supplier decisions,
+                stronger purchasing controls and improved supply chain performance.
+            </p>
+
+        </div>
+
+
+        <!-- SECTION 1 -->
+        <div class="procurement-row">
+
+            <div class="procurement-row-image procurement-image-sourcing"></div>
+
+            <div class="procurement-row-content">
+
+                <div class="small-label">
+                    STRATEGIC SOURCING
+                </div>
+
+                <h3>
+                    Requirement Analysis and Sourcing Strategy
+                </h3>
+
+                <p>
+                    Procurement begins with a clear understanding of technical,
+                    commercial and operational requirements. Appropriate sourcing
+                    strategies can then be developed around specifications, quantity,
+                    quality standards, delivery requirements and commercial objectives.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 2 -->
+        <div class="procurement-row reverse">
+
+            <div class="procurement-row-image procurement-image-supplier"></div>
+
+            <div class="procurement-row-content">
+
+                <div class="small-label">
+                    SUPPLIER EVALUATION
+                </div>
+
+                <h3>
+                    Supplier Identification and Qualification
+                </h3>
+
+                <p>
+                    Supplier selection should consider capability, technical competence,
+                    quality systems, production capacity, delivery performance and
+                    commercial reliability. Structured supplier evaluation helps
+                    organizations establish dependable procurement relationships.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 3 -->
+        <div class="procurement-row">
+
+            <div class="procurement-row-image procurement-image-quality"></div>
+
+            <div class="procurement-row-content">
+
+                <div class="small-label">
+                    QUALITY & COMMERCIAL CONTROL
+                </div>
+
+                <h3>
+                    Cost, Quality and Delivery Management
+                </h3>
+
+                <p>
+                    Effective procurement balances cost with quality and delivery
+                    performance. Procurement controls can incorporate technical
+                    specifications, supplier documentation, inspection requirements,
+                    delivery schedules and commercial conditions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TECHNICAL APPROACH -->
+    <section class="procurement-approach">
+
+        <div class="procurement-approach-inner">
+
+            <div class="procurement-approach-heading">
+
+                <span>OUR PROCUREMENT APPROACH</span>
+
+                <h2>
+                    Procurement Decisions Based on Capability, Value and Reliability
+                </h2>
+
+                <p>
+                    Our methodology focuses on creating procurement systems that support
+                    business continuity, technical requirements and long-term commercial value.
+                </p>
+
+            </div>
+
+
+            <div class="procurement-principles">
+
+                <div class="procurement-principle">
+
+                    <h3>
+                        Requirement
+                    </h3>
+
+                    <p>
+                        Define technical, operational and commercial requirements before
+                        initiating sourcing and supplier engagement.
+                    </p>
+
+                </div>
+
+
+                <div class="procurement-principle">
+
+                    <h3>
+                        Evaluation
+                    </h3>
+
+                    <p>
+                        Assess suppliers using relevant technical capability, quality,
+                        cost, capacity and delivery-performance criteria.
+                    </p>
+
+                </div>
+
+
+                <div class="procurement-principle">
+
+                    <h3>
+                        Performance
+                    </h3>
+
+                    <p>
+                        Monitor procurement outcomes and supplier performance to support
+                        continuous improvement and reliable supply operations.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="procurement-cta">
+
+        <h2>
+            Strengthen Your Procurement Strategy
+        </h2>
+
+        <p>
+            Discuss your sourcing, supplier evaluation or procurement requirements
+            with Capital Consultants and develop a structured approach aligned
+            with your business objectives.
+        </p>
+
+        <div class="procurement-actions">
+
+            <a href="{{ url_for('capital_request') }}" class="procurement-request">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('home') }}" class="procurement-home">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

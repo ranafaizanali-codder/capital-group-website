@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Infrastructure Engineering | Capital Group</title>
+
+    <meta name="description"
+          content="Explore mechanical, electronics and avionics infrastructure capabilities at Capital Engineering Corporation.">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .infra-page {
+            --infra-navy: #08283b;
+            --infra-deep: #061d2d;
+            --infra-gold: #c69b32;
+            --infra-text: #12384f;
+            --infra-muted: #627483;
+            background: #f5f7f8;
+            color: var(--infra-text);
+            min-height: 75vh;
+        }
+
+        .infra-hero {
+            background:
+                radial-gradient(
+                    ellipse at 85% 20%,
+                    rgba(198, 155, 50, 0.16),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    125deg,
+                    var(--infra-deep),
+                    var(--infra-navy) 68%,
+                    #123e54
+                );
+            color: #fff;
+            padding: 86px 7% 78px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infra-hero::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -100px;
+            bottom: -150px;
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 35px rgba(255,255,255,.025),
+                0 0 0 70px rgba(255,255,255,.02);
+        }
+
+        .infra-hero-inner,
+        .infra-content {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .infra-eyebrow {
+            color: #e2bc63;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 19px;
+        }
+
+        .infra-hero h1 {
+            max-width: 800px;
+            margin: 0 0 20px;
+            color: #fff;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            font-weight: 600;
+        }
+
+        .infra-hero p {
+            max-width: 700px;
+            color: #d5e1e8;
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        .infra-content {
+            padding: 66px 24px 76px;
+        }
+
+        .infra-section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .infra-section-heading h2 {
+            font-size: clamp(25px, 3vw, 34px);
+            line-height: 1.25;
+            margin: 0 0 10px;
+            color: var(--infra-navy);
+            font-weight: 600;
+        }
+
+        .infra-section-heading p {
+            max-width: 650px;
+            color: var(--infra-muted);
+            line-height: 1.8;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .infra-section-index {
+            color: var(--infra-gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+
+        .infra-services {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .infra-service {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 235px;
+            padding: 31px 30px 27px;
+            text-decoration: none;
+            color: var(--infra-text);
+            background: #fff;
+            border: 1px solid #e0e6e9;
+            border-top: 3px solid var(--infra-gold);
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .infra-service:hover {
+            transform: translateY(-4px);
+            border-color: #c9b276;
+            box-shadow: 0 14px 32px rgba(8, 40, 59, .09);
+        }
+
+        .infra-service:focus-visible {
+            outline: 3px solid var(--infra-gold);
+            outline-offset: 4px;
+        }
+
+        .infra-service-number {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--infra-gold);
+            margin-bottom: 23px;
+        }
+
+        .infra-service h3 {
+            font-size: 23px;
+            line-height: 1.35;
+            font-weight: 600;
+            color: var(--infra-navy);
+            margin: 0 0 12px;
+        }
+
+        .infra-service p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--infra-muted);
+            margin: 0 0 25px;
+            max-width: 470px;
+        }
+
+        .infra-service-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid #edf0f2;
+            color: var(--infra-navy);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .infra-service-arrow {
+            color: var(--infra-gold);
+            font-size: 22px;
+            transition: transform .2s ease;
+        }
+
+        .infra-service:hover .infra-service-arrow {
+            transform: translateX(5px);
+        }
+
+        .infra-detail {
+            max-width: 900px;
+            padding: 38px;
+            background: #fff;
+            border: 1px solid #e0e6e9;
+            border-left: 4px solid var(--infra-gold);
+        }
+
+        .infra-detail h2 {
+            color: var(--infra-navy);
+            font-size: 27px;
+            margin: 0 0 15px;
+        }
+
+        .infra-detail p {
+            color: var(--infra-muted);
+            line-height: 1.9;
+            margin: 0 0 16px;
+        }
+
+        .infra-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 27px;
+            color: var(--infra-navy);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 1px solid var(--infra-gold);
+            padding-bottom: 7px;
+        }
+
+        .infra-back:hover {
+            color: #9b741d;
+        }
+
+        .infra-contact {
+            background: #eaf0f3;
+            padding: 40px 24px;
+            border-top: 1px solid #dce4e8;
+        }
+
+        .infra-contact-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .infra-contact h2 {
+            font-size: 23px;
+            color: var(--infra-navy);
+            margin: 0 0 8px;
+        }
+
+        .infra-contact p {
+            color: var(--infra-muted);
+            line-height: 1.7;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .infra-contact-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .infra-cta {
+            display: inline-block;
+            text-decoration: none;
+            padding: 13px 21px;
+            font-size: 13px;
+            font-weight: 700;
+            border: 1px solid var(--infra-navy);
+            color: #fff;
+            background: var(--infra-navy);
+            transition: background .2s ease;
+        }
+
+        .infra-cta:hover {
+            background: #164760;
+        }
+
+        .infra-cta-secondary {
+            background: transparent;
+            color: var(--infra-navy);
+        }
+
+        .infra-cta-secondary:hover {
+            background: #dce6eb;
+        }
+
+        @media (max-width: 700px) {
+            .infra-hero {
+                padding: 62px 24px;
+            }
+
+            .infra-content {
+                padding: 45px 20px 55px;
+            }
+
+            .infra-section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .infra-services {
+                grid-template-columns: 1fr;
+            }
+
+            .infra-service {
+                min-height: 215px;
+                padding: 25px 23px;
+            }
+
+            .infra-detail {
+                padding: 26px 22px;
+            }
+
+            .infra-contact-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .infra-service,
+            .infra-service-arrow {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+{% set mode = page_mode|default('overview') %}
+
+<main class="infra-page">
+
+    <section class="infra-hero">
+        <div class="infra-hero-inner">
+
+            {% if mode == 'overview' %}
+
+                <div class="infra-eyebrow">
+                    Capital Engineering Corporation
+                </div>
+
+                <h1>Infrastructure Engineering</h1>
+
+                <p>
+                    Integrated engineering capabilities supporting
+                    specialized mechanical systems, electronics and
+                    avionics infrastructure. Explore our service
+                    divisions to learn more about each capability.
+                </p>
+
+            {% elif mode == 'mechanical' %}
+
+                <div class="infra-eyebrow">
+                    Infrastructure Division / 01
+                </div>
+
+                <h1>Mechanical Infrastructure</h1>
+
+                <p>
+                    Engineering infrastructure for mechanical systems,
+                    equipment integration and specialized industrial
+                    applications.
+                </p>
+
+            {% else %}
+
+                <div class="infra-eyebrow">
+                    Infrastructure Division / 02
+                </div>
+
+                <h1>Electronics &amp; Avionics Infrastructure</h1>
+
+                <p>
+                    Infrastructure solutions supporting electronic
+                    systems, avionics integration and associated
+                    engineering environments.
+                </p>
+
+            {% endif %}
+
+        </div>
+    </section>
+
+    <section class="infra-content">
+
+        {% if mode == 'overview' %}
+
+            <div class="infra-section-heading">
+                <div>
+                    <h2>Infrastructure Capabilities</h2>
+                    <p>
+                        Select a division to explore its dedicated
+                        engineering page. Additional divisions can
+                        be introduced as the portfolio grows.
+                    </p>
+                </div>
+
+                <div class="infra-section-index">OUR DIVISIONS</div>
+            </div>
+
+            <div class="infra-services">
+
+                <a class="infra-service"
+                   href="{{ url_for('mechanical_infrastructure') }}">
+
+                    <span class="infra-service-number">01 / MECHANICAL</span>
+
+                    <h3>Mechanical Infrastructure</h3>
+
+                    <p>
+                        Mechanical systems, equipment infrastructure
+                        and specialized engineering applications.
+                    </p>
+
+                    <span class="infra-service-bottom">
+                        Explore Division
+                        <span class="infra-service-arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a class="infra-service"
+                   href="{{ url_for('electronics_avionics_infrastructure') }}">
+
+                    <span class="infra-service-number">02 / ELECTRONICS</span>
+
+                    <h3>Electronics / Avionics Infrastructure</h3>
+
+                    <p>
+                        Electronic systems, avionics integration and
+                        supporting technical infrastructure.
+                    </p>
+
+                    <span class="infra-service-bottom">
+                        Explore Division
+                        <span class="infra-service-arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+            </div>
+
+        {% elif mode == 'mechanical' %}
+
+            <div class="infra-detail">
+                <h2>Mechanical Engineering Infrastructure</h2>
+
+                <p>
+                    This division is intended for mechanical
+                    infrastructure services, equipment support,
+                    system integration and specialized project
+                    requirements.
+                </p>
+
+                <p>
+                    Detailed capabilities and project-specific
+                    information can be added here as your service
+                    portfolio develops.
+                </p>
+
+                <a class="infra-back"
+                   href="{{ url_for('infrastructure') }}">
+                    ← Back to Infrastructure
+                </a>
+            </div>
+
+        {% else %}
+
+            <div class="infra-detail">
+                <h2>Electronics &amp; Avionics Systems</h2>
+
+                <p>
+                    This division is intended for electronics
+                    infrastructure, avionics-related integration
+                    and supporting technical systems.
+                </p>
+
+                <p>
+                    Detailed capabilities, applications and
+                    engineering services can be added here as
+                    they are finalized.
+                </p>
+
+                <a class="infra-back"
+                   href="{{ url_for('infrastructure') }}">
+                    ← Back to Infrastructure
+                </a>
+            </div>
+
+        {% endif %}
+
+    </section>
+
+    <section class="infra-contact">
+        <div class="infra-contact-inner">
+
+            <div>
+                <h2>Discuss Your Engineering Requirements</h2>
+                <p>
+                    Contact Capital Engineering Corporation
+                    to discuss your project requirements.
+                </p>
+            </div>
+
+            <div class="infra-contact-links">
+                <a class="infra-cta"
+                   href="{{ url_for('engineering_quote') }}">
+                    Send Request
+                </a>
+
+                <a class="infra-cta infra-cta-secondary"
+                   href="{{ url_for('home') }}">
+                    Go Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

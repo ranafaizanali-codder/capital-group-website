@@ -1,0 +1,407 @@
+
+{% extends "base.html" %}
+
+{% block title %}Casting Solutions | Capital Engineering Corporation{% endblock %}
+
+{% block content %}
+
+<style>
+.casting-page {
+    background: #f7f7f5;
+    color: #28343a;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 65px;
+}
+
+.casting-hero {
+    background: #fff;
+    padding: 76px 8% 58px;
+    border-bottom: 1px solid #e4e0d8;
+}
+
+.casting-eyebrow {
+    color: #a78232;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.casting-hero h1 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 500;
+    line-height: 1.15;
+    max-width: 850px;
+    margin: 0 0 22px;
+}
+
+.casting-hero p {
+    color: #5e686d;
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 790px;
+    margin: 0;
+}
+
+.casting-content {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 58px 28px 0;
+}
+
+.casting-section {
+    margin-bottom: 56px;
+}
+
+.casting-heading {
+    border-bottom: 1px solid #dcd7cd;
+    padding-bottom: 20px;
+    margin-bottom: 26px;
+}
+
+.casting-heading span {
+    display: block;
+    color: #a78232;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 12px;
+}
+
+.casting-heading h2 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 3.5vw, 38px);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.casting-intro {
+    color: #626b70;
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 900px;
+    margin: 0 0 26px;
+}
+
+.casting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.casting-card {
+    background: #fff;
+    border: 1px solid #e1ddd5;
+    border-left: 3px solid #b18a3b;
+    padding: 25px;
+}
+
+.casting-card h3 {
+    color: #263842;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 12px;
+}
+
+.casting-card p {
+    color: #626b70;
+    font-size: 14px;
+    line-height: 1.85;
+    margin: 0 0 13px;
+}
+
+.casting-card ul {
+    color: #505c62;
+    font-size: 14px;
+    line-height: 1.9;
+    padding-left: 19px;
+    margin: 0;
+}
+
+.casting-applications {
+    background: #eeece6;
+    border: 1px solid #e0dcd3;
+    padding: 34px;
+}
+
+.casting-applications h2 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0 0 15px;
+}
+
+.casting-applications p {
+    color: #596469;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.casting-cta {
+    max-width: 1124px;
+    margin: 58px auto 0;
+    padding: 42px 32px;
+    background: #fff;
+    border: 1px solid #e2dfd7;
+    border-top: 3px solid #b18a3b;
+    text-align: center;
+}
+
+.casting-cta h2 {
+    color: #172b35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 500;
+    margin: 0 0 16px;
+}
+
+.casting-cta > p {
+    color: #626a6e;
+    font-size: 15px;
+    line-height: 1.85;
+    max-width: 760px;
+    margin: 0 auto 26px;
+}
+
+.casting-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.casting-quote-button,
+.casting-home-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    padding: 13px 23px;
+    border: 1px solid #263b44;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+}
+
+.casting-quote-button {
+    background: #263b44;
+    color: #fff;
+}
+
+.casting-home-button {
+    background: transparent;
+    color: #263b44;
+}
+
+.casting-quote-button:hover {
+    background: #b18a3b;
+    border-color: #b18a3b;
+    color: #fff;
+}
+
+.casting-home-button:hover {
+    background: #263b44;
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .casting-hero {
+        padding: 52px 24px 42px;
+    }
+
+    .casting-content {
+        padding: 42px 20px 0;
+    }
+
+    .casting-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .casting-applications {
+        padding: 25px 22px;
+    }
+
+    .casting-cta {
+        margin: 42px 20px 0;
+        padding: 32px 20px;
+    }
+
+    .casting-buttons {
+        flex-direction: column;
+    }
+
+    .casting-quote-button,
+    .casting-home-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+<div class="casting-page">
+
+    <!-- HERO -->
+
+    <section class="casting-hero">
+        <div class="casting-eyebrow">
+            Capital Engineering Corporation
+        </div>
+
+        <h1>Precision Metal Casting Solutions</h1>
+
+        <p>
+            Metal casting enables the production of components with
+            complex geometries, varied dimensions, and application-
+            specific material requirements. Selecting the appropriate
+            casting process depends on component design, alloy,
+            production volume, and required quality.
+        </p>
+    </section>
+
+    <main class="casting-content">
+
+        <!-- CASTING PROCESSES -->
+
+        <section class="casting-section">
+
+            <div class="casting-heading">
+                <span>01 / CASTING TECHNOLOGIES</span>
+                <h2>Our Casting Processes</h2>
+            </div>
+
+            <p class="casting-intro">
+                Different casting methods provide different advantages
+                in tooling, geometry, dimensional capability, and
+                production scale. The following processes cover a
+                broad range of metal component requirements.
+            </p>
+
+            <div class="casting-grid">
+
+                <article class="casting-card">
+                    <h3>Sand Casting</h3>
+                    <p>
+                        Sand casting forms metal components by pouring
+                        molten metal into a sand-based mould. It is
+                        adaptable to a wide range of component sizes
+                        and designs.
+                    </p>
+                    <ul>
+                        <li>Steel components</li>
+                        <li>Aluminium components</li>
+                        <li>Complex shapes and varied component sizes</li>
+                    </ul>
+                </article>
+
+                <article class="casting-card">
+                    <h3>Pressure Die Casting</h3>
+                    <p>
+                        Pressure die casting injects molten metal into
+                        a reusable metal die under pressure. It is
+                        commonly used for repeatable production of
+                        accurately shaped components.
+                    </p>
+                    <ul>
+                        <li>Suitable aluminium and other compatible alloys</li>
+                        <li>Repeatable component geometry</li>
+                        <li>High-volume production applications</li>
+                    </ul>
+                </article>
+
+                <article class="casting-card">
+                    <h3>Centrifugal Casting</h3>
+                    <p>
+                        Centrifugal casting uses rotation to distribute
+                        molten metal inside a mould. The process is
+                        particularly suited to many cylindrical and
+                        rotationally symmetrical components.
+                    </p>
+                    <ul>
+                        <li>Selected cylindrical components</li>
+                        <li>Rings, sleeves, and tubes where suitable</li>
+                        <li>Process-dependent material and size options</li>
+                    </ul>
+                </article>
+
+                <article class="casting-card">
+                    <h3>Investment Casting</h3>
+                    <p>
+                        Investment casting uses a precision wax pattern
+                        and ceramic shell mould to produce intricate
+                        metal components with detailed features.
+                    </p>
+                    <ul>
+                        <li>Complex component geometries</li>
+                        <li>Fine details and intricate features</li>
+                        <li>Suitable alloys based on application needs</li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ENGINEERING APPLICATIONS -->
+
+        <section class="casting-applications">
+            <h2>Engineering Applications</h2>
+
+            <p>
+                Cast components are used across industrial machinery,
+                mechanical assemblies, equipment housings, structural
+                parts, and specialized engineering systems. Process
+                selection should account for material specification,
+                dimensional tolerances, surface finish, operating
+                conditions, and inspection requirements.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- SEND REQUIREMENTS / HOME -->
+
+    <section class="casting-cta">
+
+        <h2>Have a Casting Requirement?</h2>
+
+        <p>
+            Share your component drawings, material specifications,
+            quantity requirements, or application details with
+            Capital Engineering Corporation so your casting needs
+            can be reviewed.
+        </p>
+
+        <div class="casting-buttons">
+
+            <a
+                href="{{ url_for('engineering_quote') }}"
+                class="casting-quote-button"
+            >
+                SEND REQUIREMENTS HERE
+                <span aria-hidden="true">&nbsp;→</span>
+            </a>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="casting-home-button"
+            >
+                GO BACK HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

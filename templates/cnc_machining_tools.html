@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CNC & Machining Tools | Capital Engineering Corporation</title>
+
+    <meta name="description"
+          content="Explore CNC machining and precision engineering capabilities at Capital Engineering Corporation, including CNC turning, milling, drilling, grinding, EDM, wire cutting, tube bending and specialized machining.">
+
+    <meta name="keywords"
+          content="CNC machining, precision engineering, CNC turning, CNC milling, 5-axis machining, jig boring, CNC grinding, wire EDM, tube bending, Capital Engineering Corporation">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        :root {
+            --navy: #061d2d;
+            --navy-light: #08283b;
+            --gold: #c69b32;
+            --gold-light: #d2a43b;
+            --text: #12384f;
+            --muted: #617482;
+            --background: #f5f7f8;
+            --white: #ffffff;
+            --border: #dce4e9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .cnc-page {
+            overflow: hidden;
+        }
+
+        .cnc-container {
+            width: min(1160px, 92%);
+            margin: 0 auto;
+        }
+
+        /* Hero */
+
+        .cnc-hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 500px;
+            padding: 85px 0;
+            color: var(--white);
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 29, 45, 0.97) 0%,
+                    rgba(6, 29, 45, 0.88) 52%,
+                    rgba(6, 29, 45, 0.55) 100%
+                ),
+                url("https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=2000&q=85")
+                center / cover no-repeat;
+        }
+
+        .cnc-hero-content {
+            max-width: 780px;
+        }
+
+        .cnc-eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: var(--gold-light);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .cnc-hero h1 {
+            margin: 0 0 22px;
+            color: var(--white);
+            font-size: clamp(36px, 5vw, 61px);
+            line-height: 1.12;
+            letter-spacing: -1.4px;
+        }
+
+        .cnc-hero p {
+            max-width: 700px;
+            margin: 0 0 30px;
+            color: #e0e9ef;
+            font-size: 17px;
+        }
+
+        .cnc-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .cnc-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 47px;
+            padding: 12px 24px;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .cnc-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .cnc-button-outline {
+            border-color: rgba(255, 255, 255, 0.55);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .cnc-button-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Introduction */
+
+        .cnc-intro {
+            padding: 75px 0 55px;
+            background: var(--white);
+        }
+
+        .cnc-intro-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .cnc-section-label {
+            display: block;
+            margin-bottom: 12px;
+            color: #98731c;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cnc-section-title {
+            margin: 0 0 18px;
+            color: var(--navy);
+            font-size: clamp(28px, 3.5vw, 39px);
+            line-height: 1.22;
+        }
+
+        .cnc-intro p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .cnc-highlight {
+            padding: 28px;
+            border-left: 4px solid var(--gold);
+            background: #f2f5f7;
+        }
+
+        .cnc-highlight h3 {
+            margin: 0 0 12px;
+            color: var(--navy);
+            font-size: 20px;
+        }
+
+        .cnc-highlight p {
+            margin: 0;
+        }
+
+        /* Capability section */
+
+        .cnc-capabilities {
+            padding: 75px 0 85px;
+        }
+
+        .cnc-section-heading {
+            max-width: 760px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .cnc-section-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .cnc-capability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .cnc-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 27px 24px;
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--gold);
+            border-radius: 5px;
+            background: var(--white);
+            box-shadow: 0 5px 18px rgba(6, 29, 45, 0.035);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cnc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(6, 29, 45, 0.09);
+        }
+
+        .cnc-card-number {
+            margin-bottom: 14px;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .cnc-card h3 {
+            margin: 0 0 12px;
+            color: var(--navy);
+            font-size: 19px;
+            line-height: 1.35;
+        }
+
+        .cnc-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .cnc-card .cnc-spec {
+            display: block;
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid #edf0f2;
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.7;
+        }
+
+        /* Precision statement */
+
+        .cnc-precision {
+            padding: 65px 0;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .cnc-precision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .cnc-precision h2 {
+            margin: 0;
+            color: var(--white);
+            font-size: clamp(26px, 3.5vw, 36px);
+            line-height: 1.25;
+        }
+
+        .cnc-precision p {
+            margin: 0;
+            color: #d2dfe7;
+            font-size: 15px;
+        }
+
+        /* Request section */
+
+        .cnc-contact {
+            padding: 75px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cnc-contact-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .cnc-contact p {
+            margin: 0 auto 22px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .cnc-contact .cnc-actions {
+            justify-content: center;
+        }
+
+        .cnc-email {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .cnc-email:hover {
+            color: #98731c;
+        }
+
+        /* Footer */
+
+        .cnc-footer {
+            padding: 24px 0;
+            background: #041521;
+            color: #bdcbd4;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .cnc-footer p {
+            margin: 0;
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 900px) {
+            .cnc-capability-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .cnc-intro-grid,
+            .cnc-precision-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cnc-hero {
+                min-height: 440px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .cnc-hero {
+                min-height: auto;
+                padding: 75px 0;
+            }
+
+            .cnc-hero p {
+                font-size: 15px;
+            }
+
+            .cnc-capability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cnc-intro,
+            .cnc-capabilities,
+            .cnc-contact {
+                padding: 55px 0;
+            }
+
+            .cnc-card {
+                padding: 23px 20px;
+            }
+
+            .cnc-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .cnc-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="cnc-page">
+
+    <!-- Hero -->
+    <header class="cnc-hero">
+        <div class="cnc-container">
+            <div class="cnc-hero-content">
+
+                <span class="cnc-eyebrow">
+                    Capital Engineering Corporation
+                </span>
+
+                <h1>CNC &amp; Machining Tools</h1>
+
+                <p>
+                    Precision machining capabilities for complex components,
+                    engineered parts and demanding industrial applications.
+                    Explore our range of turning, milling, drilling, grinding,
+                    cutting and specialized machining processes.
+                </p>
+
+                <div class="cnc-actions">
+                    <a class="cnc-button"
+                       href="{{ url_for('capital_request') }}">
+                        Send Request
+                    </a>
+
+                    <a class="cnc-button cnc-button-outline"
+                       href="{{ url_for('home') }}">
+                        Go Home
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="cnc-intro">
+        <div class="cnc-container cnc-intro-grid">
+
+            <div>
+                <span class="cnc-section-label">
+                    Machining Capabilities
+                </span>
+
+                <h2 class="cnc-section-title">
+                    Engineering Precision Across Multiple Processes
+                </h2>
+
+                <p>
+                    Capital Engineering Corporation's machining capability
+                    portfolio covers conventional and CNC-based processes
+                    for a wide range of component sizes and manufacturing needs.
+                </p>
+
+                <p>
+                    From large-format milling and turning to precision drilling,
+                    grinding and specialized material removal, each process can
+                    be evaluated against the component drawing, material,
+                    tolerances and production requirements.
+                </p>
+            </div>
+
+            <aside class="cnc-highlight">
+                <h3>Capability-Led Manufacturing</h3>
+
+                <p>
+                    Share your engineering drawing, material specifications,
+                    dimensions and required tolerances so that the appropriate
+                    machining process can be assessed for your application.
+                </p>
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- All 18 capabilities -->
+    <section class="cnc-capabilities" id="capabilities">
+        <div class="cnc-container">
+
+            <div class="cnc-section-heading">
+                <span class="cnc-section-label">
+                    Our Capabilities
+                </span>
+
+                <h2 class="cnc-section-title">
+                    CNC Machines &amp; Specialized Machining
+                </h2>
+
+                <p>
+                    An overview of the machining processes and facilities
+                    provided for engineering and industrial applications.
+                </p>
+            </div>
+
+            <div class="cnc-capability-grid">
+
+                <!-- 01 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">01 / TURNING</span>
+                    <h3>CNC Lathe Machines</h3>
+                    <p>
+                        CNC turning for cylindrical components, shafts,
+                        rings and other rotationally machined parts across
+                        a range of chuck sizes and bed lengths.
+                    </p>
+                    <span class="cnc-spec">
+                        Stated range: 1-inch to 1-meter diameter;
+                        lengths from 6 inches to 20 feet.
+                    </span>
+                </article>
+
+                <!-- 02 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">02 / MILLING</span>
+                    <h3>CNC High-Speed Milling</h3>
+                    <p>
+                        High-speed milling for detailed features, precision
+                        surfaces and components requiring efficient
+                        material removal.
+                    </p>
+                </article>
+
+                <!-- 03 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">03 / MULTI-AXIS</span>
+                    <h3>3-Axis to 5-Axis CNC Milling</h3>
+                    <p>
+                        Multi-axis milling and machining centers for complex
+                        geometries, multiple-face machining and components
+                        with demanding dimensional requirements.
+                    </p>
+                    <span class="cnc-spec">
+                        Stated job size: 6 inches to 1 meter.
+                    </span>
+                </article>
+
+                <!-- 04 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">04 / LARGE FORMAT</span>
+                    <h3>Moving-Column CNC Milling</h3>
+                    <p>
+                        Large-format milling for extended components and
+                        machining applications requiring a long working bed.
+                    </p>
+                    <span class="cnc-spec">
+                        Stated bed length: 14 meters.
+                    </span>
+                </article>
+
+                <!-- 05 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">05 / ROLLING</span>
+                    <h3>CNC Rolling</h3>
+                    <p>
+                        Rolling capability for forming material to the
+                        required profile, radius or curvature, subject
+                        to material and job specifications.
+                    </p>
+                    <span class="cnc-spec">
+                        Stated material thickness range: 1 mm to 40 mm.
+                    </span>
+                </article>
+
+                <!-- 06 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">06 / DRILLING</span>
+                    <h3>CNC Precision Drilling</h3>
+                    <p>
+                        Controlled drilling for accurately positioned holes
+                        and repeatable hole-making operations in engineering
+                        components.
+                    </p>
+                    <span class="cnc-spec">
+                        Stated drilling range: 1 mm to 100 mm.
+                    </span>
+                </article>
+
+                <!-- 07 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">07 / MULTI-HEAD</span>
+                    <h3>CNC Multi-Head Drills</h3>
+                    <p>
+                        Multi-head drilling capability for coordinated
+                        hole-making operations where component layout
+                        and production requirements are suitable.
+                    </p>
+                </article>
+
+                <!-- 08 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">08 / BORE MACHINING</span>
+                    <h3>CNC Jig Boring</h3>
+                    <p>
+                        Precision boring for accurately located holes,
+                        bore finishing and components requiring close
+                        positional control.
+                    </p>
+                </article>
+
+                <!-- 09 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">09 / GRINDING</span>
+                    <h3>CNC Multi-Grinding</h3>
+                    <p>
+                        Grinding processes for surface finish, dimensional
+                        control and component finishing across suitable
+                        geometries.
+                    </p>
+                    <span class="cnc-spec">
+                        Processes include surface, cylindrical and
+                        centerless grinding.
+                    </span>
+                </article>
+
+                <!-- 10 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">10 / SHEET PROCESSING</span>
+                    <h3>CNC Nibbling &amp; Punching</h3>
+                    <p>
+                        Sheet-metal nibbling and punching for profiles,
+                        openings and repeated features according to
+                        component drawings.
+                    </p>
+                </article>
+
+                <!-- 11 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">11 / TUBE FORMING</span>
+                    <h3>CNC Tube Bending</h3>
+                    <p>
+                        Controlled tube forming for specified bends and
+                        component shapes, subject to tube material,
+                        wall thickness and bend-radius requirements.
+                    </p>
+                    <span class="cnc-spec">
+                        Stated tube size range: 3 mm to 10 mm.
+                    </span>
+                </article>
+
+                <!-- 12 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">12 / WIRE CUTTING</span>
+                    <h3>CNC Wire-Cut Machines</h3>
+                    <p>
+                        Wire-cut machining for intricate profiles,
+                        precision contours and features that are difficult
+                        to produce with conventional cutting methods.
+                    </p>
+                    <span class="cnc-spec">
+                        Workpiece capacity depends on machine and setup.
+                    </span>
+                </article>
+
+                <!-- 13 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">13 / EDM</span>
+                    <h3>Electrical Discharge Machining (EDM)</h3>
+                    <p>
+                        Electrical discharge machining for suitable
+                        electrically conductive materials and detailed
+                        features requiring controlled material removal.
+                    </p>
+                </article>
+
+                <!-- 14 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">14 / PLANING</span>
+                    <h3>CNC Planer</h3>
+                    <p>
+                        Planing operations for machining broad surfaces
+                        and selected large components, depending on
+                        workpiece geometry and machine capacity.
+                    </p>
+                </article>
+
+                <!-- 15 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">15 / SHAPING</span>
+                    <h3>CNC Shaper</h3>
+                    <p>
+                        Shaping operations for suitable flat surfaces,
+                        slots and component features based on the
+                        required geometry.
+                    </p>
+                </article>
+
+                <!-- 16 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">16 / GEAR MACHINING</span>
+                    <h3>CNC Hobbing Machines</h3>
+                    <p>
+                        Gear hobbing for manufacturing compatible gear
+                        teeth and related components according to
+                        specified gear geometry.
+                    </p>
+                </article>
+
+                <!-- 17 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">17 / FINISHING</span>
+                    <h3>CNC Honing</h3>
+                    <p>
+                        Honing for controlled internal surface finishing
+                        and bore geometry where the component and
+                        tolerance requirements are suitable.
+                    </p>
+                </article>
+
+                <!-- 18 -->
+                <article class="cnc-card">
+                    <span class="cnc-card-number">18 / MATERIAL REMOVAL</span>
+                    <h3>Gouging</h3>
+                    <p>
+                        Gouging capability for designated material-removal
+                        and component preparation applications, based
+                        on the required process and material.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Precision statement -->
+    <section class="cnc-precision">
+        <div class="cnc-container cnc-precision-grid">
+
+            <div>
+                <span class="cnc-section-label">
+                    Precision &amp; Quality
+                </span>
+
+                <h2>
+                    Machining to Defined Engineering Requirements
+                </h2>
+            </div>
+
+            <p>
+                Micron-level precision may be achievable for suitable
+                operations and components, subject to machine capability,
+                material, setup, measurement method and the specified
+                tolerances. Final feasibility should be confirmed against
+                the individual engineering drawing and job requirements.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="cnc-contact">
+        <div class="cnc-container cnc-contact-inner">
+
+            <span class="cnc-section-label">
+                Discuss Your Project
+            </span>
+
+            <h2 class="cnc-section-title">
+                Have a Component to Manufacture?
+            </h2>
+
+            <p>
+                Send your drawing, dimensions, material details and
+                tolerance requirements for an initial review of the
+                appropriate machining process.
+            </p>
+
+            <div class="cnc-actions">
+                <a class="cnc-button"
+                   href="{{ url_for('capital_request') }}">
+                    Send Request
+                </a>
+
+                <a class="cnc-button"
+                   href="{{ url_for('home') }}">
+                    Go Home
+                </a>
+
+                <a class="cnc-button cnc-button-outline"
+                   style="background: transparent; color: var(--navy); border-color: var(--navy);"
+                   href="{{ url_for('engineering') }}">
+                    Engineering Division
+                </a>
+            </div>
+
+            <a class="cnc-email" href="mailto:ceo@capitalgroup.pk">
+                ceo@capitalgroup.pk
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cnc-footer">
+        <div class="cnc-container">
+            <p>
+                &copy; {{ current_year|default(2026) }}
+                Capital Engineering Corporation. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+
+{% block title %}Download Catalogues | Capital Group{% endblock %}
+
+{% block content %}
+
+<section style="background:#f5f7f8; color:#12384f; padding:70px 5%; min-height:70vh;">
+    <div style="max-width:1100px; margin:auto;">
+
+        <h1 style="font-size:36px; margin-bottom:12px;">
+            Download Catalogues
+        </h1>
+
+        <p style="color:#60717c; margin-bottom:35px;">
+            Select a catalogue to download the PDF.
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px;">
+
+            <a href="{{ url_for('static', filename='catalogues/automobile-parts-catalogue.pdf') }}"
+               download
+               style="display:block; background:#fff; padding:25px; border:1px solid #dce3e7; border-left:4px solid #c69b32; color:#12384f; text-decoration:none;">
+                <strong>Automobile Parts Catalogue</strong>
+                <p>Click to download PDF ↓</p>
+            </a>
+
+            <a href="{{ url_for('static', filename='catalogues/surgical-catalogue.pdf') }}"
+               download
+               style="display:block; background:#fff; padding:25px; border:1px solid #dce3e7; border-left:4px solid #c69b32; color:#12384f; text-decoration:none;">
+                <strong>Surgical Catalogue</strong>
+                <p>Click to download PDF ↓</p>
+            </a>
+
+            <a href="{{ url_for('static', filename='catalogues/leather-jackets-catalogue.pdf') }}"
+               download
+               style="display:block; background:#fff; padding:25px; border:1px solid #dce3e7; border-left:4px solid #c69b32; color:#12384f; text-decoration:none;">
+                <strong>Leather Jackets Catalogue</strong>
+                <p>Click to download PDF ↓</p>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

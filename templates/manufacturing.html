@@ -1,0 +1,646 @@
+{% extends "base.html" %}
+
+{% block title %}
+Manufacturing Division | Industrial Manufacturing Consultancy | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .manufacturing-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .manufacturing-hero {
+        min-height: 590px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.94) 0%,
+                rgba(6, 29, 45, 0.78) 45%,
+                rgba(6, 29, 45, 0.28) 100%
+            ),
+            url("https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=2000&q=90")
+            center/cover no-repeat;
+    }
+
+    .manufacturing-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 90px 0;
+        color: #ffffff;
+    }
+
+    .manufacturing-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+    }
+
+    .manufacturing-hero h1 {
+        max-width: 850px;
+        margin: 0 0 22px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 700;
+    }
+
+    .manufacturing-hero p {
+        max-width: 780px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.8;
+        color: #eef4f7;
+    }
+
+    /* INTRO */
+    .manufacturing-intro {
+        width: min(1050px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 55px;
+        text-align: center;
+    }
+
+    .manufacturing-intro-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+    }
+
+    .manufacturing-intro h2 {
+        margin: 0 auto 20px;
+        max-width: 850px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .manufacturing-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #526673;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* MAIN CONTENT */
+    .manufacturing-content {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+        padding: 25px 0 85px;
+    }
+
+    .manufacturing-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: start;
+        padding: 55px 0;
+        border-top: 1px solid #dce3e7;
+    }
+
+    .manufacturing-block:first-child {
+        border-top: none;
+    }
+
+    .manufacturing-block h3 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 27px;
+        line-height: 1.25;
+    }
+
+    .manufacturing-block p {
+        margin: 0;
+        color: #526673;
+        font-size: 15.5px;
+        line-height: 1.85;
+    }
+
+    .manufacturing-points {
+        display: grid;
+        gap: 14px;
+    }
+
+    .manufacturing-point {
+        padding: 17px 20px;
+        background: #ffffff;
+        border-left: 3px solid #c69b32;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.05);
+    }
+
+    .manufacturing-point strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #12384f;
+        font-size: 15px;
+    }
+
+    .manufacturing-point span {
+        color: #647681;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* TECHNICAL FRAMEWORK */
+    .manufacturing-framework {
+        background: #08283b;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .manufacturing-framework-inner {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+    }
+
+    .manufacturing-framework-label {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 15px;
+    }
+
+    .manufacturing-framework h2 {
+        max-width: 760px;
+        margin: 0 0 45px;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .manufacturing-framework-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .manufacturing-framework-card {
+        padding: 28px 22px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .manufacturing-framework-card strong {
+        display: block;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    .manufacturing-framework-card span {
+        color: #b9c8d0;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    /* CTA */
+    .manufacturing-cta {
+        width: min(1050px, 90%);
+        margin: 0 auto;
+        padding: 90px 0;
+        text-align: center;
+    }
+
+    .manufacturing-cta h2 {
+        margin: 0 auto 18px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1.15;
+    }
+
+    .manufacturing-cta p {
+        max-width: 720px;
+        margin: 0 auto 32px;
+        color: #5c6e79;
+        line-height: 1.8;
+    }
+
+    .manufacturing-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .manufacturing-request,
+    .manufacturing-home {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 175px;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        transition: 0.25s ease;
+    }
+
+    .manufacturing-request {
+        background: #123f58;
+        color: #ffffff;
+        border: 1px solid #123f58;
+    }
+
+    .manufacturing-request:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+    }
+
+    .manufacturing-home {
+        background: #ffffff;
+        color: #12384f;
+        border: 1px solid #c69b32;
+    }
+
+    .manufacturing-home:hover {
+        background: #c69b32;
+        color: #ffffff;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+        .manufacturing-hero {
+            min-height: 520px;
+        }
+
+        .manufacturing-hero-content {
+            padding: 70px 0;
+        }
+
+        .manufacturing-block {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .manufacturing-framework-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .manufacturing-hero {
+            min-height: 500px;
+        }
+
+        .manufacturing-hero h1 {
+            font-size: 34px;
+        }
+
+        .manufacturing-hero p {
+            font-size: 15px;
+        }
+
+        .manufacturing-intro,
+        .manufacturing-cta {
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .manufacturing-framework {
+            padding: 65px 0;
+        }
+
+        .manufacturing-framework-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .manufacturing-actions {
+            flex-direction: column;
+        }
+
+        .manufacturing-request,
+        .manufacturing-home {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="manufacturing-page">
+
+    <!-- HERO -->
+    <section class="manufacturing-hero">
+        <div class="manufacturing-hero-content">
+
+            <div class="manufacturing-label">
+                MANUFACTURING DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s manufacturing consultancy services provide professional
+                guidance in production planning, manufacturing systems,
+                process improvement, quality management and industrial
+                development to support efficient and sustainable operations.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="manufacturing-intro">
+
+        <div class="manufacturing-intro-label">
+            INDUSTRIAL MANUFACTURING CONSULTANCY
+        </div>
+
+        <h2>
+            Building Efficient and Sustainable Manufacturing Operations
+        </h2>
+
+        <p>
+            Professional manufacturing consultancy helps organizations
+            improve production capability, operational efficiency, quality
+            performance and long-term industrial competitiveness through
+            structured planning and technical decision-making.
+        </p>
+
+    </section>
+
+    <!-- CONTENT -->
+    <section class="manufacturing-content">
+
+        <div class="manufacturing-block">
+
+            <div>
+                <h3>
+                    Manufacturing Planning and Production Strategy
+                </h3>
+
+                <p>
+                    Effective manufacturing begins with a clear understanding
+                    of production requirements, available resources, process
+                    capability and operational objectives. Structured planning
+                    supports better utilization of facilities, equipment,
+                    workforce and production capacity.
+                </p>
+            </div>
+
+            <div class="manufacturing-points">
+
+                <div class="manufacturing-point">
+                    <strong>Production Planning</strong>
+                    <span>
+                        Structured production planning based on capacity,
+                        demand and operational requirements.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Capacity Assessment</strong>
+                    <span>
+                        Evaluation of manufacturing capability and resource
+                        utilization.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Process Planning</strong>
+                    <span>
+                        Development of practical production workflows and
+                        process structures.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="manufacturing-block">
+
+            <div>
+                <h3>
+                    Process Improvement and Operational Efficiency
+                </h3>
+
+                <p>
+                    Manufacturing performance can be strengthened by
+                    identifying process constraints, reducing unnecessary
+                    delays and improving the coordination of production
+                    activities. Technical analysis supports practical
+                    improvements without compromising quality or reliability.
+                </p>
+            </div>
+
+            <div class="manufacturing-points">
+
+                <div class="manufacturing-point">
+                    <strong>Workflow Optimization</strong>
+                    <span>
+                        Review of production workflows to improve operational
+                        efficiency.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Resource Utilization</strong>
+                    <span>
+                        Better utilization of equipment, materials and
+                        production resources.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Process Performance</strong>
+                    <span>
+                        Identification of opportunities for measurable
+                        manufacturing improvement.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="manufacturing-block">
+
+            <div>
+                <h3>
+                    Quality Management and Manufacturing Reliability
+                </h3>
+
+                <p>
+                    Consistent manufacturing requires reliable processes and
+                    clearly defined quality requirements. A structured quality
+                    approach helps organizations maintain product consistency,
+                    reduce process variation and strengthen customer
+                    confidence.
+                </p>
+            </div>
+
+            <div class="manufacturing-points">
+
+                <div class="manufacturing-point">
+                    <strong>Quality Planning</strong>
+                    <span>
+                        Development of practical quality requirements within
+                        manufacturing processes.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Process Control</strong>
+                    <span>
+                        Structured control of critical manufacturing activities
+                        and process performance.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Continuous Improvement</strong>
+                    <span>
+                        Technical approaches for improving manufacturing
+                        reliability and consistency.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="manufacturing-block">
+
+            <div>
+                <h3>
+                    Industrial Development and Manufacturing Capability
+                </h3>
+
+                <p>
+                    Manufacturing development requires coordinated decisions
+                    across facilities, technology, processes and operational
+                    resources. Technical consultancy can support organizations
+                    in evaluating new manufacturing opportunities and
+                    developing scalable industrial capabilities.
+                </p>
+            </div>
+
+            <div class="manufacturing-points">
+
+                <div class="manufacturing-point">
+                    <strong>Facility Planning</strong>
+                    <span>
+                        Evaluation of manufacturing facilities and operational
+                        requirements.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Technology Assessment</strong>
+                    <span>
+                        Review of suitable technologies and manufacturing
+                        approaches.
+                    </span>
+                </div>
+
+                <div class="manufacturing-point">
+                    <strong>Industrial Scalability</strong>
+                    <span>
+                        Planning for sustainable expansion of manufacturing
+                        capability.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section class="manufacturing-framework">
+
+        <div class="manufacturing-framework-inner">
+
+            <div class="manufacturing-framework-label">
+                MANUFACTURING DEVELOPMENT FRAMEWORK
+            </div>
+
+            <h2>
+                From Production Planning to Sustainable Industrial Performance
+            </h2>
+
+            <div class="manufacturing-framework-grid">
+
+                <div class="manufacturing-framework-card">
+                    <strong>Assess</strong>
+                    <span>
+                        Understand production capability, resources and
+                        operational requirements.
+                    </span>
+                </div>
+
+                <div class="manufacturing-framework-card">
+                    <strong>Plan</strong>
+                    <span>
+                        Develop structured manufacturing and production
+                        strategies.
+                    </span>
+                </div>
+
+                <div class="manufacturing-framework-card">
+                    <strong>Optimize</strong>
+                    <span>
+                        Improve processes, resource utilization and operational
+                        efficiency.
+                    </span>
+                </div>
+
+                <div class="manufacturing-framework-card">
+                    <strong>Scale</strong>
+                    <span>
+                        Build sustainable manufacturing capability for future
+                        industrial growth.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="manufacturing-cta">
+
+        <h2>
+            Strengthen Your Manufacturing Capability
+        </h2>
+
+        <p>
+            Develop efficient production systems, improve manufacturing
+            performance and build a stronger foundation for sustainable
+            industrial growth.
+        </p>
+
+        <div class="manufacturing-actions">
+
+            <a href="{{ url_for('capital_request') }}"
+               class="manufacturing-request">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="manufacturing-home">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

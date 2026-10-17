@@ -1,0 +1,647 @@
+{% extends "base.html" %}
+
+{% block title %}
+EPC Projects Division | Engineering Procurement Construction Consultancy | Capital Consultants
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .epc-page {
+        background: #f5f7f8;
+        color: #12384f;
+    }
+
+    /* HERO */
+    .epc-hero {
+        min-height: 590px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(6, 29, 45, 0.95) 0%,
+                rgba(6, 29, 45, 0.78) 45%,
+                rgba(6, 29, 45, 0.25) 100%
+            ),
+            url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=90")
+            center/cover no-repeat;
+    }
+
+    .epc-hero-content {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+        padding: 90px 0;
+        color: #ffffff;
+    }
+
+    .epc-label {
+        color: #d2a43b;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+    }
+
+    .epc-hero h1 {
+        max-width: 850px;
+        margin: 0 0 22px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+        font-weight: 700;
+    }
+
+    .epc-hero p {
+        max-width: 800px;
+        margin: 0;
+        color: #eef4f7;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    /* INTRO */
+    .epc-intro {
+        width: min(1050px, 90%);
+        margin: 0 auto;
+        padding: 90px 0 55px;
+        text-align: center;
+    }
+
+    .epc-intro-label {
+        color: #c69b32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+    }
+
+    .epc-intro h2 {
+        max-width: 850px;
+        margin: 0 auto 20px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .epc-intro p {
+        max-width: 850px;
+        margin: 0 auto;
+        color: #526673;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* CONTENT */
+    .epc-content {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+        padding: 25px 0 85px;
+    }
+
+    .epc-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: start;
+        padding: 55px 0;
+        border-top: 1px solid #dce3e7;
+    }
+
+    .epc-block:first-child {
+        border-top: none;
+    }
+
+    .epc-block h3 {
+        margin: 0 0 16px;
+        color: #12384f;
+        font-size: 27px;
+        line-height: 1.25;
+    }
+
+    .epc-block p {
+        margin: 0;
+        color: #526673;
+        font-size: 15.5px;
+        line-height: 1.85;
+    }
+
+    .epc-points {
+        display: grid;
+        gap: 14px;
+    }
+
+    .epc-point {
+        padding: 17px 20px;
+        background: #ffffff;
+        border-left: 3px solid #c69b32;
+        box-shadow: 0 8px 25px rgba(6, 29, 45, 0.05);
+    }
+
+    .epc-point strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #12384f;
+        font-size: 15px;
+    }
+
+    .epc-point span {
+        color: #647681;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* FRAMEWORK */
+    .epc-framework {
+        background: #08283b;
+        color: #ffffff;
+        padding: 90px 0;
+    }
+
+    .epc-framework-inner {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+    }
+
+    .epc-framework-label {
+        color: #d2a43b;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 15px;
+    }
+
+    .epc-framework h2 {
+        max-width: 780px;
+        margin: 0 0 45px;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.15;
+    }
+
+    .epc-framework-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .epc-framework-card {
+        padding: 28px 22px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .epc-framework-card strong {
+        display: block;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    .epc-framework-card span {
+        color: #b9c8d0;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    /* CTA */
+    .epc-cta {
+        width: min(1050px, 90%);
+        margin: 0 auto;
+        padding: 90px 0;
+        text-align: center;
+    }
+
+    .epc-cta h2 {
+        margin: 0 auto 18px;
+        color: #12384f;
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1.15;
+    }
+
+    .epc-cta p {
+        max-width: 730px;
+        margin: 0 auto 32px;
+        color: #5c6e79;
+        line-height: 1.8;
+    }
+
+    .epc-actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .epc-request,
+    .epc-home {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 175px;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        transition: 0.25s ease;
+    }
+
+    .epc-request {
+        background: #123f58;
+        color: #ffffff;
+        border: 1px solid #123f58;
+    }
+
+    .epc-request:hover {
+        background: #c69b32;
+        border-color: #c69b32;
+    }
+
+    .epc-home {
+        background: #ffffff;
+        color: #12384f;
+        border: 1px solid #c69b32;
+    }
+
+    .epc-home:hover {
+        background: #c69b32;
+        color: #ffffff;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+        .epc-hero {
+            min-height: 520px;
+        }
+
+        .epc-hero-content {
+            padding: 70px 0;
+        }
+
+        .epc-block {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .epc-framework-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .epc-hero {
+            min-height: 500px;
+        }
+
+        .epc-hero h1 {
+            font-size: 34px;
+        }
+
+        .epc-hero p {
+            font-size: 15px;
+        }
+
+        .epc-intro,
+        .epc-cta {
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .epc-framework {
+            padding: 65px 0;
+        }
+
+        .epc-framework-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .epc-actions {
+            flex-direction: column;
+        }
+
+        .epc-request,
+        .epc-home {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="epc-page">
+
+    <!-- HERO -->
+    <section class="epc-hero">
+
+        <div class="epc-hero-content">
+
+            <div class="epc-label">
+                EPC PROJECTS DIVISION
+            </div>
+
+            <h1>
+                Strategic Insight and Expertise for Sustainable Business Growth
+            </h1>
+
+            <p>
+                CC’s EPC consultancy services provide professional guidance
+                across engineering, procurement and construction planning,
+                project coordination, technical evaluation and execution
+                management to support efficient and sustainable project
+                delivery.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- INTRO -->
+    <section class="epc-intro">
+
+        <div class="epc-intro-label">
+            ENGINEERING, PROCUREMENT & CONSTRUCTION
+        </div>
+
+        <h2>
+            Integrated Project Planning for Complex Industrial Developments
+        </h2>
+
+        <p>
+            EPC projects require coordinated technical, commercial and
+            operational planning. A structured approach connects engineering
+            requirements, procurement activities and construction execution
+            into a unified project delivery framework.
+        </p>
+
+    </section>
+
+    <!-- CONTENT -->
+    <section class="epc-content">
+
+        <div class="epc-block">
+
+            <div>
+                <h3>
+                    Engineering and Technical Planning
+                </h3>
+
+                <p>
+                    Engineering forms the technical foundation of every EPC
+                    project. Proper planning helps define project requirements,
+                    technical specifications, design considerations and
+                    implementation priorities before major execution begins.
+                </p>
+            </div>
+
+            <div class="epc-points">
+
+                <div class="epc-point">
+                    <strong>Technical Requirements</strong>
+                    <span>
+                        Identification and structuring of project engineering
+                        requirements and technical objectives.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Design Coordination</strong>
+                    <span>
+                        Coordination of engineering disciplines and project
+                        design requirements.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Technical Evaluation</strong>
+                    <span>
+                        Review of technical options, specifications and
+                        implementation considerations.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="epc-block">
+
+            <div>
+                <h3>
+                    Procurement Strategy and Supplier Coordination
+                </h3>
+
+                <p>
+                    Procurement plays a critical role in project cost,
+                    schedule and quality. Structured procurement planning helps
+                    organizations identify suitable suppliers, evaluate
+                    commercial requirements and coordinate the timely
+                    availability of project resources.
+                </p>
+            </div>
+
+            <div class="epc-points">
+
+                <div class="epc-point">
+                    <strong>Supplier Assessment</strong>
+                    <span>
+                        Evaluation of supplier capability, technical
+                        suitability and commercial considerations.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Procurement Planning</strong>
+                    <span>
+                        Development of procurement schedules aligned with
+                        project requirements.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Supply Coordination</strong>
+                    <span>
+                        Coordination of materials, equipment and supplier
+                        activities throughout the project lifecycle.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="epc-block">
+
+            <div>
+                <h3>
+                    Construction Planning and Project Execution
+                </h3>
+
+                <p>
+                    Effective construction planning connects project
+                    requirements with practical site execution. Clear
+                    coordination supports schedule control, resource planning,
+                    quality requirements and efficient project implementation.
+                </p>
+            </div>
+
+            <div class="epc-points">
+
+                <div class="epc-point">
+                    <strong>Execution Planning</strong>
+                    <span>
+                        Structured planning of construction activities,
+                        resources and execution priorities.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Schedule Coordination</strong>
+                    <span>
+                        Alignment of engineering, procurement and construction
+                        activities with project milestones.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Quality and Safety Planning</strong>
+                    <span>
+                        Integration of quality and safety considerations into
+                        project execution planning.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="epc-block">
+
+            <div>
+                <h3>
+                    Project Integration and Delivery Management
+                </h3>
+
+                <p>
+                    Successful EPC delivery depends on effective coordination
+                    between technical teams, suppliers, contractors and project
+                    stakeholders. Integrated project management helps maintain
+                    alignment between scope, schedule, resources and delivery
+                    objectives.
+                </p>
+            </div>
+
+            <div class="epc-points">
+
+                <div class="epc-point">
+                    <strong>Project Coordination</strong>
+                    <span>
+                        Coordination between engineering, procurement and
+                        construction stakeholders.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Risk Assessment</strong>
+                    <span>
+                        Identification of technical, commercial and operational
+                        project risks.
+                    </span>
+                </div>
+
+                <div class="epc-point">
+                    <strong>Delivery Performance</strong>
+                    <span>
+                        Focus on controlled execution and achievement of
+                        defined project objectives.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section class="epc-framework">
+
+        <div class="epc-framework-inner">
+
+            <div class="epc-framework-label">
+                EPC PROJECT DELIVERY FRAMEWORK
+            </div>
+
+            <h2>
+                From Engineering Strategy to Coordinated Project Delivery
+            </h2>
+
+            <div class="epc-framework-grid">
+
+                <div class="epc-framework-card">
+                    <strong>Engineer</strong>
+                    <span>
+                        Define technical requirements, design priorities and
+                        project engineering objectives.
+                    </span>
+                </div>
+
+                <div class="epc-framework-card">
+                    <strong>Procure</strong>
+                    <span>
+                        Coordinate suppliers, materials, equipment and
+                        procurement activities.
+                    </span>
+                </div>
+
+                <div class="epc-framework-card">
+                    <strong>Construct</strong>
+                    <span>
+                        Support structured execution, resource planning and
+                        construction coordination.
+                    </span>
+                </div>
+
+                <div class="epc-framework-card">
+                    <strong>Deliver</strong>
+                    <span>
+                        Integrate project activities toward controlled and
+                        sustainable project completion.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="epc-cta">
+
+        <h2>
+            Plan and Deliver Your Next EPC Project
+        </h2>
+
+        <p>
+            Strengthen project planning, coordinate technical and commercial
+            activities, and build a structured foundation for successful
+            engineering, procurement and construction delivery.
+        </p>
+
+        <div class="epc-actions">
+
+            <a href="{{ url_for('capital_request') }}"
+               class="epc-request">
+                SEND REQUEST
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="epc-home">
+                GO HOME
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
